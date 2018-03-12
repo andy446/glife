@@ -432,7 +432,7 @@ if $ARGS[0] = 'pirssos':
 	:loopnip_pir
 		*p '<a href="exec:gt ''pirsingsalon'', ''nip_pir'', <<i>>"><img src="images/pc/body/piercings/f<<i>>.jpg" 	height="250" /></a>'
 		i += 1
-	if i <= 4:jump 'loopnip_pir'
+	if i <= 7:jump 'loopnip_pir'
 
 	act 'Return':gt 'pirsingsalon', 'start'
 end
@@ -649,7 +649,7 @@ if $ARGS[0] = 'ass':
 		:looptatass
 		*p '<a href="exec:n = <<n>> & gt ''pirsingsalon'', ''ass_get''"><img src="images/pc/body/tattoos/ass/tatass<<n>>.jpg" height="250" /></a>'
 		n += 1
-		if n <= 23:jump 'looptatass'
+		if n <= 24:jump 'looptatass'
 		*nl
 
 	else
@@ -691,7 +691,7 @@ if $ARGS[0] = 'back':
 		:looptatback
 		*p '<a href="exec:n = <<n>> & gt ''pirsingsalon'', ''back_get''"><img src="images/pc/body/tattoos/back/tatback<<n>>.jpg" height="250" /></a>'
 		n += 1
-		if n <= 53:jump 'looptatback'
+		if n <= 55:jump 'looptatback'
 		*nl
 
 	else
@@ -943,7 +943,7 @@ if $ARGS[0] = 'leg':
 		:looptatleg
 		*p '<a href="exec:n = <<n>> & gt ''pirsingsalon'', ''leg_get''"><img src="images/pc/body/tattoos/legs/tatleg<<n>>.jpg" height="250" /></a>'
 		n += 1
-		if n <= 36:jump 'looptatleg'
+		if n <= 37:jump 'looptatleg'
 		*nl
 
 	else
@@ -1027,7 +1027,7 @@ if $ARGS[0] = 'neck':
 		:looptatneck
 		*p '<a href="exec:n = <<n>> & gt ''pirsingsalon'', ''neck_get''"><img src="images/pc/body/tattoos/neck/tatnck<<n>>.jpg" height="250" /></a>'
 		n += 1
-		if n <= 28:jump 'looptatneck'
+		if n <= 30:jump 'looptatneck'
 		*nl
 
 	else
@@ -1069,7 +1069,7 @@ if $ARGS[0] = 'pubic':
 		:looptatvag
 		*p '<a href="exec:n = <<n>> & gt ''pirsingsalon'', ''vag_get''"><img src="images/pc/body/tattoos/pubic/tatvag<<n>>.jpg" height="250" /></a>'
 		n += 1
-		if n <= 44:jump 'looptatvag'
+		if n <= 46:jump 'looptatvag'
 		*nl
 
 	else
@@ -1153,7 +1153,7 @@ if $ARGS[0] = 'side':
 		:looptatside
 		*p '<a href="exec:n = <<n>> & gt ''pirsingsalon'', ''side_get''"><img src="images/pc/body/tattoos/side/tatside<<n>>.jpg" height="250" /></a>'
 		n += 1
-		if n <= 18:jump 'looptatside'
+		if n <= 19:jump 'looptatside'
 		*nl
 
 	else
@@ -1195,7 +1195,7 @@ if $ARGS[0] = 'tramp':
 		:looptatupb
 		*p '<a href="exec:n = <<n>> & gt ''pirsingsalon'', ''tramp_get''"><img src="images/pc/body/tattoos/trampStamp/tatlowbck<<n>>.jpg" height="250" /></a>'
 		n += 1
-		if n <= 30:jump 'looptatupb'
+		if n <= 32:jump 'looptatupb'
 		*nl
 
 	else

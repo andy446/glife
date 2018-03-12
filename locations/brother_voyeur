@@ -1027,7 +1027,7 @@ if $ARGS[0] = 'homework':
 	if npc_rel['A34'] <50:npc_rel['A34'] += 1
 	minut += RAND(50,70)
 	ivrand = RAND(1,2)
-	if anatomyhomeworkhelp = 1:gt 'brother_voyeur', 'showbody'
+	if anatomyhomeworkhelp = 1 and father_go = 1:gt 'brother_voyeur', 'showbody'
 	if npc_QW['A34'] >= 2 and npc_rel['A34'] >= 60 and ivrand = 1:
 		cls
 		gs 'stat'

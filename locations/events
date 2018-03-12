@@ -278,14 +278,14 @@ if $ARGS[0] = 'snarkozaka':
 		narkozakday=day
 		gs'stat'
 		'You buy the drugs and without thinking twice you shoot up.'
+		gt 'events', 'snkayf'
 	end
 	act 'Amphetamines':
 		money -= 1000
 		amphetamine += 5
+		gt $loc, $metka
 	end
-	act 'Leave':
-		gt 'events', 'snkayf'
-	end
+	act 'Leave': gt $loc, $metka
 end
 
 

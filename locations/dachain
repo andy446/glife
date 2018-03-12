@@ -42,7 +42,15 @@ if $args[0] = '':
 	act 'Goto the kitchen alcove': gt 'dachain', 'dachakit'
 	act 'Goto the Bathroom':  gt 'dachain', 'dachavann'
 	act 'Get in the bed': gt 'bed', 'start'
-	act 'Go outside': gt 'dachamy'
+
+	act 'Go outside':
+		if $clothingworntype ! 'nude':
+			minut += 5 & gt 'dachamy'
+		else
+			msg'<b><font color = red>You can''t leave the house naked! You need to get dressed first.</font></b>'
+			gt 'dachain'
+		end
+	end
 end
 
 if $args[0] = 'dachakit':

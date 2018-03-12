@@ -191,9 +191,9 @@ if $ARGS[0] = 'afterschool':
 						'Watching this Ivan only says one word. "Damn!"'
 						*nl
 						'Shortly after you all start getting dressed. Ivan looks at the two of you. "Girl''s we got to do this again some time, what do you say?"'
-						'Both of you turn to look at each other at Ivan''s offer and you both start giggling, before Katja turns to look at him. "If your a good boy we''ll see." But both of your looks promise him, good or bad, both of you want another go as badly as he does.'
+						'Both of you turn to look at each other at Ivan''s offer and you both start giggling, before Katja turns to look at him. "If you''re a good boy maybe. We''ll see." But both of you give him a look that promises, right or wrong you want another go as badly as he does.'
 						*nl
-						'With a laugh Ivan says "I''m always good." Then he quickly finishes dressing and leaves likely late for practice. Once he is gone Katja and you look at each other and giggle, then quickly leaving as well.'
+						'With a laugh Ivan says "I''m always good." Then he quickly finishes dressing and leaves likely late for practice. Once he is gone Katja and you look at each other and giggle, then quickly leave as well.'
 						act 'Leave': gt 'gschool_grounds', 'main'
 					end
 				end

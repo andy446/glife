@@ -191,6 +191,8 @@ if $ARGS[0] = 'succubus_hunt':
 		'You freeze on the spot. You didn''t think anybody would actually come home while you were still here, but now that they did, maybe you can still salvage this mess.'
 		
 		act 'Strip':
+			*clr
+			cla
 			gs 'clothing', 'strip'
 			gs 'underwear', 'remove'
 			!Just took a guess at where this image might go - Adjust src accordingly
@@ -205,6 +207,8 @@ if $ARGS[0] = 'succubus_hunt':
 			'You pull his pants off and, already nude yourself, lower your pussy to his cock. He may have played the angry man, but the fact that it stands at attention soothes your bruised ego - your seduction efforts didn''t go completely unnoticed - and you plunge yourself down on top of him.'
 			
 			act 'Feed on him':
+				*clr
+				cla
 				!Taken directly from 'succubus'
 				scrand = rand(0,3)
 				scfeed = succublvl + rand(1,4)

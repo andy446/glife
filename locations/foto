@@ -2,6 +2,7 @@
 
 if $ARGS[0] = 'start':
 	close all
+	$location_type = 'indoors'
 	if model = 0:gt'foto','studio'
 	*clr & cla
 	gs 'clothing', 'strip'

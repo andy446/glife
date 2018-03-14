@@ -2,6 +2,7 @@
 
 if $ARGS[0] = 'start':
 	CLOSE ALL
+	$location_type = 'indoors'
 	$metka = 'start'
 	$loc = 'gdktoilet'
 	cls

@@ -1,4 +1,6 @@
 # JuliaMilHome
+
+$location_type = 'indoors'
 CLOSE ALL
 if BeInJulMilHome = 0:BeInJulMilHome = 1
 

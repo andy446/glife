@@ -26,19 +26,23 @@ if $ARGS[0] = 'start':
 			act 'Leave':gt'street'
 		else
 			if mistendbound > 50 and temp = 0:
+				$location_type = 'indoors'
 				mistbondage = 1
 				'<center><img <<$set_imgh>> src="images/characters/city/natalya/sex/dom26.jpg"></center>'
 				'You ring the bell. A minute passes without somebody answering the door but you can definitely hear somebody inside. You try the handle and to your surprise, the door isn''t locked. You''ve barely crossed the threshold when you see your slave, sitting on a chair. But what a sight: She seems to have bound herself in anticipation of your arrival - God only knows how she knew you were going to visit here she is, dripping wet and looking at you with desperation in her eyes. Such dedication and trust need to be rewarded. You help her off the chair and bend her over...'
 				act 'Continue':gt 'lesbisubhouse', 'start'
 			elseif mistendspank > 50:
+				$location_type = 'indoors'
 				'<center><img <<$set_imgh>> src="images/characters/city/natalya/sex/dom25.jpg"></center>'
 				'You ring the bell. After about half a minute, the door swings open. You are greeted by your slave, kneeling in front of you, a whip in her mouth and her eyes as big as a puppy''s: She''s practically begging you to punish her.'
 				act 'Enter the apartment':gt'lesbisubhouse','ev1'
 			else
 				if hour >= 8:
+					$location_type = 'indoors'
 					'<center><img <<$set_imgh>> src="images/characters/city/natalya/dooropen.jpg"></center>'
 					'You ring the bell and within seconds, the door opens.'
 				else
+					$location_type = 'indoors'
 					'<center><img <<$set_imgh>> src="images/characters/city/natalya/dooropen1.jpg"></center>'
 					'You ring the bell, once, twice, thrice, then for longer. After a minute or so, your slave opens the door, mumbling curses under her breath and rubbing the sleep out of her eyes. Once she sees that it''s her mistress who woke her, she immediately falls silent and steps aside to let you in.'
 				end
@@ -1130,6 +1134,7 @@ if $ARGS[0] = 'start':
 end
 
 if $ARGS[0] = 'ev1':
+	$location_type = 'indoors'
 	if lesbiQW = 2:
 		cls
 		temp = RAND(0,25)

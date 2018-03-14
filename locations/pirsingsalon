@@ -2,6 +2,7 @@
 
 
 if $ARGS[0] = 'start':
+	$location_type = 'indoors'
 	gs 'stat'
 	if night_mode = 1:
 		fcolor = rgb(255, 255, 255)

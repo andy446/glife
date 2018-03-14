@@ -1,6 +1,7 @@
 # liamelkafe
 
 if $ARGS[0] = 'start':
+	$location_type = 'indoors'
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/oldtown/cafe/larek.jpg" ></center>'
 	'You enter a tiny cafe, consisting of very little floor space packed with small tables.'

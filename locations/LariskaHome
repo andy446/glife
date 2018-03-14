@@ -6,7 +6,7 @@ Cleaned up the dialog
 added a few lines to the BDSM room to improve immersion
 }
 
-cls
+$location_type = 'indoors'
 CLOSE ALL
 gs'stat'
 

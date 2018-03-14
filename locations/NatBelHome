@@ -1,4 +1,6 @@
 # NatBelHome
+
+$location_type = 'indoors'
 CLOSE ALL
 if BeInNatBelHome = 0:BeInNatBelHome = 1
 

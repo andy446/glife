@@ -12,6 +12,7 @@ if $ARGS[0] = 'start':
 
 		act 'Leave':gt'street'
 	elseif temp > 0:
+		$location_type = 'indoors'
 		'You ring the doorbell several times, and eventually you hear an electronic *click*. The door slowly swings open, even though no one came to answer it.'
 		if lesbiQW = 1:act 'Enter the house': gt 'lesbidomhouse','QW1'
 		if lesbiQW = 2:gt'lesbidomhouse','QW2'

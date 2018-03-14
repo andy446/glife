@@ -80,6 +80,8 @@ if $ARGS[0] = 'auto1':
 		timemult = exer_rout3[exercisex] & gs 'exercise', 'timestring' & gt 'exercise', 'yoga', 'auto'
 	elseif exer_rout4[exercisex] > 0:
 		timemult = exer_rout4[exercisex] & gs 'exercise', 'timestring' & gt 'exercise', 'hula', 'auto'
+	else
+		gt 'exercise', 'auto_end'
 	end
 end
 

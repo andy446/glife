@@ -482,7 +482,7 @@ if $ARGS[0] = 'sleepsexcum':
 	if protect ! 1:
 		!!Unprotected sex
 
-		if rand(0, 100) > pcs_horny:
+		if rand(0, 100) < pcs_horny:
 			!!Inside
 			sexpartkno = 1
 			gs 'cum_manage'
@@ -995,7 +995,7 @@ if $ARGS[0] = 'brother_voyeur_ev4':
 		'"Erm.. yeah."'
 
 		act'Further':gt 'brother','brother_voyeur_ev5'
-	elseif npc_QW['A34'] >= 4:
+	elseif npc_QW['A34'] > 4:
 		'You check whether the door is closed to the hall, then silently and quickly removed your clothes and sit down on the chair next to the sofa, you slightly cover your breasts with your hands hands:'
 		'"They say repetition is the mother of learning." Your brother says.'
 		'"Something like that" you smile as you reply.'
@@ -1512,7 +1512,7 @@ end
 if $ARGS[0] = 'brotherknows6':
 	pregTalkbrother = 1
 	*nl
-	if arrpos('$ChildThFath','Kolka') >= 0 and arrpos('$ChildThFath','Kolka') ! arrsize($ChildThFath)-1 and BrotherHappy = 1:
+	if arrpos('$ChildThFath','Kolka') >= 0 and arrpos('$ChildThFath','Kolka') ! arrsize('$ChildThFath')-1 and BrotherHappy = 1:
 		cla
 		'"Yeah, you knocked me up again." You smile at him. "I think you''re doing this on purpose." You walk closer to your brother and straddle his lap. You affectionately wrap your arms around his neck and lean your face close to his.' 
 		'"You like knocking up your sister, don''t you? You just love that this belly shows the whole world that I let my own brother fuck me, huh?"'
@@ -1559,7 +1559,7 @@ if $ARGS[0] = 'brotherknows6':
 
 			act 'Continue':minut += 10 & gt 'sitrPar'
 		end
-	elseif arrpos('$ChildThFath','Kolka') >= 0 and arrpos('$ChildThFath','Kolka') ! arrsize($ChildThFath)-1 and BrotherAngry = 1:
+	elseif arrpos('$ChildThFath','Kolka') >= 0 and arrpos('$ChildThFath','Kolka') ! arrsize('$ChildThFath')-1 and BrotherAngry = 1:
 		cla
 		'"Yeah, it''s yours. I can''t believe you got me pregnant again. I don''t know why the hell I thought you''d be more careful after the first time."' 
 		'"You thought I''d be more careful? It takes two, sweetheart. And I didn''t hear you complaining while we were fucking."'
@@ -1580,7 +1580,7 @@ if $ARGS[0] = 'brotherknows6':
 
 			act 'Continue':minut += 10 & gt 'sitrPar'
 		end
-	elseif arrpos('$ChildThFath','Kolka') >= 0 and arrpos('$ChildThFath','Kolka') ! arrsize($ChildThFath)-1 and BrotherHappy = 1:
+	elseif arrpos('$ChildThFath','Kolka') >= 0 and arrpos('$ChildThFath','Kolka') ! arrsize('$ChildThFath')-1 and BrotherHappy = 1:
 		cla
 		act 'Happy':gt 'brother', 'brotherknows1'
 		act 'Angry':gt 'brother', 'brotherknows2'
@@ -1589,7 +1589,7 @@ if $ARGS[0] = 'brotherknows6':
 		*pl
 		'If you see this text, report it please as a bug and remember a few variables:'
 		'arrposkolka = <<arrpos(''$ChildThFath'',''Kolka'')>>'
-		'arrsizeChild = <<arrsize($ChildThFath)-1>>'
+		'arrsizeChild = <<arrsize('$ChildThFath')-1>>'
 		'momKnowsKolka = <<momKnowsKolka>>'
 		'brotherBlackmail = <<brotherBlackmail>>'
 		'BrotherHappy = <<BrotherHappy>>'
@@ -1602,12 +1602,12 @@ if $ARGS[0] = 'brotherknows7':
    cla
    pregTalkbrother = 1
    *nl
-   if arrpos('$ChildThFath','Kolka') >= 0 and arrpos('$ChildThFath','Kolka') ! arrsize($ChildThFath)-1 and BrotherHappy = 1:
+   if arrpos('$ChildThFath','Kolka') >= 0 and arrpos('$ChildThFath','Kolka') ! arrsize('$ChildThFath')-1 and BrotherHappy = 1:
 		'"It could be, I''m still not sure yet. I just wanted to give you a heads up." You then add with a wink "Honestly, I''m kind of hoping it is. I would love to be carrying another one of my brother''s children."'
 		'"I hope so, too," he states just a little too eagerly. He then quickly moves his lips to yours and you share a passionate kiss.'
 		
 		act 'Continue' :gt 'sitrPar'
-	elseif arrpos('$ChildThFath','Kolka') >= 0 and arrpos('$ChildThFath','Kolka') ! arrsize($ChildThFath)-1 and BrotherAngry = 1:	
+	elseif arrpos('$ChildThFath','Kolka') >= 0 and arrpos('$ChildThFath','Kolka') ! arrsize('$ChildThFath')-1 and BrotherAngry = 1:	
 		'"I''m still not sure, but if you knocked me up again, you had better take responsibility."' 
 		'"Then I really hope it''s someone else''s problem."'
 		'"Fuck off! If it''s yours then I''ll make sure you take responsibility!" You then storm away, leaving Kolka to stew.'
@@ -1642,4 +1642,5 @@ if $ARGS[0] = 'brotherknows8':
 end	
 
 --- brother ---------------------------------
+
 

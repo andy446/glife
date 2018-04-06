@@ -162,7 +162,7 @@ if $args[0] = 'sleep':
 			exit
 		end
 !! Exclusions for succubus dreams as they set horny to 100 and will always get overridden otherwise
-	elseif pcs_horny > 80 and rand (1,300) = 300 and succubusQW ! 1 and succubusQW ! 2:
+	elseif pcs_horny > 80 and pcs_sleep >= 30 and rand (1,300) = 300 and succubusQW ! 1 and succubusQW ! 2:
 		gt 'bed2', 'wake_horny'
 	end
 

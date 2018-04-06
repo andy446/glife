@@ -6,7 +6,7 @@ nom_o[2] = 1000
 nom_o[3] = 10000
 nom_o[4] = 100000
 gs 'stat'
-'<right><img <<$set_imgh>> src="images/locations/city/industrial/casino/metrd.jpg"></right>'
+'<center><img <<$set_imgh>> src="images/locations/city/industrial/casino/metrd.jpg"></center>'
 
 if tobiQW < 2000:'The hotel lobby is deserted and you only notice an alone bored girl standing at the reception desk.'
 if tobiQW >= 2000 and tobiQW < 2100:'The hotel lobby is very crowded. You notice there''s a swarm of comely old men dressed in scanty jackets with elbow patches.'
@@ -16,7 +16,7 @@ if tobiQW = 2001:
 	act 'Excuse me':
 		cla
 		*clr
-		'<right><img <<$set_imgh>> src="images/locations/city/industrial/casino/oldman.jpg"></right>'
+		'<center><img <<$set_imgh>> src="images/locations/city/industrial/casino/oldman.jpg"></center>'
 		'"I didn''t mean to disturb you, but what language is the book written in?" you ask the man.'
 		'The man stops, looks up to you and cheerfully answers, "This book right here is written in old Japanese language. Why do you ask?" the man asks curiously.'
 		'"Well, I was handed this book, in which the characters are very similarly written." you answer.'
@@ -32,7 +32,7 @@ end
 
 act 'Go to the reception desk':gt 'Maria1'
 act 'Go to the lift':gt 'elevator'
-act 'Back to the hall':gt 'hall'
+act 'Leave':gt 'down'
 
 --- hotel ---------------------------------
 

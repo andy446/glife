@@ -484,7 +484,7 @@ if minut >= 60:
 		pcs_mood -= 10
 	end
 
-	if $pantyworntype = 'none' and PCloPants > 0 and $clothingworntype ! 'nude':mosol += 1
+	if $pantyworntype = 'none' and PCloPants > 0 and PCloPanties = 0 and $clothingworntype ! 'nude':mosol += 1
 
 	if mosol >= 50: pcs_mood -= 5
 
@@ -496,7 +496,7 @@ if minut >= 60:
 	end
 
 	if mosol > 0:
-		if $pantyworntype ! 'none' or $clothingworntype = 'nude':mosol -= rand(0,1)
+		if $pantyworntype ! 'none' or $clothingworntype = 'nude' or PCloPanties = 1:mosol -= rand(0,1)
 	end
 
 	if pcs_lipbalm > 0:pcs_lipbalm -= 1

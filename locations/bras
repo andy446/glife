@@ -111,6 +111,14 @@ if $ARGS[0] = 'view_bra_list':
 	if sexshop_brasS[i] = metka_bras and sexshop_bras[i] = 1:*p '<a href="exec:gt ''bras'', ''view_bra_item'', ''<<$ARGS[1]>>'', ''sexshop'', <<i>>"><img src="images/pc/bras/sexshop/<<i>>.jpg" 	height="300" /></a>'
 	i += 1
 	if i <= ARRSIZE('sexshop_bras'):jump 'loopsexshopbras'
+
+	'<center><img src="images/locations/city/citycenter/mall/sports.png"></center>'
+
+	i = 1
+	:loopsportbras 
+	if sport_brasS[i] = metka_bras and sport_bras[i] = 1:*p '<a href="exec:gt ''bras'', ''view_bra_item'', ''<<$ARGS[1]>>'', ''sport'', <<i>>"><img src="images/pc/bras/sport/<<i>>.jpg" 	height="300" /></a>'
+	i += 1
+	if i <= ARRSIZE('sport_bras'):jump 'loopsportbras'
 end
 
 if $ARGS[0] = 'view_bra_item':
@@ -216,7 +224,9 @@ if $ARGS[0] = 'descriptions':
 	elseif $ARGS[1] = 'kats':
 		'This bra feels reassuring and wear it gives your mood a lift.'
 	elseif $ARGS[1] = 'sexshop':
-		'Tacky and cheap his bra makes you look like a hooker, this could be a bonus if working as one.'
+		'Tacky and cheap this bra makes you look like a hooker, this could be a bonus if working as one.'
+	elseif $ARGS[1] = 'sport':
+		'This bra is designed for physical exercises to make them less tiring.'
 	end
 end
 

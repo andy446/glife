@@ -354,6 +354,7 @@ $cheatmenu['status'] = {
 	pl'<a href="exec:dynamic $cheatmenu[''bodyMod'']">Body Modification</a>'
 	nl
 	pl'<a href="exec:pcs_health = pcs_vital*10 + pcs_stren*5+1000 & pcs_willpwr = pcs_intel*5 + will*5+1000 & pcs_manna = (pcs_intel*pcs_magik) + pcs_magik*100 + pcs_vital*10 + rikudo & vgape = 0 & agape = 0 & nippain = 0 & dynamic $cheatmenu">Full restoration of health, manna, Reason.</a>'
+	pl'<a href="exec:pcs_sleep = 100 & pcs_stam = stammax & dynamic $cheatmenu">Full restoration of sleep and stamina.</a>'
 	pl'<a href="exec:dynamic $cheatmenu[''money'']">Change money</a>'
 	pl'<a href="exec:money = 0 & dynamic $cheatmenu">Zero money</a>'
 	pl'<a href="exec:dynamic $cheatmenu[''std_cure'']">Cure all stds</a>'
@@ -1898,6 +1899,9 @@ $cheatmenu['vartracker'] = {
 	pl'$locM: <<$locM>>'
 	pl'<font color = red>$CURLOC: <<$CURLOC>></font>'
 	pl'$location_type: <<$location_type>>'
+	pl'home_cur: <<home_cur>>'
+	pl'$home_town: <<$home_town>>'
+	pl'$home_name: <<$home_name>>'
 	pl'daystart: <<daystart>>'
 	pl'daystart_start: <<daystart_start>>'
 	pl'month: <<month>>'

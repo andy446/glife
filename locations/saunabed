@@ -8,7 +8,7 @@ if $args[0] = '':
 	gs 'stat'
 	'<center><b>bed</b></center>'
 	'<center><img <<$set_imgh>> src="images/shared/home/bedroom/son.jpg"></center>'
-	if pcs_sleep < 40:
+	if pcs_sleep < 80:
 		act 'Sleep': gt 'saunabed', 'sleep'
 	end
 	if budon = 1:

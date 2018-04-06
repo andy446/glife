@@ -111,7 +111,6 @@ if $ARGS[0] = 'dance':
 	'Once you''re completely naked, they applaud you and tell you: "Very nice, <<$pcs_nickname>>. Now let''s see how good you are with your mouth."'
 	act'Get down on your knees':
 		cls
-		gang += 1
 		if sashaBeliSex = 0:sashaBeliSex = 1 & guy += 1
 		if sipliGangSex = 0:sipliSex = 1 & guy += 1
 		if kolGangSex = 0:kolGangSex = 1 & guy += 1
@@ -119,7 +118,8 @@ if $ARGS[0] = 'dance':
 		gs'stat'
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/vadim/sex/round.jpg"></center>'
 		'You get down on your knees as the four men surround you, slapping their cocks against your cheeks and forehead. Dutifully keeping your hands behind your back, you do your best to serve them with your mouth alone as you suck on them in turns, licking the heads and teasing the balls as good as you can while trying to not make anyone feel left out.'
-		
+		gang += 1
+		belsexpayment = 900
 		gs 'arousal', 'bj', 5, 'gangbang', 'sub'
 		gs 'stat'
 		
@@ -128,8 +128,10 @@ if $ARGS[0] = 'dance':
 		gs 'belpicknick', 'vibor'
 		if rand(0,1) = 0:
 			'Suddenly the cock you''re currently sucking on is pulled away from you, and <<$boydesc>> pushes you onto your back saying he wants to try another hole now.'
+			belsexpayment += 200
 			act'Lie on your back':gt 'belpicknick', 'missionary'
 		else
+			belsexpayment += 200
 			'Suddenly the cock you''re currently sucking on is pulled away from you, and <<$boydesc>> tells you to get on all fours saying he wants to try another hole now.'
 			act'Get on your hands and knees':gt 'belpicknick', 'doggy'
 		end
@@ -140,6 +142,7 @@ if $ARGS[0] = 'missionary':
 	cls
 	gs 'stat'
 	gs 'belpicknick', 'vibor'
+	belsexpayment += 25
 	times_picknick -= 1
 	pickrand = rand(0,1)
 	if pickrand = 0:'<center><img <<$set_imgh>> src="images/characters/pavlovsk/vadim/sex/sex.jpg"></center>'
@@ -170,6 +173,7 @@ if $ARGS[0] = 'missionary':
 				'All of a sudden, <<$boydesc>> slows down and tells you to get on all fours, saying he wants to try another hole now.'
 				act'Get on your hands and knees':gt 'belpicknick', 'doggy'
 			else
+				'You stay in position for the next guy.'
 				act'Continue':gt 'belpicknick', 'missionary'
 			end
 		end
@@ -180,6 +184,7 @@ if $ARGS[0] = 'doggy':
 	cls
 	gs 'stat'
 	gs 'belpicknick', 'vibor'
+	belsexpayment += 25
 	times_picknick -= 1
 	pickrand = rand(0,1)
 	if pickrand = 0:'<center><img <<$set_imgh>> src="images/characters/pavlovsk/vadim/sex/sexd.jpg"></center>'
@@ -223,6 +228,7 @@ if $ARGS[0] = 'doggy':
 				'<<$boydesc>> pushes you onto your back saying he wants to try another hole now.'
 				act'Lie on your back':gt 'belpicknick', 'missionary'
 			else
+				'You stay in position for the next guy.'
 				act'Continue':gt 'belpicknick', 'doggy'
 			end
 		end
@@ -272,7 +278,6 @@ end
 if $ARGS[0] = 'gang':
 	cls
 	gs 'stat'
-	gang += 1
 	if sashaBeliSex = 0:sashaBeliSex = 1 & guy += 1
 	if sipliGangSex = 0:sipliSex = 1 & guy += 1
 	if kolGangSex = 0:kolGangSex = 1 & guy += 1
@@ -315,6 +320,7 @@ if $ARGS[0] = 'gang':
 		gs 'cum_manage'
 		facial += 1
 		gs'stat'
+		belsexpayment = 900
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/vadim/sex/bukkake.jpg"></center>'
 		'You close your eyes just in time before the first load hits your face. You patiently wait until all four men are finished, and by the time they are your entire face is splattered with cum. Fortunately they don''t make you swallow any more than the few drops that landed in your mouth before you could close it.'
 		
@@ -328,17 +334,35 @@ end
 if $ARGS[0] = 'end':
 	cls
 	gs 'stat'
+	minut += 5
+	slutty += 1
+	pav_prostitute += 1
+	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/fedor/fedorev/strela/vadimbely.jpg"></center>'
 	'Once they are spent, the criminals back away from you and gather their things.'
-	if belgangPay > 0:
-		belgangPay -= 1000
-		if belgangPay > 0:'Vadim looks at you and says, "That was a good fuck, <<$pcs_nickname>>. For that you have earned 1000 <b>₽</b> towards your debt. You have <<belgangPay>> left to work off."'
-		if belgangPay < 0 and npc_QW['A113'] = 1: 'Vadim looks at you and says: "That was a good fuck, <<$pcs_nickname>>. And with that, you have fully paid off your debt."'
+	
+	if belgangPay <= 0:
+		money += belsexpayment
+		'Vadim looks at you and says: "That was a good fuck, <<$pcs_nickname>>. Here, this is for you," and with those words he hands you <<belsexpayment>> <b>₽</b>.'
+	else
+		belgangPay -= belsexpayment
+		belgangPayWeek -= belsexpayment
+		'"You''re getting there whore." Mr. Bely writes off <<belsexpayment>> <b>₽</b> from your debt. He looks at you probably planning what he could do next to you. "Run along now, I have business to take care off." he says as he''s escorting you to the door, as he''s closing the door you hear him say; "Don''t you ever forget who''s your master, <<$pcs_nickname>>."'
+		' '
+		'You owe him: <<belgangPay>> <b>₽</b>'
+		if belgangPayWeek >= 0:
+			'This week you need to pay him: <<belgangPayWeek>> <b>₽</b>'
+		else
+			'This week you need to pay him: 0 <b>₽</b>'
+			'You have reduced your next weeks payment by: <<-1*belgangPayWeek>> <b>₽</b>'
+		end
 	end
-	if rand(1,100) <= 60:
+	' '	
+	if rand(1,100) <= 70:
 		minut += 60
 		'Vadim looks at you again, and sees how dirty you are, "I don''t want cum stains on my car seats. Still, we can''t just leave her here... put her in the trunk." Two of the guys push you in the trunk a bit more forcefully than is needed; it''s not like you have any energy left to resist after what happened here. After a bumpy ride the car pulls to a stop on the outskirts of Pavlovsk, and Tatar got out of the car to open the trunk. He pulls you out of the trunk, throws down your clothes next to you and gets back in before they race off, leaving you to fend for yourself. Your body feels exhausted as you slowly get dressed, and make your way to town.'
 		act'Return to Pavlovsk':gt 'pavCommercial'
 	else
+		minut += 10
 		'Siple looks at your face in disgust. "That looks fucking disgusting... there''s no way you''re getting in our car. Find your own way home, slut!"'
 		'The guys get in the car and drive off, leaving you alone in the woods. You take a moment to clean yourself up at least a little and put your clothes back on, before you start wandering. You have no clue where you are. Luckily you hear a road in the distance, and decide to head in that direction... once you find the road, you can hopefully find your way home from there.'
 		act'Go to the road':

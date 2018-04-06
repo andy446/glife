@@ -581,20 +581,20 @@ if $ARGS[0] = 'natknows1':
 	if pav_slut < 25: '"Is it the same father as last time?"'
 	if pav_slut >= 25: '"Do you know if it''s the same father as last time?"'
 	*nl
-	if $wombthfath = 'Kolka' and npc_rel['A34'] > 50 and arrpos('$ChildThFath',$wombthfath) >= 0 and arrpos('$ChildThFath',$wombthfath) ! arrsize($ChildThFath)-1:
+	if $wombthfath = 'Kolka' and npc_rel['A34'] > 50 and arrpos('$ChildThFath',$wombthfath) >= 0 and arrpos('$ChildThFath',$wombthfath) ! arrsize('$ChildThFath')-1:
 		'"Yeah, I think you’re right. I’m not sure if I’ll let him get me pregnant again after this though." You pull your face as close to Natasha’s as you can without actually touching her and sultrily whisper, "You, on the other hand, are going to be his personal breeding bitch. There won’t be a single moment where your womb doesn’t contain either his baby or his cum. He is going to keep you knocked up until he gets bored of you and leaves you a single mother."'
 		'As soon as you finish speaking you give Natasha a deep, passionate kiss. You pull away, a string of saliva still hanging between you. Natasha just stares at you, unable to respond, but very visibly aroused.'
-	elseif arrpos('$ChildThFath','Kolka') = arrsize($ChildThFath)-1:
+	elseif arrpos('$ChildThFath','Kolka') = arrsize('$ChildThFath')-1:
 		'"Not this time. My body is far too fantastic to limit myself. My brother can''t be the only person to put a baby in me," you joke. "Plus, he already has a baby factory. That''s your job." You punctuate your sentence by kissing Natasha. After you pull away, she stares at you in silence, face red, trying to determine if you were serious.'
-	elseif $wombthfath = 'Kolka' and npc_rel['A34'] > 50 and arrpos('$ChildThFath',$wombthfath) = arrsize($ChildThFath)-1:
+	elseif $wombthfath = 'Kolka' and npc_rel['A34'] > 50 and arrpos('$ChildThFath',$wombthfath) = arrsize('$ChildThFath')-1:
 		'"No, this time it''s Kolka''s," you inform her.'
 		'"Wow. He really has a thing for knocking girls up," she says.'
 		'"Yeah, it seems like he does," you reply. "But don''t worry, we''ll make sure he has plenty of opportunities to keep getting you pregnant. Who knows how many of his children you''ll have before he''s finished."'
 		'Natasha''s face goes completely red with embarrassment and she starts to mumble something before you cut her off with a passionate kiss. When you finally break the kiss, she is still visibly red, but she isn''t protesting your suggestion. You know what she wants.'
-	elseif $wombthfath ! 'Kolka' and arrpos('$ChildThFath',$wombthfath) ! arrsize($ChildThFath)-1:
+	elseif $wombthfath ! 'Kolka' and arrpos('$ChildThFath',$wombthfath) ! arrsize('$ChildThFath')-1:
 		'"Yeah. I guess I needed him to give me another baby before I could be satisfied," you jest.' 
 		'"Well, I hope you find satisfaction," she laughs.'
-	elseif $wombthfath ! 'Kolka' and arrpos('$ChildThFath',$wombthfath) ! arrsize($ChildThFath)-1:
+	elseif $wombthfath ! 'Kolka' and arrpos('$ChildThFath',$wombthfath) ! arrsize('$ChildThFath')-1:
 		'"No, I needed to test drive someone else before I could decide what father I like best."'
 		'"If you''re going that route, you might as well keep shopping around." You laugh together for a while before moving on to another topic.'
 		end

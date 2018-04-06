@@ -9,11 +9,11 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 	if pcs_apprnc < 0:
 		'"You look half dead, get yourself treated."'
 
-		act 'Leave':gt 'down'
+		act 'Leave':gt 'Nord', 'redlight'
 	elseif pcs_apprnc < 100:
 		'"Look at you, no one will pay for such a product, get cleaned up and come back."'
 
-		act 'Leave':gt 'down'
+		act 'Leave':gt 'Nord', 'redlight'
 	else
 		act 'In the room':gt 'bordel', 'brothel'
 	end
@@ -34,7 +34,7 @@ if $ARGS[0] = 'brothel':
 
 	act 'Leave':
 		if $clothingworntype ! 'nude':
-			gt 'down'
+			gt 'Nord', 'redlight'
 		else
 			cla
 			'You can''t go outside naked.'

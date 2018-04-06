@@ -612,6 +612,7 @@ if $ARGS[0] = 'womens':
 	$loc = 'gdktoilet'
 	$metkaM = 'womens'
 	$locM = 'gdktoilet'
+	$location_type = 'bathroom'
 	cls
 	gs 'stat'
 	'<center><b><font color="maroon">Women''s Room</font></b></center>'

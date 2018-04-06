@@ -1,5 +1,13 @@
 # svidboy
+
+$svidboy_home_arg = ''
+
 if $ARGS[0] = 'kinosvid':
+	if $home_town = 'pavlovsk':
+		$svidboy_home = 'gskino'
+	else
+		$svidboy_home = 'torgcentr'
+	end
 	cla
 	*clr
 	minut += 60
@@ -24,7 +32,7 @@ if $ARGS[0] = 'kinosvid':
 			'You removed his hand with the words "Well, not here"'
 			'When the movie ended <<$loverdesc[lover_number]>> said that he has to run and left.'
 
-			act 'Leave':gt 'torgcentr'
+			act 'Leave':gt $svidboy_home
 		end
 
 		act 'Unbutton his pants':
@@ -32,7 +40,6 @@ if $ARGS[0] = 'kinosvid':
 			*clr
 			picrand = 48
 			svidboysex = 1
-			svidboykino = 1
 			loverrelation[lover_number] += 5
 			'<center><img <<$set_imgh>> src="images/characters/city/boyfriend/sex/event/kino2.jpg"></center>'
 			'You unbutton his pants and pulled out already erection begin to stroke his hand <<$loverdesc[lover_number]>> lays down the hands on your shoulders and begins to press down gently guiding your head to its members.'
@@ -43,6 +50,12 @@ if $ARGS[0] = 'kinosvid':
 end
 
 if $ARGS[0] = 'parksvid':
+	if $home_town = 'pavlovsk':
+		$svidboy_home = 'gskver'
+	else
+		$svidboy_home = 'park'
+		$svidboy_home_arg = 'start'
+	end
 	cla
 	*clr
 	minut += 60
@@ -71,7 +84,7 @@ if $ARGS[0] = 'parksvid':
 			'You take his hand and walk away.'
 			'Soon <<$loverdesc[lover_number]>> said that he has to run and left.'
 
-			act 'Leave':gt 'park', 'start'
+			act 'Leave':gt $svidboy_home, $svidboy_home_arg
 		end
 
 		act 'Kiss him':
@@ -87,7 +100,7 @@ if $ARGS[0] = 'parksvid':
 				'You remove his hands and walked away.'
 				'Soon <<$loverdesc[lover_number]>> said that he has to run and leaves.'
 
-				act 'Leave':gt 'park', 'start'
+				act 'Leave':gt $svidboy_home, $svidboy_home_arg
 			end
 
 			act 'Continue':
@@ -104,7 +117,7 @@ if $ARGS[0] = 'parksvid':
 					'You remove his hands and cover your bare breasts.'
 					'Soon <<$loverdesc[lover_number]>> said that he has to run and leaves.'
 
-					act 'Leave':gt 'park', 'start'
+					act 'Leave':gt $svidboy_home, $svidboy_home_arg
 				end
 
 				act 'Continue':
@@ -116,7 +129,6 @@ if $ARGS[0] = 'parksvid':
 					act 'Continue':
 						picrand = 49
 						svidboysex = 1
-						svidboypark = 1
 						loverrelation[lover_number] += 5
 						gt 'sex', 'kuni'
 					end
@@ -143,13 +155,14 @@ if $ARGS[0] = 'parksvid2':
 			'"Well, no, I will not do that, " you reply ego buttoning his pants, take his hand and move on.'
 			'Soon <<$loverdesc[lover_number]>> said that he has to run and left.'
 
-			act 'Leave':gt 'park', 'start'
+			act 'Leave':gt $svidboy_home, $svidboy_home_arg
 		end
 
 		act 'Agree':
+			$svidboy_home = 'svidboy'
+			$svidboy_home_arg = 'parksvid21'
 			picrand = 50
 			svidboysex = 1
-			svidboypark1 = 1
 			loverrelation[lover_number] += 5
 			gt 'sex', 'minet'
 		end
@@ -165,9 +178,10 @@ if $ARGS[0] = 'parksvid2':
 		'"And I do not mind, " he says coming up to you and find rastegivaya fly.'
 
 		act 'Blow job':
+			$svidboy_home = 'svidboy'
+			$svidboy_home_arg = 'parksvid22'
 			picrand = 50
 			svidboysex = 1
-			svidboypark2 = 1
 			loverrelation[lover_number] += 5
 			gt 'sex', 'minet'
 		end
@@ -180,11 +194,17 @@ if $ARGS[0] = 'parksvid2':
 		'You drop this idea and move on.'
 		'Soon <<$loverdesc[lover_number]>> said that he has to run and left.'
 
-		act 'Leave':gt 'park', 'start'
+		act 'Leave':gt $svidboy_home, $svidboy_home_arg
 	end
 end
 
 if $ARGS[0] = 'parksvid21':
+	if $home_town = 'pavlovsk':
+		$svidboy_home = 'gskver'
+	else
+		$svidboy_home = 'park'
+		$svidboy_home_arg = 'start'
+	end
 	cla
 	*clr
 	'<center><img <<$set_imgh>> src="images/characters/city/boyfriend/sex/event/sex_park7.jpg"></center>'
@@ -199,7 +219,7 @@ if $ARGS[0] = 'parksvid21':
 		'"Well, no, I''m not going to suck him, enough with him and watching." you reply dressing, then take his hand and move on.'
 		'Soon <<$loverdesc[lover_number]>> said that he has to run and left.'
 
-		act 'Leave':gt 'park', 'start'
+		act 'Leave':gt $svidboy_home, $svidboy_home_arg
 	end
 
 	act 'Agree':
@@ -216,11 +236,17 @@ if $ARGS[0] = 'parksvid21':
 		'Not paying attention to his words, because you really behaved like the last whore, you got dressed and went down.'
 		'Soon <<$loverdesc[lover_number]>> said that he has to run and left.'
 
-		act 'Leave':gt 'park', 'start'
+		act 'Leave':gt $svidboy_home, $svidboy_home_arg
 	end
 end
 
 if $ARGS[0] = 'parksvid22':
+	if $home_town = 'pavlovsk':
+		$svidboy_home = 'gskver'
+	else
+		$svidboy_home = 'park'
+		$svidboy_home_arg = 'start'
+	end
 	cla
 	*clr
 	'<center><img <<$set_imgh>> src="images/characters/city/boyfriend/sex/event/sex_park7.jpg"></center>'
@@ -233,7 +259,7 @@ if $ARGS[0] = 'parksvid22':
 		'"Of course I did not know anything, do you think that I could have sex with you in front of this" you make pained face and dressed quickly go away after a few seconds <<$loverdesc[lover_number]>> catching up with you, "I''m sorry, honey, not mean to offend you, I said sgorecha "he izvenyayus you take him by the hand, saying that you forgive and move on.'
 		'Soon <<$loverdesc[lover_number]>> said that he has to run and left.'
 
-		act 'Leave':gt 'park', 'start'
+		act 'Leave':gt $svidboy_home, $svidboy_home_arg
 	end
 
 	act 'Annoy him':
@@ -249,11 +275,12 @@ if $ARGS[0] = 'parksvid22':
 		'"Come on do not be afraid" you shouted guy African timidly walked up to you.'
 		'You go down on his knees so that <<$loverdesc[lover_number]>> could see the whole process, and with styanuv Man briefs start sucking, you had to work not long, a minute later he came in your mouth. But you''re not going to end so quickly when osobeno <<$loverdesc[lover_number]>> sitting next crimson with anger. You took the guy cock and continued to masturbate, that he finally fell, but themselves demonstratively turned to his, now ex-boyfriend, and a little tinkering with the sperm in her mouth to swallow it. Then you turned back to African and continued without deliv his cock out of hand you the language began to fondle his balls, then took them whole in his mouth and began to suck it out of his mouth one releasing it again absorbing both when a member of the African stood again, you switched on him, slow and metadichno you licking every inch of his phallus, and then began to suck the head, smacking loudly after you calmly and methodically started sucking him trying to absorb it into himself entirely and as a member was very modest size you manage it, and that would put an end to you shoved in his mouth and his balls. At this <<$loverdesc[lover_number]>> could not resist and shouting something about the fact that you as a whore and he wa hates escaped, you quietly completed the guy a blowjob and swallowing cum went away.'
 
-		act 'Leave':gt 'park', 'start'
+		act 'Leave':gt $svidboy_home, $svidboy_home_arg
 	end
 end
 
 if $ARGS[0] = 'billsvid':
+	$svidboy_home = 'torgcentr'
 	cla
 	*clr
 	minut += 60
@@ -280,7 +307,7 @@ if $ARGS[0] = 'billsvid':
 			'You removed his hand with the words "Well, not here."'
 			'When your time is up <<$loverdesc[lover_number]>> said that he has to run and left.'
 
-			act 'Leave':gt 'torgcentr'
+			act 'Leave':gt $svidboy_home
 		end
 
 		act 'Let continues':
@@ -291,7 +318,6 @@ if $ARGS[0] = 'billsvid':
 
 			act 'Let continues':
 				svidboysex = 1
-				svidboykino = 1
 				loverrelation[lover_number] += 5
 				gt 'sex', 'kuni'
 			end
@@ -304,13 +330,18 @@ if $ARGS[0] = 'billsvid':
 				'You removed his hand with the words "Well, not here"'
 				'When your time is up <<$loverdesc[lover_number]>> said that he has to run and left.'
 
-				act 'Leave':gt 'torgcentr'
+				act 'Leave':gt $svidboy_home
 			end
 		end
 	end
 end
 
 if $ARGS[0] = 'kafesvid':
+	if $home_town = 'pavlovsk':
+		$svidboy_home = 'pavCommercial'
+	else
+		$svidboy_home = 'down'
+	end
 	cla
 	*clr
 	minut += 60
@@ -334,7 +365,7 @@ if $ARGS[0] = 'kafesvid':
 			'You removed his hand with the words "Well, not here"'
 			'After some time <<$loverdesc[lover_number]>> said that he has to run and left.'
 
-			act 'Leave':gt 'down'
+			act 'Leave':gt $svidboy_home
 		end
 
 		act 'Let continues':
@@ -345,7 +376,6 @@ if $ARGS[0] = 'kafesvid':
 
 			act 'Let continues':
 				svidboysex = 1
-				svidboykafe = 1
 				loverrelation[lover_number] += 5
 				picrand = 53
 				gt 'sex', 'kuni'
@@ -358,7 +388,7 @@ if $ARGS[0] = 'kafesvid':
 				'The last time you came all the same in yourself and realizing that you are in a cafe, pushed him, "No, we have enough in the same cafe, patience to the house"'
 				'But soon <<$loverdesc[lover_number]>> said that he has to run and left.'
 
-				act 'Leave':gt 'down'
+				act 'Leave':gt $svidboy_home
 			end
 		end
 	end

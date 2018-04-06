@@ -15,41 +15,51 @@ end
 '<center><img <<$set_imgh>> src="images/locations/city/residential/den/narkopriton.jpg"></center>'
 'A local drug den, where you know addicts come to buy and use heroin in peace.'
 'A skinny guy opens the door, with a paranoid look in his eyes. He says doubtfully: "Are you sure you can afford to be here? My product ain''t cheap..."'
-act 'You roll your eyes. And push the door open':
+
+act 'You roll your eyes and push the door open':
 	gt 'narkopriton', 'start'
 end
+
 act 'Get out of here':
+	minut += 5
 	gt 'street'
 end
 
 if $ARGS[0] = 'start':
-	gs 'stat'
-	cls
-	'The skinny guy at the door looks you up and down as you enter,"So what can I get for you honey?"'
+	cla
+	*clr
+	'<center><b>Local drug den</b></center>'
+	'<center><img <<$set_imgh>> src="images/locations/city/residential/den/narkopriton.jpg"></center>'
+	'The skinny guy at the door looks you up and down as you enter, "So what can I get for you, honey?"'
 	if drugUser = 1:
 	    if StoryLine = 1 and snarkozak = 0:
-	        act 'Ask for a drop-off point in Pavlovsk':gs 'events', 'narkozakladka'
+	        act 'Ask for a drop-off point in Pavlovsk':
+				minut +=5
+				gs 'events', 'narkozakladka'
+			end	
 	    end
-		act 'H please': 
+		act 'Ask for heroin': 
 			gt 'narkopriton', 'heroin'
 		end
-		act 'Amphetamine please': 
+		act 'Ask for amphetamine': 
 			gt 'narkopriton', 'amphetamine' 
 		end
 		act 'Leave the drug den': 
-			minut += 15 & gt'street' 
+			minut += 5 
+			gt'street' 
 		end
 	elseif drugUser = 0:
-		'"Ahhh, what do you have?"'
-		'His eyes light up at a freshy and smiles wildy "Well I have some H and Amphetamine"'
-		act 'H please': 
+		'"Ahhh, what do you have?" you ask.'
+		'His eyes light up at a freshy and smiles wildy, "Well I have some H and amphetamine."'
+		act 'Ask for heroin': 
 			gt 'narkopriton', 'heroin'
 		end
-		act 'Amphetamine please': 
+		act 'Ask for amphetamine': 
 			gt 'narkopriton', 'amphetamine' 
 		end
 		act 'Leave the drug den': 
-			minut += 15 & gt'street' 
+			minut += 5
+	        gt 'street' 
 		end
 	elseif (StrongNarkota > 23 and ampHigh > 23) or ampHigh > 23 or StrongNarkota > 23:
 		gt 'narkopriton', 'kiteHigh'
@@ -64,96 +74,160 @@ if $ARGS[0] = 'kiteHigh':
 end
 
 if $ARGS[0] = 'amphetamine':
-	cls
-	drugUser = 1
-	'He nods, that''ll be 800.'
+	cla
+	*clr
+	'<center><b>Local drug den</b></center>'
+	'<center><img <<$set_imgh>> src="images/locations/city/residential/den/narkopriton.jpg"></center>'
+	'"That''ll be 80 <b>₽</b> per pill," he says.'
+	'You have <<amphetamine>> pills.'
+	if money >= 1600:
+		act 'Buy 20 (1600 <b>₽</b>)': 
+			money -= 1600
+			drugUser = 1
+			amphetamine += 20
+			minut += 5
+			gt 'narkopriton', 'amphetamine'
+		end
+	end
 	if money >= 800:
-		money -= 800
+		act 'Buy 10 (800 <b>₽</b>)': 
+			money -= 800
+			drugUser = 1
+			amphetamine += 10
+			minut += 5
+			gt 'narkopriton', 'amphetamine'
+		end
+	end
+	if money >= 400:
+		act 'Buy 5 (400 <b>₽</b>)': 
+			money -= 400
+			drugUser = 1
+			amphetamine += 5
+			minut += 5
+			gt 'narkopriton', 'amphetamine'
+		end
+	end
+	if money >= 80:
+		act 'Buy 1 (80 <b>₽</b>)': 
+			money -= 80
+			drugUser = 1
+			amphetamine += 1
+			minut += 5
+			gt 'narkopriton', 'amphetamine'
+		end
+	end
+	act 'Buy some heroin instead':
+		gt 'narkopriton', 'heroin'
+	end
+	act 'Leave the drug den':
 		minut += 5
-		amphetamine += 10
-		act 'Thanks': 
-			gs 'narkopriton', 'start' 
-		end
-	elseif money <= 800 & addict = 1:
-		act 'Beg': 
-			gs 'narkopriton', 'drugslut' 
-		end
+		gt 'street'
 	end
 end
 
-
 if $ARGS[0] = 'heroin':
+	cla
+	*clr
+	'<center><b>Local drug den</b></center>'
+	'<center><img <<$set_imgh>> src="images/locations/city/residential/den/narkopriton.jpg"></center>'
+	'"That''ll be 1000 <b>₽</b>," he says.'
 	if money >= 1000:
 		act 'Buy some heroin and use it (1,000 <b>₽</b>)':
-			drugUser = 1
-			cls
-			minut += 5
 			money -= 1000
-			gs 'stat'
-			if SNarkTimes <= 1 :
-				'Guy takes pitty on you and cooks you up a shot. He loads the needle full and gives it to you.'
-				'"Thanks" You take the needle and go find a couch in the house to sit on.'
-
-				'Finding a couch you sit, and look at the needle apprehensively, you question yourself...'
-					act 'You remember the look of bliss on the junkies faces in the park':
-						'You inject the needle into your arm unable to stop yourself from trembling a little'
-						'The rush is instanteous, you close your eyes as it rolls over you'
-						StrongNarkota += 25
-						SNarkTimes += 1
-						act 'You lay there briefly rolling, before leaving': gs 'events', 'snkayf1' 
+			if SNarkTimes = 0:
+				cla
+				*clr
+				minut += 10
+				'<center><b>Local drug den</b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/city/residential/den/narkopriton.jpg"></center>'
+				'It''s obvious that you have no idea what to do. He takes pitty on you and cooks you up a shot. He loads the needle full and gives it to you.'
+				'"Thanks." You take the needle and go find a couch in the house to sit on.'
+				'Finding a couch, you sit down and look at the needle apprehensively, you question yourself...'
+				act 'You remember the look of bliss on the junkies faces in the park and use the drugs':
+					cla
+					*clr
+					'<center><b>Local drug den</b></center>'
+					'<center><img <<$set_imgh>> src="images/locations/city/residential/den/usingheroin.jpg"></center>'
+					'You inject the needle into your arm unable to stop yourself from trembling a little.'
+					'The rush is instantaneous, you close your eyes as it rolls over you.'
+					StrongNarkota += 25
+					pcs_mood += 40
+					SNarkTimes += 1
+					drugUser = 1
+					act 'You lay there briefly rolling, before leaving': gs 'events', 'snkayf1' 
+				end
+				act 'You can''t help but think of all the horror stories and return the drugs':
+					cla
+					*clr
+					'<center><b>Local drug den</b></center>'
+					'<center><img <<$set_imgh>> src="images/locations/city/residential/den/narkopriton.jpg"></center>'
+					'You change your mind and give the syringe back to the guy.'
+					'"I don''t do refunds girl," he said.'
+					act '"I know," you say and leave': 
+						minut += 5
+						gt 'street'
 					end
-					act 'You can''t help but think of all the horror stories':
-						'You change your mind and give the syringe back to the guy'
-						'"I don''t do refunds girl" you simply nod'
-						act '"I know"': gt 'street'
-					end
-			elseif SNarkTimes > 1:
+				end
+			elseif SNarkTimes >= 1:
+				cla
+				*clr
+				minut += 5
 				StrongNarkota += 25
-				pcs_mood =+ 40
+				pcs_mood += 40
 				SNarkTimes += 1
-				gs 'stat'
-
+				drugUser = 1
+				'<center><b>Local drug den</b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/city/residential/den/usingheroin.jpg"></center>'
 				'You buy some heroin and find a quiet place in the house to use it, and without thinking twice you shoot up.'
 
-				act 'Continue':gt $curloc
+				act 'Leave the drug den':
+					minut += 5
+					gt 'street'
+				end
 			end
 		end
 	elseif money < 1000 and SLomka > 0:
-		act 'Beg him to give you some drugs':
+		act 'Beg him to give you some':
 			gs 'narkopriton', 'drugslut'
 		end
+	end
+	act 'Buy some amphetamine instead':
+			gt 'narkopriton', 'amphetamine'
+	end
+	act 'Leave the drug den':
+		minut += 5
+		gt 'street'
 	end
 end
 
 if $ARGS[0] = 'drugslut':
-cls
-minut += 5
-gs 'stat'
+	cla
+	*clr
+	'<center><b>Local drug den</b></center>'
+	'<center><img <<$set_imgh>> src="images/locations/city/residential/den/narkopriton.jpg"></center>'
+	minut += 5
 	if NarkShmaraTimes > 0:
 		'"Bobka, please! You remember me, right? I''m good for it, you can trust me!" you beg him, but he gives you a wicked grin.'
 		'"Come on, <<$pcs_nickname>>! You know I don''t do credit!" he snorts.'
 
-		act 'Leave dejectedly':gt $curloc
-
 		act 'Keep begging, promising you''ll do anything':
-			cls
+			cla
+			*clr
 			minut += 5
-			gs 'stat'
+			'<center><b>Local drug den</b></center>'
+			'<center><img <<$set_imgh>> src="images/locations/city/residential/den/narkopriton.jpg"></center>'
 			'With a trembling lip, you drop to your knees and continue to beg: "Please! I''ll do anything... anything you want!"'
 			'He looks at you appreciatively for a moment, and gives you a short nod with his head: "Shut up, and follow me. I may have some for you, but you''re going to have to earn it."'
 			
-			act 'Change your mind and leave':gt $curloc
-
 			act 'Follow him into the house':
-				cls
+				cla
+				*clr
 				minut += 5
-				NarkShmaraTimes += 1
-				gs 'stat'
 				bobrand = rand(0, 4)
 				
 				if bobrand < 3:
 					$bobtalk = '"You know the drill. Get on your knees and start sucking!"'
-					$bobtext = 'Do as he says -valami-'
+					$bobtext = 'Do as he says'
 				elseif bobrand = 3:
 					$bobtalk = '"You''re just a dirty whore, aren''t you? Lick my dirty asshole and I''ll consider it!"'
 					$bobtext = 'Lick his ass'
@@ -162,13 +236,22 @@ gs 'stat'
 					$bobtext = 'Kneel down and open your mouth'
 				end
 				'bobrand: <<bobrand>>'
+				'<center><b>Local drug den</b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/city/residential/den/narkopriton.jpg"></center>'
 				'You keep begging Bobka to give you some heroin, while you follow him to an empty room. He just laughs at you and says: <<$bobtalk>>'
 				
-				act 'Change your mind and leave':gt $curloc
-				act '<<$bobtext>>':gt 'bobka', bobrand
-			end
+				act '<<$bobtext>>':
+					NarkShmaraTimes += 1
+					gt 'bobka', bobrand
+				end
+				
+				act 'Change your mind and leave':
+					minut += 5
+					gt 'street'
+				end
+			end				
 		end
-
+	
 		if NarkShmaraTimes > 5:
 			act 'Submit to your fate':
 				cla
@@ -224,38 +307,39 @@ gs 'stat'
 				end
 			end
 		end
+		
+		act 'Leave dejectedly':
+			minut += 5
+			gt 'street'
+		end
+		
 	elseif NarkShmaraTimes = 0:
 		'You beg the man: "Please! I need a hit... I need it badly! Please, I''ll pay you back! I promise!"'
 		'The guy laughs: "Yea, sure. Do you know how many times a day I hear that? If I had a ruble for every time someone told me that, I would''ve retired by now! I don''t do credit, simple as that. Get lost."'
 
-		act 'Leave dejectedly':gt $curloc
-
 		act 'Keep begging, promising you''ll do anything':
-			cls
+			cla
+			*clr
 			minut += 5
-			gs 'stat'
 			'With a trembling lip, you drop to your knees and continue to beg: "Please! I''ll do anything... anything you want!"'
 			'He looks at you appreciatively for a moment, and gives you a short nod with his head: "Shut up, and follow me. I may have some for you, but you''re going to have to earn it."'
 
-			act 'Change your mind and leave':gt $curloc
-
 			act 'Follow him into the house':
-				cls
+				cla
+				*clr
 				minut += 5
 				gs 'stat'
 				'You follow him dejectedly... you don''t know what he wants from you, but what choice do you have?'
 				'He takes you by the hand and pulls you into an empty room. He doesn''t bother closing the door, and simply orders you: "Get down on your knees and suck me off. If you do good, we''ll see."'
 
-				act 'Change your mind and leave':gt $curloc
-
 				act 'Suck his cock':
-					cls
+					cla
+					*clr
 					guy += 1
 					swallow += 1
 					NarkShmaraTimes += 1
 					spafinloc = 12
 					gs 'cum_manage'
-					gs 'stat'
 					dynamic $venerasiak
 					'<center><img <<$set_imgh>> src="images/characters/city/bobka/sex/bj.jpg"></center>'
 					'You need the drugs so badly, you drop to your knees automatically and quickly pull his pants down without even thinking of rejecting him. His cock is still flaccid but you close your lips around it anyway, doing the best you can to arouse him. You slowly feel his cock grow inside your mouth and suck him off obediently, until you feel several warm jets of sperm land on the back of your throat.'
@@ -266,11 +350,14 @@ gs 'stat'
 					gs 'stat'
 					
 					act 'Take the hit right in front of him':
-						cls
+						cla
+						*clr
 						minut += 5
 						StrongNarkota += 25
 						SNarkTimes += 1
-						gs 'stat'
+						pcs_mood += 40
+						'<center><b>Local drug den</b></center>'
+						'<center><img <<$set_imgh>> src="images/locations/city/residential/den/usingheroin.jpg"></center>'
 						'You grab the syringe off the ground nervously and use it without a second thought, injecting it into your arm with a shaky hand. He shakes his head, almost as if he is disappointed in you, but says with a pitiful smile: "I reckon I''m going to see you around more often! My name is Bobka. Who are you?"'
 						'The drugs is quickly clouding your mind, and you barely register him talking. You softly mutter: "<<$pcs_nickname>>..."'
 						'He laughs, and says: "I think we''ll be seeing more of you here, <<$pcs_nickname>>..."'
@@ -279,11 +366,24 @@ gs 'stat'
 						gs 'arousal', 'end'
 						gs 'stat'
 						
-						act 'Leave the drug den':minut += 15 & gt 'street'
-					end
+						act 'Leave the drug den':
+							minut += 5
+							gt 'street'
+						end
+					end				
+				end
+				
+				act 'Change your mind and leave':
+					minut += 5
+					gt 'street'
 				end
 			end
 		end
+	end
+	
+	act 'Leave dejectedly':
+		minut += 5
+		gt 'street'
 	end
 end
 

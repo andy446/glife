@@ -237,7 +237,6 @@ end
 if $ARGS[0] = 'end':
 	cla
 	sexstart = 0
-	svidboysex = 0
 	sexvar = 0
 	sxkuni = 0
 	sxbj = 0
@@ -287,29 +286,9 @@ if $ARGS[0] = 'end':
 		if picrand = 88:dynamic $brodils
 		if picrand = 89:gt 'bed', 'start'
 
-		if svidboykino = 1:
-			svidboykino = 0
-			gt 'torgcentr'
-		end
-
-		if svidboypark = 1:
-			svidboypark = 0
-			gt 'park', 'start'
-		end
-
-		if svidboypark1 = 1:
-			svidboypark1 = 0
-			gt 'svidboy', 'parksvid21'
-		end
-
-		if svidboypark2 = 1:
-			svidboypark2 = 0
-			gt 'svidboy', 'parksvid22'
-		end
-
-		if svidboykafe = 1:
-			svidboykafe = 0
-			gt 'down'
+		if svidboysex = 1:
+			svidboysex = 0
+			gt $svidboy_home, $svidboy_home_arg
 		end
 
 		gt $sexloc, 'start'

@@ -40,8 +40,8 @@ if $ARGS[0] = 'start':
 	'<TR><TD><a href="exec:GS ''carF1'',''car112''">Ferrari 458 Italia</a>.</TD><TD> - </TD><TD> New. Price: 20 million.RUB</TD></TR>'
 	'</TR></table>'
 
-	act 'Talk to the manager':gt 'autosalonF', 'manager1'
-	act 'Leave':gt 'Nord'
+	act 'Talk to the manager': gt 'autosalonF', 'manager1'
+	act 'Return': gt 'autotraidF', 'start'
 end
 
 if $ARGS[0] = 'manager1':

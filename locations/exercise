@@ -477,7 +477,10 @@ if $ARGS[0] = 'tier1':
 	else
 		minut += ARGS[1]
 	end
-	pcs_stam -= 5
+
+	gs 'exercise', 'get_sport_clothes_exercise_bonus'
+	pcs_stam -= (5 * (10 - sport_clothes_exercise_bonus)) / 10
+	
 	pcs_sweat += 3
 	fat -= 1
 	pcs_mood += 3
@@ -511,7 +514,10 @@ if $ARGS[0] = 'tier2':
 	else
 		minut += ARGS[1]
 	end
-	pcs_stam -= 10
+
+	gs 'exercise', 'get_sport_clothes_exercise_bonus'
+	pcs_stam -= (10 * (10 - sport_clothes_exercise_bonus)) / 10
+	
 	pcs_sweat += 10
 	fat -= 2
 	pcs_mood += 5
@@ -544,7 +550,10 @@ if $ARGS[0] = 'tier3':
 	else
 		minut += ARGS[1]
 	end
-	pcs_stam -= 15
+
+	gs 'exercise', 'get_sport_clothes_exercise_bonus'
+	pcs_stam -= (15 * (10 - sport_clothes_exercise_bonus)) / 10
+	
 	pcs_sweat += 15
 	fat -= 3
 	pcs_mood += 5
@@ -577,7 +586,10 @@ if $ARGS[0] = 'tier4':
 	else
 		minut += ARGS[1]
 	end
-	pcs_stam -= 25
+
+	gs 'exercise', 'get_sport_clothes_exercise_bonus'
+	pcs_stam -= (25 * (10 - sport_clothes_exercise_bonus)) / 10
+	
 	pcs_sweat += 25
 	fat -= 4
 	pcs_mood += 5
@@ -611,5 +623,21 @@ if $ARGS[0] = 'timestring':
 	if timemult = 4: $timestring = 'sixty'
 end
 
+
+if $ARGS[0] = 'get_sport_clothes_exercise_bonus':
+	sport_clothes_exercise_bonus = 0
+	if $braworntype = 'sport':
+		sport_clothes_exercise_bonus = sport_clothes_exercise_bonus + 1
+	end
+	if $pantyworntype = 'sport':
+		sport_clothes_exercise_bonus = sport_clothes_exercise_bonus + 1
+	end
+	if $clothingworntype = 'exercise':
+		sport_clothes_exercise_bonus = sport_clothes_exercise_bonus + 1
+	end
+	if $shoeworntype = 'trainers':
+		sport_clothes_exercise_bonus = sport_clothes_exercise_bonus + 1
+	end
+end
 --- exercise ---------------------------------
 

@@ -152,7 +152,7 @@ if $ARGS[0] = '':
 				pirsAmother=1
 				delin_beh += 1 &!counter for getting sent to Gadyukino for the summer
 				gs'stat'
-				'<center><img <<$set_imgh>> src="images/pc/body/piercings/pirsa.jpg" ></center>'
+				'<center><img <<$set_imgh>> src="images/pc/body/piercings/a<<pirsA>>.jpg" ></center>'
 				'You open your mouth and stick out your tongue, showing her your shiny new piercing.'
 				'Your mother clearly disapproves, and shakes her head "Oh <<$pcs_nickname>>, you know those things are only worn by slutty women, who serve men with their mouths..."'
 
@@ -170,7 +170,7 @@ if $ARGS[0] = '':
 			pirsBmother=1
 			delin_beh += 1 &!counter for getting sent to Gadyukino for the summer
 			gs'stat'
-			'<center><img <<$set_imgh>> src="images/pc/body/piercings/b.jpg" ></center>'
+			'<center><img <<$set_imgh>> src="images/pc/body/piercings/b<<pirsB>>.jpg" ></center>'
 			'You shrug and answer with a sweet smile on your face: "I like it, I think it looks cute. Don''t you agree?"'
 			'She clearly doesn''t, and walks away without even bothering to answer.'
 

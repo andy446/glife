@@ -20,7 +20,7 @@ $bomzstartqwestdi = {
 			cls
 			minut += 15
 			gs 'stat'
-			'You descended into the subway and go to the center. You are lead to the porn studio.'
+			'You descended into the subway and go to the industrial area. You are lead to the porn studio.'
 
 			if pfilmNO = 1:
 				'"I came here, but I was turned down."'
@@ -73,7 +73,7 @@ $bomzstartqwestdi = {
 								'The manager seems surprised, he looks at you and says,'
 								'"We seem to have one more issue. Suspicions that you are not quite... as feminine as you appear.'
 
-								act 'How dare you? (Leave)':gt 'down'
+								act 'How dare you? (Leave)':gt 'Nord'
 
 								act 'Show pussy':
 									cls
@@ -119,7 +119,7 @@ $bomzstartqwestdi = {
 										'"You do realise a bird has made a nest in your panties? Might want to find it a new home. Do not forget to come on Thursday."'
 									end
 
-									act 'Leave':bomzQW = 1 & gt 'down'
+									act 'Leave':bomzQW = 1 & gt 'Nord'
 								end
 								exit
 							end
@@ -128,10 +128,10 @@ $bomzstartqwestdi = {
 						end
 						gs 'arousal', 'end'
 						gs 'stat'
-						act 'Leave':bomzQW = 1 & gt 'down'
+						act 'Leave':bomzQW = 1 & gt 'Nord'
 					end
 
-					act 'Thanks, but I refuse (leave)':bomzQW = -1 & gt 'down'
+					act 'Thanks, but I refuse (leave)':bomzQW = -1 & gt 'Nord'
 				end
 			end
 		end
@@ -147,7 +147,7 @@ $workbomzdi = {
 	'We made inquiries about you, and everything seems in order. Essentially, we give you a thumb drive, you deliver it to the sauna, they give you an envelope and you bring it to us. Immediately.'
 	'Upon delivery of envolope you get 5000 <b>₽</b>. You do deliveries every Friday, after the studio has opened. If you agree, then visit any Friday, choose a safe mode of transport.'
 
-	act 'No, I don''t think it''s for me (leave)':bomzQW = -1 & gt 'down'
+	act 'No, I don''t think it''s for me (leave)':bomzQW = -1 & gt 'Nord'
 
 	act 'Agree to work':
 		cls

@@ -482,6 +482,12 @@ if $ARGS[0] = 'end':
 	if BDcafe = 1:
 		BDcafe = 0
 		act 'Leave':gt 'street'
+	elseif Yuri_sex = 1:
+		Yuri_sex = 0
+		cumspclnt = 4
+		gs 'cum_cleanup'
+		'Yuri lets you have a quick shower and dress before giving you a quick kiss on the cheek.'
+		act 'Leave':gt 'nord'
 	elseif $boydesc = 'Michael N.':
 		act 'Leave':dynamic $brodilr
 	elseif InYouHome = 1:
@@ -491,6 +497,15 @@ if $ARGS[0] = 'end':
 		act 'Leave':gt 'korr'
 
 		exit
+	elseif GoToGuy = 1:
+		GoToGuy = 0
+		act 'Leave':gt 'nord'
+	elseif harakBoy = 1:
+		harakBoy = 0
+		cumspclnt = 4
+		gs 'cum_cleanup'
+		'You wash quickly in shower and <<$boydesc>> begins to hurry you out.'
+		act 'Leave':dynamic $brodilr
 	elseif harakBoy = 0:
 		minut += 15
 		pcs_horny += 1
@@ -499,11 +514,6 @@ if $ARGS[0] = 'end':
 		dynamic $showerdin
 		'<center><video autoplay loop src="images/shared/home/bathroom/dush.mp4"></video></center>'
 		'You go into the bathroom and turn on the shower, lathering body and washing as well as you can.'
-		act 'Leave':dynamic $brodilr
-	elseif harakBoy = 1:
-		cumspclnt = 4
-		gs 'cum_cleanup'
-		'You wash quickly in shower and <<$boydesc>> begins to hurry you out.'
 		act 'Leave':dynamic $brodilr
 	elseif harakBoy = 2:
 		'<<$boydesc>> won''t even let you go to the bathroom to clean up.'
@@ -524,8 +534,6 @@ if $ARGS[0] = 'end':
 			if gorand = 1:gt 'down'
 			if gorand = 2:gt 'nord'
 		end
-	elseif GoToGuy = 1:
-		act 'Leave':gt 'nord'
 	else
 		act 'Leave':dynamic $brodilr
 	end

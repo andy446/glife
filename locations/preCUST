@@ -109,8 +109,10 @@ if $ARGS[0] = 'hair':
 	
 	if $start_type = 'tg':
 		act 'Done': gt 'preCUST', 'TGStart'
-	else
+	elseif $start_type = 'nt':
 		act 'Done': gt 'preCUST', 'NTStart2'
+	else
+		act 'Done': gt 'preCUST', 'SGStart'
 	end
 end
 

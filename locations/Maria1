@@ -106,7 +106,7 @@ if nom_1 = 1 and flag = 0:
 		nom_nom = rand(1, 1000)
 		'"Thank you for staying at our hotel. Your room number is <<nom_nom>>."'
 
-		act 'Goodbye':gt 'rack'
+		act 'Goodbye':gt 'hotel'
 	end
 
 	act 'Change Your Mind':

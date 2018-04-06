@@ -58,22 +58,5 @@ if water < 80:
 	end
 end
 
-if npc_QW['A113'] = 1 and workDolg <= 0:
-cla
-*clr
-'As you enter your room you see a familiar face. It''s Vadim Bely standing there with his brother. "Good news little whore, you''ve finally paid off your debt. You''re free to do whatever you want now."'
-'You look at him with hate-filled eyes, "Do you know what you put me through here? You''re the most despicable man I''ve ever met in my life."'
-'Vadim starts laughing loudly, "Choose you words carefully girl. I''m still in control of your future, maybe you haven''t payed off your debt yet?"'
-'Not wanting to escalate the situation, you look down on the floor, "I''m sorry. I should know my place."'
-'"Good girl, now that you''re free wanna go party with us to celebrate your freedom?"'
-	act 'No, thanks':
-	'"No, I''m sorry but I just want to go home... Maybe some other time."'
-	'Vadim looks at you with a serious look, "You''re lucky I''m in a good mood today. I''ll let it slide this time." he says laughing.'
-	'You quickly gather your stuff before he has a change of heart and step outside the sauna.'
-	
-		act 'Leave':gt 'street'
-	end
-end
-
 --- saunaroom ---------------------------------
 

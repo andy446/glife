@@ -17,7 +17,7 @@ end
 
 if $ARGS[0] = '2':
 	'<center><video autoplay loop src="images/locations/shared/train/sex/finger'+ rand(1,2) +'.mp4" ></video></center>'
-	'There are few people in this car, at the last stop a young couple sat down a little way away. He keeps trying to feel the girl up and she keeps pushing his hands away and glancing nervously around the car, but eventually she gives into his persistence and they are soon kissing passionately. One of his hands slides up her skirt and you can hear her moaning from here, you try your best to give them privacy but her moans are very distracting. By the next stop her moans have reached a crescendo, followed by her shuttering in his arms and growing quiet. When she notices your eyes on them, she blushes fiery red and pushes his hands away, as she whispers to him. He looks over at you with a huge grin and leans back obviously proud of his actions, while she does everything she can to hide.'
+	'There are few people in this car, at the last stop a young couple sat down a little way away. He keeps trying to feel the girl up and she keeps pushing his hands away and glancing nervously around the car, but eventually she gives into his persistence and they are soon kissing passionately. One of his hands slides up her skirt and you can hear her moaning from here, you try your best to give them privacy but her moans are very distracting. By the next stop her moans have reached a crescendo, followed by her shuddering in his arms and growing quiet. When she notices your eyes on them, she blushes fiery red and pushes his hands away, as she whispers to him. He looks over at you with a huge grin and leans back obviously proud of his actions, while she does everything she can to hide.'
 	act 'Complete your journey': gt $loc, $metka
 end
 
@@ -179,7 +179,7 @@ if $ARGS[0] = 'end':
 	*clr
 	cla
 	'<center><video autoplay loop src="images/locations/shared/train/sex/leskuni.mp4" ></video></center>'
-	'As you get off the train and walk into the train station, you are greeted by a very unusual sight. One girl is sitting on a bench with her legs spread wide, while an other girl is kneeling down on the floor with her face, buried in hers crotch. A few people are watching the two girls, but most people are just ignoring it, you watch the two of them feeling yourself getting aroused. Sadly as you make your way towards the exit you can no longer seem them, but you can still hear them in the distance.'
+	'As you get off the train and walk into the train station, you are greeted by a very unusual sight. One girl is sitting on a bench with her legs spread wide, while an other girl is kneeling down on the floor with her face, buried in her crotch. A few people are watching the two girls, but most people are just ignoring it, you watch the two of them feeling yourself getting aroused. Sadly as you make your way towards the exit you can no longer seem them, but you can still hear them in the distance.'
 	act 'Continue': gt $loc, $metka
 end
 

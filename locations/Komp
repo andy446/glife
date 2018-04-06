@@ -38,7 +38,7 @@ end
 if $ARGS[0] = 'brows':
 	cls
 	gs 'stat'
-	if internet = 0:
+	if internet <= 0:
 		'<center><b>Browser</b></center>'
 		'<center><img <<$set_imgh>> src="images/shared/accessories/computer/eror.jpg"></center>'
 		'You have no prepaid internet access remaining. You need to buy more, before you can go online again.'
@@ -134,7 +134,7 @@ if $ARGS[0] = 'remont':
 	'<center><img <<$set_imgh>> src="images/shared/accessories/computer/komp.jpg"></center>'
 	'You''re currently browsing the website of a local interior designer. They claim they can remodel houses so fast, it''s done by the time you leave the computer! Surely a joke...'
 
-	if home_owned[1] = 1:
+	if home_owned[1] > 0:
 		if rembedr = 0:
 			act 'Have them redesign your bedroom (50,000 <b>₽</b>)':
 				cla
@@ -218,7 +218,7 @@ if $ARGS[0] = 'porno':
 	cls
 	gs 'stat'
 	
-	if internet = 0:
+	if internet <= 0:
 		'<center><b>Browser</b></center>'
 		'<center><img <<$set_imgh>> src="images/shared/accessories/computer/eror.jpg"></center>'
 		'You have no prepaid internet access remaining. You need to buy more, before you can go online again.'
@@ -388,8 +388,8 @@ if $ARGS[0] = 'kabtv':
 			cla
 			kabel = 0
 			karta -= 300
-			'Your subscription has been cancelled and you can no longer watch the extra channels. The cable firm charges a one-time fee of 300 <b>₽</b> for disconnecting you.'
-			gt 'Komp', 'kabtv'
+			msg 'Your subscription has been cancelled and you can no longer watch the extra channels. The cable firm charges a one-time fee of 300 <b>₽</b> for disconnecting you.'
+			gt 'Komp', 'brows'
 		end
 	elseif kabel = 0 and TV = 1:
 		'You currently do not have a cable subscription for your TV.'
@@ -397,7 +397,7 @@ if $ARGS[0] = 'kabtv':
 		act 'Get cable services for your TV':
 			cla
 			msg 'Unfortunately your TV is too old and crap for cable. You''ll have to get a modern TV first.'
-			gt 'Komp', 'kabtv'
+			gt 'Komp', 'brows'
 		end
 	elseif kabel = 0 and TV >= 2:
 		'You currently do not have a cable subscription for your TV.'
@@ -406,7 +406,7 @@ if $ARGS[0] = 'kabtv':
 			cla
 			kabel = 1
 			msg 'Soon after you fill out the form, you get a confirmation message that your sign-up was successful. You should have the extra channels on your TV now.'
-			gt 'Komp', 'kabtv'
+			gt 'Komp', 'brows'
 		end
 	else
 		'You don''t even have a TV!'
@@ -418,70 +418,9 @@ end
 if $ARGS[0] = 'foto':
 	cla
 	*clr
-	elektro += 3
-	internet -= 1
-	gs 'stat'
-	'<center><img <<$set_imgh>> src="images/shared/accessories/computer/komp.jpg"></center>'
-	'You''re currently on Russia''s biggest social network site, "Assbook". Almost everyone has an account here, probably including the girl you took that photo of the other day!'
-	'"Maybe if I can find her, I can blackmail her", you think to yourself. "This photo is very raunchy, after all... I bet she would hate to see it published, if she''s important!"'
-	'You can''t help but rub your pussy every now and then while you look at it. You''ll probably keep a copy of this for yourself, either way!'
-
-	if shantfoto > 0:
-		act 'Try to find out who she is (1:00)':
-			cla
-			minut += 60
-			fotsearchrand = rand(0, 10)
-
-			if fotsearchrand <= 7:
-				'Despite your best efforts, you don''t manage to find the girl this time.'
-
-				act 'Go back to the "Assbook" main page':gt 'Komp', 'foto'
-			end
-
-			if fotsearchrand > 7:
-				shantfoto -= 1
-				'Despite your best efforts, you don''t manage to... wait, that''s her! You found her!'
-				gerofotorand = rand(0, 100)
-
-				if gerofotorand > 30:
-					'Your dreams of making a fortune are quickly shattered when you check out her profile. Cheap clothes, few friends, lives in a poor district of the city... this girl is not worth blackmailing.'
-
-					act 'Go back to the "Assbook" main page':gt 'Komp', 'foto'
-				end
-
-				if gerofotorand >= 5 and gerofotorand <= 30:
-					shantsr += 1
-					'When you click through her profile, you estimate she''s an unknown middle class girl. Still, she has a lot of friends and the outfits she''s wearing in her photos look stylish... she has money to spend.'
-					'"Why not make her spend some of it on me?" you laugh to yourself, and begin to write a private message.'
-					'You send her a copy of the photo with the private message, and tell her to transfer a very modest amount of 5,000 <b>₽</b> to your bank account. If she doesn''t want that photo to be sent to her entire friends list (which you secured before sending the message), the money needs to be on your bank account within 48 hours.'
-
-					act 'Go back to the "Assbook" main page':gt 'Komp', 'foto'
-				end
-
-				if gerofotorand < 5:
-					shantbog += 1
-					'You can barely believe it when you read her profile, this girl is a celebrity! It would be a major scandal if this photo got published!'
-					'You send her a copy of the photo with a private message, telling her to transfer 30,000 <b>₽</b> to your bank account. If she doesn''t want that photo to be sent to the press, the money needs to be on your bank account within 48 hours.'
-
-					act 'Go back to the "Assbook" main page':gt 'Komp', 'foto'
-				end
-			end
-		end
-	end
-
-	act 'Leave this website':gt 'Komp', 'brows'
-end
-
-if $ARGS[0] = 'rabota':
-	cla
-	*clr
-	minut += 60
-	internet -= 1
-	komprabota = rand(0, 10)
-	if $LOC = 'shulga_room':komprabota = rand(5, 15)
 	gs 'stat'
 
-	if internet = 0:
+	if internet <= 0:
 		'<center><b>Browser</b></center>'
 		'<center><img <<$set_imgh>> src="images/shared/accessories/computer/eror.jpg"></center>'
 		'You have no prepaid internet access remaining. You need to buy more, before you can go online again.'
@@ -489,6 +428,79 @@ if $ARGS[0] = 'rabota':
 		act '<B>Close the browser</B>':gt 'Komp','start'
 
 	else
+
+		'<center><img <<$set_imgh>> src="images/shared/accessories/computer/komp.jpg"></center>'
+		'You''re currently on Russia''s biggest social network site, "Assbook". Almost everyone has an account here, probably including the girl you took that photo of the other day!'
+		'"Maybe if I can find her, I can blackmail her", you think to yourself. "This photo is very raunchy, after all... I bet she would hate to see it published, if she''s important!"'
+		'You can''t help but rub your pussy every now and then while you look at it. You''ll probably keep a copy of this for yourself, either way!'
+
+		if shantfoto > 0:
+			act 'Try to find out who she is (1:00)':
+				cla
+				minut += 60
+				elektro += 3
+				internet -= 1
+				fotsearchrand = rand(0, 10)
+
+				if fotsearchrand <= 7:
+					'Despite your best efforts, you don''t manage to find the girl this time.'
+
+					act 'Go back to the "Assbook" main page':gt 'Komp', 'foto'
+				end
+
+				if fotsearchrand > 7:
+					shantfoto -= 1
+					'Despite your best efforts, you don''t manage to... wait, that''s her! You found her!'
+					gerofotorand = rand(0, 100)
+
+					if gerofotorand > 30:
+						'Your dreams of making a fortune are quickly shattered when you check out her profile. Cheap clothes, few friends, lives in a poor district of the city... this girl is not worth blackmailing.'
+
+						act 'Go back to the "Assbook" main page':gt 'Komp', 'foto'
+					end
+
+					if gerofotorand >= 5 and gerofotorand <= 30:
+						shantsr += 1
+						'When you click through her profile, you estimate she''s an unknown middle class girl. Still, she has a lot of friends and the outfits she''s wearing in her photos look stylish... she has money to spend.'
+						'"Why not make her spend some of it on me?" you laugh to yourself, and begin to write a private message.'
+						'You send her a copy of the photo with the private message, and tell her to transfer a very modest amount of 5,000 <b>₽</b> to your bank account. If she doesn''t want that photo to be sent to her entire friends list (which you secured before sending the message), the money needs to be on your bank account within 48 hours.'
+
+						act 'Go back to the "Assbook" main page':gt 'Komp', 'foto'
+					end
+
+					if gerofotorand < 5:
+						shantbog += 1
+						'You can barely believe it when you read her profile, this girl is a celebrity! It would be a major scandal if this photo got published!'
+						'You send her a copy of the photo with a private message, telling her to transfer 30,000 <b>₽</b> to your bank account. If she doesn''t want that photo to be sent to the press, the money needs to be on your bank account within 48 hours.'
+
+						act 'Go back to the "Assbook" main page':gt 'Komp', 'foto'
+					end
+				end
+			end
+		end
+
+		act 'Leave this website':gt 'Komp', 'brows'
+	end
+end
+
+if $ARGS[0] = 'rabota':
+	cla
+	*clr
+
+	if internet <= 0:
+		'<center><b>Browser</b></center>'
+		'<center><img <<$set_imgh>> src="images/shared/accessories/computer/eror.jpg"></center>'
+		'You have no prepaid internet access remaining. You need to buy more, before you can go online again.'
+
+		act '<B>Close the browser</B>':gt 'Komp','start'
+
+	else
+
+		minut += 60
+		internet -= 1
+		komprabota = rand(0, 10)
+		if $LOC = 'shulga_room':komprabota = rand(5, 15)
+		gs 'stat'
 
 		'<center><img <<$set_imgh>> src="images/shared/accessories/computer/komp.jpg"></center>'
 

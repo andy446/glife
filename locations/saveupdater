@@ -326,5 +326,16 @@ if billiardnav > 0: pool_exp += billiardnav & killvar 'billiardnav' & killvar 'p
 	end
 end
 }
+
+!! set $home_town variable and remove consequential obsolete variables
+if $home_town = '':
+	gs 'set_home', home_cur
+	killvar 'svidboykino'
+	killvar 'svidboypark'
+	killvar 'svidboypark1'
+	killvar 'svidboypark2'
+	killvar 'svidboykafe'
+end
+
 --- saveupdater ---------------------------------
 

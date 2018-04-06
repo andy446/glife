@@ -443,7 +443,7 @@ if $ARGS[0] = '5':
 			pornbj += 1
 			gs 'stat'
 			'<center><video autoplay loop src="images/locations/city/citycenter/studio/sex/tbj2.mp4"></video></center>'
-			'You start by sucking both members trying to please them both. Then, using your tounge, you draw circles under <<$pakter[1]>>s gland, making him moan.'
+			'You start by sucking both members trying to please them both. Then, using your tongue, you draw circles under <<$pakter[1]>>s gland, making him moan.'
 			'Then you push your lips tightly against <<$pakter[2]>>s head, until your mouth is forced open, the look in his eyes tells you he''s ready'
 
 			gs 'arousal', 'bj', 15, 'exhibitionism'
@@ -769,7 +769,7 @@ if $ARGS[0] = '8':
 			*clr
 			gs 'stat'
 			'<center><video autoplay loop src="images/locations/city/citycenter/studio/sex/tbj2.mp4"></video></center>'
-			'You start by sucking both members trying to please them both. Then, using your tounge, you draw circles under <<$pakter[1]>>''s gland, making him moan.'
+			'You start by sucking both members trying to please them both. Then, using your tongue, you draw circles under <<$pakter[1]>>''s gland, making him moan.'
 			'Then you push your lips tightly against <<$pakter[2]>>''s head, until your mouth is forced open, the look in his eyes tells you he''s ready'
 
 			gs 'arousal', 'bj', 15, 'exhibitionism', 'group'
@@ -872,7 +872,7 @@ if $ARGS[0] = '9':
 			*clr
 			gs 'stat'
 			'<center><video autoplay loop src="images/locations/city/citycenter/studio/sex/tbj2.mp4"></video></center>'
-			'You start by sucking both members trying to please them both. Then, using your tounge, you draw circles under <<$pakter[1]>>''s gland, making him moan.'
+			'You start by sucking both members trying to please them both. Then, using your tongue, you draw circles under <<$pakter[1]>>''s gland, making him moan.'
 			'Then you sucking <<$pakter[2]>>''s dick while he grabs your hair for leverage and facefuck you. After a while the director gestures for you to get to the next scene, so he releases you, and looking at <<$pakter[1]>> he urges you to push your ass out.'
 
 			gs 'arousal', 'bj', 15, 'exhibitionism', 'group', 'rough', 'deepthroat'

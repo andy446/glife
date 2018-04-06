@@ -41,6 +41,7 @@ if $ARGS[0] = 'start':
 					gs 'stat'				
 					gs 'boyStat', 'A38'
 					harakBoy = 1
+					Yuri_sex = 1
 					NoGuy = 1
 					gtGuy = 1
 					finance = 1

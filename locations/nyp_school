@@ -468,7 +468,7 @@ if $ARGS[0] = 'nerds':
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/newyear/nerds.jpg"></center>'
 				'"I need to think about it, I''m not to sure this is for me..." you answer.'
 				'Feofan looks a bit dejected, "Well you know where you can find us. Whenever you decide what you want to do you''re more than welcome to join us."'
-				'"Ha!" Natasha yells out, "I told you <<$pcs_nickname>> wouldn''t want to join you." she sticks her tounge out.'
+				'"Ha!" Natasha yells out, "I told you <<$pcs_nickname>> wouldn''t want to join you." she sticks her tongue out.'
 				'You try to calm the situation down and play peace maker. "It''s not I don''t want to, I have school work and other stuff going on. I just don''t know if I have time for something like that."'
 				'Natasha shrugs her shoulders, "It''s good enough for me." as she gives the others an exasperating grin.'
 				'You end up talking to Natasha about the latest things going on in school, while the rest of them go back to talking about their game.'

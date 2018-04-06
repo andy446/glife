@@ -76,7 +76,7 @@ if $ARGS[0] = 'panties':
 	:loopkats_panties
 		if kats_panties[i] = 0:*p '<a href="exec: i = <<i>> & gt ''sell_young_clothes'', ''panties2''"><img src="images/pc/panties/kats/<<i>>.jpg" 	height="150" /></a> '
 		i += 1
-	if i <= 66:jump 'loopkats_panties'
+	if i <= 72:jump 'loopkats_panties'
 end
 
 if $ARGS[0] = 'panties2':
@@ -108,7 +108,7 @@ if $ARGS[0] = 'bras':
 	:loopkats_bras
 		if kats_bras[i] = 0:*p '<a href="exec: i = <<i>> & gt ''sell_young_clothes'', ''bras2''"><img src="images/pc/bras/kats/<<i>>.jpg" 	height="150" /></a> '
 		i += 1
-	if i <= 35:jump 'loopkats_bras'
+	if i <= 41:jump 'loopkats_bras'
 end
 
 if $ARGS[0] = 'bras2':

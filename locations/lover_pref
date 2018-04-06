@@ -366,7 +366,7 @@ end
 if makePrefTmp = 0:
 	$makePrefTmp = 'any amount of makeup'
 elseif makePrefTmp = 1:
-	$makePrefTmp = 'a sutle amount of makeup'
+	$makePrefTmp = 'a subtle amount of makeup'
 elseif makePrefTmp = 2:
 	$makePrefTmp = ' a good amount of makeup'
 elseif makePrefTmp = 3:

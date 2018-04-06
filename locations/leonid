@@ -629,86 +629,77 @@ if $ARGS[0] = 'massage':
 	minut += 2
 	'You are about to give a massage to <<$bName>> <<$bSurname>>..'
 	act 'Strip down and give erotic massage':gt 'leonid', 'massageErotic'	
-	act 'Give him regular massage':gt 'leonid', 'massageRegular'	
+!!	act 'Give him regular massage':gt 'leonid', 'massageRegular'	
 end
-	if $ARGS[0] = 'massageErotic':
-		durr = 30
-		minut += durr
-		gs 'stat'
-		gs 'arousal', 'foreplay', durr
-		leoHorny += rand (60, 80)
-		leoComfort -= rand (40, 60)
-		'<center><video autoplay loop src="images/characters/pavlovsk/resident/leonid/sex/massageerotic'+rand(1,2)+'.mp4"></video></center>'
-		'<<$bName>> lies down on a table. You strip down your clothes and give him errotic massage using oil.'
-		'First his back, then you move to his front. He seems to enjoy it..'
-		act 'End the massage end get back to work':gt 'leonid', 'office'
-		act 'Use your hands':gt 'leonid', 'massageEroticHandjob'
-		gs 'stat'
-	end
-		if $ARGS[0] = 'massageEroticHandjob':
-			durr = 5
-			minut += durr
-			gs 'stat'
-			gs 'arousal', 'hj', durr
 
-			'<center><video autoplay loop src="images/characters/pavlovsk/resident/leonid/sex/massageerotichand.mp4"></video></center>'
-			'<<$bName>>''s member is already hard in the moment you reach for it.'
-			'Gently jerking it off he seems to be aroused even more.'
-			act 'Finish him with your hand':gt 'leonid', 'massageEroticHandjobFinish'
-			act 'Continue with mouth':gt 'leonid', 'massageEroticBlowjob'
-		end
-			if $ARGS[0] = 'massageEroticHandjobFinish':
-				durr = 15
-				minut += durr
-				gs 'stat'
-				gs 'arousal', 'hj', durr
-				gs 'cum_call', 'hands', $boy, 1
-				'<center><video autoplay loop src="images/characters/pavlovsk/resident/leonid/sex/massageerotichandfinish.mp4"></video></center>'
-				'You bring him to an orgasm using your hand..'
-				leoHorny -= rand (40, 50)
-				act 'Clean up and get back to work':gt 'leonid', 'office'
-			end
-		if $ARGS[0] = 'massageEroticBlowjob':
-			durr = 5
-			minut += durr
-			gs 'stat'
-			gs 'arousal', 'bj', durr
-			'<center><video autoplay loop src="images/characters/pavlovsk/resident/leonid/sex/massageeroticmouth'+rand(1, 2)+'.mp4"></video></center>'
-			'His hard cock feels nice in your mouth and <<$bName>> seems to enjoy it even more than just your hand..'
-				act 'Finish him with your mouth':gt 'leonid', 'massageEroticBlowjobFinish'
-				act 'Bend over and offer your holes':gt 'leonid', 'massageEroticFuck'				
-		end
-			if $ARGS[0] = 'massageEroticBlowjobFinish':
-				durr = 15
-				minut += durr
-				gs 'stat'
-				gs 'arousal', 'bj', durr
-				gs 'cum_call', 'mouth', $boy, 1
-				'<center><video autoplay loop src="images/characters/pavlovsk/resident/leonid/sex/massageeroticmouthfinish.mp4"></video></center>'
-				'You bring him to an orgasm using your mouth..'
-				leoHorny -= rand (50, 60)
-				act 'Clean up and get back to work':gt 'leonid', 'office'
-			end
-		if $ARGS[0] = 'massageEroticFuck':
-			durr = 10
-			minut += durr
-			gs 'stat'
-			gs 'arousal', 'vaginal', durr
-			'<center><video autoplay loop src="images/characters/pavlovsk/resident/leonid/sex/massageeroticfuck.mp4"></video></center>'
-			'<<$bName>> does not take long, get up and sticks his hard cock inside your already wet pussy.'
-				act 'Let him finish':gt 'leonid', 'massageEroticFuckFinish'			
-		end
-			if $ARGS[0] = 'massageEroticFuckFinish':
-				durr = 15
-				minut += durr
-				gs 'stat'
-				gs 'arousal', 'vaginal', durr
-				gs 'cum_call', '', $boy, 1
-				'<center><video autoplay loop src="images/characters/pavlovsk/resident/leonid/sex/massageeroticfuckfinish.mp4"></video></center>'
-				'He fucks you until he cums. Inside..'
-				leoHorny -= rand (60, 80)
-				act 'Clean up and get back to work':gt 'leonid', 'office'
-			end
+if $ARGS[0] = 'massageErotic':
+	gs 'stat'
+	gs 'arousal', 'foreplay', 30
+	leoHorny += rand (60, 80)
+	leoComfort -= rand (40, 60)
+	'<center><video autoplay loop src="images/characters/pavlovsk/resident/leonid/massageerotic'+rand(1,2)+'.mp4"></video></center>'
+	'<<$bName>> lies down on a table. You strip down your clothes and give him errotic massage using oil.'
+	'First his back, then you move to his front. He seems to enjoy it..'
+	act 'End the massage end get back to work':gt 'leonid', 'office'
+	act 'Use your hands':gt 'leonid', 'massageEroticHandjob'
+end
+
+if $ARGS[0] = 'massageEroticHandjob':
+	gs 'stat'
+	gs 'arousal', 'hj', 5
+	'<center><video autoplay loop src="images/characters/pavlovsk/resident/leonid/sex/massageerotichand.mp4"></video></center>'
+	'<<$bName>>''s member is already hard in the moment you reach for it.'
+	'Gently jerking it off he seems to be aroused even more.'
+	act 'Finish him with your hand':gt 'leonid', 'massageEroticHandjobFinish'
+	act 'Continue with mouth':gt 'leonid', 'massageEroticBlowjob'
+end
+
+if $ARGS[0] = 'massageEroticHandjobFinish':
+	gs 'stat'
+	gs 'arousal', 'hj', 15
+	gs 'cum_call', 'hands', $boy, 1
+	'<center><video autoplay loop src="images/characters/pavlovsk/resident/leonid/sex/massageerotichandfinish.mp4"></video></center>'
+	'You bring him to an orgasm using your hand..'
+	leoHorny -= rand (40, 50)
+	act 'Clean up and get back to work':gt 'leonid', 'office'
+end
+
+if $ARGS[0] = 'massageEroticBlowjob':
+	gs 'stat'
+	gs 'arousal', 'bj', 5
+	'<center><video autoplay loop src="images/characters/pavlovsk/resident/leonid/sex/massageeroticmouth'+rand(1, 2)+'.mp4"></video></center>'
+	'His hard cock feels nice in your mouth and <<$bName>> seems to enjoy it even more than just your hand..'
+	act 'Finish him with your mouth':gt 'leonid', 'massageEroticBlowjobFinish'
+	act 'Bend over and offer your holes':gt 'leonid', 'massageEroticFuck'				
+end
+
+if $ARGS[0] = 'massageEroticBlowjobFinish':
+	gs 'stat'
+	gs 'arousal', 'bj', 15
+	gs 'cum_call', 'mouth', $boy, 1
+	'<center><video autoplay loop src="images/characters/pavlovsk/resident/leonid/sex/massageeroticmouthfinish.mp4"></video></center>'
+	'You bring him to an orgasm using your mouth..'
+	leoHorny -= rand (50, 60)
+	act 'Clean up and get back to work':gt 'leonid', 'office'
+end
+
+if $ARGS[0] = 'massageEroticFuck':
+	gs 'stat'
+	gs 'arousal', 'vaginal', 10
+	'<center><video autoplay loop src="images/characters/pavlovsk/resident/leonid/sex/massageeroticfuck.mp4"></video></center>'
+	'<<$bName>> does not take long, get up and sticks his hard cock inside your already wet pussy.'
+	act 'Let him finish':gt 'leonid', 'massageEroticFuckFinish'			
+end
+
+if $ARGS[0] = 'massageEroticFuckFinish':
+	gs 'stat'
+	gs 'arousal', 'vaginal', 15
+	gs 'cum_call', '', $boy, 1
+	'<center><video autoplay loop src="images/characters/pavlovsk/resident/leonid/sex/massageeroticfuckfinish.mp4"></video></center>'
+	'He fucks you until he cums. Inside..'
+	leoHorny -= rand (60, 80)
+	act 'Clean up and get back to work':gt 'leonid', 'office'
+end
 
 if $ARGS[0] = 'officeLeonidHasTime':
 	minut += 2
@@ -791,10 +782,8 @@ if $ARGS[0] = 'officeLeonidPunishmentSpank':
 	leoStress -= 50
 	minut += 30
 	pain['asscheeks'] += 10
-	durr = 10
-	minut += durr
 	gs 'stat'
-	gs 'arousal', 'foreplay', durr, 'sub', 'maso', 'humiliation'
+	gs 'arousal', 'foreplay', 10, 'sub', 'maso', 'humiliation'
 
 	if leonidSecretary = 1:
 		act 'Get back':gt 'leonid', 'secretaryGate'

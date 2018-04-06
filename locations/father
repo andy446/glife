@@ -70,7 +70,7 @@ if pirsA > 0 and pirsA < 10000 and pirsAfather=0 and pirsadaytalk!daystart:
 			cls
 			pirsAfather=1
 			gs'stat'
-			'<center><img <<$set_imgh>> src="images/pc/body/piercings/pirsa.jpg" ></center>'
+			'<center><img <<$set_imgh>> src="images/pc/body/piercings/a<<pirsA>>.jpg" ></center>'
 			'You open your mouth and stick out your tongue, showing him your piercing.'
 			if TouchedByFather=0:'Your stepfather shakes his head: "<<$pcs_nickname>>, tongue piercings are only for lewd women who use their mouth to please men."'
 			if TouchedByFather>0:'Your stepfather grins: "Nice, I bet you could make someone feel really good with that..."'
@@ -88,7 +88,7 @@ if pirsB > 0 and pirsB < 10000 and pirsBfather=0 and pirsbdaytalk!daystart:
 		cls
 		pirsBfather=1
 		gs'stat'
-		'<center><img <<$set_imgh>> src="images/pc/body/piercings/b1.jpg" ></center>'
+		'<center><img <<$set_imgh>> src="images/pc/body/piercings/b<<pirsB>>.jpg" ></center>'
 		'You shrug. "I don''t know... I just like the way lip rings look, so I got one. Don''t you think it looks cute?"'
 		if TouchedByFather=0:
 			'Your stepfather shakes his head: "Kids these days, always adding new holes to themselves..."'
@@ -621,15 +621,9 @@ if npc_sex['A28']!0 and pirsG > 0 and pirsG < 10000 and PutsawpirsG = 0 and (hou
 		minut += 5
 		pcs_horny += 15
 		PutsawpirsG = 1
-		if pcs_pubes > 10:
-			'<center><img <<$set_imgh>> src="images/pc/body/piercings/glob.jpg" ></center>'
-			'Moving closer to your stepfather, you tease him by showing him your somewhat hairy pussy. He doesn''t know you have a pubic piercing yet, and you plan on showing it off today. As you absently rub your fingers through your bush, the glint of metal catches his eye and he pushes your hand away before you get a chance to tell him about it. "Well well, what do we have here?" he mutters, gently rubbing his fingers over the shiny new piercing. "<<$pcs_nickname>>, you are such a horny devil... I love it, we''re going to have a lot of fun with this." He spends the next few minutes rubbing and tugging on your new piercing, making lewd comments the whole time. After that he reluctantly lets you go, leaving you hornier than before.'
-			act 'Move away':gt $loc, $metka
-		else
-			'<center><img <<$set_imgh>> src="images/pc/body/piercings/g.jpg" ></center>'
-			'Moving closer to your stepfather, you tease him by showing him your smooth pussy. He doesn''t know you have a pubic piercing yet, and you plan on showing it off today. As you absently rub your fingers over your labia, the glint of metal catches his eye and he pushes your hand away before you get a chance to tell him about it. "Well well, what do we have here?" he mutters, gently rubbing his fingers over the shiny new piercing. "<<$pcs_nickname>>, you are such a horny devil... I love it, we''re going to have a lot of fun with this." He spends the next few minutes rubbing and tugging on your new piercing, making lewd comments the whole time. After that he reluctantly lets you go, leaving you hornier than before.'
-			act 'Move away':gt $loc, $metka
-		end
+		'<center><img <<$set_imgh>> src="images/pc/body/piercings/g<<pirsG>>.jpg" ></center>'
+		'Moving closer to your stepfather, you tease him by showing him your pussy. He doesn''t know you have a pubic piercing yet, and you plan on showing it off today. As you absently rub your fingers across your labia, the glint of metal catches his eye and he pushes your hand away before you get a chance to tell him about it. "Well well, what do we have here?" he mutters, gently rubbing his fingers over the shiny new piercing. "<<$pcs_nickname>>, you are such a horny devil... I love it, we''re going to have a lot of fun with this." He spends the next few minutes rubbing and tugging on your new piercing, making lewd comments the whole time. After that he reluctantly lets you go, leaving you hornier than before.'
+		act 'Move away':gt $loc, $metka
 	end
 end
 

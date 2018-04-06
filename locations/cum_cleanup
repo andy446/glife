@@ -1,6 +1,32 @@
 # cum_cleanup
 
-!{	Locations to be defined by 'spafinloc'
+!!{To use set a value for cumspclnt then gosub cum_cleanup
+Values for cumspclnt:
+	1	'full external clean'
+	2	'teeth clean'
+	3	'internal clean'
+	4	'external body clean'
+	5	'hair clean'
+	6	'clothes clean'
+	7	'enema'
+	8	'blank'
+	9	'wash hands'
+	10	'full external clean'
+	11	'wash face'
+	12	'face and hair'
+	13	'head'
+	14	'belly'
+	15	'wipe ass/pussy'
+	16	'Breasts'
+	17	'Arms/legs'
+	18	'full clean but skipping internal due to hypno'
+	19
+	20	'Clean everything' - Full reset
+ie.
+cumspclnt = 5
+gs 'cum_cleanup'}
+
+!!{	Locations of cum on Sveta which correspond to the toclean variable
 	0 = 'In your Vagina'
 	1 = 'On your labia'
 	2 = 'On your panties over your vagina'
@@ -196,6 +222,7 @@ elseif $ARGS[0] = '':
 		toclean[arrsize('toclean')] = 9
 		toclean[arrsize('toclean')] = 10
 	elseif cumspclnt = 18:
+		!{full clean but skipping internal due to hypno}
 		toclean[arrsize('toclean')] = 1
 		toclean[arrsize('toclean')] = 2
 		toclean[arrsize('toclean')] = 4

@@ -1677,7 +1677,7 @@ else
 	CloAdjustedBeauty = bonusZ + pcs_apprncbase * (PXCloThinness + PXCloTopCut + PXCloSkirtShortness + PXCloPantsShortness) * PCloQuality / 5000 + PShoQuality
 end
 
-if $wornclothingtype = 'exercise': CloAdjustedBeauty = CloAdjustedBeauty * 2 / 3
+if $clothingworntype = 'exercise': CloAdjustedBeauty = CloAdjustedBeauty * 2 / 3
 
 !!bonuses for certain underwears
 if $pantyworntype = 'boutique':

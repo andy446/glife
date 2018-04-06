@@ -16,7 +16,7 @@ if $ARGS[0] = '1':
 
 	if hour > 7 and hour < 21:
 		cls
-		'In the shadow of a tree you can see a man stand, he watches you and when you look back at him he simple shouts "Whore!" at you.'
+		'Hidden by a tree''s shadow, you notice a man standing there, he watches you and when you look back at him he shouts "Whore!" at you.'
 
 		act 'Silently leave':sub += 1 & gt 'park', 'start'
 
@@ -29,9 +29,9 @@ if $ARGS[0] = '1':
 		end
 
 		exit
-	elseif suchunt = 1:
+	else if suchunt = 1:
 		cla
-		'From the shadow of a tree, a guy walked out...'
+		'From the shadow of the tree, a guy walks out...'
 		'He comes up to you, grabs you, and, through gritted teeth says, "Com''ear Bitch", dragging you into the bushes.'
 		'He never notices your little smile as you anticipate the meal to come.'
 		suchunt = 0
@@ -39,7 +39,8 @@ if $ARGS[0] = '1':
 		suchuntday = daystart
 		act 'Continue': gt 'succubus', 'RapistFight'
 	else
-		'From the shade of a tree guy came out, he came up to you and through gritted teeth, "Babe", you dragged into the bushes.'
+		'From the shadow of the tree, a guy walks out...'
+		'He comes up to you, grabs you, and, through gritted teeth says, "Com''ear Bitch", dragging you into the bushes.'
 		gs 'npcgeneratec', 0, 'Rapist', rand(18,40)
 		gs 'boyStat', $npclastgenerated
 		act 'Fight him':
@@ -108,7 +109,7 @@ if $ARGS[0] = '1':
 			else
 				cla
 				minut += 60
-				'You rush through the park, not caring where you''re going. You''re just trying to get the hell away from him. After almost an hour of running, you finally catch your breath and the rapist is norwhere to be seen.'
+				'You rush through the park, not caring where you''re going. You''re just trying to get the hell away from him. After almost running for an hour, you finally catch your breath and the rapist is nowhere to be seen.'
 
 				act 'Further':
 					cls
@@ -142,33 +143,32 @@ if $ARGS[0] = '2':
 
 	if pcs_apprnc >= 120 and parkday = daystart:
 		cls
-		'You see a man sitting under a tree drinking beer. It''s the guy who fucked you here in the park today. He looks at you and his sudden grin tells you that he remembers who you are.'
+		'You see a man sitting under a tree drinking beer. It''s the guy who fucked you here in the park a while ago. He looks at you and his sudden grin tells you that he remembers who you are.'
 
 		act 'Leave':gt 'park', 'start'
 
 		exit
 	elseif pcs_apprnc >= 120 and parkday ! daystart and parkslut > 0:
 		cls
-		'From the bench under one of the trees came a guy up to you. It''s the guy who fucked you here in the park a while back. He smiles and asks you "Hello again beautiful girl, do you mind if we do it once again?"'
+		'From the bench under one of the trees a guy comes up to you. It''s the guy who fucked you here in the park a while back. He smiles and asks you "Hello again beautiful girl, do you mind if we do it once again?"'
 
 		act 'Walk away':gt 'park', 'start'
 
 		act '"I don''t mind it all"':
 			cla
-			'The guy laughed "Unfortunately, I don''t it''ll be as much fun as the first time, but why don''t you already bend over?".'
+			'The guy laughs "Unfortunately, I doubt it''ll be as much fun as the first time, but why don''t you bend over this bench right here?"'
 
 			act '"Not this time, I''m afraid"':gt 'park', 'start'
 
 			act 'Bend over the bench':
-				cla
-				*clr
+				cla & *clr
 				money += 500
 				gs 'boyStat', 'A121'
 				parkday = daystart
 
 				picrand = rand(1, 6)
 				'<center><img <<$set_imgh>> src="images/locations/shared/park/sex/bench/dogging<<picrand>>.jpg"></center>'
-				'The man pushes you over the backrest of the bench and pushes his cock into your pussy. He slowly begins to thrusts in and out of it.'
+				'The man pushes you over the backrest of the bench and pushes his cock into your pussy. He slowly begins to thrust in and out of you.'
 
 				gs 'cum_call', '', 'Guy from the park'
 				gs 'arousal', 20, 'vaginal', 'prostitution'
@@ -181,11 +181,11 @@ if $ARGS[0] = '2':
 		exit
 	elseif pcs_apprnc >= 120 and parkday ! daystart and parkslut = 0:
 		cls
-		'From the trees comes a man to you. "Good evening beautiful lady, would you like to earn 2.000 <b>₽</b>?" he asks you.'
+		'A man appears from the shadows and approaches you, "Good evening beautiful lady, would you like to earn 2.000 <b>₽</b>?" he asks you.'
 
 		act 'Ask him how to do it':
 			cla
-			'"What do I have to do?", you ask him. He smiles, "Let us go over there." and points over to the bench in a somewhat secluded part of the park.'
+			'"What do I have to do?", you ask. He smiles, "Let us go over there." and points over to the bench in a somewhat secluded part of the park.'
 
 			act 'Fuck off, asshole':gt 'park', 'start'
 
@@ -200,7 +200,7 @@ if $ARGS[0] = '2':
 
 				picrand = rand(1, 6)
 				'<center><img <<$set_imgh>> src="images/locations/shared/park/sex/bench/dogging<<picrand>>.jpg"></center>'
-				'The man pushes you over the backrest of the bench and pushes his cock into your pussy. He slowly begins to thrusts in and out of it.'
+				'The man pushes you over the backrest of the bench and pushes his cock into your pussy. He slowly begins to thrust in and out of you.'
 
 				gs 'cum_call', '', 'Guy from the park'
 				gs 'arousal', 20, 'vaginal', 'prostitution'
@@ -270,7 +270,7 @@ if $ARGS[0] = '3':
 
 				if fotoparkrand = 0:
 					'You hide behind the tree and start taking pictures. Somehow you get carried away and one of the perpetrators noticed you. He slowly walks up behind you, grabs you and takes you to the others.'
-					'"Look what I''ve found. We''ve got ourselves a stalker" says the guy while holding you tightly.'
+					'"Look what I''ve found. We''ve got ourselves a new volunteer." says the guy while holding you tightly.'
 					killvar '$boy'
 					gs 'npcgeneratec', 0, 'Rapist', rand(18,40)
 					gs 'boyStat', $npclastgenerated
@@ -330,7 +330,7 @@ if $ARGS[0] = '3':
 
 							act 'Further':gt 'paysex', 'start'
 						elseif peshimraperand > 10:
-							'You rush through the park, not caring where you''re going. You''re just trying to get the hell away from him. After almost an hour of running, you finally catch your breath and the rapist is norwhere to be seen.'
+							'You rush through the park, not caring where you''re going. You''re just trying to get the hell away from him. After almost an hour of running, you finally catch your breath and the rapists are nowhere to be seen.'
 							locbegrand = rand(0, 4)
 
 							if locbegrand = 0:
@@ -361,16 +361,18 @@ if $ARGS[0] = '4':
 
 	if parkblackmail = 0:
 		cls
-		'On one of the open grass areas, you see a group of young people having a barbecue. As you walk past them, a guy who is with them, walks up to you and asks you, if you would like to join them.'
+		'On one of the parks open grass area, you see a group of young people enjoying a barbecue. As you walk past them, a guy who is with them, walks up to you and asks if you would like to join them.'
 
 		act 'Decline and continue your walk':gt 'park', 'start'
 
 		act 'Agree and join them':
 			cla
-			'You had fun drinking with the guys and girls. One of the guys comes up behind you while you''re at the table an put his arms around your waist, then presses himself against your ass. ...God, he''s HUGE. It feels like a big sausage against your lower back... damn, it''s so hot. You suddenly wonder if you''ve been drinking too fast.'
-			'Shortly after, one of the guy gropes your titties and pushes you against the closest tree. You softly moan as he massages your breasts. You can feel his stiff cock poking your belly. Then he asks you in a rather harsh tone, "You like this slut, don''t you?"'
-			'Another guy roughly grabs your breasts, pushes you back against the closest tree, and presses his hips against you. His stiff cock rests against your belly, and you moan softly from the feeling. He roughly asks, "Like it, slut?"'
-
+			alko += 6
+			minut += 30
+			gs 'stat'
+			'You had fun drinking with the guys and girls. One of the guys comes up behind you while you''re at the table and puts his arms around your waist, then presses himself against your ass. <i>...God, he''s HUGE. It feels like a big sausage against your lower back... damn, why do I suddenly feel so hot.</i> You begin to wonder if you''ve been drinking too fast.'
+			'Shortly after, one of the guy gropes your breast and pushes you against the closest tree. You softly moan as he massages your breasts. You can feel his stiff cock poking your belly. Then he asks you in a rather harsh tone, "You like this slut, don''t you?"'
+	
 			act 'Tell him to get away':
 				cla
 				'You sharply tell him to let you go. Surprised, he takes a step back, and you move away from the tree.'
@@ -384,41 +386,55 @@ if $ARGS[0] = '4':
 
 					act 'Do as he tells you':
 						cla
-						hour += 2
 						rape += 1
 						gang += 1
-						minut += 120
 						gs 'stat'
 						'<center><img <<$set_imgh>> src="images/shared/sex/blowjob/parkbj.jpg"></center>'
-						'Too drunk to resist further, you quickly do as he says. He drops his pants to his knees and abruptly thrusts his big dick into your mouth. You quickly forget about everything else and start hungrily sucking on him - his big, juicy, fragrant cock is driving you mad. He gathers your hair behind your head to make sure it doesn''t get in the way. After a little while he pulls his delicious cock out of your mouth - but it''s immediately replaced by a guy you didn''t even notice approach.'
-						'His cock is so big, you can barely breath and are on the verge of fainting. More men gather around you and take out their cocks for you to suck on. They call you many names, but ''Slut'' burns itself into your memory, so often it''s used. You suck them off one by one, giving two other cocks a handjob. You try to swallow as much cum as possible, maybe it''s due to you being drunk, but the taste is just overwhelming to you. One of them removes your top, so everyone can enjoy the sight of your beautiful titties.'
-						'His cock even bigger than the last guy''s, and the excitement it gives you is almost overpowering. The other guys gather around and hurl insults at you, mocking you for sucking strangers. You suck each them off too, one by one, while stroking others, a dick in each hand. Every guy you blow cums in your mouth, and you swallow every time. Someone pulls down your top, letting your boobs spill out. You feel a cock slap against your chest as someone takes the opportunity to give himself a titfuck.'
+						'Too drunk to resist further, you quickly do as he says. He drops his pants to his knees and abruptly thrusts his big dick into your mouth. You quickly forget about everything else and start hungrily sucking him off. His big, juicy, fragrant cock is driving you mad. He gathers your hair behind your head to make sure it doesn''t get in the way. After a little while he pulls his delicious cock out of your mouth, but it''s immediately replaced by a guy you didn''t even notice approach.'
+						'His cock is so big, you can barely breath and are on the verge of fainting. More men gather around you and take out their cocks for you to suck on. They call you many names, but ''Slut'' burns itself into your memory, so often it''s used. You suck them off one by one, giving two other cocks a hand job. You try to swallow as much cum as possible, maybe it''s due to you being drunk, but the taste is just overwhelming to you. One of them removes your top, so everyone can enjoy the sight of your beautiful breasts.'
+						'His cock even bigger than the last guy''s, and the excitement it gives you is almost overpowering. The other guys gather around and hurl insults at you, mocking you for sucking strangers. You suck each of them off too, one by one, while stroking others, a cock in each hand. Every guy you blow cums in your mouth, and you swallow every time. Someone pulls down your top, letting your boobs spill out. You feel a cock slap against your chest as someone takes the opportunity to give himself a titfuck.'
 						'"Fuck, slut, suck faster!" orders one of the guys.'
+						
+						gs 'arousal', 'bj', 60, 'gangbang', 'sub', 'humiliation', 'deepthroat'
+						gs 'arousal', 'hj', 60, 'gangbang', 'sub', 'humiliation'
+						gs 'arousal', 'breasts', 60, 'gangbang', 'sub', 'humiliation'
+						minut -= 60
+						gs 'stat'
 
 						act '"Guys, be quieter... someone might hear"':
 							cla
 							'"Guys, be quieter... someone might hear," you try to warn them while coughing.'
-							'One the guys bitchslaps you, "Shut up slut. You''re not here to talk."'
-							'"Stop talking and work your mouth, bitch. You''re here to suck, not to lecture us."'
+							'One the guys bitch-slaps you, "Shut up slut. You''re not here to talk."'
+							'"Stop talking and work your mouth, bitch. You''re here to suck, not to lecture us." another one adds.'
+							
+							gs 'pain', 5, 'cheeks', 'slap'
+							gs 'stat'
 
-							act 'Okay, boy.':
-								cla
-								*clr
-								minut += 120
+							act 'Okay':
+								cla & *clr
 								gs 'stat'
 
 								if parkblackmail = 0:guy += 2 & parkblackmail = 1 & parkday = daystart
-
-								stat['bj'] += 8
+								
+								stat['bj'] += 6
 								swallow += 6
-								facial += 2
 								pcs_horny = 0
-								cumface += 2
+								gs 'cum_call', 'mouth'
+								gs 'cum_call', 'face'
+								spafinloc = 11
+								spafinloc = 12
+								
 								'"Okay, boys," you say around the cock in your mouth.'
 								'You drunkenly wonder why they insist on talking so loud. But when you open your eyes, you see two of the girls from the group with a camera.'
 								'With a growl, the guy fucking your chest finally comes - and comes a lot. Your breasts are completely coated with semen. You start to feel an overpowering need to make the guy currently in your mouth cum as well. You put your hands on his ass and pull him toward you, forcing his cock down your own throat, forgetting about the cameras and onlookers. You feel like an insatiable whore as you deepthroat him, swallowing his large head as far as you can manage.'
-								'The second guy took your hair as the last whore and calling huesoska, roughly finished your face. He grabs your hair, calling you "whore" and "cocksucker" as you move your head, and at the last second roughly jerks your head backwards to cum all over your face. He bathes you with an incredible amount of sperm.'
-								'That you were ashamed goes without saying - you just swallowed six strangers'' cum and took two others'' loads all over you.'
+								'The second guy took you by the hair as roughly started to face fuck you. He grabs your hair, calling you "whore" and a "cocksucker" as he forced your head deeper his cock, and at the last second roughly jerks your head backwards to cum all over your face. He covers you with an incredible amount of sperm.'
+								'That you were ashamed goes without saying, you just swallowed six strangers'' cum and took two others'' loads all over you.'
+								
+								gs 'arousal', 'breasts', 20, 'gangbang', 'sub', 'humiliation'
+								gs 'arousal', 'bj', 20, 'gangbang', 'sub', 'humiliation', 'deepthroat'
+								minut -= 20
+								gs 'arousal', 'end'
+								gs 'stat'
 
 								act 'Go home':gt 'park', 'start'
 							end
@@ -442,29 +458,32 @@ if $ARGS[0] = '5':
 
 	if yaq = 0 and student > 0:
 		cls
-		cla
-		*clr
-		'As you walk past a bunch of trees, a man walked up to you. He introduced himself as Yaroslav and asks you, if you would like to earn some money.'
+		cla & *clr
+		minut = 20
+		gs 'stat'
+		'As you''re walking and pondering, a man walks up to you. He introduces himself as Yaroslav and asks if you would like to earn some money.'
 
 		act '"No, thanks"':gt 'park', 'start'
 
 		act '"I''m listening"':
 			cla
-			'"My house is a bit dirty and I''m look for someone who would like to keep it clean for me.", he says. "All you had to do is to dust and clean everything. My house isn''t too large."'
+			'"My house is a bit dirty and I''m looking for someone who would like to keep it clean for me," he says. "All you have to do is to dust and clean everything. My house isn''t too big so it should be quite manageable."'
 
 			act 'Turn him down':gt 'park', 'start'
 
 			act 'Agree':
 				cla
-				'"Alright, but what''s in for me?" you ask him. "I''d pay you 2.000 <b>₽</b>.", he answers. "By the way, I haven''t asked you for your name yet."'
-				'"I''m <<$pcs_nickname>>.", you tell him. He nods and smiles and tells you it''s a cute name. Then he gives you his card and judging by the address, it''s somewhere in the city center.'
+				'"Alright, but what''s in for me?" you ask him.'
+				'"I''d pay you 2.000 <b>₽</b>,", he answers. "By the way, I haven''t asked you for your name yet."'
+				'"I''m <<$pcs_nickname>>.", you tell him.'
+				'He nods and smiles and tells you it''s a cute name. Then he gives you his card and judging by the address, it''s somewhere in the city center.'
 
 				act 'Ask him, when to come by':
 					cla
 					yaq += 1
 					'"When would you like me to come by?" you ask Yaroslav.'
-					'"No hurry, just come by when you''ve got some free time, but I''m usually home in the evening, so therer''s just that.", he answers.'
-					'"Alright, thank you and see you I guess.", you say and walk away.'
+					'"No hurry, just come by when you''ve got some free time, but I''m usually home in the evening, so there''s just that." he answers.'
+					'"Alright, thank you and see you soon I guess.", you say and walk away.'
 
 					act 'Finish your walk':gt 'park', 'start'
 				end
@@ -478,11 +497,13 @@ if $ARGS[0] = '5':
 end
 
 if $ARGS[0] = '6':
+	cla & *clr
+	minut = 5
 	gs 'stat'
 
 	if ublyudokparkivent = 0:
 		cls
-		'You were walking through the, somewhen you realized, you ended up in a somewhat shady area of it. Between two trees you can see a man waving at you.'
+		'As you were deep in your own thoughts, walking through the park, you''ve strayed of the normal path, realizing you''ve ended up in a somewhat shady area of it. Standing between two trees you notice a man waving at you.'
 
 		act 'Walk away':gt 'park', 'start'
 
@@ -490,15 +511,20 @@ if $ARGS[0] = '6':
 			cla
 			*clr
 			ublyudokparkivent = 1
-			'You walk up to him, asking what he wants. He says, he would like to show you something, but suddenly you are being hit and everything fades to black.'
-
+			gs 'pain', 8, 'head', 'hit'
+			gs 'stat'
+			'You walk up to him, asking what he wants. He says, he would like to show you something. As you approach, and lean in he quickly hits you over the back head and everything fades to black.'
+			wait 3000
+			
 			act 'Wake up':
-				cla
-				*clr
+				cla & *clr
+				minut += 30
 				gs 'npcgeneratec', 0, 'Rapist', rand(18,40)
 				gs 'boyStat', $npclastgenerated
+				gs 'stat'
 				'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/1.jpg"></center>'
-				'"Ouch...", you say groggily as you wake up. "I thought you would never wake up.", a deep voice says. He grabs your hair and pulls you up, then takes his huge knife and holds it to your face. "Look pretty, if you don''t resist, this might be a pleasurable experience for you.", he tells you, "Now take off your clothes, you won''t need them for now."'
+				'"Ouch...", you say groggily as you wake up.'
+				'"I thought you would never wake up.", a deep voice says. He grabs you by the hair and pulls you up, then takes his huge knife and holds it to your face. "Look pretty, if you don''t resist, this might be a pleasurable experience for you," he tells you, "Now take off your clothes, you won''t need them for now."'
 
 				act 'Take off your clothing':gt 'parkivent', '6a'
 			end
@@ -512,29 +538,43 @@ end
 
 if $ARGS[0] = '6a':
 	cls
+	minut += 10 
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/2.jpg"></center>'
-	'He''s huge and intimidating, you decide it''s better to do as he tells you, so can get out of here alive, hence you take off you clothes and a cold breeze makes your nipples rock hard immediately.'
+	'He''s huge and intimidating, you decide it''s better to do as he tells you, so can get out of the situation alive, hence you take off you clothes and a cold breeze makes your nipples rock hard immediately.'
+	'The man is quite enjoying himself, licking his lips as he keeps on observing you taking off your clothes.'
 
-	act '...':
-		cla
-		*clr
+	act 'Now what?':
+		cla & *clr
+		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/3.jpg"></center>'
-		'"Good girl", he says and orders you to bend over. You oblige him and present your rear assets to him. He then ''inspects'' them, by spreading your ass cheeks apart. You yelp when you feel his finger is entering your cunt.'
+		'You shiver a bit as you stand in front of him, almost looking nonchalantly what now.'
+		'"Good girl," he says and orders you to bend over. You oblige and present your bum to him. He then closely ''inspects'' it, by spreading your ass cheeks apart. You yelp when you feel his finger is entering your cunt.'
 
-		act '...':
-			cla
-			*clr
+		gs 'arousal', 'vaginal_finger', 5, 'sub', 'humiliation'
+		gs 'stat'
+		
+		act 'Obey':
+			cla & *clr
+			gs 'stat'
 			'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/4.jpg"></center>'
 			'"The two of us are going to have a lot of fun together, so prepare yourself and make you tight little twat moist for me", he tells you and you begin to rub your clit. He unbuttoned his pants, took out his cock and started to stroke it, while listening to your soft moans.'
 
+			gs 'arousal', 'vaginal_finger', 5, 'sub', 'humiliation'
+			gs 'stat'
+		
 			act 'Go on...':
-				cla
-				*clr
+				cla & *clr
+				minut += 5
+				count['bj'] += 1
+				gs 'stat'
 				'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/5.jpg"></center>'
-				'"Come over here and suck me", he orders you, with his rock hard cock in his hand- Come over heNa gut*re darling, my dickhead wants you it sucked. The man grabbed me by the hair and threw it on the ground before him. My knees immediately became ragged and pinching ... - Open your mouth slut! - As soon as I open my mouth, he grabbed my head and began to thrust into my throat his fat cock.'
+				'Even though you hate to admit it, you feel quite turned on and are moan more loudly by now.'
+				'"Come over here and suck me,", he orders you, holding his rock hard cock in his hand. The man grabbed you by the hair and threw you on the ground before him.' 
+				'As you''re laying on the ground he yells out, "Open your mouth slut!"'
+				'As soon as you open the mouth, he grabs your head and began furiously thrusting his fat cock into your throat.'
 
-				act 'Suck':gt 'parkivent', '6b'
+				act 'Suck him off':gt 'parkivent', '6b'
 			end
 		end
 	end
@@ -542,175 +582,85 @@ end
 
 if $ARGS[0] = '6b':
 	cls
+	minut += 5
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/6.jpg"></center>'
-	'His dick smelled dirt and sweat and was slightly salty. I could not afford to admit that I like the taste, but it was so hard and thick that out of my vagina involuntarily flowed lubrication.'
+	'His odor is quiet strong and his cock smells quite foul and tastes slightly salty. You try your best to disconnect yourself from the foul taste but with every thrust you''re reminded of it, making you feel nauseous, barely able to hold it in.'
 
-	act '...':
-		cla
-		*clr
+	act 'Stay focused':
+		cla & *clr
+		minut += 5
+		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/7.jpg"></center>'
-		'Men do not have to make me a few minutes I became very deep swallow and lick his head from the trunk of the most balls.'
+		'It doesn''t take long before he presses himself down your throat, having you deepthroat his cock all the way down to his balls.'
+		'You gag as he''s all the way down. But he doesn''t seem to care and only let''s out a chuckle as he hears you struggle.'
 
-		act '...':
-			cla
-			*clr
+		act 'Keep going':
+			cla & *clr
+			minut += 5
+			gs 'pain', 7, 'vaginal', 'stretch'
+			gs 'stat'
 			'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/8.jpg"></center>'
-			'- Well, ka get up darling, suction is certainly good, but your hot hole is definitely better. He put me and planted in my womb just three fingers. It was very painful, my pussy has not stretched and I screamed.'
+			'All of a sudden he pulls out and your mouth makes a pop sound as his cock leaves your mouth.'
+			'"You''re quite the cocksucker, but I''d rather use your hole instead," as he takes three of his fingers and shoves them deep inside you. It''s very painful, as your pussy stretches and you scream from the pain.'
 
 			act 'Masturbate':
-				cla
-				*clr
+				cla & *clr
+				gs 'stat'
 				'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/9.jpg"></center>'
-				'Then the bastard grabbed me by the throat and forced to masturbate herself. I tried to gently stretch his hole, and he meanwhile nadrachival its eldu, then took a rope and tied me.'
-
-				act '...':
-					cla
-					*clr
+				'"Too much?" he mocks you, "I thought that whores like you could take it."'
+				'You''re looking pleadingly at his as he grabs you by the throat and tells you to masturbate by yourself. You start of gently touching yourself, while he turns his back to you and begins searching for something.' 
+				'You''re too afraid to stop as he glances at you from time to time and it doesn''t take long before you switch over to rubbing your clit as he returns with a rope.'
+				
+				gs 'arousal', 'masturbate', 5, 'sub', 'humiliation'
+				gs 'stat'
+				
+				act 'Keep going':
+					cla & *clr
+					gs 'stat'
 					'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/10.jpg"></center>'
-					'When his fat cock, I slowly began to go I started to twitch and kick, but more for the mind. Despite the frantic fear, I was very nervous and even wanted him to fuck me.'
+					'Worried, you continue on playing with yourself while he ties you up, leaving only the hand you''re masturbating with free. You keep on petting yourself for a while, letting him watch you until he tells you to stop and ties your last arm, "Hope you''ve made yourself wet enough." he whispers.'
+					'He smiles as he grabs his fat cock and leads it into you. You try to twitch and kick, but as you''re tied up you get nowhere. Without any hesitation he thrusts himself into you as you continue trying to squirm.'
 
-					act '...':
-						cla
-						*clr
+					gs 'arousal', 'masturbate', 5, 'sub', 'humiliation'
+					gs 'stat'
+				
+					act 'Stop resisting':
+						cla & *clr
+						gs 'cum_call'
+						spafinloc = 0
+						
 						'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/11.jpg"></center>'
-						'Fat cock sharply into me, pulling up to the uterus. It hurt ... or not, it was nice, I do not know, I can not tell from what I screamed so loud when he pulled me into the damn woods. It is faster and sharper, his cock swelled and I could not remember anything from the mad buzz. He abruptly shoved his cock pressed me to her pubis and hot jet of sperm hit in my uterus, vagina filling warm, slippery fluid.'
+						'For every thrust he goes deeper into you and with a violent thrust he reaches your cervix and you squeal as he smirks. He continues thrusting and by now you don''t even know if you''re enjoying yourself or you''re in pain.'
+						'You keep on screaming but to no avail, he''s pulled you deep into the woods and no one can hear your screams. Realizing this, you give up and let him have his way with you.'
+						'He picks up his pace and after a while you can feel his cock swell. He abruptly shoves his cock deep into you and you feel a hot jet of sperm fill your vagina with a warm, slippery fluid.'
+						
+						gs 'arousal', 'vaginal', 10, 'sub', 'rough', 'humiliation'
+						gs 'stat'
 
-						act 'Savoury':gt 'parkivent', '6c'
-					end
-				end
-			end
-		end
-	end
-end
-
-if $ARGS[0] = '6c':
-	cls
-	gs 'stat'
-	'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/12.jpg"></center>'
-	'- Wow ... - just said bastard, but I did not care for it, now I did not care at all and I hung blissfully kayfovat trying to squeeze numb feet. I did not even feel like it stuck in my pussy his fingers.'
-
-	act 'Licking fingers':
-		cla
-		*clr
-		pcs_mood -= 15
-		gs 'cum_manage'
-		'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/13.jpg"></center>'
-		'But I could taste his semen when those fingers were in my mouth, but then I realized that for the horror just happened that he came to me.'
-
-		act 'Iti':
-			cla
-			*clr
-			'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/14.jpg"></center>'
-			'- Come on baby ka - pulling her pants and wearing a hat, said the peasant. - You''re a little at me to stay. In my mouth turned out to gag and he untied me and pulled on the rope. I fell a few times, and he put me up in spurts and again we were on the rocks and sharp branches, it is good that he allowed me to wear shoes.'
-
-			act '...':
-				cla
-				*clr
-				'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/15.jpg"></center>'
-				'- That''s my nest - said with a smile bastard, pointing to a strong two-storey house with a high fence, surrounded by barbed wire.'
-
-				act 'Lick':gt 'parkivent', '6d'
-			end
-		end
-	end
-end
-
-if $ARGS[0] = '6d':
-	cls
-	gs 'stat'
-	'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/16.jpg"></center>'
-	'This pig did not even took me into the house, and just have cast their clothes and climbed on me. He again began to tear up my swollen pussy, but soon threw my mouth his five fingers. - Let ka, lick them well, believe you handy.'
-
-	act '...':
-		cla
-		*clr
-		'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/17.jpg"></center>'
-		'I began to lick his fingers until saliva ran down his wrist, and then he pulled out his penis and to my horror, began to shove his paws in my ass. When his fingers pushed my anus and penetrated into the rectum, I began kicking and twitching.'
-
-		act 'Cry':
-			cla
-			*clr
-			'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/18.jpg"></center>'
-			'That bastard, grabbed a knife and began to threaten me. Tears streamed from my eyes, but I promised that I will not twitch.'
-
-			act 'Relax':
-				cla
-				*clr
-				'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/19.jpg"></center>'
-				'When his cock was sticked to my compressed sfinker, I tried to relax, that was not so painful. Thick head barely poked my asshole, causing me to shout in pain, but later it became easier ... was even nice. Apparently member abuts the outer wall of the vagina had other feelings, but they were good, very good.'
-
-				act 'Shout':
-					cla
-					*clr
-					'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/20.jpg"></center>'
-					'My cries ceased to be a cry of pain, without even noticing, I began to cry from the buzz and excitement, I again wanted his cock naciloval my pink crack.'
-
-					act 'Sit on top':gt 'parkivent', '6e'
-				end
-			end
-		end
-	end
-end
-
-if $ARGS[0] = '6e':
-	cls
-	gs 'stat'
-	'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/21.jpg"></center>'
-	'When the bastard put me on, I myself began to move her hips to meet his powerful dick, wishing only that he did not stop.'
-
-	act 'Jump on a limb':
-		cla
-		*clr
-		'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/22.jpg"></center>'
-		'I began to jump on his penis, squealing with pleasure, forgetting about everything, except a sense of solid, hot-term in its bosom.'
-
-		act 'Correct':
-			cla
-			*clr
-			'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/23.jpg"></center>'
-			'Jumping off his clubs I tried to sit up again, but the guy cleverly directed his eldu in my ass and she easily slipped into my anus.'
-
-			act '...':
-				cla
-				orgasm += 1
-				*clr
-				'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/24.jpg"></center>'
-				'I jumped on him, until he finally realized that I roll without feeling, and my body trembles in orgasm. Tears poured from her eyes, as if relieved that that accumulated for all this time inside and I felt incredibly good.'
-
-				act 'Suck':
-					cla
-					*clr
-					'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/25.jpg"></center>'
-					'I am happy to become a member of the men suck, feeling the salty taste of his head, mixed with a taste of my vagina and rectum.'
-
-					act 'Substitute priest':
-						cla
-						*clr
-						'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/26.jpg"></center>'
-						'Then I like a dog licking his feet and turned to him her ass, wanting him to fuck me again.'
-
-						act '...':
-							cla
-							*clr
-							spafinloc = 14
-							gs 'cum_manage'
-							spafinloc = 4
-							gs 'cum_manage'
-							spafinloc = 12
-							gs 'cum_manage'
-							spafinloc = 11
-							gs 'cum_manage'
-							'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/27.jpg"></center>'
-							'But the man began to masturbate and very soon I began to feel his hot cum, but this time outside. I really do not want him to let me go, do not want me to lost its perfect dick and so I eagerly began to lick the cum from his cock, not yet had time to drop, wanting to pick it up again.'
-							'But then again, I felt the blow to the head and fell unconscious again.'
-
-							act 'Wake':
-								cla
-								*clr
-								'I woke up somewhere near the lake. I was naked and smeared the entire semen, but my clothes lay near me. I silently thanked for this sex abuser, got dressed and went.'
-
-								act 'Leave':gt 'lake', 'start'
+						act 'Did he just cum in me?':
+							cls
+							minut += 5
+							gs 'stat'
+							'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/12.jpg"></center>'
+							'He''s smirking as he pulls out, "Wow... what a great fuck you were," he says between his panting.'
+							'"Could you let me go now? You''ve finished with what you wanted." you plead.'
+							'He laughs, "Not yet my dear," he takes two fingers and shoves them into you again. You yelp as they enter and he begins to dig around a little, "Before I let you go I want you to taste me," he diabolically laughs.'
+							
+							act 'Lick his fingers':
+								cla & *clr
+								pcs_mood -= 15
+								minut += 20
+								spafinloc = 9
+								gs 'cum_manage'
+								'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/13.jpg"></center>'
+								'He pulls out his fingers and you can feel the remainder of his sperm flow down your thighs. He stands up and brings his cum covered fingers towards you, "Be a good slut and taste this." as he shoves his fingers into your mouth.'
+								'Even his cum tastes quite foul and you try your best to cleaning his dirty fingers with your tongue as quickly as possible. You''re forced to swallow the cum and you almost puke as you''re doing it.'
+								'After a while he removes his fingers and starts cutting the ropes. You''ve finally been released and before he gets any other idea you quickly get dressed and run away from him.'
+								gs 'arousal', 'end'
+								gs'stat'
+		
+								act 'Leave':gt 'park', 'start'
 							end
 						end
 					end
@@ -724,7 +674,7 @@ if $ARGS[0] = '7':
 	gs 'stat'
 
 	if pusher = 0:
-		'Young boy wearing a hooded jacket comes to you and tells you a conspiratorial voice, "Girl. Dose I got pale lady is, you want to try? Completely free. Lovely thing, instantly cleans the brain, the mood is that just ATAS, body sensations such as if you have never been healthier. "'
+		'A young boy wearing a hooded jacket walks up to you and tells you in a conspiratorial voice, "Hey girl, I''ve got some cocaine, want to try it? Completely free, I promise. Lovely thing, instantly clears the brain, the mood goes bananas and your body feels as it''s never been healthier. "'
 
 		act 'Leave':gt 'park', 'start'
 
@@ -737,8 +687,9 @@ if $ARGS[0] = '7':
 			pcs_horny = 100
 			nark += 10
 			narkday = daystart
-			'You stayed with interest, never tried dope, but because at one time there will be nothing? The guy came up to you and backfilled with a little white powder, you sucked his nose and the world blossomed unexpected colors.'
-			'The guy looked at you and said, "If you like it, come again, a dose of only 2,000 <b>₽</b>."'
+			'You''ve never been interested and you''ve never tried it before, but you''re tempted as it''s being free. The opportunity is too good to pass on, you nod your head and the dealer takes out a little bag filled with white powder. He spreads it on your hand and tells you to snort it.'
+			'You nod and snort the white powder. It instantly hits you and you''re feeling on top of the world.'
+			'The guy looks at you and says, "Good shit, right? If you like it, come see me again, it only costs 2,000 <b>₽</b>."'
 
 			act 'Leave':gt 'park', 'start'
 
@@ -759,14 +710,14 @@ if $ARGS[0] = '8':
 		cla
 		*clr
 		gs 'boy'
-		'To you came <<$boybody>> <<$boybod>> <<$boyface>>. One <<$boyClo>>'
-		'The guy introduced as <<$boydesc>> and asked your number.'
+		'A guy with <<$boybody>> <<$boybod>> <<$boyface>> approaches you. He''s wearing <<$boyClo>>.'
+		'The guy introduces himself as <<$boydesc>> and asks for your number.'
 
-		act 'Tell him to phone':
+		act 'Give him your number':
 			cla
 			gs 'boyfrend', 'start'
 			stopboy = 0
-			'<<$loverdesc[lover_number]>> recorded your phone and left.'
+			'<<$loverdesc[lover_number]>> writes it in his phone and walks away from you all smiling.'
 
 			act 'Complete walk':gt 'park', 'start'
 		end
@@ -785,7 +736,7 @@ if $ARGS[0] = '9':
 	if arrsize('pcs_lovers') >= 1:
 		lover_number = rand(0, arrsize('pcs_lovers') - 1)
 		cls
-		'You walk through the park and you notice <<$loverdesc[lover_number]>> walking towards you'
+		'As you walk through the park, you notice <<$loverdesc[lover_number]>> walking towards you.'
 
 		act 'Leave': loverrelation[lover_number]-= 1 & gt 'park', 'start'
 
@@ -794,35 +745,36 @@ if $ARGS[0] = '9':
 				cla
 				loverrelation[lover_number] += 2
 				minut += 15
-				'<<$loverdesc[lover_number]>> is happy about your random meeting and hugs you. You have a nice short talk and kiss goodbye to part ways again.'
+				'<<$loverdesc[lover_number]>> is happy about meeting you randomly and gives you a big hug. You have a nice short talk and kiss goodbye as you part ways again.'
 
 				act 'Complete walk':gt 'park', 'start'
 			end
-		elseif boyonce[lover_number] = 1 and SUB > 0:
-			'<<$loverdesc[lover_number]>> is happy to meet you and takes you by the hand leading to a deeper area into the park.'
+		else if boyonce[lover_number] = 1 and SUB > 0:
+			'<<$loverdesc[lover_number]>> is happy to see you, quickly grabbing you by the hand leading you into a more secluded area of the park.'
 
-			act 'Go with <<$loverdesc[lover_number]>>.':
+			act 'Follow <<$loverdesc[lover_number]>>.':
 				if loverGender[lover_number] = 0: gt 'event', 'park'
 				if loverGender[lover_number] = 1: 
 					$telsob = '<<$loverdesc[lover_number]>>'
 					gt 'parksvid'
 				end	
 			end
-		elseif boyonce[lover_number] = 1 and pcs_dom > 0:
-			'<<$loverdesc[lover_number]>> is happy to meet you and takes you by the hand leading to a deeper area into the park.'
+		else if boyonce[lover_number] = 1 and pcs_dom > 0:
+			'<<$loverdesc[lover_number]>> is happy to see you, quickly grabbing you by the hand, wanting to lead you to a secluded area of the park.'
 		
-			act 'Offer to sit on the bench.':			
+			act 'Offer to sit on the bench':			
 				if loverGender[lover_number] = 0: gt 'event', 'park'
 				if loverGender[lover_number] = 1: 
 					$telsob = '<<$loverdesc[lover_number]>>'
 					gt 'parksvid'
 				end	
 			end
+			
 			act 'Nice to talk':
 				cla
 				loverrelation[lover_number] += 5
 				minut += 15
-				'<<$loverdesc[lover_number]>> is happy about your random meeting and hugs you. You have a nice short talk and kiss goodbye to part ways again.'
+				'<<$loverdesc[lover_number]>> is happy about meeting you randomly and gives you a big hug. You have a nice short talk and kiss goodbye as you part ways again.'
 
 				act 'Complete walk':gt 'park', 'start'
 			end
@@ -862,7 +814,7 @@ if $ARGS[0] = 'run':
 			act 'Finish your run':
 				cla
 				*nl
-				'You feel great after your run. A bit sweaty but also a bit better at running and its good for your waistline too.'
+				'You feel great after your run. A bit sweaty, but also that you''ve managed to improve your stamina as you even feel a bit slimmer.'
 				act 'Continue': gt $loc, $metka
 			end
 		end
@@ -878,7 +830,7 @@ if $ARGS[0] = 'run_reactions':
 	else
 		if rand(0,1) = 0:
 			exhibition_exp += 2
-			'Despite it being daytime, you manage to go unnoticed during your run, but you still find yourself aroused and excited from the thought of being seen by a stranger or  someone you know. When you''re finished, you make sure to pull your top back down.'
+			'Despite it being daytime, you manage to go unnoticed during your run, but you still find yourself aroused and excited from the thought of being seen by a stranger or someone you know. When you''re finished, you make sure to pull your top back down.'
 			gs 'arousal', 10, 'flashlite'
 			gs 'arousal', 'end'
 		else
@@ -886,12 +838,16 @@ if $ARGS[0] = 'run_reactions':
 			exhibition_exp += 4
 			'You come across a group of gopniks loitering in a circle, empty beer bottles scattered around them. They''re loudly talking among themselves, but as you near the group, one of them notices you and quickly interrupts his friends to point you out to everyone.'
 			'You can''t help but smile slightly as you watch them rush to stand and then fight over getting to the front so they can see you better. As you run by, some start to clap and whistle while a few shout at you.'
+			wait 1000
 			*nl
 			'"Is this real or am I fucking dreaming?!"'
+			wait 1000
 			*nl
 			'"You need a running partner, babe? I can go all day, every day!"'
+			wait 1000
 			*nl
 			'"Just another crazy slut."'
+			wait 1000
 			*nl
 			'You continue your run until their catcalling can''t be heard anymore.'
 			gs 'arousal', 10, 'flashlite'
@@ -899,7 +855,7 @@ if $ARGS[0] = 'run_reactions':
 		end
 	end
 	*nl
-	'You feel great after your run. A bit sweaty but also a bit better at running and its good for your waistline too.'
+	'You feel great after your run. A bit sweaty, but also that you''ve managed to improve your stamina as you even feel a bit slimmer.'
 	act 'Finish your run': gt $loc, $metka
 end
 

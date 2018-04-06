@@ -1,5 +1,6 @@
 # butik
 
+
 if $ARGS[0] = 'start':
 	$metka = $ARGS[0]
 	$loc = $CURLOC
@@ -21,7 +22,9 @@ if $ARGS[0] = 'start':
 	end
 	'<center><b><font color="maroon">Mon Chéri</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/mall/boutique/butik.jpg"></center>'
-	'An expensive boutique that caters to the wealthiest women, everything speaks of quality and maturity.'
+	*nl
+	'You''re inside the boutique only a few seconds before a tall, slender brunette woman saunters up to you. Everything about her is poised and perfect, from the beautiful silver dress she''s wearing to her unblemished skin and pearly white teeth. "Welcome to Mon Chéri, dear. We sell only the most beautifully luxurious items here. Come, take a look! You won''t be disappointed," she smiles as she ushers you further inside with a small flourish. Everything in the boutique is high-end, definitely not for the average shopper, but the items on display are simply stunning.'
+	*nl
 
 	if rand(1, 100) >= 80 and pcs_skin >= 20 and lesbiQW = 0:
 		'In the boutique you see a stylish and slender woman, about forty years old.'
@@ -31,7 +34,7 @@ if $ARGS[0] = 'start':
 
 	if QWdogreiqTimer = 0 and QWdogReiq = 1 and week = 7 and qwdogiventday ! daystart:
 		qwdogiventday = daystart
-		'Going into the boutique you begin to look at some dresses on hangers, considering to buy one. You casually try one on in the changing room as suddenly one of the dresses attracts your attention. When you look at it more closely, you feel strange as if you are being watched'
+		'Going into the boutique you begin to look at some dresses on hangers, considering to buy one. You casually try one on in the changing room when suddenly one of the dresses attracts your attention. When you look at it more closely, you feel strange, as if you are being watched.'
 
 		act 'Disregard':gt 'butik', 'start'
 		act 'Look around':gt 'butik', 'rima'
@@ -394,5 +397,6 @@ if $ARGS[0] = 'rima':
 		end
 	end
 end
+
 --- butik ---------------------------------
 

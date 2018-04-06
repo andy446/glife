@@ -18,15 +18,15 @@ if $ARGS[0] = 'start':
 	'Small studio with just one artist doing the tattoos and piercings.'
 
 	'<center><table border=1><TH>View tattoos</TH><TH>View tattoos</TH><TH>View piercings</TH>'
-	*p '<tr><TD><a href="exec:gt ''pirsingsalon'', ''arm''">Arm - 8000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''lip''">Lip - 5000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''pirsyaz''">Tongue</a><b>₽</b></TD></tr>'
-	*p '<tr><TD><a href="exec:gt ''pirsingsalon'', ''ass''">Ass - 10000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''neck''">Neck - 8000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''pirsgub''">Lip</a><b>₽</b></TD></tr>'
-	*p '<tr><TD><a href="exec:gt ''pirsingsalon'', ''back''">Back - 10000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''pubic''">Pubic - 20000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''pirsysh''">Ear</a><b>₽</b></TD></tr>'
-	*p '<tr><TD><a href="exec:gt ''pirsingsalon'', ''belly''">Belly - 10000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''shoulder''">Shoulder - 8000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''pirsnos''">Nose</a><b>₽</b></TD></tr>'
-	*p '<tr><TD><a href="exec:gt ''pirsingsalon'', ''breast''">Breasts - 15000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''side''">Side - 12000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''pirsbro''">Eyebrow</a><b>₽</b></TD></tr>'
-	*p '<tr><TD><a href="exec:gt ''pirsingsalon'', ''chest''">Chest - 12000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''tramp''">Tramp stamp - 12000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''pirssos''">Nipple</a><b>₽</b></TD></tr>'
-	*p '<tr><TD><a href="exec:gt ''pirsingsalon'', ''face''">Face - 10000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''under''">Under breast - 12000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''pirspyp''">Navel</a><b>₽</b></TD></tr>'
-	*p '<tr><TD><a href="exec:gt ''pirsingsalon'', ''foot''">Foot - 8000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''wrist''">Wrist - 7000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''pirsvla''">Pussy</a><b>₽</b></TD></tr>'
-	*p '<tr><TD><a href="exec:gt ''pirsingsalon'', ''leg''">Legs - 10000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''hand''">hand - 8000 <b>₽</b></TD><TD></TD></tr></table></center>'
+	*p '<tr><TD><a href="exec:gt ''pirsingsalon'', ''arm''">Arm - 8000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''lip''">Lip - 5000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''pirsyaz''">Tongue - 5000 <b>₽</b></a></TD></tr>'
+	*p '<tr><TD><a href="exec:gt ''pirsingsalon'', ''ass''">Ass - 10000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''neck''">Neck - 8000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''pirsgub''">Lip - 6000 <b>₽</b></a></TD></tr>'
+	*p '<tr><TD><a href="exec:gt ''pirsingsalon'', ''back''">Back - 10000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''pubic''">Pubic - 20000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''pirsysh''">Ear - 3000 <b>₽</b></a></TD></tr>'
+	*p '<tr><TD><a href="exec:gt ''pirsingsalon'', ''belly''">Belly - 10000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''shoulder''">Shoulder - 8000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''pirsnos''">Nose - 5000 <b>₽</b></a></TD></tr>'
+	*p '<tr><TD><a href="exec:gt ''pirsingsalon'', ''breast''">Breasts - 15000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''side''">Side - 12000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''pirsbro''">Eyebrow - 5000 <b>₽</b></a></TD></tr>'
+	*p '<tr><TD><a href="exec:gt ''pirsingsalon'', ''chest''">Chest - 12000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''tramp''">Tramp stamp - 12000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''pirssos''">Nipple - 10000 <b>₽</b></a></TD></tr>'
+	*p '<tr><TD><a href="exec:gt ''pirsingsalon'', ''face''">Face - 10000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''under''">Under breast - 12000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''pirspyp''">Navel - 10000 <b>₽</b></a></TD></tr>'
+	*p '<tr><TD><a href="exec:gt ''pirsingsalon'', ''foot''">Foot - 8000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''wrist''">Wrist - 7000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''pirsvla''">Pussy - 25000 <b>₽</b></a></TD></tr>'
+	*p '<tr><TD><a href="exec:gt ''pirsingsalon'', ''leg''">Legs - 10000 <b>₽</b></TD><TD><a href="exec:gt ''pirsingsalon'', ''hand''">Hand - 7000 <b>₽</b></TD><TD></TD></tr></table></center>'
 
 	if hour < 12 or hour > 20:
 		cls
@@ -201,7 +201,7 @@ if $ARGS[0] = 'pirsgub':
 	:looplip_pir
 		*p '<a href="exec:gt ''pirsingsalon'', ''lip_pir'', <<i>>"><img src="images/pc/body/piercings/b<<i>>.jpg" 	height="250" /></a>'
 		i += 1
-	if i <= 6:jump 'looplip_pir'
+	if i <= 7:jump 'looplip_pir'
 
 	act 'Return':gt 'pirsingsalon', 'start'
 end
@@ -627,7 +627,7 @@ if $ARGS[0] = 'arm_get':
 	if money < 8000:
 		'You cannot afford this tattoo.'
 	else
-		act 'Get this tattoo':
+		act 'Get this tattoo (8000 <b>₽</b>)':
 			cla
 			tatarm = n
 			money -= 8000
@@ -669,7 +669,7 @@ if $ARGS[0] = 'ass_get':
 	if money < 10000:
 		'You cannot afford this tattoo.'
 	else
-		act 'Get this tattoo':
+		act 'Get this tattoo (10000 <b>₽</b>)':
 			cla
 			tatass = n
 			money -= 10000
@@ -711,7 +711,7 @@ if $ARGS[0] = 'back_get':
 	if money < 10000:
 		'You cannot afford this tattoo.'
 	else
-		act 'Get this tattoo':
+		act 'Get this tattoo (10000 <b>₽</b>)':
 			cla
 			tatback = n
 			money -= 10000
@@ -734,7 +734,7 @@ if $ARGS[0] = 'belly':
 		:looptatbelly
 		*p '<a href="exec:n = <<n>> & gt ''pirsingsalon'', ''belly_get''"><img src="images/pc/body/tattoos/belly/tatblly<<n>>.jpg" height="250" /></a>'
 		n += 1
-		if n <= 20:jump 'looptatbelly'
+		if n <= 21:jump 'looptatbelly'
 		*nl
 
 	else
@@ -753,7 +753,7 @@ if $ARGS[0] = 'belly_get':
 	if money < 10000:
 		'You cannot afford this tattoo.'
 	else
-		act 'Get this tattoo':
+		act 'Get this tattoo (10000 <b>₽</b>)':
 			cla
 			tatblly = n
 			money -= 10000
@@ -795,7 +795,7 @@ if $ARGS[0] = 'breast_get':
 	if money < 15000:
 		'You cannot afford this tattoo.'
 	else
-		act 'Get this tattoo':
+		act 'Get this tattoo (15000 <b>₽</b>)':
 			cla
 			tatbrst = n
 			money -= 15000
@@ -837,7 +837,7 @@ if $ARGS[0] = 'chest_get':
 	if money < 12000:
 		'You cannot afford this tattoo.'
 	else
-		act 'Get this tattoo':
+		act 'Get this tattoo (12000 <b>₽</b>)':
 			cla
 			tatchst = n
 			money -= 12000
@@ -879,7 +879,7 @@ if $ARGS[0] = 'face_get':
 	if money < 10000:
 		'You cannot afford this tattoo.'
 	else
-		act 'Get this tattoo':
+		act 'Get this tattoo (10000 <b>₽</b>)':
 			cla
 			tatfce = n
 			money -= 10000
@@ -921,7 +921,7 @@ if $ARGS[0] = 'foot_get':
 	if money < 8000:
 		'You cannot afford this tattoo.'
 	else
-		act 'Get this tattoo':
+		act 'Get this tattoo (8000 <b>₽</b>)':
 			cla
 			tatankle = n
 			money -= 8000
@@ -963,7 +963,7 @@ if $ARGS[0] = 'leg_get':
 	if money < 10000:
 		'You cannot afford this tattoo.'
 	else
-		act 'Get this tattoo':
+		act 'Get this tattoo (10000 <b>₽</b>)':
 			cla
 			tatleg = n
 			money -= 10000
@@ -1005,7 +1005,7 @@ if $ARGS[0] = 'lip_get':
 	if money < 5000:
 		'You cannot afford this tattoo.'
 	else
-		act 'Get this tattoo':
+		act 'Get this tattoo (5000 <b>₽</b>)':
 			cla
 			tatlip = n
 			money -= 5000
@@ -1047,7 +1047,7 @@ if $ARGS[0] = 'neck_get':
 	if money < 8000:
 		'You cannot afford this tattoo.'
 	else
-		act 'Get this tattoo':
+		act 'Get this tattoo (8000 <b>₽</b>)':
 			cla
 			tatneck = n
 			money -= 8000
@@ -1070,7 +1070,7 @@ if $ARGS[0] = 'pubic':
 		:looptatvag
 		*p '<a href="exec:n = <<n>> & gt ''pirsingsalon'', ''vag_get''"><img src="images/pc/body/tattoos/pubic/tatvag<<n>>.jpg" height="250" /></a>'
 		n += 1
-		if n <= 46:jump 'looptatvag'
+		if n <= 47:jump 'looptatvag'
 		*nl
 
 	else
@@ -1089,7 +1089,7 @@ if $ARGS[0] = 'vag_get':
 	if money < 20000:
 		'You cannot afford this tattoo.'
 	else
-		act 'Get this tattoo':
+		act 'Get this tattoo (20000 <b>₽</b>)':
 			cla
 			tatvag = n
 			money -= 20000
@@ -1131,7 +1131,7 @@ if $ARGS[0] = 'shoulder_get':
 	if money < 8000:
 		'You cannot afford this tattoo.'
 	else
-		act 'Get this tattoo':
+		act 'Get this tattoo (8000 <b>₽</b>)':
 			cla
 			tatlech = n
 			money -= 8000
@@ -1173,7 +1173,7 @@ if $ARGS[0] = 'side_get':
 	if money < 12000:
 		'You cannot afford this tattoo.'
 	else
-		act 'Get this tattoo':
+		act 'Get this tattoo (12000 <b>₽</b>)':
 			cla
 			tatside = n
 			money -= 12000
@@ -1215,7 +1215,7 @@ if $ARGS[0] = 'tramp_get':
 	if money < 12000:
 		'You cannot afford this tattoo.'
 	else
-		act 'Get this tattoo':
+		act 'Get this tattoo (12000 <b>₽</b>)':
 			cla
 			tatupb = n
 			money -= 12000
@@ -1257,7 +1257,7 @@ if $ARGS[0] = 'under_get':
 	if money < 12000:
 		'You cannot afford this tattoo.'
 	else
-		act 'Get this tattoo':
+		act 'Get this tattoo (12000 <b>₽</b>)':
 			cla
 			tatunder = n
 			money -= 12000
@@ -1299,7 +1299,7 @@ if $ARGS[0] = 'wrist_get':
 	if money < 7000:
 		'You cannot afford this tattoo.'
 	else
-		act 'Get this tattoo':
+		act 'Get this tattoo (7000 <b>₽</b>)':
 			cla
 			tatwrist = n
 			money -= 7000
@@ -1341,7 +1341,7 @@ if $ARGS[0] = 'hand_get':
 	if money < 7000:
 		'You cannot afford this tattoo.'
 	else
-		act 'Get this tattoo':
+		act 'Get this tattoo (7000 <b>₽</b>)':
 			cla
 			tathand = n
 			money -= 7000

@@ -562,7 +562,7 @@ if $ARGS[0] = 'hairPref':
 		if haraklover[lover_number] = 0:
 
 			loverrelation[lover_number] += 1
-			$meetHair = '<<$loverdesc[lover_number]>> says sweetly "I love the color of your hair <<$pcs_nickname>>, it likes pretty on you."'
+			$meetHair = '<<$loverdesc[lover_number]>> says sweetly "I love the color of your hair <<$pcs_nickname>>, it looks pretty on you."'
 		elseif haraklover[lover_number] = 1:
 			loverrelation[lover_number] += 1
 			$meetHair = '<<$loverdesc[lover_number]>> says, "I think you look amazing with <<$pcs_haircol>> hair. I love girls that have <<$pcs_haircol>> hair."'

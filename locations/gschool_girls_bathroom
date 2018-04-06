@@ -1,6 +1,7 @@
 # gschool_girls_bathroom
 
 if $ARGS[0] = 'start':
+	$location_type = 'bathroom'
 	cls
 	gs 'stat'
 	'<center><b><font color="maroon">Girls bathroom</font></b></center>'
@@ -181,6 +182,7 @@ if $ARGS[0] = 'girl3':
 		'Lena leans in a bit, taking a closer look at you. "Is that right? Are you a scared little bunny, <<$pcs_nickname>>?" Without waiting for you to answer, she glances at Lera. "I bet she thinks she''s a bad girl, for cutting class. How about we show her what happens to bad little girls?" She starts laughing and Lera joins in. You are not sure how you feel about this; they are a lot of fun, but their idea of fun can also be pretty damn mean. Part of you is strangely excited, but you are also worried about what comes next.'
 	end
 	act 'Try to run out':
+		$location_type = 'public_indoors'
 		*clr
 		cla
 		'<center><b><font color="maroon">School Hall</font></b></center>'

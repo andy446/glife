@@ -18,7 +18,7 @@ if $ARGS[0] = 'start':
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/gym/fit.jpg"></center>'
 	'This modern and well staffed fitness center provides all the latest equipment and trainers to help you make the most of them.'
 	*nl
-	'Buy subscription for 30 classes (3,000 <b>₽</b>)'
+	'Buy subscription for 30 classes (3,000 <b>₽</b>), pool use is free to members.'
 	'You must wear sportswear for all classes.'
 
 	if abonement > 0:'Subscription is valid for <<abonement>> more classes.'
@@ -28,13 +28,13 @@ if $ARGS[0] = 'start':
 		minut += 5
 		gt 'down'
 	end
-
+	
 	if money >= 3000:
 		act 'Buy a subscription (3,000 <b>₽</b>)':
 			cla
 			money -= 3000
 			abonement += 30
-			'You bought a subscription for 30 lessons'
+			'You bought a subscription for 30 lessons, including free use of the pool.'
 
 			act 'Move away from cashier':gt 'fit', 'start'
 		end
@@ -45,6 +45,8 @@ if $ARGS[0] = 'start':
 			cla
 			gt 'fit', 'dressing room'
 		end
+	else
+		act 'Use the pool (100 <b>₽</b>)': gt 'fit', 'dressing room'
 	end
 end
 
@@ -61,7 +63,7 @@ if $ARGS[0] = 'dressing room':
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/gym/razd.jpg"></center>'
 	'Classifieds'
 	'Recruiting girls for local track team, the winners will receive cash prizes.'
-	'Attention, visitors to the sports section must wear suitable clothing.'
+	'Attention, visitors to the sports section must wear sports outfits and shoes when using the facilities.'
 	! WD: Uninitialised ~ 'razdrand'
 	! if razdrand = 0 and tanznak = 0 and tanday ! daystart:
 	if tanznak = 0 and tanday ! daystart:
@@ -70,12 +72,13 @@ if $ARGS[0] = 'dressing room':
 	elseif tanznak = 2:
 		cls
 		tanznak = 3
-		gs 'underwear', 'remove'
-		gs 'clothing', 'strip'
+		gs 'underwear', 'wear'
+		gs 'panties', 'dispose'
+		gs 'clothing', 'wear_last_worn'
 		npc_rel['A218'] += 5
 		'<center><img <<$set_imgh>> src="images/locations/city/citycenter/gym/razd4.jpg"></center>'
 		'"You can at least tell me your name, maniac, seeing as you did not even have the decency to do so before you raped me." The girl says, catching her breath.'
-		'"I am the <<$pcs_nickname>>, and how can I rape someone so keen?" You ask trying to find your panties.'
+		'"I am <<$pcs_nickname>>, and how can I rape someone so keen?" You ask trying to find your panties.'
 		'"Looking for this?" asks the girl twirling your panties on her finger. "I''m Tanya, and you seduced me, I have never been with a girl before, and with very good reason. I live here with my parents, if you want to come for a visit."'
 		'"Okay that would be nice, can I have my briefs?" you say holding out your hand.'
 		'"Nope, no return, there must be something of a momento from my first girl." With these words, Tanya slips your panties in her pocket and leaves.'
@@ -101,49 +104,48 @@ if $ARGS[0] = 'dressing room':
 
 	act 'Use mirror':
 		cla
-		fitMir = 1
 		gt 'mirror', 'start'
 	end
 
-	act 'Change clothes':
+	act 'Change outfit':
 		cla
-		gt 'clothing_QV', 'gym'
+		gt 'wardrobe', 'start'
 	end
 
-	act 'Change shoes':
-		cla
-		gt 'shoes', 'gym'
+	if $clothingworntype = 'swimwear':
+		act 'Use the pool': gt 'bass', 'start'
+	else
+		act 'Change into swimwear': gt 'changingroom', 'view_swim_list'
 	end
 
-	if $clothingworntype ! $regularwornclothingtype or $regularwornclothingtype ! '': gs 'clothing_QV', 'gym2'
-	if $shoeworntype ! $regularwornshoetype or $regularwornshoetype ! '': gs 'clothing_QV', 'gym2'
+	if abonement > 0:
+		if $clothingworntype = 'exercise' and $shoeworntype = 'trainers' and pcs_stam >= 40:
+			act 'Go to the gym':
+				cla
+				gt 'fit', 'gym'
+			end
 
-	if abonement > 0 and $clothingworntype = 'exercise' and $shoeworntype = 'trainers' and pcs_stam >= 40:
-		act 'Go to the gym':
-			cla
-			gt 'fit', 'gym'
+			act 'Go to the dance studio': 
+				cla
+				gt 'danceclass'
+			end
 		end
 
-		act 'Go to the dance studio': 
-			cla
-			gt 'danceclass'
-		end
-	end
+		if begsec = 0:
+			act 'Join track team':
+				cla
+				*clr
+				minut += 5
+				begsec = 1
+				'You signed up for the track team.'
 
-	if begsec = 0:
-		act 'Join track team':
-			cla
-			*clr
-			minut += 5
-			begsec = 1
-			'You signed up for the track team.'
-
-			act 'Leave':gt 'fit', 'dressing room'
-		end
-	elseif $clothingworntype = 'exercise' and $shoeworntype = 'trainers' and pcs_stam >= 40:
-		act 'Go to team practice':gt 'beg', 'start'
-		if week = 6 and pcs_run >= 20 and run_comp_day ! daystart:
-			act '<b>Enter competition race</b>':run_comp_day = daystart & gt 'beg1', 'start'
+				act 'Leave':gt 'fit', 'dressing room'
+			end
+		elseif $clothingworntype = 'exercise' and $shoeworntype = 'trainers' and pcs_stam >= 40:
+			act 'Go to team practice':gt 'beg', 'start'
+			if week = 6 and pcs_run >= 20 and run_comp_day ! daystart:
+				act '<b>Enter competition race</b>':run_comp_day = daystart & gt 'beg1', 'start'
+			end
 		end
 	end
 
@@ -194,6 +196,8 @@ if $ARGS[0] = 'fitgirl':
 					act 'Take advantage of the confusion':
 						cla
 						*clr
+						gs 'underwear', 'remove'
+						gs 'clothing', 'strip'
 						gs 'stat'
 						'<center><img <<$set_imgh>> src="images/locations/city/citycenter/gym/razd2.jpg"></center>'
 						'While she is trying to understand what is happening you pull up her shirt and begin fondling her nipples with your tongue, and then her hand strokes your ass.'
@@ -215,6 +219,8 @@ if $ARGS[0] = 'fitgirl':
 						elseif pcs_apprnc >= 120:
 							cla
 							*clr
+							gs 'underwear', 'remove'
+							gs 'clothing', 'strip'
 							'<center><img <<$set_imgh>> src="images/locations/city/citycenter/gym/razd3.jpg"></center>'
 							'The girl presses up to you even stronger and kisses your lips.'
 

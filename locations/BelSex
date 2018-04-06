@@ -47,12 +47,13 @@ if $ARGS[0] = 'bj1':
 		act'Open wide':
 			cls
 			gs 'cum_call', 'mouth', 'Bely'
-			gs 'cum_manage'
 			gs'stat'
 			picrand = rand(0,10)
 			'<center><video autoplay loop src="images/shared/sex/cum/mouth/cum<<picrand>>.mp4"></video></center>'
 			'<<$boydesc>> indicates that he''s about to come, telling you to "Open wide, <<$pcs_nickname>>. You''re going to swallow every little drop."'
-			'You meekly nod and let out "Yesh, Mr. Bely..." doing as he says, opening your mouth as wide as you can. He jerks himself off all over your face and you soon feel his warm jets of sperm landing on your left cheek. He adjusts his aim a bit and some of it ends up in your mouth as well. You decide to just sit there with your eyes closed and your mouth open until he tells you otherwise, doing your best to ignore the taste.'
+			'You meekly nod and let out "Yes, Mr. Bely..." doing as he says, opening your mouth as wide as you can. He jerks himself off all over your face and you soon feel his warm jets of sperm landing on your left cheek. He adjusts his aim a bit and some of it ends up in your mouth as well. You decide to just sit there with your eyes closed and your mouth open until he tells you otherwise, doing your best to ignore the taste.'
+			swallow += 1
+			belsexpayment = 300
 			gs 'arousal', 'end'
 			gs 'stat'
 			act'Get up':gt 'BelSex', 'shower'
@@ -93,12 +94,13 @@ if $ARGS[0] = 'bj2':
 		act'Keep sucking':
 			cls
 			gs 'cum_call', 'mouth', 'Bely'
-			gs 'cum_manage'
 			gs'stat'
 			picrand = rand(0,10)
 			'<center><video autoplay loop src="images/shared/sex/cum/mouth/cum<<picrand>>.mp4"></video></center>'
 			'Redoubling your efforts, you reach the base of his wet cock with your <<$liptalk>>. <<$boydesc>> stares you in the face while your lips glide up and down on his hard dick. You know he must be close now.'
 			'You don''t want him to cum yet so you switch it up, using your tongue instead, sliding up and down his shaft, pulling out all of your tricks to make him feel good. You even use some techniques you learned to stall his orgasm for a moment, making it all the more intense for him when he shoots his load into your mouth.'
+			swallow += 1
+			belsexpayment = 300
 			gs 'arousal', 'end'
 			gs 'stat'
 			act'Take a shower':gt 'BelSex', 'shower'
@@ -139,12 +141,13 @@ if $ARGS[0] = 'bj3':
 		act'Continue':
 			cls
 			gs 'cum_call', 'mouth', 'Bely'
-			gs 'cum_manage'
 			gs'stat'
 			picrand = rand(0,10)
+			belsexpayment = 300
 			'<center><video autoplay loop src="images/shared/sex/cum/mouth/cum<<picrand>>.mp4"></video></center>'
 			'Instead, <<$boydesc>> starts jerking off, telling you "I''ll be done soon, <<$pcs_nickname>>. I want you to swallow every little drop." He doesn''t last much longer and cums all over your face.'
 			'He squeezes the last few drops of sperm into your mouth and then sticks his dick in your mouth. You swallow his cum obediently and then suck his dick clean, licking every tasty inch of it you can reach. Once he goes soft in your mouth, he pulls out his cock.' 
+			swallow += 1
 			gs 'arousal', 'end'
 			gs 'stat'
 			act'Take a shower':gt 'BelSex', 'shower'
@@ -182,8 +185,8 @@ if $ARGS[0] = 'vaginal1':
 	
 	if belact <= 0:
 		gs 'cum_call', '', 'Bely'
-		gs 'cum_manage'
 		gs'stat'
+		belsexpayment = 600
 		'<center><video autoplay loop src="images/shared/sex/cum/vagcreampie/creampie3.mp4"></video></center>'
 		'<<$boydesc>>''s movements speed up as he keeps pounding you balls deep without showing any signs of slowing down. You think this will go on for a while, but suddenly you hear <<$boydesc>> grunting while cumming deep inside you.'
 		act'Take a shower':gt 'BelSex', 'shower'
@@ -217,8 +220,8 @@ if $ARGS[0] = 'vaginal2':
 	
 	if belact <= 0:
 		gs 'cum_call', '', 'Bely'
-		gs 'cum_manage'
 		gs'stat'
+		belsexpayment = 600
 		'<center><video autoplay loop src="images/shared/sex/cum/vagcreampie/creampie1.mp4"></video></center>'
 		'<<$boydesc>> groans loudly. His cock stiffens as you feel a jet of warm sperm hitting deep inside your womb.'
 		act'Take a shower':gt 'BelSex', 'shower'
@@ -252,8 +255,8 @@ if $ARGS[0] = 'doggy':
 	
 	if belact <= 0:
 		gs 'cum_call', '', 'Bely'
-		gs 'cum_manage'
 		gs'stat'
+		belsexpayment = 600
 		'<center><video autoplay loop src="images/shared/sex/cum/vagcreampie/creampie4.mp4"></video></center>'
 		'<<$boydesc>> keeps on pounding you from behind. You feel his cock getting stiffer and twitching inside of you. You turn your head and look him in the eyes, pleading that he pulls out and cums on your ass instead. But <<$boydesc>> isn''t budging. He keeps on going, pulling your hips towards him, filling your womb with splashes of semen.'
 		act'Take a shower':gt 'BelSex', 'shower'
@@ -280,7 +283,7 @@ if $ARGS[0] = 'cowgirl':
 	'<center><img <<$set_imgh>> src="images/shared/sex/vag/cowgirl/vagcow<<picrand>>.jpg"></center>'
 	'<<$boydesc>> lies on the bed. He smirks as he tells you that you''ll be doing all the work today. You look at him, still a bit confused after the blowjob you''ve given him. Wasn''t that enough? "Don''t waste my time <<$pcs_nickname>>. Come here!" Not daring to do upset him even more, you crawl on top of <<$boydesc>> and guide his cock inside your vagina.'
 	'He grabs your hips, controlling the rhythm as you to ride him. He wants it fast. Fast, deep and hard, without any regard to you, or that he actually bumps into your cervix in this position. You keep riding him at the same rhythm as he moves his hands grabbing you breasts instead.'
-	'Unable to think of anything but the pleasure, you moan so loudly that you are almost screaming. Wanting to ride out this intense feeling, you completely forget that you’’re supposed to please <<$boydesc>> as you orgasm while riding him.'
+	'Unable to think of anything but the pleasure, you moan so loudly that you are almost screaming. Wanting to ride out this intense feeling, you completely forget that you''re supposed to please <<$boydesc>> as you orgasm while riding him.'
 	
 	$orgasm_or = 'yes' 
 	gs 'arousal', 'vaginal', 15, 'sub', 'prostitution'
@@ -288,8 +291,8 @@ if $ARGS[0] = 'cowgirl':
 	
 	if belact <= 0:
 		gs 'cum_call', '', 'Bely'
-		gs 'cum_manage'
 		gs'stat'
+		belsexpayment = 600
 		'<center><video autoplay loop src="images/shared/sex/cum/vagcreampie/creampie2.mp4"></video></center>'
 		'You keep switching the tempo as you ride <<$boydesc>>, from the looks on his face he''s ready to explode. You speed up even more wanting him to finish as soon as possible. As you''re thinking about pulling out not wanting him to cum inside you, you realize that you are too late. <<$boydesc>> suddenly explodes inside of you.'
 		act'Take a shower':gt 'BelSex', 'shower'
@@ -321,8 +324,8 @@ if $ARGS[0] = 'anal1':
 	
 	if belact <= 0:
 		gs 'cum_call', 'anus', 'Bely'
-		gs 'cum_manage'
 		gs'stat'
+		belsexpayment = 600
 		picrand = rand(1,2)
 		'<center><video autoplay loop src="images/shared/sex/cum/analcreampie/cumanal<<picrand>>.mp4"></video></center>'
 		'You can tell <<$boydesc>> is close to his orgasm. He huffs and puffs quite heavily now. Seconds later he firmly grabs your hips, his movements more erratic, and you feel his cock spasming inside you as he shoots his cum deep inside your asshole. The cum feels kind of warm inside you, and it slowly dribbles from you asshole once he pulls out his cock.'
@@ -344,8 +347,8 @@ if $ARGS[0] = 'anal2':
 	
 	if belact <= 0:
 		gs 'cum_call', 'anus', 'Bely'
-		gs 'cum_manage'
 		gs'stat'
+		belsexpayment = 600
 		'<center><img <<$set_imgh>> src="images/shared/sex/cum/analcreampie/analcum.jpg"></center>'
 		'You can tell <<$boydesc>> is close to his orgasm. His cock is stiff and has gotten larger inside your anus. Seconds later he firmly grabs your hips and you feel his cock spasming inside you as he shoots his cum deep inside your asshole. The cum feels kind of warm inside you, and it slowly dribbles out as you get up off of him.'
 		
@@ -366,8 +369,8 @@ if $ARGS[0] = 'analdoggy':
 	
 	if belact <= 0:
 		gs 'cum_call', 'anus', 'Bely'
-		gs 'cum_manage'
 		gs'stat'
+		belsexpayment = 600
 		'<center><img <<$set_imgh>> src="images/shared/sex/cum/analcreampie/kafeanpie.jpg"></center>'
 		'You''re at your limit and just as you want to beg him to take it easier, you feel him twitching behind you. All of a sudden you feel his warm cum shooting inside you. It slowly dribbles down your thighs as he pulls out of you.'
 		
@@ -381,37 +384,45 @@ if $ARGS[0] = 'shower':
 		cls
 		dynamic $showerdin
 		minut += 15
+		slutty += 1
+		pav_prostitute += 1
 		pcs_horny = pcs_horny + 1
 		pcs_hairbsh = 1
 		pcs_makeup = 1
 		if frost > 0:frost = 0
-		gs'stat'
+		gs 'stat'
 		'<center><video autoplay loop src="images/shared/home/bathroom/dush.mp4"></video></center>'
 		'You get into the nice, hot water stream of the shower and lather your body up with a soapy sponge. You carefully make sure to wash all of his cum that''s dripping out your holes, you then shampoo your hair and rinse that out as well. You''re squeaky clean now.'
+		
 		act 'Get out of the bathroom':
+			cls
+			minut += 5
+			gs 'stat'
+			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/fedor/fedorev/strela/vadimbely.jpg"></center>'
+	
 			if belgangPay <= 0:
-				cls
-				money += 500
-				gs'stat'
-				'"A job well done. Here take this." <<$boydesc>> hands you 500 <b>₽</b>, probably thinking how badly he wants to fuck you again. But nothing more happens and he escorts you to the door, as he''s closing the door you hear him say; "I''ll be seeing you around, <<$pcs_nickname>>."'
-				if $clothingworntype = 'swimwear': gs 'clothing', 'wear', $normalclothingworntype, normalclothingwornno
-				
-				gs 'arousal', 'end'
-				gs 'stat'
-			
-				act'Leave':gt'pavResidential'
-			
+				money += belsexpayment
+				'Vadim looks at you and says: "That was a good fuck, <<$pcs_nickname>>. Here, this is for you," and with those words he hands you <<belsexpayment>> <b>₽</b>.'
 			else
-				cls
-				belgangPay -= 500
-				gs'stat'
-				'"You''re getting there whore. You''re still <<belgangPay>> short though." <<$boydesc>> writes off 500 <b>₽</b> from your debt. He looks at you probably planning what he could do next to you. "Run along now, I have business to take care off." he says as he''s escorting you to the door, as he''s closing the door you hear him say; "Don''t you ever forget who''s your master, <<$pcs_nickname>>."'
-				if $clothingworntype = 'swimwear': gs 'clothing', 'wear', $normalclothingworntype, normalclothingwornno
-				
-				gs 'arousal', 'end'
-				gs 'stat'
+				belgangPay -= belsexpayment
+				belgangPayWeek -= belsexpayment
+				'"You''re getting there whore." <<$boydesc>> writes off <<belsexpayment>> <b>₽</b> from your debt. He looks at you probably planning what he could do next to you. "Run along now, I have business to take care off." he says as he''s escorting you to the door, as he''s closing the door you hear him say; "Don''t you ever forget who''s your master, <<$pcs_nickname>>."'
+				' '
+				'You owe him: <<belgangPay>> <b>₽</b>'
+				if belgangPayWeek >= 0:
+					'This week you need to pay him: <<belgangPayWeek>> <b>₽</b>'
+				else
+					'This week you need to pay him: 0 <b>₽</b>'
+					'You have reduced your next weeks payment by: <<-1*belgangPayWeek>> <b>₽</b>'
+				end
+			end
+						
+			if $clothingworntype = 'swimwear': gs 'clothing', 'wear', $normalclothingworntype, normalclothingwornno
+								
+			gs 'arousal', 'end'
+			gs 'stat'
 			
-				act'Leave':gt'pavResidential'
+			act 'Leave': gt 'pavResidential'
 			end
 		end
 	end

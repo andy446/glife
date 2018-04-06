@@ -7,17 +7,18 @@ if $ARGS[0] = 'start':
 	*clr
 	minut += 5
 	gs 'stat'
-	'<center><b>Used Car Dealership</b></center>'
+	'<center><b>Car Dealership</b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/industrial/usedcar/autotraid.jpg"></center>'
 	'Upon entering the yard, you see a laminated piece of paper pinned to a wall near the entrance:'
-	'- We accept cash.'
+
 	'- We only sell to people with valid driver''s licenses.'
-	'- New Oblast law: No sale if you already own a car.'
+	'- New State law: No sale if you already own a car.'
 
 	if hour <= 17:
-		if car > 0:act 'Approach the car salesman':gt 'autotraidF', 'manager1'
+		if car > 0:act 'Ask about selling your car':gt 'autotraidF', 'manager1'
 
-		act 'See what cars are for sale':gt 'autotraidF', 'car'
+		act 'Look at the new cars for sale': gt 'autosalonF', 'start'
+		act 'Look at the used cars for sale':gt 'autotraidF', 'car'
 	end
 
 	act 'Leave':gt 'Nord'
@@ -338,7 +339,7 @@ if $ARGS[0] = 'car':
 		end
 	end
 
-	act 'Leave':gt 'Nord'
+	act 'Return': gt 'autotraidF', 'start'
 end
 
 --- autotraidF ---------------------------------

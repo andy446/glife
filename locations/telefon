@@ -140,16 +140,18 @@ if $ARGS[0] = 'callingTheLover' and loverGender[ARGS[1]] = 1:
 		end
 	end
 
-	act 'Invite to the pool hall':
-		cla
-		'"Let''s play pool."'
+	if  $home_town = 'city':
+		act 'Invite to the pool hall':
+			cla
+			'"Let''s play pool."'
 
-		if willAgree:
-			'<<$telsob>>, "See you at the pool hall in an hour."'
+			if willAgree:
+				'<<$telsob>>, "See you at the pool hall in an hour."'
 
-			act 'Go': gt 'billsvid'
-		else
-			gs 'telefon','telotkaz',$telsob
+				act 'Go': gt 'billsvid'
+			else
+				gs 'telefon','telotkaz',$telsob
+			end
 		end
 	end
 
@@ -230,16 +232,18 @@ if $ARGS[0] = 'callingTheLover' and loverGender[ARGS[1]] = 0:
 		end
 	end
 
-	act 'Invite to the pool hall':
-		cla
-		'"Let''s play pool."'
+	if  $home_town = 'city':
+		act 'Invite to the pool hall':
+			cla
+			'"Let''s play pool."'
 
-		if willAgree:
-			'<<$loverdesc[lover_number]>>, "See you at the pool hall in an hour."'
+			if willAgree:
+				'<<$loverdesc[lover_number]>>, "See you at the pool hall in an hour."'
 
-			act 'Go':gt 'svidboy', 'billsvid'
-		else
-			gs 'telefon','telotkaz',$loverdesc[lover_number]
+				act 'Go':gt 'svidboy', 'billsvid'
+			else
+				gs 'telefon','telotkaz',$loverdesc[lover_number]
+			end
 		end
 	end
 

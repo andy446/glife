@@ -29,7 +29,7 @@ elseif pcs_horny <= 20:
 	elseif i = 1:
 		'Your breath catches several times as you feel the waves of a orgasm wash over you.'
 	elseif i = 2:
-		'Your breath shutters as your body tingles.'
+		'Your breath shudders as your body tingles.'
 	elseif i = 3:
 		'Once the sensations pass you can''t help but grin in the afterglow.'
 	end

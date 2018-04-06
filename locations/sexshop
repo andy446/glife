@@ -38,7 +38,7 @@ if $ARGS[0] = 'start':
 		cla
 		ghnow = 0
 		minut += 5
-		gt 'down'
+		gt 'Nord', 'redlight'
 	end
 
 	if SUB >= 100 and analplug = 1 and dildo = 1 and pcs_apprnc > 104 and Peter = 0:
@@ -57,7 +57,7 @@ if $ARGS[0] = 'start':
 					cla
 					ghnow = 0
 					minut += 5
-					gt 'down'
+					gt 'Nord', 'redlight'
 				end
 			end
 		end
@@ -798,7 +798,7 @@ if $ARGS[0] = 'kendra':
 		!!girl += 1
 		lesbian += 1
 		'<center><img <<$set_imgh>> src="images/locations/city/citycenter/sexshop/sex/shkend1.jpg"></center>'
-		'You quickly throw off clothes and knelt before her pussy and lick her eagerly. As long as you carefully suck Kendra as squeals and praises your tongue, saying that no tounge has pleased her much as yours.'
+		'You quickly throw off clothes and knelt before her pussy and lick her eagerly. As long as you carefully suck Kendra as squeals and praises your tongue, saying that no tongue has pleased her much as yours.'
 		'"Now pick anything from the toys" says Kendra'
 
 		act 'Give her a dildo':gt 'sexshop', 'kendra1'
@@ -941,7 +941,7 @@ if $ARGS[0] = 'kendra4':
 	'Naked you turned to her and stick out your ass "Well look, you bring me to orgasm and we can try strapon"'
 
 	if picrand = 11:'Kendra kneels down and begins to lick your pussy, her tongue slides all over your sex, your sensitive clit and dipping into the vagina a few minutes of her effort, you left off.'
-	if picrand = 12:'Kendra kneels down and her tongue sticks out tryign to slide into your ass, you writhe as she her tounge saneks and twists inside your ass. Her fingers penetrating your pussy for a few minutes, and the feeling of her tounge in your ass and her fingers in your pussy brings you to a shuddering orgasm.'
+	if picrand = 12:'Kendra kneels down and her tongue sticks out tryign to slide into your ass, you writhe as she her tongue saneks and twists inside your ass. Her fingers penetrating your pussy for a few minutes, and the feeling of her tounge in your ass and her fingers in your pussy brings you to a shuddering orgasm.'
 
 	'"Well, I will try to fulfill your desires?" Kendra says, catching her breath. "Now my turn."'
 

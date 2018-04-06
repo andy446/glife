@@ -718,9 +718,11 @@ if $ARGS[0] = 'bdsmclient':
 							payment = (basePay / 2)
 							'<center><img <<$set_imgh>> src="images/locations/city/residential/sauna/givemoney.jpg"></center>'
 							if workDolg > 0:
+							    workDolg -= payment
 								'The client leaves the room and pays the sauna <<payment>> <b>₽</b> for your services.'
 								'His goons untie you and have you slowly turn around so the madam can be sure you are unmarked, then leave.'
 							else
+								money += payment
 								'The client counts the money out as his goons untie you. He hands you <<payment>> <b>₽</b> for your services.'
 							end
 

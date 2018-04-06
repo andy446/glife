@@ -366,6 +366,8 @@ if $ARGS[0] = 'rand_scoolboy':
 		else
 			r = 28
 		end
+		$school_static_num = $school_static_num[r]
+		$rand_boy = $npc_firstname[$school_static_num]
 	elseif scoolboy = 3:
 		if artQW > 1 and rand(0,2) = 0:
 			r = 2
@@ -374,13 +376,13 @@ if $ARGS[0] = 'rand_scoolboy':
 		else
 			r = 36
 		end
+		$school_static_num = $school_static_num[r]
+		$rand_boy = $npc_firstname[$school_static_num]
 	elseif scoolboy = 4:
 		if pav_sex >= 50 and kotovLoveQW <= 0: gt 'gschool_events', 'rand_gopnic'
 	else
 		gs 'gschool_events', 'rand_boy_arg', 0, 1, 0, 0, 1, 0
 	end
-	$school_static_num = $school_static_num[r]
-	$rand_boy = $npc_firstname[$school_static_num]
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/<<r>>.jpg"></center>'
 	if npcsex[r] = 0:
 		if scoolboy = 3:

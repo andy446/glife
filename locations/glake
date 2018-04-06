@@ -243,7 +243,9 @@ if temper >= 15 and month>=5 and month<=9 and hour>=6 and hour<=20:
 									end
 								end
 								exit
-							elseif $clothingworntype ! 'nude':
+							elseif $clothingworntype ! 'nude' and npc_QW['A113'] < 1:
+								cls
+								gs'stat'
 								'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/fedor/fedorev/strela/vadimbely.jpg"></center>'
 								'While you are sunbathing you can''t help but notice a man walking towards you. He looks truly intimidating, his entire body covered in criminal gang tattoos. A bit further down the beach you see a younger man with similar tattoos, keeping an eye on the man approaching you.'
 								'His head is mostly bald, and a large golden cross dangles on a thick chain from his neck. He sits his fat body down next to you before you can protest, idly scratching his belly as he begins to chat: "Hello! I''m not interrupting anything, am I?"'
@@ -251,6 +253,7 @@ if temper >= 15 and month>=5 and month<=9 and hour>=6 and hour<=20:
 									cls
 									minut += 5
 									gs'stat'
+									'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/fedor/fedorev/strela/vadimbely.jpg"></center>'
 									'You were here first! You''re outraged by the way he just plants himself down next to you and exclaim: "Erm, excuse me!? I was here first!"'
 									'The man is not impressed in the slightest, obviously having played this game before. He immediately challenges your claim: "Oh, excuse me princess! Is this your spot? Do you own it?"'
 										
@@ -258,6 +261,7 @@ if temper >= 15 and month>=5 and month<=9 and hour>=6 and hour<=20:
 										cls
 										minut += 5
 										gs'stat'
+										'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/fedor/fedorev/strela/vadimbely.jpg"></center>'
 										'You respond indignantly: "Yes, this is my spot! I was here first, that''s how it works!"'
 										'Suddenly you hear a deep voice behind you: "This beach is only used by prostitutes and bus drivers, and I don''t see a fucking bus."'
 										'Damn, that voice startled you. You look behind you and you see the tattooed younger man behind you. He has tattoos over his whole body as well, most notably several tombs and skulls on his chest. He stares you down with a stone cold look on his face.'
@@ -273,12 +277,14 @@ if temper >= 15 and month>=5 and month<=9 and hour>=6 and hour<=20:
 									cls
 									minut+=5
 									gs'stat'
+									'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/fedor/fedorev/strela/vadimbely.jpg"></center>'
 									'Those guys look intimidating. You don''t want any trouble and just pretend they''re not there, laying on the beach with your eyes closed. However, a few moments later you feel a strange tickling on your stomach. You open your eyes to see what''s causing it, and you see the fat man running a blade of grass over your stomach with a smug grin on his face. Looks like you can''t ignore them any longer.'									
 
 									act'Keep ignoring them':
 										cls
 										minut+=5
 										gs'stat'
+										'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/fedor/fedorev/strela/vadimbely.jpg"></center>'
 										'You try to ignore them anyway, closing your eyes again. You feel the blade of grass continuously teasing your body, and after a few minutes his sweaty hand is pawing at your breasts through your swimsuit.'
 										'He whispers in your ear: "Come with me baby, I''ll make you feel good. You won''t regret it". His groping becomes more insistent and he''s roughly pinching your nipples now, and the outline of them slowly but surely becomes visible through your swimsuit.'
 										act 'Resist':gt 'LakeBoyDy', 'slap'

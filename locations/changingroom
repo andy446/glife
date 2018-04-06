@@ -2,7 +2,7 @@
 
 if $ARGS[0] = 'view_swim_list':
 
-	if $loc = 'bass' or ($loc = 'etoexhib' and temper >= 15) or (temper >= 15 and month >= 5 and month <= 9):
+	if $loc = 'fit' or $loc = 'bass' or ($loc = 'etoexhib' and temper >= 15) or (temper >= 15 and month >= 5 and month <= 9):
 		if $clothingworntype ! 'swimwear':
 			if $clothingworntype = 'nude':
 				if $lastwornclothingtype ! 'swimwear':

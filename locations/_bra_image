@@ -15,6 +15,8 @@ elseif $ARGS[0] = 'kats':
 	$RESULT = 'images/pc/bras/kats/<<ARGS[1]>>.jpg'
 elseif $ARGS[0] = 'sexshop':
 	$RESULT = 'images/pc/bras/sexshop/<<ARGS[1]>>.jpg'
+elseif $ARGS[0] = 'sport':
+	$RESULT = 'images/pc/bras/sport/<<ARGS[1]>>.jpg'
 end
 
 --- $bra_image ---------------------------------

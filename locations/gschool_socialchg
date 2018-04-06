@@ -941,7 +941,7 @@ if $ARGS[0] = 'tDan':
 end
 
 if $ARGS[0] = 'tVasily':
-	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/10.jpg"></center>'
+	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/11.jpg"></center>'
 	'You approach Vasily as he''s pouring himself a drink. He''s quite a bit tipsy and is having a hard time pouring the liquor into the cup.'
 	'"Do you need some help?" you ask him.'
 	'Looking at you he mumbles something incomprehensible and then wraps his arm around your shoulders, "Want to have some fun <<$pcs_nickname>>?" he asks you.'
@@ -950,7 +950,7 @@ if $ARGS[0] = 'tVasily':
 
 	act 'What do you have in mind':
 		*clr & cla
-		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/10.jpg"></center>'
+		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/11.jpg"></center>'
 		'Intrigued by his question you nod, "What do you have in mind?"'
 		'He gives you this sneaky smile, "Watch this."'
 		'He trips away towards Lavrenti, sneaks up to him from behind and pulls down his pants.'
@@ -973,7 +973,7 @@ if $ARGS[0] = 'tVasily':
 		end
 		act 'Don''t laugh':
 			*clr & cla
-			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/10.jpg"></center>'
+			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/11.jpg"></center>'
 			'As Lavrenti''s private parts are exposed, all the people start to laugh while you stand there in dismay. Lavrenti is blushing and you can see his eyes tear up...'
 			'You begin to yell at Vasily, "What the hell is wrong with you?"'
 			'Vasily shrugs his shoulders, "What? You said you wanted some fun." he tries to deflect.'
@@ -1802,7 +1802,7 @@ if $ARGS[0] = 'gopnik slut':
 																		*nl
 																		'By the time you finish licking the table clean, you notice just about everyone has left and soon it is just Lena, Lera and you left. "Well you got what you wanted slut, I hope you''re happy, because this is your new life." Lena says to you, you look a bit shocked you thought this was a one time thing.'
 																		'"Look at the bright side bunny, at least you are only the gopniks slut, at least for now." she adds with a laugh. Then Lena and Lera leave as well, leaving you to clean yourself up and try and salavage your ripped up clothes. You do your best to get dressed again before leaving yourself, wondering if you didn''t just make the biggest mistake of your life.'
-																		pav_sex + 25
+																		pav_sex += 25
 																		gs 'arousal', 'foreplay', 5, 'group', 'rough', 'sub', 'humiliation', 'exhibitionism'
 																		gs 'stat'
 

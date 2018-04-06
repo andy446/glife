@@ -343,7 +343,7 @@ if $ARGS[0] = 'din_krossdresssex':
 					gs 'stat'
 					'<center><video autoplay loop src="images/characters/pavlovsk/school/boy/igor/sex/crossdress/kdsex_'+ rand(1,4) +'.mp4"></video></center>'
 					'You ask him if he can lick your pussy. He nods and without a word drops down on his knees. He starts licking you, expertly working his tongue.' 
-					'You feel your pussy pulsating thanks to Igor''s smooth tounge. You notice that he''s as exicted as you, jerking his cock.'
+					'You feel your pussy pulsating thanks to Igor''s smooth tongue. You notice that he''s as exicted as you, jerking his cock.'
 					'After a while your breaths are heavy, you grab him by the hair and cum in his mouth...'
 					gs 'arousal', 'cuni', 10, 'dom'
 					gs 'arousal', 'end'

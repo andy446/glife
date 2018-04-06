@@ -7,7 +7,7 @@ if $ARGS[0] = '':
 		if fullmorrout = 1:
 			act 'Finish and go to the kitchen':gt 'kuhrPar'
 		else
-			act 'Return to the hallway':minut += 1 & gt 'korrPar'
+			act 'Return to the hallway': gt 'korrPar'
 		end
 	elseif vanr_lock = 1:
 		act'<font size = 1>Open the latch on the door</font>':vanr_lock = 0 & gt'vanrPar'

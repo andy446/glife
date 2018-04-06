@@ -4,6 +4,7 @@
 CLOSE ALL
 if sound = 0:PLAY 'sound/clock.mp3',80
 $location_type = 'public_indoors'
+
 if $ARGS[0] = '':
 	therapistday = daystart
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/therapist/room.jpg"></center>'
@@ -11,6 +12,7 @@ if $ARGS[0] = '':
 	'The room looks like a study room, appearing warm and inviting. There is desk with a chair at one end of the room, but it appears to be seldom used. On the desk there is an older <a href="exec: VIEW ''images/locations/pavlovsk/clinic/therapist/pavlovfamily.jpg''">photograph of Dr. Pavlov''s family</a>, in which he appears to be about two decades younger.'
 	'"Come in, Miss <<$pcs_lastname>>! Please, tell me what can I help you with today?"'
 	gs 'stat'
+	
 	if pcs_childtrauma > 0:
 		act 'Deal with losing the baby':
 			cla
@@ -273,7 +275,7 @@ if $ARGS[0] = 'hypnoSuck':
 	'His order is all you need - it pushes you over the edge and you scream around his cock as it is throbbing in your mouth.'
 	'He waits for you to lick him clean then starts to dress himself.'
 	
-	gs 'arousal', 'bj', 20, 'sub'
+	gs 'arousal', 'bj', 20, 'unaware'
 	gs 'stat'
 	
 	if hypnoTime < 10:
@@ -328,11 +330,15 @@ if $ARGS[0] = 'hypnoFuck':
 	'<font color=brown>'
 	$hypnofuck
 	'As soon as he is inside your pussy, he starts to fuck you.'
-	if pcs_vag = 0:pain['vaginal'] +=5 & pcs_vag += 1 & 'You feel a sharp pain as your <i>Master</i> pushes through your maidenhead, taking it away. He doesn''t seem to care about it, he just pushes himself deeper in your unexplored depths, enjoying himself immensly.'
-	$hypnofuck2
+	!! Change as long as virginity is still checked with pcs_vag = 0; if this is changed uncomment next line and delete the other one
+	!! if pcs_vag = 0:pain['vaginal'] +=5 & pcs_vag += 1 & 'You feel a sharp pain as your <i>Master</i> pushes through your maidenhead, taking it away. He doesn''t seem to care about it, he just pushes himself deeper in your unexplored depths, enjoying himself immensly.'
+	if pcs_vag = 0 and stat['hidden_vaginal'] = 0:
+		pain['vaginal'] +=5 
+		'You feel a sharp pain as your <i>Master</i> pushes through your maidenhead, taking it away. He doesn''t seem to care about it, he just pushes himself deeper in your unexplored depths, enjoying himself immensly.'
+	end	$hypnofuck2
 	'"Oh yes, my little <i>Cunt</i>, I am so close! I will blow a huge wad of sperm in your beautiful pussy! And you won''t even know about it!"<br>He finally groans, jabbing his hips deep, jetting all of his sperm as deep in your pussy as he possibly can.<br>"Cum, little <i>Cunt</i>, suck all of my seed deep in your body!"'
 	
-	gs 'arousal', 'vaginal', 20, 'sub'
+	gs 'arousal', 'vaginal', 20, 'unaware'
 	gs 'stat'
 		
 	if randpos <= 1:
@@ -394,7 +400,7 @@ if $ARGS[0] = 'hypnoAnal':
 	$hypnofuck2
 	'"Oh yes, my little <i>Cunt</i>, I am so close! I will blow a huge wad of sperm in your beautiful ass! And you won''t even know about it!"<br>He finally groans, jabbing his hips deep, jetting all of his sperm as deep in your colon as he possibly can.<br>"Cum, little <i>Cunt</i>, suck all of my seed deep in your body!"'
 	
-	gs 'arousal', 'anal', 20, 'sub'
+	gs 'arousal', 'anal', 20, 'unaware'
 	gs 'stat'
 		
 	if randpos <= 2:

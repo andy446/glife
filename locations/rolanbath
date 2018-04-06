@@ -20,7 +20,7 @@ if $ARGS[0] = 'start':
 			gt 'rolanbath', 'sexev'
 		end
 	end
-	
+
 	'<center><b><font color = maroon>Bathroom</font></b></center>'
 	if newbath ! 1:
 		'<center><img src="images/locations/pavlovsk/resident/apartment/aptrolan/bathroom.jpg"></center>'
@@ -234,11 +234,8 @@ if $ARGS[0] = 'start':
 				end	
 			end	
 		end
-		dynamic $preshave
-		
-!		dynamic $dryOff
 	end
-!gs 'arousal', 'masturbate', 20	
+
 !bath 
 	act 'Have a bath (0:30)':
 		cla
@@ -413,9 +410,6 @@ if $ARGS[0] = 'start':
 				end	
 			end	
 		end
-		dynamic $preshave
-		
-!		dynamic $dryOff
 	end
 
 	dynamic $bteeth
@@ -609,8 +603,7 @@ if $ARGS[0] = 'start':
 		end
 	end
 end
-!gs 'panties', 'dispose' 
-!gs 'panties', 'linen'
+
 
 !Bathroom, Rolan caught:
 if $ARGS[0] = 'sexev':
@@ -820,7 +813,6 @@ if $ARGS[0] = 'pervshower':
 				end
 			end
 		end	
-		dynamic $preshave
 	end
 end
 

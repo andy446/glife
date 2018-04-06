@@ -1027,32 +1027,12 @@ if $ARGS[0] = 'homework':
 	if npc_rel['A34'] <50:npc_rel['A34'] += 1
 	minut += RAND(50,70)
 	ivrand = RAND(1,2)
-	if anatomyhomeworkhelp = 1 and father_go = 1:gt 'brother_voyeur', 'showbody'
 	if npc_QW['A34'] >= 2 and npc_rel['A34'] >= 60 and ivrand = 1:
 		cls
 		gs 'stat'
 		'<center><b><font color = maroon>Kolka</font></b></center>'
 		'<center><video src="images/characters/pavlovsk/resident/kolka/event/homework/homework_touch.mp4" width="1000" height="422"></center>'
-		if npc_QW['A34'] = 2:
-			cla
-			pcs_horny += RAND(5,10)
-			'As you explain the material, Kolka suddenly began to slowly stroke your leg with his hand. You freeze in surprise, not knowing what to do.'
-			act'Ignore and continue':
-				cla
-				npc_QW['A34'] = 3
-				npc_rel['A34'] += 2
-				pcs_horny += RAND(5,10)
-				'You decide to continue to do homework, trying not to pay attention to Kolka''s hand on your leg. He realizes that you don''t mind so he continues to stroke higher up your leg.'
-				act 'Finish': gt 'sitrPar'
-			end
-			act'Remove hand and continue':
-				cla
-				pcs_horny += RAND(1,5)
-				pcs_dom += 1
-				'You decide to remove his hand and continue to do homework. Kolka begins to blush and starts to try hard to solve the problems. While not looking you in the eye.'
-				act 'Finish': gt 'sitrPar'
-			end
-		elseif npc_QW['A34'] >= 3:
+		if npc_QW['A34'] >= 3 and father_go = 1:
 			cla
 			pcs_horny += RAND(5,10)
 			'As soon as you begin to explain the material, Kolka begins again to stroke your leg his hand.'
@@ -1062,13 +1042,28 @@ if $ARGS[0] = 'homework':
 				pcs_horny += RAND(5,10)
 				'You continue to do the homework, trying hard not to pay attention to Kolka''s hand on your leg. Kolka knowing that you do not mind continues to have nice feel of your leg. You feel the warm rush of excitement.'
 				ivrand = RAND(1,3)
-				if brotherSex > 0 and father_go = 1 and ivrand = 1 and brotherEvSex ! daystart:
+				if ivrand = 1 and brotherEvSex ! daystart:
 					cla
-					'After you finish explaining the new material, Kolka goes red with excitement and asks:'
-					'"<<$pcs_nickname>>, Can you help me out here now?"'
-					gs 'brother', 'brotherSexStart'
-					act 'No': gt 'sitrPar'
-				elseif ivrand = 2 and brotherEvSex ! daystart and father_go = 1:
+					if (sub > 0 and brotherknowslut = 1) or pav_slut >= 75 or brotherknowslut = 2:
+						'Kolka boldly slides his hands further upwards, continuing to stroke the insides of your leg, while he tells you:'
+						'"<<$pcs_nickname>>, help me with another matter now!"'
+						if pcs_horny > 90:
+							act 'I thought you would never ask': gs 'brother', 'brotherSexStart'
+						else
+							act 'Sure, I''m always willing to help my little brother': gs 'brother', 'brotherSexStart'
+							act 'Maybe next time...': gt 'sitrPar'
+						end
+					else
+						'After you finish explaining the new material, Kolka goes red with excitement and asks:'
+						'"<<$pcs_nickname>>, Can you help me out here now?"'
+						if pcs_horny > 80:
+							act 'How could i say no if you keep asking so nice?': gs 'brother', 'brotherSexStart'
+						else
+							act 'I think i could teach you a thing or two': gs 'brother', 'brotherSexStart'
+							act 'Maybe next time...': gt 'sitrPar'
+						end
+					end
+				elseif ivrand = 2 and (brotherEvSex ! daystart or anatomyhomeworkhelp = 1):
 					gs 'brother_voyeur', 'showbody'
 				else
 					act 'Finish': gt 'sitrPar'
@@ -1085,6 +1080,25 @@ if $ARGS[0] = 'homework':
 				'"Don''t, Our parents will see us." You remove his hand from your leg.'
 				'Kolka mutters something under his breath with grim resentment on his face.'
 
+				act 'Finish': gt 'sitrPar'
+			end
+		else
+			cla
+			pcs_horny += RAND(5,10)
+			'As you explain the material, Kolka suddenly began to slowly stroke your leg with his hand. You freeze in surprise, not knowing what to do.'
+			act'Ignore and continue':
+				cla
+				if npc_QW['A34'] < 3: npc_QW['A34'] = 3
+				npc_rel['A34'] += 2
+				pcs_horny += RAND(5,10)
+				'You decide to continue to do homework, trying not to pay attention to Kolka''s hand on your leg. He realizes that you don''t mind so he continues to stroke higher up your leg.'
+				act 'Finish': gt 'sitrPar'
+			end
+			act'Remove hand and continue':
+				cla
+				pcs_horny += RAND(1,5)
+				pcs_dom += 1
+				'You decide to remove his hand and continue to do homework. Kolka begins to blush and starts to try hard to solve the problems. While not looking you in the eye.'
 				act 'Finish': gt 'sitrPar'
 			end
 		end
@@ -1209,6 +1223,18 @@ if $ARGS[0] = 'showbody':
 			'	"Sure," you grin at him. "Just let me get ''presentable'' for you," you say with a wink before you start undressing.'
 			act'Undress':gt'brother_voyeur','anatomylesson1'
 		end
+		
+		act'"Maybe i try something else this time"':
+			cla
+			*nl
+				'"I will help you, but only if you don''t tell anyone. Agreed? I''m serious, not a single person!" You say in a strict tone.'
+				'"<<$pcs_nickname>>, I promise not a word to anyone!"'
+				'After his promise you consider what to do.'
+
+				act'Undress':gt'brother','brother_voyeur_ev4'
+				act'Don''t do it':gt $loc, $metka
+		end
+		
 	end
 end
 

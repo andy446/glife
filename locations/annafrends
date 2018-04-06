@@ -235,7 +235,7 @@ if $ARGS[0] = 'scene1':
 		temp = rand(1,100)
 		if temp >= 70:
 			'You notice Rex briefly glancing at your feet.'
-			if pcs_horny > 85:
+			if pcs_horny > 30 and (PCloSkirt > 2 or PCloPants > 4):
 				act 'Show off your legs':
 					cla
 					minut += 5

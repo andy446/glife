@@ -278,39 +278,24 @@ end
 
 if rand (0,2) ! 0:gs 'din_bad' & dynamic $mobile_check
 
-if npc_QW['A113'] = 1 and hour >= 14 and hour < 21 and daybelisex ! daystart:
+if npc_QW['A113'] = 1 and daybelisex ! daystart and hour >= 9 and hour <= 23 and week = 7:
+	cla & *clr
+	daybelisex = daystart
+	minut += 5
+	
+	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/vadim/belyjeep.jpg"></center>'
+	'As you walk through Pavlovsk, Vadim Belys Mitsubishi Pajero stops near you.'
+
+	act 'Go to the jeep': gt 'belgang', 'payday', 'residential' 	
+elseif npc_QW['A113'] = 1 and daybelisex ! daystart and hour >= 9 and hour <= 23 and week ! 7 and belgangPayWeek >= 300 and belgangProstitute = 1 and rand (0,2) = 0:
+	cla & *clr
+	daybelisex = daystart
+	minut += 5
+	
+	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/vadim/belyjeep.jpg"></center>'
 	'You see the by now familiar old Mitsubishi Pajero driving through the streets with Vadim Bely and his gang. Your heart skips a beat as you notice one of them pointing at you, and soon they pull over.'
-	'The tinted window slides down and you find yourself staring directly into Vadim''s face. "Slut, get in. It''s time for you to work off your debts."'
-	act'Get into the jeep':
-		cls
-		minut += 5
-		daybelisex = daystart
-		gs'stat'
-		'You open the door and take a seat in the back as Vadim drives through the city.'
-		if month >= 4 and month <= 8:
-			if rand(0,1) = 0:
-				*nl
-				'As the car leaves the city and goes off-road at some point, one of the more silent criminals feels the need to explain: "We have a little picnic planned for today. We know just the place... nice and quiet. You''ll be able to entertain us there without interruptions."'
-				'The way he says it sends a shiver down your spine.'
-				'Finally, a few minutes after the car has left the main roads, you stop somewhere. You have absolutely no idea where you are. The criminals get out of the car and Vadim does the same, telling you to get out and follow them.'
-
-				act'Get out of the car':gt'belpicknick'
-			else
-				*clr
-				cla
-				minut+=5
-				gs'stat'
-				'A few minutes later you arrive at an apartment block, it isn''t is great shape but Vadim leads you inside and up to a second floor apartment.'
-				'The apartment is actually in decent shape. The minimal amount of furniture and decorations don''t make it look very hospitable though, and you assume this might just be one of the places Vadim rented for business or pleasure, not for living in.'
-				'Noticing you''re spending too much time looking around and aren''t following him swiftly enough, he grabs you by your hair and pulls your face to his, roughly shoving his tongue in your mouth. You can smell the tabacco on his breath, and do your best to ignore the taste as he kisses you.'
-
-				act'Kiss him':gt 'BelSex', 'sex'
-			end
-		else
-			'The car pulls over in the driveway of a large mansion surrounded by a high metal fence. Vadim says a few words into a microphone and the gates swing open. He drives the car to the entrance of the house as the gates close automatically behind you. He then tells you to follow them as the men get out of the car.'
-			act'Do as they say':gt'belgang'
-		end
-	end
+		
+	act 'Go to the jeep': gt 'belgang', 'workofdebt', 'residential' 	
 end
 
 --- pavResidential ---------------------------------

@@ -501,6 +501,7 @@ if $ARGS[0] = 'SchoolRun':
 end
 
 if $ARGS[0] = 'SchoolRun2':
+    $location_type = 'event_outdoors'
 	cls
 	minut += 30
 	gs 'stat'

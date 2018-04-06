@@ -94,6 +94,7 @@
       <Location name="pattest"/>
       <Location name="subkid"/>
       <Location name="_statcheck"/>
+      <Location name="set_home"/>
     </Folder>
     <Folder name="Stimulus">
       <Location name="boyStat"/>

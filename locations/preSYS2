@@ -147,41 +147,66 @@ if $ARGS[0] = 'modite':
 		gt 'preSYS2','modite'
 	end
 	act 'Cosmetic items':gt 'preSYS2','modite_cos'
-	act 'Pharmarcy items':gt 'preSYS2','modite_pha'
+	act 'Pharmacy items':gt 'preSYS2','modite_pha'
 	act 'Miscellaneous items':gt 'preSYS2','modite_mis'
 	act 'Return': gt 'preSYS2','start'
 end
 
+if $ARGS[0] = 'modrel_setup2':
+	dynamic 'if <<$ARGS[1]>> < 0: <<$ARGS[1]>> = 0'
+	dynamic 'if <<$ARGS[1]>> > 100: <<$ARGS[1]>> = 100'
+	dynamic 'x = <<$ARGS[1]>>'
+	'<TR bgcolor=#ffffff><TD><<$ARGS[2]>> (<<x>>/100)</TD><TD><a href="exec:<<$ARGS[1]>> = 0 & gt ''preSYS2'', $metka">zero</a></TD><TD bgcolor=#ff9999><a href="exec:<<$ARGS[1]>> -= 10 & gt ''preSYS2'', $metka">minus 10</a></TD><TD bgcolor=#ff9999><a href="exec:<<$ARGS[1]>>  -= 5 & gt ''preSYS2'', $metka">minus 5</a></TD><TD bgcolor=#99ff99><a href="exec:<<$ARGS[1]>>  += 5 & gt ''preSYS2'', $metka">plus 5</a></TD><TD bgcolor=#99ff99><a href="exec:<<$ARGS[1]>>  += 10 & gt ''preSYS2'', $metka">plus 10</a></TD><TD><a href="exec:<<$ARGS[1]>>  = 100 & gt ''preSYS2'', $metka">100</a></TD>'
+end
+
 if $ARGS[0] = 'modite_cos':
-	act 'Cosmetics (<<kosmetica>>/100)': gs 'preSYS2','setval3' & kosmetica = nstat & gt 'preSYS2','modite_cos'
-	act 'Razors (<<stanok>>/100)': gs 'preSYS2','setval3' & stanok = nstat & gt 'preSYS2','modite_cos'
-	act 'Sunblock (<<krem>>/100)': gs 'preSYS2','setval3' & krem = nstat & gt 'preSYS2','modite_cos'
+	$metka = 'modite_cos'
+	'<center><b>Cosmetic items</b></center>'
+	*nl
+	*nl
+	'<center><table border=0 cellspacing=0 cellpadding=25  bgcolor=#808080><TH></TH><TH>Set to zero</TH><TH>Minus 10</TH><TH>Minus 5</TH><TH>Plus 5</TH><TH>Plus 10</TH><TH>Set to 100</TH>'
+	gs 'preSYS2', 'modrel_setup2', 'kosmetica', 'Cosmetics'
+	gs 'preSYS2', 'modrel_setup2', 'stanok', 'Razors'
+	gs 'preSYS2', 'modrel_setup2', 'krem', 'Sunblock'
+	gs 'preSYS2', 'modrel_setup2', 'hscrunch', 'Hair scrunchies'
+	gs 'preSYS2', 'modrel_setup2', 'hpingrip', 'Hair pins'
+	'</table></center>'
 	!act 'Shampoo (<<shampoo>>/100)': gs 'preSYS2','setval3' & shampoo = nstat & gt 'preSYS2','modite_cos'
-	act 'Hair scrunchies (<<hscrunch>>/100)': gs 'preSYS2','setval3' & hscrunch = nstat & gt 'preSYS2','modite_cos'
-	act 'Hair pins (<<hpingrip>>/100)': gs 'preSYS2','setval3' & hpingrip = nstat & gt 'preSYS2','modite_cos'
 	act 'Return': gt'preSYS2','modite'
 end
 
 if $ARGS[0] = 'modite_pha':
-	act 'Condoms (<<prezik>>/100)': gs 'preSYS2','setval3' & prezik = nstat & gt 'preSYS2','modite_pha'
-	act 'Pregnancy tests (<<pregtest>>/100)': gs 'preSYS2','setval3' & pregtest = nstat & gt 'preSYS2','modite_pha'
-	act 'Birth control pills (<<tabletki>>/100)': gs 'preSYS2','setval3' & tabletki = nstat & gt 'preSYS2','modite_pha'
-	act 'Antibiotics (<<lekarstvo>>/100)': gs 'preSYS2','setval3' & lekarstvo = nstat & gt 'preSYS2','modite_pha'
-	act 'Vitmain drinks (<<vitamin>>/100)': gs 'preSYS2','setval3' & vitamin = nstat & gt 'preSYS2','modite_pha'
-	act 'Painkillers (<<painkiller>>/100)': gs 'preSYS2','setval3' & painkiller = nstat & gt 'preSYS2','modite_pha'
-	act 'Ointment for chafing (<<mosolmaz>>/100)': gs 'preSYS2','setval3' & mosolmaz = nstat & gt 'preSYS2','modite_pha'
-	act 'Lubricants (<<lubri>>/100)': gs 'preSYS2','setval3' & lubri = nstat & gt 'preSYS2','modite_pha'
-	act 'Lip balms (<<lipbalm>>/100)': gs 'preSYS2','setval3' & lipbalm = nstat & gt 'preSYS2','modite_pha'
-	act 'Weight loss pills (<<fatdel>>/100)': gs 'preSYS2','setval3' & fatdel = nstat & gt 'preSYS2','modite_pha'
-	act 'Tampons (<<tampon>>/100)': gs 'preSYS2','setval3' & tampon = nstat & gt 'preSYS2','modite_pha'
-	act 'Sanitary napkins (<<sanpad>>/100)': gs 'preSYS2','setval3' & sanpad = nstat & gt 'preSYS2','modite_pha'
+	$metka = 'modite_pha'
+	'<center><b>Pharmaceutical items</b></center>'
+	*nl
+	*nl
+	'<center><table border=0 cellspacing=0 cellpadding=25  bgcolor=#808080><TH></TH><TH>Set to zero</TH><TH>Minus 10</TH><TH>Minus 5</TH><TH>Plus 5</TH><TH>Plus 10</TH><TH>Set to 100</TH>'
+	gs 'preSYS2', 'modrel_setup2', 'prezik', 'Condoms'
+	gs 'preSYS2', 'modrel_setup2', 'pregtest', 'Pregnancy tests'
+	gs 'preSYS2', 'modrel_setup2', 'tabletki', 'Birth control pills'
+	gs 'preSYS2', 'modrel_setup2', 'lekarstvo', 'Antibiotics'
+	gs 'preSYS2', 'modrel_setup2', 'vitamin', 'Vitmain drinks'
+	gs 'preSYS2', 'modrel_setup2', 'painkiller', 'Painkillers'
+	gs 'preSYS2', 'modrel_setup2', 'mosolmaz', 'Ointment for chafing'
+	gs 'preSYS2', 'modrel_setup2', 'lubri', 'Lubricants'
+	gs 'preSYS2', 'modrel_setup2', 'lipbalm', 'Lip balms'
+	gs 'preSYS2', 'modrel_setup2', 'fatdel', 'Weight loss pills'
+	gs 'preSYS2', 'modrel_setup2', 'tampon', 'Tampons'
+	gs 'preSYS2', 'modrel_setup2', 'sanpad', 'Sanitary napkins'
+	'</table></center>'
 	act 'Return': gt'preSYS2','modite'
 end
 
 if $ARGS[0] = 'modite_mis':
-	act 'Cigarettes (<<siga>>/100)': gs 'preSYS2','setval3' & siga = nstat & gt 'preSYS2','modite_mis'
-	act 'Cocaine (<<dur>>/100)': gs 'preSYS2','setval3' & dur = nstat & gt 'preSYS2','modite_mis'
-	act 'Cookies (<<pranik>>/100)': gs 'preSYS2','setval3' & pranik = nstat & gt 'preSYS2','modite_mis'
+	$metka = 'modite_mis'
+	'<center><b>Misc items</b></center>'
+	*nl
+	*nl
+	'<center><table border=0 cellspacing=0 cellpadding=25  bgcolor=#808080><TH></TH><TH>Set to zero</TH><TH>Minus 10</TH><TH>Minus 5</TH><TH>Plus 5</TH><TH>Plus 10</TH><TH>Set to 100</TH>'
+	gs 'preSYS2', 'modrel_setup2', 'siga', 'Cigarettes'
+	gs 'preSYS2', 'modrel_setup2', 'dur', 'Cocaine'
+	gs 'preSYS2', 'modrel_setup2', 'pranik', 'Cookies'
+	'</table></center>'
 	act 'Return': gt 'preSYS2','modite'
 end
 
@@ -348,33 +373,32 @@ if $ARGS[0] = 'modgrup':
 end
 
 if $ARGS[0] = 'modatt':
+	$metka = 'modatt'
+	'<center><b>Attributes</b></center>'
+	*nl
+	*nl
+	'<center><table border=0 cellspacing=0 cellpadding=25  bgcolor=#808080><TH></TH><TH>Set to zero</TH><TH>Minus 10</TH><TH>Minus 5</TH><TH>Plus 5</TH><TH>Plus 10</TH><TH>Set to 100</TH>'
 	if pcs_dom >= 0 and sub = 0: 
-		act 'Dominance (<<pcs_dom>>/100)': gs 'preSYS2','setval2' & pcs_dom = nstat & gt 'preSYS2','modatt'
+		gs 'preSYS2', 'modrel_setup2', 'pcs_dom', 'Dominance'
 	elseif sub >= 0 and pcs_dom = 0:
-		act 'Submissiveness (<<sub>>/100)': gs 'preSYS2','setval2' & sub = nstat & gt 'preSYS2','modatt'
-	elseif pcs_dom < 0:
-		sub = pcs_dom * -1
-		pcs_dom = 0
-		gt 'preSYS2','modatt'
-	elseif sub < 0:
-		pcs_dom = sub * -1 
-		sub = 0
-		gt 'preSYS2','modatt'
+		gs 'preSYS2', 'modrel_setup2', 'sub', 'Submissiveness'
 	end
-	act 'Strength (<<pcs_stren>>/100)': gs 'preSYS2','setval' & pcs_stren = nstat & gt 'preSYS2','modatt'
-	act 'Agility (<<pcs_agil>>/100)': gs 'preSYS2','setval' & pcs_agil = nstat & gt 'preSYS2','modatt'
-	act 'Endurance (<<pcs_vital>>/100)':  gs 'preSYS2','setval' & pcs_vital = nstat & gt 'preSYS2','modatt'
-	act 'Intelligence (<<pcs_intel>>/100)':  gs 'preSYS2','setval' & pcs_intel = nstat & gt 'preSYS2','modatt'
-	act 'Spirit (<<pcs_sprt>>/100)':  gs 'preSYS2','setval' & pcs_sprt = nstat & gt 'preSYS2','modatt'
-	act 'Mental Agility (<<pcs_react>>/100)':  gs 'preSYS2','setval' & pcs_react = nstat & gt 'preSYS2','modatt'
-	act 'Charisma (<<pcs_chrsm>>/100)':  gs 'preSYS2','setval' & pcs_chrsm = nstat & gt 'preSYS2','modatt'
-	act 'Perception (<<pcs_prcptn>>/100)':  gs 'preSYS2','setval' & pcs_prcptn = nstat & gt 'preSYS2','modatt'
-	if MagikDostup = 0:
-		act 'Magic (<<pcs_magik >>/100)':  gs 'preSYS2','setval' & pcs_magik  = nstat & gt 'preSYS2','modatt'
-	end
-	act 'Grades (<<pcs_grades>>/100)': gs 'preSYS2','setval3' & pcs_grades = nstat & gt 'preSYS2','modatt'
-	act 'Exhibitionism (<<pcs_exhibition>>/100)': gs 'preSYS2','setval3' & pcs_exhibition = nstat & gt 'preSYS2','modatt'
-	act 'Heels (<<pcs_heels>>/100)':  gs 'preSYS2','setval3' & pcs_heels = nstat & gt 'preSYS2','modatt'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_stren', 'Strength'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_agil', 'Agility'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_vital', 'Endurance'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_intel', 'Intelligence'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_sprt', 'Spirit'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_react', 'Mental Agility'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_chrsm', 'Charisma'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_prcptn', 'Perception'
+	if MagikDostup = 0: gs 'preSYS2', 'modrel_setup2', 'pcs_magik', 'Magic'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_grades', 'Grades'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_exhibition', 'Exhibitionism'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_heels', 'Heels'
+	'</table></center>'
+	nl
+	'Note: Exhibitionism will reset to 50 maximum if set high once the game starts.'
+
 	act 'Return': gt'preSYS2','start'
 end
 
@@ -389,55 +413,93 @@ if $ARGS[0] = 'modskl':
 end
 
 if $ARGS[0] = 'modskl_men':
-	if MagikDostup = 0: 
-		act 'Spell Casting (<<pcs_splcstng>>/100)': gs 'preSYS2','setval' & pcs_splcstng = nstat & gt 'preSYS2','modskl_men'
-	end
-	act 'People Skills (<<pcs_humint>>/100)': gs 'preSYS2','setval' & pcs_humint = nstat & gt 'preSYS2','modskl_men'
-	act 'Persuasion (<<pcs_persuas>>/100)': gs 'preSYS2','setval' & pcs_persuas = nstat & gt 'preSYS2','modskl_men'
-	act 'Observation (<<pcs_observ>>/100)': gs 'preSYS2','setval' & pcs_observ = nstat & gt 'preSYS2','modskl_men'
+	$metka = 'modskl_men'
+	'<center><b>Mental Skills</b></center>'
+	*nl
+	*nl
+	'<center><table border=0 cellspacing=0 cellpadding=25  bgcolor=#808080><TH></TH><TH>Set to zero</TH><TH>Minus 10</TH><TH>Minus 5</TH><TH>Plus 5</TH><TH>Plus 10</TH><TH>Set to 100</TH>'
+	if MagikDostup = 0: gs 'preSYS2', 'modrel_setup2', 'pcs_splcstng', 'Spell Casting'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_humint', 'People skills'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_persuas', 'Persuasion'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_observ', 'Observation'
+	'</table></center>'
+	nl
+
 	act 'Return': gt 'preSYS2','modskl'
 end
 
 if $ARGS[0] = 'modskl_spo':
-	act 'Jabs (<<pcs_jab>>/100)': gs 'preSYS2','setval' & pcs_jab = nstat & gt 'preSYS2','modskl_spo'
-	act 'Power Strikes (<<pcs_punch>>/100)': gs 'preSYS2','setval' & pcs_punch = nstat & gt 'preSYS2','modskl_spo'
-	act 'Kicks (<<pcs_kick>>/100)': gs 'preSYS2','setval' & pcs_kick = nstat & gt 'preSYS2','modskl_spo'
-	act 'Defence (<<pcs_def>>/100)': gs 'preSYS2','setval' & pcs_def = nstat & gt 'preSYS2','modskl_spo'
-	act 'Running (<<pcs_run>>/100)': gs 'preSYS2','setval' & pcs_run = nstat  & gt 'preSYS2','modskl_spo'
-	act 'Volleyball (<<pcs_vball>>/100)': gs 'preSYS2','setval' & pcs_vball = nstat & gt 'preSYS2','modskl_spo'
-	act 'Football (<<pcs_ftball>>/100)': gs 'preSYS2','setval' & pcs_ftball = nstat & gt 'preSYS2','modskl_spo'
-	act 'Wrestling (<<pcs_wrstlng>>/100)': gs 'preSYS2','setval' & pcs_wrstlng = nstat & gt 'preSYS2','modskl_spo'
-	act 'Marskmanship (<<pcs_shoot>>/100)': gs 'preSYS2','setval' & pcs_shoot = nstat & gt 'preSYS2','modskl_spo'
-	act 'Chess (<<pcs_chess>>/100)': gs 'preSYS2','setval' & pcs_chess = nstat  & gt 'preSYS2','modskl_spo'
-	act 'Ice Skating (<<pcs_icesktng>>/100)': gs 'preSYS2','setval' & pcs_icesktng = nstat & gt 'preSYS2','modskl_spo'
-	act 'Gaming (<<pcs_ttgmng>>/100)': gs 'preSYS2','setval' & pcs_ttgmng = nstat & gt 'preSYS2','modskl_spo'
+	$metka = 'modskl_spo'
+	'<center><b>Sport Skills</b></center>'
+	*nl
+	*nl
+	'<center><table border=0 cellspacing=0 cellpadding=25  bgcolor=#808080><TH></TH><TH>Set to zero</TH><TH>Minus 10</TH><TH>Minus 5</TH><TH>Plus 5</TH><TH>Plus 10</TH><TH>Set to 100</TH>'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_jab', 'Jabs'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_punch', 'Power Strikes'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_kick', 'Kicks'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_def', 'Defence'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_run', 'Running'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_vball', 'Volleyball'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_ftball', 'Football'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_wrstlng', 'Wrestling'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_shoot', 'Marskmanship'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_chess', 'Chess'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_icesktng', 'Ice Skating'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_ttgmng', 'Gaming'
+	'</table></center>'
+	nl
+
 	act 'Return': gt 'preSYS2','modskl'
 end
 
 if $ARGS[0] = 'modskl_bea':
-	act 'Makeup Skills (<<pcs_makupskl>>/100)': gs 'preSYS2','setval' & pcs_makupskl = nstat & gt 'preSYS2','modskl_bea'
-	act 'Modern Dancing (<<pcs_danc>>/100)': gs 'preSYS2','setval' & pcs_danc = nstat & gt 'preSYS2','modskl_bea'
-	act 'Erotic Dancing (<<pcs_dancero>>/100)': gs 'preSYS2','setval' & pcs_dancero = nstat & gt 'preSYS2','modskl_bea'
-	act 'Pole Dancing (<<pcs_dancpol>>/100)': gs 'preSYS2','setval' & pcs_dancpol = nstat & gt 'preSYS2','modskl_bea'
-	act 'Modelling (<<pcs_mdlng>>/100)': gs 'preSYS2','setval' & pcs_mdlng = nstat & gt 'preSYS2','modskl_bea'
+	$metka = 'modskl_bea'
+	'<center><b>Beauty skills</b></center>'
+	*nl
+	*nl
+	'<center><table border=0 cellspacing=0 cellpadding=25  bgcolor=#808080><TH></TH><TH>Set to zero</TH><TH>Minus 10</TH><TH>Minus 5</TH><TH>Plus 5</TH><TH>Plus 10</TH><TH>Set to 100</TH>'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_makupskl', 'Makeup Skills'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_danc', 'Modern Dancing'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_dancero', 'Erotic Dancing'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_dancpol', 'Pole Dancing'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_mdlng', 'Modelling'
+	'</table></center>'
+	nl
+
 	act 'Return': gt 'preSYS2','modskl'
 end
 
 if $ARGS[0] = 'modskl_art':
-	act 'Singing (<<pcs_vokal>>/100)': gs 'preSYS2','setval' & pcs_vokal = nstat & gt 'preSYS2','modskl_art'
-	act 'Instrumental Music (<<pcs_instrmusic>>/100)': gs 'preSYS2','setval' & pcs_instrmusic = nstat & gt 'preSYS2','modskl_art'
-	act 'Photography (<<pcs_photoskl>>/100)': gs 'preSYS2','setval' & pcs_photoskl = nstat & gt 'preSYS2','modskl_art'
-	act 'Artistic Skills (<<pcs_artskl>>/100)': gs 'preSYS2','setval' & pcs_artskl = nstat & gt 'preSYS2','modskl_art'
+	$metka = 'modskl_art'
+	'<center><b>Artistic Skills</b></center>'
+	*nl
+	*nl
+	'<center><table border=0 cellspacing=0 cellpadding=25  bgcolor=#808080><TH></TH><TH>Set to zero</TH><TH>Minus 10</TH><TH>Minus 5</TH><TH>Plus 5</TH><TH>Plus 10</TH><TH>Set to 100</TH>'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_vokal', 'Singing'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_instrmusic', 'Instrumental Music'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_photoskl', 'Photography'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_artskl', 'Artistic Skills'
+	'</table></center>'
+	nl
+
 	act 'Return': gt 'preSYS2','modskl'
 end
 
 if $ARGS[0] = 'modskl_job':
-	act 'Computer Skills (<<pcs_compskl>>/100)': gs 'preSYS2','setval' & pcs_compskl = nstat & gt 'preSYS2','modskl_job'
-	act 'Hacking (<<pcs_comphckng>>/100)': gs 'preSYS2','setval' & pcs_comphckng = nstat & gt 'preSYS2','modskl_job'
-	act 'Handy-work (<<pcs_hndiwrk>>/100)': gs 'preSYS2','setval' & pcs_hndiwrk = nstat & gt 'preSYS2','modskl_job'
-	act 'Tailoring (<<pcs_sewng>>/100)': gs 'preSYS2','setval' & pcs_sewng = nstat & gt 'preSYS2','modskl_job'
-	act 'Serving (<<pcs_servng>>/100)': gs 'preSYS2','setval' & pcs_servng = nstat & gt 'preSYS2','modskl_job'
-	act 'Medicine (<<pcs_medcn>>/100)': gs 'preSYS2','setval' & pcs_medcn = nstat & gt 'preSYS2','modskl_job'
+	$metka = 'modskl_job'
+	'<center><b>Job Skills</b></center>'
+	*nl
+	*nl
+	'<center><table border=0 cellspacing=0 cellpadding=25  bgcolor=#808080><TH></TH><TH>Set to zero</TH><TH>Minus 10</TH><TH>Minus 5</TH><TH>Plus 5</TH><TH>Plus 10</TH><TH>Set to 100</TH>'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_compskl', 'Computer Skills'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_comphckng', 'Hacking'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_hndiwrk', 'Handy-work'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_sewng', 'Tailoring'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_servng', 'Serving'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_medcn', 'Medicine'
+	'</table></center>'
+	nl
+
 	act 'Return': gt 'preSYS2','modskl'
 end
 
@@ -574,121 +636,154 @@ if $ARGS[0] = 'modrel_fam':
 	act 'Return': gt 'preSYS2','modrel'
 end
 
+
+if $ARGS[0] = 'modrel_setup':
+	if npc_rel['<<$ARGS[1]>>'] < 0: npc_rel['<<$ARGS[1]>>'] = 0
+	if npc_rel['<<$ARGS[1]>>'] > 100: npc_rel['<<$ARGS[1]>>'] = 100
+	'<TR bgcolor=#ffffff><TD><<$npc_firstname[''<<$ARGS[1]>>'']>> <<$npc_lastname[''<<$ARGS[1]>>'']>>: <<npc_rel[''<<$ARGS[1]>>'']>></TD><TD><a href="exec:npc_rel[''<<$ARGS[1]>>''] = 0 & gt ''preSYS2'', $metka">zero</a></TD><TD bgcolor=#ff9999><a href="exec:npc_rel[''<<$ARGS[1]>>''] -= 10 & gt ''preSYS2'', $metka">minus 10</a></TD><TD bgcolor=#ff9999><a href="exec:npc_rel[''<<$ARGS[1]>>''] -= 5 & gt ''preSYS2'', $metka">minus 5</a></TD><TD bgcolor=#99ff99><a href="exec:npc_rel[''<<$ARGS[1]>>''] += 5 & gt ''preSYS2'', $metka">plus 5</a></TD><TD bgcolor=#99ff99><a href="exec:npc_rel[''<<$ARGS[1]>>''] += 10 & gt ''preSYS2'', $metka">plus 10</a></TD><TD><a href="exec:npc_rel[''<<$ARGS[1]>>''] = 100 & gt ''preSYS2'', $metka">100</a></TD>'
+end
+
 if $ARGS[0] = 'modrel_pop':
-	act '<<$npc_firstname[''A1'']>> <<$npc_lastname[''A1'']>>: <<npc_rel[''A1'']>>' : gs 'preSYS2','setval2' & npc_rel['A1'] = nstat & gt 'preSYS2','modrel_pop'
-	act '<<$npc_firstname[''A4'']>> <<$npc_lastname[''A4'']>>: <<npc_rel[''A4'']>>' : gs 'preSYS2','setval2' & npc_rel['A4'] = nstat & gt 'preSYS2','modrel_pop'
-	act '<<$npc_firstname[''A14'']>> <<$npc_lastname[''A14'']>>: <<npc_rel[''A14'']>>' : gs 'preSYS2','setval2' & npc_rel['A14'] = nstat & gt 'preSYS2','modrel_pop'
-	act '<<$npc_firstname[''A15'']>> <<$npc_lastname[''A15'']>>: <<npc_rel[''A15'']>>' : gs 'preSYS2','setval2' & npc_rel['A15'] = nstat & gt 'preSYS2','modrel_pop'
-	act '<<$npc_firstname[''A17'']>> <<$npc_lastname[''A17'']>>: <<npc_rel[''A17'']>>' : gs 'preSYS2','setval2' & npc_rel['A17'] = nstat & gt 'preSYS2','modrel_pop'
-	act '<<$npc_firstname[''A23'']>> <<$npc_lastname[''A23'']>>: <<npc_rel[''A23'']>>' : gs 'preSYS2','setval2' & npc_rel['A23'] = nstat & gt 'preSYS2','modrel_pop'
-	act '<<$npc_firstname[''A146'']>> <<$npc_lastname[''A146'']>>: <<npc_rel[''A146'']>>' : gs 'preSYS2','setval2' & npc_rel['A146'] = nstat & gt 'preSYS2','modrel_pop'
-	act '<<$npc_firstname[''A147'']>> <<$npc_lastname[''A147'']>>: <<npc_rel[''A147'']>>' : gs 'preSYS2','setval2' & npc_rel['A147'] = nstat & gt 'preSYS2','modrel_pop'
-	act '<<$npc_firstname[''A148'']>> <<$npc_lastname[''A148'']>>: <<npc_rel[''A148'']>>' : gs 'preSYS2','setval2' & npc_rel['A148'] = nstat & gt 'preSYS2','modrel_pop'
-	act '<<$npc_firstname[''A25'']>> <<$npc_lastname[''A25'']>>: <<npc_rel[''A25'']>>' : gs 'preSYS2','setval2' & npc_rel['A25'] = nstat & gt 'preSYS2','modrel_pop'
-	act '<<$npc_firstname[''A139'']>> <<$npc_lastname[''A139'']>>: <<npc_rel[''A139'']>>' : gs 'preSYS2','setval2' & npc_rel['A139'] = nstat & gt 'preSYS2','modrel_pop'
-	act '<<$npc_firstname[''A140'']>> <<$npc_lastname[''A140'']>>: <<npc_rel[''A140'']>>' : gs 'preSYS2','setval2' & npc_rel['A140'] = nstat & gt 'preSYS2','modrel_pop'
-	act 'Boys only': gs 'preSYS2','setval2' & gs 'preSYS2', 'pol_grup_set', 0, 1, nstat & gt 'preSYS2','modrel_pop'
-	act 'Girls only': gs 'preSYS2','setval2' & gs 'preSYS2', 'pol_grup_set', 1, 1, nstat & gt 'preSYS2','modrel_pop'
+	$metka = 'modrel_pop'
+	'<center><b>Popular kids relationship levels</b></center>'
+	*nl
+	*nl
+	'<center><table border=0 cellspacing=0 cellpadding=25  bgcolor=#808080><TH></TH><TH>Set to zero</TH><TH>Minus 10</TH><TH>Minus 5</TH><TH>Plus 5</TH><TH>Plus 10</TH><TH>Set to 100</TH>'
+	gs 'preSYS2', 'modrel_setup', 'A1'
+	gs 'preSYS2', 'modrel_setup', 'A4'
+	gs 'preSYS2', 'modrel_setup', 'A14'
+	gs 'preSYS2', 'modrel_setup', 'A15'
+	gs 'preSYS2', 'modrel_setup', 'A17'
+	gs 'preSYS2', 'modrel_setup', 'A23'
+	gs 'preSYS2', 'modrel_setup', 'A146'
+	gs 'preSYS2', 'modrel_setup', 'A147'
+	gs 'preSYS2', 'modrel_setup', 'A148'
+	gs 'preSYS2', 'modrel_setup', 'A25'
+	gs 'preSYS2', 'modrel_setup', 'A139'
+	gs 'preSYS2', 'modrel_setup', 'A140'
+	'<TR bgcolor=#ffffff><TD>Set relationship level for all boys in this group</TD><TD><a href="exec: gs ''preSYS2'',''setval2'' & gs ''preSYS2'', ''pol_grup_set'', 0, 1, nstat & gt ''preSYS2'',''modrel_pop''">set value</a></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD>'
+	'<TR bgcolor=#ffffff><TD>Set relationship level for all girls in this group</TD><TD><a href="exec: gs ''preSYS2'',''setval2'' & gs ''preSYS2'', ''pol_grup_set'', 1, 1, nstat & gt ''preSYS2'',''modrel_pop''">set value</a></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD>'
+	'</table></center>'
 	act 'Return': gt 'preSYS2','modrel'
 end
 
 if $ARGS[0] = 'modrel_ath':
-	act '<<$npc_firstname[''A3'']>> <<$npc_lastname[''A3'']>>: <<npc_rel[''A3'']>>' : gs 'preSYS2','setval2' & npc_rel['A3'] = nstat & gt 'preSYS2','modrel_ath'
-	act '<<$npc_firstname[''A5'']>> <<$npc_lastname[''A5'']>>: <<npc_rel[''A4'']>>' : gs 'preSYS2','setval2' & npc_rel['A5'] = nstat & gt 'preSYS2','modrel_ath'
-	act '<<$npc_firstname[''A8'']>> <<$npc_lastname[''A8'']>>: <<npc_rel[''A8'']>>' : gs 'preSYS2','setval2' & npc_rel['A8'] = nstat & gt 'preSYS2','modrel_ath'
-	act '<<$npc_firstname[''A13'']>> <<$npc_lastname[''A13'']>>: <<npc_rel[''A13'']>>' : gs 'preSYS2','setval2' & npc_rel['A13'] = nstat & gt 'preSYS2','modrel_ath'
-	act '<<$npc_firstname[''A18'']>> <<$npc_lastname[''A18'']>>: <<npc_rel[''A18'']>>' : gs 'preSYS2','setval2' & npc_rel['A18'] = nstat & gt 'preSYS2','modrel_ath'
-	act '<<$npc_firstname[''A19'']>> <<$npc_lastname[''A19'']>>: <<npc_rel[''A19'']>>' : gs 'preSYS2','setval2' & npc_rel['A19'] = nstat & gt 'preSYS2','modrel_ath'
-	act '<<$npc_firstname[''A22'']>> <<$npc_lastname[''A22'']>>: <<npc_rel[''A22'']>>' : gs 'preSYS2','setval2' & npc_rel['A22'] = nstat & gt 'preSYS2','modrel_ath'
-	act '<<$npc_firstname[''A149'']>> <<$npc_lastname[''A149'']>>: <<npc_rel[''A149'']>>' : gs 'preSYS2','setval2' & npc_rel['A149'] = nstat & gt 'preSYS2','modrel_ath'
-	act '<<$npc_firstname[''A150'']>> <<$npc_lastname[''A150'']>>: <<npc_rel[''A150'']>>' : gs 'preSYS2','setval2' & npc_rel['A150'] = nstat & gt 'preSYS2','modrel_ath'
-	act '<<$npc_firstname[''A141'']>> <<$npc_lastname[''A141'']>>: <<npc_rel[''A141'']>>' : gs 'preSYS2','setval2' & npc_rel['A141'] = nstat & gt 'preSYS2','modrel_ath'
-	act 'Boys only': gs 'preSYS2','setval2' & gs 'preSYS2', 'pol_grup_set', 0, 2, nstat & gt 'preSYS2','modrel_ath'
-	act 'Girls only': gs 'preSYS2','setval2' & gs 'preSYS2', 'pol_grup_set', 1, 2, nstat & gt 'preSYS2','modrel_ath'
-	act 'Return': gt 'preSYS2','modrel'
-end
-
-if $ARGS[0] = 'modrel_ath':
-	act '<<$npc_firstname[''A3'']>> <<$npc_lastname[''A3'']>>: <<npc_rel[''A3'']>>' : gs 'preSYS2','setval2' & npc_rel['A3'] = nstat & gt 'preSYS2','modrel_ath'
-	act '<<$npc_firstname[''A5'']>> <<$npc_lastname[''A5'']>>: <<npc_rel[''A5'']>>' : gs 'preSYS2','setval2' & npc_rel['A5'] = nstat & gt 'preSYS2','modrel_ath'
-	act '<<$npc_firstname[''A8'']>> <<$npc_lastname[''A8'']>>: <<npc_rel[''A8'']>>' : gs 'preSYS2','setval2' & npc_rel['A8'] = nstat & gt 'preSYS2','modrel_ath'
-	act '<<$npc_firstname[''A13'']>> <<$npc_lastname[''A13'']>>: <<npc_rel[''A13'']>>' : gs 'preSYS2','setval2' & npc_rel['A13'] = nstat & gt 'preSYS2','modrel_ath'
-	act '<<$npc_firstname[''A18'']>> <<$npc_lastname[''A18'']>>: <<npc_rel[''A18'']>>' : gs 'preSYS2','setval2' & npc_rel['A18'] = nstat & gt 'preSYS2','modrel_ath'
-	act '<<$npc_firstname[''A19'']>> <<$npc_lastname[''A19'']>>: <<npc_rel[''A19'']>>' : gs 'preSYS2','setval2' & npc_rel['A19'] = nstat & gt 'preSYS2','modrel_ath'
-	act '<<$npc_firstname[''A22'']>> <<$npc_lastname[''A22'']>>: <<npc_rel[''A22'']>>' : gs 'preSYS2','setval2' & npc_rel['A22'] = nstat & gt 'preSYS2','modrel_ath'
-	act '<<$npc_firstname[''A149'']>> <<$npc_lastname[''A149'']>>: <<npc_rel[''A149'']>>' : gs 'preSYS2','setval2' & npc_rel['A149'] = nstat & gt 'preSYS2','modrel_ath'
-	act '<<$npc_firstname[''A150'']>> <<$npc_lastname[''A150'']>>: <<npc_rel[''A150'']>>' : gs 'preSYS2','setval2' & npc_rel['A150'] = nstat & gt 'preSYS2','modrel_ath'
-	act '<<$npc_firstname[''A141'']>> <<$npc_lastname[''A141'']>>: <<npc_rel[''A141'']>>' : gs 'preSYS2','setval2' & npc_rel['A141'] = nstat & gt 'preSYS2','modrel_ath'
-	act 'Boys only': gs 'preSYS2','setval2' & gs 'preSYS2', 'pol_grup_set', 0, 2, nstat & gt 'preSYS2','modrel_ath'
-	act 'Girls only': gs 'preSYS2','setval2' & gs 'preSYS2', 'pol_grup_set', 1, 2, nstat & gt 'preSYS2','modrel_ath'
+	$metka = 'modrel_ath'
+	'<center><b>Jocks relationship levels</b></center>'
+	*nl
+	*nl
+	'<center><table border=0 cellspacing=0 cellpadding=25  bgcolor=#808080><TH></TH><TH>Set to zero</TH><TH>Minus 10</TH><TH>Minus 5</TH><TH>Plus 5</TH><TH>Plus 10</TH><TH>Set to 100</TH>'
+	gs 'preSYS2', 'modrel_setup', 'A3'
+	gs 'preSYS2', 'modrel_setup', 'A5'
+	gs 'preSYS2', 'modrel_setup', 'A8'
+	gs 'preSYS2', 'modrel_setup', 'A13'
+	gs 'preSYS2', 'modrel_setup', 'A18'
+	gs 'preSYS2', 'modrel_setup', 'A19'
+	gs 'preSYS2', 'modrel_setup', 'A22'
+	gs 'preSYS2', 'modrel_setup', 'A149'
+	gs 'preSYS2', 'modrel_setup', 'A150'
+	gs 'preSYS2', 'modrel_setup', 'A141'
+	'<TR bgcolor=#ffffff><TD>Set relationship level for all boys in this group</TD><TD><a href="exec: gs ''preSYS2'',''setval2'' & gs ''preSYS2'', ''pol_grup_set'', 0, 2, nstat & gt ''preSYS2'',''modrel_ath''">set value</a></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD>'
+	'<TR bgcolor=#ffffff><TD>Set relationship level for all girls in this group</TD><TD><a href="exec: gs ''preSYS2'',''setval2'' & gs ''preSYS2'', ''pol_grup_set'', 1, 2, nstat & gt ''preSYS2'',''modrel_ath''">set value</a></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD>'
+	'</table></center>'
 	act 'Return': gt 'preSYS2','modrel'
 end
 
 if $ARGS[0] = 'modrel_ner':
-	act '<<$npc_firstname[''A2'']>> <<$npc_lastname[''A2'']>>: <<npc_rel[''A2'']>>' : gs 'preSYS2','setval2' & npc_rel['A2'] = nstat & gt 'preSYS2','modrel_ner'
-	act '<<$npc_firstname[''A6'']>> <<$npc_lastname[''A6'']>>: <<npc_rel[''A6'']>>' : gs 'preSYS2','setval2' & npc_rel['A6'] = nstat & gt 'preSYS2','modrel_ner'
-	act '<<$npc_firstname[''A12'']>> <<$npc_lastname[''A12'']>>: <<npc_rel[''A12'']>>' : gs 'preSYS2','setval2' & npc_rel['A12'] = nstat & gt 'preSYS2','modrel_ner'
-	act '<<$npc_firstname[''A16'']>> <<$npc_lastname[''A16'']>>: <<npc_rel[''A16'']>>' : gs 'preSYS2','setval2' & npc_rel['A16'] = nstat & gt 'preSYS2','modrel_ner'
-	act '<<$npc_firstname[''A151'']>> <<$npc_lastname[''A151'']>>: <<npc_rel[''A151'']>>' : gs 'preSYS2','setval2' & npc_rel['A151'] = nstat & gt 'preSYS2','modrel_ner'
-	act '<<$npc_firstname[''A152'']>> <<$npc_lastname[''A152'']>>: <<npc_rel[''A152'']>>' : gs 'preSYS2','setval2' & npc_rel['A152'] = nstat & gt 'preSYS2','modrel_ner'
-	act '<<$npc_firstname[''A153'']>> <<$npc_lastname[''A153'']>>: <<npc_rel[''A153'']>>' : gs 'preSYS2','setval2' & npc_rel['A153'] = nstat & gt 'preSYS2','modrel_ner'
-	act '<<$npc_firstname[''A142'']>> <<$npc_lastname[''A142'']>>: <<npc_rel[''A142'']>>' : gs 'preSYS2','setval2' & npc_rel['A142'] = nstat & gt 'preSYS2','modrel_ner'
-	act 'Boys only': gs 'preSYS2','setval2' & gs 'preSYS2', 'pol_grup_set', 0, 3, nstat & gt 'preSYS2','modrel_ner'
-	act 'Girls only': gs 'preSYS2','setval2' & gs 'preSYS2', 'pol_grup_set', 1, 3, nstat & gt 'preSYS2','modrel_ner'
+	$metka = 'modrel_ner'
+	'<center><b>Nerds relationship levels</b></center>'
+	*nl
+	*nl
+	'<center><table border=0 cellspacing=0 cellpadding=25  bgcolor=#808080><TH></TH><TH>Set to zero</TH><TH>Minus 10</TH><TH>Minus 5</TH><TH>Plus 5</TH><TH>Plus 10</TH><TH>Set to 100</TH>'
+	gs 'preSYS2', 'modrel_setup', 'A2'
+	gs 'preSYS2', 'modrel_setup', 'A6'
+	gs 'preSYS2', 'modrel_setup', 'A12'
+	gs 'preSYS2', 'modrel_setup', 'A16'
+	gs 'preSYS2', 'modrel_setup', 'A151'
+	gs 'preSYS2', 'modrel_setup', 'A152'
+	gs 'preSYS2', 'modrel_setup', 'A153'
+	gs 'preSYS2', 'modrel_setup', 'A142'
+	'<TR bgcolor=#ffffff><TD>Set relationship level for all boys in this group</TD><TD><a href="exec: gs ''preSYS2'',''setval2'' & gs ''preSYS2'', ''pol_grup_set'', 0, 3, nstat & gt ''preSYS2'',''modrel_ner''">set value</a></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD>'
+	'<TR bgcolor=#ffffff><TD>Set relationship level for all girls in this group</TD><TD><a href="exec: gs ''preSYS2'',''setval2'' & gs ''preSYS2'', ''pol_grup_set'', 1, 3, nstat & gt ''preSYS2'',''modrel_ner''">set value</a></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD>'
+	'</table></center>'
 	act 'Return': gt 'preSYS2','modrel'
 end
 
 if $ARGS[0] = 'modrel_gop':
-	act '<<$npc_firstname[''A9'']>> <<$npc_lastname[''A9'']>>: <<npc_rel[''A9'']>>' : gs 'preSYS2','setval2' & npc_rel['A9'] = nstat & gt 'preSYS2','modrel_gop'
-	act '<<$npc_firstname[''A10'']>> <<$npc_lastname[''A10'']>>: <<npc_rel[''A10'']>>' : gs 'preSYS2','setval2' & npc_rel['A10'] = nstat & gt 'preSYS2','modrel_gop'
-	act '<<$npc_firstname[''A11'']>> <<$npc_lastname[''A11'']>>: <<npc_rel[''A11'']>>' : gs 'preSYS2','setval2' & npc_rel['A11'] = nstat & gt 'preSYS2','modrel_gop'
-	act '<<$npc_firstname[''A20'']>> <<$npc_lastname[''A20'']>>: <<npc_rel[''A20'']>>' : gs 'preSYS2','setval2' & npc_rel['A20'] = nstat & gt 'preSYS2','modrel_gop'
-	act '<<$npc_firstname[''A21'']>> <<$npc_lastname[''A21'']>>: <<npc_rel[''A21'']>>' : gs 'preSYS2','setval2' & npc_rel['A21'] = nstat & gt 'preSYS2','modrel_gop'
-	act '<<$npc_firstname[''A24'']>> <<$npc_lastname[''A24'']>>: <<npc_rel[''A24'']>>' : gs 'preSYS2','setval2' & npc_rel['A24'] = nstat & gt 'preSYS2','modrel_gop'
-	act '<<$npc_firstname[''A154'']>> <<$npc_lastname[''A154'']>>: <<npc_rel[''A154'']>>' : gs 'preSYS2','setval2' & npc_rel['A154'] = nstat & gt 'preSYS2','modrel_gop'
-	act '<<$npc_firstname[''A155'']>> <<$npc_lastname[''A155'']>>: <<npc_rel[''A155'']>>' : gs 'preSYS2','setval2' & npc_rel['A155'] = nstat & gt 'preSYS2','modrel_gop'
-	act '<<$npc_firstname[''A156'']>> <<$npc_lastname[''A156'']>>: <<npc_rel[''A156'']>>' : gs 'preSYS2','setval2' & npc_rel['A156'] = nstat & gt 'preSYS2','modrel_gop'
-	act '<<$npc_firstname[''A157'']>> <<$npc_lastname[''A157'']>>: <<npc_rel[''A157'']>>' : gs 'preSYS2','setval2' & npc_rel['A157'] = nstat & gt 'preSYS2','modrel_gop'
-	act '<<$npc_firstname[''A158'']>> <<$npc_lastname[''A158'']>>: <<npc_rel[''A158'']>>' : gs 'preSYS2','setval2' & npc_rel['A158'] = nstat & gt 'preSYS2','modrel_gop'
-	act '<<$npc_firstname[''A143'']>> <<$npc_lastname[''A143'']>>: <<npc_rel[''A143'']>>' : gs 'preSYS2','setval2' & npc_rel['A143'] = nstat & gt 'preSYS2','modrel_gop'
-	act '<<$npc_firstname[''A144'']>> <<$npc_lastname[''A144'']>>: <<npc_rel[''A144'']>>' : gs 'preSYS2','setval2' & npc_rel['A144'] = nstat & gt 'preSYS2','modrel_gop'
-	act '<<$npc_firstname[''A145'']>> <<$npc_lastname[''A145'']>>: <<npc_rel[''A145'']>>' : gs 'preSYS2','setval2' & npc_rel['A145'] = nstat & gt 'preSYS2','modrel_gop'
-	act 'Boys only': gs 'preSYS2','setval2' & gs 'preSYS2', 'pol_grup_set', 0, 4, nstat & gt 'preSYS2','modrel_gop'
-	act 'Girls only': gs 'preSYS2','setval2' & gs 'preSYS2', 'pol_grup_set', 1, 4, nstat & gt 'preSYS2','modrel_gop'
+	$metka = 'modrel_gop'
+	'<center><b>Gopnik kids relationship levels</b></center>'
+	*nl
+	*nl
+	'<center><table border=0 cellspacing=0 cellpadding=25  bgcolor=#808080><TH></TH><TH>Set to zero</TH><TH>Minus 10</TH><TH>Minus 5</TH><TH>Plus 5</TH><TH>Plus 10</TH><TH>Set to 100</TH>'
+	gs 'preSYS2', 'modrel_setup', 'A9'
+	gs 'preSYS2', 'modrel_setup', 'A10'
+	gs 'preSYS2', 'modrel_setup', 'A11'
+	gs 'preSYS2', 'modrel_setup', 'A20'
+	gs 'preSYS2', 'modrel_setup', 'A21'
+	gs 'preSYS2', 'modrel_setup', 'A24'
+	gs 'preSYS2', 'modrel_setup', 'A154'
+	gs 'preSYS2', 'modrel_setup', 'A155'
+	gs 'preSYS2', 'modrel_setup', 'A156'
+	gs 'preSYS2', 'modrel_setup', 'A157'
+	gs 'preSYS2', 'modrel_setup', 'A158'
+	gs 'preSYS2', 'modrel_setup', 'A143'
+	gs 'preSYS2', 'modrel_setup', 'A144'
+	gs 'preSYS2', 'modrel_setup', 'A145'
+	'<TR bgcolor=#ffffff><TD>Set relationship level for all boys in this group</TD><TD><a href="exec: gs ''preSYS2'',''setval2'' & gs ''preSYS2'', ''pol_grup_set'', 0, 4, nstat & gt ''preSYS2'',''modrel_gop''">set value</a></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD>'
+	'<TR bgcolor=#ffffff><TD>Set relationship level for all girls in this group</TD><TD><a href="exec: gs ''preSYS2'',''setval2'' & gs ''preSYS2'', ''pol_grup_set'', 1, 4, nstat & gt ''preSYS2'',''modrel_gop''">set value</a></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD>'
+	'</table></center>'
 	act 'Return': gt 'preSYS2','modrel'
 end
 
 
 if $ARGS[0] = 'modrel_out':
-	act '<<$npc_firstname[''A7'']>> <<$npc_lastname[''A7'']>>: <<npc_rel[''A7'']>>' : gs 'preSYS2','setval2' & npc_rel['A7'] = nstat & gt 'preSYS2','modrel_out'
-	act '<<$npc_firstname[''A159'']>> <<$npc_lastname[''A159'']>>: <<npc_rel[''A159'']>>' : gs 'preSYS2','setval2' & npc_rel['A159'] = nstat & gt 'preSYS2','modrel_out'
-	act 'Boys only': gs 'preSYS2','setval2' & gs 'preSYS2', 'pol_grup_set', 0, 5, nstat & gt 'preSYS2','modrel_out'
-	!act 'Girls only': gs 'preSYS2','setval2' & gs 'preSYS2', 'pol_grup_set', 1, 5, nstat & gt 'preSYS2','modrel_out'
+	$metka = 'modrel_out'
+	'<center><b>Popular kids relationship levels</b></center>'
+	*nl
+	*nl
+	'<center><table border=0 cellspacing=0 cellpadding=25  bgcolor=#808080><TH></TH><TH>Set to zero</TH><TH>Minus 10</TH><TH>Minus 5</TH><TH>Plus 5</TH><TH>Plus 10</TH><TH>Set to 100</TH>'
+	gs 'preSYS2', 'modrel_setup', 'A7'
+	gs 'preSYS2', 'modrel_setup', 'A159'
+	'<TR bgcolor=#ffffff><TD>Set relationship level for all boys in this group</TD><TD><a href="exec: gs ''preSYS2'',''setval2'' & gs ''preSYS2'', ''pol_grup_set'', 0, 5, nstat & gt ''preSYS2'',''modrel_out''">set value</a></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD>'
+!!	'<TR bgcolor=#ffffff><TD>Set relationship level for all girls in this group</TD><TD><a href="exec: gs ''preSYS2'',''setval2'' & gs ''preSYS2'', ''pol_grup_set'', 1, 5, nstat & gt ''preSYS2'',''modrel_out''">set value</a></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD>'
+	'</table></center>'
 	act 'Return': gt 'preSYS2','modrel'
 end
 
 if $ARGS[0] = 'modrel_tea':
-	act '<<$npc_firstname[''A26'']>> <<$npc_lastname[''A26'']>>: <<npc_rel[''A26'']>>' : gs 'preSYS2','setval2' & npc_rel['A26'] = nstat & gt 'preSYS2','modrel_tea'
-	act '<<$npc_firstname[''A128'']>> <<$npc_lastname[''A128'']>>: <<npc_rel[''A128'']>>' : gs 'preSYS2','setval2' & npc_rel['A128'] = nstat & gt 'preSYS2','modrel_tea'
-	act '<<$npc_firstname[''A129'']>> <<$npc_lastname[''A129'']>>: <<npc_rel[''A129'']>>' : gs 'preSYS2','setval2' & npc_rel['A129'] = nstat & gt 'preSYS2','modrel_tea'
-	act '<<$npc_firstname[''A130'']>> <<$npc_lastname[''A130'']>>: <<npc_rel[''A130'']>>' : gs 'preSYS2','setval2' & npc_rel['A130'] = nstat & gt 'preSYS2','modrel_tea'
-	act '<<$npc_firstname[''A131'']>> <<$npc_lastname[''A131'']>>: <<npc_rel[''A131'']>>' : gs 'preSYS2','setval2' & npc_rel['A131'] = nstat & gt 'preSYS2','modrel_tea'
-	act '<<$npc_firstname[''A132'']>> <<$npc_lastname[''A132'']>>: <<npc_rel[''A132'']>>' : gs 'preSYS2','setval2' & npc_rel['A132'] = nstat & gt 'preSYS2','modrel_tea'
-	act '<<$npc_firstname[''A133'']>> <<$npc_lastname[''A133'']>>: <<npc_rel[''A133'']>>' : gs 'preSYS2','setval2' & npc_rel['A133'] = nstat & gt 'preSYS2','modrel_tea'
-	act '<<$npc_firstname[''A134'']>> <<$npc_lastname[''A134'']>>: <<npc_rel[''A134'']>>' : gs 'preSYS2','setval2' & npc_rel['A134'] = nstat & gt 'preSYS2','modrel_tea'
-	act '<<$npc_firstname[''A135'']>> <<$npc_lastname[''A135'']>>: <<npc_rel[''A135'']>>' : gs 'preSYS2','setval2' & npc_rel['A135'] = nstat & gt 'preSYS2','modrel_tea'
-	act '<<$npc_firstname[''A136'']>> <<$npc_lastname[''A136'']>>: <<npc_rel[''A136'']>>' : gs 'preSYS2','setval2' & npc_rel['A136'] = nstat & gt 'preSYS2','modrel_tea'
-	act '<<$npc_firstname[''A137'']>> <<$npc_lastname[''A137'']>>: <<npc_rel[''A137'']>>' : gs 'preSYS2','setval2' & npc_rel['A137'] = nstat & gt 'preSYS2','modrel_tea'
-	act '<<$npc_firstname[''A138'']>> <<$npc_lastname[''A138'']>>: <<npc_rel[''A138'']>>' : gs 'preSYS2','setval2' & npc_rel['A138'] = nstat & gt 'preSYS2','modrel_tea'
-	act 'Men only': gs 'preSYS2','setval2' & gs 'preSYS2', 'pol_grup_set', 0, 6, nstat & gt 'preSYS2','modrel_tea'
-	act 'Women only': gs 'preSYS2','setval2' & gs 'preSYS2', 'pol_grup_set', 1, 6, nstat & gt 'preSYS2','modrel_tea'
+	$metka = 'modrel_tea'
+	'<center><b>Popular kids relationship levels</b></center>'
+	*nl
+	*nl
+	'<center><table border=0 cellspacing=0 cellpadding=25  bgcolor=#808080><TH></TH><TH>Set to zero</TH><TH>Minus 10</TH><TH>Minus 5</TH><TH>Plus 5</TH><TH>Plus 10</TH><TH>Set to 100</TH>'
+	gs 'preSYS2', 'modrel_setup', 'A26'
+	gs 'preSYS2', 'modrel_setup', 'A128'
+	gs 'preSYS2', 'modrel_setup', 'A129'
+	gs 'preSYS2', 'modrel_setup', 'A130'
+	gs 'preSYS2', 'modrel_setup', 'A131'
+	gs 'preSYS2', 'modrel_setup', 'A132'
+	gs 'preSYS2', 'modrel_setup', 'A133'
+	gs 'preSYS2', 'modrel_setup', 'A134'
+	gs 'preSYS2', 'modrel_setup', 'A135'
+	gs 'preSYS2', 'modrel_setup', 'A136'
+	gs 'preSYS2', 'modrel_setup', 'A137'
+	gs 'preSYS2', 'modrel_setup', 'A138'
+	'<TR bgcolor=#ffffff><TD>Set relationship level for all men in this group</TD><TD><a href="exec: gs ''preSYS2'',''setval2'' & gs ''preSYS2'', ''pol_grup_set'', 0, 6, nstat & gt ''preSYS2'',''modrel_tea''">set value</a></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD>'
+	'<TR bgcolor=#ffffff><TD>Set relationship level for all women in this group</TD><TD><a href="exec: gs ''preSYS2'',''setval2'' & gs ''preSYS2'', ''pol_grup_set'', 1, 6, nstat & gt ''preSYS2'',''modrel_tea''">set value</a></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD>'
+	'</table></center>'
 	act 'Return': gt 'preSYS2','modrel'
 end
 
 if $ARGS[0] = 'modrel_oth':
+	$metka = 'modrel_oth'
+	'<center><b>Others relationship levels</b></center>'
+	*nl
+	*nl
+	'<center><table border=0 cellspacing=0 cellpadding=25  bgcolor=#808080><TH></TH><TH>Set to zero</TH><TH>Minus 10</TH><TH>Minus 5</TH><TH>Plus 5</TH><TH>Plus 10</TH><TH>Set to 100</TH>'
+	gs 'preSYS2', 'modrel_setup', 'A69'
+	gs 'preSYS2', 'modrel_setup', 'A112'
+	'</table></center>'
 	!!Volleyball Coach is here because it wasnt being controlled by grup6 the teachers/coaches.
-	act '<<$npc_firstname[''A69'']>> <<$npc_lastname[''A69'']>>: <<npc_rel[''A69'']>>' : gs 'preSYS2','setval2' & npc_rel['A69'] = nstat & gt 'preSYS2','modrel_oth'
-	act '<<$npc_firstname[''A112'']>> <<$npc_lastname[''A112'']>>: <<npc_rel[''A112'']>>' : gs 'preSYS2','setval2' & npc_rel['A112'] = nstat & gt 'preSYS2','modrel_oth'
 	act 'Return': gt 'preSYS2','modrel'
 end
 

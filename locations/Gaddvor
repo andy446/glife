@@ -55,7 +55,7 @@ if $ARGS[0]='':
 		act 'Enter the banya':minut += 5 & gt 'Gadbana'
 	end
 	
-	if $wornclothingtype = 'nude':
+	if $clothingworntype = 'nude':
 		*nl
 		'You are naked and can only go to your grandparents to get dressed or go to the banya.'
 	else

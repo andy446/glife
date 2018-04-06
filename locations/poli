@@ -1422,12 +1422,12 @@ if $ARGS[0] = 'cosmetic1':
 		'Get XXL breast implants - 150000'
 	end
 	if money >= 200000 and silicone = 0 and fillimplant = 0 and stringimplant = 0:
-		'<a href="exec:brSurTemp = 20 & fillimplant = 1 & gt ''poli'', ''bImplantA''">Get fillable implants</a> - 200000'
+		'<a href="exec:brSurTemp = 20 & fillimplant = 1 & gt ''poli'', ''bImplantFill''">Get fillable implants</a> - 200000'
 		else
 		'Get fillable implants - 200000'
 	end
 	if money >= 250000 and silicone = 0 and fillimplant = 0 and stringimplant = 0:
-		'<a href="exec:brSurTemp = 20 & stringimplant = 1 & gt ''poli'', ''bImplantA''">Get string implants</a> - 250000'
+		'<a href="exec:brSurTemp = 20 & stringimplant = 1 & gt ''poli'', ''bImplantString''">Get string implants</a> - 250000'
 		else
 		'Get string implants - 250000'
 	end
@@ -1535,6 +1535,29 @@ if $ARGS[0] = 'bImplantA':
 	act 'Continue':gt 'poli', 'cosmetic1'
 end
 
+if $ARGS[0] = 'bImplantFill':
+	cls
+	minut += 60
+	silicone = brSurTemp
+	money -= 200000
+	gs 'stat'
+	'<center><img <<$set_imgh>> src="images/locations/city/residential/clinic/cosmeticsur.jpg"></center>'
+	'Surgeon has you strip, put on a gown and lie down on the table. He gives you a mask and tells you to breathe in. By the time you wake up, the procedure is complete.'
+
+	act 'Continue':gt 'poli', 'cosmetic1'
+end
+
+if $ARGS[0] = 'bImplantString':
+	cls
+	minut += 60
+	silicone = brSurTemp
+	money -= 250000
+	gs 'stat'
+	'<center><img <<$set_imgh>> src="images/locations/city/residential/clinic/cosmeticsur.jpg"></center>'
+	'Surgeon has you strip, put on a gown and lie down on the table. He gives you a mask and tells you to breathe in. By the time you wake up, the procedure is complete.'
+
+	act 'Continue':gt 'poli', 'cosmetic1'
+end
 
 --- poli ---------------------------------
 

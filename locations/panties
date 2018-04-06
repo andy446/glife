@@ -110,6 +110,14 @@ if $ARGS[0] = 'view_panty_list':
 	if sexshop_pantiesS[i] = metka_panties and sexshop_panties[i] = 1:*p '<a href="exec:gt ''panties'', ''view_panty_item'', ''<<$ARGS[1]>>'', ''sexshop'', <<i>>"><img src="images/pc/panties/sexshop/<<i>>.jpg" 	height="300" /></a>'
 	i += 1
 	if i <= ARRSIZE('sexshop_panties'):jump 'loopsexshoppanties'
+
+	'<center><img src="images/locations/city/citycenter/mall/sports.png"></center>'
+
+	i = 1
+	:loopsportpanties 
+	if sport_pantiesS[i] = metka_panties and sport_panties[i] = 1:*p '<a href="exec:gt ''panties'', ''view_panty_item'', ''<<$ARGS[1]>>'', ''sport'', <<i>>"><img src="images/pc/panties/sport/<<i>>.jpg" 	height="300" /></a>'
+	i += 1
+	if i <= ARRSIZE('sport_panties'):jump 'loopsportpanties'
 end
 
 if $ARGS[0] = 'view_panty_item':
@@ -215,6 +223,8 @@ if $ARGS[0] = 'descriptions':
 		'These panties feel reassuring and wear them gives your mood a lift.'
 	elseif $ARGS[1] = 'sexshop':
 		'Tacky and cheap these panties make you look like a hooker, this could be a bonus if working as one.'
+	elseif $ARGS[1] = 'sport':
+		'These panties are designed for physical exercises to make them less tiring.'
 	end
 end
 

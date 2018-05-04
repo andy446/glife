@@ -1,4 +1,3 @@
-
 **Our main wiki is located [here](http://girl-life.wikia.com/wiki/Girl_life_Wiki) - hosted by Fandom (external link)**
 
 **This wiki is only for hosting changelogs, dev guides and the FAQs**
@@ -22,7 +21,7 @@ This is game is based on the Russian game ЭТО by DeGross, played in [QSP](QSP
 - To know more about the <b>characters</b> in the game, click [here](Characters).
 - To find more information about <b>events</b>, click [here](Events) (by far not complete).
 - For <b>events imported</b> from the Russian version, click [here](Implant).
-- For <b>Frequently Asked Questions (FAQ)</b>, click [here](FAQ).
+- For <b>Frequently Asked Questions (FAQ)</b>, click [here](https://git.catrenelle.com/Kevin_Smarts/glife/wiki/FAQ).
  <br>
 
 ## Interested in Contributing? ##

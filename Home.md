@@ -16,7 +16,7 @@ This is game is based on the Russian game ЭТО by DeGross, played in [QSP](QSP
 
 <br>
 
-- To find out the differences in the <b>start</b>, click [here](https://git.catrenelle.com/Kevin_Smarts/glife/wiki/start).
+- To find out the differences in the <b>start</b>, click [here](https://git.catrenelle.com/Kevin_Smarts/glife/wiki/Start).
  <br>  
 - To know more about the <b>characters</b> in the game, click [here](https://git.catrenelle.com/Kevin_Smarts/glife/wiki/Characters).
 - To find more information about <b>events</b>, click [here](https://git.catrenelle.com/Kevin_Smarts/glife/wiki/Events) (by far not complete).

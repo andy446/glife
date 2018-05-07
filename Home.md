@@ -16,21 +16,21 @@ This is game is based on the Russian game ЭТО by DeGross, played in [QSP](QSP
 
 <br>
 
-- To find out the differences in the <b>start</b>, click [here](start).
+- To find out the differences in the <b>start</b>, click [here](https://git.catrenelle.com/Kevin_Smarts/glife/wiki/start).
  <br>  
-- To know more about the <b>characters</b> in the game, click [here](Characters).
-- To find more information about <b>events</b>, click [here](Events) (by far not complete).
-- For <b>events imported</b> from the Russian version, click [here](Implant).
+- To know more about the <b>characters</b> in the game, click [here](https://git.catrenelle.com/Kevin_Smarts/glife/wiki/Characters).
+- To find more information about <b>events</b>, click [here](https://git.catrenelle.com/Kevin_Smarts/glife/wiki/Events) (by far not complete).
+- For <b>events imported</b> from the Russian version, click [here](https://git.catrenelle.com/Kevin_Smarts/glife/wiki/Implant).
 - For <b>Frequently Asked Questions (FAQ)</b>, click [here](https://git.catrenelle.com/Kevin_Smarts/glife/wiki/FAQ).
  <br>
 
 ## Interested in Contributing? ##
 
 - Interested in <b>helping to translate</b> the machine transltions to full English? View this [guide](translation-guide).
-- Interested in <b>coding your own events</b>? View this [guide](coding-guide).
-    - Also a WIP dev guide [here](developer-instruction).
-    - And a WIP translation of the [QSP language reference](qsp-language-reference).
-- Interested in expanding the story through events? <b>Only a writer and not a coder</b>? Please follow the tips written [here](Authorsguide).
+- Interested in <b>coding your own events</b>? View this [guide](https://git.catrenelle.com/Kevin_Smarts/glife/wiki/coding-guide).
+    - Also a WIP dev guide [here](https://git.catrenelle.com/Kevin_Smarts/glife/wiki/developer-instruction).
+    - And a WIP translation of the [QSP language reference](https://git.catrenelle.com/Kevin_Smarts/glife/wiki/qsp-language-reference).
+- Interested in expanding the story through events? <b>Only a writer and not a coder</b>? Please follow the tips written [here](https://git.catrenelle.com/Kevin_Smarts/glife/wiki/Authorsguide).
 
 Our (old) [thread](http://www.tfgamessite.com/phpbb3/viewtopic.php?f=6&t=5882) in TFGS is always the best source of information.
 For help or to ask for information, please visit our current [thread](http://www.tfgamessite.com/phpbb3/viewtopic.php?f=6&t=8086) in TFGS.

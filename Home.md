@@ -19,7 +19,7 @@ This is game is based on the Russian game ЭТО by DeGross, played in [QSP](QSP
 - To find out the differences in the <b>start</b>, click [here](https://git.catrenelle.com/Kevin_Smarts/glife/wiki/Start).
  <br>  
 - To know more about the <b>characters</b> in the game, click [here](https://git.catrenelle.com/Kevin_Smarts/glife/wiki/Characters).
-- For <b>events imported</b> from the Russian version, click [here](https://git.catrenelle.com/Kevin_Smarts/glife/wiki/Implant).
+- For <b>events imported</b> from the Russian version, click [here](https://git.catrenelle.com/Kevin_Smarts/glife/wiki/implant).
 - For <b>Frequently Asked Questions (FAQ)</b>, click [here](https://git.catrenelle.com/Kevin_Smarts/glife/wiki/FAQ).
  <br>
 

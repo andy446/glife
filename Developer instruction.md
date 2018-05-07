@@ -1,7 +1,7 @@
 # Dev's Guide #
 If you are considering contributing to this project, please, read the contribution guide linked below.
 
-Contribution Guide: https://git.catrenelle.com/Kevin_Smarts/glife/blob/master/CONTRIBUTING.md
+Contribution Guide: https://git.catrenelle.com/Kevin_Smarts/glife/CONTRIBUTING.md
 
 ## Syntax Highlighting ##
 

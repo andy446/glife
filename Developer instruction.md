@@ -1,7 +1,7 @@
 # Dev's Guide #
 If you are considering contributing to this project, please, read the contribution guide linked below.
 
-Contribution Guide: http://git.tfgamessite.com/mjsmagalhes/girllife-ecv/blob/master/CONTRIBUTING.md
+Contribution Guide: https://git.catrenelle.com/Kevin_Smarts/glife/blob/master/CONTRIBUTING.md
 
 ## Syntax Highlighting ##
 
@@ -17,6 +17,6 @@ If you use Sublime Text as a text editor, this post teaches how to make use of i
 If you want to help as a dev for this project, the route is something like:  
   
 1. Create your git.tfgamessite.com account (it is a different on from the main TFGS site).  
-2. Fork http://git.tfgamessite.com/mjsmagalhes/girllife-ecv. This will create a copy that is your own.  
+2. Fork https://git.catrenelle.com/Kevin_Smarts/glife. This will create a copy that is your own.  
 3. Change whatever your like, and push them to your own repository.  
 4. Submit a pull request. This is the git way of asking someone else to merge your code to the game.  

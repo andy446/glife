@@ -36,4 +36,4 @@ For help or to ask for information, please visit our current [thread](http://www
 
 ## Found a Bug? ##
 
-- Please [Report to us](https://git.catrenelle.com/Kevin_Smarts/glife/wiki/Reportbug).
+- Please [Report to us](https://git.catrenelle.com/Kevin_Smarts/glife/wiki/reportbug).

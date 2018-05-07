@@ -26,7 +26,7 @@ This is game is based on the Russian game ЭТО by DeGross, played in [QSP](QSP
 ## Interested in Contributing? ##
 
 - Interested in <b>helping to translate</b> the machine transltions to full English? View this [guide](https://git.catrenelle.com/Kevin_Smarts/glife/wiki/translation+guide).
-- Interested in <b>coding your own events</b>? View this [guide](https://git.catrenelle.com/Kevin_Smarts/glife/wiki/coding+guide).
+- Interested in <b>coding your own events</b>? View this [guide](https://git.catrenelle.com/Kevin_Smarts/glife/wiki/Coding+guide).
     - Also a WIP dev guide [here](https://git.catrenelle.com/Kevin_Smarts/glife/wiki/developer-instruction).
     - And a WIP translation of the [QSP language reference](https://git.catrenelle.com/Kevin_Smarts/glife/wiki/qsp+language+reference).
 - Interested in expanding the story through events? <b>Only a writer and not a coder</b>? Please follow the tips written [here](https://git.catrenelle.com/Kevin_Smarts/glife/wiki/Authorsguide).

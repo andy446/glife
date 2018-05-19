@@ -1,5 +1,6 @@
 * 0.7.2 - 2018.05.19
-    * Apartment for Rolan the caretaker including events there from junjulang75
+    * New options for knocking on Anushka''s door, and strapon events now open from Blatte and nutluck
+    * Dimka house was added with interaction with his mother and father and a slight rework of his story. So their is different ways to end up blackmailed by him from Blatte and nutluck
     * Lay out changes in start and city from Akossi
     * More work on the modelling studio by Hornguy6
     * Crossfit "North" added to the city gym by Mona Lisa

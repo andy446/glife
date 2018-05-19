@@ -23,7 +23,7 @@
     * Translations by Blatte, Kmac198, Akossi, raggedydan13, sassmaster and nugerumon
     * Bug fixes from hornguy6, Vyper99, Firescrat, test234 and random2345. Plus much assistance from people on the forum.
  
- * 0.7.1 - 2018.02.02
+* 0.7.1 - 2018.02.02
     * Rewrite of the jokes page by Redangel
     * Additional tattoos and piercings from nutluck
     * More photo studio stuff and fixes from hornguy6

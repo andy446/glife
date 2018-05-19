@@ -1,4 +1,28 @@
-* 0.7.1 - 2018.02.02
+* 0.7.2 - 2018.05.19
+    * Apartment for Rolan the caretaker including events there from junjulang75
+    * Lay out changes in start and city from Akossi
+    * More work on the modelling studio by Hornguy6
+    * Crossfit "North" added to the city gym by Mona Lisa
+    * Vadim Bely overhaul by julzor
+    * New thirst mechanic from 3xpurt, can be turned off in cheat menu
+    * Optional peeing in bathrooms from Klumzee
+    * Earlier starting age removed, was causing some issues over ages and became too troublesome to maintain.
+    * New variables to track home ownership and where Sveta is living
+    * Home town variable added to make dates end in right town by lazycodemonkey
+    * Pay and price updates for the whole economy from blatte and nutluck
+    * New food and drink menus from 3xpurt
+    * Additional sex events at bar Rabotnik from JulienJaden
+    * Full custom start inputs tidied up
+    * Some more tattoos / piercings from nutluck
+    * New sports underwear with effects from Mona Lisa
+    * New section in the Industrial area "Red Light District" containing all the old adult entertainment
+    * Merged swimming pool and city gym, separated the hotel (and moved it to the center) and casino
+    * Code clean up and massive amounts of fixes by Mona Lisa, julzor, 3xpurt, rachels, and Kevin Smarts
+    * Text corrections from ostracod
+    * Translations by Blatte, Kmac198, Akossi, raggedydan13, sassmaster and nugerumon
+    * Bug fixes from hornguy6, Vyper99, Firescrat, test234 and random2345. Plus much assistance from people on the forum.
+ 
+ * 0.7.1 - 2018.02.02
     * Rewrite of the jokes page by Redangel
     * Additional tattoos and piercings from nutluck
     * More photo studio stuff and fixes from hornguy6

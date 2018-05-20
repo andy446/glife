@@ -1,4 +1,5 @@
 * 0.7.2 - 2018.05.19
+    * Mod plug in system, based on Provincial Girl system and adapted and reworked by illume
     * New options for knocking on Anushka''s door, and strapon events now open from Blatte and nutluck
     * Dimka house was added with interaction with his mother and father and a slight rework of his story. So their is different ways to end up blackmailed by him from Blatte and nutluck
     * Lay out changes in start and city from Akossi

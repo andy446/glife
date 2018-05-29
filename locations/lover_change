@@ -201,12 +201,13 @@ if $ARGS[0] = 'Pier':
 					'He sees you are a little bit concerned about the needles and laughs, "Don''t worry ma ''am, it will be all over before you know it!"'
 					'He takes out a clean needle and proceeds with his job.'
 					act 'Continue':
-						cls 
+						cls
+						:alreadyGotPierLoop
 						randchan = rand(0, 7)
 						if randchan = 0 and pirsC = 0:
 							if pirsC = 0 and pierCount < pierPrefTmpMin:
 								'The artist takes a look at your unpierced ears, and with a quick sharp pain, pierces them.'
-								'<center><img <<$set_imgh>> src="images/pc/body/piercings/c.jpg"></center>'
+								'<center><img <<$set_imgh>> src="images/pc/body/piercings/c1.jpg"></center>'
 								pirsC = 1
 								pierCount += 1
 								pierWearCount += 1
@@ -215,7 +216,7 @@ if $ARGS[0] = 'Pier':
 						elseif randchan = 1 and pirsA = 0:
 							if pirsA = 0 and pierCount < pierPrefTmpMin:
 								'He asks you to stick out your tongue. You comply and then start to regret it as he pierces your tongue.'
-								'<center><img <<$set_imgh>> src="images/pc/body/piercings/a.jpg"></center>'
+								'<center><img <<$set_imgh>> src="images/pc/body/piercings/a1.jpg"></center>'
 								pirsA = 1
 								pierCount += 1
 								pierWearCount += 1
@@ -224,7 +225,7 @@ if $ARGS[0] = 'Pier':
 						elseif randchan = 2 and pirsB = 0:
 							if pirsB = 0 and pierCount < pierPrefTmpMin:
 								'The artist gently holds your lip as he drives the needle through to pierce it.'
-								'<center><img <<$set_imgh>> src="images/pc/body/piercings/b.jpg"></center>'
+								'<center><img <<$set_imgh>> src="images/pc/body/piercings/b1.jpg"></center>'
 								pirsB = 1
 								pierCount += 1
 								pierWearCount += 1
@@ -233,7 +234,7 @@ if $ARGS[0] = 'Pier':
 						elseif randchan = 3 and pirsD = 0:
 							if pirsD = 0 and pierCount < pierPrefTmpMin:
 								'You feel a sharp pain in your nose as he pierces your nose.'
-								'<center><img <<$set_imgh>> src="images/pc/body/piercings/d.jpg"></center>'
+								'<center><img <<$set_imgh>> src="images/pc/body/piercings/d1.jpg"></center>'
 								pirsD = 1
 								pierCount += 1
 								pierWearCount += 1
@@ -242,7 +243,7 @@ if $ARGS[0] = 'Pier':
 						elseif randchan = 4 and pirsE = 0:
 							if pirsE = 0 and pierCount < pierPrefTmpMin:
 								'The artist moves to above your eyes and quickly pierces your eyebrow.'
-								'<center><img <<$set_imgh>> src="images/pc/body/piercings/e.jpg"></center>'
+								'<center><img <<$set_imgh>> src="images/pc/body/piercings/e1.jpg"></center>'
 								pirsE = 1
 								pierCount += 1
 								pierWearCount += 1
@@ -251,7 +252,7 @@ if $ARGS[0] = 'Pier':
 						elseif randchan = 5 and pirsN = 0:
 							if pirsN = 0 and pierCount < pierPrefTmpMin:
 								'He positions himself to pierce your belly button. You feel a sharp pain through your navel as he pierces it.'
-								'<center><img <<$set_imgh>> src="images/pc/body/piercings/n.jpg"></center>'
+								'<center><img <<$set_imgh>> src="images/pc/body/piercings/n1.jpg"></center>'
 								pcs_horny += 2
 								pirsN = 1
 								pierCount += 1
@@ -261,7 +262,7 @@ if $ARGS[0] = 'Pier':
 						elseif randchan = 6 and pirsF = 0:
 							if pirsF = 0 and pierCount < pierPrefTmpMin:
 								'He motions for you to lift up your shirt. After you do the man grabs your breasts rather softly and carefully pierces each nipple.'
-								!!'<center><img <<$set_imgh>> src="images/pc/body/piercings/f.jpg"></center>'
+								!!'<center><img <<$set_imgh>> src="images/pc/body/piercings/f1.jpg"></center>'
 								pcs_horny += 5
 								pirsF = 1
 								pierCount += 1
@@ -272,12 +273,19 @@ if $ARGS[0] = 'Pier':
 							if pirsG = 0 and pierCount < pierPrefTmpMin:
 								'"Ma ''am can you take off your bottoms?", the man says. You realize that he plans to pierce your labia and you reluctantly present yourself.'
 								'You cover your mouth as you let out a quick "Eep!", as you feel a quick pain through your labia, but in a second, its over.'
-								!!'<center><img <<$set_imgh>> src="images/pc/body/piercings/g.jpg"></center>'
+								!!'<center><img <<$set_imgh>> src="images/pc/body/piercings/g1.jpg"></center>'
 								pcs_horny += 7
 								pirsG = 1
 								pierCount += 1
 								pierWearCount += 1
 								gs 'pain', 7, 'pubic', 'pierce'
+							end
+						else
+							emergencyAbort += 1
+							if emergencyAbort > 10000 :
+								'<b><font color="teal">DEVELOPER WARNING: Emergency backout. Either you got very lucky or some dev made a mistake, if it happens again, file a bug report. </font></b>'
+							else
+								jump 'alreadyGotPierLoop'
 							end
 						end
 						gs'stat'

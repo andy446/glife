@@ -701,12 +701,16 @@ if $ARGS[0] = 'private':
 		end
 	end
 
-	if pirsA + pirsB + pirsC + pirsD + pirsE + pirsF + pirsN + pirsG + pirsGL > 0:'<a href="exec:dynamic $pirManage">Manage Piercings</a>'
+	if bcream_have > 0:
+		'<a href="exec:dynamic $use_bcream & gt $loc, $metka">Apply breast cream.</a> Uses left: <<bcream_have>>.'
+	end
 
-	if fillimplant = 1 and siliconeBag >= 1:'<a href="exec:cls & siliconeBag -= 1 & silicone += 10 & gt $loc, $metka">Inject silicone into breast implants</a>'
-	if fillimplant = 1 and silicone >= 20:'<a href="exec:cls & silicone -= 10 & gt $loc, $metka">Drain silicone from breast implants</a>'
+	if pirsA + pirsB + pirsC + pirsD + pirsE + pirsF + pirsN + pirsG + pirsGL > 0:'<a href="exec:dynamic $pirManage">Manage Piercings.</a>'
 
-	if breastpump > 0:'<a href="exec:gt ''shortgs'', ''milk_me''">Use breast pump</a></center>'
+	if fillimplant = 1 and siliconeBag >= 1:'<a href="exec:cls & siliconeBag -= 1 & silicone += 10 & gt $loc, $metka">Inject silicone into breast implants.</a>'
+	if fillimplant = 1 and silicone >= 20:'<a href="exec:cls & silicone -= 10 & gt $loc, $metka">Drain silicone from breast implants.</a>'
+
+	if breastpump > 0:'<a href="exec:gt ''shortgs'', ''milk_me''">Use breast pump.</a></center>'
 
 	dynamic $bteeth
 
@@ -722,10 +726,6 @@ if $ARGS[0] = 'private':
 	gs 'din_van', 'prvt_pee'
 
 	dynamic $basin
-
-	if bcream_have > 0:
-		pl'<a href="exec:dynamic $use_bcream & gt $loc, $metka"><b>Apply breast cream.</b></a> Uses left: <<bcream_have>>.'
-	end
 
 	if pcs_leghair > 3 and pcs_pubes > 3 and stanok > 1:
 		act 'Shave your legs and pussy (0:15)':

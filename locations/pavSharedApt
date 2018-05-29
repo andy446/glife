@@ -624,11 +624,9 @@ if $ARGS[0] = 'kitchen':
 			gs 'cum_cleanup'
 			pcs_breath = 0
 			pcs_mood += rand(3, 6)
+			gs 'stat'
 			'You make a refreshing cup of tea and everything seems a little better.'
 		end
-
-		gs 'stat'
-
 		act 'Get up from the table':gt 'pavSharedApt', 'kitchen'
 	end
 
@@ -688,6 +686,7 @@ if $ARGS[0] = 'kitchen':
 				cumspclnt = 2
 				gs 'cum_cleanup'
 				pcs_breath = 0
+				gs 'stat'
 				'You have a cup of tea, quenching your thirst.'
 			end
 
@@ -707,6 +706,7 @@ if $ARGS[0] = 'kitchen':
 			end
 			salo -= 20
 			if salo < 11: salo = 11
+			gs 'stat'
 			gs 'body_shape', 'softreset'
 
 			'You throw the capsule of fat burners in a glass, add some water and drink it. You''re amazed at how fast the capsule works, feeling your body slim down almost immediately.'
@@ -732,6 +732,7 @@ if $ARGS[0] = 'kitchen':
 					pcs_hydra += 50
 				end
 				picrand = rand(1,9)
+				gs 'stat'
 				'<center><img <<$set_imgh>> src="images/locations/shared/apartment/event/sick/lekr<<picrand>>.jpg"></center>'
 				'You swallow the pill, and shortly after you feel a bit better.'
 
@@ -759,8 +760,8 @@ if $ARGS[0] = 'kitchen':
 				if KandidozOnce = 1:Kandidoz -= 2
 				if GerpesOnce = 1:Gerpes -= 2
 				if SifacOnce = 1 and Sifilis >= 10:Sifilis -= rand(0, 1)
-
 				pcs_skin += 1
+				gs 'stat'
 
 				'You take some vitamins to stay healthy.'
 

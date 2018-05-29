@@ -119,12 +119,12 @@ end
 if home_owned[2] = 1:
 	'You live in one of the apartment blocks in the old part of Pavlovsk, and the door to the <a href="exec:minut += 2 & GT ''pavcomplex'',''start''">apartment building</a> is right there. Your <a href="exec:minut += 5 & GT ''korrPar''">parents'' home</a> is on the second floor there. <<$gcartext>>'
 elseif StoryLine = 1:
-	'One of the apartment blocks in the old part of Pavlovsk, and the door to the <a href="exec:minut += 2 & GT ''pavcomplex'',''start''">apartment building</a> is right there. Your parents live here, but you are no longer welcome in their home. <<$gcartext>>'
+	'You are standing near one of the apartment blocks in the old part of Pavlovsk, and the door to the <a href="exec:minut += 2 & GT ''pavcomplex'',''start''">apartment building</a> is right there. Your parents live here, but you are no longer welcome in their home. <<$gcartext>>'
 else
 	'<<$gcartext>>'
 end
 
-if StoryLine = 1: 'An <a href="exec:minut += 2 & GT ''pavComplexOld'',''etaj_1''">old apartment building</a> near to where your parents live.'
+if StoryLine = 1: 'There is an <a href="exec:minut += 2 & GT ''pavComplexOld'',''etaj_1''">old apartment building</a> near to where your parents live.'
 
 if rexCar = 1 and rexCarDay = daystart and hour >= 21 and hour < 23 and rexSisTalk = 3:
 	'Rex is in his car, waiting for you at the parking lot near the apartment building where your parents live.'
@@ -136,7 +136,7 @@ if rexCar = 1 and rexCarDay = daystart and hour = 21 and rexSisTalk >= 4:
 end
 
 if fedorKozlovQW >= 20 and FedorKozHome = 1 or fedorKozlovQW = -15 and FedorKozHome = 1:
-	'<a href="exec:gt ''FedorEv4'', ''Home Entrance''">Fedor</a>''s house.'
+	'<a href="exec:gt ''FedorEv4'', ''Home Entrance''">Fedor''s</a> house.'
 end
 
 if hour >= 8 and hour <= 22:'You can see the <a href="exec:$locM = ''pavResidential'' & gt ''kiosk'', ''start''">kiosk</a> selling cigarettes and magazines.'
@@ -147,12 +147,12 @@ else
 	'.'
 end
 
-'The town surrounds the old place grounds which are now a large <a href="exec:minut += 5 & gt ''gskver'', ''park''">public park</a>, close to the residential area is the <a href="exec:gt ''glake''">lake</a>.'
+'The town surrounds the old palace grounds which are now a large <a href="exec:minut += 5 & gt ''gskver'', ''park''">public park</a>, close to the residential area is the <a href="exec:gt ''glake''">lake</a>.'
 
 'The town square features a <a href="exec: minut += 2 & gt ''gdk''">community center</a><<$schoolname>>'
 
 
-'A <a href="exec:minut += 15 & gt ''Gshveyfab'', ''start''">garment factory</a> named Paris Commune is situated in the industrial area on the outskirts of town. Inhabitants of Pavlovsk can store their cars in the <a href="exec:minut += 5 & gt ''pavComplex'', ''garages''">garages</a>.'
+'A <a href="exec:minut += 15 & gt ''Gshveyfab'', ''start''">garment factory</a> named Paris Commune is situated in the industrial area on the outskirts of town. Inhabitants of the Pavlovsk apartments can store their cars in the <a href="exec:minut += 5 & gt ''pavComplex'', ''garages''">garages</a>.'
 
 ''
 !!made changes here, to remove direct links to the kids in the apartment complex, make sure this will work with the code left.
@@ -170,7 +170,7 @@ else
 	if DimaBeHomeOnce = 1 and DimaRudeBlock = 0:gs'show_table','Fancier house of <a href="exec:minut += 10 & gt ''dimaHome'', ''home''">Dimka Nosov</a>','3'
 	if IgorLoverQW > 0 and IdorBlock = 0:gs'show_table','Fancier house of <a href="exec:minut += 10 & gt ''IgorHome'', ''home''">Igor Kruglov</a>', '3'
 	!if katjaFirstKiss >= 1:gs'show_table','house of <a href="exec:minut += 10 & gt ''KatjaHome''">Katja Meynold</a>.','3'
-	if katjaFirstKiss >= 1 or mey_vika['mey_vika_qw'] >= 27 or mey_vika['key'] = 1: gs'show_table','House of <a href="exec:minut += 10 & gt''mey_home'', ''door''">twins Meynold</a>','3'
+	if katjaFirstKiss >= 1 or mey_vika['mey_vika_qw'] >= 27 or mey_vika['key'] = 1: gs'show_table','House of the <a href="exec:minut += 10 & gt''mey_home'', ''door''">Meynold twins</a>','3'
 	if LariskaHomeIn > 0:gs'show_table','House of <a href="exec:minut += 10 & GT ''LariskaHome''" >Lariska Gruzdevaya</a>, in richer part','3'
 	if beinalbinahome > 0:gs'show_table','Luxurious mansion of <a href="exec:minut += 10 & gt ''albinaporog''">Albina Barlovskaya</a>','3'
 	if NatBelBestFrend >= 3 and BeInNatBelHome = 1:gs'show_table','Poor home of <a href="exec:minut += 10 & gt ''NatBelVhod''">Natasha Belova</a>','3'

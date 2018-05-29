@@ -370,7 +370,7 @@ if $shoplocation = 'hardware':
 	end
 
 
-	'On the counter you can see fabric suitable for sewing. It''s sold in large squares costing 50 <b>₽</b> each.'
+	'<left>On the counter you can see fabric suitable for sewing. It''s sold in large squares costing 50 <b>₽</b> each.</left>'
 	if tkan <= 0:'You have <<tkan>> squares of fabric.'
 	if tkan > 0:'You have <<tkan>> squares of fabric.'
 

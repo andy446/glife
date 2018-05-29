@@ -23,7 +23,7 @@ if $ARGS[0] = 'gp':
 		'<font color=#<<$gp_font>>>"Hey <<$pcs_firstname>>, is that my cum on your clothes? Go better change, I don''t want you near me like that!"</font>'
 		act 'Leave': gt 'pavSharedApt', 'start'
 	! cum on belly, breasts, ass, pussy; visible only when nude
-	elseif (cumloc[14] or cumloc[15] or cumloc[1] or cumloc[4]) and $clothingworntype = 'nude':
+	elseif (cumloc[14] > 0 or cumloc[15] > 0 or cumloc[1] > 0 or cumloc[4] > 0) and $clothingworntype = 'nude':
 		'<font color=#<<$gp_font>>>"Hey <<$pcs_firstname>>, you dirty slut, you forgot to wash the cum! Get out!"</font>'
 		act 'Leave': gt 'pavSharedApt', 'start'
 	else

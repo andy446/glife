@@ -837,7 +837,7 @@ if $ARGS[0] = 'pcsRoom':
 	''
 	'There is no door to the living room, instead there''s <a href="exec:view''images/shared/sharedapt/bedroom/curtain.jpg''">curtain</a> covering entry to the room, which gives you a modicum of privacy; not much better than the state of the non-existant window curtains'
 
-	act 'Leave the room':gt 'pavSharedApt', 'start'
+	act '<b>Leave the room</b>':gt 'pavSharedApt', 'start'
 
 	act 'Sit on the sofa bed':gt 'pavSharedApt', 'sofabed'
 
@@ -1037,8 +1037,14 @@ if $ARGS[0] = 'ndRoom':
 		'<<$nd_name>> is currently behind his desk, doing some clever IT stuff.'
 		act 'Approach him': gt 'pavShared_nd', 'nd'
 	end
-	if servitudeLvl >= 1 and nd_cleaned = 0:act 'Clean the room':nd_cleaned = 1 & gt 'pavSharedApt', 'cleanForGuys'
-	act 'Leave':gt 'pavSharedApt', 'start'
+	if servitudeLvl >= 1 and nd_cleaned = 0:
+		if poroshok >= 1:
+			act 'Clean the room':nd_cleaned = 1 & gt 'pavSharedApt', 'cleanForGuys'
+		else
+			'You don''t have enough laundry detergent to clean the room'
+		end
+		act 'Leave':gt 'pavSharedApt', 'start'
+	end
 end
 
 if $ARGS[0] = 'gpRoom':
@@ -1061,8 +1067,14 @@ if $ARGS[0] = 'gpRoom':
 	elseif hour >= gp_sleeps or hour < gp_wakes:
 		'<<$gp_name>> is sleeping in his bed.'
 	end
-	if servitudeLvl >= 1 and gp_cleaned = 0:act 'Clean the room':gp_cleaned = 1 & gt 'pavSharedApt', 'cleanForGuys'
-	act 'Leave':gt 'pavSharedApt', 'start'
+	if servitudeLvl >= 1 and gp_cleaned = 0:
+		if poroshok >= 1:
+			act 'Clean the room':gp_cleaned = 1 & gt 'pavSharedApt', 'cleanForGuys'
+		else
+			'You don''t have enough laundry detergent to clean the room'
+		end
+		act 'Leave':gt 'pavSharedApt', 'start'
+	end
 end
 
 if $ARGS[0] = 'spRoom':
@@ -1087,8 +1099,14 @@ if $ARGS[0] = 'spRoom':
 	elseif hour >= sp_sleeps or hour < sp_wakes:
 		'<<$sp_name>> is sleeping in his bed.'
 	end
-	if servitudeLvl >= 1 and sp_cleaned = 0:act 'Clean the room':sp_cleaned = 1 & gt 'pavSharedApt', 'cleanForGuys'
-	act 'Leave':gt 'pavSharedApt', 'start'
+	if servitudeLvl >= 1 and sp_cleaned = 0:
+		if poroshok >= 1:
+			act 'Clean the room':sp_cleaned = 1 & gt 'pavSharedApt', 'cleanForGuys'
+		else
+			'You don''t have enough laundry detergent to clean the room'
+		end
+		act 'Leave':gt 'pavSharedApt', 'start'
+	end
 end
 
 --- pavSharedApt ---------------------------------

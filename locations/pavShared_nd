@@ -22,7 +22,7 @@ if $ARGS[0] = 'nd':
 		'<font color=#<<$nd_font>>>"Hello <<$pcs_firstname>>, I think you have sperm on your clothes. Please go change."</a>'
 		act 'Leave': gt 'pavSharedApt', 'start'	
 	! cum on belly, breasts, ass, pussy; visible only when nude
-	elseif cumloc[14] or cumloc[15] or cumloc[1] or cumloc[4] and $clothingworntype = 'nude':
+	elseif cumloc[14] > 0 or cumloc[15] > 0 or cumloc[1] > 0 or cumloc[4] > 0 and $clothingworntype = 'nude':
 		'<font color=#<<$nd_font>>>"Hello <<$pcs_firstname>>, why are you naked? And is that a sperm on you? It''s gross, please go wash yourself and put on some clothes."</a>'
 		act 'Leave': gt 'pavSharedApt', 'start'
 	else

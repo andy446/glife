@@ -440,17 +440,20 @@ if $ARGS[0] = 'brothel:section1:lobby':
 	'A section 1 lobby. Spacy hall-like room, leading to several smaller rooms.'
 	'Comfortable couch is in the middle of the lobby, next to it are several cages sized just for a smaller person.'
 	'One of the doors also leads to a <a href="exec:gt ''brothel'', ''brothel:section1:girlroom''">room</a> made for the girls. '
-	if (klismaday = daystart and (pcs_leghair <= 3 or pcs_pubes <= 3) and pcs_hairbsh = 1 and pcs_makeup >= 1 and pcs_lipbalm >= 1 and $pantyworntype = 'none' and $clothingworntype = 'nude'):
+	if (klismaday = daystart and (pcs_leghair <= 3 or pcs_pubes <= 3) and pcs_hairbsh = 1 and pcs_makeup >= 1 and pcs_lipbalm >= 1 and $pantyworntype = 'none' and $clothingworntype = 'nude' and (cumloc[1] = 0 and cumloc[4] = 0 and cumloc[8] = 0 and cumloc[9] = 0 and cumloc[10] = 0 and cumloc[11] = 0 and cumloc[15] = 0 and cumloc[16] = 0 and cumloc[17] = 0) and pcs_sweat < 40):
 		act 'Get in the cage': gt 'brothel', 'brothel:section1:lobby:cage'
 	else
 		'To be able to get working, you need to:'
-		if klismaday ! daystart: '- get enema'
-		if (pcs_leghair > 3 or pcs_pubes > 3): '- shave your pubes and legs'
-		if pcs_hairbsh ! 1: '- brush your hair'
-		if pcs_makeup < 1: '- put on a makeup'
-		if pcs_lipbalm < 1: '- put on a lipbalm'
-		if $pantyworntype ! 'none': '- remove your panties'
-		if $clothingworntype ! 'nude': '- strip down your clothes'
+		if pcs_sweat >= 40: '- have a shower.'
+		if klismaday ! daystart: '- get an enema.'
+		if (cumloc[1] > 0 or cumloc[4] > 0 or cumloc[8] > 0 or cumloc[9] > 0 or cumloc[10] > 0 or cumloc[15] > 0 or cumloc[16] > 0 or cumloc[17] > 0):'- wash yourself.'
+		if cumloc[11] > 0: '- wash your face'
+		if (pcs_leghair > 3 or pcs_pubes > 3): '- shave your pubes and legs.'
+		if pcs_hairbsh ! 1: '- brush your hair.'
+		if pcs_makeup < 1: '- put on some makeup.'
+		if pcs_lipbalm < 1: '- apply some lipbalm.'
+		if $pantyworntype ! 'none': '- remove your panties.'
+		if $clothingworntype ! 'nude': '- strip off your clothes.'
 	end
 	act 'Go to the girl''s room':gt 'brothel', 'brothel:section1:girlroom'
 	act 'Go to the reception': gt 'brothel', 'brothel:reception'
@@ -975,6 +978,7 @@ if $ARGS[0] = 'brothel:section1:session:play:finish':
 			'<center><video autoplay loop src="images/locations/shared/brothel/cumInPussyFromBehind.mp4"></video></center>'
 			step = 0
 			$subloc = '<<$base>>:end'
+			gs 'cum_call', '', 'Master'
 			act 'Continue': gt 'brothel', $subloc
 		end
 	elseif $finType = 'behind:anal':
@@ -1049,6 +1053,7 @@ if $ARGS[0] = 'brothel:section1:session:play:finish':
 			'<center><video autoplay loop src="images/locations/shared/brothel/cumInAssFromBehind.mp4"></video></center>'
 			step = 0
 			$subloc = '<<$base>>:end'
+			gs 'cum_call', 'anus', 'Master'
 			act 'Continue': gt 'brothel', $subloc
 		end
 	elseif $finType = 'missionary:vaginal':
@@ -1065,6 +1070,7 @@ if $ARGS[0] = 'brothel:section1:session:play:finish':
 		'Being still bound on your back, you finally expect it to end.'
 		'The Client increases his pace and groaning cums into your vagina, releasing the hot sperm down your pussy, reaching even to your cervix..'
 		$subloc = '<<$base>>:end'
+		gs 'cum_call', '', 'Master'
 		act 'Continue': gt 'brothel', $subloc
 	elseif $finType = 'missionary:anal':
 		custTime += 5
@@ -1080,6 +1086,7 @@ if $ARGS[0] = 'brothel:section1:session:play:finish':
 		'Being still bound on your back, you finally expect it to end.'
 		'The Client increases his pace and groaning cums into your anus, releasing the hot sperm inside the intestines.'
 		$subloc = '<<$base>>:end'
+		gs 'cum_call', 'anus', 'Master'
 		act 'Continue': gt 'brothel', $subloc
 	elseif $finType = 'face:mouth':
 		custTime += 5
@@ -1113,6 +1120,7 @@ if $ARGS[0] = 'brothel:section1:session:play:finish':
 			'<center><video autoplay loop src="images/locations/shared/brothel/cumInMouth.mp4"></video></center>'
 			step = 0
 			$subloc = '<<$base>>:end'
+			gs 'cum_call', 'mouth', 'Master'
 			act 'Continue': gt 'brothel', $subloc
 		end
 	elseif $finType = 'face:face':
@@ -1143,6 +1151,7 @@ if $ARGS[0] = 'brothel:section1:session:play:finish':
 			'<center><video autoplay loop src="images/locations/shared/brothel/cumOnFace.mp4"></video></center>'
 			step = 0
 			$subloc = '<<$base>>:end'
+			gs 'cum_call', 'face', 'Master'
 			act 'Continue': gt 'brothel', $subloc
 		end
 	end
@@ -1813,6 +1822,7 @@ if $ARGS[0] = 'brothel:section1:session:play:ragefinish':
 	'The client is now too excited by the violence unleashed upon you. He takes his own dick in his hands and starts masturbating right in front of your face.'
 	'Being bound you have no choice but witness his slimy dick turning dark red as he furiously masturbates.'
 	'Finally in a few minutes a large amount of slimy cum lands all over your face. It gets in your mouth and even sticks your eyelids together.'
+	gs 'cum_call', 'face', 'Master'
 	act 'Continue': gt 'brothel', '<<$base>>:end'
 end
 

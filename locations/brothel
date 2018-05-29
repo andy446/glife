@@ -468,9 +468,9 @@ if $ARGS[0] = 'brothel:section1:girlroom':
 	 '<center><img <<$set_imgh>> src="images/locations/shared/brothel/brothelRoom.jpg"></center>'
 	 *nl
 	'A room made for the working girls, like yourself.'
-	'It is equipped with a shower, almost on every wall hangs a large <a href="exec:gt ''mirror'', ''start''">mirror</a>.'
-	'In a box beneath a table you can take some <a href="exec: kosmetica += 1 & gt ''brothel'', $metka">cosmetics</a> (you have '+kosmetica+') or, <a href="exec: lipbalm += 1 & gt ''brothel'', $metka">lip balm</a> (you have '+lipbalm+'), hairbrush or a shaving equipment, if you don''t have any.'
-	'For obvious reasons there is also a box with enema kit. A box with <a href="exec: painkiller += 1 & gt ''brothel'', $metka">painkillers</a> (you have '+painkiller+') is there, in case someone needs a relief.'
+	'It is equipped with a shower, almost on every wall hangs a large <a href="exec:gt ''mirror'', ''start''">mirror</a>. There is a water cooler beside the door, and some light snacks on the table, in case the girls get hungry or thirsty between sessions.'
+	'In a box beneath a table you can take some '+iif(kosmetica < 1,'<a href="exec: kosmetica += 5 & gt ''brothel'', $metka">cosmetics</a>','cosmetics')+' (you have '+kosmetica+') or, '+iif(lipbalm < 1,'<a href="exec: lipbalm += 5 & gt ''brothel'', $metka">lip balm</a>','lip balm')+' (you have '+lipbalm+'), or '+iif(stanok < 1,'<a href="exec: stanok += 5 & gt ''brothel'', $metka">shaving</a>','shaving')+' equipment (you have '+stanok+'), if you don''t have any.'
+	'For obvious reasons there is also a box with an '+iif(klisma < 1,'<a href="exec: klisma += 1 & gt ''brothel'', $metka">enema kit</a>','enema kit')+'. A box with some '+iif(painkiller < 1,'<a href="exec: painkiller += 5 & gt ''brothel'', $metka">painkillers</a>','painkillers')+' (you have '+painkiller+') is there, in case someone needs pain relief.'
 	'On the table lies a list with instructions, in case you don''t already remember them:'
 	*nl
 	'-------------------------------------------------------------------------------------'
@@ -485,8 +485,8 @@ if $ARGS[0] = 'brothel:section1:girlroom':
 	*nl
 	'-------------------------------------------------------------------------------------'
 	*nl
+	act 'Have a snack (0:15)': gs 'food', 'snack'
 	act 'Have a glass of water (0:05)':gs 'beverage', 'bev_wat'
-	act 'Have a snack (0:05)': gs 'food', 'snack'
 	act 'Change your clothes':gt 'wardrobe', 'start'
 	act 'Look in the mirror': gt 'mirror', 'start'
 	act 'Have a shower':
@@ -519,6 +519,71 @@ if $ARGS[0] = 'brothel:section1:girlroom':
 			'You give yourself an enema, feeling clean down there. Your ass is now ready for anal sex without any awkward surprises.'
 
 			act 'Finish':gt 'brothel', $metka
+		end
+	end
+	if analplug = 1 and analplugin = 1:
+		act 'Remove your butt plug (0:05)':
+			cla
+			*clr
+			minut += 5
+			analplugIN = 0
+
+			if pcs_ass < 30:pcs_ass += 1
+
+			'<center><img <<$set_imgh>> src="images/pc/body/analplug.jpg"></center>'
+			*nl
+			'You squat and tug gently at the butt plug, gasping as you push it out of you. You can''t help but feel a bit empty, now that it''s out.'
+
+			act 'Finish':gt $loc, $metka
+		end
+	elseif analplug = 1 and analplugin = 0 and klismaday = daystart:
+		act 'Insert your butt plug (0:05)':
+			cla
+			*clr
+			minut += 5
+			analplugIN = 1
+
+			if pcs_ass < 10:pcs_ass += 5
+			if pcs_ass >= 10 and pcs_ass < 20:pcs_ass += rand(1, 2)
+			if pcs_ass >= 20 and pcs_ass < 30:pcs_ass += rand(0, 1)
+
+			'<center><img <<$set_imgh>> src="images/pc/body/analplug.jpg"></center>'
+			*nl
+			if butpluguse > 0:'You squat and gently rub the butt plug against your anus, after lubricating it with a bit of saliva. After a short while, you''ve relaxed enough to be able to push it in. This should help with some anal stretching before today''s activities.'
+			if butpluguse = 0:butpluguse = 1 & '"If I''m not going to use it, then why did I buy it?" you ask yourself. You look at the butt plug for a while, thinking "It is necessary to start developing my ass, especially in a place like this. You''re slightly embarrassed at the thought for a second, but are then overcome by your horny fantasies. Determined to get the plug all the way in, you slowly press it against your asshole after lubricating it with a bit of saliva. It hurts a bit at first, but once the thickest part is in the rest follows rather easily. Patting yourself on your ass once it''s in.'
+
+			act 'Finish':gt $loc, $metka
+		end
+	end
+	if vibrator = 1 and vibratorIN = 1:
+		act 'Remove the vibrator (0:05)':
+			cla
+			*clr
+			minut += 5
+			vibratorIN = 0
+
+			if pcs_vag < 30:pcs_vag += 1
+
+			'<center><img <<$set_imgh>> src="images/shared/accessories/toys/vibrator.jpg"></center>'
+			*nl
+			'You spread your legs and take the vibrator out of your pussy, letting out a slight moan as you do so. You feel somewhat empty now.'
+
+			act 'Finish':gt $loc, $metka
+		end
+	elseif vibrator = 1 and vibratorIN = 0 and pcs_vag ! 0:
+		act 'Insert the vibrator in your vagina (0:05)':
+			cla
+			*clr
+			minut += 5
+			vibratorIN = 1
+
+			if pcs_vag < 30:pcs_vag += 2
+
+			'<center><img <<$set_imgh>> src="images/shared/accessories/toys/vibrator.jpg"></center>'
+			*nl
+			'You spread your legs and slowly insert the vibrator in your pussy, hoping the added arrousal will aid with today''s activities.'
+
+			act 'Finish':gt $loc, $metka
 		end
 	end
 	dynamic $tampon

@@ -173,17 +173,6 @@ else
 		act 'Look at your deck of new porn cards':card_deck = 1 & gt 'card'
 	end
 
-!	if card > 0:
-!		if card > 1:
-!			act 'Look at your deck of vintage porn cards':gt 'card'
-!		elseif card = 2:
-!			act 'Look at your deck of new porn cards':gt 'card'
-!		elseif card = 1 and card = 2:
-!			act 'Look at your deck of vintage porn cards':gt 'card'
-!			act 'Look at your deck of new porn cards':gt 'card'
-!		end
-!	end
-
 	if dur > 0:'You have hidden <<dur>> doses of Pale Lady.'
 
 	if dur > 0 and narkday ! daystart:

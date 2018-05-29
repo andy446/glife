@@ -163,7 +163,7 @@ if Enable_tablemap = 0:
 	if katjaFirstKiss >= 1 or mey_vika['mey_vika_qw'] >= 27 or mey_vika['key'] = 1: 'Large private house where the <a href="exec:minut += 10 & gt''mey_home'', ''door''">Meynold twins</a> live.'
 	if LariskaHomeIn > 0: '<a href="exec:minut += 10 & GT ''LariskaHome''">Lariska Gruzdev</a>, one of your classmates, lives about 10 minutes away from your parents.'
 	if beinalbinahome > 0:'<a href="exec:minut += 10 & gt ''albinaporog''">Albina Barlovskaya</a>, one of your classmates, lives in one of the few luxurious mansions Pavlovsk has to offer.'
-	if NatBelBestFrend >= 3 and BeInNatBelHome = 1:'<a href="exec:minut += 10 & gt ''NatBelVhod''">Natasha Belova</a> a classmate, lives in your apartment block here.'
+	if NatBelBestFrend >= 3 and BeInNatBelHome = 1:'<a href="exec:minut += 10 & gt ''NatBelVhod''">Natasha Belova</a> a classmate, lives in your parent''s apartment block here.'
 	if anushkaFirstvisit ! 0 and npc_rel['A144'] > 60:'<a href="exec:minut += 10 & gt ''anushapt'', ''home''">Anushka Konstantinov</a> a classmate, lives in one of the other apartment blocks here.'
 else
 	st_count=0 & $show_table=''

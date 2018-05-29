@@ -384,7 +384,7 @@ if $ARGS[0] = 'intro':
 		if age < 18:
 			'(You can see <<$gp_name>> rub his crotch just a brief moment after you told him your age. What''s he up to?)'
 		end
-		if pregknown = 1:
+		if knowpreg = 1:
 			act 'Ask about children':
 				cla
 				pavIntroStep = 50
@@ -747,7 +747,6 @@ if $ARGS[0] = 'kitchen':
 			act 'Take vitamins (0:05)':
 				cla
 				*clr
-
 				minut += 5
 				vitaminday = daystart
 				vitamin -= 1
@@ -837,6 +836,8 @@ if $ARGS[0] = 'pcsRoom':
 	'On the other side of the sofa bed are your old <a href="exec:gt ''clothing'', ''view_clothing_list'', ''store''">suitcases</a>, which you could use to store the clothes you don''t often wear.'
 	''
 	'There is no door to the living room, instead there''s <a href="exec:view''images/shared/sharedapt/bedroom/curtain.jpg''">curtain</a> covering entry to the room, which gives you a modicum of privacy; not much better than the state of the non-existant window curtains'
+
+	act 'Leave the room':gt 'pavSharedApt', 'start'
 
 	act 'Sit on the sofa bed':gt 'pavSharedApt', 'sofabed'
 
@@ -976,7 +977,6 @@ if $ARGS[0] = 'pcsRoom':
 			killvar '$sleep_txt'
 		end
 	end
-	act 'Leave the room':gt 'pavSharedApt', 'start'
 end
 
 if $ARGS[0] = 'sofabed':

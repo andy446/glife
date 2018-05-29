@@ -20,7 +20,7 @@ if $ARGS[0] = '':
 	'A small cafe, attached to the train station. It looks rather shabby.'
 	'The cafe is closed right now, it''s usually open between 8:00 and 20:00.'
 
-	if mother_go = 1 and hour = 16:
+	if mother_go = 1 and hour = 16 and indorf = 0:
 		*clr & cla
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/trainstation/cafe/gkafe.jpg"></center>'
 		'A small cafe, attached to the train station. It looks rather shabby.'

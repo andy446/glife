@@ -31,6 +31,198 @@ if $ARGS[0] = 'skill':
 
 end
 
+!!------------------------------------------------------------------- Special Events ------------------------------------------------------------------
+
+if $ARGS[0] = 'studio_strip_talk1':
+	cla & *clr
+	'<center><video autoplay loop src="images/locations/city/citycenter/photo/strip3.mp4"></video></center>'
+	'	After pulling off the rest of your clothes, you thumb your underwear for a moment before realizing that you can''t strip all the way. You just don''t have enough confidence in yourself. But you''re still in your underwear right? You''re new here, surely they''ll understand won''t they?'
+	*nl
+	if $braworntype = 'none':'	Still, feeling your nipples harden in the cool air, you cross your arms to cover them. You really wish you had worn a bra today...'
+	act'Go back to the main floor':
+		cla & *clr
+		'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/foto.jpg"></center>'
+		'	No sooner do you take your third step out of the back room than you hear someone shouting at you.'
+		'	"Hey! What are you doing? Why are you still wearing your underwear?"'
+		act'Turn':
+			cla & *clr
+			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fotograph.jpg"></center>'
+			'	Turning to the sound, you see a manager briskly walking towards you.'
+			'	"Well? Why are you still dressed? Take that off and put it in your locker before you come back out onto the floor."'
+			act'Blush and do as he says':
+				studio_strip_talk = 3
+				cla & *clr
+				'<center><video autoplay loop src="images/locations/city/citycenter/photo/strip1.mp4"></video><video autoplay loop src="images/locations/city/citycenter/photo/strip2.mp4"></video></center>'
+				'	Embarrassed that you were caught breaking the rules and scolded for it so quickly, you blush and stammer an apology, retreating into the back room to reluctantly change into your full birthday suit. So much for that. Guess you''re just going to have to deal with your discomfort with nudity if you want to keep working here.'
+			act'Try to explain yourself':
+				cla & *clr
+				'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fotograph.jpg"></center>'
+				'	"Oh, well, it''s just that I''m new here," you say. "I''m not really used to this whole ''dress code'' thing and I thought that maybe I could just wear my underwear for a little while and-"'
+				'	The manager holds up his hand to stop you, cutting you off mid sentence.'
+				'	"Nope. Sorry miss, rules are rules. If you want to work here then you have to wear the uniform. Now take off your underwear."'
+				act'Do as he says':
+					cla & *clr
+					'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/foto.jpg"></center>'
+					'	"Sorry..." you say, starting to head towards the back room again.'
+					'	"Hey, where are you going?" Confused, you turn back around.'
+					'	"What do you mean? You said to take it off so I''m just...?" you gesture towards the back room with a shrug.'
+					'	"No," the manager replies. "I want to make sure you don''t just walk in and wait till I leave and not change. Take it off here."'
+					act'Do as he says and strip':gt'foto_events','underwear_steal'
+				end
+						
+				act'Plead':
+					cla & *clr
+					'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fotograph.jpg"></center>'
+					'	"Oh please!" you cry. "I''m just not ready for this. Maybe we can work something out? Can''t I just do this for a little while to get used to working here? I just need a while to adjust. Please can''t I do that?"'
+					'	"Hmmm..." The manager rubs his chin, considering your request. "Okay, I''ll give you two weeks. But after that I expect to see you naked at all times unless you''re doing a shoot. Do you understand?"'
+					'	You nod vigorously in response.'
+					'	"Okay, good. Remember: Two weeks. Work on it."'
+					'	As he walks away you sigh in relief. Two weeks isn''t a lot, but at least you''ll have a bit more time to get used to this whole "being naked" thing.'
+					studio_strip_talk = 1
+					studio_underwear = daystart + 14
+					act'Go back to the main floor':gt'foto','studio'
+				end
+			end
+		end
+	end
+end
+
+if $ARGS[0] = 'studio_strip_talk2':
+	cla & *clr
+	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fotograph.jpg"></center>'
+	'	You step out into the studio and you hear someone calling your name.'
+	'	"Hey! <<$pcs_firstname>>! It''s been two weeks, what are you still doing your underwear? We had a deal, now take that off. Right now!"'
+	act'Do as he says and strip':gt'foto_events','underwear_steal'
+	if pcs_inhib < 30:
+		act'Try to bargain again':
+			studio_strip_talk = 2
+			studio_underwear = daystart + 7
+			cla & *clr
+			if $braworntype ! 'none':
+				'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/foto.jpg"></center>'
+				'	"No! Please!"  you cry. "I''m still not ready! I need more time! What if I just keep my panties for a little longer? Just go topless instead of full nude?"'
+				'	The manager looks at your already breasts with obvious confusion and resist the urge to cover them up with your hands with great difficulty.'
+				'	"But you''re already topless."'
+				'	"Exactly!" you say, trying to cover yourself with excuses. "I, uhh, purposely didn''t wear a bra today. I''m still not ready but I took the initiative to help myself get more used to it. That has to count for something right?"'
+			else
+				'<center><video autoplay loop src="images/locations/city/citycenter/photo/strip1.mp4"><center>'
+				'	"No! Please!"  you cry. "I''m still not ready! I need more time! What if I just keep my panties for a little longer? Just go topless instead of full nude?"'
+				gs'bras','remove'
+				gs'stat'
+				'	In your desperation, you throw off your bra as fast as you can. You don''t feel confident enough to be doing this but even this is better than having to take off your panties and show your pussy too. Once your bra is on the floor, the manager glances up and down, back and forth between your breasts and your increasingly red face.'
+			end
+			'	"Fine, fine," he grumbles. "I''ll give you one more week. But that''s it! At the end of this week I expect those panties to come off! Now get to work!"'
+			'	The manager turns around and walks away and you heave a sigh of relief at his departure. It''s not exactly what you want, but you still have one more week now...'
+				act'Go back to the main floor':gt'foto','studio'
+			end
+		end
+	end
+end
+
+if $ARGS[0] = 'studio_strip_talk3':
+	cla & *clr
+	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/foto.jpg"></center>'
+	'	You step out into the studio and you hear shouting again.'
+	'	"What the fuck! It''s been another week and you''re still wearing panties!"'
+	'	Turning apprehensively, you see the same floor manager again stomping towards you.'
+	'	"I''ve had enough of this bullshit <<$pcs_firstname>>. Now bend down and take those panties off right this second!"'
+	act'Do as he says and strip':gt'foto_events','underwear_steal'
+end
+
+if $ARGS[0] = 'underwear_steal':
+	cla & *clr
+	studio_strip_talk = 3
+	if $braworntype ! 'none':
+		gs 'underwear', 'remove'
+		gs 'stat'
+		'<center><video autoplay loop src="images/locations/city/citycenter/photo/strip1.mp4"></video><video autoplay loop src="images/locations/city/citycenter/photo/strip2.mp4"></video></center>'
+		'	Blushing hard, you nervously do as he says. As hot as your face feels from removing your bra in front of him and exposing your breasts, it somehow manages to burn even hotter when your panties come down after exposing your pussy. Clutching your underwear to your body, you stand back up to see the manager holding out his hand.'
+		'	"What?"'
+		'	"Give me your underwear."'
+		'	"What?!"'
+		'	"I don''t want you changing back into this after I leave. You can collect it from me when you''re ready to leave for the day, now give it to me." Reluctantly, you slowly extend your arm before he snatches your panties and bra from your grasp. "Thank you. And remember: unless you''re doing a shoot, I''m not going to see you wearing anything but your birthday suit in this studio again. Now get to work." He walks away without a second glance at you, leaving you shivering naked in the middle of the studio.'
+		studio_underwear_steal = 2
+		act'Continue':gt'foto','studio'
+	else
+		gs 'underwear', 'remove'
+		gs 'stat'
+		'<center><video autoplay loop src="images/locations/city/citycenter/photo/strip2.mp4"></video></center>'
+		'	Blushing hard, you nervously do as he says, face burning hot as you slip your panties down around your legs, keenly aware of your now visible pussy. Clutching your underwear to your body, you stand back up to see the manager holding out his hand.'
+		'	"What?"'
+		'	"Give me your underwear."'
+		'	"What?!"'
+		'	"I don''t want you changing back into this after I leave. You can collect it from me when you''re ready to leave for the day, now give me your panties." Reluctantly, you slowly extend your arm before he snatches your panties from your grasp. "Thank you. And remember: unless you''re doing a shoot, I''m not going to see you wearing anything but your birthday suit in this studio again. Now get to work." He walks away without a second glance at you, leaving you shivering naked in the middle of the studio.'
+		studio_underwear_steal = 1
+		act'Continue':gt'foto','studio'
+	end
+end
+
+if $ARGS[0] = 'underwear_steal2':
+	cla & *clr
+	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/foto.jpg"></center>'
+	minut += 2
+	'	Walking through the studio you find the manager you''re looking for. He sits at a desk flipping through a magazine that looks to be produced by the studio. Is that a new copy? Is he proof reading or something? Stepping up to him, you awkwardly clear your throat and he looks up at you.'
+	'	"Hey... It''s me. I''m here for, my... you know..."'
+	'	"Your... what?" He gives you a dry look. "I can''t give you what you want if I don''t know what it is."'
+	if studio_underwear_steal = 1:'	"My... panties..." you force out with some effort, heat flushing through your face.'
+	if studio_underwear_steal = 2:'	"My... underwear..." you force out with some effort, heat flushing through your face.'
+	'	"Ahh, those!" he says, face brightening with false understanding. He reaches down behind his desk and pulls out your unmentionables, dangling them in front of you.'
+	'	"Thank you..." you mutter bashfully as you take your belongings back from him. Suddenly you realize that you got dressed without remembering you had to put these on anyways. The manager looks back at you noticing the same thing.'
+	'	"So, were you planning to put that back on now or were you planning on just carrying those home?"'
+	if PCloSkirt > 0:
+		'	You blush at the thought of walking home without panties in a skirt.'
+		if studio_underwear_steal = 2:'	A bra is one thing but your panties...'
+		'	But also, doing that here in front of him? He already forced you to undress, you suppose. Getting dressed can''t be worse than that right?'
+		act'Go to the back room and re-dress':gt'foto_events','re-dress'
+		act'Just put your panties on under your skirt':
+			gs 'panties','wear'
+			'<center><video autoplay loop src="images/locations/city/citycenter/photo/panties.mp4"></video></center>'
+			'	Well, you''re wearing a skirt today right? It wouldn''t be too difficult to just slip your panties on that way right?'
+			if studio_underwear_steal = 2:'	Going home without a bra isn''t nearly as bad as going home without your panties.'
+			'	As you bend down you suddenly realize you were completely wrong. Putting your legs through your panties, you feel the manager leering at you as you pull them up around your legs. Despite having been nude in front of him, somehow pulling your panties up under your skirt is more shameful.'
+			'	After standing back up, you see the manager still looking at you expectantly.'
+			'	"What?"'
+			'	"Don''t you have something to promise me?" he says, nodding at the <a href="exec:gs ''shortgs'',''img msg'',''images/locations/city/citycenter/photo/dress_code.jpg''">sign</a> by the door.'
+			act'Make your promise':
+				cla & *clr
+				'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/foto.jpg"></center>'
+				'	Sighing deeply, you stammer out what he wants you to say.'
+				'	"I promise that from now on you will only see me naked in the studio unless it''s for a shoot."'
+				'	"Good. Feel free to go home now. Hope to see you again soon."'
+				'	With your underwear returned and safely covering your hips, you awkwardly make your exit.'
+				act'Leave':gt 'down'
+			end
+		end
+		act'Leave':
+			cla & *clr
+			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/foto.jpg"></center>'
+			'	Your brain freezing in panic, you just walk away and leave the studio, blushing furiously at the cool air flowing between your legs under your skirt.'
+			act'Continue':gt 'down'
+		end
+	else
+		'	You''re wearing pants today so if you wanted to put your panties back on you''d have to take everything off again.'
+		if studio_underwear_steal = 2:'	Not to mention taking your top off to put on your bra...'
+		'	But also, doing that here in front of him? He already forced you to undress, you suppose. Getting dressed can''t be worse than that right?'
+		act'Go to the back room and re-dress':gt'foto_events','re-dress'
+		
+		act'Leave':
+			cla & *clr
+			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/foto.jpg"></center>'
+			'	Your brain freezing in panic, you just walk away and leave the studio, blushing furiously at the fabric of your pants rubbing raw against your uncovered pussy.'
+			act'Continue':gt 'down'
+		end
+	end
+end
+		
+if $ARGS[0] = 're-dress':
+	cla & *clr
+	'<center><video autoplay loop src="images/locations/city/citycenter/photo/dress.mp4"></video></center>'
+	minut += 10
+	gs 'underwear', 'wear'
+	gs 'stat'
+	'	Unable to do it in front of the manager, you go all the way back to the back room to completely undress and re-dress to get your underwear in place before leaving again. It takes a lot more time than you''d like but it''s at least less shameful than doing it in front of the manager...'
+	act'Leave':gt 'down'
+end
 !!------------------------------------------------------------------- Special Modelling Jobs ------------------------------------------------------------------
 
 

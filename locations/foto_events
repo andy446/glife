@@ -11,9 +11,9 @@ if $ARGS[0] = 'fame':
 	if mdlng_fame_event = 2:gt'foto_events','pool1'
 	if mdlng_fame_event = 3 and pcs_agil < 40:mdlng_fame_event = rand(1,2)
 	if mdlng_fame_event = 3 and pcs_agil >= 40:gt'foto_events','tennis'
-	
-	
-	
+
+
+
 end
 
 if $ARGS[0] = 'skill':
@@ -31,7 +31,8 @@ if $ARGS[0] = 'skill':
 
 end
 
-!!------------------------------------------------------------------- Special Modelling Jobs ------------------------------------------------------------------
+!!-------------------------Special Modelling Jobs --------------------------------------------------
+!! to know how long these comments should be, enable "Show vertical edge" in NP++ settings/editing.
 
 
 if $ARGS[0] = 'special':
@@ -490,8 +491,11 @@ if $ARGS[0] = 'documentary':
 				cla & *clr
 				'<center><video autoplay loop src="images/locations/city/citycenter/photo/interview3.mp4">'
 				'	"Alright, well, first thing''s first. Who are you, how old are you, and where do you work?"'
-				if age < 18:'	"My name is <<$pcs_firstname>>, I am 18 years old, and I work as a model at Aphrodite Photography."'
-				elseif age >= 18:'	"My name is <<$pcs_firstname>>, I am <<age>> years old, and I work as a model at Aphrodite Photography."'
+				if age < 18:
+					'	"My name is <<$pcs_firstname>>, I am 18 years old, and I work as a model at Aphrodite Photography."'
+				elseif age >= 18:
+					'	"My name is <<$pcs_firstname>>, I am <<age>> years old, and I work as a model at Aphrodite Photography."'
+				end
 				*nl
 				'	"And how long have you been working as a model?"'
 				act'Continue':
@@ -506,17 +510,17 @@ if $ARGS[0] = 'documentary':
 						questionanswer = 1
 						gt'foto_events','documentary2'
 					end
-						
+
 					act'I needed fast cash':
 						questionanswer = 2
 						gt'foto_events','documentary2'
 					end
-						
+
 					act'I wanted to buy nice things':
 						questionanswer = 3
 						gt'foto_events','documentary2'
 					end
-					
+
 					act'I wanted to be famous':
 						if rank >= 1:
 							*nl
@@ -526,7 +530,7 @@ if $ARGS[0] = 'documentary':
 								questionanswer = 7
 								gt'foto_events','documentary2'
 							end
-							
+
 							act'It feels kind of hollow':
 								questionanswer = 8
 								gt'foto_events','documentary2'
@@ -542,12 +546,12 @@ if $ARGS[0] = 'documentary':
 							gt'foto_events','documentary2'
 						end
 					end
-					
+
 					act'I wanted to get into acting':
 						questionanswer = 5
 						gt'foto_events','documentary2'
 					end
-					
+
 					if pcs_exhibition > 50:
 						act'It really turns me on':
 							questionanswer = 6
@@ -565,7 +569,7 @@ if $ARGS[0] = 'documentary':
 		end
 	end
 end
-	
+
 
 if $ARGS[0] = 'documentary2':
 	cla & *clr
@@ -573,7 +577,7 @@ if $ARGS[0] = 'documentary2':
 	if questionanswer = 4 or questionanswer = 6 or questionanswer = 7:'<center><video autoplay loop src="images/locations/city/citycenter/photo/interview2.mp4">'
 	if questionanswer = 2 or questionanswer = 8:'<center><video autoplay loop src="images/locations/city/citycenter/photo/interview1.mp4">'
 	if questionanswer = 5 or questionanswer = 9:'<center><video autoplay loop src="images/locations/city/citycenter/photo/interview5.mp4">'
-	
+
 	if questionanswer = 1:
 		'	"I just needed a job to be honest," you laugh. "No bigger reason than that to be honest. Everyone needs money to live and the rates here are pretty good. So I became a model."'
 		*nl
@@ -582,60 +586,63 @@ if $ARGS[0] = 'documentary2':
 		'	"Because..." you trail off, thinking back on it. "I needed some fast cash at the time. Had some things I wanted to buy or needed to pay off. Modelling paid well, nude modelling paid even better, so I got a job here."'
 		*nl
 		'	'
-	
+
 	elseif questionanswer = 3:
 		'	"I just wanted to buy nice things!" you laugh. "Clothes, jewelry, shoes, whatever. Modelling here pays pretty good. Nude modelling pays even better. I''m fine with doing some posing in my birthday suit if it means I don''t have to worry about money and I can buy whatever I want."'
-	
+
 	elseif questionanswer = 4:
 		'	"I wanted to be famous. I mean, growing up, what teenage girl <i>doesn''t</i> want to be famous? You look in magazines and at billboards and watch TV and you see these beautiful women who have everyone''s attention and everyone knows their name. That''s what I wanted. That''s why I became a model."'
-		
+
 			*nl
 			'	dialogue'
 			gt'foto_events','documentary3'
-		end
-	
+
 	elseif questionanswer = 5:
 		'	"I actually wanted to use this as a platform for getting into acting. It''s so hard to get into the showbiz so I wondered what the best way to get hired would be. There''s just so many other girls who audition for movies and TV roles and stuff, it''s hard to set yourself apart. But I figured that if I showed my work as a model, got some fame and publicity that way, I''d be more likely to land a role. People would already know my name, I could use that as a selling point for why I should be hired. The next girl in line doesn''t have that on her résumé!"'
 		*nl
-		
-	
+
 	elseif questionanswer = 6:
 		'	Smiling quietly to yourself, you almost can''t believe you''re going to say this. But that''s what makes it so good.'
 		'	"Truth be told... I actually took this job because it really turns me on. I mean, think about it: An untold number of people out there, most of which I''ll never meet, all looking at my naked body and seeing my most private parts? Ohhh! It just makes me want to- nnngh!"'
 		'	As much as you''d like to, you have to force yourself to not start masturbating in the moment. You can''t do that right now. What if it makes them cut your interview? Gotta play the long game here.'
 		'	"But, yeah. I became a model because it makes me real fuckin'' horny."'
-	
+
 	elseif questionanswer = 7:
 		'	"It''s everything I dreamed it would be," you smile, practically giggling. "I mean, the recognition, the money, my personal sense of achievement, it all feels fantastic! It makes me happy, it really does."'
-	
+
 	elseif questionanswer = 8:
 		if rank < 10:'	"It feels... kind of hollow to be honest. I always thought that once I made it big, get my face on a billboard or two that it would make me happy but... it just doesn''t. I''m famous now. I mean, I''m one of the top 10 models in the city. That means I made it, right? But... I just feel empty inside... Sure, people know who I am, I have lots of money, everyone wants to be me but... I dunno. I guess dreams aren''t all they''re cracked up to be."'
 		if rank = 10:'	"It feels... kind of hollow to be honest. I always thought that once I made it big, get my face on a billboard or two that it would make me happy but... it just doesn''t. I''m famous now. I mean, I''m the number one model in the city, one of the most famous models in the country. That means I made it, right? But... I just feel empty inside... Sure, people know who I am, I have lots of money, everyone wants to be me but... I dunno. I guess dreams aren''t all they''re cracked up to be."'
-	
+
 	elseif questionanswer = 9:
 		'	"No, you''re wrong. I haven''t achieved my dream yet. I need to be the most famous model in the city. Unless I''m number one, I won''t be satisfied."'
-	
+
 	end
-	
-	
+
 end
 
 if $ARGS[0] = 'documentary3':
+end
 
 
 if $ARGS[0] = 'documentary4':
+end
 
 
 if $ARGS[0] = 'documentary5':
+end
 
 
 if $ARGS[0] = 'documentary6':
+end
 
 
 if $ARGS[0] = 'documentary7':
+end
 
 
 if $ARGS[0] = 'documentary8':
+end
 
 if $ARGS[0] = 'designer_wedding':
 	cla & *clr
@@ -647,10 +654,11 @@ if $ARGS[0] = 'designer_wedding':
 		cla
 		*nl
 		specialjob7 = 0
-		
+	end
+
 end
 
-!!------------------------------------------------------------------------ Fame events ------------------------------------------------------------------------
+!!--------------------------------------- Fame events ----------------------------------------------
 if $ARGS[0] = 'topless1':
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/foto.jpg"></center>'
 	'	"<<$pcs_firstname>>!"'
@@ -684,7 +692,7 @@ if $ARGS[0] = 'topless1':
 					'	"Yeah! Let''s do it!" you say excitedly.'
 					'	"Great! Do your makeup and put your clothes back on, we''ll leave as soon as you''re ready.'
 					act'Continue':gt'foto_events','topless1.1'
-				end		
+				end
 			else
 				'	"What kind of offer?"'
 				'	We''ve been getting a lot of positive feedback from subscribers about your work so a producer asked us to put out a special issue that features exclusively you. We wanted to do something special so the plan is to do it outside the studio in a place with more natural light. It''ll just be a topless shoot and will take a bit longer than usual to get there and set up, but we''ll pay you for it in addition to your normal once a week contract. What do you say? Are you in?"'
@@ -861,7 +869,6 @@ if $ARGS[0] = 'pool1':
 	end
 end
 
-
 if $ARGS[0] = 'tennis':
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/foto.jpg"></center>'
 	'	"<<$pcs_firstname>>!"'
@@ -941,7 +948,8 @@ if $ARGS[0] = 'tennis':
 	end
 end
 
-!!------------------------------------------------------------------------ Skill Events ------------------------------------------------------------------------
+!!-------------------------------------Skill Events ------------------------------------------------
+
 if $ARGS[0] = 'topless2':
 	*clr & cla
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/foto.jpg"></center>'

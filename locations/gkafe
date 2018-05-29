@@ -96,12 +96,16 @@ if $ARGS[0] = '':
 					'You see your classmates <a href="exec:minut += 3 & gt ''gopskver''">Vitek, Dan and Vasily</a> sitting at a table in the far corner, drinking beer.'
 			end
 		end
-		if hour >= 8 and hour <= 19:
-		act 'Order food':gs 'food_menu', 'gcafe'
-		act 'Order drinks':gs 'beverage_menu', 'gcafe'
-		end
+		if hour >= 8 and hour <= 19:gs 'gkafe', 'menu'
 		act 'Leave':gt 'vokzalG'
 	end
+end
+
+if $ARGS[0] = 'menu':
+	$loc = 'gkafe'
+	$metka = ''
+	act 'Order food':gs 'food_menu', 'gcafe'
+	act 'Order drinks':gs 'beverage_menu', 'gcafe'
 end
 
 if $ARGS[0] = 'boris':

@@ -66,85 +66,81 @@ if $ARGS[0] = 'start':
 				end
 			end
 
-			if pcs_dancero > 0 and stripwork = 0:
-				if pcs_inhib < 60:
-					msg'You think about asking to work in the strip club but you realize that you just aren''t confident enough to do it. You should lower your inhibitions if you want to work here.'
-				else
-					act 'Talk to the manager about performing in the strip club':
-						cla
-						*clr
-						minut += 15
-						gs 'stat'
-						'The manager observes you for a while and asks, "Are you really 18 years old? I had a visit from the police last week and they found an under-aged girl working here. I was fortunate enough that the officers could be bribed."'
-						*nl
+			if pcs_dancero > 0 and stripwork = 0:	
+				act 'Talk to the manager about performing in the strip club':
+					cla
+					*clr
+					minut += 15
+					gs 'stat'
+					'The manager observes you for a while and asks, "Are you really 18 years old? I had a visit from the police last week and they found an under-aged girl working here. I was fortunate enough that the officers could be bribed."'
+					*nl
 
-						if age >= 18:
-							'"Yes I am." You answer him. He points at a spot where he wants you to do a little dance.'
-							'You dance sensually, clearly he''s smitten by you. He asks you to sit down, "Our business hours are between 18:00 to 02:00. Some days there are only male strippers performing. We don''t pay strippers, but the customers tip generously. Think of it as an incentive, perform well and you''ll earn a tip."'
-							'"Strippers can perform lap dances for clients at their request for 1000 <b>₽</b> per lap dance, the stripper gets 400 <b>₽</b>, and the rest belongs to the club. They may want further entertainment, as the club doesn''t operate as a brothel we don''t really accept that kind of business but we usually turn a blind eye to it."'
-							'"One last thing that I nearly forgot, dancing on stage involves a lot of work on the pole. Unless you do that, it is unlikely you will earn anything. There is no set schedule, the employees choose when they want to come to work. So what do you say, are you interested?"'
-							
-							act 'Accept his offer':
-								cla
-								*clr
-								stripwork = 1
-								gs 'stat'
-								'You think about it for a minut and smile at him as you accept his offer. The manager leads you to the dressing room and tell a woman responsible for the costumes that you''re going to join the club. He also introduces you to the chief of security, who takes your picture and makes you sign some documents. After you''re done the boss once again greets you welcome and then returns to his office.'
+					if age >= 18:
+						'"Yes I am." You answer him. He points at a spot where he wants you to do a little dance.'
+						'You dance sensually, clearly he''s smitten by you. He asks you to sit down, "Our business hours are between 18:00 to 02:00. Some days there are only male strippers performing. We don''t pay strippers, but the customers tip generously. Think of it as an incentive, perform well and you''ll earn a tip."'
+						'"Strippers can perform lap dances for clients at their request for 1000 <b>₽</b> per lap dance, the stripper gets 400 <b>₽</b>, and the rest belongs to the club. They may want further entertainment, as the club doesn''t operate as a brothel we don''t really accept that kind of business but we usually turn a blind eye to it."'
+						'"One last thing that I nearly forgot, dancing on stage involves a lot of work on the pole. Unless you do that, it is unlikely you will earn anything. There is no set schedule, the employees choose when they want to come to work. So what do you say, are you interested?"'
+						
+						act 'Accept his offer':
+							cla
+							*clr
+							stripwork = 1
+							gs 'stat'
+							'You think about it for a minut and smile at him as you accept his offer. The manager leads you to the dressing room and tell a woman responsible for the costumes that you''re going to join the club. He also introduces you to the chief of security, who takes your picture and makes you sign some documents. After you''re done the boss once again greets you welcome and then returns to his office.'
 
-								if cfnm = 0:act 'Look around':gt 'stwork', 'start'
+							if cfnm = 0:act 'Look around':gt 'stwork', 'start'
 
-								if cfnm = 1:
-									'There are only males performing tonight, so the room is full of guys getting ready to perform.'
+							if cfnm = 1:
+								'There are only males performing tonight, so the room is full of guys getting ready to perform.'
 
-									act 'Leave':gt 'stripclub', 'start'
-								end
-							end
-							
-							act 'Reject his offer':
-								cla
-								*clr
-								gs 'stat'
-								'You thank him for the offer but you''re not ready to commit to anything yet.'
-								'You can see on his face that he''s disappointed but he can''t really do anything about your decision. He thanks you and tells you if you ever change your mind you''re welcome back.'
 								act 'Leave':gt 'stripclub', 'start'
-							end					
-						elseif fakepassport = 1:
-							'"Yes I am." you answer, handing him your fake passport.'
-							'You see him frown as he checks your passport with suspicion, "Well, I guess everything is in order." as he points at a spot where he wants you to do a little dance.'
-							'You dance sensually, clearly he''s smitten by you. He asks you to sit down, "Our business hours are between 18:00 to 02:00. Some days there are only male strippers performing. We don''t pay strippers, but the customers tip generously. Think of it as an incentive, perform well and you''ll earn a tip."'
-							'"Strippers can perform lap dances for clients at their request for 1000 <b>₽</b> per lap dance, the stripper gets 400 <b>₽</b>, and the rest belongs to the club. They may want further entertainment, as the club doesn''t operate as a brothel we don''t really accept that kind of business but we usually turn a blind eye to it."'
-							'"One last thing that I nearly forgot, dancing on stage involves a lot of work on the pole. Unless you do that, it is unlikely you will earn anything. There is no set schedule, the employees choose when they want to come to work. So what do you say, are you interested?"'
-							
-							act 'Accept his offer':
-								cla
-								*clr
-								stripwork = 1
-								gs 'stat'
-								'You think about it for a minut and smile at him as you accept his offer. The manager leads you to the dressing room and tell a woman responsible for the costumes that you''re going to join the club. He also introduces you to the chief of security, who takes your picture and makes you sign some documents. After you''re done the boss once again greets you welcome and then returns to his office.'
-
-								if cfnm = 0:act 'Look around':gt 'stwork', 'start'
-
-								if cfnm = 1:
-									'There are only males performing tonight, so the room is full of guys getting ready to perform.'
-
-									act 'Leave':gt 'stripclub', 'start'
-								end
 							end
-							
-							act 'Reject his offer':
-								cla
-								*clr
-								gs 'stat'
-								'You thank him for the offer but you''re not ready to commit to anything yet.'
-								'You can see on his face that he''s disappointed but he can''t really do anything about your decision. He thanks you and tells you if you ever change your mind you''re welcome back.'
-								act 'Leave':gt 'stripclub', 'start'
-							end					
-						else
-							'"Nearly..." you say dejectedly.'
-							'"Right. You need to leave this establishment, be sure to come back when you are old enough." he tells you.'
-									
-							act 'Leave':gt 'Nord', 'redlight'			
 						end
+						
+						act 'Reject his offer':
+							cla
+							*clr
+							gs 'stat'
+							'You thank him for the offer but you''re not ready to commit to anything yet.'
+							'You can see on his face that he''s disappointed but he can''t really do anything about your decision. He thanks you and tells you if you ever change your mind you''re welcome back.'
+							act 'Leave':gt 'stripclub', 'start'
+						end					
+					elseif fakepassport = 1:
+						'"Yes I am." you answer, handing him your fake passport.'
+						'You see him frown as he checks your passport with suspicion, "Well, I guess everything is in order." as he points at a spot where he wants you to do a little dance.'
+						'You dance sensually, clearly he''s smitten by you. He asks you to sit down, "Our business hours are between 18:00 to 02:00. Some days there are only male strippers performing. We don''t pay strippers, but the customers tip generously. Think of it as an incentive, perform well and you''ll earn a tip."'
+						'"Strippers can perform lap dances for clients at their request for 1000 <b>₽</b> per lap dance, the stripper gets 400 <b>₽</b>, and the rest belongs to the club. They may want further entertainment, as the club doesn''t operate as a brothel we don''t really accept that kind of business but we usually turn a blind eye to it."'
+						'"One last thing that I nearly forgot, dancing on stage involves a lot of work on the pole. Unless you do that, it is unlikely you will earn anything. There is no set schedule, the employees choose when they want to come to work. So what do you say, are you interested?"'
+						
+						act 'Accept his offer':
+							cla
+							*clr
+							stripwork = 1
+							gs 'stat'
+							'You think about it for a minut and smile at him as you accept his offer. The manager leads you to the dressing room and tell a woman responsible for the costumes that you''re going to join the club. He also introduces you to the chief of security, who takes your picture and makes you sign some documents. After you''re done the boss once again greets you welcome and then returns to his office.'
+
+							if cfnm = 0:act 'Look around':gt 'stwork', 'start'
+
+							if cfnm = 1:
+								'There are only males performing tonight, so the room is full of guys getting ready to perform.'
+
+								act 'Leave':gt 'stripclub', 'start'
+							end
+						end
+						
+						act 'Reject his offer':
+							cla
+							*clr
+							gs 'stat'
+							'You thank him for the offer but you''re not ready to commit to anything yet.'
+							'You can see on his face that he''s disappointed but he can''t really do anything about your decision. He thanks you and tells you if you ever change your mind you''re welcome back.'
+							act 'Leave':gt 'stripclub', 'start'
+						end					
+					else
+						'"Nearly..." you say dejectingly.'
+						'"Right. You need to leave this establishment, be sure to come back when you are old enough." he tells you.'
+								
+						act 'Leave':gt 'Nord', 'redlight'			
 					end
 				end
 			end

@@ -83,7 +83,7 @@ if $ARGS[0] = 'stripgirl':
 	gs 'stat'
 	striptalkrand = rand(0, 10)
 
-	if striptalkrand = 0:$striptalk = 'Have you heard about that new girl? She''s really good-looking and all, but she got booed off-stage, apparently she was worthless.'
+	if striptalkrand = 0:$striptalk = 'Have you heard about that new girl? She''s really good-looking and all, but she got booed off-stage, apperantly she was worthless.'
 	if striptalkrand = 1:$striptalk = 'I''m telling you, girls with tattoos are a huge turn-on to men.'
 	if striptalkrand = 2:$striptalk = 'Working the pole is much more profitable than just dancing, it''s easier to excite the customer, but it also demands more from the person doing it.'
 	if striptalkrand = 3:$striptalk = 'Phew, you really have to leave it all out on the stage, getting back all sweaty, with disheveled hair and makeup ruined. The cost in cosmetics is enough to bankrupt you.'

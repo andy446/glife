@@ -170,13 +170,13 @@ if $ARGS[0] = 'studio':
 		'You step into a large warehouse. Scattered throughout, you see large lights brightening a myriad of sets designed to look like different rooms or locations. As you look farther inside, you spot people move between or on the sets. Among them are beautiful women, some wearing fancy dresses or expensive underwear, and shockingly, some of them are nude. Those that stand on sets are surrounded by crews of people wearing black with cameras and other equipment. Strangely, every single woman you see who is not on a set is completely naked.'
 		'It appears you are in some kind of photography studio. Just near the door you came in is a reception desk, out of place due to the fact that it simply sits in the middle of the room. A man sits behind it in the light of a desk lamp, doing something on a computer.'
 		*nl
-		'Farther along, you can see what appear to be <a href="exec:gt ''foto_albums'',''model_portraits''">photo albums</a> that sit on a shelf. Sitting by the door is a <a href="exec:gs ''shortgs'',''img msg'',''images/locations/city/citycenter/photo/dress_code.jpg''">sign</a> to remind models of the dress code.'
+		'Farther along, you can see what appear to be <a href="exec:gt ''foto_albums'',''model_portraits''">photo albums</a> that sit on a shelf.'
 	end
 
 	if model = 1:
-		'You step onto the main floor of the studio, standing amongst the various sets and photographers who are working those sets.'
+		'You step onto the main floor of the studio, standing amongst the various sets and photographers who are working those sets. Sitting by the door is a <a href="exec:gs ''shortgs'',''img msg'',''images/locations/city/citycenter/photo/dress_code.jpg''">sign</a> to remind models of the dress code.'
 		*nl
-		'Farther along are the studio''s collection of <a href="exec:gt ''foto_albums'',''model_portraits''">photo albums</a> of their top 10 models.'
+		'Farther along are the studio''s collection of <a href="exec:gt ''foto_albums'',''model_portraits''">photo albums</a> of their top 10 models. '
 		*nl
 		'In various parts of the studios, you can see some of the other models who work here.'
 		if anastasia >= 2:

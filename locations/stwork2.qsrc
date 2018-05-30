@@ -5,6 +5,7 @@ if $ARGS[0] = 'strip':
 	gs 'stat'
 	'<center><b><font color="maroon">Stage</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/stripclub/stripclub1.jpg"></center>'
+
 	if publichot < 10:$pubhot = 'booing you, you hear someone shout, "Get this stupid cow off the stage."'
 	if publichot >= 10 and publichot < 20:$pubhot = 'clearly showing discontent with your dancing. They want you off the stage as quickly as possible.'
 	if publichot >= 20 and publichot < 30:$pubhot = 'clearly looking bored, drinking and talking among themselves, ignoring you.'
@@ -23,10 +24,10 @@ if $ARGS[0] = 'strip':
 				minut += 5
 				stpredmet -= 1
 				pcs_sweat += 5
-				inhib_exp += rand(2,5)
 				fat -= 3
 				pcs_mood -= rand(2, 6)
 				dancero_exp += rand(2, 4)
+				if pcs_exhibition < 50:exhibition_exp += rand(1,3)
 				city_stripping += rand(1,2)
 
 				if stpredmet = 1:pcs_sweat += 5
@@ -62,7 +63,7 @@ if $ARGS[0] = 'strip':
 				fat -= 5
 				pcs_mood -= rand(4, 8)
 				dancpol_exp += rand(2, 4)
-				inhib_exp += rand(2,5)
+				if pcs_exhibition < 65:exhibition_exp += rand(1,3)
 				city_stripping += rand(1,2)
 				
 				if stpredmet = 1:pcs_hairbsh = 0
@@ -167,7 +168,6 @@ if $ARGS[0] = 'privatdance':
 		minut += 30
 		money += 400
 		if pcs_sweat < 30 : pcs_sweat += 10
-		inhib_exp += rand(2,5)
 		pcs_hairbsh = 0
 		pcs_makeup = 0
 		fat -= 5

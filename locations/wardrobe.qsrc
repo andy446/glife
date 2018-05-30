@@ -1,10 +1,11 @@
 # wardrobe
 
 if $ARGS[0] = 'start':
+	$wloc = 'wardrobe'
 	if ward_img_hgt = 0:ward_img_hgt = 250
 	'<center><B><U>Outfit overview - Click on an item to change it</U></B></center>'
-
-	'<center><table border=0 cellspacing=<<ward_img_hgt/25>> cellpadding=5>'
+	'<br><center>These are the clothes you are currently wearing'
+	'<br><center><table border=0 cellspacing=<<ward_img_hgt/25>> cellpadding=5>'
 	*p '<TH>Bra worn</TH><TH>Outfit worn</TH><TH>Coat (only worn outside when cold)</TH>'
 	*P '<TR><TD><center><a href="exec:gt ''bras'', ''view_bra_list'', ''wardrobe''"><img Height = <<ward_img_hgt>> src="<<FUNC(''$body_image'',''bra'')>>"></a></center></TD><TD><center><a href="exec:gt ''clothing_QV'', ''list''"><img Height = <<ward_img_hgt * 2>> src="<<FUNC(''$body_image'',''clothes'')>>"></a></center></TD><TD><center>'
 	if defaultcoat = 0:
@@ -13,7 +14,6 @@ if $ARGS[0] = 'start':
 		'<a href="exec:gt ''cloakroom'', ''view_coat_list''"><img Height = <<ward_img_hgt * 2>> src="<<FUNC(''$body_image'', ''coat'')>>"></a>'
 	end
 	'</center></TD>'
-
 	'<TR><TD><center>'
 	if $braworntype ! 'none':
 		'<a href="exec:gs ''bras'', ''remove'' & gt ''wardrobe'', ''start''">Remove</a>'
@@ -42,7 +42,6 @@ if $ARGS[0] = 'start':
 		'<a href="exec:gt ''purses'', ''view_purse_list''"><img Height = <<ward_img_hgt>> src="images/pc/noitem.png"></a>'
 	end
 	'</center></TD>'
-
 	'<TR><TD><center>'
 	if $pantyworntype ! 'none':
 		'<a href="exec:gs ''panties'', ''remove'' & gt ''wardrobe'', ''start''">Remove</a>'
@@ -62,31 +61,29 @@ if $ARGS[0] = 'start':
 		'Remove'
 	end
 	'</center></TD>'
-
+	'<TR><TD><TD><center>'
+	if ($clothingworntype ! 'nude' and (defaultcoat > 0 or bag > 0)) or (defaultcoat > 0 and bag > 0):
+		'<a href="exec:gs ''wardrobe'', ''removeall'' & gt ''wardrobe'', ''start''">Remove all items</a>'
+	else
+		'Remove all items'
+	end
+	'</center></TD>'
 	'</table></center>'
-	act 'Leave': gt $Loc, $Metka
+	act 'Return': killvar '$wloc' & gt $loc, $metka
 
-	act 'Strip all clothes/shoes':
+	act 'Strip all clothing':
 		gs 'bras', 'remove'
 		gs 'clothing', 'strip'
 		gs 'panties', 'remove'
 		gs 'shoes', 'strip'
 		gt 'wardrobe', 'start'
 	end
-		
-	act 'Remove everything':
-		gs 'bras', 'remove'
-		gs 'clothing', 'strip'
-		defaultcoat = 0
-		gs 'panties', 'remove'
-		gs 'shoes', 'strip'
-		gs 'purses', 'remove'
-		gt 'wardrobe', 'start'
-	end
 
-	act 'Set outfit as a default': gt 'wardrobe', 'default_set'
+	act 'Set a default outfit': gt 'wardrobe', 'default_set'
 
 	act 'Choose a default outfit': gt 'wardrobe', 'default'
+
+	act 'View stored clothing': gt 'clothing', 'view_clothing_list', 'store'
 
 	act 'Set image height for this view':
 		cla
@@ -101,6 +98,16 @@ if $ARGS[0] = 'start':
 		act 'Return': gt 'wardrobe', 'start'
 	end
 end
+
+if $ARGS[0] = 'removeall':
+		 gs 'bras', 'remove'
+		 gs 'clothing', 'strip'
+		 gs 'panties', 'remove'
+		 gs 'shoes', 'strip'
+		 gs 'purses', 'remove'
+		 defaultcoat = 0
+	end
+ end
 
 !!---------------------------Oufit stuff----------------------------------
 
@@ -120,7 +127,7 @@ end
 
 if $ARGS[0] = 'default_entry_wear':
 	default_entry = ARGS[1]
-	
+
 	gs 'clothing_attributes', $defclothingtype[default_entry], defclothingnumber[default_entry]
 	gs 'clothing', 'wear', $defclothingtype[default_entry], defclothingnumber[default_entry]
 
@@ -148,9 +155,9 @@ if $ARGS[0] = 'default_entry_wear':
 
 	if dyneval('RESULT = coat[<<defcoat[default_entry]>>]') = 0: defcoat[default_entry] = 0
 	defaultcoat = defcoat[default_entry]
-	
+
 	!! default school girl uniform is always allowed to be worn if still in school
-	if StoryLine = 1 and SchoolAtestat = 0 and SchoolBlock = 0 and $defclothingtype[default_entry] = 'school' and defclothingnumber[default_entry] = 6:	
+	if StoryLine = 1 and SchoolAtestat = 0 and SchoolBlock = 0 and $defclothingtype[default_entry] = 'school' and defclothingnumber[default_entry] = 6:
 		cls
 		'<center><video autoplay loop src="images/locations/city/citycenter/photo/dress.mp4"></video></center>'
 		'Your put on your <<$def_clothing_name[default_entry]>> outfit without any problems.'

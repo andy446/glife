@@ -2506,7 +2506,7 @@ if $ARGS[0] =  'Kitchen':
 	gs'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/fedorhome/kitchen.jpg"></center>'
 	''
-	'This kitchen is very clean. Fedor''s parents must be very neat people.' 
+	'This kitchen is very clean. Fedor''s parents must be very neat people.'
 	''
 	'There is a sink, a microwave, a stove and a <a href="exec:gt ''FedorEv4'', ''Fridge''">refrigerator</a> stocked with food.'
 	'If you''re thirsty, you can pour yourself a glass of <a href="exec:gt ''beverage'', ''bev_wat''">water</a> from the tap.'
@@ -2606,7 +2606,7 @@ if $ARGS[0] =  'Bedroom':
 	minut += 5
 	gs'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/fedorhome/bedroom.jpg"></center>'
-	'Fedor''s bedroom is very neat, It has a bed, a computer desk with a chair and a <a href="exec:gt ''wardrobe'', ''start''">wardrobe</a>.'
+	'Fedor''s bedroom is very neat, It has a bed, a computer desk with a chair and a <a href="exec:gt ''wardrobe'', ''start''">wardrobe</a>, where you can choose outfits and organize your clothing.'
 	if FedorLove = 1:
 		'Fedor has a <a href="exec:gt ''FedorEv4'', ''Picture''">framed picture</a> by his bed.'
 	end

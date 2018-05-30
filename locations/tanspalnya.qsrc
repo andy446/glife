@@ -13,7 +13,7 @@ gs 'stat'
 '<center><img <<$set_imgh>> src="images/characters/city/nicholas/spaln.jpg"></center>'
 
 'Your bedroom is fairly large, considering you''re only an employee. There is a small <a href="exec:gt ''bed'', ''start''">double bed</a> and an <a href="exec:gt ''budilnik'', ''start''">alarm clock</a>.'
-'Half a wall is taken up by an expensive-looking <a href="exec:gt ''wardrobe'', ''start''">wardrobe</a> (where you can <a href="exec:gt ''clothing'', ''view_clothing_list'', ''wardrobe''">organize your clothes</a>). There''s a make-up table with a <a href="exec:gt ''mirror'', ''start''">mirror</a> next to it.'
+'Half a wall is taken up by an expensive-looking <a href="exec:gt ''wardrobe'', ''start''">wardrobe</a> (where you can choose outfits and organize your clothing). There''s a make-up table with a <a href="exec:gt ''mirror'', ''start''">mirror</a> next to it.'
 if komp = 1:
 	$komp = ' with your <a href="exec:gt ''Komp'', ''start''">laptop</a>.'
 else
@@ -80,7 +80,7 @@ if sick >= 1:
 
 		'You lie in bed, coughing, sneezing, blowing your nose... and, as if that wasn''t enough, you also think you might be getting a headache.'
 		'Drifting in and out of sleep, you spend about 4 hours tossing and turning, trying to sweat out the illness, and you actually feel better when you decide to stretch your legs.'
- 
+
 		act 'Get up': gt 'bedr'
 	end
 end
@@ -152,7 +152,7 @@ if TanMaidRoomClean = 0:
 		gs 'stat'
 		nl
 		''
-		'You vacuum, wet wipe, dust and polish all the surfaces and objects in your room, knowing well that, if a guest wanted to take a look inside, you''d embarrass Nicholas if this room wasn''t in as perfect a condition as is expected of all the others.' 
+		'You vacuum, wet wipe, dust and polish all the surfaces and objects in your room, knowing well that, if a guest wanted to take a look inside, you''d embarrass Nicholas if this room wasn''t in as perfect a condition as is expected of all the others.'
 		'At least you are free to wear whatever you want while you clean your room, you think.'
 		act 'Finish cleaning':
 			gt 'tanspalnya'

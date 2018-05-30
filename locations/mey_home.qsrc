@@ -43,8 +43,8 @@ if $args[0] = 'door':
 			'You walk up to the Meynolds residence and ring the doorbell...'
 			'Katja opens the door and quickly drags you to her room.'
 
-			act 'Go to Katjas room': 
-				if frost > 0: frost = 0 
+			act 'Go to Katjas room':
+				if frost > 0: frost = 0
 				gt 'KatjaHomeTalk'
 			end
 			exit
@@ -89,19 +89,19 @@ if $ARGS[0] = 'start':
 
 			exit
 		end
-		
+
 		! need to fuck Katja!
 		if KatjaSex >= 5 and mey_vika['mey_vika_qw'] > 35 and hour = 23 and mey_vika['mey_vika_bang_qw'] = 0:
 			gs 'mey_vika_events', 'bang_katya'
 			exit
 		end
-		
+
 		! Vic calls in the shower
 		if mesec = 0 and pcs_vag > 0 and mey_vika['bath_qw'] = 1 and mey_vika['bath_qw_day'] ! daystart and rand(0,10) > 5 and ((week < 6 and hour >= 14) or (week = 6 and hour >= 8)):
 			gs 'mey_vika_events', 'bath_qw1'
 			exit
 		end
-		
+
 		if ((week < 6 and hour >= 14 and hour < 20) or (week = 6 and hour >= 10 and hour < 20)) and mey_tamara['help_day'] ! daystart:
 			act 'Clean the house':
 				cla
@@ -130,7 +130,7 @@ if $ARGS[0] = 'start':
 	act 'Tamara Mikhailovna''s room': gt 'mey_home', '7'
 	act 'Garden': gt 'mey_home', '8'
 
-	if rand (0,2) ! 0:gs 'din_bad' & dynamic $mobile_check	
+	if rand (0,2) ! 0:gs 'din_bad' & dynamic $mobile_check
 end
 
 ! kitchen
@@ -142,7 +142,7 @@ if $ARGS[0] = '1':
 	'<center><h4><font color="maroon">Kitchen</font></h4></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/meynolds/kitchen.jpg"></center>'
 	'The kitchen is huge and luxurious. It is decorated in a minimalist high-tech style. An oval dining room table standing in the middle of the room. The appliances are all hidden. The kitchen is sparkling clean.'
-	
+
 	act 'Return to hallway': gt 'mey_home', 'start'
 
 	if mey_vika['mey_vika_qw'] >= 32 and ((week < 6 and hour >= 14 and hour < 20) or (week = 6 and hour >= 10 and hour < 20)) and mey_tamara['help_day'] ! daystart:
@@ -163,7 +163,7 @@ if $ARGS[0] = '1':
 	act 'Eat a light meal (0:20)':gs 'food', 's_meal'
 
 	act 'Have a snack (0:05)':gs 'food', 'snack'
-	
+
 	act 'Drink some water (0:05)':gs 'beverage', 'bev_wat'
 
 	act 'Have a cup of tea (0:05)':
@@ -284,7 +284,7 @@ if $ARGS[0] = '1':
 	if rand (0,2) ! 0:gs 'din_bad' & dynamic $mobile_check
 end
 
-if $ARGS[0] = '2': 
+if $ARGS[0] = '2':
 	!bathroom
 	$locM = 'mey_home'
 	$metkaM = '2'
@@ -292,10 +292,10 @@ if $ARGS[0] = '2':
 	minut += 1
 	cls
 	gs'stat'
-	$location_type = 'bathroom'	
+	$location_type = 'bathroom'
 	'<center><b><font color = maroon>Bathroom</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/hotel.room.best1.jpg"></center>'
-	'A luxurious bathroom looking like the five-star hotel bathrooms you read about in the magazines.'	
+	'A luxurious bathroom looking like the five-star hotel bathrooms you read about in the magazines.'
 	'Above the beautiful vanity and sink there is a huge <a href="exec:GT ''mirror'',''start''">mirror</a>.'
 	!acts copy from [shulgabath]
 	act 'Return to the hallway': gt 'mey_home', 'start'
@@ -313,7 +313,7 @@ if $ARGS[0] = '3':
 	gs 'stat'
 	'<center><h4><font color="maroon">Guest room</font></h4></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/meynolds/guestroom.jpg"></center>'
-	'It feels and looks like a standard room in a hotel. There is a <a href="exec:gt ''bed'', ''start''">bed</a> and an <a href="exec:gt ''budilnik'', ''start''">alarm clock</a>, a small <a href="exec:gt ''wardrobe'', ''start''">wardrobe</a> (where you can <a href="exec:gt ''clothing'', ''view_clothing_list'', ''wardrobe''">organize your clothes</a>) and a desk.'
+	'It feels and looks like a standard room in a hotel. There is a <a href="exec:gt ''bed'', ''start''">bed</a> and an <a href="exec:gt ''budilnik'', ''start''">alarm clock</a>, a small <a href="exec:gt ''wardrobe'', ''start''">wardrobe</a> (where you can choose outfits and organize your clothing) and a desk.'
 	'A <a href="exec:gt ''mirror'', ''start''">mirror</a> hangs on the wall near the front door.'
 	if komp = 1:'Your <a href="exec:GT ''Komp'',''start''">laptop</a> is on the desk.'
 
@@ -332,11 +332,11 @@ if $ARGS[0] = '3':
 	if pcs_horny >= 50:	act 'Masturbate':gt 'selfplay', 'start'
 	if pornMagazine > 0:
 		'You hide your porn magazines under the mattress of your bed.'
-		gs 'events', 'read_porn'	
+		gs 'events', 'read_porn'
 	end
-	
+
 	gs 'events', 'read'
-	
+
 	if dur > 0 and narkday ! daystart:
 		act 'Snort the White Lady (0:05)':
 			cla
@@ -367,7 +367,7 @@ if $ARGS[0] = '3':
 			gt 'mey_home', '3'
 		end
 	end
-	
+
 	act 'Wait':
 		cla
 		waiting = input ("How long would you like to wait? (Not more than 120 minutes)")
@@ -381,7 +381,7 @@ if $ARGS[0] = '3':
 		act 'Take a look at the clock':gt 'mey_home', '3'
 	end
 
-	if rand (0,2) ! 0:gs 'din_bad' & dynamic $mobile_check	
+	if rand (0,2) ! 0:gs 'din_bad' & dynamic $mobile_check
 end
 
 if $ARGS[0] = '4':

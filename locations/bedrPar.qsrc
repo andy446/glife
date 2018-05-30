@@ -65,7 +65,8 @@ end
 ! WD: Correct Image path ~ "images/qwest/alter/<<$loc>>.jpg"
 '<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/home/bedrpar.jpg"></center>'
 *nl
-'This is the small bedroom you share with your sister, Anya. On one side of the room is a <a href="exec:gt ''wardrobe'', ''start''">wardrobe</a> where you can <a href="exec:gt ''clothing'', ''view_clothing_list'', ''wardrobe''">organize your clothes</a>. On top of it is a <a href="exec:gt ''clothing'', ''view_clothing_list'', ''store''">suitcase</a> that you could use to store clothes that you don''t wear often.'
+'This is the small bedroom you share with your sister, Anya. On one side of the room is a <a href="exec:gt ''wardrobe'', ''start''">wardrobe</a> where you can choose outfits and organise your clothing.'
+*nl
 'Your <a href="exec:gt ''bed2''">bed</a> is in the corner across from the wardrobe, and your <a href="exec:gt ''stol'' ,''stolPar''">desk</a> is next to it. Your sister''s bed is in the other corner.'
 *nl
 if popugai2 = 1:

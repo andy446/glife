@@ -69,9 +69,14 @@ if $ARGS[0] = 'peek':
 		*clr
 		brother_ev1 = daystart
 		'Despite the clattering noise of water, you hear the bathroom door creaking open slightly. Through a small opening in the doorway, you notice your brother Kolka watching you.'
-		if sub < 30: act 'Scream': gt 'brother', 'brother_go_away'
-		act 'Let him look': gt 'brother', 'brother_voyeur_ev1'
-		act 'Invite him in for a chat':gt 'brother_voyeur','showertalk1'
+		act 'Scream': gt 'brother', 'brother_go_away'
+		if brothershowertalk < 1:
+			act 'Tell him off':gt 'brother','brother_go_away2'
+		end
+		act 'Let him look':gt 'brother', 'brother_voyeur_ev1'
+		if pcs_inhib >= 30 and npc_rel['A34'] > 40:
+			act 'Invite him in for a chat':gt 'brother_voyeur','showertalk1'
+		end
 		if brother_shower_times > 0:act'Invite him into the shower with you':gt'brother_voyeur','brother_shower_together'
 		if brothershowertalk > 0:act'Tell him you''re too busy to talk':gt'brother_voyeur','showertalkbusy'
 		exit

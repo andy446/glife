@@ -1,0 +1,163 @@
+# stwork
+if $ARGS[0] = 'start':
+	$loc = 'stwork'
+	$metka = 'start'
+	$locM = 'stwork'
+	$metkaM = 'start'
+	$sexloc = 'stwork'
+	$location_type = 'private'
+	clr
+	minut += 5
+	stripMir = 1
+	gs 'stat'
+	if night_mode = 1:
+		fcolor = rgb(255, 255, 255)
+		bcolor = rgb(0, 0, 0)
+		lcolor = rgb(106, 90, 205)
+	else
+		fcolor = rgb(0, 0, 0)
+		bcolor = rgb(255, 255, 255)
+		lcolor = rgb(106, 90, 205)
+	end
+	'<center><b><font color="maroon">Dressing room for strippers</font></b></center>'
+	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/stripclub/striprazd.jpg"></center>'
+	''
+	'There are several <a href="exec:gt ''mirror'', ''start''">mirrors</a> hanging on the wall, where you can <a href="exec:gt ''mirror'', ''brush''">brush</a> your hair, and a selection of <a href="exec:gt ''wardrobe'', ''start''">clothes</a> hanging on rails for the girls to dress in.'
+	'There are some stairs leading to the <a href="exec:gt ''stwork'', ''stripgirl''">stage</a> where you can head out to perform.'
+	'To the side there''s a <a href="exec:stripMir = 0 & gt ''stripclub'', ''start''">steel door</a> which overlooks the back yard and the staff uses as an entrance, to save them from meeting scummy customers. Standing by this entrance, there''s always <a href="exec:gt ''stwork'', ''guard''">security</a> keeping the talent safe.'
+	'Near the exit door is a vending machine selling <a href="exec:stripMir = 0 & gt ''food'', ''snack''">snacks</a>, and a <a href="exec:stripMir = 0 & gt ''beverage'', ''bev_wat''">water cooler</a>, which is heavily used by staff after coming off stage'
+	'Behind a wooden door there''s the <a href="exec:gt ''stwork'', ''toilet''">staff toilet</a>.'
+	
+	if tatlech > 0:stripKoef = rand(1, 3)
+	if tatback > 0:stripKoef2 = rand(1, 3)
+	if tatblly > 0:stripKoef3 = rand(1, 3)
+	if tatupb > 0:stripKoef4 = rand(3, 6)
+	if tatleg > 0:stripKoef5 = rand(1, 3)
+	if tatarm > 0:stripKoef6 = rand(1, 3)
+	if tatside > 0:stripKoef7 = rand(1, 3)
+
+	publichot = pcs_dancero/2 + pcs_apprnc/4 + city_stripping/4 + stripKoef + stripKoef2 + stripKoef3 + stripKoef4 + stripKoef5 + stripKoef6 + stripKoef7
+	publichotstart = publichot
+
+	if hour >= 18 or hour <= 2:
+		if cumloc[1] = 0 and cumloc[2] = 0 and cumloc[4] = 0 and cumloc[5] = 0 and cumloc[6] = 0 and cumloc[7] = 0 and cumloc[11] = 0 and cumloc[14] = 0:
+			if pcs_makeup >= 4:
+				if pcs_hairbsh = 1:
+					if pcs_sweat < 20:
+						if pcs_leghair <= 3 and pcs_pubes <= 3:
+							if fingal <= 0:
+								act '<b>Go on stage</b>':stpredmet = 3 & gt 'stwork2', 'strip'
+							else
+								'You aren''t allowed on stage, because of the black eye.'
+							end
+						else
+							'Nobody wants to see a stripper with hairy legs and hairy pubes. Have a shave before you go on stage.'
+						end
+					else
+						'Damn, you stink like a pigsty, take a shower before going on stage.'
+					end
+				else
+					'The least you can do is brush your hair.'
+				end
+			else
+				'You need to put on very thick makeup if you want people to be impressed by your beauty.'
+			end
+		else
+			'There is some visible semen on your body. Wash yourself off before going on stage.'
+		end
+	else
+		'You''re done for today. Time to head home.'
+	end
+	
+	act 'Have a cup of water (0:05)':gs 'beverage', 'bev_wat'
+	act 'Have a snack (0:05) (100 <b>₽</b>)': money -= 100 & gs 'food', 'snack'
+	act 'Look in the mirror': gt 'mirror', 'start'
+	if pcs_hairbsh = 0: act 'Brush your hair': gt 'mirror', 'brush'
+	act 'Change your clothes':gt 'wardrobe', 'start'
+	act 'Use staff toilet':gt 'stwork', 'toilet'
+	act 'Exit the club':gt 'stripclub', 'start'
+end
+
+if $ARGS[0] = 'stripgirl':
+	cls
+	gs 'stat'
+	striptalkrand = rand(0, 10)
+
+	if striptalkrand = 0:$striptalk = 'Have you heard about that new girl? She''s really good-looking and all, but she got booed off-stage, apparently she was worthless.'
+	if striptalkrand = 1:$striptalk = 'I''m telling you, girls with tattoos are a huge turn-on to men.'
+	if striptalkrand = 2:$striptalk = 'Working the pole is much more profitable than just dancing, it''s easier to excite the customer, but it also demands more from the person doing it.'
+	if striptalkrand = 3:$striptalk = 'Phew, you really have to leave it all out on the stage, getting back all sweaty, with disheveled hair and makeup ruined. The cost in cosmetics is enough to bankrupt you.'
+	if striptalkrand = 4:$striptalk = 'You know what, those private dances might be guaranteed money, but the real cash is in the extras.'
+	if striptalkrand = 5:$striptalk = 'Remember that ugly girl? She got on stage and got booed off the stage by the customers, but as soon as she started working the pole, their jaws dropped, and she made a fortune in tips.'
+	if striptalkrand = 6:$striptalk = 'Why doesn''t the manager ever says if it''s a male or female day? I recently rushed to work, even broke a nail, then I get here and there''s these bears up on stage. Had to turn around and head back home.'
+	if striptalkrand = 7:$striptalk = 'That cute security guard was telling me about the problems the girls face with this job. Half of them turn up whores in the end, the money is better.'
+	if striptalkrand = 8:$striptalk = 'There was a fat woman trying to dance on the pole, she fell face first on the floor. I thought she had knocked herself out, you should have seen the black eye she got.'
+	if striptalkrand = 9:$striptalk = 'Recently we had a comedian working here. She was a pretty little thing and she danced well, but it''s not with jokes you earn tips here.'
+	if striptalkrand = 10:$striptalk = 'I heard about clubs abroad where the tips are so good, that the strippers pay for the right to work there.'
+
+	'The girls are doing their makeup and hair in the mirror, laughing and gossiping.'
+	'<<$striptalk>>'
+
+	act 'Move away':gt 'stwork', 'start'
+end
+
+if $ARGS[0] = 'guard':
+	cls
+	gs 'stat'
+	'A bored looking, security guard stands by the door. Seeing you he lazily nods, "Hello <<$pcs_nickname>>."'
+
+	act 'Move away':gt 'stwork', 'start'
+end
+
+if $ARGS[0] = 'toilet':
+	$location_type = 'bathroom'
+	$loc = 'stwork'
+	$metka = 'toilet'
+	$locM = 'stwork'
+	$metkaM = 'toilet'
+	gs 'stat'
+	'<center><img <<$set_imgh>> src="images/locations/shared/bathroom/toilet.jpg"></center>'
+	''
+	'You enter a dirty and smelly staff bathroom that''s probably never been cleaned.'
+	'There is no mirror, only a grimy shower, toilet, and basin'
+
+	act 'Have a shower':
+		cls
+		dynamic $showerdin
+		'<h3>Staf Toilet</h3>'
+		'<h5>Shower</h5>'
+		'<center><img <<$set_imgh>> src="images/locations/shared/brothel/brothelShower.jpg"></center>'
+		''
+		'After taking off all of your clothes, you gather up your towel, washcloth and soap, then head to the shower. You wash yourself thoroughly to be as clean as possible for potential customers.'
+		dynamic $brit
+		act 'Get out and dry off':gt $locM, $metkaM
+	end
+	gs 'din_van', 'prvt_pee'
+	if klismaday < daystart:
+		act 'Give yourself an enema (0:05)':
+			'<h3>Toilet</h3>'
+			'<h5>Enema</h5>'
+			cla
+			*clr
+			cumspclnt = 7
+			gs 'cum_cleanup'
+			minut += 5
+			klismaday = daystart
+			klismaday1 = 1
+
+			'<center><img <<$set_imgh>> src="images/shared/home/bathroom/klisma.jpg"></center>'
+			*nl
+			'You give yourself an enema, feeling clean down there, hopefully avoiding any awkward surprises.'
+
+			act 'Continue':gt $locM, $metkaM
+		end
+	end
+	dynamic $tampon
+	dynamic $quickwash
+	dynamic $basin
+
+	act 'Leave the toilet':gt 'stwork', 'start'
+end
+
+--- stwork ---------------------------------
+

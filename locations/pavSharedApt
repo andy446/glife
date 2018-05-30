@@ -12,9 +12,8 @@ end
 
 if $ARGS[0] = 'update':
 	rentWeekly = 2000
-
-	if rentLeft < 0:rentLeft = 0
-		!how much of the unpaid weekly rent is left
+	if rentLeft <= 0:rentLeft = 0
+	!how much of the unpaid weekly rent is left
 	if orgB > 100:orgB = 100
 
 	price_cook = 50
@@ -131,39 +130,41 @@ if $ARGS[0] = 'update':
 
 	gs 'stat'
 
-	! if debg = 0:
-		! '<a href="exec:debg=1">DEBUG</a>'
-	! elseif debg = 1:
-		! '<a href="exec:debg=0">DEBUG</a>'
-		! $nd_name+' relation: '+nd_rel
-		! !$gp_name+' relation: '+gp_rel
-		! !$sp_name+' relation: '+sp_rel
-		! 'rentLeft: '+rentLeft
-		! 'weekNum: '+weekNum
-		! 'rentWeekNum: '+rentWeekNum
-		! 'servitudeLvl: '+servitudeLvl
-		! 'servicePaid: '+servicePaid
-		! 'cashPaid: '+cashPaid
-		! 'step: '+step
-		! 'subStep: '+subStep
-		! 'gp_mood: '+gp_mood
-		! 'gp_cumVol: '+gp_cumVol
-		! 'gp_cumVag: '+gp_cumVag
-		! 'gp_cumAnal: '+gp_cumAnal
-		! 'gp_cumSwall: '+gp_cumSwall
-		! 'nd_cumVol: '+nd_cumVol
-		! 'nd_cumMax: '+nd_cumMax
-		! 'nd_horny: '+nd_horny
-		! 'gp_horny: '+gp_horny
-		! 'sp_horny: '+sp_horny
-		! ''
-		! nd_served = 0
-		! nd_mood = 2
-		! gp_served = 0
-		! gp_mood = 2
-		! sp_mood = 2
-		! sp_served = 0
-	! end
+	if pavSharedAptDebug = 0:
+	elseif pavSharedAptDebug = 1:
+		'<a href="exec:pavSharedAptDebug=2">Debug</a>'
+	elseif pavSharedAptDebug = 2:
+		'<a href="exec:pavSharedAptDebug=1">Debug Close</a>'
+		'<a href="exec:pavSharedAptDebug=0">Debug Disable</a>'
+		$nd_name+' relation: '+nd_rel
+		$gp_name+' relation: '+gp_rel
+		$sp_name+' relation: '+sp_rel
+		'rentLeft: '+rentLeft
+		'weekNum: '+weekNum
+		'rentWeekNum: '+rentWeekNum
+		'servitudeLvl: '+servitudeLvl
+		'servicePaid: '+servicePaid
+		'cashPaid: '+cashPaid
+		'step: '+step
+		'subStep: '+subStep
+		'gp_mood: '+gp_mood
+		'gp_cumVol: '+gp_cumVol
+		'gp_cumVag: '+gp_cumVag
+		'gp_cumAnal: '+gp_cumAnal
+		'gp_cumSwall: '+gp_cumSwall
+		'nd_cumVol: '+nd_cumVol
+		'nd_cumMax: '+nd_cumMax
+		'nd_horny: '+nd_horny
+		'gp_horny: '+gp_horny
+		'sp_horny: '+sp_horny
+		''
+		nd_served = 0
+		nd_mood = 2
+		gp_served = 0
+		gp_mood = 2
+		sp_mood = 2
+		sp_served = 0
+	end
 end
 
 ! accomodation advert
@@ -570,6 +571,7 @@ if $ARGS[0] = 'bathroom':
 	'A Shower, toilet, <a href="exec:GT ''mirror'',''start''">mirror</a>, where you can ' + iif(pcs_hairbsh = 0,'<a href="exec:GT ''mirror'',''brush''">brush</a>','brush') + ' your hair, a sink and even a bath tub.'
 
 	gs 'din_van', 'private'
+	gs 'stat'
 	act 'Leave':gt 'pavSharedApt', 'start'
 end
 
@@ -888,6 +890,7 @@ if $ARGS[0] = 'pcsRoom':
 			pcs_horny = 100
 			nark += 10
 			dur -= 1
+			gs 'stat'
 			'<center><img <<$set_imgh>> src="images/shared/drugs/dur.jpg"></center>'
 			'You snort some Pale Lady, feeling dizzy for just a moment. After that you feel fantastic, and incredibly horny.'
 

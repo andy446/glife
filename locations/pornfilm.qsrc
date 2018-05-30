@@ -689,7 +689,7 @@ if $ARGS[0] = '7':
 				minut -= 15
 				gs 'stat'
 			
-				if pcs_horny < 85 and pcs_exhibition < 80:
+				if pcs_horny < 85 and pcs_inhib < 80:
 					act 'Fake orgasm':
 						cla
 						minut += 15
@@ -818,7 +818,7 @@ if $ARGS[0] = '8':
 				end
 				'The guys starts to fuck you even faster as a reply, and pretty soon you feel them twitching inside of your body.'
 				''
-				if pcs_horny < 85 and pcs_exhibition < 80:
+				if pcs_horny < 85 and pcs_inhib < 80:
 					'<center><video autoplay loop src="images/locations/city/citycenter/studio/sex/porgasmfake.mp4" width="400"></video></center>'
 					'You fake a sreaming orgasm for the film. You keep your eyes fixed on the guy below you as he pumps a huge amount of sperm in you. The guys finally finishing, so you lay down on the bed with your legs apart so the cameraman could take a few closeups of your pussy and ass as the actors'' seed is slowly starts to leak out of you. After a few minutes of this the director nods his head, and you get up.'
 					$orgasm_or = 'no'
@@ -922,7 +922,7 @@ if $ARGS[0] = '9':
 				end
 				'The guys immediately starts to fuck you even faster, clearly trying to cum as soon as possible, while still coordinating with each other, and since they are professional, you soon feel them twitching inside oy your body simultaneously, bathing your cunt in seed while your mouth quickly fills with sperm too.'
 				''
-				if pcs_horny < 85 and pcs_exhibition < 80:
+				if pcs_horny < 85 and pcs_inhib < 80:
 					'<center><video autoplay loop src="images/locations/city/citycenter/studio/sex/porgasmfake.mp4" width="400"></video></center>'
 					'You fake a sreaming orgasm for the film. You keep your eyes fixed on the guy before you as he pumps a huge amount of sperm in your mouth. The guys finally finishing and your movie partners step away from the scene so so the cameraman could take a few closeups of your sperm-full mouth and seed-dripping pussy. After a few seconds you swallow the sperm and get up.'
 					$orgasm_or = 'no'
@@ -1012,7 +1012,7 @@ if $ARGS[0] = '10':
 				spafinloc = 1
 				sexpartkno = 1
 				gs 'cum_manage'
-				if pcs_horny >= (100-pcs_exhibition):
+				if pcs_horny >= (100-pcs_inhib):
 					orgasmbonus += 10
 					pornorg = 1
 					'<center><video autoplay loop src="images/locations/city/citycenter/studio/sex/porgasm.mp4" width="400"></video></center>'
@@ -1043,7 +1043,7 @@ if $ARGS[0] = '10':
 				spafinloc = 15
 				sexpartkno = 1
 				gs 'cum_manage'
-				if pcs_horny >= (100-pcs_exhibition):
+				if pcs_horny >= (100-pcs_inhib):
 					orgasmbonus += 10
 					pornorg = 1
 					'<center><video autoplay loop src="images/locations/city/citycenter/studio/sex/porgasm.mp4" width="400"></video></center>'
@@ -1077,7 +1077,7 @@ if $ARGS[0] = '10':
 				spafinloc = 16
 				sexpartkno = 1
 				gs 'cum_manage'
-				if pcs_horny >= (100-pcs_exhibition):
+				if pcs_horny >= (100-pcs_inhib):
 					orgasmbonus += 10
 					pornorg = 1
 					'<center><video autoplay loop src="images/locations/city/citycenter/studio/sex/porgasm.mp4" width="400"></video></center>'
@@ -1107,7 +1107,7 @@ if $ARGS[0] = '10':
 				sexpartkno = 1
 				spafinloc = 14
 				gs 'cum_manage'
-				if pcs_horny >= (100-pcs_exhibition):
+				if pcs_horny >= (100-pcs_inhib):
 					orgasmbonus += 10
 					pornorg = 1
 					'<center><video autoplay loop src="images/locations/city/citycenter/studio/sex/porgasm.mp4" width="400"></video></center>'
@@ -1206,7 +1206,7 @@ if $ARGS[0] = '11':
 				sexpartkno = 1
 				gs 'cum_manage'
 				
-				if pcs_horny < 85 and pcs_exhibition < 80:
+				if pcs_horny < 85 and pcs_inhib < 80:
 					'You pull your legs up to your chest and smile at the guys, inviting them to come and cum in you, and in moments one of them steps up to you, pushing his dick in your pussy and groaning as he pumps his considerable amount of sperm in your vagina. As soon as he steps aside, an another guy replaces him, and after a few pumps you get your second helping of seed. Soon the third and fourth guys also cum in you, and you carefully open your pussylips with your fingers for the camera to show your sperm-full vagina.'
 					'<center><video autoplay loop src="images/locations/city/citycenter/studio/sex/pornwalk1.mp4" height="200"></video><video autoplay loop src="images/locations/city/citycenter/studio/sex/pornwalk2.mp4" height="200"></video><video autoplay loop src="images/locations/city/citycenter/studio/sex/pornwalk3.mp4" height="200"></video></center>'
 					'The scene ends with you pulling up your panties and skirt, and step out the door with the four guys'' load still inside you.'
@@ -1306,7 +1306,7 @@ if $ARGS[0] = '12':
 				spafinloc = 3
 				gs 'cum_manage'
 				'<center><video autoplay loop src="images/locations/city/citycenter/studio/sex/porncp<<rand(1,4)>>.mp4" width="500"></video></center>'
-				if pcs_horny < 85 and pcs_exhibition < 80:
+				if pcs_horny < 85 and pcs_inhib < 80:
 					'You lower your head on the pillows while pushing your ass in the air, giving the guys easy access. One of them immediately starts to fuck your ass, then stops, and pushing his dick in deep he pumps his considerable amount of sperm in your colon. As soon as he steps aside, another guy replaces him, then the third and fourth guys also cum in your ass.'
 					'<center><video autoplay loop src="images/locations/city/citycenter/studio/sex/pornwalk1.mp4" height="200"></video><video autoplay loop src="images/locations/city/citycenter/studio/sex/pornwalk2.mp4" height="200"></video><video autoplay loop src="images/locations/city/citycenter/studio/sex/pornwalk3.mp4" height="200"></video></center>'
 					'The scene ends with you pulling up your panties and skirt, and step out the door with the four guys'' load still inside you.'
@@ -1383,7 +1383,7 @@ if $ARGS[0] = '13':
 
 			'<center><video autoplay loop src="images/shared/sex/group/doublevag<<rand(1,4)>>.mp4" width="500"></video></center>'
 			
-			if pcs_horny < 85 and pcs_exhibition < 80:
+			if pcs_horny < 85 and pcs_inhib < 80:
 				'<<$paktor>> lies down on the floor, and you sit in his dick, spearing yourself on it in the process. <<$paktor2>> steps behind you and pushes his hard dick inside of your already occupied vagina, and the two guys start to fuck you in tandem. When the director signals, the two guys starts to fuck you more forcefully, and thanks to their timing, they came inside of you at the same time.'
 				'<center><video autoplay loop src="images/locations/city/citycenter/studio/sex/porgasmfake.mp4" width="400"></video></center>'
 				'You fake an orgasm for the camera while you wait for them to empty their sack in you.'
@@ -1420,7 +1420,7 @@ if $ARGS[0] = '13':
 				gs 'stat'
 				'<center><video autoplay loop src="images/locations/city/citycenter/studio/sex/doublean<<rand(1,4)>>.mp4" width="500"></video></center>'
 				
-				if pcs_horny < 85 and pcs_exhibition < 80:
+				if pcs_horny < 85 and pcs_inhib < 80:
 					'While still dripping the sperm of the previous two guys from your pussy, <<$paktor3>> and <<$paktor4>> switches places with <<$paktor>> and <<$paktor2>>, but they just dip their dick in your slick pussy, then pushes their dick in your anus. At first the place is pretty tight, but soon start to build up a good rithm. They also cum in you, this time in your ass.'
 					'<center><video autoplay loop src="images/locations/city/citycenter/studio/sex/porgasmfake.mp4" width="400"></video></center>'
 					'You fake an another orgasm for the camera while you wait for them to finish in your bowel.'
@@ -1599,7 +1599,7 @@ if $ARGS[0] = '14':
 		if sex50 > 0: jump 'gbsex'
 
 		gangOrg = 0
-		if pcs_horny > 70 and pcs_exhibition > 80:gangOrg = rand(1,5) & orgazm += gangOrg & pcs_horny = rand(0,50)
+		if pcs_horny > 70 and pcs_inhib > 80:gangOrg = rand(1,5) & orgazm += gangOrg & pcs_horny = rand(0,50)
 		if gangOrg = 1:
 			$gangorg = ' and you still managed to have an orgasm.'
 			$orgasm_or = 'yes'

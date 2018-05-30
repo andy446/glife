@@ -1,8 +1,5 @@
 # clothing
 
-
-
-
 $clothing_list_line = {
 	!! a single line in a clothing list (wardrobe, etc)
 	!! ARGS 0 - action type (wardrobe, sell, resize, store, forsale)
@@ -108,35 +105,41 @@ if $ARGS[0] = 'view_clothing_list':
 	!! ARGS 0 - view_clothing_list
 	!! ARGS 1 - action type (wardrobe, sell, resize, store, unwanted)
 	!! ARGS 2 - Shop name (kats, moncheri, gm, fashionista, sexshop, exhibitshop, dolls, sports)
+	if $ARGS[1] = 'wardrobe':
+		'<h3><center><b><font color="maroon">Wardrobe list</font></b></center></h3>'
+	elseif $ARGS[1] = 'store':
+		'<h3><center><b><font color="maroon">Stored clothing list</font></b></center></h3>'
+	elseif $ARGS[1] = 'unwanted':
+		'<h3><center><b><font color="maroon">Unwanted clothing list</font></b></center></h3>'
+	end
 
 	if $ARGS[2] = 'gm':
-		'<center><b><font color="maroon">Wardrobe list - Viewing clothes from G&M</font></b></center>'
+		!'<center><b><font color="maroon">Viewing clothes from G&M</font></b></center>'
 		'<center><img src="images/locations/city/citycenter/mall/GM.png"></center>'
 	elseif $ARGS[2] = 'kats':
-		'<center><b><font color="maroon">Wardrobe list - Viewing clothes from PussyKats</font></b></center>'
+		!'<center><b><font color="maroon">Viewing clothes from PussyKats</font></b></center>'
 		'<center><img src="images/locations/city/citycenter/mall/pussycat.png"></center>'
 	elseif $ARGS[2] = 'fashionista':
-		'<center><b><font color="maroon">Wardrobe list - Viewing clothes from Fashionista</font></b></center>'
+		!'<center><b><font color="maroon">Viewing clothes from Fashionista</font></b></center>'
 		'<center><img src="images/locations/city/citycenter/mall/fashionistat.png"></center>'
 	elseif $ARGS[2] = 'moncheri':
-		'<center><b><font color="maroon">Wardrobe list - Viewing clothes from Mon Cheri</font></b></center>'
+		!'<center><b><font color="maroon">Viewing clothes from Mon Cheri</font></b></center>'
 		'<center><img src="images/locations/city/citycenter/mall/moncheri.png"></center>'
 	elseif $ARGS[2] = 'sexshop':
-		'<center><b><font color="maroon">Wardrobe list - Viewing clothes from the sex shop</font></b></center>'
+		!'<center><b><font color="maroon">Viewing clothes from the sex shop</font></b></center>'
 		'<center><img src="images/locations/city/citycenter/sexshop/shop_name.png"></center>'
 	elseif $ARGS[2] = 'exhibitshop':
-		'<center><b><font color="maroon">Wardrobe list - Viewing clothes from the Exhibitionist shop</font></b></center>'
+		!'<center><b><font color="maroon">Viewing clothes from the Exhibitionist shop</font></b></center>'
 		'<center><img src="images/locations/oldtown/exhibitshop/shop_name.png"></center>'
 	elseif $ARGS[2] = 'dolls':
-		'<center><b><font color="maroon">Wardrobe list - Viewing clothes from Patchwork Dolls</font></b></center>'
+		!'<center><b><font color="maroon">Viewing clothes from Patchwork Dolls</font></b></center>'
 		'<center><img src="images/locations/city/island/dolls.png"></center>'
 	elseif $ARGS[2] = 'sports':
-		'<center><b><font color="maroon">Wardrobe list - Viewing sportswear from Danilovich</font></b></center>'
+		!'<center><b><font color="maroon">Viewing sportswear from Danilovich</font></b></center>'
 		'<center><img src="images/locations/city/citycenter/mall/sports.png"></center>'
 	else
-		'<center><b><font color="maroon">Wardrobe list - click on a shop name to view clothes from that shop</font></b></center>'
+		'<center><b><font color="maroon">Click on a shop name to view clothes from that shop</font></b></center>'
 	end
-	*nl
 	*nl
 
 	if $ARGS[1] ! 'sell':
@@ -147,14 +150,25 @@ if $ARGS[0] = 'view_clothing_list':
 		$clothing_header += '<TH><a href="exec:gt ''clothing_QV'', ''list''">Switch to icons</a></TH></center>'
 
 		$clothing_header
+		if $ARGS[1] = 'wardrobe':
+			'<center>These are the clothes that are currently available for you to wear.</center><br>'
+		elseif $ARGS[1] = 'store':
+			'<center>These are the clothes you have stored that do not show up in your wardrobe list and cannot be sold at the market.</center><br>'
+		elseif $ARGS[1] = 'unwanted':
+			'<center>These are the clothes you''ve marked to be sold at the market.</center><br>'
+		end
 	end
 
-	if $ARGS[1] = 'wardrobe':
-		cloc = 0
-		if $clothingworntype ! 'nude':act 'Strip':gs 'clothing', 'strip' & gt $loc, $metka
-	end
+	! if $ARGS[1] = 'wardrobe':
+		! cloc = 0
+		! if $clothingworntype ! 'nude':act 'Strip':gs 'clothing', 'strip' & gt $loc, $metka
+	! end
 
-	act 'Leave':gt $loc, $metka
+	if $wloc = 'wardrobe':
+		act 'Return': gt 'wardrobe', 'start'
+	else
+		act 'Leave': gt $loc, $metka
+	end
 
 	if $ARGS[2] = '':
 		'<center><a href="exec:gt ''clothing'', ''view_clothing_list'', ''<<$ARGS[1]>>'', ''gm''"><img src="images/locations/city/citycenter/mall/GM.png"></a></center>'
@@ -183,11 +197,11 @@ if $ARGS[0] = 'view_clothing_list':
 		else
 			'<table border=0 cellspacing=0 cellpadding=5><TH></TH><TH>Strength</TH><TH>Hip size</TH><TH>Description</TH><TH>Bimbo</TH><TH>Prostitute</TH><TH>Actions</TH><TH>Move to</TH>'
 		end
-		
+
 		if $ARGS[1] = 'store':
 			cloc = 1
 		end
-		
+
 		if $ARGS[1] = 'unwanted':
 			cloc = 2
 		end
@@ -342,7 +356,7 @@ if $ARGS[0] = 'view_clothing_item':
 	if CloBimbo = 1:'This item is considered bimbo clothing.'
 
 	if CloStyle = 4:'This outfit can be used for prostitution.'
-	
+
 	if CloExhibit + 10 > pcs_exhibition and CloExhibit <= pcs_exhibition: 'You find this outfit more revealing than you are completely comfortable with but that makes it quite exciting too.'
 
 	if $ARGS[2] = 'uniform':
@@ -467,7 +481,7 @@ if $ARGS[0] = 'view_clothing_item':
 					else
 						'This item is too large for you to wear.'
 					end
-				   
+
 					if pcs_sewng >= 60 and tkan > 0:
 						cla
 						'You can resize this thanks to your sewing skill.'
@@ -489,11 +503,11 @@ if $ARGS[0] = 'view_clothing_item':
 		end
 
 		if $ARGS[2] ! 'coat' and $ARGS[2] ! 'swimwear':
-		
+
 			if CloExhibit > pcs_exhibition:
 				'You don''t feel daring enough to wear an outfit this revealing.'
 			elseif ARRPOS('$CloLosTyp', $ARGS[2]) ! -1 and ARRPOS('CloLosNum',ARGS[3]) ! -1 :
-				'You lost these clothes somewhere, maybe you can find them again?.'				
+				'You lost these clothes somewhere, maybe you can find them again?.'
 			else
 				act 'Wear':
 					gs 'clothing', 'wear', $ARGS[2], ARGS[3]
@@ -571,11 +585,11 @@ if $ARGS[0] = 'strip':
 	else
 		last_vid = 0
 	end
-	
+
 	if $clothingworntype = 'school':schtype = clothingwornnumber
-		
+
 	if $ARGS[1] ! '' :
-		DYNAMIC '$CloLos<<$clothingworntype>>[<<clothingwornnumber>>]=<<$ARGS[1]>>'		
+		DYNAMIC '$CloLos<<$clothingworntype>>[<<clothingwornnumber>>]=<<$ARGS[1]>>'
 		$CloLosLoc[] = $ARGS[1]
 		$CloLosTyp[$ARGS[1]] = $clothingworntype
 		CloLosNum[$ARGS[1]] = clothingwornnumber
@@ -586,7 +600,7 @@ if $ARGS[0] = 'strip':
 		$lastwornclothingtype = $clothingworntype
 		lastwornclothingnumber = clothingwornnumber
 	end
-	
+
 
 	$clothingworntype = 'nude'
 	clothingwornnumber = 0
@@ -634,11 +648,11 @@ if $ARGS[0] = 'recover_lost_clothes':
 	!ARGS[2] = 1 : wear the clothes, ARGS[2] = 2 : Return to shop (lost FOREVAH!)
 	$cloLoc = $ARGS[1]
 	cloAction = ARGS[2]
-	
+
 	$clothType = $CloLosTyp[$cloLoc]
 	clothNumber = CloLosNum[$cloLoc]
 	dayLost = CloLosDay[$cloLoc]
-		
+
 	DYNAMIC 'KILLVAR ''$CloLos<<$clothingworntype>>'', <<clothingwornnumber>>'
 	findLocInd = ARRPOS('$CloLosTyp', $clothType)
 	KILLVAR '$CloLosTyp', findLocInd
@@ -649,13 +663,13 @@ if $ARGS[0] = 'recover_lost_clothes':
 	findLocInd = ARRPOS('$CloLosLoc', $cloLoc)
 	KILLVAR '$CloLosLoc', findLocationIndex
 	KILLVAR 'findLocInd'
-	
+
 	if cloAction = 1:
 		gs 'clothing', 'wear', $clothType, clothNumber
 	elseif cloAction = 2 :
 		dynamic $clothType + 'S[<<clothNumber>>] = 1'
 	end
-	
+
 	KILLVAR '$cloLoc'
 	KILLVAR 'cloAction'
 	KILLVAR '$clothType'

@@ -21,7 +21,7 @@ if $ARGS[0] = 'start' or $metka = 'start':
 	$loc = 'rinok'
 	'<center><b><font color="maroon">Marketplace</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/residential/market/rinok.jpg"></center>'
-
+	''
 	'On one of the stalls has a sign "Cash paid for secondhand clothes", here you can <a href="exec:cloc=2 & gt ''clothing'', ''view_clothing_list'', ''sell''">sell individual items</a> or <a href="exec:gs ''portnoi''">all of your unwanted clothes</a>.'
 
 	if $message ! '':
@@ -29,8 +29,8 @@ if $ARGS[0] = 'start' or $metka = 'start':
 		killvar '$message'
 	else
 		''
-	end	
-	*pl '<center><table align="center" width=80%>' 
+	end
+	*pl '<center><table align="center" width=80%>'
 	*P FUNC ('$stock_item', 10, 'Dishwashing detergent', 400, 'fairy', 'rinok')
 	*P FUNC ('$stock_item', 10, 'Clothing detergent', 400, 'poroshok', 'rinok')
 	*P FUNC ('$stock_item', 8, 'Plates', 450, 'cltarelka', 'rinok')
@@ -48,10 +48,10 @@ if $ARGS[0] = 'start' or $metka = 'start':
 			pcs_mood -= 5
 			exhibition_exp += 2
 			'You feel someones hand gently touch <a href="exec:gt ''etoexhib'', ''pos15''">your butt</a>.'
-			
+
 			gs 'arousal', 'foreplay', 3
 			gs 'stat'
-			
+
 		end
 	end
 
@@ -136,7 +136,7 @@ if $ARGS[0] = 'start' or $metka = 'start':
 				act 'Leave':gt'rinok','start'
 			end
 		end
-		
+
 		if money >= 350:
 			act 'Buy a book of science fiction 350r':
 				cls
@@ -212,7 +212,7 @@ end
 
 if $ARGS[0] = 'marketclo':
 	cla
-	
+
 	if cheap[i] ! 0:
 		msg 'You already own these clothes.'
 		gt 'rinok', 'clo'

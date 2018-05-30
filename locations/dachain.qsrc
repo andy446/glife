@@ -30,14 +30,14 @@ if $args[0] = '':
 	end
 	'Your favorite summer residence.'
 	*nl
-	'There is a <a href="exec:gt ''bed'', ''start''">bed</a> against one wall. Next to it is a <a href="exec:gt ''wardrobe'', ''start''">wardrobe</a> (where you can <a href="exec:gt ''clothing'', ''view_clothing_list'', ''wardrobe''">organize your clothes</a>). You have a <a href="exec:gt ''clothing'', ''view_clothing_list'', ''store''">chest</a> at the end of your bed where you can store some clothes. On the other side of the bed is a table and a <a href="exec:gt ''mirror'', ''start''">mirror</a>'
+	'There is a <a href="exec:gt ''bed'', ''start''">bed</a> against one wall. Next to it is a <a href="exec:gt ''wardrobe'', ''start''">wardrobe</a> (where you can choose outfits and organize your clothing). On the other side of the bed is a table and a <a href="exec:gt ''mirror'', ''start''">mirror</a>'
 	*nl
 	'There is a sofa in front of the fireplace, a kitchen alcove opposite the bed and the door to the bathroom next to that.'
 	*nl
 	if hour >= 6 and hour <= 20 and etoexhib = 11:'Kopashatsya working in the garden, hmm ... maybe sometime <a href="exec:gt ''etoexhib'', ''pos10''">motivate</a> for them to work quicker and smarter.'
 	if hour >= 6 and hour <= 20 and etoexhib = 12:'Leave in <a href="exec:gt ''etoexhib'', ''pos11''">garden in lingerie and robe.</a>'
 	if hour >= 6 and hour <= 20 and etoexhib = 13 and temp ! daystart:'I wonder how to <a href="exec:gt ''etoexhib'', ''pos12''">garden</a>'
-	
+
 	act 'Lie on the couch': gt 'divan', 'start'
 	act 'Goto the kitchen alcove': gt 'dachain', 'dachakit'
 	act 'Goto the Bathroom':  gt 'dachain', 'dachavann'
@@ -107,7 +107,7 @@ if $args[0] = 'dachakit':
 	dynamic $driwater
 	dynamic $lekarstvo
 	dynamic $vitamin
-	
+
 	act 'Go into the main room': gt 'dachain', ''
 	act 'Goto the Bathroom':  gt 'dachain', 'dachavann'
 end

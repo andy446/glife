@@ -271,7 +271,7 @@ if $ARGS[0] = 'start':
 		'From the hallway several doors lead to <a href="exec:gt ''pavSharedApt'', ''ndRoom''"><<$nd_name>>''s</a>, <a href="exec:gt ''pavSharedApt'', ''gpRoom''"><<$gp_name>>''s</a> and <a href="exec:gt ''pavSharedApt'', ''spRoom''"><<$sp_name>>''s</a> rooms.'
 		'The last doors lead to the <a href="exec:gt ''pavSharedApt'', ''pcsRoom''">room</a> you have rented.'
 		''
-		'There are several <a href="exec:gt ''wardrobe'', ''start''">closets</a>, that you can use to <a href="exec:gt ''clothing'', ''view_clothing_list'', ''wardrobe''">store your clothes</a>, and a large tall <a href="exec:gt ''mirror'', ''start''">mirror</a>.'
+		'There are several <a href="exec:gt ''wardrobe'', ''start''">closets</a>, that you can use to store your clothes</a>, and a large tall <a href="exec:gt ''mirror'', ''start''">mirror</a>.'
 		''
 		if servitudeLvl >= 1:'A computer printed <a href="exec:gt ''pavSharedApt'', ''list''">list</a> hangs on the exit door.'
 		act 'Living room (your room)':gt 'pavSharedApt', 'pcsRoom'
@@ -836,7 +836,7 @@ if $ARGS[0] = 'pcsRoom':
 	if TV = 1:$TV = 'an old CRT <a href="exec:gt ''TV'', ''start''">TV</a> sits on the shelf'
 	'There is an wall unit at the other side of the room, <<$TV>>. Everyone in the household spends their time in their own rooms, so there was never a reason to use the living room for its intended purpose.'
 	''
-	'On the other side of the sofa bed are your old <a href="exec:gt ''clothing'', ''view_clothing_list'', ''store''">suitcases</a>, which you could use to store the clothes you don''t often wear.'
+	'On the other side of the sofa bed are your old <a href="exec:gt ''clothing'', ''view_clothing_list'', ''wardrobe''">suitcases</a>, which you could use to store the clothes you don''t often wear.'
 	''
 	'There is no door to the living room, instead there''s <a href="exec:view''images/shared/sharedapt/bedroom/curtain.jpg''">curtain</a> covering entry to the room, which gives you a modicum of privacy; not much better than the state of the non-existant window curtains'
 

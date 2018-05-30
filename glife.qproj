@@ -358,7 +358,7 @@
       <Location name="seeporn"/>
       <Location name="brosh"/>
       <Location name="porn_view"/>
-      <Location name="porn_view_strings"/>	  	  
+      <Location name="porn_view_strings"/>
       <Location name="porn_view_construct"/>
     </Folder>
     <Folder name="Reks">
@@ -390,7 +390,7 @@
     <Folder name="Igor Kruglov">
       <Location name="IgorEv"/>
       <Location name="igorhome"/>
-    </Folder>	  
+    </Folder>
     <Folder name="Katja Meynold">
       <Location name="katjaEv"/>
       <Location name="katjaEvDin"/>

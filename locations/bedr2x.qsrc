@@ -26,8 +26,8 @@ else
 end
 '<center><img <<$set_imgh>> src="images/locations/city/residential/apartment/bedr2.jpg"></center>'
 if pcs_magik >= 6 and spellbefshild = 1 and tobiQW = 0:gt'tobiQW','start'
-'Bright and beautiful bedroom, with modern and stylish furniture. The room is dominated by <a href="exec:GT ''bed'',''start''">full sized bed</a> with an <a href="exec:gt ''budilnik'', ''start''">alarm clock</a>.' 
-'Near the entrance stands a modern <a href="exec:gt ''wardrobe'', ''start''">wardrobe</a> (where you can <a href="exec:gt ''clothing'', ''view_clothing_list'', ''wardrobe''">organize your clothes</a>). Against the wall is a table with a <a href="exec:GT ''mirror'',''start''">mirror</a> above it.'
+'Bright and beautiful bedroom, with modern and stylish furniture. The room is dominated by <a href="exec:GT ''bed'',''start''">full sized bed</a> with an <a href="exec:gt ''budilnik'', ''start''">alarm clock</a>.'
+'Near the entrance stands a modern <a href="exec:gt ''wardrobe'', ''start''">wardrobe</a> (where you can choose outfits and organize your clothing). Against the wall is a table with a <a href="exec:GT ''mirror'',''start''">mirror</a> above it.'
 if komp = 1:'On the bedside table is your <a href="exec:GT ''Komp'',''start''">laptop</a>.'
 if husbandrinkday = daystart:
 	if husbanstrapon = 1:'Your husband is still passed out drunk, after you used a anal plug on him.'
@@ -140,7 +140,7 @@ if husbandrink = 10 and hour > 20 and hour < 23 and husbanstrapon = 0:
 					minut -= 20
 					gs 'arousal', 'end'
 					gs 'stat'
-					
+
 					act 'Finish':gt'bedr2x'
 				end
 			end
@@ -164,7 +164,7 @@ if husbandrink = 10 and hour > 20 and hour < 23 and husbanstrapon = 0:
 					minut -= 20
 					gs 'arousal', 'end'
 					gs 'stat'
-					
+
 					act 'Finish':gt'bedr2x'
 				end
 			end

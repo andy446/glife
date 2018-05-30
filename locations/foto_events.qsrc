@@ -655,20 +655,6 @@ if $ARGS[0] = 'independent_art':
 end
 
 
-if $ARGS[0] = 'designer_wedding':
-	cla & *clr
-	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fotograph.jpg"></center>'
-	'	"Designer wedding dress?" you ask. "We do this kind of work?"'
-	'	"When it''s this kind of designer we do. It''s another one of those high fashion type things, taking a look at the bridal fashion, looking to make it more dramatic, more exciting, more sexual. Anyways, bottom line, I wouldn''t call this a ''dress.'' I''d barely call it clothing actually. It''s pretty much just a veil, stockings, and lingerie. I guess it''s a little bit like a wedding dress in that it has lacy gloves. Anyways, that''s the request. Wear the stuff, show some skin, we take the pictures to send to her so she can share them with her designer friends. So, what do you say?"'
-	act'Back to the list':gt'foto_events','list'
-	act'I''d like to do this one':
-		cla
-		*nl
-		specialjob7 = 0
-	end
-
-end
-=======
 !!if $ARGS[0] = 'documentary':
 !!	cla & *clr
 !!	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fotograph.jpg"></center>'
@@ -695,7 +681,6 @@ end
 !!		specialjob7 = 0
 !!
 !!end
->>>>>>> 164cec5dc6e92df12d8de8d03ca57a4a7ef50bd4
 
 !!--------------------------------------- Fame events ----------------------------------------------
 if $ARGS[0] = 'topless1':

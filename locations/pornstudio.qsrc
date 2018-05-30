@@ -735,7 +735,7 @@ if $ARGS[0] = 'first':
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/studio/studia_0.jpg"></center>'
 	'You sit down on the sofa and greet the boss. "I see it''s your first time with us. Do you want to be a porn star?'
 
-	if pcs_exhibition < 40:
+	if pcs_inhib < 40:
 		'You do not feel confident enough to have start a porn career, you should get more used to showing off your body first.'
 		act 'Leave':gt 'pornstudio', 'start'
 	else

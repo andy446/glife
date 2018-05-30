@@ -417,7 +417,7 @@ if $ARGS[0] ! 'end' and $ARGS[0] ! 'checks' and $ARGS[0] ! 'count' and $ARGS[0] 
 		elseif $ARGS[i] = 'exhibitionism':
 			stim['kink'] += exhibitionism['exp']
 			stim['pref'] += exhibitionism['pref']
-			exhibition_exp += rand(2,6)
+			inhib_exp += rand(2,6)
 			stim['kinkno'] += 1
 			stim['exhibitionism'] = 1
 		elseif $ARGS[i] = 'rough':

@@ -84,19 +84,19 @@ end
 if temper >= 15 and month >= 5 and month <= 9:
 	if $clothingworntype ! 'nude':
 		act'Take off your clothes':
-			if pcs_exhibition > 30:
+			if pcs_inhib > 30:
 				cla
 				*clr
 				minut+=5
 				gs 'clothing', 'strip'
 				gs 'underwear', 'remove'
-				if pcs_horny >= 80:
+				if pcs_horny >= 80 and pcs_exhibition >= 50:
 					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/lake/secluded_beach/self/wetpussypants3.jpg"></center>'
 					'You strip off. A couple of passing men do a double-take and pause a moment to look at your sopping wet panties, probably thinking about what is making you so excited. You don''t care about what they might say or think of you.'
-				elseif pcs_exhibition >= 40:
+				elseif pcs_inhib >= 60:
 					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/lake/secluded_beach/dress/undressnudebeach.jpg"></center>'
-					'Not caring if anyone is looking at you, you slowly take off your clothes. You peel off each item like a stripper. You feel so naughty. Soon, you are completely naked.'
-				elseif pcs_exhibition > 30:
+					'Not caring if anyone is looking at you, you slowly take off your clothes. You peel off each item like a stripper. Soon, you are completely naked.'
+				elseif pcs_inhib < 60:
 					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/lake/secluded_beach/dress/undressnudebeach.jpg"></center>'
 					'You quickly check to see if anyone is watching, and when you''re satisfied no one is paying you undue attention, you take off your clothes. You''re naked now.'
 				end
@@ -120,6 +120,11 @@ if temper >= 15 and month >= 5 and month <= 9:
 				pcs_sweat = 10 + rand(0,4)
 				pcs_mood += 5
 				pcs_willpwr = pcs_willpwr + 5
+				if $clothingworntype = 'swimwear':
+					if pcs_inhib < 50:inhib_exp += rand(1,2)
+				elseif $clothingworntype = 'nude':
+					inhib_exp += rand(1,3)
+				end
 				if pcs_stren < 30: stren_exp += 1
 
 				if $clothingworntype = 'nude':
@@ -147,8 +152,10 @@ if temper >= 15 and month >= 5 and month <= 9:
 				pcs_mood += 5
 				if $clothingworntype = 'swimwear':
 					'<center><img <<$set_imgh>> src="images/locations/shared/lake/zagar.jpg"></center>'
+					if pcs_inhib < 50:inhib_exp += rand(1,2)
 				else
 					'<center><img <<$set_imgh>> src="images/locations/city/residential/lake/nudezagarat.jpg"></center>'
+					inhib_exp += rand(1,3)
 				end
 				if krem = 0:
 					pcs_tan = pcs_tan + 1
@@ -238,7 +245,7 @@ if temper >= 15 and month >= 5 and month <= 9:
 		end
 	end
 	act'Leave the secluded beach without changing':
-		if $clothingworntype ! 'nude' or ($clothingworntype = 'nude' and pcs_exhibition > 40):
+		if $clothingworntype ! 'nude' or ($clothingworntype = 'nude' and pcs_inhib >= 60):
 			cla
 			minut += 10
 			gt'glake'

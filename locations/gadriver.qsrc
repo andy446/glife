@@ -191,7 +191,11 @@ if $ARGS[0] = 'Gadbitch':
 				gs 'cum_cleanup'
 				minut += 30
 				if $clothingworntype = 'nude': gs 'exercise', 'tier1', 1, 'stren_exp', 'exhibition_exp'
+				if $clothingworntype = 'nude':inhib_exp += rand(1,3)
 				if $clothingworntype ! 'nude': gs 'exercise', 'tier1', 1, 'stren_exp'
+				if $clothingworntype ! 'nude':
+					if pcs_inhib < 50:inhib_exp += rand(1,3)
+				end
 				pcs_sweat = 10 + rand(0,4)
 				if $clothingworntype = 'swimwear':
 					if hour >= 22 or hour <= 6:
@@ -294,10 +298,11 @@ if $ARGS[0] = 'Gadbitch':
 				pcs_sweat = 10 + rand(0,4)
 				pcs_mood += 5
 				pcs_willpwr = pcs_willpwr + 5
+				inhib_exp += rand(1,3)
 				if pcs_stren < 30: stren_exp += 1
 				if hour >= 22 and hour <= 6:
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/river/watergirls1.jpg"></center>'
-					'You strip your clothes off and slowly step in to the cold river, kwowing that the darkness hides your nudity. You swim around feeling the refreshing and invigorating water caressing your body.'
+					'You strip your clothes off and slowly step in to the cold river, knowing that the darkness hides your nudity. You swim around feeling the refreshing and invigorating water caressing your body.'
 				else
 					if temp_gr >= 10 and MiraLoc = 1:
 						pcs_horny += RAND(5,15)
@@ -367,6 +372,7 @@ if $ARGS[0] = 'Gadbitch':
 						minut += 5
 						mira_go_blok = 1
 						if PCloExhibit + 10 > pcs_exhibition:exhibition_exp += rand(1,3)
+						if pcs_inhib < 50:inhib_exp += rand(1,3)
 						gs 'stat'
 						if $clothingworntype = 'nude':
 							'<center><img <<$set_imgh>> src="images/characters/village/mira/mira_go_river_nude.jpg"></center>'
@@ -379,7 +385,8 @@ if $ARGS[0] = 'Gadbitch':
 					elseif $clothingworntype = 'nude':
 						*clr & cla
 						minut += 60
-						exhibition_exp += rand(1,3)
+						exhibition_exp += rand(0,3)
+						inhib_exp += rand(1,3)
 						if pcs_sweat < 35 : pcs_sweat += 5
 						pcs_mood += 5
 						if temp_gr < 10 and MiraLoc = 1:
@@ -570,6 +577,7 @@ if $ARGS[0] = 'Gadbitch':
 						minut += 5
 						gs 'underwear', 'remove'
 						gs 'clothing', 'strip', 'VillageRiver'
+						inhib_exp += rand(1,3)
 						'Without hesitation, you take off all your clothes and neatly fold them before putting them down on a pile. Without your clothes holding you back, you can go for a nice swim in the river or just lie down in the sand and do some sunbathing.'
 
 						act 'Swim':
@@ -600,6 +608,7 @@ if $ARGS[0] = 'Gadbitch':
 							temp_gr = RAND(0,15)
 							cumspclnt = 4 & gs 'cum_cleanup'
 							minut += 30
+							if pcs_inhib < 50:inhib_exp += rand(1,2)
 							gs 'exercise', 'tier1', 1, 'stren_exp'
 							pcs_sweat = 10 + rand(0,4)
 							gs'stat'
@@ -731,7 +740,7 @@ if $ARGS[0] = 'GuysRiver':
 			gs 'stat'
 
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkaguysriversex.jpg"></center>'
-			'You quickly take off your pants and climb onto Kolyamba, grabing his cock, leading it inside you.'
+			'You quickly take off your pants and climb onto Kolyamba, grabbing his cock, leading it inside you.'
 
 			gs 'arousal', 'vaginal', 10, 'sub', 'group'
 			gs 'stat'

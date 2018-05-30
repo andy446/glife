@@ -153,14 +153,14 @@ if $ARGS[0] = 'pos9':
 	'Nastya: "No, no, I can''t. I really gotta go, right now!"' 
 	'With these words, she runs around the corner, leaving you confused and awkward.'
 
-	act 'No choice but to wait for your girlfriend...':
+	act 'No choice but to wait for Nastya...':
 		cls
 		minut += 5
 		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/characters/city/anastasia/1shamp3.jpg"></center>'
-		'As luck would have it, a tubby little man approached and from what you can tell, he is headed in the same general direction Anastastia disappeared in.'
+		'As luck would have it, a tubby little man approached and from what you can tell, he is headed in the same general direction Nastya disappeared in.'
 
-		act 'Warn your girlfriend':
+		act 'Warn Nastya':
 			cls
 			minut += 5
 			gs 'stat'
@@ -438,6 +438,7 @@ if $ARGS[0] = 'pos20':
 	*clr
 	minut += 20
 	pcs_mood += 30
+	inhib_exp += rand(1,5)
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/characters/city/anastasia/2bvolley.jpg"></center>'
 	'Ants seem to be crawling all over your skin and your fingers feel numb as you undo the top of your swimsuit. It takes you unusually long, perhaps because there''s already so much attention on you because of Nastya, but you finally win the fight and the next moment, you are topless, just like your friend.'
@@ -535,8 +536,9 @@ if $ARGS[0] = 'pos24':
 	''
 	'As you hang up, you see that twinkle in Nastya''s eyes again and already half-know what she''s thinking about.'
 	'Nastya: "<<$pcs_nickname>>, I just had a fun idea. I ''ve seen this on the internet: A girl orders a pizza and then wraps up her naked body in a towel, like she just came out of the shower, and answers the door. And when she''s paid and is about to close the door, she ''accidentally'' drops the towel. I''ve been fantasizing about this for such a long time but if I did that at my place, I could get into really big trouble because of my father. But... you aren''t scared like me, are you?"'
-
-	act 'That sounds exciting - Agree':gt 'nastja', 'pos26'
+	if pcs_inhib >= 50:
+		act 'That sounds exciting - Agree':gt 'nastja', 'pos26'
+	end
 	act 'Chicken out':gt 'nastja', 'pos25'
 end
 

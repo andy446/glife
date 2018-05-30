@@ -220,6 +220,7 @@ if $ARGS[0] = 'gopforest_mitka':
 			end
 		end
 	else
+		inhib_exp += rand(1,3)
 		if MiraLoc ! 3 or gadriver_gang >= 3:
 			if npc_QW['A63'] = 0 and gadriver_gang < 3:
 				cla
@@ -276,6 +277,7 @@ if $ARGS[0] = 'gopforest_mitka':
 					minut += 5
 					if npc_QW['A63'] = 0:npc_QW['A63'] += 1
 					pcs_horny += 20
+					inhib_exp += rand(1,3)
 					gs 'stat'
 					!gs 'time'
 
@@ -606,6 +608,7 @@ if $ARGS[0] = 'gopforest_kolyamba':
 			end
 		end
 	else
+		inhib_exp += rand(1,3)
 		if MiraLoc ! 3:
 			if npc_QW['A63'] < 13 and gadriver_gang >= 3:
 				cla
@@ -960,6 +963,7 @@ if $ARGS[0] = 'gopforest_vasyan':
 			end
 		end
 	else
+		inhib_exp += rand(1,3)
 		if MiraLoc ! 3:
 			if npc_QW['A63'] < 13 or gadriver_gang >= 3:
 				cla
@@ -1338,6 +1342,7 @@ if $ARGS[0] = 'gopforest_2boys':
 			end
 		end
 	else
+		inhib_exp += rand(1,3)
 		if MiraLoc ! 3:
 			temphant = rand(4,6)
 			if npc_QW['A63'] < 13 or gadriver_gang >= 3:
@@ -1727,6 +1732,7 @@ if $ARGS[0] = 'gopforest_3boys':
 			end
 		end
 	else
+		inhib_exp += rand(1,3)
 		if MiraLoc ! 3:
 			if npc_QW['A63'] < 13 or gadriver_gang >= 3:
 				cla
@@ -2014,6 +2020,7 @@ if $ARGS[0] = 'nude_event':
 		minut+=5
 		gs 'underwear', 'remove'
 		pcs_horny += 10
+		inhib_exp += rand(1,3)
 		if MiraLoc = 3:npc_rel['A60'] += 5
 		gs 'stat'
 		if CloSkirtShortness = 0 and MiraLoc ! 3:'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/nudeforest.jpg"></center>'
@@ -2143,6 +2150,7 @@ if $ARGS[0] = 'mushroom':
 		if ($clothingworntype ! 'nude' and $clothingworntype ! 'swimwear') and $pantyworntype ! 'none' and CloSkirtShortness > 0:'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/mushroom2.jpg"></center>'
 		if ($clothingworntype ! 'nude' and $clothingworntype ! 'swimwear') and $pantyworntype = 'none' and CloSkirtShortness > 0:'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/mushroom3.jpg"></center>'
 		if $clothingworntype = 'nude':'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/mushroom4.'+rand(1,2)+'.jpg"></center>'
+		if $clothingworntype = 'nude':inhib_exp += rand(1,3)
 		'You begin collecting mushrooms trying to make everything fit in the basket.'
 		act 'Further':gt $loc, $metka
 	end
@@ -2257,6 +2265,7 @@ if $ARGS[0] = 'forest_hanters':
 					'- Yeah, " laughed the second. - And above it either.'
 					'Then you went for derevaun clearing.'
 				else
+					inhib_exp += rand(0,2)
 					'You froze, not knowing what to do, whether to hide, or to ask for help. But hiding it was too late, the men noticed you and you are safely moved to meet them. Yet you went to him, men did not take his eyes off you. You were uncomfortable under these studies the views, but there was no other way.'
 					'- What happened? - started single, older, when you came closer. - And why are you in such... hmmm... the?'
 					'- I was lost - you said with tears in his eyes. And began to carry all sorts of nonsense about killers, rapists, car chases and other absurdities, explaining its is not suitable for walks in the forest view.'
@@ -2344,6 +2353,7 @@ if $ARGS[0] = 'forest_hanters':
 						if pcs_horny >= 70:'"Well, that''s exactly what you need right now." you thought, feeling your pussy screaming with desire. You went with the guys, you were so eager, you almost lead the way.'
 					end
 				else
+					inhib_exp += rand(0,2)
 					'"<<$pcs_nickname>>, what happened?" asked Andrei, when you came closer. "And why are you in such... uummm... state?"'
 					'"I was lost!" you said with tears in your eyes and began talking too fast about all sorts of nonsense fears like killers, rapists, car chases and other absurdities.'
 					'"Okay, okay, calm down, " he interrupted you. "It`s all over now. It''s good that you met us and not a pack of wolves."'

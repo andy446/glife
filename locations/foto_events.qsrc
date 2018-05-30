@@ -39,6 +39,7 @@ if $ARGS[0] = 'studio_strip_talk1':
 	'	After pulling off the rest of your clothes, you thumb your underwear for a moment before realizing that you can''t strip all the way. You just don''t have enough confidence in yourself. But you''re still in your underwear right? You''re new here, surely they''ll understand won''t they?'
 	*nl
 	if $braworntype = 'none':'	Still, feeling your nipples harden in the cool air, you cross your arms to cover them. You really wish you had worn a bra today...'
+	gs 'bras', 'remove'
 	act'Go back to the main floor':
 		cla & *clr
 		'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/foto.jpg"></center>'
@@ -54,6 +55,8 @@ if $ARGS[0] = 'studio_strip_talk1':
 				cla & *clr
 				'<center><video autoplay loop src="images/locations/city/citycenter/photo/strip1.mp4"></video><video autoplay loop src="images/locations/city/citycenter/photo/strip2.mp4"></video></center>'
 				'	Embarrassed that you were caught breaking the rules and scolded for it so quickly, you blush and stammer an apology, retreating into the back room to reluctantly change into your full birthday suit. So much for that. Guess you''re just going to have to deal with your discomfort with nudity if you want to keep working here.'
+				act'Go back to the main floor':gt'foto','studio'
+			end
 			act'Try to explain yourself':
 				cla & *clr
 				'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fotograph.jpg"></center>'
@@ -136,7 +139,11 @@ if $ARGS[0] = 'underwear_steal':
 		gs 'underwear', 'remove'
 		gs 'stat'
 		'<center><video autoplay loop src="images/locations/city/citycenter/photo/strip1.mp4"></video><video autoplay loop src="images/locations/city/citycenter/photo/strip2.mp4"></video></center>'
-		'	Blushing hard, you nervously do as he says. As hot as your face feels from removing your bra in front of him and exposing your breasts, it somehow manages to burn even hotter when your panties come down after exposing your pussy. Clutching your underwear to your body, you stand back up to see the manager holding out his hand.'
+		if pcs_inhib < 30:
+			'	Blushing hard, you nervously do as he says. As hot as your face feels from removing your bra in front of him and exposing your breasts, it somehow manages to burn even hotter when your panties come down after exposing your pussy. Clutching your underwear to your body, you stand back up to see the manager holding out his hand.'
+		else
+			'	You blush hard but do as he says. As you slide down your panties you have to admit to yourself that even if you don''t like this, it''s still bearable to you. You don''t have any more excuses not to comply with the dress code. Picking your underwear back up, you turn towards the locker room but stop when you see the manager holding out his hand.'
+		end
 		'	"What?"'
 		'	"Give me your underwear."'
 		'	"What?!"'
@@ -147,7 +154,11 @@ if $ARGS[0] = 'underwear_steal':
 		gs 'underwear', 'remove'
 		gs 'stat'
 		'<center><video autoplay loop src="images/locations/city/citycenter/photo/strip2.mp4"></video></center>'
-		'	Blushing hard, you nervously do as he says, face burning hot as you slip your panties down around your legs, keenly aware of your now visible pussy. Clutching your underwear to your body, you stand back up to see the manager holding out his hand.'
+		if pcs_inhib < 30:
+			'	Blushing hard, you nervously do as he says, face burning hot as you slip your panties down around your legs, keenly aware of your now visible pussy. Clutching your underwear to your body, you stand back up to see the manager holding out his hand.'
+		else
+			'	You blush hard but do as he says. As you slide down your panties you have to admit to yourself that even if you don''t like this, it''s still bearable to you. You don''t have any more excuses not to comply with the dress code. Picking your underwear back up, you turn towards the locker room but stop when you see the manager holding out his hand.'
+		end
 		'	"What?"'
 		'	"Give me your underwear."'
 		'	"What?!"'
@@ -175,6 +186,7 @@ if $ARGS[0] = 'underwear_steal2':
 		'	But also, doing that here in front of him? He already forced you to undress, you suppose. Getting dressed can''t be worse than that right?'
 		act'Go to the back room and re-dress':gt'foto_events','re-dress'
 		act'Just put your panties on under your skirt':
+			cla & *clr
 			gs 'panties','wear'
 			'<center><video autoplay loop src="images/locations/city/citycenter/photo/panties.mp4"></video></center>'
 			'	Well, you''re wearing a skirt today right? It wouldn''t be too difficult to just slip your panties on that way right?'
@@ -187,7 +199,7 @@ if $ARGS[0] = 'underwear_steal2':
 				cla & *clr
 				'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/foto.jpg"></center>'
 				'	Sighing deeply, you stammer out what he wants you to say.'
-				'	"I promise that from now on you will only see me naked in the studio unless it''s for a shoot."'
+				'	"I promise that from now I will always be completely naked in the studio unless it''s for a shoot."'
 				'	"Good. Feel free to go home now. Hope to see you again soon."'
 				'	With your underwear returned and safely covering your hips, you awkwardly make your exit.'
 				act'Leave':gt 'down'

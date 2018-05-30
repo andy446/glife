@@ -78,16 +78,16 @@ if $ARGS[0] = 'start':
 		act'Go back to the main floor':gt'foto','studio'
 	end
 
-	if $pantyworntype ! 'none':
+	if $pantyworntype ! 'none' and pcs_inhib < 60:
 		if studio_strip_talk < 3 and $braworntype ! 'none' and pcs_inhib < 60:
 			act'Just strip to your panties':
 				gs 'clothing', 'strip'
-				gs 'bras', 'remove'
 				cla & *clr
 				inhib_exp += 2
 				if studio_strip_talk = 0:
 					gt'foto_events','studio_strip_talk1'
 				elseif studio_underwear > 0:
+					gs 'bras', 'remove'
 					'<center><video autoplay loop src="images/locations/city/citycenter/photo/strip1.mp4"></video></center>'
 					'	As you drop your clothes into the locker, you can''t help but take small comfort in the warmth of the panties you still wear. It''s not much, but as long as you have time to put this off, you''ll take solace in what little coverage they provide.'
 					act'Go to the main floor':
@@ -248,14 +248,14 @@ if $ARGS[0] = 'studio':
 
 	if model = 1:
 		act 'Leave':
-			if studio_underwear_steal = 1:
+			*clr & cla
+			if studio_underwear_steal > 0:
 				gs 'clothing', 'wear_last_worn'
 				gs 'stat'
 				'<center><video autoplay loop src="images/locations/city/citycenter/photo/dress.mp4"></video></center>'
 				'	You go to your locker in the back room and start to throw on your clothes when you suddenly remember that one of the managers took your underwear earlier today. You''ll have to go see him to get it back...'
 				act'Go see the manager':gt'foto_events','underwear_steal2'
 			else
-				*clr & cla
 				gs 'underwear', 'wear'
 				gs 'clothing', 'wear_last_worn'
 				gs 'stat'
@@ -411,11 +411,12 @@ if $ARGS[0] = 'interview':
 	if howoldareyou = 0:
 		'	"You want to work here? How old are you?"'
 		if age >= 18:
-			howoldareyou = 1
-			gs'foto','interview'
+			howoldareyou = 2
+			'	I''m <<age>>.'
 		elseif fakepassport = 1:
-			howoldareyou = 1
-			gs'foto','interview'
+			howoldareyou = 2
+			'	"I''m 18."'
+			'	"I see. Alright, undress. Let me take a look at you."'
 		else
 			act 'Tell the truth':
 				age_truth = 1
@@ -431,11 +432,16 @@ if $ARGS[0] = 'interview':
 			end
 		end
 	end
-	gs'stat'
-	if howoldareyou = 1:
-		if age_lie = 1 or fakepassport = 1:'	"I''m 18."'
-		if age_truth = 1 or age >= 18:'	"I''m <<age>>."'
-		'	"I see. Alright, undress. Let me take a look at you."'
+	if howoldareyou < 0:
+		if howoldareyou = 1:
+			howoldaryou = 2:
+			if age_truth = 1 or age >= 18:'	"I''m <<age>>."'
+				'	"I see. Alright, undress. Let me take a look at you."'
+			elseif fakepassport = 1:
+				'	"I''m 18."'
+				'	"I see. Alright, undress. Let me take a look at you."'
+			end
+		end
 		if undress_ask = 0:
 			act'What? Why?':
 				undress_ask = 1
@@ -470,8 +476,7 @@ if $ARGS[0] = 'interview':
 				'	He spends several minutes doing this without saying anything. Several people walk by while he does, including several beautiful and nude women who glance at you, whispering to each other before moving on.'
 				act'Continue':gt'foto','job_offer'
 			end
-		else
-			if pcs_inhib >= 15:
+		elseif pcs_inhib >= 15:
 				act'Reluctantly undress':
 					reluctant_undress = 1
 					*clr & cla

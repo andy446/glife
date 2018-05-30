@@ -106,25 +106,17 @@ $shower = {
 				cla
 				*clr
 				if rand(0, 5) = 0 and obdysh = 1:gt 'vann', 'v4'
-				minut += 10
 				'<center><video src="images/shared/home/bathroom/wash2.mp4"></center>'
 				*nl
 				'You place the shower head onto your pussy and a powerful jet of warm water begins to caress you.'
 
-				if pcs_horny >= 90:
-					pcs_horny = 0
-					stat['mast'] += 1
-					if pcs_exhibition < 30:exhibition_exp += rand(1,3)
-					orgasm += 1
-					pcs_mood += 15
-					pcs_willpwr += 15
-					'Soon you feel a warm wave spreading over your entire body and you shudder as an orgasm overtakes you.'
-				else
-					pcs_horny += 5
-					pcs_mood += 10
-					pcs_willpwr += 10
-					'At first it feels very nice, but after a while it starts to be a little bit painful. You decide to stop masturbating.'
-				end
+				if pcs_inhib < 30:inhib_exp += rand(1,3)
+				pcs_mood += 15
+				pcs_willpwr += 15
+				$orgasm_or = 'yes'
+				gs 'arousal', 'masturbate', 10
+				gs 'arousal', 'end'
+
 				if hypnoAddict ! 0:
 					'You unconsciously avoid spraying water into your vagina.'
 				else
@@ -188,38 +180,24 @@ $bath = {
 			act 'Examine yourself closer while drying off and getting dressed...': gt 'din_van', 'buffpick'
 		end
 
-		if pcs_horny >= 40:
-			act '"Wash" your pussy':
-				cla
-				*clr
-				if obdysh = 1 and rand(0, 5) = 1:gt 'vann', 'v4'
-				minut += 10
+		act '"Wash" your pussy':
+			cla
+			*clr
+			if obdysh = 1 and rand(0, 5) = 1:gt 'vann', 'v4'
+			minut += 10
 
-				'<center><video src="images/shared/home/bathroom/wash7.mp4"></center>'
-				*nl
-				'You turn on the faucet, lift your legs and scoot your ass over to align your pussy with the jet of warm water.'
+			'<center><video src="images/shared/home/bathroom/wash7.mp4"></center>'
+			*nl
+			'You turn on the faucet, lift your legs and scoot your ass over to align your pussy with the jet of warm water. It feels really good and soon a warmth begins to grow in your abdomen.'
 
-				if pcs_horny >= 90:
-					pcs_horny = 0
-					stat['mast'] += 1
-					if pcs_exhibition < 30:exhibition_exp += rand(1,3)
-					orgasm += 1
-					pcs_mood += 15
-					pcs_willpwr += 15
-					'Soon you feel like warm waves wash trough your entire body and you begin to shudder as you reach your peak.'
-				else
-					pcs_horny += 5
-					pcs_mood += 10
-					pcs_willpwr += 10
-					'It feels really nice at first, but after a while it gets a bit uncomfortable and your legs fall asleep. You better stop before an awkward accident happens.'
-				end
+			if pcs_inhib < 30:inhib_exp += rand(1,3)
+			pcs_mood += 15
+			pcs_willpwr += 15
+			$orgasm_or = 'yes'
+			gs 'arousal', 'masturbate', 10
+			gs 'arousal', 'end'
 
-				dynamic $dryOff
-			end
-		end
-
-		if pcs_horny >= 50:
-			act 'Masturbate':gt 'selfplay', 'start'
+			dynamic $dryOff
 		end
 
 		dynamic $brit

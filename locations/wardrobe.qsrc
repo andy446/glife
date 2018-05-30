@@ -100,14 +100,13 @@ if $ARGS[0] = 'start':
 end
 
 if $ARGS[0] = 'removeall':
-		 gs 'bras', 'remove'
-		 gs 'clothing', 'strip'
-		 gs 'panties', 'remove'
-		 gs 'shoes', 'strip'
-		 gs 'purses', 'remove'
-		 defaultcoat = 0
-	end
- end
+	gs 'bras', 'remove'
+	gs 'clothing', 'strip'
+	gs 'panties', 'remove'
+	gs 'shoes', 'strip'
+	gs 'purses', 'remove'
+	defaultcoat = 0
+end
 
 !!---------------------------Oufit stuff----------------------------------
 

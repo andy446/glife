@@ -187,7 +187,7 @@ if $ARGS[0] = 'default_entry_wear':
 			gt 'wardrobe', 'start'
 		end
 	!! clothing exhibition is greater than player exhibition
-	elseif CloExhibit > pcs_exhibition:
+	elseif CloInhibit > pcs_inhib:
 		cls
 		'<center><video autoplay loop src="images/locations/pavlovsk/trainstation/bimbo.strip6.mp4"></video></center>'
 		'You don''t feel daring enough to wear your <<$def_clothing_name[default_entry]>> outfit. Maybe you will be confident enough in the future? Guess you will have to find something else to wear.'

@@ -4,6 +4,12 @@ if $ARGS[0] = 'start':
 	cla & *clr
 	'<center><img <<$set_imgh>> src="images/shared/Accessories/sewing/kit.jpg"></center>'
 	'	You pull your sewing kit out from under your bed.'
+	*nl
+	if tkan >= 1:
+		'You have <<tkan>> pieces of sewing fabric left.'
+	else
+		'You have no fabric left to use as material.'
+	end
 	act'Leave':gt $loc, $metka
 	act'Practice sewing (0:30)':
 		minut += 30

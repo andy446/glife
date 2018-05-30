@@ -3,8 +3,7 @@
 if $ARGS[0] = 'start':
 	$wloc = 'wardrobe'
 	if ward_img_hgt = 0:ward_img_hgt = 250
-	'<center><B><U>Outfit overview - Click on an item to change it</U></B></center>'
-	'<br><center>These are the clothes you are currently wearing'
+	'<h3><center><b><font color="maroon">Wardrobe overview</b></h3><br><center><font color="maroon">These are the clothes you are currently wearing - Click on an item to change it</font></center>'
 	'<br><center><table border=0 cellspacing=<<ward_img_hgt/25>> cellpadding=5>'
 	*p '<TH>Bra worn</TH><TH>Outfit worn</TH><TH>Coat (only worn outside when cold)</TH>'
 	*P '<TR><TD><center><a href="exec:gt ''bras'', ''view_bra_list'', ''wardrobe''"><img Height = <<ward_img_hgt>> src="<<FUNC(''$body_image'',''bra'')>>"></a></center></TD><TD><center><a href="exec:gt ''clothing_QV'', ''list''"><img Height = <<ward_img_hgt * 2>> src="<<FUNC(''$body_image'',''clothes'')>>"></a></center></TD><TD><center>'

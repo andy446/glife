@@ -152,7 +152,7 @@
       <Location name="npc_intro"/>
       <Location name="npc_age"/>
       <Location name="saveupdater"/>
-	  <location name="NPCChanger"/>
+	  <Location name="NPCChanger"/>
     </Folder>
     <Folder name="Combat">
       <Location name="fight"/>

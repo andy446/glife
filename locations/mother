@@ -1,4 +1,5 @@
-# mother 
+# mother
+
 if $ARGS[0] = '':
 	!!Model Olga Kabaeva
 	motherAge = year - ((npc_dob['A29'] - (npc_dob['A29'] mod 10000)) / 10000)
@@ -1102,4 +1103,5 @@ if $ARGS[0] = 'pregreactstepdad':
 end
 
 --- mother ---------------------------------
+
 

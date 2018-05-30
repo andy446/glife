@@ -116,6 +116,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 				pcs_mood += 5
 				pcs_willpwr += 5
 				if pcs_stren < 30:stren_exp += 1
+				if pcs_inhib < 50:inhib_exp += rand(1,2)
 				gs 'stat'
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/graze_cow_river_mira.jpg"></center>'
 				'You wade in the river, fun with Mira spray each other with water.'

@@ -39,6 +39,7 @@ if $ARGS[0] = 'studio_strip_talk1':
 	'	After pulling off the rest of your clothes, you thumb your underwear for a moment before realizing that you can''t strip all the way. You just don''t have enough confidence in yourself. But you''re still in your underwear right? You''re new here, surely they''ll understand won''t they?'
 	*nl
 	if $braworntype = 'none':'	Still, feeling your nipples harden in the cool air, you cross your arms to cover them. You really wish you had worn a bra today...'
+	gs 'bras', 'remove'
 	act'Go back to the main floor':
 		cla & *clr
 		'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/foto.jpg"></center>'
@@ -54,6 +55,8 @@ if $ARGS[0] = 'studio_strip_talk1':
 				cla & *clr
 				'<center><video autoplay loop src="images/locations/city/citycenter/photo/strip1.mp4"></video><video autoplay loop src="images/locations/city/citycenter/photo/strip2.mp4"></video></center>'
 				'	Embarrassed that you were caught breaking the rules and scolded for it so quickly, you blush and stammer an apology, retreating into the back room to reluctantly change into your full birthday suit. So much for that. Guess you''re just going to have to deal with your discomfort with nudity if you want to keep working here.'
+				act'Go back to the main floor':gt'foto','studio'
+			end
 			act'Try to explain yourself':
 				cla & *clr
 				'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fotograph.jpg"></center>'
@@ -136,7 +139,11 @@ if $ARGS[0] = 'underwear_steal':
 		gs 'underwear', 'remove'
 		gs 'stat'
 		'<center><video autoplay loop src="images/locations/city/citycenter/photo/strip1.mp4"></video><video autoplay loop src="images/locations/city/citycenter/photo/strip2.mp4"></video></center>'
-		'	Blushing hard, you nervously do as he says. As hot as your face feels from removing your bra in front of him and exposing your breasts, it somehow manages to burn even hotter when your panties come down after exposing your pussy. Clutching your underwear to your body, you stand back up to see the manager holding out his hand.'
+		if pcs_inhib < 30:
+			'	Blushing hard, you nervously do as he says. As hot as your face feels from removing your bra in front of him and exposing your breasts, it somehow manages to burn even hotter when your panties come down after exposing your pussy. Clutching your underwear to your body, you stand back up to see the manager holding out his hand.'
+		else
+			'	You blush hard but do as he says. As you slide down your panties you have to admit to yourself that even if you don''t like this, it''s still bearable to you. You don''t have any more excuses not to comply with the dress code. Picking your underwear back up, you turn towards the locker room but stop when you see the manager holding out his hand.'
+		end
 		'	"What?"'
 		'	"Give me your underwear."'
 		'	"What?!"'
@@ -147,7 +154,11 @@ if $ARGS[0] = 'underwear_steal':
 		gs 'underwear', 'remove'
 		gs 'stat'
 		'<center><video autoplay loop src="images/locations/city/citycenter/photo/strip2.mp4"></video></center>'
-		'	Blushing hard, you nervously do as he says, face burning hot as you slip your panties down around your legs, keenly aware of your now visible pussy. Clutching your underwear to your body, you stand back up to see the manager holding out his hand.'
+		if pcs_inhib < 30:
+			'	Blushing hard, you nervously do as he says, face burning hot as you slip your panties down around your legs, keenly aware of your now visible pussy. Clutching your underwear to your body, you stand back up to see the manager holding out his hand.'
+		else
+			'	You blush hard but do as he says. As you slide down your panties you have to admit to yourself that even if you don''t like this, it''s still bearable to you. You don''t have any more excuses not to comply with the dress code. Picking your underwear back up, you turn towards the locker room but stop when you see the manager holding out his hand.'
+		end
 		'	"What?"'
 		'	"Give me your underwear."'
 		'	"What?!"'
@@ -175,6 +186,7 @@ if $ARGS[0] = 'underwear_steal2':
 		'	But also, doing that here in front of him? He already forced you to undress, you suppose. Getting dressed can''t be worse than that right?'
 		act'Go to the back room and re-dress':gt'foto_events','re-dress'
 		act'Just put your panties on under your skirt':
+			cla & *clr
 			gs 'panties','wear'
 			'<center><video autoplay loop src="images/locations/city/citycenter/photo/panties.mp4"></video></center>'
 			'	Well, you''re wearing a skirt today right? It wouldn''t be too difficult to just slip your panties on that way right?'
@@ -187,7 +199,7 @@ if $ARGS[0] = 'underwear_steal2':
 				cla & *clr
 				'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/foto.jpg"></center>'
 				'	Sighing deeply, you stammer out what he wants you to say.'
-				'	"I promise that from now on you will only see me naked in the studio unless it''s for a shoot."'
+				'	"I promise that from now I will always be completely naked in the studio unless it''s for a shoot."'
 				'	"Good. Feel free to go home now. Hope to see you again soon."'
 				'	With your underwear returned and safely covering your hips, you awkwardly make your exit.'
 				act'Leave':gt 'down'
@@ -654,200 +666,7 @@ if $ARGS[0] = 'independent_art':
 	end
 end
 
-if $ARGS[0] = 'documentary':
-	cla & *clr
-	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fotograph.jpg"></center>'
-	'	"Documentary?" you ask. "What do you mean documentary? What''s this about?"'
-	'	"It''s not a modelling job, but someone''s going around asking about life as a model and in the industry. They want to interview some of the models here. Point a camera at them, ask them a few questions, put it on the internet and stuff. The pay is about half that of a standard nude shoot. They want you in your ''natural habitat'' so you can''t put on clothes, But it''s also likely to increase your profile more than the average nude shoot, increase how many people who''ve seen your face, know your name. Could be good for your reputation or popularity."'
-	'	"Hmmm..."'
-	act'Back to the list':gt'foto_events','list'
-	act'I''d like to do this one':
-		cla
-		*nl
-		specialjob6 = 0
-		'	"I''d like to do this one. Sounds kind of fun."'
-		'	"Great! Go to set 26. The client will be waiting for you there."'
-		act'Go to set 26':
-			cla & *clr
-			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/foto.jpg"></center>'
-			'	You go to the designated set and find a simple setup with a woman sitting in a folding chair, a couple cameras with crew working them, and an overhead microphone. As far as you can tell, the woman is the one who seems to be in charge and so you walk up to her.'
-			'	"Hi, I was told to come here for the documentary shoot?"'
-			'	"Hello!" she says with a genuine smile. "I''m Anfisa, the director running this project. I''ll be the one asking you questions today. If you could just stand over here, we''ll take a minute get the exposure and sound levels right. Are you comfortable on camera?"'
-			'	You shrug. "I hope so. It''s kind of my job here to be comfortable on camera."'
-			'	Anfisa laughs. "I suppose you''re right. Kind of asked out of habit, comes with the job that you get some people who aren''t comfortable but need to be filmed regardless. Anyways, I think we''re all set up on our end. Are you ready to get started?"'
-			'	You nod. "I''m ready."'
-			'	"Okay, and here... we... go!" Anfisa signals and one of the crew members walks up and snaps a clapperboard in front of you before hurrying away.'
-			act'Continue':
-				cla & *clr
-				'<center><video autoplay loop src="images/locations/city/citycenter/photo/interview3.mp4">'
-				'	"Alright, well, first thing''s first. Who are you, how old are you, and where do you work?"'
-				if age < 18:
-					'	"My name is <<$pcs_firstname>>, I am 18 years old, and I work as a model at Aphrodite Photography."'
-				elseif age >= 18:
-					'	"My name is <<$pcs_firstname>>, I am <<age>> years old, and I work as a model at Aphrodite Photography."'
-				end
-				*nl
-				'	"And how long have you been working as a model?"'
-				act'Continue':
-					cla & *clr
-					'<center><video autoplay loop src="images/locations/city/citycenter/photo/interview1.mp4">'
-					if modelyear = year:'	"I started working at Aphrodite earlier this year."'
-					if modelyear = year - 1:'	"I started working at Aphrodite last year."'
-					if modelyear < year - 1:'	"I started working at Aphrodite a couple years ago."'
-					*nl
-					'	"And why did you decide to become a model?"'
-					act'I needed a job':
-						questionanswer = 1
-						gt'foto_events','documentary2'
-					end
 
-					act'I needed fast cash':
-						questionanswer = 2
-						gt'foto_events','documentary2'
-					end
-
-					act'I wanted to buy nice things':
-						questionanswer = 3
-						gt'foto_events','documentary2'
-					end
-
-					act'I wanted to be famous':
-						if rank >= 1:
-							*nl
-							if rank < 10:'	"I see. And now you''ve become one of the top ten models in the city! I think that qualifies as famous. Now that you''ve achieved your dream, how does this make you feel?"'
-							if rank = 10:'	"And now you''ve become the number one model in the city! I think that definitely qualifies as famous. Now that you''ve achieved your dream, how does this make you feel?"'
-							act'It was everything I dreamed it would be':
-								questionanswer = 7
-								gt'foto_events','documentary2'
-							end
-
-							act'It feels kind of hollow':
-								questionanswer = 8
-								gt'foto_events','documentary2'
-							end
-							if rank < 10:
-								act'It''s not enough, I need to be number one':
-									questionanswer = 9
-									gt'foto_events','documentary2'
-								end
-							end
-						else
-							questionanswer = 4
-							gt'foto_events','documentary2'
-						end
-					end
-
-					act'I wanted to get into acting':
-						questionanswer = 5
-						gt'foto_events','documentary2'
-					end
-
-					if pcs_exhibition > 50:
-						act'It really turns me on':
-							questionanswer = 6
-							pcs_horny += 5
-							city_modelling += 5
-							city_slut += 30
-							pav_slut += 1
-							pav_modelling += 1
-							cla & *clr
-							gt'foto_events','documentary2'
-						end
-					end
-				end
-			end
-		end
-	end
-end
-
-
-if $ARGS[0] = 'documentary2':
-	cla & *clr
-	if questionanswer = 1 or questionanswer = 3:'<center><video autoplay loop src="images/locations/city/citycenter/photo/interview3.mp4">'
-	if questionanswer = 4 or questionanswer = 6 or questionanswer = 7:'<center><video autoplay loop src="images/locations/city/citycenter/photo/interview2.mp4">'
-	if questionanswer = 2 or questionanswer = 8:'<center><video autoplay loop src="images/locations/city/citycenter/photo/interview1.mp4">'
-	if questionanswer = 5 or questionanswer = 9:'<center><video autoplay loop src="images/locations/city/citycenter/photo/interview5.mp4">'
-
-	if questionanswer = 1:
-		'	"I just needed a job to be honest," you laugh. "No bigger reason than that to be honest. Everyone needs money to live and the rates here are pretty good. So I became a model."'
-		*nl
-		'	"I see! I see! Well that''s a fair enough reason as any to get into modelling. For the next question: when you first started working here how comfortable were you with doing nude modelling?"'
-	elseif questionanswer = 2:
-		'	"Because..." you trail off, thinking back on it. "I needed some fast cash at the time. Had some things I wanted to buy or needed to pay off. Modelling paid well, nude modelling paid even better, so I got a job here."'
-		*nl
-		'	'
-
-	elseif questionanswer = 3:
-		'	"I just wanted to buy nice things!" you laugh. "Clothes, jewelry, shoes, whatever. Modelling here pays pretty good. Nude modelling pays even better. I''m fine with doing some posing in my birthday suit if it means I don''t have to worry about money and I can buy whatever I want."'
-
-	elseif questionanswer = 4:
-		'	"I wanted to be famous. I mean, growing up, what teenage girl <i>doesn''t</i> want to be famous? You look in magazines and at billboards and watch TV and you see these beautiful women who have everyone''s attention and everyone knows their name. That''s what I wanted. That''s why I became a model."'
-
-			*nl
-			'	dialogue'
-			gt'foto_events','documentary3'
-
-	elseif questionanswer = 5:
-		'	"I actually wanted to use this as a platform for getting into acting. It''s so hard to get into the showbiz so I wondered what the best way to get hired would be. There''s just so many other girls who audition for movies and TV roles and stuff, it''s hard to set yourself apart. But I figured that if I showed my work as a model, got some fame and publicity that way, I''d be more likely to land a role. People would already know my name, I could use that as a selling point for why I should be hired. The next girl in line doesn''t have that on her résumé!"'
-		*nl
-
-	elseif questionanswer = 6:
-		'	Smiling quietly to yourself, you almost can''t believe you''re going to say this. But that''s what makes it so good.'
-		'	"Truth be told... I actually took this job because it really turns me on. I mean, think about it: An untold number of people out there, most of which I''ll never meet, all looking at my naked body and seeing my most private parts? Ohhh! It just makes me want to- nnngh!"'
-		'	As much as you''d like to, you have to force yourself to not start masturbating in the moment. You can''t do that right now. What if it makes them cut your interview? Gotta play the long game here.'
-		'	"But, yeah. I became a model because it makes me real fuckin'' horny."'
-
-	elseif questionanswer = 7:
-		'	"It''s everything I dreamed it would be," you smile, practically giggling. "I mean, the recognition, the money, my personal sense of achievement, it all feels fantastic! It makes me happy, it really does."'
-
-	elseif questionanswer = 8:
-		if rank < 10:'	"It feels... kind of hollow to be honest. I always thought that once I made it big, get my face on a billboard or two that it would make me happy but... it just doesn''t. I''m famous now. I mean, I''m one of the top 10 models in the city. That means I made it, right? But... I just feel empty inside... Sure, people know who I am, I have lots of money, everyone wants to be me but... I dunno. I guess dreams aren''t all they''re cracked up to be."'
-		if rank = 10:'	"It feels... kind of hollow to be honest. I always thought that once I made it big, get my face on a billboard or two that it would make me happy but... it just doesn''t. I''m famous now. I mean, I''m the number one model in the city, one of the most famous models in the country. That means I made it, right? But... I just feel empty inside... Sure, people know who I am, I have lots of money, everyone wants to be me but... I dunno. I guess dreams aren''t all they''re cracked up to be."'
-
-	elseif questionanswer = 9:
-		'	"No, you''re wrong. I haven''t achieved my dream yet. I need to be the most famous model in the city. Unless I''m number one, I won''t be satisfied."'
-
-	end
-
-end
-
-if $ARGS[0] = 'documentary3':
-end
-
-
-if $ARGS[0] = 'documentary4':
-end
-
-
-if $ARGS[0] = 'documentary5':
-end
-
-
-if $ARGS[0] = 'documentary6':
-end
-
-
-if $ARGS[0] = 'documentary7':
-end
-
-
-if $ARGS[0] = 'documentary8':
-end
-
-if $ARGS[0] = 'designer_wedding':
-	cla & *clr
-	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fotograph.jpg"></center>'
-	'	"Designer wedding dress?" you ask. "We do this kind of work?"'
-	'	"When it''s this kind of designer we do. It''s another one of those high fashion type things, taking a look at the bridal fashion, looking to make it more dramatic, more exciting, more sexual. Anyways, bottom line, I wouldn''t call this a ''dress.'' I''d barely call it clothing actually. It''s pretty much just a veil, stockings, and lingerie. I guess it''s a little bit like a wedding dress in that it has lacy gloves. Anyways, that''s the request. Wear the stuff, show some skin, we take the pictures to send to her so she can share them with her designer friends. So, what do you say?"'
-	act'Back to the list':gt'foto_events','list'
-	act'I''d like to do this one':
-		cla
-		*nl
-		specialjob7 = 0
-	end
-
-end
-=======
 !!if $ARGS[0] = 'documentary':
 !!	cla & *clr
 !!	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fotograph.jpg"></center>'
@@ -874,7 +693,6 @@ end
 !!		specialjob7 = 0
 !!
 !!end
->>>>>>> 164cec5dc6e92df12d8de8d03ca57a4a7ef50bd4
 
 !!--------------------------------------- Fame events ----------------------------------------------
 if $ARGS[0] = 'topless1':

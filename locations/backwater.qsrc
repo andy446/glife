@@ -131,6 +131,7 @@ if $clothingworntype = 'nude':
 		minut += 30
 		pcs_mood += 10
 		pcs_willpwr += 5
+		inhib_exp += rand(1,3)
 		if hantersRape = 1: hantersRape = 2
 
 		if $pantyworntype = 'none':

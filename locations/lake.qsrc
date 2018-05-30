@@ -69,6 +69,7 @@ if $ARGS[0] = 'start':
 				minut += 60
 				gs 'exercise', 'tier1', 1, 'stren_exp'
 				pcs_sweat = 10 + rand(0,4)
+				if pcs_inhib < 40:inhib_exp += rand(1,2)
 
 				'<center><img <<$set_imgh>> src="images/locations/shared/lake/swim.jpg"></center>'
 				'You swim in the lake, the water refreshes and invigorates.'
@@ -80,7 +81,7 @@ if $ARGS[0] = 'start':
 					cla
 					*clr
 					minut += 60
-					if PCloExhibit + 10 > pcs_exhibition:exhibition_exp += rand(1,3)
+					if pcs_inhib < 50:inhib_exp += rand(1,2)
 					if pcs_sweat < 35 : pcs_sweat += 5
 					if pcs_hydra >= 100:
 						pcs_hydra -= 10
@@ -163,7 +164,7 @@ if $ARGS[0] = 'start':
 										act 'Chat':
 											cla
 											*clr
-											'"Who are you?" You realise as you speak that it is a stupid thing to ask a rapist, but stil, nothing ventured...'
+											'"Who are you?" You realise as you speak that it is a stupid thing to ask a rapist, but still, nothing ventured...'
 											'"Andrew" He grins.'
 											'"And yours?"'
 											'"<<$pcs_nickname>>" You answer.'

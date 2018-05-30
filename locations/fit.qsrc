@@ -95,6 +95,7 @@ if $ARGS[0] = 'dressing room':
 		pcs_horny += 1
 		pcs_hairbsh = 0
 		pcs_makeup = 1
+		if pcs_inhib < 15:inhib_exp += rand(1,2)
 		dynamic $showerdin
 		'<center><video autoplay loop src="images/shared/home/bathroom/dush.mp4"></video></center>'
 		'You go into the bathroom and turn on the shower. You lather your body and wash in the shower.'
@@ -282,6 +283,7 @@ if $ARGS[0] = 'gym':
 		if loopcount < timemult: loopcount += 1 & jump 'timeloop1'
 		loopcount = 0
 		timemult = 0
+		if pcs_inhib < 30:inhib_exp += rand(1,2)
 		
 		'<center><img <<$set_imgh>> src="images/locations/shared/gym/fit1.jpg"></center>'
 		'You do very vigorous exercises to the music, and burn some fat.'
@@ -306,7 +308,7 @@ if $ARGS[0] = 'gym':
 		if loopcount < timemult: loopcount += 1 & jump 'timeloop2'
 		loopcount = 0
 		timemult = 0
-		
+		if pcs_inhib < 30:inhib_exp += rand(1,2)
 		'<center><img <<$set_imgh>> src="images/locations/city/citycenter/gym/exercise/fit2.jpg"></center>'
 		'You pump iron, building strength.'
 
@@ -330,7 +332,7 @@ if $ARGS[0] = 'gym':
 		if loopcount < timemult: loopcount += 1 & jump 'timeloop3'
 		loopcount = 0
 		timemult = 0
-		
+		if pcs_inhib < 30:inhib_exp += rand(1,2)
 		'<center><img <<$set_imgh>> src="images/locations/city/citycenter/gym/exercise/fit3.jpg"></center>'
 		'You spend a half hour doing reps on the cross trainer developing your endurance.'
 
@@ -354,7 +356,7 @@ if $ARGS[0] = 'gym':
 		if loopcount < timemult: loopcount += 1 & jump 'timeloop4'
 		loopcount = 0
 		timemult = 0
-		
+		if pcs_inhib < 30:inhib_exp += rand(1,2)
 		'<center><img <<$set_imgh>> src="images/locations/city/citycenter/gym/exercise/fit4.jpg"></center>'
 		'You run tennis exercises, concentrating on defensive drills.'
 
@@ -378,7 +380,7 @@ if $ARGS[0] = 'gym':
 		if loopcount < timemult: loopcount += 1 & jump 'timeloop5'
 		loopcount = 0
 		timemult = 0
-		
+		if pcs_inhib < 30:inhib_exp += rand(1,2)
 		'<center><img <<$set_imgh>> src="images/locations/city/citycenter/gym/exercise/fit4.jpg"></center>'
 		'You run tennis exercises, concentrating on court reactions.'
 
@@ -541,6 +543,7 @@ if $ARGS[0] = 'kickboxing':
 		if loopcount < timemult: loopcount += 1 & jump 'timeloop6'
 		loopcount = 0
 		timemult = 0
+		if pcs_inhib < 30:inhib_exp += rand(1,2)
 		'<center><img <<$set_imgh>> src="images/locations/city/citycenter/gym/kickboxing/kik1.jpg"></center>'
 		'You practice your jabs on the speed bag and double-end bag, straight punches with a step forward. These strikes are not so powerful, but they are fast.'
 
@@ -558,6 +561,7 @@ if $ARGS[0] = 'kickboxing':
 		if loopcount < timemult: loopcount += 1 & jump 'timeloop7'
 		loopcount = 0
 		timemult = 0
+		if pcs_inhib < 30:inhib_exp += rand(1,2)
 		'<center><img <<$set_imgh>> src="images/locations/city/citycenter/gym/kickboxing/kik1.jpg"></center>'
 		'You practice your power punches on the heavy bag. These are high impact and powerful, but they are hard to get to their target.'
 
@@ -575,6 +579,7 @@ if $ARGS[0] = 'kickboxing':
 		if loopcount < timemult: loopcount += 1 & jump 'timeloop8'
 		loopcount = 0
 		timemult = 0
+		if pcs_inhib < 30:inhib_exp += rand(1,2)
 		'<center><img <<$set_imgh>> src="images/locations/city/citycenter/gym/kickboxing/kik1.jpg"></center>'
 		'You practice your powerful kicks on a kickboxing bag. These impacts are very powerful and able to cut down an opponant, but are very difficult to hit with.'
 
@@ -592,6 +597,7 @@ if $ARGS[0] = 'kickboxing':
 		if loopcount < timemult: loopcount += 1 & jump 'timeloop9'
 		loopcount = 0
 		timemult = 0
+		if pcs_inhib < 30:inhib_exp += rand(1,2)
 		'<center><img <<$set_imgh>> src="images/locations/city/citycenter/gym/kickboxing/kik1.jpg"></center>'
 		'You practice your defense movements.'
 
@@ -602,7 +608,7 @@ if $ARGS[0] = 'kickboxing':
 		cla
 		*clr
 		'You need to choose a partner for sparring'
-
+		if pcs_inhib < 30:inhib_exp += rand(1,2)
 		act 'Pick a random partner':
 			abonement -= 1
 			pcs_mood += 2

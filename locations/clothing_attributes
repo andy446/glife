@@ -7,7 +7,7 @@
 !!		Notes: 1 is clothing themed to give the impression of innocence of youth. 2 is for stereotypical punks; ripped clothing, leather jackets, etc. 3 gives the impression that theyre debutanttes or rich at first glance. 4 is stuff worn by prostitutes. 5 is formless clothing that doesn''t requiring refitting.
 !! CloStyle2: 1 Maid, 2 Server, 3 Stripper
 !!		Notes: Used to distinguish between the main types of uniform.
-!! CloExhibit: 0-100 Exhibitionism value required to wear the outfit
+!! CloInhibit: 0-100 Inhibition value required to wear the outfit
 !!
 !! **Clothing Variables
 !! Scales use a 1-5 range. with 6 being a special case thats essentially nudity.
@@ -58,15 +58,15 @@
 !! CloBimbo = 1
 !!		Notes:	 Flag for bimboification gain. All exceptionally slutty clothing (the kind almost never seen outside of porn, strip clubs, or on street hookers) should have this flag.
 !!
-!!	Figures for CloExhibit values, these are the maximums for each range. Currently all set to lowest figure in range but to add random element when time permits
-!!0-5:		dress:1									pants:1		top:2			thickness:2
-!!5-10:		dress:2									pants:3		top:2			thickness:3
-!!10-15:	dress:3									pants:4		top:2			thickness:4
-!!15-20:	dress:3									pants:4		top:3			thickness:4
-!!20-25:	dress:3 - no underwear/ 4 with			pants:4		top:3			thickness:4
-!!25-30:	dress:4 - no underwear and CloPanties	pants:5		top:4			thickness:5
-!!30-35:	dress:4 - no underwear/ 5 with			pants:6		top: - CloBra	thickness:5
-!!35-40:	dress:5 - no underwear/ 6 with			pants:6		top: - CloBra	thickness:6
+!!	Figures for CloInhibit values, these are the maximums for each range. Currently all set to lowest figure in range but to add random element when time permits
+!!0:	dress:1					pants:1		top:2			thickness:2
+!!5:	dress:2					pants:3		top:2			thickness:3
+!!10:	dress:3					pants:4		top:2			thickness:4
+!!15:	dress:3					pants:4		top:3			thickness:4
+!!20:	dress:4 				pants:4		top:3			thickness:4
+!!25:	dress:4 and CloPanties	pants:5		top:4			thickness:5
+!!30:	dress:5					pants:6		top: - CloBra	thickness:5
+!!35:	dress:6					pants:6		top: - CloBra	thickness:6
 !!40-60:	All but Exhibit
 !!60+:	Can wear Exhibitionist clothing
 
@@ -83,7 +83,7 @@ CloPanties = 0
 CloOnePiece = 0
 CloStyle = 0
 CloBimbo = 0
-CloExhibit = 0
+CloInhibit = 0
 
 if $ARGS[0] = 'cheap':
 	*P FUNC('$attributes_cheap', $ARGS[0], ARGS[1])
@@ -114,6 +114,77 @@ elseif $ARGS[0] = 'burlesque':
 elseif $ARGS[0] = 'alternative':
 	*P FUNC('$attributes_alternative', $ARGS[0], ARGS[1])
 end
+
+if CloSkirtShortness = 6:
+	CloInhibit = 35
+elseif CloSkirtShortness = 5 or CloPantsShortness = 6:
+	if CloThinness = 6:
+		CloInhibit = 35
+	else
+		CloInhibit = 30
+	end
+elseif CloPanties = 1 or CloPantsShortness = 5:
+	if CloThinness = 6:
+		CloInhibit = 35
+	elseif CloBra = 1:
+		CloInhibit = 30
+	else
+		CloInhibit = 25
+	end
+elseif CloSkirtShortness = 4:
+	if CloThinness = 6:
+		CloInhibit = 35
+	elseif CloBra = 1:
+		CloInhibit = 30
+	elseif CloTopCut = 4 or CloThinness = 5:
+		CloInhibit = 25
+	else
+		CloInhibit = 20
+	end
+elseif CloSkirtShortness = 3:
+	if CloThinness = 6:
+		CloInhibit = 35
+	elseif CloBra = 1:
+		CloInhibit = 30
+	elseif CloTopCut = 4 or CloThinness = 5:
+		CloInhibit = 25
+	elseif CloTopCut = 3:
+		CloInhibit = 15
+	else
+		CloInhibit = 10
+	end
+elseif CloSkirtShortness = 2 or CloPantsShortness = 3:
+	if CloThinness = 6:
+		CloInhibit = 35
+	elseif CloBra = 1:
+		CloInhibit = 30
+	elseif CloTopCut = 4 or CloThinness = 5:
+		CloInhibit = 25
+	elseif CloTopCut = 3:
+		CloInhibit = 15
+	elseif CloThinness = 4:
+		CloInhibit = 10
+	else
+		CloInhibit = 5
+	end
+else
+	if CloThinness = 6:
+		CloInhibit = 35
+	elseif CloBra = 1:
+		CloInhibit = 30
+	elseif CloTopCut = 4 or CloThinness = 5:
+		CloInhibit = 25
+	elseif CloTopCut = 3:
+		CloInhibit = 15
+	elseif CloThinness = 4:
+		CloInhibit = 10
+	elseif CloThinness = 3:
+		CloInhibit = 5
+	else
+		CloInhibit = 0
+	end
+end
+	
 
 --- clothing_attributes ---------------------------------
 

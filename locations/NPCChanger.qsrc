@@ -1,10 +1,11 @@
 # NPCChanger
+
 if $ARGS[0] = 'Start':
 	n = 1
 	o = 10
 	gs 'NPCChanger', 'NPCLoop'
 end
-	
+
 if $ARGS[0] = 'NPCLoop':
 	*clr
 	clr
@@ -27,7 +28,7 @@ if $ARGS[0] = 'NPCLoop':
 	!!*nl 'o = <<o>> & n = <<n>>'
 	*p '<a href="exec:gt ''NPCChanger'', ''next10'' ">Next 10</a> '
 	*p '<a href="exec:gt ''NPCChanger'', ''back10'' ">Previous 10</a> '
-	*nl 
+	*nl
 	*p '<a href="exec:gt ''NPCChanger'', ''next50'' ">Skip 50</a> '
 	*p '<a href="exec:gt ''NPCChanger'', ''back50'' ">Back 50</a> '
 	*nl
@@ -57,19 +58,19 @@ end
 
 if $ARGS[0] = 'npcdisplay':
 	*nl 'NPC[A<<n>>] = '
-	
+
 	if $npc_firstname['A<<n>>'] = 0:
 	*p ''
 	else
 	*p '<<$npc_firstname[''A<<n>>'']>>'
 	end
-	
+
 	if $npc_firstname['A<<n>>'] = $npc_nickname['A<<n>>'] or $npc_nickname['A<<n>>'] = 0:
 		*p''
 	else
 		*p ' "<<$npc_nickname[''A<<n>>'']>>"'
 	end
-	
+
 	if $npc_lastname['a<<n>>'] = 0:
 		*p ''
 	else
@@ -140,5 +141,6 @@ if $ARGS[0] = 'editd':
 		npc_dob['A<<s>>'] = input('Enter new date of birth (yyyymmdd)')
 	gt 'NPCChanger', 'selection2'
 end
+
 --- NPCChanger ---------------------------------
 

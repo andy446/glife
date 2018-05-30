@@ -35,6 +35,7 @@ if numnpc = 9 and pav_slut < 25 and kotovLoveQW >= 0 and (npc_rel[$static_num] >
 				npc_rel[$static_num] += 2
 				danc_exp += rand(1, 3)
 				pcs_horny += 10
+				if pcs_inhib < 40:inhib_exp += rand(1,2)
 				kotovQW += 1
 				gs 'stat'
 				'You go to the dance floor and started dancing with Vitek, he pawed at your ass with his strong hands.'

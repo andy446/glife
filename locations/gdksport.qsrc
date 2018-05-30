@@ -194,9 +194,7 @@ if $ARGS[0] = 'vball1':
 end
 
 if $ARGS[0] = 'dance2':
-	cla
-	*clr
-
+	cla & *clr
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/shared/gym/fit1.jpg"></center>'
 	if pcs_danc < 50:
@@ -208,6 +206,7 @@ if $ARGS[0] = 'dance2':
 		if loopcount < timemult: loopcount += 1 & jump 'dancetimeloop'
 		loopcount = 0
 		timemult = 0
+		if pcs_inhib < 40:inhib_exp += rand(1,2)
 
 		'You take a lesson in modern dance, which is very popular with people your age.'
 
@@ -298,7 +297,7 @@ if $ARGS[0] = 'albina2':
 		'You approached Albina and said hello. She turned to you and smiled.'
 		'"Oh, hello, <<$pcs_nickname>>. I didn''t know you started dancing. Are you any good?" Albina asked with interest.'
 		'"I''m pretty good, I think." you replied with an answering smile, "Even if I do say so myself."'
-		'"Pretty good, huh?" Albina answered with in a condenscending tone, "Well, I''ve seen some of the dancers that take lessons here. It wouldn''t take much to be better them those bow-legged cows. I doubt you''re up to any kind of professional standard though."'
+		'"Pretty good, huh?" Albina answered with in a condescending tone, "Well, I''ve seen some of the dancers that take lessons here. It wouldn''t take much to be better them those bow-legged cows. I doubt you''re up to any kind of professional standard though."'
 
 		act 'I do not care':
 			cls
@@ -398,6 +397,7 @@ if $ARGS[0] = 'albina4':
 			act 'Dance':
 				cls
 				minut += 5
+				if pcs_inhib < 40:inhib_exp += rand(1,2)
 				gs 'stat'
 				'You began to dance to the music, trying as hard as you could to impress them. When the music stopped you came Albina.'
 				'"You dance like a country bumpkin, of course, but you do have some potential." Albina mused as you stood panting before her.'
@@ -429,6 +429,7 @@ if $ARGS[0] = 'starlets':
 	loopcount = 0
 	timemult = 0
 	pcs_mood -= 5
+	inhib_exp += rand(2,4)
 
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/shared/gym/fit1.jpg"></center>'
@@ -482,6 +483,7 @@ if $ARGS[0] = 'starlets':
 				money += albpayrand * 1000
 				dynamic $showerdin
 				profiDanceTime += 1
+				inhib_exp += rand(3,5)
 				gs 'stat'
 				'You agreed and Albina called for a car. Soon the car arrived the girls and you got into the car. Soon you arrived at a building with a large hall where people were sitting around a stage.'
 				'You dressed in costumes that were designed and commissioned by Albina, then went on stage to dance to the fiery music. You danced very well and everything went smoothly. You left the stage and Albina distributed the money. You took turns using the shower in the small dressing room.'
@@ -643,6 +645,7 @@ if $ARGS[0] = 'vball2':
 		if loopcount < timemult: loopcount += 1 & jump 'vballtimeloop2'
 		loopcount = 0
 		timemult = 0
+		if pcs_inhib < 40:inhib_exp += rand(0,1)
 	end
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/gym/volley/gdksport.jpg"></center>'
@@ -709,6 +712,7 @@ if $ARGS[0] = 'vball4':
 	timemult = 0
 	npc_rel['A69'] += 1
 	pcs_dom += 1
+	if pcs_inhib < 40:inhib_exp += rand(0,1)
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/gym/volley/gdksport.jpg"></center>'
 	'Number of games <<volsesongame>>, Win - <<volsesonwin>>, lesions - <<volsesonloss>>.'
@@ -716,6 +720,7 @@ if $ARGS[0] = 'vball4':
 		act 'Leave':gt 'gdksport', 'start'
 	if $pantyworntype = 'none' and rand(0,1) = 1 and (volleytanga = 1 or VoltrenerVoyeur >= 5):
 		act 'Correct clothing':
+			inhib_exp += rand(1,5)
 			*clr & cla
 			TrenerLust += 3
 			Voltrenersee += 1 & ! setcheck on gg without panties

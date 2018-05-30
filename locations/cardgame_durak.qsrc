@@ -187,6 +187,7 @@ end
 !fulfillment of desire NPC (turnip pav_slut < 75, then a small show)
 if $ARGS[0] = 'card_game_nosex_dance':
 	minut +=5
+	inhib_exp += rand(2,3)
 	gs 'stat'
 	'<center><video autoplay loop src="images/locations/pavlovsk/resident/apartment/shulginhome/bigroom/card/gif/dance'+rand(1,9)+'.mp4"></video></center>'
 	'The guys put on a popular track with a lot of bass, and lean back. You realize this is your cue to start moving, and somewhat awkwardly begin to dance for them. After a while you get into the song more and become less hesitant in shaking your hips and boobs, trying to give the guys a good show. They did win, after all.'
@@ -199,12 +200,12 @@ if $ARGS[0] = 'card_game_nosex':
 	gs 'stat'
 	card_game_texta = RAND(0,6)
 		if card_game_texta = 0:$card_game_texta = 'I want you to suck me off!'
-		if card_game_texta = 1:$card_game_texta = 'Can you masturbate in front of us?'
+		if card_game_texta = 1:$card_game_texta = 'can you masturbate in front of us?'
 		if card_game_texta = 2:$card_game_texta = 'I want you to give my dick a kiss.'
-		if card_game_texta = 3:$card_game_texta = 'Let me touch your tits.'
+		if card_game_texta = 3:$card_game_texta = 'let me touch your tits.'
 		if card_game_texta = 4:$card_game_texta = 'I want to fuck you.'
 		if card_game_texta = 5:$card_game_texta = 'I want to touch your pussy.'
-		if card_game_texta = 6:$card_game_texta = 'How about you give me a boob job?'
+		if card_game_texta = 6:$card_game_texta = 'how about you give me a boob job?'
 	if $boy = 'A11':
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/vasya/vasya.jpg"></center>'
 		''+func('gopsex','hide','Shulga_var_name')+' ponders for a second, and says: "<<$card_game_texta>>"'
@@ -216,7 +217,7 @@ if $ARGS[0] = 'card_game_nosex':
 	end
 	if $boy = 'A10':
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/dan/dan.jpg"></center>'
-		'Dan says what he wants: "<<$pcs_nickname>>. <<$card_game_texta>>"'
+		'Dan says what he wants: "<<$pcs_nickname>>, <<$card_game_texta>>"'
 		'"Are you out of your mind!? There''s absolutely no way I''m doing that!", you shout, deeply offended by his suggestion.'
 		'He raises his hands defensively and smiles: "Relax, I was just kidding. I just had to try, who knows what kind of party girl you might''ve been!"'
 		'You sigh and tell him: "Seriously though, what do you want me to do?"'

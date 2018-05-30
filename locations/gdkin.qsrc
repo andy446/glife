@@ -54,6 +54,7 @@ if $ARGS[0] = '':
 		act 'Dance (0:15)':
 			cls
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_dance.jpg"></center>'
+			if pcs_inhib < 40:inhib_exp += rand(1,2)
 			if (cumloc[6] = 1 or cumloc[7] = 1) or cumloc[11] = 1:
 				pav_sex += 15
 
@@ -218,8 +219,10 @@ if $ARGS[0] = 'Katja_dance':
 	dancerand=rand(1,5)
 	if $pantyworntype = 'none': 
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/katja_dance1_2.jpg"></center>'  
+		inhib_exp += rand(1,2)
 		'You dance with Katja attracting views of men from across the room. And when you consider that you not wearing panties, and your occasional spiraling of your skirt shows that fact off, it helps explain the attention.'
 	else
+		if pcs_inhib < 40:inhib_exp += rand(1,2)
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/katja_dance1_1.jpg"></center>'
 		'You dance with Katja attracting views of men from across the room.'
 	end
@@ -228,6 +231,7 @@ if $ARGS[0] = 'Katja_dance':
 		*clr & cla 
 		if dancerand = 1: 
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/katja_dance2_2.jpg"></center>'
+			inhib_exp += rand(1,2)
 			'During the dance you have decided to fool around and embraced Katja, pulling aside her top a bit to show off a nipple. Which causes an approving roar from all around and an embarrassed squeak from Katja.'
 			gs 'arousal', 'foreplay', 5, 'lesbian'
 			gs 'stat'
@@ -246,21 +250,25 @@ if $ARGS[0] = 'Katja_dance':
 			end	
 		elseif dancerand = 2:	
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/katja_dance3.jpg"></center>'
+			inhib_exp += rand(1,2)
 			'Dancing with Katja you can''t control yourself, you pull Katja close to you, putting your hands on her boobs and burying your face in her cleavage. Katja moans slightly at your actions, while the boys gathered around shout encouragements to the two of you.'
 			gs 'arousal', 'foreplay', 5, 'lesbian'
 			gs 'stat'
 		elseif dancerand = 3:
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/katja_dance4.jpg"></center>'
+			inhib_exp += rand(1,2)
 			'Dancing with Katya and moving quite actively, you do not notice how your breasts fell out from your clothes, exposing your nipples. But the guys sure noticed that where around you.'
 			gs 'arousal', 'flashlite', 5
 			gs 'stat'
 		elseif dancerand = 4:
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/katja_dance5.jpg"></center>'
+			inhib_exp += rand(1,2)
 			'During the dance you turn to face Katja, the two of you dance close together, faces near each other. You lean in and give her a passionate kiss, you can hear the cheering of the guys. You barely notice the guys, more of a faint background noise, as you lose yourself in the moment.'
 			gs 'arousal', 'kiss_give', 5, 'lesbian'
 			gs 'stat'
 		elseif dancerand = 5:
 			'<center><video autoplay loop src="images/characters/pavlovsk/school/girl/katja/katja_dance6.mp4"></video></center>'
+			inhib_exp += rand(1,2)
 			'You dance with Katya paying little attention to what is happening around you, when one of the guys around you reaches out and pulls down your top, baring your breasts for everyone to see. Without ceasing to dance you pull your top back up, to the disgruntled cries of the guys around you.'
 			gs 'arousal', 'flashlite', 5
 			gs 'stat'
@@ -326,6 +334,7 @@ if $ARGS[0] = 'reverse_reakt_dance':
 	if alko <= 0:
 		pcs_mood += 20
 		'You enjoy dancing with him a great deal.'
+		if pcs_inhib < 40:inhib_exp += rand(1,2)
 		gs 'arousal', 'foreplay', 5
 		gs 'arousal', 'end'
 		gs 'stat'
@@ -343,6 +352,7 @@ if $ARGS[0] = 'dance_vrp':
 	cls
 	minut += 5
 	if pcs_danc < 50 and pcs_agil >=pcs_danc:danc_exp += 1
+	if pcs_inhib < 40:inhib_exp += rand(1,2)
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_dance5.jpg"></center>'
 	'You accepted the offer, the guy took you by the hand and brought you out onto the dance floor, where you started dancing together.'

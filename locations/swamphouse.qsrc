@@ -1310,7 +1310,7 @@ if $ARGS[0] = 'hanterstable':
 						gs 'stat'
 						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/shulginhome/bigroom/drunk_ev/pjanaja5.jpg"></center>'
 						'The drunken men ask you to dance for them, Andrei turns on the music and you drunkenly start swaying next to the table...'
-
+						inhib_exp += rand(0,1)
 						if hanterslut < 5:
 							act 'Stop dancing':
 								*clr & cla
@@ -1343,7 +1343,7 @@ if $ARGS[0] = 'hanterstable':
 								gs 'stat'
 								'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/dance1.'+rand(1,2)+'.jpg"></center>'
 								'You stand next to the table and begin to depict something that reminds of rhythmic dance, the men start clapping.'
-
+								inhib_exp += rand(0,1)
 								if hanterslut >= 10:
 									act 'Keep dancing':
 										*clr & cla
@@ -1356,7 +1356,7 @@ if $ARGS[0] = 'hanterstable':
 										gs 'stat'
 										'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/dance2.'+rand(1,2)+'.jpg"></center>'
 										'In the sput of the moment, while the men cheer you on, you remove your top, leaving you only with a bra on...'
-
+										inhib_exp += rand(0,1)
 										if hanterslut >= 15:
 											act 'Keep dancing':
 												*clr & cla
@@ -1369,7 +1369,7 @@ if $ARGS[0] = 'hanterstable':
 												gs 'stat'
 												'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/dance3.jpg"></center>'
 												'The men continue cheering you on, you keep undressing further, remaining only in underwear...'
-
+												inhib_exp += rand(0,1)
 												act 'Pass out':
 												   *clr & cla
 												   minut += 1
@@ -1451,6 +1451,7 @@ if $ARGS[0] = 'hanterstable':
 				act 'Move away the table':
 					*clr & cla
 					minut += 1
+					inhib_exp += rand(0,1)
 					gs 'stat'
 					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/shulginhome/bigroom/drunk_ev/pjanaja5.jpg"></center>'
 					'The drunken men ask you to dance for them, Andrei turns on the music and you drunkenly start swaying next to the table...'
@@ -1462,7 +1463,7 @@ if $ARGS[0] = 'hanterstable':
 						gs 'stat'
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/dance1.'+rand(1,2)+'.jpg"></center>'
 						'You stand next to the table and begin to depict something that reminds of rhythmic dance, the men start clapping.'
-
+						inhib_exp += rand(0,1)
 						act 'Keep dancing':
 							*clr & cla
 							minut += 10
@@ -1474,12 +1475,13 @@ if $ARGS[0] = 'hanterstable':
 							gs 'stat'
 							'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/dance2.'+rand(1,2)+'.jpg"></center>'
 							'In the sput of the moment, while the men cheer you on, you remove your top, leaving you only with a bra on...'
-
+							inhib_exp += rand(0,1)
 							act 'Keep dancing':
 								*clr & cla
 								minut += 10
 								pcs_horny += rand(5,10)
 								hanterslut += 1
+								inhib_exp += rand(0,1)
 								if hantersIgorLove > 0:hantersIgorQw -= 1
 								if hantersSergeiLove > 0:hantersSergeiQw -= 1
 								if hantersSergeiLove > 0:hantersSergeiQw -= 1
@@ -1491,6 +1493,7 @@ if $ARGS[0] = 'hanterstable':
 									*clr & cla
 									temp_sh = rand(1,2)
 									hanterslut += 1
+									inhib_exp += rand(0,1)
 									if hantersIgorLove > 0:hantersIgorQw -= 1
 									if hantersSergeiLove > 0:hantersSergeiQw -= 1
 									if hantersSergeiLove > 0:hantersSergeiQw -= 1
@@ -1527,6 +1530,7 @@ if $ARGS[0] = 'hanterstable':
 											*clr & cla
 											minut += 10
 											pcs_horny += rand(5,10)
+											inhib_exp += rand(0,1)
 											hantdancesex = 1
 											gs 'stat'
 											'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/dance5.jpg"></center>'
@@ -1633,6 +1637,7 @@ if $ARGS[0] = 'hanterstable':
 						*clr & cla
 						minut += 10
 						pcs_horny += rand(5,10)
+						inhib_exp += rand(0,1)
 						gs 'stat'
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/dance1.'+rand(1,2)+'.jpg"></center>'
 						'You stand next to the table and begin to depict something that reminds of rhythmic dance, the men start clapping.'
@@ -1641,6 +1646,7 @@ if $ARGS[0] = 'hanterstable':
 							*clr & cla
 							minut += 10
 							pcs_horny += rand(5,10)
+							inhib_exp += rand(0,1)
 							gs 'stat'
 							'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/dance2.'+rand(1,2)+'.jpg"></center>'
 							'In the sput of the moment, while the men cheer you on, you remove your top, leaving you only with a bra on...'
@@ -1649,6 +1655,7 @@ if $ARGS[0] = 'hanterstable':
 								*clr & cla
 								minut += 10
 								pcs_horny += rand(5,10)
+								inhib_exp += rand(0,1)
 								gs 'stat'
 								'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/dance3.jpg"></center>'
 								'The men continue cheering you on, you keep undressing further, remaining only in underwear...'

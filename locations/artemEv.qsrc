@@ -1035,6 +1035,7 @@ if $ARGS[0] = 'artemGopSkver':
 				act 'Put him in bed and leave':gt 'artemhome','leave',15
 			end
 			act 'Dance for them':
+				inhib_exp += rand(0,1)
 				*clr & cla
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/artem/sex/park/walkgop_strip.jpg"></center>'
 				'Well, if that''s what you have to do to get out of here...'

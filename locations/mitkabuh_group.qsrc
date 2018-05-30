@@ -310,6 +310,7 @@ if $ARGS[0] = 'mirapiss_3':
 		'Mira and you laughingly strip off your clothes...'
 		gs 'clothing', 'strip', 'Gaddvor'
 		gs 'underwear', 'remove'
+		inhib_exp += rand(0,1)
 		minut += 5
 		if npc_QW['A60'] < 25: npc_QW['A60'] += 1
 		gs 'stat'

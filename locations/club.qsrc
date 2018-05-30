@@ -261,11 +261,11 @@ if $ARGS[0] = 'dance':
 	'<center><b><font color="maroon">The dance floor</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/nightclub/club9.jpg"></center>'
 	'The club is filled to the brink with people. Most of which are dancing on the dancefloor.'
-
 	act 'Leave':gt 'club', 'inside'
 
 	if hour <= 3 or hour >= 18:
 		act 'Dance (0:15)':
+			if pcs_inhib < 40:inhib_exp += rand(1,2)
 			cla
 			*clr
 			minut += 15
@@ -1277,6 +1277,7 @@ if $ARGS[0] = 'work':
 	elseif clubr = 2:
 		'"OK <<$pcs_nickname>>, we''re short a dancer, get in that cage there and dance. If you put on a good show you get a bonus."'
 		act 'Get in the cage':
+			if pcs_inhib < 60:inhib_exp += rand(1,2)
 			cla
 			*clr
 			hour += 1

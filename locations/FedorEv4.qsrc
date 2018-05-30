@@ -1596,6 +1596,7 @@ if $ARGS[0] =  'Bedroom Cam':
 
 	act 'Sounds good to me':
 		cls
+		inhib_exp += rand(1,3)
 		gs'stat'
 		'<center><video autoplay loop src="images/characters/pavlovsk/school/boy/fedor/fedorev2/home/bedroom/sex/cam/cam1.mp4"></video></center>'
 		'Fedor''s face lights up as he responds, "Great, let''s start with you taking off your clothes." Fedor turns on his camera as you begin slowly stripping in front of the bedroom mirror. After removing your top you slowly turn to Fedor, to see him rubbing on his crotch as he records you. You continue stripping, removing your panties while feeling both embarrassed and turned on at the same time, feeling your face growing flushed.'

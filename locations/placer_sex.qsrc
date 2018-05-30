@@ -890,6 +890,7 @@ if $args[0] = 'card_stript':
 	act 'Continue':
 		*clr & cla
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/park/sex/placer_sex67.jpg"></center>'
+		inhib_exp += rand(1,3)
 		'After listening to the track for a few seconds, you think you understand the general gist of it. You begin to sway your body to the music a bit uncomfortably, and pull your top down to expose your breasts. The guys are staring at you intently now, closely following your every move.'
 		act 'Continue':
 			gs'stat'

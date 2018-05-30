@@ -31,6 +31,7 @@ if $ARGS[0] = '1':
 	act'Perform a striptease for them':
 		cls
 		minut += 5
+		inhib_exp += rand(0,2)
 		gs'stat'
 		if pcs_danc < 40:
 			'You know this is your cue, and you attempt to do a striptease for them. You would have to be very good at dancing to overcome you drunkenness and begin to dance a bit awkwardly, tugging at your clothes.'

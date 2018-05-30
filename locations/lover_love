@@ -75,4 +75,6 @@ elseif pcs_makeup > 1 and ($clothingworntype = 'expensive' or $clothingworntype 
 
 	exit
 end
+
 --- lover_love ---------------------------------
+

@@ -68,10 +68,10 @@ if $ARGS[0] = 'view_swim_item':
 			dynamic '<<$ARGS[1]>>[<<ARGS[2]>>] = 0'
 			gt 'changingroom', 'view_swim_list'
 		end
-	elseif CloExhibit > pcs_exhibition:
+	elseif CloInhibit > pcs_inhib:
 		'You don''t feel daring enough to wear swimwear this revealing.'
 	else
-		if CloExhibit + 10 > pcs_exhibition: 'You find this swimwear to be more revealing than you are completely comfortable with but that makes it quite exciting too.'
+		if CloInhibit + 10 > pcs_inhib: 'You find this swimwear to be more revealing than you are completely comfortable with but that makes it quite exciting too.'
 		act 'Wear':
 			gs 'underwear', 'remove'
 			gs 'clothing', 'wear', $ARGS[1], ARGS[2]

@@ -659,51 +659,51 @@ if pcs_horny < 0:pcs_horny = 0
 !!Exhibitionism
 
 if exhibition_outdoors > 0:
-	if pcs_exhibition > 90:
+	if pcs_inhib > 90:
 		exhibition_outdoors = exhibition_outdoors * 3
-	elseif pcs_exhibition > 75:
+	elseif pcs_inhib > 75:
 		exhibition_outdoors = exhibition_outdoors * 5 / 2
-	elseif pcs_exhibition > 60:
+	elseif pcs_inhib > 60:
 		exhibition_outdoors = exhibition_outdoors * 2
-	elseif pcs_exhibition > 30:
+	elseif pcs_inhib > 30:
 		exhibition_outdoors = exhibition_outdoors * 3 / 2
 	end
 
 	if exhibition_outdoors <= 5:
-		exhibition_exp += rand(3,6)
+		inhib_exp += rand(3,6)
 	elseif exhibition_outdoors <= 10:
-		exhibition_exp += rand(5,9)
+		inhib_exp += rand(5,9)
 	elseif exhibition_outdoors <= 15:
-		exhibition_exp += rand(7,12)
+		inhib_exp += rand(7,12)
 	elseif exhibition_outdoors <= 20:
-		exhibition_exp += rand(9,15)
+		inhib_exp += rand(9,15)
 	elseif exhibition_outdoors <= 25:
-		exhibition_exp += rand(12,20)
+		inhib_exp += rand(12,20)
 	elseif exhibition_outdoors <= 30:
-		exhibition_exp += rand(16,25)
+		inhib_exp += rand(16,25)
 	elseif exhibition_outdoors <= 35:
-		exhibition_exp += rand(20,30)
+		inhib_exp += rand(20,30)
 	elseif exhibition_outdoors <= 40:
-		exhibition_exp += rand(25,40)
+		inhib_exp += rand(25,40)
 	elseif exhibition_outdoors <= 50:
-		exhibition_exp += rand(35,50)
+		inhib_exp += rand(35,50)
 	elseif exhibition_outdoors <= 65:
-		exhibition_exp += rand(50,75)
+		inhib_exp += rand(50,75)
 	else
-		exhibition_exp += rand(70,100)
+		inhib_exp += rand(70,100)
 	end
 end
 
 exhibition_outdoors = 0
 
-if pcs_exhibition = 0:
-	if exhibition_exp >= 5: pcs_exhibition = 1 & exhibition_exp -= 5
+if pcs_inhib = 0:
+	if inhib_exp >= 5: pcs_inhib = 1 & inhib_exp -= 5
 else
 !!Intentional double to add up to 2 points
-	if exhibition_exp >= 5 * pcs_exhibition / 2: exhibition_exp -= 5 * pcs_exhibition / 2 & pcs_exhibition += 1
-	if exhibition_exp >= 5 * pcs_exhibition / 2: exhibition_exp -= 5 * pcs_exhibition / 2 & pcs_exhibition += 1
+	if inhib_exp >= 5 * pcs_inhib / 2: inhib_exp -= 5 * pcs_inhib / 2 & pcs_inhib += 1
+	if inhib_exp >= 5 * pcs_inhib / 2: inhib_exp -= 5 * pcs_inhib / 2 & pcs_inhib += 1
 end
-if pcs_exhibition > 50 and exhibitionQW < 3: pcs_exhibition = 50
+if pcs_inhib > 50 and exhibitionQW < 3: pcs_inhib = 50
 
 !counter for Dimka avoidance
 if dimaFilm = 1 and dimaRudeBlock = 0:

@@ -357,7 +357,7 @@ if $ARGS[0] = 'view_clothing_item':
 
 	if CloStyle = 4:'This outfit can be used for prostitution.'
 
-	if CloExhibit + 10 > pcs_exhibition and CloExhibit <= pcs_exhibition: 'You find this outfit more revealing than you are completely comfortable with but that makes it quite exciting too.'
+	if CloInhibit + 10 > pcs_inhib and CloInhibit <= pcs_inhib: 'You find this outfit more revealing than you are completely comfortable with but that makes it quite exciting too.'
 
 	if $ARGS[2] = 'uniform':
 		if CloStyle2 = 1:
@@ -403,7 +403,7 @@ if $ARGS[0] = 'view_clothing_item':
 			end
 			'Price: <<price>> <b>₽</b>'
 			act 'Leave': gt $loc, $metka
-			if CloExhibit > pcs_exhibition:
+			if CloInhibit > pcs_inhib:
 				'You don''t feel daring enough to wear an outfit this revealing and can''t bring yourself to buy it.'
 			elseif money >= Price:
 				act 'Buy':
@@ -504,7 +504,7 @@ if $ARGS[0] = 'view_clothing_item':
 
 		if $ARGS[2] ! 'coat' and $ARGS[2] ! 'swimwear':
 
-			if CloExhibit > pcs_exhibition:
+			if CloInhibit > pcs_inhib:
 				'You don''t feel daring enough to wear an outfit this revealing.'
 			elseif ARRPOS('$CloLosTyp', $ARGS[2]) ! -1 and ARRPOS('CloLosNum',ARGS[3]) ! -1 :
 				'You lost these clothes somewhere, maybe you can find them again?.'
@@ -626,7 +626,7 @@ if $ARGS[0] = 'strip':
 	PCloStyle = 0
 	PCloStyle2 = 0
 	PCloBimbo = 0
-	PCloExhibit = 0
+	PCloInhibit = 0
 	PXCloThinness = 0
 	PXCloTopCut = 0
 	PXCloSkirtShortness = 0
@@ -707,7 +707,7 @@ if $ARGS[0] = 'wear':
 	PCloPanties = CloPanties
 	PCloStyle = CloStyle
 	PCloStyle2 = CloStyle2
-	PCloExhibit = CloExhibit
+	PCloInhibit = CloInhibit
 	if $cheatBimbo ! '<b>ON</b>':
 		PCloBimbo = CloBimbo
 		if CloBimbo = 1:bimbocl = 1

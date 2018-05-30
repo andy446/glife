@@ -279,7 +279,7 @@ if $ARGS[0] = 'Done':
 		bag = 1
 		home_owned[1] = 1
 
-		pcs_exhibition = 15
+		pcs_inhib = 15
 		pcs_heels = 20
 		pcs_makupskl = 15
 		pcs_artskls = 15
@@ -397,7 +397,7 @@ if $ARGS[0] = 'Done':
 		swimwearH[3] = 60
 		swimwearB[3] = pcs_hips
 		gs 'clothing', 'wear', 'cheap', 370
-	elseif pcs_exhibition = 0:
+	elseif pcs_inhib = 0:
 		cheap[15] = 1
 		cheapH[15] = 100
 		cheapB[15] = pcs_hips
@@ -407,7 +407,7 @@ if $ARGS[0] = 'Done':
 		cheapH[36] = 100
 		cheapB[36] = pcs_hips
 		gs 'clothing', 'wear', 'cheap', 15
-	elseif pcs_exhibition = 5:
+	elseif pcs_inhib = 5:
 		cheap[48] = 1
 		cheapH[48] = 100
 		cheapB[48] = pcs_hips
@@ -417,7 +417,7 @@ if $ARGS[0] = 'Done':
 		cheapH[83] = 100
 		cheapB[83] = pcs_hips
 		gs 'clothing', 'wear', 'cheap', 48
-	elseif pcs_exhibition = 10:
+	elseif pcs_inhib = 10:
 		cheap[49] = 1
 		cheapH[49] = 100
 		cheapB[49] = pcs_hips
@@ -427,7 +427,7 @@ if $ARGS[0] = 'Done':
 		cheapH[70] = 100
 		cheapB[70] = pcs_hips
 		gs 'clothing', 'wear', 'cheap', 49
-	elseif pcs_exhibition = 15:
+	elseif pcs_inhib = 15:
 		cheap[32] = 1
 		cheapH[32] = 100
 		cheapB[32] = pcs_hips
@@ -437,7 +437,7 @@ if $ARGS[0] = 'Done':
 		cheapH[62] = 100
 		cheapB[62] = pcs_hips
 		gs 'clothing', 'wear', 'cheap', 32
-	elseif pcs_exhibition = 20:
+	elseif pcs_inhib = 20:
 		cheap[4] = 1
 		cheapH[4] = 100
 		cheapB[4] = pcs_hips
@@ -447,7 +447,7 @@ if $ARGS[0] = 'Done':
 		cheapH[41] = 100
 		cheapB[41] = pcs_hips
 		gs 'clothing', 'wear', 'cheap', 41
-	elseif pcs_exhibition = 25:
+	elseif pcs_inhib = 25:
 		cheap[50] = 1
 		cheapH[50] = 100
 		cheapB[50] = pcs_hips
@@ -457,7 +457,7 @@ if $ARGS[0] = 'Done':
 		cheapH[81] = 100
 		cheapB[81] = pcs_hips
 		gs 'clothing', 'wear', 'cheap', 50
-	elseif pcs_exhibition = 30:
+	elseif pcs_inhib = 30:
 		cheap[82] = 1
 		cheapH[82] = 100
 		cheapB[82] = pcs_hips
@@ -467,7 +467,7 @@ if $ARGS[0] = 'Done':
 		cheapH[43] = 100
 		cheapB[43] = pcs_hips
 		gs 'clothing', 'wear', 'cheap', 43
-	elseif pcs_exhibition = 35:
+	elseif pcs_inhib = 35:
 		cheap[43] = 1
 		cheapH[43] = 100
 		cheapB[43] = pcs_hips

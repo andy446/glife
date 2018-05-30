@@ -182,10 +182,10 @@ if SUB >= pcs_dom and pcs_dom > 0:SUB = SUB - pcs_dom & pcs_dom = 0
 if pcs_dom >= SUB and SUB > 0:pcs_dom = pcs_dom - SUB & SUB = 0
 
 if pcs_horny < 0: pcs_horny = 0
-if pcs_exhibition < 0:
-	pcs_exhibition = 0
-elseif pcs_exhibition > 100:
-	pcs_exhibition = 100
+if pcs_inhib < 0:
+	pcs_inhib = 0
+elseif pcs_inhib > 100:
+	pcs_inhib = 100
 end
 
 healthmax = (pcs_vital * 10 + pcs_stren * 5)

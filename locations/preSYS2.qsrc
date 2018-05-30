@@ -14,7 +14,7 @@ if $ARGS[0] = 'start':
 	act 'Return to preset character menu': gt 'preSYS', 'charselect'
 	act 'Confirm these options':
 		!!This line should get sveta to wear school uniform because she has no other clothing with >=40
-		if pcs_exhibition >= 40: gs 'clothing', 'wear', 'school', 6
+		if pcs_inhib >= 40: gs 'clothing', 'wear', 'school', 6
 		if bag = 1:
 			!!using current combination should prevent having more than 1 bag at the start of game.
 			dynamic $currentpursetype + '_purses[<<currentpursenumber>>] = 1'
@@ -387,7 +387,7 @@ if $ARGS[0] = 'modatt':
 	gs 'preSYS2', 'modrel_setup2', 'pcs_prcptn', 'Perception'
 	if MagikDostup = 0: gs 'preSYS2', 'modrel_setup2', 'pcs_magik', 'Magic'
 	gs 'preSYS2', 'modrel_setup2', 'pcs_grades', 'Grades'
-	gs 'preSYS2', 'modrel_setup2', 'pcs_exhibition', 'Exhibitionism'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_inhib', 'Exhibitionism'
 	gs 'preSYS2', 'modrel_setup2', 'pcs_heels', 'Heels'
 	'</table></center>'
 	nl
@@ -509,7 +509,7 @@ if $ARGS[0] = 'none':
 	pcs_chrsm = 30
 	pcs_prcptn = 30
 	pcs_grade = 75
-	pcs_exhibition = 0	
+	pcs_inhib = 0	
 	pcs_heel = 5
 
 	!!Mental Skills Reset

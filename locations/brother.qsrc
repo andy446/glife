@@ -835,12 +835,26 @@ if $ARGS[0] = 'brother_go_away':
 	gs 'stat'
 	pcs_horny += RAND(5,10)
 	minut += RAND(5,10)
-	npc_rel['A34'] -= 10
-	pcs_dom += 1
+	npc_rel['A34'] -= 2
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/shower/b (13).jpg"></center>'
 	'You hide your pussy with your hands and shout at your brother:'
 	'"Kolka! What the fuck? Get the fuck out of here, you small fry!'
-	'Caught red-handed, Kolka slams the door and runs away. You finish showering quietly and dry yourself.'
+	'Caught red-handed, Kolka slams the door and runs away. You finish showering quietly and dry yourself off.'
+	act 'Exit the bathroom':mirror_steam = hour & gt $loc, $metka
+end
+
+if $ARGS[0] = 'brother_go_away2':
+	cla
+	cls
+	gs 'stat'
+	pcs_horny += RAND(5,10)
+	minut += RAND(5,10)
+	npc_rel['A34'] -= 1
+	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/shower/b (13).jpg"></center>'
+	'Turning to look at him, you give your brother a hard stare.'
+	'"Close the door Kolka and get out of here or I''m going to spray you with the showerhead."'
+	'Caught red-handed, Kolka backs away slowly and the door clicks shut.'
+	'<i>Ugh, boys...</i> you think to yourself, rolling your eyes in annoyance. You finish showering and dry yourself off.'
 	act 'Exit the bathroom':mirror_steam = hour & gt $loc, $metka
 end
 

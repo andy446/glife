@@ -91,7 +91,7 @@ if $ARGS[0] = '':
 
 		if hour >= 17 and hour < 20:'Not far from the house scared <a href="exec:GT ''mitka''">Mitka Kingpin</a>'
 		if hour >= 20 and sunWeather = 1 and month >= 4 and month <= 10:
-			MiraLoc = 0
+			!MiraLoc = 0
 			'Not far from the house sits a rustic style company of <a href="exec:GT ''mitkabuh''">youths</a>'
 		end
 	!125e

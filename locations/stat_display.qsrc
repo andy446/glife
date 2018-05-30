@@ -315,10 +315,10 @@ else
 			gs 'indik', '1', pcs_grades, pcs_grades
 			$stat_extra_msg += '<BR><<$ind>> School Grades'
 		end
-		if pcs_exhibition > 0:
-			gs 'indik', '1', pcs_exhibition, pcs_exhibition
-			$stat_extra_msg += '<BR><<$ind>> exhibitionism'
-		end
+
+		gs 'indik', '1', 100 - pcs_inhib, 100 - pcs_inhib
+		$stat_extra_msg += '<BR><<$ind>> inhibition'
+
 		if pcs_heels > 0:
 			gs 'indik', '1', pcs_heels, pcs_heels
 			$stat_extra_msg += '<BR><<$ind>> Heels skill'

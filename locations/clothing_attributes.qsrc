@@ -115,76 +115,77 @@ elseif $ARGS[0] = 'alternative':
 	*P FUNC('$attributes_alternative', $ARGS[0], ARGS[1])
 end
 
-if CloSkirtShortness = 6:
-	CloInhibit = 35
-elseif CloSkirtShortness = 5 or CloPantsShortness = 6:
-	if CloThinness = 6:
+if $ARGS[0] ! 'swimwear' or $ARGS[0] ! 'coat' or $ARGS[0] ! 'exercise':
+	if CloSkirtShortness = 6:
 		CloInhibit = 35
+	elseif CloSkirtShortness = 5 or CloPantsShortness = 6:
+		if CloThinness = 6:
+			CloInhibit = 35
+		else
+			CloInhibit = 30
+		end
+	elseif CloPanties = 1 or CloPantsShortness = 5:
+		if CloThinness = 6:
+			CloInhibit = 35
+		elseif CloBra = 1:
+			CloInhibit = 30
+		else
+			CloInhibit = 25
+		end
+	elseif CloSkirtShortness = 4:
+		if CloThinness = 6:
+			CloInhibit = 35
+		elseif CloBra = 1:
+			CloInhibit = 30
+		elseif CloTopCut = 4 or CloThinness = 5:
+			CloInhibit = 25
+		else
+			CloInhibit = 20
+		end
+	elseif CloSkirtShortness = 3:
+		if CloThinness = 6:
+			CloInhibit = 35
+		elseif CloBra = 1:
+			CloInhibit = 30
+		elseif CloTopCut = 4 or CloThinness = 5:
+			CloInhibit = 25
+		elseif CloTopCut = 3:
+			CloInhibit = 15
+		else
+			CloInhibit = 10
+		end
+	elseif CloSkirtShortness = 2 or CloPantsShortness = 3:
+		if CloThinness = 6:
+			CloInhibit = 35
+		elseif CloBra = 1:
+			CloInhibit = 30
+		elseif CloTopCut = 4 or CloThinness = 5:
+			CloInhibit = 25
+		elseif CloTopCut = 3:
+			CloInhibit = 15
+		elseif CloThinness = 4:
+			CloInhibit = 10
+		else
+			CloInhibit = 5
+		end
 	else
-		CloInhibit = 30
-	end
-elseif CloPanties = 1 or CloPantsShortness = 5:
-	if CloThinness = 6:
-		CloInhibit = 35
-	elseif CloBra = 1:
-		CloInhibit = 30
-	else
-		CloInhibit = 25
-	end
-elseif CloSkirtShortness = 4:
-	if CloThinness = 6:
-		CloInhibit = 35
-	elseif CloBra = 1:
-		CloInhibit = 30
-	elseif CloTopCut = 4 or CloThinness = 5:
-		CloInhibit = 25
-	else
-		CloInhibit = 20
-	end
-elseif CloSkirtShortness = 3:
-	if CloThinness = 6:
-		CloInhibit = 35
-	elseif CloBra = 1:
-		CloInhibit = 30
-	elseif CloTopCut = 4 or CloThinness = 5:
-		CloInhibit = 25
-	elseif CloTopCut = 3:
-		CloInhibit = 15
-	else
-		CloInhibit = 10
-	end
-elseif CloSkirtShortness = 2 or CloPantsShortness = 3:
-	if CloThinness = 6:
-		CloInhibit = 35
-	elseif CloBra = 1:
-		CloInhibit = 30
-	elseif CloTopCut = 4 or CloThinness = 5:
-		CloInhibit = 25
-	elseif CloTopCut = 3:
-		CloInhibit = 15
-	elseif CloThinness = 4:
-		CloInhibit = 10
-	else
-		CloInhibit = 5
-	end
-else
-	if CloThinness = 6:
-		CloInhibit = 35
-	elseif CloBra = 1:
-		CloInhibit = 30
-	elseif CloTopCut = 4 or CloThinness = 5:
-		CloInhibit = 25
-	elseif CloTopCut = 3:
-		CloInhibit = 15
-	elseif CloThinness = 4:
-		CloInhibit = 10
-	elseif CloThinness = 3:
-		CloInhibit = 5
-	else
-		CloInhibit = 0
+		if CloThinness = 6:
+			CloInhibit = 35
+		elseif CloBra = 1:
+			CloInhibit = 30
+		elseif CloTopCut = 4 or CloThinness = 5:
+			CloInhibit = 25
+		elseif CloTopCut = 3:
+			CloInhibit = 15
+		elseif CloThinness = 4:
+			CloInhibit = 10
+		elseif CloThinness = 3:
+			CloInhibit = 5
+		else
+			CloInhibit = 0
+		end
 	end
 end
-	
 
 --- clothing_attributes ---------------------------------
 

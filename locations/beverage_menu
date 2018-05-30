@@ -1,4 +1,4 @@
-#beverage_menu
+# beverage_menu
 
 if night_mode = 1:
 	$fcolor1 = '#FFFFFF'

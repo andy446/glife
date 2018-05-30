@@ -76,4 +76,6 @@ end
 
 !!tovarL
 !!sewng_exp += rand(pcs_intel/20, pcs_intel/10)
+
 --- sewing ---------------------------------
+

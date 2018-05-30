@@ -126,6 +126,7 @@ if numnpc = 45:
 					act 'Continue': gt 'gschool_lessons', 'short_break'
 				end
 				act 'Go with it':
+					inhib_exp += rand(0,1)
 					cls
 					Anush_lunch = 1
 					pcs_horny += 10
@@ -426,6 +427,7 @@ if numnpc = 14:
 	if (npc_rel[$static_num] > 60) and (KatjaOTN > 0) and (KatjaLust > 15) :
 		!!new Katja stuff not sure where you want to put it. It should be a option when you talk to her at school or the dance where it says Chat, but add this as a option.
 		act 'Kiss Katja':
+			inhib_exp += rand(0,1)
 			cls
 			if $loc = 'gdkin':
 				minut += 1

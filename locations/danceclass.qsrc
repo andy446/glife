@@ -26,6 +26,7 @@ act 'Modern dance class (0:30)':
 	loopcount = 0
 	timemult = 0
 	abonement -= 1
+	if pcs_inhib < 40:inhib_exp += rand(1,2)
 	'<center><img <<$set_imgh>> src="images/locations/shared/gym/fit1.jpg"></center>'
 
 	if danc_lvl < 100:'You study modern dance, which is very popular in the clubs.'
@@ -39,6 +40,7 @@ act 'Burlesque class (0:30)':
 	*clr
 	gs 'exercise', 'tier2', 0, 'agil_exp', 'stren_exp', 'danc_exp', 'dancero_exp'
 	abonement -= 1
+	if pcs_inhib < 60:inhib_exp += rand(1,2)
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/albina/stripdance.jpg"></center>'
 
 	if danc_lvl >= 50:
@@ -60,6 +62,7 @@ if pcs_stren >=40 or needstrength = 0:
 		*clr
 		gs 'exercise', 'tier2', 0, 'agil_exp', 'stren_exp', 'dancpol_exp'
 		abonement -= 1
+		if pcs_inhib < 60:inhib_exp += rand(1,2)
 		'<center><img <<$set_imgh>> src="images/locations/city/citycenter/gym/dance/poledance.jpg"></center>'
 
 		if dancero_lvl >= 50 and pcs_stren >= 40:

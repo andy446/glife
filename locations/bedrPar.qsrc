@@ -111,6 +111,8 @@ end
 
 if sewing_kit = 1:
 	'Your <a href="exec:gt ''sewing'',''start''">sewing kit</a> is stored neatly under your bed.'
+	*nl
+	'You have <<tkan>> pieces of sewing fabric left.'
 end
 
 if komp = 1:'Your <a href="exec:gorodokKomp = 1 & GT ''Komp'',''start''">laptop</a> is on your desk.'

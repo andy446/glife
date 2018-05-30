@@ -839,6 +839,7 @@ end
 if $ARGS[0] = 'gost_dance':
 	cls
 	minut += 5
+	if pcs_inhib < 40:inhib_exp += rand(1,2)
 	gs'stat'
 	'<center><video autoplay loop src="images/locations/pavlovsk/resident/rekshome/party/party_boys_party_gost_9_' + rand(1,3) + '.mp4"></video></center>'
 	if Rex_Love = 1:'Two of the hottest guys come over to you, apparently deciding you are the finest girl here. Rex looks indignantly at you, trying to figure out what you are going to do.'
@@ -852,6 +853,7 @@ end
 if $ARGS[0] = 'dance':
 	cls
 	minut += 5
+	if pcs_inhib < 40:inhib_exp += rand(1,2)
 	gs'stat'
 	'<center><video autoplay loop src="images/locations/pavlovsk/resident/rekshome/party/party_boys_party_gost_9.mp4"></video></center>'
 	'You are enthralled by the rhythmic sounds and indulge in unrestrained dancing with the crowd. You jump around and twist your body, completely absorbed in the moment.'

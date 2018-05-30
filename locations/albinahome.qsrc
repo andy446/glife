@@ -235,6 +235,7 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 						pcs_sweat += 30
 						gs 'stat'
 						'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/albina/stripdance.jpg"></center>'
+						if pcs_inhib < 60:inhib_exp += rand(2,3)
 
 						if pcs_danc >= 40:
 							dancero_exp += rand(2, 10)
@@ -254,7 +255,7 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 							cla
 							*clr
 							albsportday = daystart
-							
+							if pcs_inhib < 60:inhib_exp += rand(2,3)
 							timemult = 8
 							loopcount = 1
 							:timeloop1

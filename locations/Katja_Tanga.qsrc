@@ -96,9 +96,11 @@ if $ARGS[0] = 'school':
 	i=rand(1,6)
 	if analplugIN = 1:
 		'<center><video autoplay loop src="images/characters/pavlovsk/school/girl/katja/tanga1_7.mp4"></video></center>'
+		inhib_exp += rand(1,4)
 		'"I''m not only not wearing panties!" You say while smiling enigmatically. You turn and lift your skirt then briefly pull apart you butt cheeks, showing Katja the plug inserted in your ass.'
 	else
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/tanga1_<<i>>.jpg"></center>'
+		inhib_exp += rand(1,3)
 		'You looked around, checking no one else is around, then turn your ass toward Katya and bend over, showing off your bare ass and pussy, proving you''re not wearing any panties at school today.'
 	end
 	''
@@ -171,7 +173,7 @@ if $ARGS[0] = 'school4':
 		pcs_horny += 10
 		n_tanga+=1 & ! local variable
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/tanga_kiss1.jpg"></center>'
-		'Dejected at her reaction. "Fine, whatever.", You said as you turned to go. Katja afraid that she had offended you, grabs your hand and pulls you into a passionate kiss. "Don''t pout sweety, I''m sorry. Let me make it up to you." she says.'
+		'Dejected at her reaction. "Fine, whatever.", You said as you turned to go. Katja afraid that she had offended you, grabs your hand and pulls you into a passionate kiss. "Don''t pout sweetie, I''m sorry. Let me make it up to you." she says.'
 		act 'Watch':
 			*clr & cla
 			pcs_horny += 10
@@ -216,6 +218,7 @@ if $ARGS[0] = 'dance':
 	gs'stat'
 	tangaday = daystart & ! tangaday to operate once a day
 	i=rand(1,3)
+	inhib_exp += rand(1,2)
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/katja_disco2_<<i>>.jpg"></center>'
 	'You lift the edge of your skirt up and flashed your pussy in front of Katja. "I showed you mine, now show me yours.".'
 	act 'Ask to see':

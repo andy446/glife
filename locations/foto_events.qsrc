@@ -847,6 +847,34 @@ if $ARGS[0] = 'designer_wedding':
 	end
 
 end
+=======
+!!if $ARGS[0] = 'documentary':
+!!	cla & *clr
+!!	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fotograph.jpg"></center>'
+!!	'	"Documentary?" you ask. "What do you mean documentary? What''s this about?"'
+!!	'	"It''s not a modelling job, but someone''s going around asking about life as a model and in the industry. They want to interview some of the models here. Point a camera at them, ask them a few questions, put it on the internet and stuff. The pay is about that of a standard nude shoot but it''s also likely to increase your profile more than the average nude shoot, how many people who''ve seen your face, know your name. Could be good for increasing your reputation or popularity."'
+!!	'	"Hmmm..."'
+!!	act'Back to the list':gt'foto_events','list'
+!!	act'I''d like to do this one':
+!!		cla
+!!		*nl
+!!		specialjob6 = 0
+!!
+!!end
+
+!!if $ARGS[0] = 'designer_wedding':
+!!	cla & *clr
+!!	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fotograph.jpg"></center>'
+!!	'	"Designer wedding dress?" you ask. "We do this kind of work?"'
+!!	'	"When it''s this kind of designer we do. It''s another one of those high fashion type things, taking a look at the bridal fashion, looking to make it more dramatic, more exciting, more sexual. Anyways, bottom line, I wouldn''t call this a ''dress.'' I''d barely call it clothing actually. It''s pretty much just a veil, stockings, and lingerie. I guess it''s a little bit like a wedding dress in that it has lacy gloves. Anyways, that''s the request. Wear the stuff, show some skin, we take the pictures to send to her so she can share them with her designer friends. So, what do you say?"'
+!!	act'Back to the list':gt'foto_events','list'
+!!	act'I''d like to do this one':
+!!		cla
+!!		*nl
+!!		specialjob7 = 0
+!!
+!!end
+>>>>>>> 164cec5dc6e92df12d8de8d03ca57a4a7ef50bd4
 
 !!--------------------------------------- Fame events ----------------------------------------------
 if $ARGS[0] = 'topless1':

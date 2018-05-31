@@ -134,8 +134,6 @@ if $ARGS[0] = 'view_panty_item':
 !!	'<<$RESULT>>'
 	gs 'panties', 'descriptions', $ARGS[2]
 
-!!	if PanExhibit + 10 > pcs_exhibition: 'You find these panties more revealing than you are completely comfortable with but that makes it quite exciting too.'
-
 	if $ARGS[1] = 'shop':
 		if dyneval('RESULT = <<$ARGS[2]>>_panties[<<ARGS[3]>>]') = 1:
 			'You already own this item.'
@@ -144,9 +142,7 @@ if $ARGS[0] = 'view_panty_item':
 			price = ARGS[4]
 			'Price: <<ARGS[4]>> <b>₽</b>'
 			act 'Leave': gt $loc, $metka
-			if PanExhibit > pcs_exhibition:
-				'You don''t feel confident enough to wear panties this revealing and can''t bring yourself to buy them.'
-			elseif money >= price:
+			if money >= price:
 				act 'Buy':
 					money -= price
 					dynamic $ARGS[2] + '_panties[<<ARGS[3]>>] = 1'
@@ -172,9 +168,7 @@ if $ARGS[0] = 'view_panty_item':
 			if $pantyworntype = $ARGS[2] and pantywornnumber = ARGS[3]:
 				'You are wearing these panties.'
 			else
-				if PanExhibit > pcs_exhibition:
-					'You don''t feel confident enough to wear these panties.'
-				elseif metka_panties = 0:
+				if metka_panties = 0:
 					act 'Wear':
 						gs 'panties', 'wear', $ARGS[2], ARGS[3]
 

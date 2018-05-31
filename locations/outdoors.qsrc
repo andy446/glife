@@ -391,9 +391,9 @@ if $ARGS[0] = 'main':
 
 !!Exhibitionism
 
-			if CloExhibit >= pcs_exhibition - 10:
+			if CloInhibit >= pcs_inhib - 10:
 				exhibition_outdoors += 1
-				if pcs_exhibition < 45 and PCloPanties = 1: exhibition_outdoors += 1
+				if pcs_inhib < 45 and PCloPanties = 1: exhibition_outdoors += 1
 			end
 
 			if $pantyworntype = 'none':

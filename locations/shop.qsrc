@@ -456,11 +456,11 @@ if $shoplocation = 'clothing':
 				gs 'clothing_attributes', 'coat', 1
 				'Coat 1'
 				FUNC('$clothing_name', 'coat', 1)
-				if CloExhibit > pcs_exhibition:'You don''t feel daring enough to buy an outfit this revealing.'
+				if CloInhibit > pcs_inhib:'You don''t feel daring enough to buy an outfit this revealing.'
 				'Costs 5,000 <b>₽</b>.'
 
 				act 'Leave':gt 'shop'
-				if money => 5000 and CloExhibit <= pcs_exhibition:
+				if money >= 5000 and CloInhibit <= pcs_inhib:
 					act 'Buy':
 						cla
 						money -= 5000
@@ -480,11 +480,11 @@ if $shoplocation = 'clothing':
 				gs 'clothing_attributes', 'swimwear', 4
 				'Swimwear 4'
 				FUNC('$clothing_name', 'swimwear', 4)
-				if CloExhibit > pcs_exhibition:'You don''t feel daring enough to buy an outfit this revealing.'
+				if CloInhibit > pcs_inhib:'You don''t feel daring enough to buy an outfit this revealing.'
 				'Costs 1,000 <b>₽</b>.'
 
 				act 'Leave':gt 'shop'
-				if money => 1000 and CloExhibit <= pcs_exhibition:
+				if money >= 1000 and CloInhibit <= pcs_inhib:
 					act 'Buy':
 						cla
 						money -= 1000

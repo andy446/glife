@@ -502,11 +502,11 @@ if $ARGS[0] = 'clo2':
 	:loopburlesque
 		if burlesque[i] = 0:
 			gs 'clothing_attributes', 'burlesque', i
-			if clothingfilter_comf = 0 and CloExhibit + 10 < pcs_exhibition:
+			if clothingfilter_comf = 0 and CloInhibit + 10 < pcs_inhib:
 				if (clothingfilter_prost = 0 or CloStyle ! 4) and (clothingfilter_bimbo = 0 or CloBimbo = 0): *p '<a href="exec: i = <<i>> & gt ''sexshop'', ''burlesque''"><img <<$set_imgh>> src="images/pc/clothing/13burlesque/<<i>>.jpg" 	height="250" /></a>'
-			elseif clothingfilter_daring = 0 and CloExhibit + 10 >= pcs_exhibition and CloExhibit <= pcs_exhibition:
+			elseif clothingfilter_daring = 0 and CloInhibit + 10 >= pcs_inhib and CloInhibit <= pcs_inhib:
 				if (clothingfilter_prost = 0 or CloStyle ! 4) and (clothingfilter_bimbo = 0 or CloBimbo = 0): *p '<a href="exec: i = <<i>> & gt ''sexshop'', ''burlesque''"><img <<$set_imgh>> src="images/pc/clothing/13burlesque/<<i>>.jpg" 	height="250" /></a>'
-			elseif clothingfilter_too_daring = 0 and CloExhibit > pcs_exhibition:
+			elseif clothingfilter_too_daring = 0 and CloInhibit > pcs_inhib:
 				if (clothingfilter_prost = 0 or CloStyle ! 4) and (clothingfilter_bimbo = 0 or CloBimbo = 0): *p '<a href="exec: i = <<i>> & gt ''sexshop'', ''burlesque''"><img <<$set_imgh>> src="images/pc/clothing/13burlesque/<<i>>.jpg" 	height="250" /></a>'
 			end
 		end

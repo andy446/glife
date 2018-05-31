@@ -30,9 +30,6 @@ if $ARGS[0] = 'start':
 		'<center><video autoplay loop src="images/locations/city/citycenter/photo/fullstrip.mp4"></video></center>'
 		studio_strip += 1
 		inhib_exp += 3
-		gs 'clothing', 'strip'
-		gs 'underwear', 'remove'
-		gs 'stat'
 		*nl
 		if pcs_inhib < 20:
 			'	You squirm with discomfort as you drop the last of your clothing and stand completely naked. You feel cold, your skin tingling with discomfort and your hands immediately covering yourself up as you look around shivering in self-consciousness. You really don''t like being naked like this, especially in front of strangers, but rules are rules. What are you supposed to do about this?'
@@ -256,8 +253,8 @@ if $ARGS[0] = 'studio':
 				'	You go to your locker in the back room and start to throw on your clothes when you suddenly remember that one of the managers took your underwear earlier today. You''ll have to go see him to get it back...'
 				act'Go see the manager':gt'foto_events','underwear_steal2'
 			else
-				gs 'underwear', 'wear'
 				gs 'clothing', 'wear_last_worn'
+				gs 'underwear', 'wear'
 				gs 'stat'
 				'<center><video autoplay loop src="images/locations/city/citycenter/photo/dress.mp4"></video></center>'
 				'	You go into the back room to put on clothes and get ready to go home.'
@@ -1364,7 +1361,7 @@ if $ARGS[0] = 'practicemodel':
 						mdlng_exp += 1
 						inhib_exp += rand(1,4)
 						gs 'stat'
-						'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/seethru1.jpg"></center><center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/seethru2.jpg"></center>'
+						'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/seethru1.jpg"><img <<$set_imgh>> src="images/locations/city/citycenter/photo/seethru2.jpg"></center>'
 						'	You feel like practicing something risqué today without being completely nude. You pick out a transparent top and go to to the practice set.'
 						*nl
 						'	You spend two hours posing for the photographer, learning the best ways to make a see-through top work for you and make you look even sexier.'

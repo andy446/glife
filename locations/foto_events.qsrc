@@ -141,7 +141,7 @@ if $ARGS[0] = 'underwear_steal':
 		if pcs_inhib < 30:
 			'	Blushing hard, you nervously do as he says. As hot as your face feels from removing your bra in front of him and exposing your breasts, it somehow manages to burn even hotter when your panties come down after exposing your pussy. Clutching your underwear to your body, you stand back up to see the manager holding out his hand.'
 		else
-			'	You blush hard but do as he says. As you slide down your panties you have to admit to yourself that even if you don''t like this, it''s still bearable to you. You don''t have any more excuses not to comply with the dress code. Picking your underwear back up, you turn towards the locker room but stop when you see the manager holding out his hand.'
+			'	You blush hard but do as he says. As you slide down your panties you have to admit to yourself that even if you aren''t fully comfortable with this, you''re also not shy enough to make it a big deal. You don''t have any more excuses not to comply with the dress code. Picking your underwear back up, you turn towards the locker room but stop when you see the manager holding out his hand.'
 		end
 		'	"What?"'
 		'	"Give me your underwear."'
@@ -156,7 +156,7 @@ if $ARGS[0] = 'underwear_steal':
 		if pcs_inhib < 30:
 			'	Blushing hard, you nervously do as he says, face burning hot as you slip your panties down around your legs, keenly aware of your now visible pussy. Clutching your underwear to your body, you stand back up to see the manager holding out his hand.'
 		else
-			'	You blush hard but do as he says. As you slide down your panties you have to admit to yourself that even if you don''t like this, it''s still bearable to you. You don''t have any more excuses not to comply with the dress code. Picking your underwear back up, you turn towards the locker room but stop when you see the manager holding out his hand.'
+			'	You blush hard but do as he says. As you slide down your panties you have to admit to yourself that even if you aren''t fully comfortable with this, you''re also not shy enough to make it a big deal. You don''t have any more excuses not to comply with the dress code. Picking your underwear back up, you turn towards the locker room but stop when you see the manager holding out his hand.'
 		end
 		'	"What?"'
 		'	"Give me your underwear."'
@@ -169,6 +169,7 @@ end
 
 if $ARGS[0] = 'underwear_steal2':
 	cla & *clr
+	underwear_steal = 0
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/foto.jpg"></center>'
 	minut += 2
 	'	Walking through the studio you find the manager you''re looking for. He sits at a desk flipping through a magazine that looks to be produced by the studio. Is that a new copy? Is he proof reading or something? Stepping up to him, you awkwardly clear your throat and he looks up at you.'

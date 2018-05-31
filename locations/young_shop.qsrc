@@ -15,11 +15,11 @@ if $ARGS[0] = 'start':
 	'<b><center><font size="4">Pussy-Cats</font></center></b>'
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/mall/cats/young_shop.jpg"></center>'
 	*nl
-	'The latest pop song by whoever is popular at the moment is playing through the small store. The interior is decorated in bright colors and bold designs, and the floor is packed with stands and tables displaying clothes with a more daring style. Looking around at all the advertisements with attractive yet emaciated models, you''ll either leave here seduced into buying something or with lower self-esteem.'
+	'The latest chart topping pop single is playing throughout the small store. The interior is decorated in bright colors and bold designs, and the floor is packed with stands and tables displaying clothes with a more daring style. Looking around at all the advertisements with attractive yet emaciated models, you''ll either leave here seduced into buying something or with lower self-esteem.'
 
 	if young_shop_work = 0 and young_shop_work1 = 0 and young_shop_work2 = 0:
 		*nl
-		'As you were entering, you noticed a for hire sign with a note scribbled onto it that reads, "<b>The Manager Mr. Sobulyagin works weekdays from 09:00 to 18:00; Applicants should speak to him weekdays BEFORE 14:30!</b>"'
+		'As you enter, you notice a for hire sign with a note scribbled on it that reads, "<b>The Manager Mr. Sobulyagin works weekdays from 09:00 to 18:00; Applicants should speak to him weekdays BEFORE 14:30!</b>"'
 		if hour >= 9 and (hour < 15 or (hour = 14 and minut <= 30)) and week < 6:
 			act 'Talk to the manager':
 				minut += 1
@@ -112,8 +112,8 @@ if $ARGS[0] = 'start':
 	! if hour > 21 or hour < 8 or week >= 6:
 	if hour > 21 or hour < 8:
 		cla
-		'"Sorry, but the store is closed" the guard comes up to you. "Proceed to the exit."'
-		'<b><center><font color="red">The store is closing.</font></center></b>'
+		'"Sorry, but the store is closed," the guard comes up to you. "You''ll have to leave."'
+		'<b><center><font color="red">The store is closed.</font></center></b>'
 
 		act '<b>Get out of the shop</b>': minut += 3 & gt 'torgcentr'
 	end
@@ -169,7 +169,7 @@ end
 
 if $ARGS[0] = '0':
 	cla
-	'There is a black man in the shop looking at long underwear. He is asking for you to try it on, telling you that you have the same figure as his girlfriend.'
+	'There is a black man in the shop looking at long underwear. He wonders if you could model it for him, as you have the same body shape as his girlfriend.'
 
 	act 'Refuse':gt 'young_shop', 'endwork'
 
@@ -186,7 +186,7 @@ if $ARGS[0] = '0':
 		guy += 1
 		picrand = 19
 		'<center><img <<$set_imgh>> src="images/locations/city/citycenter/mall/cats/sex/mag0.jpg"></center>'
-		'You begin to change right in front of him, showing off your body and otherwise demonstrating all your charms. Soon you seem to get what you want. After you once again spread your legs showing off your panties he kneels in front of you and presses his lips to your crotch'
+		'Not even bothering to head towards the changing booth, you instead just begin stripping here right in front of the man. His eyes drift over your body as you remove your clothing and begin to put on the underwear. When you''re finished, you begin posing. The man eagerly licks his lips and kneels before you, placing kisses on your stomach, before moving down to your crotch.'
 
 		act 'Entertain':gt 'sex', 'kuni'
 	end
@@ -194,7 +194,7 @@ end
 
 if $ARGS[0] = '1':
 	cla
-	'A man enters the store and looks at women''s clothing, finally asking you to try it on, citing the fact that you have the same a figure as his girlfriend.'
+	'A man enters the store and begins looking at women''s clothing. A few moments later he asks if you would try on a particular piece, saying that you have the same figure as his girlfriend.'
 
 	act 'Refuse':gt 'young_shop', 'endwork'
 
@@ -214,7 +214,7 @@ if $ARGS[0] = '2':
 	cla
 	*clr
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/mall/cats/mag2.jpg"></center>'
-	'A young couple is in the store. They walk around the store for a long time and constantly look over to you, seemingly arguing. They come up to you and the girl, looking very embarrassed, tries to explain what they want from you. From what she tells you she is still a virgin and is not yet ready to have sex. But she also does not want to lose her guy, so he finds girls he wants to sleep with, and she oversees the process. She offers you 2000 rubles to have sex with her boyfriend with her in the room.'
+	'You notice a young couple wandering through the store. They appear to be arguing when they approach you. Somewhat embarassed, the young girl pulls you aside and explains her situation: She is a virgin and isn''t ready to start having sex. However, to keep from losing her boyfriend, she allows him to find other girls to sleep with as long as she is around to keep an eye on things. She offers you 2,000 rubles to have sex with her boyfriend with her in the room.'
 
 	act 'Refuse':gt 'young_shop', 'endwork'
 
@@ -230,14 +230,14 @@ if $ARGS[0] = '3':
 	cla
 	*clr
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/mall/cats/mag3.jpg"></center>'
-	'There are some guys walking down the hall, two of them white, the other two black. They seem to argue about something and soon come up to you to tell you about the reason. You are a little taken aback when you find out they were discussing whether you can tell the difference between sucking a black and a white cock while being blindfolded. The winners of the argument will fuck you, if you agree to help them find it out.'
+	'There are four guys walking into the store: two white, two black. They seem to be arguing about something when they approach you. You ask if you can help them and one of them replies, "We certainly hope so!" The four men have a bet over whether a blindfolded girl could tell the difference between a black cock and a white cock using only her mouth. You stare at the four and ask if they''re serious. Then you ask how you could possible help with this before realizing they want to volunteer you for this test. They tell you the two who are right will have sex with you, on the spot.'
 
 	act 'Send them away':gt 'young_shop', 'endwork'
 
 	act 'Ask what else you''ll get':
 		cla
 		picrand = 15
-		'You ask what else you will get for this and the guys laugh and say that you will get an unforgettable feeling.'
+		'You ask what else you will get for this and the guys laugh and say a threesome you''ll never forget.'
 
 		act 'Send them':gt 'young_shop', 'endwork'
 
@@ -251,7 +251,7 @@ if $ARGS[0] = '3':
 			$boy[1] = $npclastgenerated
 			guy += 2
 			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/mall/cats/sex/mag4.jpg"></center>'
-			'You take the guys to the back room where they unzip their pants and pull out their members. You are blindfolded and you start trying to find out the difference through the taste of their cocks, but you can not guess which is which. Since you can''t find it out the two white guys win the bet and the others leave the back room.'
+			'You take the guys into the back room, where they unzip their pants and pull out their members. You are blindfolded and start trying to find out the difference through the taste of their cocks, but you can not guess which is which. Since you can''t figure it out the two white guys win the bet and the others leave the back room.'
 
 			act 'Prize winners':xgt 'sexdvoe', 'var'
 		end
@@ -262,13 +262,13 @@ if $ARGS[0] = '4':
 	cla
 	*clr
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/mall/cats/mag5.jpg"></center>'
-	'For half of the day two guys in the store are always flirting with you and distracting you from your work. They pinch your ass, and after several unsuccessful attempts to send them away, you are quite desperate to get rid of them.'
+	'For half of the day, two guys in the store continuously flirt with you and distract you from your work. They pinch your ass, and after several unsuccessful attempts to send them away, you are quite desperate to get rid of them.'
 
 	act 'Call the manager':
 		cla
 		'The manager quickly shoves the guys out of the store.'
 
-		act 'Finish the job':gt 'young_shop', 'endwork'
+		act 'Finish your shift':gt 'young_shop', 'endwork'
 	end
 
 	act 'Give them what they want':
@@ -287,9 +287,9 @@ end
 
 if $ARGS[0] = '5':
 	cla
-	'Two Girls stopped by the store, and for about an hour you show them the goods while they are constantly touching you you as if by accident. When they bought all they wanted, one of them comes up to you and asks if she can kiss you on the lips. You''re a little dumbfounded by her forwardness:'
-	'"Of course, everything you wish"'
-	'"Well, then take off your panties. Like I said: I want to kiss your lips"'
+	'Two girls stop by the store and for about an hour you show them the goods while they are constantly touching you, as if by accident. When they''ve bought all they wanted, one of them comes up to you and asks if she can kiss you on the lips. You''re a little dumbfounded by her forwardness:'
+	'"O-of course, anything to keep our customers happy!"'
+	'"Well, then take off your panties. Like I said: I want to kiss your lips!"'
 
 	act 'Send them away':gt 'young_shop', 'endwork'
 
@@ -317,7 +317,7 @@ if $ARGS[0] = '5':
 				*clr
 				'<center><img <<$set_imgh>> src="images/locations/city/citycenter/mall/cats/sex/mag8.jpg"></center>'
 				'All this time the second girl stood on the sidelines masturbating while watching you. When you are finished she sits in a chair and spreads her legs wide calling to you:'
-				'"Hey girls, you completely forgot about me"'
+				'"Hey girls, you completely forgot about me!"'
 				'The two of you go over to the girl, kneel down and begin to lick her pussy, your tongues constantly in contact. It feels like a strange kiss'
 
 				gs 'arousal', 'cuni_give', 10, 'lesbian'
@@ -344,10 +344,10 @@ if $ARGS[0] = '6':
 	cla
 	*clr
 	gs 'stat'
-	'<b><center><font size="4"><font color="black">Heavy day</font></center></b>'
-	'There are a lot of buyers today. You are exhausted. You are working hard, there is barely any time to make conversation. And it has only been two hours.'
+	'<b><center><font size="4"><font color="black">Busy day</font></center></b>'
+	'There are a lot of customers today. You are exhausted. You are working hard, there is barely any time to make conversation. And it has only been two hours.'
 	'At the end of your shift the manager comes and asks you to stay for another hour.'
-	'"Listen, <<$pcs_nickname>>, we have a problem: as you can see we are short on staff. Hang on for another hour, and I''ll give you a premium, you will not regret it!"'
+	'"Listen, <<$pcs_nickname>>, we have a problem: as you can see we are short on staff. Hang on for another hour, and I''ll give you a bonus, you won''t regret it!"'
 
 	act 'Stay for another hour':
 		cla
@@ -355,10 +355,10 @@ if $ARGS[0] = '6':
 		young_shop_bonus += 3
 		gs 'stat'
 		'It seems that you have no choice. You can''t let down your co-workers.'
-		'After working for another hour, you are very tired, but the thought of a premium warms the soul.'
+		'After working for another hour, you are very tired, but the thought of a bonus makes you smile.'
 
 
-		act 'Finish the job':gt 'young_shop', 'endwork'
+		act 'Finish your shift':gt 'young_shop', 'endwork'
 	end
 
 	act 'I can''t':
@@ -367,29 +367,29 @@ if $ARGS[0] = '6':
 		'"If it was any other day, fine, but today I can''t.." you begin to make excuses, but the manager just shrugs:'
 		'"Okay, go home, we''ll manage without you. Just don''t count on a bonus for today!"'
 
-		act 'Finish the job':gt 'young_shop', 'endwork'
+		act 'Finish your shift':gt 'young_shop', 'endwork'
 	end
 end
 
 if $ARGS[0] = '7':
 	cla
 	*clr
-	'<b><center><font size="4"><font color="black">Cool time</font></center></b>'
-	'No buyer for the rest of your shift. You are chatting with Nastya. She normally talks about her sexual experiences and feelings.'
-	'Today she decides to relive her first sexual experience. This is her favorite subject, you even lost count of how many times she told you everything is in detail. One pleases, although she is not confused and always calls the same number of guys that she lost her virginity in the school locker room after phys-ed.'
+	'<b><center><font size="4"><font color="black">Break time</font></center></b>'
+	'No customers for the rest of your shift. You are chatting with Nastya. She normally talks about her sexual experiences and feelings.'
+	'Today she decides to tell you of how she lost her virginity. She leaves very little to the imagination as she regales you with how she was gangbanged in the locker room after gym class one day. Though some time has passed, she still vividly remembers every detail, including the name of every boy involved.'
 
-	act 'Finish the job':gt 'young_shop', 'endwork'
+	act 'Finish your shift':gt 'young_shop', 'endwork'
 end
 
 if $ARGS[0] = '8':
 	cla
 	*clr
-	'<b><center><font size="4">Case for paper</font></center></b>'
+	'<b><center><font size="4">Katia</font></center></b>'
 
 	if katia = 1:
 		'Today Katia comes in again. She is a very shy girl and it is difficult to understand what''s on her mind. You told her several times to ask questions, when she comes in, looks through the clothes and buys nothing, but she always remains silent. You simply want to help.'
-		'It is a pity that the staff is forbidden to invite friends to shop and chat with them, because of this you have to stay away from Katie''s on. Although, if you could talk to her, you doubt that you would have a constructive dialogue. Usually all the questions she answers with:"I do not know, " "simple, " or "Well .." and silence.'
-		'You think that Kate is constantly looking at you, and when you look back, she smiles, blushes and turns away.'
+		'It''s a shame that store policy states that you are not allowed to fraternize with customers, as you''d like the opportunity to befriend Katia. Though even if you could speak with her, you''d doubt she say much. Even when asking if she simply needs help, she rarely mutters more than a few words like "I don''t know," "I''m not sure," "Well..." or just looks away in silence.'
+		'You get the feeling that Katia is constantly looking at you. Whenever you glance at her, she smiles, blushes then turns away.'
 
 	elseif katia = 0:
 		katia = 1
@@ -397,52 +397,52 @@ if $ARGS[0] = '8':
 		'You constantly get the impression that she is looking at you. When you raise your eyes, you can see how she starts to fuss, turns and glares at the nearest skirt beginning to examine it with interest.'
 		'You tried many times to offer assistance, but she constantly lowers her eyes, blushes and mutters under her breath:'
 		'"No, thanks, I''ll handle it." A minute after that, she just runs away from the store.'
-		'Actually, you do not even remember that she ever bought something. She just walks around forever looking at the clothes. She dresses simply, but not poor, so you don''t think that she can''t afford it and just comes to dream.'
-		'It is kind of strange ..'
+		'Actually, you don''t ever recall her buying anything. She just walks around for a long time looking at clothes. She dresses plainly but doesn''t look as though she''s poor, so she simply couldn''t be window shopping.'
+		'It is kind of strange...'
 	end
 
-	act 'Finish the job':gt 'young_shop', 'endwork'
+	act 'Finish your shift':gt 'young_shop', 'endwork'
 end
 
 if $ARGS[0] = '9':
 	*clr
 	cla
-	'<b><center><font size="4"><font color="black">Case for paper</font></center></b>'
+	'<b><center><font size="4"><font color="black">Cum See Me After Work</font></center></b>'
 	'At the beginning of the shift the manager asks you to come to him after work, but doesn''t tell you the reason why.'
 	'You approach the door to his office and you are about to knock as you notice that the door is slightly ajar. You look inside.'
 
 	act 'Look inside':
 		cla
 		'<center><img <<$set_imgh>> src="images/locations/city/citycenter/mall/cats/sex/young_shop_quest10.jpg"></center>'
-		'Your eyes witness an obscene picture. Andrei Mikhailovich is facing the monitor, his pants pulled down, his member in his hands. The manager looks at the monitor and strokes his penis, which has a condom on. Almost immediately he throws back his head and starts to cum.'
-		'Filling a condom with sperm, he removes it wipes his member and throws the condom in the waste basket. Then he starts to pull up his pants and walks toward the door.'
-		'You''re trying not to make a sound, run back from the door and hide behind the boxes near the service exit. Andrei Mikhailovich, noticing nothing, passes you and goes into the toilet. You''re out of your hiding place and go to his office. Out of curiosity, you look at the monitor and some selected German porn. Then you look into the basket and see the lying in a condom full of sperm.'
+		'Your eyes witness an obscene picture. Andrew Sobulyagin is facing the monitor, his pants pulled down, his member in his hands. The manager looks at the monitor and strokes his penis, which has a condom on. Almost immediately he throws back his head and starts to cum.'
+		'Almost immediately, he pulls off the condom and throws it in the nearby trash can and wipes his cock off. Then he starts to pull up his pants and walk towards the door.'
+		'Trying to be as quiet as possible, you rush back from the door and hide behind some boxes near the service exit. Mr. Sobulyagin, noticing nothing, passes you and goes into the toilet. You''re out of your hiding place and go to his office. Out of curiosity, you look at the monitor and some selected German porn. Then you peak in the trash can and notice the used condom.'
 
 		act 'Wait for the manager':
 			cla
-			'With a smile, you step away from the manager''s table, thinking about what he''d do if he saw me at the monitor, with a condom in your hand.'
+			'With a smile, you step away from the manager''s table, thinking about what he''d do if he saw you looking at his computer.'
 			'A minute later, Andrew returns:'
-			'"Ah, <<$pcs_nickname>>, nice of you to come! Wait, I have something to sign for you." the manager goes to his desk and goes through the papers handing you a sheet.'
-			'Your are not really focused on the piece of paper so you don''t read it, sign it and return the document to the manager. After saying goodbye, you''re going back to the shop floor.'
+			'"Ah, <<$pcs_nickname>>, nice of you to come! I have something for you to sign," the manager goes to his desk and shuffles through some paperwork before handing you a form.'
+			'You''re not really focused on the piece of paper so you don''t read it before signing and returning the document to the manager. After saying goodbye, you''re go back to the shop floor.'
 
-			act 'Finish the job':gt 'young_shop', 'endwork'
+			act 'Finish your shift':gt 'young_shop', 'endwork'
 		end
 
 		act 'Take the condom':
 			cla
 			*clr
 			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/mall/cats/condom_cum.jpg"></center>'
-			'You decide to have a little fun, reach into the basket and take out the condom. It is slippery and still warm. You hold up the condom over your head and hold it against the light to see through it. Then suddenly you hear the door open to the soffice. Another half a second and he sees you with a condom in your hand! You do not even have an extra moment to hide your hands behind your back.'
+			'Deciding to have a bit of fun, you reach into the garbage can and pull out the used condom. It feels a bit slippery and is still warm. You hold the condom up to see through it out of curiosity. Suddenly you hear the door open, Mr. Mikhailovich is coming back! Oh shit, you have a split second to react, what do you do?!'
 
 			act 'In your mouth!':
 				cla
-				'You have no other options .. You barely have time to shove the condom in your mouth, as you see Andrei''s eyes:'
-				'"Ah, <<$pcs_nickname>>, nice of you to come! Wait, I have something to sign for you." the manager comes over to his desk and looks through his paper for a long time finally handing you a sheet.'
-				'You absolutely do not read it, sign it, then utter:'
-				'"G''bye" You leave the office and run straight to the locker room, take the condom out of your mouth, and throw it in the trash.'
-				'At least Andrei tied the condom up before throwing it away, otherwise you would have had a mouth full of sperm!'
+				'Not seeing any other options, you quickly pop the condom into your mouth. Andrew doesn''t seem to notice your distress and begins speaking to you.'
+				'"Ah, <<$pcs_nickname>>, nice of you to come! I have something for you to sign," the manager goes to his desk and shuffles through some paperwork before handing you a form.'
+				'You don''t read the form, you just sign the sheet and hope to leave his office as quickly as possible.'
+				'"G''bye," you mutter before leaving the office, straight to the locker room and spit the used condom out straight into the trash.'
+				'At least Mr. Sobulyagin tied the condom up before throwing it away, otherwise you would have had a mouth full of sperm!'
 
-				act 'Finish the job':gt 'young_shop', 'endwork'
+				act 'Finish your shift':gt 'young_shop', 'endwork'
 			end
 		end
 	end
@@ -452,53 +452,53 @@ if $ARGS[0] = '10':
 	*clr
 	cla
 	money += 1000
-	'<b><center><font size="4"><font color="black">Case for paper</font></center></b>'
+	'<b><center><font size="4"><font color="black">No Money, No Problems</font></center></b>'
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/mall/cats/young_shop_quest6.jpg"></center>'
 	'Into the store stumble three boozy women of indeterminate age, dressed in shabby clothes. All three of them are wearing torn stockings, colorful miniskirts and dirty T-shirts.'
-	'"Whores?" you ask Nastya.'
-	'"Oh, by the way, you see the one in the red skirt?" Nastya nods toward the ugliest of them. "She studied in a parallel class."'
-	'"She''s what, 18 years?? That''s horrific, what brings someone to such a depraved lifestyle" you declare accusingly.'
-	'"Depravity has nothing to do with it" says Nastya. "Some girls have had more guys than her, but they do not look like it! You have to look past their appearance."'
-	'The sluts, not even really looking at the clothes, choose the first few available things and carry them to the cashier. Nastya''s friend throws a pile of dirty crumpled <b>₽</b> on the counter and pulling a face says:'
-	'"Same procedure?" Without waiting for an answer, the girls take their belongings and leave the store.'
-	'"Here you go, you get half" Nastya gives you a pile of <b>₽</b>. "They are a little short changed. They don''t have to pay in full .."'
+	'Nastya smiles when she sees them. You give her an inquisitive look.'
+	'She points towards one of them, "You see her, the one in the red skirt? I know her from school."'
+	'"She barely looks 18 years old," you reply. "It''s quite depraved how whorish she looks for someone so young."'
+	'"Depravity has nothing to do with it, <<$pcs_nickname>>!" Nastya scolds you. "Some girls have had more guys than her, but they do not look like it! You have to look past their appearance."'
+	'The group, not even really looking at the clothes, grab the first few available things and carry them to the register. Nastya''s friend throws a pile of dirty, crumpled <b>₽</b> on the counter.'
+	'"Thanks, Nastya!" she says as the girls take their belongings and leave the store.'
+	'"Here you go, you should get half," Nastya says as she hands you a handful of <b>₽</b>."They''re a bit short on funds, so... I give them a discount," she says, winking at you.'
 
-	act 'Finish the job':gt 'young_shop', 'endwork'
+	act 'Finish your shift':gt 'young_shop', 'endwork'
 end
 
 if $ARGS[0] = '11':
 	*clr
 	cla
-	'<b><center><font size="4"><font color="black">Case for paper</font></center></b>'
-	'<<$pcs_nickname>>, look here - Nastya approaches you. "I''ve got a nice blouse, new, but with a slight defect. The manager is going to put it at a good discount <b>-70%</b>, maybe you want to take it yourself?"'
-	'The store is selling it for <b>2400</b> <b>₽</b> , but you can buy it for <b>720</b>.'
+	'<b><center><font size="4"><font color="black">Employee Perks</font></center></b>'
+	'"<<$pcs_nickname>>, look here," Nastya approaches you. "I''ve got a nice, new blouse but it''s got a slight defect. The manager is just going to put it in the <b>70%</b> off discount bin, but maybe you want to take it yourself?"'
+	'The store is selling it for <b>2400₽</b> , but you can buy it for <b>720₽</b>.'
 
-	act 'Finish the job':gt 'young_shop', 'endwork'
+	act 'Finish your shift':gt 'young_shop', 'endwork'
 end
 
 if $ARGS[0] = '12':
 	*clr
 	cla
-	'<b><center><font size="4"><font color="black">Case for paper</font></center></b>'
+	'<b><center><font size="4"><font color="black">Queer Eye for the Queer Guys</font></center></b>'
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/mall/cats/young_shop_quest5.jpg"></center>'
-	'Two guys with very glamorous appearance come into the shop to look at the transparent blouses. You often notice them in this neighborhood and they probably live somewhere near. They constantly go together and hold hands. You go to the guys and helpfully ask:'
+	'Two guys with a very glamorous appearance come into the shop to look at the transparent blouses. You often notice them in this neighborhood and they probably live somewhere close by. They are constantly together and even hold hands. You go to the guys and helpfully ask:'
 
 	act 'Can I help you?':
 		cla
 		'"Hello, I see you are picking out a gift for a girl, can I help?"'
 
 		if pcs_apprnc < 200:
-			'The guys appreciatively examines you from head to toe and one of them says with disdain:'
-			'"Get out, nasty, as i see it, you need the help!" He starts insultingly discussing your appearance with his boyfriend.'
-			'You go away from them looking for another customer.'
+			'The guys examine you from head to toe before one of them says with disdain:'
+			'"Honey, it looks like you need the help!" He starts insultingly discussing your appearance with his boyfriend.'
+			'You leave them to look for another, hopefully nicer, customer.'
 
-			act 'Finish the job':gt 'young_shop', 'endwork'
+			act 'Finish your shift':gt 'young_shop', 'endwork'
 		else
-			'The guys appreciatively examines you from head to toe and one of them says with interest:'
-			'"What a pretty girl. Do not worry, my beauty, we can do it on our own!" The guy waves you goodbye, and takes his friend''s hand, admiringly discussing your appearance.'
-			'You go away from them and looking for another customer.'
+			'The guys examine you from head to toe before one of them says with interest:'
+			'"My, what a pretty girl! Don''t worry, beautiful, we can help ourselves!" The guy waves you goodbye, and takes his friend''s hand, admiringly discussing your appearance.'
+			'With a spring in your step, you look for another customer.'
 
-			act 'Finish the job':gt 'young_shop', 'endwork'
+			act 'Finish your shift':gt 'young_shop', 'endwork'
 		end
 	end
 end
@@ -506,25 +506,25 @@ end
 if $ARGS[0] = '13':
 	cla
 	*clr
-	'<b><center><font size="4"><font color="black">Case for paper</font></center></b>'
-	'A man of 40 years approaches you and asks for help in choosing clothes for his little daughter:'
-	'"Hello, my beauty, help me to choose a gift for my daughter''s birthday."'
+	'<b><center><font size="4"><font color="black">Why Don''t You Have Seat Over There?</font></center></b>'
+	'A man who looks to be in his 40s approaches you.'
+	'"Hello, my lovely. Could you help me choose a gift for my daughter''s birthday?"'
 	'"Yes, of course. What''s her size?"'
-	'"I don''t even know .. Well, her figure is like yours, only with smaller breasts. Maybe you can try in on yourself?"'
-	'"In principle, I do not mind, so pick out some clothes. And how old is your daughter?" You are at work, but for some reason there are not many visitors today, so trying on clothes is a great way to waste away a few minutes.'
-	'"She is much younger than you, but is developing rapidly. She already looks like 16!" The buyer''s eyes sparkle as he begins to think about his daughter.'
+	'"I don''t even know... Well, her figure is like yours, only with smaller breasts. Maybe you can try some things on yourself?"'
+	'"Sure, I could help you." Normally you wouldn''t have time to help a customer to this extent but the store has been rather empty today, so you relish the opportunity to try on some new clothes, even if they''re not for you. "Let''s find some things your daughter might like. How old is she?"'
+	'"She''s fairly younger than yourself, but she''s developing quite rapidly," he says, somewhat hungrily. "Why, she already looks 16!"'
 
 	if pcs_intel >= 40:
-		'Suddenly it strikes you .. Yes, he''s a pedophile, he is choosing these clothes for his little daughter, with a smile on his face. Maybe I need to do something about it? ..'
+		'It suddenly occurs to you: this man may be a pedophile. This little girl could be in danger! Should you do something about it?'
 
-		act 'Tell on the pedophile':
+		act 'Report the man':
 			cla
-			'"I am happy to try on a few options for you. Wait here, and I''ll run to the store and immediately find all the blouses and skirts to fit and will try them on!" Trying not to show your nervousness, you leave the man behind to wait for you.'
-			'After describing everything to the manager, you''re going to the warehouse, quickly find several options of clothes and change into them in the booth. The pedophile lustfully watches as you stand in front of him in a skirt, when several policemen show up in the store.'
-			'The policemen don''t even think about listening to the men''s argument, pinning him down and leading him to a patrol car.'
-			'"Don''t say anything. We are going to send your daughter to workers care, where she will get help from psychologists." with these words the cops lead the guy from the store.'
+			'"I'm happy to help however I can. Wait right here while I go grab some clothes! I'll be right back..." You try not to sound too nervous as you turn to leave and find the manager.'
+			'After explaining the situation to your manager, you return to the man to try on some outfits. You can feel him eyeing you up as you as emerge from the changing room in a new skirt. Suddenly a few police officers approach the man.'
+			'The man attempts to explain himself, but the police do not listen to him. Instead, they tackle him to the ground before handcuffing him.'
+			'As they lead the man away, they explain that the daughter will be moved into protective custody where she can receive any help she may need. They thank you for reporting the man.'
 
-			act 'Finish the job':gt 'young_shop', 'endwork'
+			act 'Finish your shift':gt 'young_shop', 'endwork'
 		end
 	end
 
@@ -532,31 +532,31 @@ if $ARGS[0] = '13':
 		if pcs_intel >= 40:
 			cla
 			*clr
-			'Actually, it''s none of your business if his daughter is not happy with something. She herself may apply to the authorities, and you can not destroy the whole family, by sticking your nose where it doesn''t belong!'
+			'It''s really none of your business. You''re sure that his daughter is smart enough to take care of herself. Besides, what if you''re wrong about this man? Could you live with yourself if you destroyed a family over a baseless accusation?'
 		elseif pcs_intel < 40:
 			cla
 			*clr
 			pcs_horny += 30
 			gs 'stat'
-			'Suspecting nothing, you tell him that nowadays all children develop precociously.'
-			'You go to the warehouse and collect all the clothes that fit you, and go back to the changing rooms ..'
-			'The man constantly jokes and makes very nice compliments about your figure. Every time you''re hiding behind the curtain, he tries to peep how you dress up and continues to laugh it off when you notice it.'
-			'During the show, he tells you to spin on the spot, trying to see what is hidden under the skirt as well as looking at breasts which are barely covered by the blouse.'
-			'His actions seem a little suspicious to you, but you write it off on his jaunty mood and sociability.'
-			'Once you finally tried on all the skirts and blouses, he chooses to buy one and asks you to change once more.'
-			'"What a beauty, my daughter will look simply amazing. Listen .. do you want to make some money?"'
-			'"In what sense?" you ask surprised.'
-			'"You know, you''re so beautiful and sexy, I''m very excited looking at you! I will pay you 5000 rubles if you just show off this blouse and this skirt without panties and bra. You don''t have to do anything else."'
+			'"Oh! Well in that case I have some ideas! Lemme go grab some outfits and I''ll be right back!"'
+			'You rush off and grab some clothes, eager to show off and make a sale today. After you''ve gathered a few items, you return to the man and head towards the changing rooms.'
+			'The man constantly jokes and makes very nice compliments about your figure. Every time you''re hiding behind the curtain, he tries to peep on you dressing up and continues to laugh it off when you notice.'
+			'Each time you show off an outfit, the man asks you to spin around. You oblige each time, though you notice your panties and bra become visible while you do this.'
+			'His actions seem a little suspicious to you, but you write it off due to his jaunty mood and sociability.'
+			'Once you''ve finally tried on all the skirts and blouses, he chooses to buy one and asks you to change once more.'
+			'"What a beauty, my daughter will look simply amazing. Listen... would you like to make some money?"'
+			'"What do you mean?" you ask surprised.'
+			'"You know, you''re so beautiful and sexy, I''m very excited looking at you! I will pay you 5,000 rubles if you just show off this blouse and this skirt... without your bra and panties. You don''t have to do anything else."'
 		end
 
 		act 'Refuse':
 			cla
 			*clr
 			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/mall/cats/young_shop_quest4.jpg"></center>'
-			'"What are you, crazy?! I''m not going to do that!" You refuse his blatant bid. You''re not going to do that. "Don''t even try to persuade me, I just won''t do it! Go offer your daughter to do that."'
-			'"Fine. Just let me buy the clothes then." The buyer goes out of the booth and waits until you change back, and give him the clothes. He calmly pays and leaves the store. You look after him, disgusted.'
+			'"What are you, crazy?! I''m not going to do that!" You refuse his outrageous request. You''re not going to do that. "Don''t even try to persuade me, I just won''t do it! Find someone else for that!"'
+			'"Fine. Just let me buy the clothes then." The man leaves the booth and waits until you change back, where you give him the clothes. He calmly pays and leaves the store. You look at him, disgusted.'
 
-			act 'Finish the job':gt 'young_shop', 'endwork'
+			act 'Finish your shift':gt 'young_shop', 'endwork'
 		end
 
 		if pcs_horny >= 80:
@@ -572,15 +572,15 @@ if $ARGS[0] = '13':
 			*clr
 			money += 5000
 			pcs_horny += 10
-			msg 'Excited the buyer pulls his wallet out of his pocket and hands you <b>5000</b> <b>₽</b>'
+			msg 'Excitedly the man pulls out his wallet and hands you <b>5,000₽</b>.'
 			gs 'stat'
-			'"Okay, but I won''t do anything more!" 5, 000 <b>₽</b> - a great motivator and it would be foolish to ignore such a sum.'
-			if pcs_horny >= 100:'Yes, and your body just craves to have someone look at it.'
+			'"Okay, but I won''t do anything more!" <b>5,000₽</b> is a great motivator and it would be foolish to ignore such a sum of money.'
+			if pcs_horny >= 100:'Besides, you kind of want to show off your body a bit.'
 			'You unfasten and put away your bra baring your breasts to a stranger.'
 			'You put on a little blouse to cover your bare chest and thrust your hand under the skirt to slowly remove your panties.'
 			'Licking your lips, you take the edges of the mini skirt and little by little, begin to lift the edges up. Meanwhile the man unzips his fly and his already hardened member pops out of his pants.'
-			'You are flushed with excitement, standing in the locker room without panties and bra, lifting your skirt so that your pussy is perfectly visible, and look at how the man is jerking his cock. You do not have time to recover as the man begins to wheeze, and you realize that he is about to finish.'
-			'Suddenly he takes a step forward and lays his hand on your shoulder. You are surprised by his strength as he pushes you down on your knees. You try to argue against this behavior, citing your agreement, but you realize that there is no time to do it. The Men gives a muffled moan and you understand that his cock is about to explode.'
+			'You are flushed with excitement, standing in the changing room without your bra and panties, lifting your skirt so that your pussy is perfectly visible, and look at how the man is jerking his cock. You do not have time to recover as the man begins to wheeze, and you realize that he is about to finish.'
+			'Suddenly he takes a step forward and lays his hand on your shoulder. You are surprised by his strength as he pushes you down on your knees. You try to argue, but you realize that there is no time. The man gives a muffled moan and you realize he''s going to cum.'
 
 			gs 'arousal', 'flash', 5
 			gs 'stat'
@@ -601,11 +601,11 @@ if $ARGS[0] = '13':
 					gs 'stat'
 					'There is just so much on you! You start to collect sperm in your hands, and lick it of your fingers with great pleasure.'
 					'The smell and taste is driving you crazy, your legs give way and you feel your underbelly beginning to shudder. You''re coming.'
-					'Recovering, you see the man standing over you smiling:'
-					'"Thank you, beautiful! Let''s take these clothes off, I want to buy them" You begin to tell him, that you need to bring out new ones, or at least clean the dirty ones, but the buyer interrupts you. "No, they do not need to be cleaned, these tracks will remind me of the wonderful moments with you."'
-					'You undress and change back to your clothes, then quickly run to the locker room. Your shift is not over yet, and before leaving you should clean yourself up.'
+					'Recovering, you see the man standing over you smiling.'
+					'"Thank you, beautiful! Let''s take these clothes off, I want to buy them" You begin to tell him that you should bring out new ones, or at least clean the dirty ones, but he interrupts you. "No, they do not need to be cleaned, these stains will remind me of this wonderful moment with you."'
+					'You undress and change back to your clothes, then quickly run to the restroom. Your shift is not over yet, and you should clean yourself up before returning to work.'
 
-					act 'Finish the job':gt 'young_shop', 'endwork'
+					act 'Finish your shift':gt 'young_shop', 'endwork'
 				else
 					'When the sperm stops hitting you in the face, you open your eyes and see a big appetizing dick before you. It is covered in sperm, emanating a strong masculine fragrance.'
 
@@ -616,137 +616,137 @@ if $ARGS[0] = '13':
 						'You can''t hold back and take the cock in your mouth. It turns out that he was not completely drained and you feel his last flinches as your mouth gets filled with sperm. You clean off his member before he takes it out of your mouth.'
 					end
 
-					'You look up to the buyer and smile at him.'
-					'"Thank you, beautiful! Let''s take these clothes off, I want to buy them" You begin to tell him, that you need to bring out new ones, or at least clean the dirty ones, but the buyer interrupts you. "No, they do not need to be cleaned, these tracks will remind me of the wonderful moments with you."'
-					'You undress and change back to your clothes, then quickly run to the locker room. Your shift is not over yet, and before leaving you should clean yourself up'
+					'You look up to the man and smile at him.'
+					'"Thank you, beautiful! Let''s take these clothes off, I want to buy them" You begin to tell him that you should bring out new ones, or at least clean the dirty ones, but he interrupts you. "No, they do not need to be cleaned, these stains will remind me of this wonderful moment with you."'
+					'You undress and change back to your clothes, then quickly run to the restroom. Your shift is not over yet, and you should clean yourself up before returning to work.'
 
 					gs 'arousal', 'end'
 					gs 'stat'
 					
-					act 'Finish the job':gt 'young_shop', 'endwork'
+					act 'Finish your shift':gt 'young_shop', 'endwork'
 				end
 			end
 		end
 
-		act 'Finish the job':gt 'young_shop', 'endwork'
+		act 'Finish your shift':gt 'young_shop', 'endwork'
 	end
 end
 
 if $ARGS[0] = '14':
 	cla
 	*clr
-	'<b><center><font size="4"><font color="black">Case for paper</font></center></b>'
-	'You go to the changing booths and collect clothes that another buyer left after fitting. Accidentally you drop a mini-skirt and as you pick it up, you notice a very inconspicuous thing on the plinth. You immediatly recognize it:'
-	'"Yes, it''s a hidden camera" the thought pierces you like an arrow. You can not think of a reason why you would find something like this in the store!'
-	'What should you do now? You should probably tell the manager, he will understand, or .. What if he already knows? No, that''s ridiculous.'
+	'<b><center><font size="4"><font color="black">I Always Feel Like Somebody''s Watching Me</font></center></b>'
+	'You go to the changing booths and collect clothes that another buyer left after fitting. You accidentally drop a mini-skirt and as you pick it up, you notice a very inconspicuous thing on the plinth. You immediately recognize it.'
+	'"Yes, it''s a hidden camera," the thought pierces you like an arrow. You can not think of a reason why you would find something like this in the store!'
+	'What should you do now? You should probably tell the manager, he will understand, or... What if he already knows? No, that''s ridiculous.'
 
 	act 'Tell the manager about the camcorder':
 		cla
-		'You''re storming into the manager''s office without knocking and start chattering about what happened.'
-		'"Hey, hey, <<$pcs_nickname>>, calm down! What happened??"'
-		'"There! There! In the booth!" with trembling hands you point in the direction of the changing booths. "Faster!"'
-		'The Manager reluctantly rises from his chair and goes with you. Going into the booth, he squats down and pulls on the camera glued to the plinth.'
-		'"It is necessary to call.." you begin to prompt the manager, but he interrupts you mid-sentence:'
-		'"Wait, we should think about this" the manager stands and twirls the camera in his hands. "If we call the cops, here is what will happen.. the shop gets closed, the place gets searched, and we can be fined or something worse. Let''s not do anything rash."'
-		'"Let''s just do this: You calm down and go home, and I will inspect everything here. This way we won''t get any problems! It is good that you were vigilant and found it, but there is no need to tell anyone, okay?"'
-		'"Yes, of course - your shift is coming to an end anyway and you decide to just go home and forget about everything."'
+		'You storm into the manager''s office without knocking and start chattering about what happened.'
+		'"Hey, hey, <<$pcs_nickname>>, calm down! What happened?"'
+		'"There! There! In the booth!" with trembling hands you point in the direction of the changing booths. "Hurry!"'
+		'The manager reluctantly rises from his chair and goes with you. Going into the booth, he squats down and pulls on the camera glued to the plinth.'
+		'"We should call th-" you begin to prompt the manager, but he interrupts you mid-sentence.'
+		'"Wait, we should think about this" the manager stands and twirls the camera in his hands. "If we call the cops, here is what will happen... the shop gets closed, the place gets searched, and we can be fined or something worse. Let''s not do anything rash."'
+		'"Let''s just do this: You calm down and go home, and I will inspect everything here. This way we won''t have any problems! It is good that you were vigilant and found it, but there is no need to tell anyone, okay?"'
+		'Yes, of course - your shift is coming to an end anyway and you decide to just go home and forget about everything.'
 
-		act 'Finish the job':gt 'young_shop', 'endwork'
+		act 'Leave work':gt 'young_shop', 'endwork'
 	end
 
 	act 'Keep silent':
 		cla
-		'You take a few deep breaths and force yourself to calm down, bringing your thoughts in order.'
-		'You did not install the camera, you are not responsible. You can always say that you didn''t know about it. You did not get dressesd in the booth. Generally, girls who did will not know there was a camera. Someone has probably seen them and was entertained. But you do not mind.'
+		'You take a few deep breaths and force yourself to calm down, gathering your thoughts.'
+		'You didn''t install this camera, so really, you''re not responsible. You can always say that you didn''t know about it. You haven''t changed in this booth, and most girls who have will likely never know there was a camera anyways.'
 		'You decide not to touch the camera and just keep working.'
 
-		act 'Finish the job':gt 'young_shop', 'endwork'
+		act 'Finish your shift':gt 'young_shop', 'endwork'
 	end
 end
 
 if $ARGS[0] = '15':
 	cla
 	*clr
-	'<b><center><font size="4"><font color="black">Case for paper</font></center></b>'
-	'You go to the changing booths and find that someone left shirt. You remember that it belongs to a girl who just 5 minutes ago bought a blouse and went out of the store. Apparently, she decided she can no longer use the t-shirt and just left it in the booth.'
-	'You decide to wait until the end of the shift, as the shopper may return. An hour passes and your shift ends, but nobody comes for the shirt. You carefully look at it: it is an ordinary shirt, almost new, no holes, no dirt, nothing. Can you keep it yourself?'
+	'<b><center><font size="4"><font color="black">The Shirt Off Her Back</font></center></b>'
+	'You go to the changing booths and find that someone has left a shirt behind. You remember that it belongs to a girl who just 5 minutes ago bought a blouse and left the store. Apparently, she decided she no longer needs the t-shirt and just left it in the booth.'
+	'You decide to wait until the end of the shift, as the shopper may return. An hour passes and your shift ends, but nobody comes for the shirt. You carefully look at it: it is an ordinary shirt, almost new, no holes, fairly clean. Could you just keep it for yourself?'
 
 	act 'Keep it':
 		cla
-		'Before leaving, you take the shirt with you. The girl doesn''t seem to need it, and you are not rich enough to throw away almost new things.'
+		'Before leaving, you take the shirt with you. The girl didn''t seem to want it, and you''re not about to throw away fairly new clothing. Your mother raised you better than that!'
 
 		! WD: Uninitialised ~ 'wear_chest_have_'
 		if wear_chest_have_[6] = 0:
 			'no action'
 		else
-			'<b>- Although... you also already have the same one. Even with the amount of clothes you have you are still tempted .. Still, you already the exact same one. You don''t need it - You leave the T-shirt in the store.</b>'
+			'<b>However, it occurs to you that you already have this shirt. You decide to leave the shirt behind in the store. Perhaps it could be resold? Your boss will love you for that!</b>'
 		end
 
-		act 'Finish the job':gt 'young_shop', 'endwork'
+		act 'Finish your shift':gt 'young_shop', 'endwork'
 	end
 
-	act 'Finish the job':gt 'young_shop', 'endwork'
+	act 'Finish your shift':gt 'young_shop', 'endwork'
 end
 
 if $ARGS[0] = '16':
 	cla
 	*clr
-	'<b><center><font size="4"><font color="black">Case for paper</font></center></b>'
+	'<b><center><font size="4"><font color="black">And you thought your job sucked...</font></center></b>'
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/mall/cats/sex/young_shop_quest2.jpg"></center>'
-	'Passing the changing room, you hear strange noises from there. Perhaps someone is just changing, but there seems to be something wrong.'
-	'Curious, you make sure that no one notices, look inside and see a rather strange picture:'
-	'Whether a couple couldn''t make it home, whether they have nowhere else to go, whether they are just perverts. It is difficult to say, and now it doesn''t matter.'
-	'You watch as the cute girl very skillfully sucks a man''s penis and don''t know how to react. You can''t continue watching them. What will they think if they see an employee spying on customers in the changing booth?'
+	'While passing by the changing room, you hear strange noises from within. Perhaps someone is just changing, but there seems to be something wrong.'
+	'Curious, you make sure that no one is watching and look inside to see a rather erotic display.'
+	'A young looking woman is on her knees giving quite a skillful blowjob to an equally young looking man.'
+	'You shouldn''t be watching this! What would this couple do if they caught you spying? What would a customer say if they saw you peeking in the changing booth?'
 
 	if pcs_horny >= 80:
-		'But you are too excited to ignore what is happening or care about getting caught.'
+		'You want to turn away, but you''re far too excited to leave now or even care about being caught.'
 
 		act 'Eavesdrop':
 			cla
 			*clr
-			'You decide to stand next to the cabin and listen to the joy of the young couple. You listen as she licks and sucks his cock loudly. Suddenly she makes a strange sound indicating that something has changed.'
+			'You decide to stand next to the cabin and listen to the young couple. You listen as she licks and sucks his cock loudly. Suddenly she makes a strange sound indicating that something has changed.'
 			'"Did they stop?" You look down again into the booth and see what''s wrong. The guy is holding the girl''s hair and pulls her mouth firmly onto his penis. You have never seen a girl getting fucked in the throat with such force.'
-			'"She could suffocate." the thought suddenly crosses your mind. But instead of easing up or helping the girl her boyfriend runs a hand over her hardened nipples and down to her skirt.'
-			'Then you hear the guy starting to moan, and the girl coughing plaintively tells him:'
-			'"Come on, come on, cum on my face, yes .." You once again look into the booth.'
+			'"She could suffocate," you think. But instead of easing up or helping the girl, her boyfriend runs a hand over her hardened nipples and down to her skirt.'
+			'Then you hear the guy starting to moan, he must be close.'
+			'The girl, coughing, pleads him on, "Yes, yes, cum on my face, yes..."'
 
 			act 'Look into the booth':
 				cla
 				*clr
 				'<center><img <<$set_imgh>> src="images/locations/city/citycenter/mall/cats/sex/young_shop_quest3.jpg"></center>'
 				'The girl''s whole face is covered with a thick layer of sperm.'
-				'The Guy again puts his cock into her mouth to let her clean off his semen. Then he quietly begins to put on pants, watching the girl as she uses her hands to collect sperm from her face putting it into her mouth.'
-				'You decide to get away from the booth, so you won''t get caught. A minute later, the pair shows up and you can see that she didn''t wipe her face very thoroughly as traces of sperm are still visible to the naked eye.'
-				'As such, the two of them go out of the store into the street.'
+				'The guy puts his cock back into her mouth to let her clean off his cum. Then he quietly begins to pull up on his pants, watching the girl as she uses her hands to collect sperm from her face and licks her fingers clean.'
+				'You decide to get away from the booth, so you won''t get caught. A minute later, the pair shows up and you see that she didn''t wipe her face very thoroughly as traces of sperm are still visible to the naked eye.'
+				'You decide to stay quiet as the two of them leave the store.'
 
 				gs 'arousal', 'voyeur', 5
 				gs 'arousal', 'end'
 				gs 'stat'
 				
-				act 'Finish the job':gt 'young_shop', 'endwork'
+				act 'Finish your shift':gt 'young_shop', 'endwork'
 			end
 		end
 	elseif pcs_horny < 80:
 		act 'Ignore':
 			cla
 			*clr
-			'This is clearly not your business, and snooping around and eavesdropping is indecent. Of course, you could get rid of them, but you do not want to deprive these young people of good memories and spoil their fun.'
+			'This is clearly none of your business, plus snooping and eavesdropping is indecent. Of course, you could get rid of them, but you do not want to spoil their fun.'
 			'You go away from the booth and start folding scattered blouses. After a few minutes, the couple comes out of the booth and you see traces of semen on the girl''s face. All your efforts to stop yourself from smiling fail.'
-			'Soon she and her boyfriend go out of the store into the street.'
+			'Soon she and her boyfriend quietly leave the store.'
 
-			act 'Finish the job':gt 'young_shop', 'endwork'
+			act 'Finish your shift':gt 'young_shop', 'endwork'
 		end
 
 		act 'Disperse':
 			cla
 			*clr
-			'"Ahem, uh .." You cough. "Are you all right, can I help?"'
-			'"Yeah, you can come in and help" you hear the muffled voice of the guy. "Ouch, that hurts."'
-			'The Girl takes his member out of her mouth and hits the guy in the balls, loudly saying:'
-			'"We are just finishing and will leave soon."'
-			'A minute later the pair comes out of the booth and the girl gives me a shy smile and blushes a little, taking her boyfriend out of the store.'
+			'"Ahem, uh..." You cough. "Are you all right, can I help?"'
+			'"Yeah, you can come in and help," you hear the muffled voice of the guy. "Ouch, that hurts."'
+			'You can only imagine that the girl wasn''t very appreciative of that comment.'
+			'You hear a somewhat hoarse, yet feminine voice reply, "We''re just finishing and will leave soon."'
+			'A minute later the pair comes out of the booth and the girl gives you a shy smile and blushes a little, taking her boyfriend out of the store.'
 
-			act 'Finish the job':gt 'young_shop', 'endwork'
+			act 'Finish your shift':gt 'young_shop', 'endwork'
 		end
 	end
 end
@@ -754,28 +754,28 @@ end
 if $ARGS[0] = '17':
 	cla
 	*clr
-	'<b><center><font size="4"><font color="black">Case for paper</font></center></b>'
-	'You just finished hanging up cute blouses from the new collection, as an old lady comes up to you. She looks 70 years old and begins a long, dull monologue about herself, her work, the contemporary fashion and tradition.'
+	'<b><center><font size="4"><font color="black">Those were the days</font></center></b>'
+	'You''ve just finished hanging up some cute blouses from the new collection, when an older lady comes up to you. She looks to be in her 70s and begins a long, dull monologue about herself, her work, modern fashion and the old days.'
 	'The grandmother starts complaining about modern society and its flaws: Deception, corruption, drugs, sex and everything in general. Then she remembers the good old times when the grass was greener and women married as virgins at the age of 18:'
-	'"And now it has come to this .. In my granddaughter''s classroom there are no virgins left. She is a 7th grade student and they have 15 girls in the classroom! How can this be? .. And one girl, Lena, already had three abortions. What has this world come to?" the grandmother complains for 20 minutes and you can not manage to calm her down and show her the door of the store.'
-	'"Here''s my granddaughter. Did you also go to the same school? Is that why you dress this way? Are you not ashamed?"'
+	'"And now it has come to this... In my granddaughter''s classroom there are no virgins left. She is a 7th grade student and they have 15 girls in the classroom! How can this be? ...and one girl, Lena, already had three abortions. What has this world come to?" the grandmother complains for 20 minutes and you can not manage to calm her down and show her the exit.'
+	'"Here''s my granddaughter," she shows you a picture of a younger girl. "Did you also go to the same school? Is that why you dress this way? Are you not ashamed?"'
 
-	act 'Shame on you, grandmother!':
+	act 'Shame on you, grandma!':
 		cla
-		'"And why should I be ashamed of that? I did nothing wrong or depraved! They are just beautiful clothes. It''s todays fashion, we don''t live in Stalin''s time anymore."'
+		'"And why should I be ashamed of that? I''ve done nothing wrong or depraved! These are just beautiful clothes. This is just today''s fashion, we don''t live in Stalin''s time anymore."'
 		'"Yeah, during Comrade Stalin''s time this would not have happened!" She begins a new lecture about old times, honesty, integrity and correctness.'
 		'The old lady keeps ranting for a long time, but finally gets bored and begins to waddle out the door, cursing at the shop and the modern youth.'
 
-		act 'Finish the job':gt 'young_shop', 'endwork'
+		act 'Finish your shift':gt 'young_shop', 'endwork'
 	end
 
-	act 'It is part of your job':
+	act 'It''s just part of your job':
 		cla
-		'"Of course it is a shame, but I can not do different. I need to work and earn money, so I can eat. I also need to take care of my sister" you explain for a long time, talking about your need to work and promise the grandmother never to go out like this.'
-		'Finally the grandmother, satisfied with your answer, says a little prayer and gives you the sign of the cross, wishing you happiness and kindness.'
+		'"Of course it is a shame, but I can do nothing about it. I need to work to earn money. Without that, how could I survive?" you explain while promising the grandmother you never go out like this.'
+		'Finally she relents, satisfied with your answer, says a little prayer and gives you the sign of the cross, wishing you happiness and kindness.'
 		'You sigh with relief as the old lady goes to the exit.'
 
-		act 'Finish the job':gt 'young_shop', 'endwork'
+		act 'Finish your shift':gt 'young_shop', 'endwork'
 	end
 end
 
@@ -783,16 +783,16 @@ if $ARGS[0] = '18':
 	cla
 	*clr
 	kira = 1
-	'<b><center><font size="4"><font color="black">Case for paper</font></center></b>'
-	'Twenty minutes before the end of the day a lady comes up to me with a glamorous looking girl. The Girl constantly turns and asks the woman:'
-	'"Mom, this is not necessary. Let''s not shop in this store .. Well, MAAM .."'
-	'"Stop acting up! All your classmates are wearing these sort of clothes. I do not want my girl to be bullied because she is not like them at all!" The Woman is full of determination and certainly won''t change her intentions.'
-	'"Hello, can I help you?" With a smile on your face you walk over to the mother and her daughter.'
-	'The Lady inspects you appraising your appearance, then turns her head to her daughter:'
-	'"You see, Kira, this girl is only a little older than you, and dressed .." She does not have time to finish the sentence, because Kira starts acting up again:'
-	'"Well, here where hardly anyone sees it! I can not be seen on the street in these clothes and without a bra. People will be able to see everything!"'
-	'"And why shouldn''t they?" The Woman throws up her hands in surprise, "You are grown up. It would be a shame not to show it! So, that''s enough, I''m tired."'
-	'She turns to you with a haughty smile and looks you in the eyes:'
+	'<b><center><font size="4"><font color="black">Parents just don''t understand</font></center></b>'
+	'Twenty minutes before the end of your shift, a lady approaches you with a glamorous looking girl beside her. The girl seems somewhat upset.'
+	'"Mom, this isn''t necessary. Let''s not shop in this store..."'
+	'"Stop acting up! Your classmates are wearing these styles of clothes. You want to be popular right? You don''t want the others to make fun of you, do you?"'
+	'"Hello, may I help you?" You ask with a smile on your face.'
+	'The mother inspects you, appraising your appearance before turning to her daughter.'
+	'"You see, Kira, this girl is only a little older than you, and dressed..." She does not have time to finish the sentence before Kira starts complaining again.'
+	'"Well, hardly anyone can see her here! I can''t wear this outside, especially without a bra; people will be able to see me!"'
+	'"And why shouldn''t they?" The woman throws up her hands in surprise, "You are growing up! It would be a shame not to show off your body! So, that''s enough, I''m tired of arguing with you."'
+	'The mother returns her gaze to you with a haughty smile.'
 	'"Girl, tell me, would clothes like yours fit my Kira?" she says with a little nod clearly just waiting for a positive response.'
 
 	act 'Yes, of course':
@@ -800,31 +800,31 @@ if $ARGS[0] = '18':
 		*clr
 		'<center><img <<$set_imgh>> src="images/locations/city/citycenter/mall/cats/young_shop_quest9.jpg"></center>'
 		'Throwing another look at the girl, you confidently reply:'
-		'"Naturally! All my friends buy their clothes only in this shop. We have a transparent blouse that will look great on your daughter! And in a suitable size. And yes, all our products are designed to be worn without a bra" You quickly find the right size and hand it over to a tearful Kira. "There is a booth over there, where you can try it on!"'
-		'The Woman grabs her daughter by the arm and takes her to the booth. 7 minutes later, they return.'
+		'"Yes, of course! All of my friends buy their clothes here. We have a transparent blouse that will look <i>amazing</i> on your daughter! And of course, all of our products are designed to be worn without a bra," you wink. You quickly find the right size and hand it over to a tearful Kira. "There is a booth over there, where you can try it on!"'
+		'The woman grabs her daughter by the arm and takes her to the booth. A few moments later, they return.'
 		'You are happy to announce, "As I thought, you look great in this blouse! By the way, this model has just arrived in our shop, it was created by a famous Italian designer."'
-		'"Yes, all of Kiras girlfriends will be jealous! And how much is this beauty?"'
-		'"Exclusive offer - only 2, 400."'
+		'"Yes, all of Kira''s girlfriends will be jealous! And how much is this beauty?"'
+		'"It''s only 2,400₽."'
 		'You notice that Kira is already resigned to her fate and decide to go further:'
 
-		act 'With a mini-skirt better':
+		act 'Suggest a mini-skirt':
 			cla
 			*clr
 			'"You know, with a mini-skirt the outfit will be 100% more revealing. Look at this model, imagine how great it will look on your daughter!"'
-			'"What, do I have to really bare everything?" Kira sighs, not expecting a positive outcome for her.'
-			'The Woman takes the skirt in her hand, twirls it, inspects it for defects, and, with a confident expression, leads her daughter into the dressing room.'
-			'"Such skirts are worn without panties or am I mistaken?" the woman says looking back at you.'
-			'"It is highly desirable." you say, nodding.'
+			'"What, do I have to really bare everything?" Kira sighs, not expecting a positive outcome for herself.'
+			'The mother takes the skirt in her hand, twirls it, inspects it for defects, and with a confident expression, leads her daughter back towards the dressing room.'
+			'"Girls usually don''t wear underwear with these types of skirts, correct?" the woman asks, looking back at you.'
+			'"It is highly desirable," you say, nodding.'
 			'"Alright."'
-			'After a couple of minutes there is some scuffling behind the curtain. Apparently the girl started to act up again. Her mom, looking pretty scruffy and tired, comes out of the booth and asks for help:'
+			'After a few minutes, you can hear the two arguing again. The mother exits the booth.'
 			'"She always resists, can you do something about it?"'
-			'Looking at the woman''s face it becomes clear to you that, if her daughter won''t get rid of her underwear completely, they will simply leave and won''t buy anything, and you would lose the premium you could earn for this sale.'
-			'You go into the booth and see Kira, who, despite her tearful appearance, looks amazing in the new outfit. It is a pity that your words probably won''t have any impact, but if you remove her panties yourself, the seemingly shy Kira probably won''t even try to stop you.'
+			'Fearing that you might lose this sale if you don''t act now, you respond, "Of course, let me speak with her."'
+			'As you step into the booth, you can''t help but notice how <i>stunning</i> Kira appears in her new outfit, despite her rather tearful face. You just need to find a way to remove her panties. Maybe she can be persuaded?'
 
 			act 'Persuade Kira':
 				*clr
 				delact 'Persuade Kira'
-				'You decide to use your psychological skills and persuade Kira to take off her panties.'
+				'You decide to use your psychological skills and convince Kira to take off her panties.'
 
 				if pcs_intel >= 50:
 					cla
@@ -833,72 +833,72 @@ if $ARGS[0] = '18':
 					! WD: IMAGE NEEDED ~ '<center><img <<$set_imgh>> src="images/pictures/characters/photo_dressed_[$vika]_13.src="></center>'
 					'Fortunately Kira is a very trusting girl, and your leadership qualities are apparent. You manage to convince her that there is no reason to be embarrassed and that the mother only wants the best for her.'
 					'Kira slowly puts her hands under her skirt and pulls off her panties.'
-					'"Do you feel the breeze blowing up your bottom? Imagine how nice it would be walking like this on the street."'
-					'"What if someone sees me like this?"'
-					'"Oh, don''t be greedy." you say, as you pat Kira on the shoulders. "Let them look and dream. All your friends will envy you and ask why, when you''re with them, all the guys only look at you."'
+					'"Doesn''t the air feel good on your pussy? Imagine how nice it would be walking like this outside."'
+					'She eyes you questioningly, "But won''t people stare?"'
+					'You gently run your fingers through Kira''s hair. "You know the saying, "<b>if you''ve got it, flaunt it,</b>" right? Well you, Kira, have <i>definitely</i> got <b>it</b>," you say to her with a wink and a smile.'
 					'You take Kira back from the locker room and give the panties to her mother.'
 					'"This is awkward, but can I leave them here, or let you throw them away? I want to wean my daughter from underwear, so that these purchases won''t be wasted. I will hide her other panties and bras from her until she gets used to it."'
 					'You decide to leave the panties with her and shove them in her purse. The mom is paying at the cash register and takes her daughter, all dressed up in her new blouse and mini-skirt, outside.'
-					'Kira looks back at you and smiles saying goodbye. She then leaves, flashing naked her booty with every breeze.'
+					'Kira looks back at you and smiles, saying goodbye. She then leaves, her bare bottom flashing with every breeze.'
 
-					act 'Finish the job':gt 'young_shop', 'endwork'
+					act 'Finish your shift':gt 'young_shop', 'endwork'
 				else
-					'Unfortunately, despite your best efforts, you can not get her to talk and there is only one way out ..'
+					'Unfortunately, Kira refuses to listen to you. Looks like there''s only one other option left...'
 
 					act 'Remove her panties':
 						cla
 						*clr
 						$ImageNeededPlacholder
 						! WD: IMAGE NEEDED ~ '<center><img <<$set_imgh>> src="images/pictures/characters/photo_dressed_[$vika]_13.png"></center>'
-						'"Well..." you quickly bend over and thrust your hands under her skirt. The girl could not even imagine that you would do that.'
-						'You lift her mini skirt and slowly pull off Kira''s panties. Her bare pussy is right before your eyes at a distance of 10 centimeters. You notice that the situation seems to make the girl very excited and her panties are a little wet. A delicate aroma hits your nose and you smile.'
-						'Kira''s panties are off, you show her the wet spot, and then hide the panties behind your back as the two of you get out of the booth.'
-						'"We managed to agree." smiling you pretend that you managed to persuade Kira to take off her panties on her own.'
-						'"Oh, how wonderful, wonderful." the woman examines her daughter and quickly decides to buy the blouse and mini-skirt.'
+						'Sighing loudly, you huff, "Looks like I have no choice." You grab Kira by the waist and spin her around, her back now facing you.'
+						'"W-what are you d-doing?" Kira tries to object, but she puts forth no resistance. Your hands move towards the bottom of her skirt, lifting it up slightly before slipping your fingers into the top of her panties. Through the mirror you see a slight blush cross her face. You slowly begin pulling down the girl''s underwear.'
+						'You hear her breath hitch, her face growing redder. Kira raises a leg, then the other as you remove her underwear. You notice a damp spot in the center of her panties, something comes over you and you move the panties to your face, smelling her wetness as she turns back to face you.'
+						'A few minutes later, you exit the booth. "I made her see our way," you gloat to her a mother, a coy smile etched on your face.'
+						'"Oh, how wonderful, wonderful," the woman examines her daughter and quickly decides to buy the blouse and mini-skirt.'
 						'Before leaving Kira thanks you, and you wink at her. You receive a very pleasant smile in return.'
 
-						act 'Finish the job':gt 'young_shop', 'endwork'
+						act 'Finish your shift':gt 'young_shop', 'endwork'
 					end
 				end
 			end
 		end
 	end
 
-	act 'No, it is too early':
+	act 'No, she is too young':
 		cla
 		*clr
-		'You shrug, "Sorry, but it is too early for her to wear such clothes. Especially since she does not want it."'
-		'"How so? I''ve seen on TV that everyone has these these outfits!" the woman looks at you with disbelief. She obviously could not imagine that you would be arguing against the clothing worn by yourself especially since you should be selling them.'
-		'"The mother clearly wants her daughter to look like a whore." You smile as you look the lady in the eyes.'
+		'You shrug, "Sorry, but it''s too soon for her to wear such clothes. Maybe in a few more years she will understand."'
+		'"Really? I''ve seen on TV that young girls everywhere are wearing this style!" The woman looks at you with disbelief. She obviously couldn''t imagine that you would be arguing against a potential sale.'
+		'<i>"Mom clearly wants her daughter to look like a whore,"</i> you think to yourself as you look the woman in the eyes.'
 		act 'Dissuade the woman':
 			cla
 			delact 'Dissuade the woman'
-			'She shouldn''t to that! You decide to do everything in your power to dissuade the strange mother.'
+			'She can''t do that! You decide you need to dissuade this strange mother.'
 
 			if pcs_intel >= 60:
 				$ImageNeededPlacholder
 				! WD: IMAGE NEEDED ~ '<center><img <<$set_imgh>> src="images/pictures/characters/photo_dressed_[$vika]_13.png"></center>'
-				'"You seriously think so, do you ..?" the glamorous lady ponders your words and decides to accept your advice. "Okay, let''s go to a regular store."'
-				'Before leaving Kira smiles at me and says:'
-				'"Thank you .. bye!" The girl waves at you and runs after her mother.'
+				'"You really think so?" The glamorous lady ponders for a moment before accepting your advice, "okay, we''ll go to a regular store."'
+				'You notice Kira beaming at you.'
+				'"Thank you so much. G''bye!" The girl waves at you and runs after her mother.'
 
-				act 'Finish the job':gt 'young_shop', 'endwork'
+				act 'Finish your shift':gt 'young_shop', 'endwork'
 			else
 				$ImageNeededPlacholder
 				! WD: IMAGE NEEDED ~ '<center><img <<$set_imgh>> src="images/pictures/characters/photo_dressed_[$vika]_13.png"></center>'
-				'"What are you saying? I see these outfits all the time on TV! Why am I talking to you at all?" The glamorous lady does not understand what you are trying to say. "Alright Kira, we go to another store."'
-				'Before leaving, the girl thanks you for trying to save her and runs away after her mother.'
+				'The mother refuses to listen to you. "Fine, if you won''t help us, I''ll find another clerk who will!"'
+				'Before leaving, the girl thanks you for trying to save her and runs back towards her mother.'
 
-				act 'Finish the job':gt 'young_shop', 'endwork'
+				act 'Finish your shift':gt 'young_shop', 'endwork'
 			end
 		end
 	end
 end
 
 if $ARGS[0] = '19':
-	'A regular days work, nothing interesting happens and its now time to go home.'
+	'A regular day of work, nothing interesting happened and it''s now time to clock out.'
 
-	act 'Finish the job':gt 'young_shop', 'endwork'
+	act 'Finish your shift':gt 'young_shop', 'endwork'
 end
 
 if $ARGS[0] = 'endwork':
@@ -906,9 +906,9 @@ if $ARGS[0] = 'endwork':
 	cla
 
 	if week = 5 and young_shop_salary > 0:
-		act '<font color="green">Get a Salary</font>':gt 'andrey'
+		act '<font color="green">Collect your pay</font>':gt 'andrey'
 	else
-		act '<b>Get out of the shop</b>':
+		act '<b>Leave the store</b>':
 			minut += 3
 			gt 'torgcentr'
 		end

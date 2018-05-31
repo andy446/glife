@@ -30,24 +30,29 @@ if npc_QW['A34'] > 20 and npc_QW['A34'] < 25: npc_QW['A34'] = 20
 ! brotherConfidence: if it is over 10 he might try and touch you during a homework (not used yet)
 
 if $ARGS[0] = 'start':
-
 	gs 'stat'
 	'<center><b><font color="maroon">Kolka</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/kolka/brother.jpg"></center>'
 	'Your brother Kolka is younger than you, he''s <<brotherAge>> years old. While you share the same mother, unlike you and your sister, Kolka''s dad is your stepfather. He is a student at the same school as you, and enjoys soccer.'
 
-	if npc_rel['A34'] < 20:'You and your brother argue all the time.'
-	if npc_rel['A34'] >= 20 and npc_rel['A34'] < 40:'You and your brother bicker sometimes.'
-	if npc_rel['A34'] >= 40 and npc_rel['A34'] < 60:'You and your brother have a normal relationship.'
-	if npc_rel['A34'] >= 60 and npc_rel['A34'] < 80:'You have a good relationship with your brother.'
-	if npc_rel['A34'] >= 80:'You have a great relationship with your brother.'
+	if npc_rel['A34'] < 20:
+		'You and your brother argue all the time.'
+	elseif npc_rel['A34'] >= 20 and npc_rel['A34'] < 40:
+		'You and your brother bicker sometimes.'
+	elseif npc_rel['A34'] >= 40 and npc_rel['A34'] < 60:
+		'You and your brother have a normal relationship.'
+	elseif npc_rel['A34'] >= 60 and npc_rel['A34'] < 80:
+		'You have a good relationship with your brother.'
+	elseif npc_rel['A34'] >= 80:
+		'You have a great relationship with your brother.'
+	end
 	*nl
 	if hour >= 7 and hour < 21:
 		! WD: Fix old nude variable
 		if (cumloc[1] > 0 or cumloc[4] > 0 or cumloc[8] > 0 or cumloc[9] > 0 or cumloc[10] > 0 or cumloc[14] > 0 or cumloc[15] > 0) and $clothingworntype = 'nude':
 			if $pantyworntype = 'none' and cumloc[1] = 1:
 				if brotherknowslut < 1: brotherknowslut = 1
-				'"Go wash yourself, you''ve got something on your pussy."'
+					'"Go wash yourself, you''ve got something on your pussy."'
 				if brotherSex = 0:
 					npc_rel['A34'] -= 1
 					act 'Move away':gt $loc, $metka
@@ -55,7 +60,7 @@ if $ARGS[0] = 'start':
 				end
 			elseif $pantyworntype = 'none' and cumloc[4] = 1:
 				if brotherknowslut < 1: brotherknowslut = 1
-				'"Go wash yourself, you''ve got something on your butt."'
+					'"Go wash yourself, you''ve got something on your butt."'
 				if brotherSex = 0:
 					npc_rel['A34'] -= 1
 					act 'Move away':gt $loc, $metka
@@ -63,7 +68,7 @@ if $ARGS[0] = 'start':
 				end
 			else
 				if brotherknowslut < 1: brotherknowslut = 1
-				'"Go wash yourself, you''re covered in cum and it''s disgusting."'
+					'"Go wash yourself, you''re covered in cum and it''s disgusting."'
 				if brotherSex = 0:
 					npc_rel['A34'] -= 1
 					act 'Move away':gt $loc, $metka
@@ -274,7 +279,7 @@ if $ARGS[0] = 'start':
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/kolka/9vh2v.jpg" ></center>'
 				'"Look what I have," you walk up to Kolka, your chest bare, showing off your nipple pircings, "Don''t be shy, you can touch them."'
 				'Your brother, dumbfounded by your suggestion, hesitantly touches the piercing in one of your nipples, causing you to moan gently.'
-				if  brotherSex = 0:
+				if brotherSex = 0:
 					'He abruptly withdraws his hand and apologizes for his rudeness. You have no choice, but to apologise, that wasn''t fair. You cover your chest.'
 				else
 					'Seeing the pleasure playing with your nipples brings you, he begins to play harder with your piercings, sometimes squeezing your exposed Breasts.
@@ -288,7 +293,7 @@ if $ARGS[0] = 'start':
 
 
 		if indorf = 0 and $clothingworntype = 'nude' and pirsF > 0 and brothersawpirsF = 0:
-			if  brotherSex = 0:
+			if brotherSex = 0:
 				if npc_rel['A34'] >= 70:
 					'"Looks good on you." your brother winks, and points toward your pierced nipples.'
 					if npc_rel['A34'] <50:npc_rel['A34'] += 1
@@ -359,9 +364,9 @@ if $ARGS[0] = 'start':
 								end
 
 							end
-						$risk_boy = 'your own brother'
-						gs 'dinsex','vaginal_sex',10
-						gs 'brother', 'sleepsexcum'
+							$risk_boy = 'your own brother'
+							gs 'dinsex','vaginal_sex',10
+							gs 'brother', 'sleepsexcum'
 						end
 					end
 				else
@@ -663,7 +668,7 @@ if $ARGS[0] = 'brotherSexStart':
 
 				gs 'brother', 'brotherSexEnd'
 			end
-			
+
 			act 'Remove from your mouth':
 				cls
 				minut += 5
@@ -1146,7 +1151,7 @@ if $ARGS[0] = 'anus_check':
 		elseif brother_saw_analplug = 1:
 			'"There it is again with this thing in your ass?" asked Kolka, obviously referring to sex-toy in your ass.'
 			'"Aha..." you coquettishly answer.'
-			if  brotherSex > 0:
+			if brotherSex > 0:
 				'"Maybe you should take it out and put it back in?" He asks.'
 				'"Maybe next time, Kolka"'
 			else
@@ -1419,7 +1424,7 @@ if $ARGS[0] = 'pregreact':
 			end
 		exit
 
-	
+
 		elseif ($clothingworntype = 'nude' and pregchem > 2000) or ($clothingworntype ! 'nude' and pregchem > 3460) and brotherSex = 0 and kid > 0:
 			'"You''re already pregnant again? This is starting to look like a new hobby," he laughs.'
 			'"You know what? Maybe it is," you joke back. "Some girls play sports; I get serially impregnated."'
@@ -1427,10 +1432,10 @@ if $ARGS[0] = 'pregreact':
 			'"Thanks, I''m glad someone is proud of me," you reply.'
 			'Kolka takes a serious tone. "<<$pcs_nickname>>, I am always proud of you. You''re my sister and I''ll love you no matter what."'
 			'You''re briefly taken aback by his uncharacteristic sincerity. "Thanks, really. I love you, too."'
-			'You leave your brother to what he was doing before, glad that the two of you have the relationship that you do.'			
+			'You leave your brother to what he was doing before, glad that the two of you have the relationship that you do.'
 
 			act 'Continue' :pregTalkbrother = 1 & gt 'sitrPar'
-		
+
 		elseif brotherSex > 0 and pregTalkMom = 0 and kid > 0 and (($clothingworntype = 'nude' and pregchem >= 2000) or ($clothingworntype ! 'nude' and pregchem >= 3460) or ($clothingworntype = 'nude' and pregchem < 2000) or ($clothingworntype ! 'nude' and pregchem < 3460)):
 			cla
 			'"Wow, you''re pregnant again? Is it mine this time?"'
@@ -1452,46 +1457,46 @@ if $ARGS[0] = 'brotherknows1':
 	*nl
 	'Yeah, this baby is yours," you say, rubbing your belly. "And after it''s born, I might let you help me make another one," you add before giving your brother a kiss. You start to leave your brother alone, still visibly erect. '
 	'"Wait! You''re not going to tell mom I got you pregnant, are you?"'
-  
+
 	act 'No':
 		cla
 		'"Don''t worry, I''ll think of something to tell her. I''ll probably just say I was raped on the way home from the disco. This''ll just be our little secret." You wink and blow a kiss to your brother before finally walking away.'
-		
+
 		act 'Continue' :brotherSecret = 1 & gt 'sitrPar'
 	end
-	
+
 	act 'No (Blackmail him)':
 		cla
 		'"I don''t know. I might need some... incentive to keep this secret. I''ll let you know what I think of later." Your brother is clearly nervous as you walk away.'
-		
+
 		act 'Continue' :brotherSecret = 1 & brotherBlackmail = l & gt 'sitrPar'
-	end	
-	
+	end
+
 	act 'Yes':
 		cla
 		'"Oh, I definitely am. She has a right to know and just thinking about the look on her face when I tell her turns me on so much. I want everyone to know my own brother put this baby in me." Your brother is clearly dealing with a mixture of panic and arousal as you leave.'
-		
+
 		act 'Continue' :gt 'sitrPar'
 	end
-end	
+end
 
 if $ARGS[0] = 'brotherknows2':
-   cla
-   pregTalkbrother = 1
-   *nl
+	cla
+	pregTalkbrother = 1
+	*nl
 	'"Yes, it is and you''re going to take responsibility. I am not going to be a single mother raising this child on my own."'
 	'Kolka stares at you in shock. "But I don''t know anything about raising children."'
 	'"Then you should have thought of that before knocking me up! You''re going to have to figure it out." Your brother is clearly crestfallen as you walk away.'
 	'"Wait!" Kolka yells after you. "You''re not going to tell mom I got you pregnant, right?"'
-	
+
 	act 'No (Blackmail him)':
 		cla
 		'You glare at Kolka. "Fuck you! I told you that you got me pregnant, and you''re still worried about yourself? Fine, I''ll keep it a secret, but you''d better fall in line! If you don''t do everything I say, I''ll end you!"'
 		'You storm away from Kolka, leaving him to squirm in discomfort.'
-		
+
 		act 'Continue' :brotherSecret = 1 & brotherBlackmail = l & gt 'sitrPar'
 	end
-		
+
 	act 'Yes':
 		cla
 		'You glare at Kolka. "Fuck off! Can you think about anything other than yourself for one second? I''m not protecting you. Mom is going to find out, and you''ll just have to deal with that!"'
@@ -1499,15 +1504,15 @@ if $ARGS[0] = 'brotherknows2':
 
 		act 'Continue' :gt 'sitrPar'
 	end
-end	
-		
+end
+
 if $ARGS[0] = 'brotherknows3':
 	cla
 	pregTalkbrother = 1
 	*nl
 	'"It could be, I''m still not sure yet. I just wanted to give you a heads up." You then add with a wink "Honestly, I''m kind of hoping it is."'
 	'"Me too," he states just a little too eagerly. He then quickly moves his lips to yours and you share a passionate kiss.'
-	
+
 	act 'Continue' :gt 'sitrPar'
 end
 
@@ -1515,10 +1520,10 @@ if $ARGS[0] = 'brotherknows4':
 	cla
 	pregTalkbrother = 1
 	*nl
-	'"I''m still not sure, but if it is, you had better take responsibility."' 
+	'"I''m still not sure, but if it is, you had better take responsibility."'
 	'"Then I really hope it''s someone else''s problem."'
 	'"Fuck off! If it''s yours then I''ll make sure you take responsibility!" You then storm away, leaving Kolka to stew.'
-	
+
 	act 'Continue' :gt 'sitrPar'
 end
 
@@ -1528,7 +1533,7 @@ if $ARGS[0] = 'brotherknows5':
 	*nl
 	'"No, you got lucky this time. It''s actually <<$wombthfath>>''s, I just wanted to share the news with my little brother."'
 	'"Oh, well congratulations!" He tries to sound happy, but you detect a note of disappointment in his voice.'
-	  
+
 	act 'Continue':gt 'sitrPar'
 end
 
@@ -1538,32 +1543,32 @@ if $ARGS[0] = 'brotherknows6':
 	*nl
 	if arrpos('$ChildThFath','Kolka') >= 0 and arrpos('$ChildThFath','Kolka') ! arrsize('$ChildThFath')-1 and BrotherHappy = 1:
 		cla
-		'"Yeah, you knocked me up again." You smile at him. "I think you''re doing this on purpose." You walk closer to your brother and straddle his lap. You affectionately wrap your arms around his neck and lean your face close to his.' 
+		'"Yeah, you knocked me up again." You smile at him. "I think you''re doing this on purpose." You walk closer to your brother and straddle his lap. You affectionately wrap your arms around his neck and lean your face close to his.'
 		'"You like knocking up your sister, don''t you? You just love that this belly shows the whole world that I let my own brother fuck me, huh?"'
-		'Kolka stares into your <<$pcs_eyecol>> eyes, his face bright red and a bulge growing in his pants.' 
+		'Kolka stares into your <<$pcs_eyecol>> eyes, his face bright red and a bulge growing in his pants.'
 		'"Well?" you inquire. His face grows brighter as he realizes that those weren''t rhetorical questions and that you actually expect an answer. Sweat runs down his face as he considers what to say and you find that you enjoy watching your little brother squirm. '
-		'He finally gathers his courage and says "Yes, I love getting you pregnant. Every time we fuck, I have to fight the urge to just unload inside you, and every time I give in is the best moment of my life.' 
-		'Knowing that every rope I shoot into your wonderful pussy could knock you up turns me on more than anything else. Even before we had sex for the first time, I would fantasize about knocking you up every time I masturbated.' 
+		'He finally gathers his courage and says "Yes, I love getting you pregnant. Every time we fuck, I have to fight the urge to just unload inside you, and every time I give in is the best moment of my life.'
+		'Knowing that every rope I shoot into your wonderful pussy could knock you up turns me on more than anything else. Even before we had sex for the first time, I would fantasize about knocking you up every time I masturbated.'
 		'I love knowing that I put that baby in you and that your body will tell everyone else. I want to impregnate you over and over, keeping you pregnant for as long as I can."'
-		'As he finishes, you stare in silence. You were hoping for a confession, but that was way beyond what you were expecting. Unable to bear the silence any longer, Kolka breaks the tension by gripping your ass and kissing you as passionately as he can. This snaps you back to reality and you return the kiss.' 
+		'As he finishes, you stare in silence. You were hoping for a confession, but that was way beyond what you were expecting. Unable to bear the silence any longer, Kolka breaks the tension by gripping your ass and kissing you as passionately as he can. This snaps you back to reality and you return the kiss.'
 		'After several minutes, you pull back and lick your lips. Still sitting in Kolka''s lap, you say'
 		'"Every moment that we’re together is fantastic, and I love that this baby is yours, but I don''t know if I want any more children after this. So, when we have sex after this baby is born, please try to control yourself." He nods.'
 		if momKnowsKolka = 1 and home_owned[2] = 1:
 			cla
 			'"Since mom already knows I''ve gotten you pregnant before, we probably don''t need to keep this one secret, do we?"'
 			'"No, I don''t think we do. Even though she freaked she fuck out the first time, I''m actually looking forward to her reaction this time. She''s had plenty of time to come to terms with our… special relationship."'
-			'"God, I hope you''re right. I don''t think I could handle that again. I didn''t know she could be so scary." You both laugh.' 
+			'"God, I hope you''re right. I don''t think I could handle that again. I didn''t know she could be so scary." You both laugh.'
 			'You never dreamed that you would be building a family with your own brother, but now you wouldn''t want it any other way.'
 			'You kiss your brother one more time before getting up from his lap. Now that you''ve told him the news, it''s time to tell your mother. You really hope your right about her reaction…'
 
 			act 'Continue':minut += 10 & gt 'KatjaHomeTalk'
 		elseif momKnowsKolka = 1 and home_owned[2] = 0:
 			cla
-			'"Since mom already knows I''ve gotten you pregnant before, we probably don''t need to keep this one secret, do we?"' 
+			'"Since mom already knows I''ve gotten you pregnant before, we probably don''t need to keep this one secret, do we?"'
 			'You scowl. "I don''t give a fuck what mom knows. She''s not speaking to me and I really don''t care to say anything to her"'
 			'Kolka softly caresses your cheek. "Sorry, I shouldn''t have brought her up. I wasn''t thinking."'
-			'You smile. "It''s alright. The only thing that matters right now is us and our baby."' 
-			'Once you''re finished speaking, your brother covers your <<$liptalk3>> with his own and you joyfully reciprocate his kiss.' 
+			'You smile. "It''s alright. The only thing that matters right now is us and our baby."'
+			'Once you''re finished speaking, your brother covers your <<$liptalk3>> with his own and you joyfully reciprocate his kiss.'
 			'You never dreamed that you would be building a family with your own brother, but now you wouldn''t want it any other way.'
 
 			act 'Continue':minut += 10 & gt 'sitrPar'
@@ -1585,9 +1590,9 @@ if $ARGS[0] = 'brotherknows6':
 		end
 	elseif arrpos('$ChildThFath','Kolka') >= 0 and arrpos('$ChildThFath','Kolka') ! arrsize('$ChildThFath')-1 and BrotherAngry = 1:
 		cla
-		'"Yeah, it''s yours. I can''t believe you got me pregnant again. I don''t know why the hell I thought you''d be more careful after the first time."' 
+		'"Yeah, it''s yours. I can''t believe you got me pregnant again. I don''t know why the hell I thought you''d be more careful after the first time."'
 		'"You thought I''d be more careful? It takes two, sweetheart. And I didn''t hear you complaining while we were fucking."'
-		'"You shut your god damn mouth. You don''t have to walk around with a baby inside you. I do. So yeah, I have every right to be pissed and you’re just going to sit back and deal with it."' 
+		'"You shut your god damn mouth. You don''t have to walk around with a baby inside you. I do. So yeah, I have every right to be pissed and you’re just going to sit back and deal with it."'
 		if momKnowsKolka = 1 and home_owned[2] = 1:
 			cla
 			'"Mom already knows you got me pregnant before. I am not looking forward to telling her about this."'
@@ -1623,16 +1628,16 @@ if $ARGS[0] = 'brotherknows6':
 end
 
 if $ARGS[0] = 'brotherknows7':
-   cla
-   pregTalkbrother = 1
-   *nl
-   if arrpos('$ChildThFath','Kolka') >= 0 and arrpos('$ChildThFath','Kolka') ! arrsize('$ChildThFath')-1 and BrotherHappy = 1:
+	cla
+	pregTalkbrother = 1
+	*nl
+	if arrpos('$ChildThFath','Kolka') >= 0 and arrpos('$ChildThFath','Kolka') ! arrsize('$ChildThFath')-1 and BrotherHappy = 1:
 		'"It could be, I''m still not sure yet. I just wanted to give you a heads up." You then add with a wink "Honestly, I''m kind of hoping it is. I would love to be carrying another one of my brother''s children."'
 		'"I hope so, too," he states just a little too eagerly. He then quickly moves his lips to yours and you share a passionate kiss.'
-		
+
 		act 'Continue' :gt 'sitrPar'
-	elseif arrpos('$ChildThFath','Kolka') >= 0 and arrpos('$ChildThFath','Kolka') ! arrsize('$ChildThFath')-1 and BrotherAngry = 1:	
-		'"I''m still not sure, but if you knocked me up again, you had better take responsibility."' 
+	elseif arrpos('$ChildThFath','Kolka') >= 0 and arrpos('$ChildThFath','Kolka') ! arrsize('$ChildThFath')-1 and BrotherAngry = 1:
+		'"I''m still not sure, but if you knocked me up again, you had better take responsibility."'
 		'"Then I really hope it''s someone else''s problem."'
 		'"Fuck off! If it''s yours then I''ll make sure you take responsibility!" You then storm away, leaving Kolka to stew.'
 
@@ -1641,8 +1646,8 @@ if $ARGS[0] = 'brotherknows7':
 		act 'Happy':gt 'brother', 'brotherknows3'
 		act 'Angry':gt 'brother', 'brotherknows4'
 	end
-end	
-		
+end
+
 if $ARGS[0] = 'brotherknows8':
 	cla
 	pregTalkbrother = 1
@@ -1663,7 +1668,7 @@ if $ARGS[0] = 'brotherknows8':
 
 		act 'Continue' :gt 'sitrPar'
 	end
-end	
+end
 
 --- brother ---------------------------------
 

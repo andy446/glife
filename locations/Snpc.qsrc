@@ -7,17 +7,17 @@ $static_num = $school_static_num[numnpc]
 '<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/<<numnpc>>.jpg"></center>'
 '<<$npc_notes[$static_num]>>'
 
-if grupTipe[numnpc] = 5:'<<$npc_firstname[$static_num]>> is an outcast in school, and doesn''t have anyone to sit with during lunch.'
+if grupTipe[numnpc] = 5:'<<$npc_firstname[$static_num]>> is an outcast in school, and often gets picked on at school.'
 if grupTipe[numnpc] = 6:''
-if grupTipe[numnpc] = 3:'<<$npc_firstname[$static_num]>> is a nerd, and usually spends lunch time with them.'
+if grupTipe[numnpc] = 3:'<<$npc_firstname[$static_num]>> is a nerd, and is often found around the rest of the nerds doing homework or a their game night.'
 if grupTipe[numnpc] = 2:'<<$npc_firstname[$static_num]>> is part of the athletic clique in your school.'
 if grupTipe[numnpc] = 1:'<<$npc_firstname[$static_num]>> is popular, and spends time with the other popular kids usually.'
 if grupTipe[numnpc] = 4:'<<$npc_firstname[$static_num]>> is a Gopnik, and spends a lot of time doing what Gopniks usually do: be loud, and drink beer.'
-if npc_rel[$static_num] < 20:'You don''t get along at all.'
-if npc_rel[$static_num] >= 20 and npc_rel[$static_num] < 40:'You don''t get along very well.'
-if npc_rel[$static_num] >= 40 and npc_rel[$static_num] < 60:'You have a normal relationship.'
-if npc_rel[$static_num] >= 60 and npc_rel[$static_num] < 80:'You have a good relationship.'
-if npc_rel[$static_num] >= 80:'You have a great relationship.'
+if npc_rel[$static_num] < 20:'They really don''t like you.'
+if npc_rel[$static_num] >= 20 and npc_rel[$static_num] < 40:'They are fairly indifferent to you.'
+if npc_rel[$static_num] >= 40 and npc_rel[$static_num] < 60:'The two of you get along together fairly well together, more of casual friends.'
+if npc_rel[$static_num] >= 60 and npc_rel[$static_num] < 80:'You get along great with them, they are one of your friends.'
+if npc_rel[$static_num] >= 80:'They are one of your best friends.'
 
 if numnpc = 14 and KatjaOTN > 0:
 	if KatjaHorny < 20:'Katja looks calm and stoic.'
@@ -62,7 +62,7 @@ if numnpc = 9:gs 'kotovtalker'
 !!!!!!!!!!!!!
 if grupTipe[numnpc] = 4:
 	if $loc = 'gdkin':
-		if pav_slut < 50:
+		if pav_slut < 125:
 			if numnpc ! 9:
 				if npcPol[numnpc] = 0:
 					'<<$npc_firstname[$static_num]>> offers you a beer and says: "Hey <<$pcs_nickname>>! Let''s drink some beer and have some fun!"'
@@ -91,7 +91,7 @@ if grupTipe[numnpc] = 4:
 
 				act 'Decline':npc_rel[$static_num] -= 5 & gt $loc, $metka
 			end
-		elseif pav_slut >= 50:
+		elseif pav_slut >= 125:
 			if npcPol[numnpc] = 0:
 				'<<$npc_firstname[$static_num]>> looks at you wearily: "What do you want? Looking for a dick to suck on or something?"'
 			else
@@ -106,43 +106,122 @@ if grupTipe[numnpc] = 4:
 end
 
 if numnpc = 45:
-	if $loc ! 'gdkin' and npc_rel[$static_num] > 50 and (grupTipe = 4 or Anush_sex > 0 or hotcat >= 7):
+!!I would like to change this so even if all the requirements are meet it only fires one in 5 times. 
+	if $loc ! 'gdkin' and npc_rel[$static_num] > 50 and (Anush_sex > 0 or hotcat >= 7) and rand(0,4) = 0:
 		act 'You''re looking flushed':
 			*clr
 			cla
 			if Anush_lunch = 0:
-				pcs_horny += 10
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/45.jpg"></center>'
 				'"Hey Anush you feeling ok? You kinda look flush, is something wrong? Would you like to talk about it?"'
 				'She leans in close and tries to kiss you, while one hand reaches down and squeezes your butt. You turn your head and pull away. "What are you doing? I was only seeing if you was ok."'
 				'She crowds you a bit and leans in close. "You talk to much, I can think of better things you can do with that tongue of yours."'
+				gs 'arousal', 'foreplay', 5, 'lesbian', 'exhibitionism'
+				minut -= 5
+				gs 'stat'
 				act 'Um that''s not what I meant':
 					*clr
 					cla
+					npc_rel['A45'] -= 2
 					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/anushka/nomake.jpg"></center>'
 					'You place your hand on her shoulders and gentle push her away. "No I don''t want to."'
 					'She rolls her eyes. "Fine what ever, if you don''t want to have a little fun, I will find someone that does." With that she turns and walks off, leaving you unsure what just happened.'
-
 					act 'Continue': gt 'gschool_lessons', 'short_break'
 				end
-				act 'Go with it':
-					inhib_exp += rand(0,1)
-					cls
+				act 'Kiss her back.':
+					*clr
+					cla
 					Anush_lunch = 1
-					pcs_horny += 10
+					npc_rel['A45'] += 1
+					pav_sex +=1
 					gs 'stat'
 					'<center><video autoplay loop src="images/characters/pavlovsk/school/girl/anushka/makeout.mp4"></video></center>'
-					'You breath heavily feeling yourself turned on. "Ok, where?"'
-					'You barely even have time to get the words out when she is leaning in and kissing you, you kiss her back. Your hands are roaming each others bodies, several of the other gopniks are checking the two of you out, especially the guys. After a couple of minutes she grabs you by the hands and pulls you along with her.'
-
-					act 'Go somewhere private':  gt 'gschool_sex', 'Anush_private'
+					'You kiss her back. Your hands are roaming each others bodies, several of the other gopniks are checking the two of you out, especially the guys. Several of them starting hooting, hollering or whistling as the two of you make out hard right in front of them. After a couple of minutes she grabs you by the hands and says "Come on lets go some place more private to continue this.'
+					gs 'arousal', 'foreplay', 5, 'lesbian', 'exhibitionism'
+					minut -= 5
+					gs 'stat'
+					act 'Not today':
+						*clr
+						cla
+						npc_rel['A45'] -= 2
+						'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/anushka/nomake.jpg"></center>'
+						'You place your hand on her shoulders and gentle push her away. "No I don''t want to."'
+						'She rolls her eyes. "Fine what ever, if you don''t want to have a little fun, I will find someone that does." With that she turns and walks off, leaving you unsure what just happened.'
+						act 'Continue': gt 'gschool_lessons', 'short_break'
+					end
+					act 'Go with it':
+						*clr
+						cla
+						Anush_lunch = 1
+						pcs_horny += 10
+						npc_rel['A45'] += 1
+						grupvalue[4] +=1
+						pav_sex +=1
+						gs 'stat'
+						'<center><video autoplay loop src="images/characters/pavlovsk/school/girl/anushka/makeout.mp4"></video></center>'
+						'You breath heavily feeling yourself turned on. "Ok, where?"'
+						'Her hand slides up your skirt and rubs your clit. "Come with me, I know just the place." With that she takes you by the hand and the two of your head off, with the whistles and cat calls of the other gopniks behind you.'
+						gs 'arousal', 'foreplay', 5, 'lesbian', 'exhibitionism'
+						minut -= 5
+						gs 'stat'
+						act 'Go somewhere private':  gt 'gschool_sex', 'Anush_private'
+					end
 				end
 			else
 				'<center><video autoplay loop src="images/characters/pavlovsk/school/girl/anushka/makeout.mp4"></video></center>'
-				'"You are looking pretty flush again today, would you like me to help you out with that?"'
-				'You barely even have time to get the words out when she is leaning in and kissing you, you kiss her back. Your hands are roaming each others bodies, several of the other gopniks are checking the two of you out, especially the guys. After a couple of minutes she grabs you by the hands and pulls you along with her.'
-
-				act 'Go somewhere private':  gt 'gschool_sex', 'Anush_private'
+				'Noticing she is looking fairly turned on today, well more so than usual, you say to her. "You ok? You are looking pretty flush again today."'
+				'You barely even have time to get the words out when she is leaning in and kissing you, her hands reach around to squeeze you butt.'
+				gs 'arousal', 'foreplay', 5, 'lesbian', 'exhibitionism'
+				minut -= 5
+				gs 'stat'
+				act 'Not today':
+					*clr
+					cla
+					npc_rel['A45'] -= 2
+					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/anushka/nomake.jpg"></center>'
+					'You place your hand on her shoulders and gentle push her away. "No I don''t want to."'
+					'She rolls her eyes. "Fine what ever, if you don''t want to have a little fun, I will find someone that does." With that she turns and walks off, leaving you unsure what just happened.'
+					act 'Continue': gt 'gschool_lessons', 'short_break'
+				end
+				act 'Kiss her back.':
+					*clr
+					cla
+					Anush_lunch = 1
+					npc_rel['A45'] += 1
+					pav_sex +=1
+					gs 'stat'
+					'<center><video autoplay loop src="images/characters/pavlovsk/school/girl/anushka/makeout.mp4"></video></center>'
+					'You kiss her back. Your hands are roaming each others bodies, several of the other gopniks are checking the two of you out, especially the guys. Several of them starting hooting, hollering or whistling as the two of you make out hard right in front of them. After a couple of minutes she grabs you by the hands and says "Come on lets go some place more private to continue this.'
+					gs 'arousal', 'foreplay', 5, 'lesbian', 'exhibitionism'
+					minut -= 5
+					gs 'stat'
+					act 'Not today':
+						*clr
+						cla
+						npc_rel['A45'] -= 2
+						'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/anushka/nomake.jpg"></center>'
+						'You place your hand on her shoulders and gentle push her away. "No I don''t want to."'
+						'She rolls her eyes. "Fine what ever, if you don''t want to have a little fun, I will find someone that does." With that she turns and walks off, leaving you unsure what just happened.'
+						act 'Continue': gt 'gschool_lessons', 'short_break'
+					end
+					act 'Go with it':
+						*clr
+						cla
+						Anush_lunch = 1
+						pcs_horny += 10
+						npc_rel['A45'] += 1
+						grupvalue[4] +=1
+						pav_sex +=1
+						gs 'stat'
+						'<center><video autoplay loop src="images/characters/pavlovsk/school/girl/anushka/makeout.mp4"></video></center>'
+						'You breath heavily feeling yourself turned on. "Ok, where?"'
+						'Her hand slides up your skirt and rubs your clit. "Come with me, I know just the place." With that she takes you by the hand and the two of your head off, with the whistles and cat calls of the other gopniks behind you.'
+						gs 'arousal', 'foreplay', 5, 'lesbian', 'exhibitionism'
+						minut -= 5
+						gs 'stat'
+						act 'Go somewhere private':  gt 'gschool_sex', 'Anush_private'
+					end
+				end
 			end
 		end
 	end
@@ -156,7 +235,7 @@ if numnpc = 23:
 	if albinaQWdance > 0 and AlbinaBlokDance = 0 and ZvezdEnd = 0:
 		'Albina offers you a friendly smile and says: "<<$pcs_nickname>>, you''re progressing very well in your training. Don''t forget to keep attending!"'
 
-		if pav_slut > 25:'By the way, some people are telling some pretty disgusting rumours about you.'
+		if pav_slut > 100:'By the way, some people are telling some pretty disgusting rumours about you.'
 	end
 
 	if artemIzdev = 1:
@@ -261,14 +340,14 @@ if numnpc = 2:
 			npc_rel[$static_num] += 5
 			sub += 1
 
-			if pav_slut < 75:artemLernQW = 1
+			if pav_slut < 100:artemLernQW = 1
 
 			gs 'stat'
 			'<center><b><font color="maroon"><<$npc_firstname[$static_num]>> <<$npc_lastname[$static_num]>></font></b></center>'
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/<<numnpc>>.jpg"></center>'
 
-			if pav_slut < 75:'You approach Artem and explain how you''re struggling in school and could really use his help studying. Artem is a bit surprised: "What... you want my help? Well, okay I guess. Come meet me at my place if you want to do homework together."'
-			if pav_slut >= 75:'You approach Artem and explain how you''re struggling in school and could really use his help studying. Artem is outraged: "Bah... the school whore needs my help? I don''t think so."'
+			if pav_slut < 100:'You approach Artem and explain how you''re struggling in school and could really use his help studying. Artem is a bit surprised: "What... you want my help? Well, okay I guess. Come meet me at my place if you want to do homework together."'
+			if pav_slut >= 100:'You approach Artem and explain how you''re struggling in school and could really use his help studying. Artem is outraged: "Bah... the school whore needs my help? I don''t think so."'
 
 			if $loc ! 'gdkin':
 				act 'Leave': gt 'gschool_lessons', 'short_break'
@@ -284,6 +363,7 @@ end
 !!!!!!!!!!!!!!!!!!
 
 	if numnpc = 3:gt 'IvanEv', 'School Chat'
+
 
 !!!!!!!!!!!!!!!
 !!Vitek Kotov!!
@@ -318,8 +398,8 @@ if numnpc = 12:
 			'<center><b><font color="maroon"><<$npc_firstname[$static_num]>> <<$npc_lastname[$static_num]>></font></b></center>'
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/<<numnpc>>.jpg"></center>'
 
-			if pav_slut < 25:'You approach Julia and explain how you''re struggling in school and could really use his help studying. She thinks it over for a second, but happily agrees: "Sure <<$pcs_nickname>>, that could be fun!"'
-			if pav_slut >= 25:'You approach Julia and explain how you''re struggling in school and could really use his help studying. She makes some comments about your lousy reputation in school, but at the same time doesn''t seem to care too much about it and agrees to help you anyway. As long as you don''t tell anyone.'
+			if pav_slut < 100:'You approach Julia and explain how you''re struggling in school and could really use his help studying. She thinks it over for a second, but happily agrees: "Sure <<$pcs_nickname>>, that could be fun!"'
+			if pav_slut >= 100:'You approach Julia and explain how you''re struggling in school and could really use his help studying. She makes some comments about your lousy reputation in school, but at the same time doesn''t seem to care too much about it and agrees to help you anyway. As long as you don''t tell anyone.'
 			if $loc ! 'gdkin':gt 'gschool_lessons', 'short_break'
 			if $loc ! 'gdkin':
 				xgt 'gschool_lessons', 'short_break', 'nopict'
@@ -427,7 +507,6 @@ if numnpc = 14:
 	if (npc_rel[$static_num] > 60) and (KatjaOTN > 0) and (KatjaLust > 15) :
 		!!new Katja stuff not sure where you want to put it. It should be a option when you talk to her at school or the dance where it says Chat, but add this as a option.
 		act 'Kiss Katja':
-			inhib_exp += rand(0,1)
 			cls
 			if $loc = 'gdkin':
 				minut += 1
@@ -509,8 +588,8 @@ if numnpc = 16:
 			'<center><b><font color="maroon"><<$npc_firstname[$static_num]>> <<$npc_lastname[$static_num]>></font></b></center>'
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/<<numnpc>>.jpg"></center>'
 
-			if pav_slut < 25:'You approach Natasha and explain how you''re struggling in school and could really use his help studying. She thinks it over for a second, but happily agrees: "Sure <<$pcs_nickname>>, that could be fun!"'
-			if pav_slut >= 25:'You approach Natasha and explain how you''re struggling in school and could really use his help studying. She makes some comments about your lousy reputation in school, but at the same time doesn''t seem to care too much about it and agrees to help you anyway. As long as you don''t tell anyone.'
+			if pav_slut < 100:'You approach Natasha and explain how you''re struggling in school and could really use his help studying. She thinks it over for a second, but happily agrees: "Sure <<$pcs_nickname>>, that could be fun!"'
+			if pav_slut >= 100:'You approach Natasha and explain how you''re struggling in school and could really use his help studying. She makes some comments about your lousy reputation in school, but at the same time doesn''t seem to care too much about it and agrees to help you anyway. As long as you don''t tell anyone.'
 			if $loc ! 'gdkin':
 				xgt 'gschool_lessons', 'short_break', 'nopict'
 			else

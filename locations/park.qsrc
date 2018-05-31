@@ -74,7 +74,7 @@ if $ARGS[0] = 'start':
 				'"Nah, just didn''t feel like it," you shrug and continue on your way.'
 			else
 				'You blush with shame and you try to walk out of his sight as fast as possible.'
-			
+			end
 		end
 	end
 

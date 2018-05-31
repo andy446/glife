@@ -19,7 +19,7 @@ if $ARGS[0] = 'start':
 		end
 
 		if pcs_exhibition >= 45 or pcs_inhib >= 55:
-			act 'Flash both your tits and your pussy to skip the line':
+			act 'Flash both your tits and your pussy to jump the queue':
 				cls
 				minut += 1
 				exhibition_exp += rand(12,15)
@@ -31,7 +31,7 @@ if $ARGS[0] = 'start':
 		end
 
 		if pcs_exhibition >= 40 or pcs_inhib >= 55:
-			act 'Flash your pussy to skip the line':
+			act 'Flash your pussy to jump the queue':
 				cls
 				minut += 1
 				exhibition_exp += rand(9,12)
@@ -43,7 +43,7 @@ if $ARGS[0] = 'start':
 		end
 
 		if pcs_exhibition >= 35 or pcs_inhib >= 40:
-			act 'Flash your tits to skip the line':
+			act 'Flash your tits to jump the queue':
 				cls
 				minut += 1
 				exhibition_exp += rand(5,8)

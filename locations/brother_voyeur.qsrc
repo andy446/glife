@@ -663,6 +663,7 @@ if $ARGS[0] = 'brother_shower_together':
 	end
 	if pcs_inhib >= 50 or npc_rel['A34'] >= 80:
 	act'Suggest you wash each other (0:10)':gt'brother_voyeur','brother_wash_first'
+	end
 
 	if brother_shower_times > 2:
 		if pcs_inhib >= 50 or npc_rel['A34'] > 80:
@@ -698,7 +699,7 @@ if $ARGS[0] = 'brother_shower_together':
 					end
 				end
 			end
-			act'Give him "shower head"':
+			act'"Give him "shower head"':
 				cla
 				npc_rel['A34'] += 5
 				if brotherbj < 1 and brotherfuck < 1:
@@ -1090,7 +1091,7 @@ if $ARGS[0] = 'brother_shower_shave':
 						*nl
 						'	"No? Why would I? I like it like this?" you say.'
 						if kolka_shave_ask = daystart:
-								kolka_shave_ask2 = daystart
+							if kolka_shave_ask2 = daystart
 								'	Kolka frowns. "I thought you said you were going to do what I asked?"'
 								*nl
 								act'Not going to change my mind':
@@ -1357,9 +1358,11 @@ if $ARGS[0] = 'brother_shower_end':
 end
 
 !!if $ARGS[0] = 'brother_shower_sex':
+!!end
 
 
 !!	act'Keep going':
+!!	end
 
 
 if $ARGS[0] = 'brother_shower_bj':
@@ -1990,9 +1993,9 @@ if $ARGS[0] = 'brother_shower_fuck_first2':
 	if pcs_vag = 0:
 		'<center><video src="images/shared/home/bathroom/broshowervirgin.mp4"></center>'
 		'	Holding your breath, you push back on Kolka, feeling his tip stretch your pussy. He eventually pushes the entire length of his cock inside causing you to gasp in pain as his <<npc_dick[''A34'']>> cm dick tears through your hymen. Despite your pain, neither of you stop moving, continuing to thrust against each other.'
-	!!elseif stat['hidden_vaginal'] > 0:
-	!!	'<center><video src="images/characters/pavlovsk/resident/kolka/event/shower/broshower.mp4"></center>'
-	!!	'	Kolka slides inside you with surprising ease. Though his dick still stretches your pussy, you find it to be pleasant instead of painful. Of course you''ve heard stories that say it doesn''t hurt for some girls, but you always thought it was a myth or at least a rare occurrence. <i>I must be pretty lucky!<</i> you think to yourself.'
+		!!elseif stat['hidden_vaginal'] > 0:
+		!!	'<center><video src="images/characters/pavlovsk/resident/kolka/event/shower/broshower.mp4"></center>'
+		!!	'	Kolka slides inside you with surprising ease. Though his dick still stretches your pussy, you find it to be pleasant instead of painful. Of course you''ve heard stories that say it doesn''t hurt for some girls, but you always thought it was a myth or at least a rare occurrence. <i>I must be pretty lucky!<</i> you think to yourself.'
 	else
 		'<center><video src="images/characters/pavlovsk/resident/kolka/event/shower/broshower.mp4"></center>'
 		'	Your pussy easily swallows your brother''s <<npc_dick[''A34'']>> cm cock and you immediately start building into a rhythm, pushing back on him in time with his thrusts for maximum depth of penetration.'
@@ -2295,7 +2298,7 @@ if $ARGS[0] = 'brother_fuck_cum':
 				'	"I''m sorry Kolka! Your cock just felt so good, I couldn''t stop! You can''t be mad at me for being too addicted to your cock to stop, right?" You kneel down, trying to apologize by cleaning him up with your tongue.'
 				'	He grumbles a bit but you can tell that he''s not mad at you. "I guess I can''t be mad about that... But next time I ask, I want to cum on your face!"'
 				'	"Okay, it''s a promise!" you say, standing back up and kissing him on the cheek. "So long as I can stop myself that is."'
-					if pillcon >= 30000 or tabletkishot >= 1:
+				if pillcon >= 30000 or tabletkishot >= 1:
 					'	<i>Fuck, that felt good...</i> you think to yourself, looking down to watch another glob dribbles out of you with satisfaction.'
 					'	<i>It''s a good thing I''m on birth control...</i>'
 				elseif mesec > 0:
@@ -3062,14 +3065,13 @@ if $ARGS[0] = 'showbody':
 		act'"Maybe i try something else this time"':
 			cla
 			*nl
-				'"I will help you, but only if you don''t tell anyone. Agreed? I''m serious, not a single person!" You say in a strict tone.'
-				'"<<$pcs_nickname>>, I promise not a word to anyone!"'
-				'After his promise you consider what to do.'
+			'"I will help you, but only if you don''t tell anyone. Agreed? I''m serious, not a single person!" You say in a strict tone.'
+			'"<<$pcs_nickname>>, I promise not a word to anyone!"'
+			'After his promise you consider what to do.'
 
-				act'Undress':gt'brother','brother_voyeur_ev4'
-				act'Don''t do it':gt $loc, $metka
+			act'Undress':gt'brother','brother_voyeur_ev4'
+			act'Don''t do it':gt $loc, $metka
 		end
-
 	end
 end
 

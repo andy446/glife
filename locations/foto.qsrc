@@ -431,8 +431,9 @@ if $ARGS[0] = 'interview':
 	end
 	if howoldareyou < 0:
 		if howoldareyou = 1:
-			howoldaryou = 2:
-			if age_truth = 1 or age >= 18:'	"I''m <<age>>."'
+			howoldaryou = 2
+			if age_truth = 1 or age >= 18:
+				'	"I''m <<age>>."'
 				'	"I see. Alright, undress. Let me take a look at you."'
 			elseif fakepassport = 1:
 				'	"I''m 18."'
@@ -474,20 +475,19 @@ if $ARGS[0] = 'interview':
 				act'Continue':gt'foto','job_offer'
 			end
 		elseif pcs_inhib >= 15:
-				act'Reluctantly undress':
-					reluctant_undress = 1
-					*clr & cla
-					gs 'clothing', 'strip'
-					gs 'underwear', 'remove'
-					gs 'stat'
-					'<center><video autoplay loop src="images/locations/city/citycenter/photo/strip1.mp4"></video><video autoplay loop src="images/locations/city/citycenter/photo/strip2.mp4"></video></center>'
-					'	You take a deep breath and begin to take off your clothes. As long as it''s just this one time, you can handle it for now. You leave them on the floor while the photographer examines you.'
-					!if pcs_inhib <= 20'	You instinctively cover up as he steps closer, your hands trying to shield your nipples and pussy.'
-					'	He circles you slowly, occasionally asking you to adjust your pose slightly, carefully inspecting every aspect of your nude body. Your <<$pcs_eyecol>> eyes framed by your <<$pcs_haircol>> hair, your <<$liptalk3>>, your <<$titsize>> breasts, your <<$skin1>> <<$pcs_tan>> skin, your thighs, even your <<$vaginatipe>> pussy...'
-					'	He spends several minutes doing this without saying anything. Several people walk by while he does, including several beautiful and nude women who glance at you, whispering to each other before moving on.'
-					'	<i>This is so embarrassing!</i>'
-					act'Continue':gt'foto','job_offer'
-				end
+			act'Reluctantly undress':
+				reluctant_undress = 1
+				*clr & cla
+				gs 'clothing', 'strip'
+				gs 'underwear', 'remove'
+				gs 'stat'
+				'<center><video autoplay loop src="images/locations/city/citycenter/photo/strip1.mp4"></video><video autoplay loop src="images/locations/city/citycenter/photo/strip2.mp4"></video></center>'
+				'	You take a deep breath and begin to take off your clothes. As long as it''s just this one time, you can handle it for now. You leave them on the floor while the photographer examines you.'
+				!if pcs_inhib <= 20'	You instinctively cover up as he steps closer, your hands trying to shield your nipples and pussy.'
+				'	He circles you slowly, occasionally asking you to adjust your pose slightly, carefully inspecting every aspect of your nude body. Your <<$pcs_eyecol>> eyes framed by your <<$pcs_haircol>> hair, your <<$liptalk3>>, your <<$titsize>> breasts, your <<$skin1>> <<$pcs_tan>> skin, your thighs, even your <<$vaginatipe>> pussy...'
+				'	He spends several minutes doing this without saying anything. Several people walk by while he does, including several beautiful and nude women who glance at you, whispering to each other before moving on.'
+				'	<i>This is so embarrassing!</i>'
+				act'Continue':gt'foto','job_offer'
 			end
 
 			act'I can''t do it':
@@ -558,7 +558,7 @@ if $ARGS[0] = 'job_offer':
 				fotofakepassport = 2
 				'	You take a deep breath and step closer to him to say, "Okay, the truth is that I''m not really 18. I''m <<age>> okay? But I really need this job! Can''t we work something out?"'
 				'	He studies you for a moment, still completely naked before him, not a scrap of clothing to hide your naked body. You realize it suddenly, almost as if you had forgotten and you feel your face flush with embarrassment.'
-				act '...':
+				act 'Continue':
 					*clr & cla
 					'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fotograph.jpg"></center>'
 					'	"Hmmm..." He rubs his chin thoughtfully while continuing to look at your body before saying, "Alright, listen, I''m not supposed to do this but you really do have an exceptional body so I''m going to make an exception."'
@@ -627,7 +627,7 @@ if $ARGS[0] = 'job_offer':
 			'	You''ve come this far, you can''t turn back now.'
 			'	"Okay, so I''m not 18. But I really want to earn some money right now. Isn''t there any way I can still work here?'
 			'	He studies you for a moment, still completely naked before him, not a scrap of clothing to hide your naked body. You realize it suddenly, almost as if you had forgotten and you feel your face flush with embarrassment.'
-			act '...':
+			act 'Continue':
 				*clr & cla
 				'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fotograph.jpg"></center>'
 				'"Hmmm..." He rubs his chin thoughtfully while continuing to look at your body before saying, "Alright, listen, I''m not supposed to do this but you have an exceptional body so I''m going to make an exception."'
@@ -739,7 +739,7 @@ if $ARGS[0] = 'showers':
 						'Soon you feel a warm wave spreading over your entire body and you shudder as an orgasm overtakes you. You quickly look around hoping no one noticed your public masturbation session.'
 						act 'Dry off':gt 'foto', 'showers'
 					else
-						exhibition_exp +=8
+						exhibition_exp += 8
 						orgasm += 1
 						pcs_mood += 15
 						pcs_willpwr += 15

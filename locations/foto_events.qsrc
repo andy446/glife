@@ -116,8 +116,7 @@ if $ARGS[0] = 'studio_strip_talk2':
 			end
 			'	"Fine, fine," he grumbles. "I''ll give you one more week. But that''s it! At the end of this week I expect those panties to come off! Now get to work!"'
 			'	The manager turns around and walks away and you heave a sigh of relief at his departure. It''s not exactly what you want, but you still have one more week now...'
-				act'Go back to the main floor':gt'foto','studio'
-			end
+			act'Go back to the main floor':gt'foto','studio'
 		end
 	end
 end

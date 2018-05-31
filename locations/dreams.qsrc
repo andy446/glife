@@ -5,7 +5,7 @@ if $ARGS[0] = 'start':
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/vladimir/sex/bath_voyer_1.jpg"></center>'
 		'Today you had a very strange dream: You were blindfolded, having sex with a stranger. After the two of you are done you remove the blindfold and recognize the stranger to be your stepfather.'
 		pcs_horny = 100
-		!you need trigger event (bath) again to advance. or we can simply add a stepdadqw += 1  by illume
+		stepdadqw += 1
 	elseif succubusQW = 1 or succubusQW = 2:
 		!this is for initial dream and a reoccuring dream if the feeling was ignored
 		'<center><img <<$set_imgh>> src="images/shared/home/bedroom/dream/sex/succubdream.jpg"></center>'

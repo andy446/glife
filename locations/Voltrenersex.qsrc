@@ -284,17 +284,16 @@ end
 
 if $ARGS[0] = 'Mast':
 *clr & cla
-minut += 10
+gs 'arousal','masturbate', 10
 gs 'stat'
 '<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/gym/volley/sex/voitrensex11.jpg"></center>'
 'Looking your coach in the eyes, you remove the rest of your clothes and start to lick and suck on your own fingers. The coach seems to understood your idea and sits down ready to watch the show.'
-	Act 'Expose your pussy':
+	act 'Expose your pussy':
 		cls
-		stat['mast'] += 1
-		if pcs_exhibition < 30:exhibition_exp += rand(1,3)
+		if pcs_inhib < 40:inhib_exp += rand(1,3)
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/gym/volley/sex/voitrensex12.jpg"></center>'
 		'Sitting you spread legs as wide as they will go, showing coach your pussy oozing with juices.'
-		Act 'Fondle nipples':
+		act 'Fondle nipples':
 			pcs_horny += 10
 			cls
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/gym/volley/sex/voitrensex13.jpg"></center>'
@@ -304,14 +303,15 @@ gs 'stat'
 				cls
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/gym/volley/sex/voitrensex14.jpg"></center>'
 				'It is obvious you coach is enjoying the show, the bulge in his pants making no secret of it. You lowered one hand to her wet crotch while the other continued to play with a nipple, when you hand touched her clit it seemed as if an electric discharge passed through your body, you moan in passion and begin to frantically rub your clit.'
-				Act 'To caress the anus':
+				act 'To caress the anus':
 					cls
 					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/gym/volley/sex/voitrensex15.jpg"></center>'
 					'Incessantly rubbing your clit, your second hand began to massage your asshole.'
-					Act 'Come':
+					act 'Come':
 						pcs_horny = 0
 						orgasm += 1
 						pcs_mood += 20
+						gs 'arousal','end'
 						gs 'stat'
 						cls
 						'<center><video autoplay loop src="images/locations/pavlovsk/community/gym/volley/sex/voitrensex16.mp4"></video></center>'
@@ -330,6 +330,7 @@ gs 'stat'
 								pcs_horny = 0
 								orgasm += 1
 								pcs_mood += 20
+								gs 'arousal','end'
 								gs 'stat'
 								'<center><video autoplay loop src="images/locations/pavlovsk/community/gym/volley/sex/voitrensex18.mp4"></video></center>'
 								'Maddened with desire you grab Mikhail Nikolaevich cock and try to pull it inside of you, as you stroke him. But it looks like you won''t get a chance as he immediately starts to cum. Drops of semen begin raining down on your tummy.'

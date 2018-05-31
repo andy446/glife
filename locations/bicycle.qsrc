@@ -130,12 +130,12 @@ if $ARGS[0] = 'forest':
 
 	act 'Bike to the village (0:25)':
 		dirtyclothes = 0 & swamp_clothes = 0
-		if $clothingworntype ! 'nude' or pcs_exhibition > 50:
+		if $clothingworntype ! 'nude' or pcs_inhib > 50:
 			cls
 			pcs_mood += 10
 			findvel = 1
 			minut += 25
-			exhibition_exp += 4
+			inhib_exp += 4
 			gs'stat'
 
 			gs 'bicycle', 'clothes_findvel'
@@ -180,7 +180,7 @@ if $ARGS[0] = 'swamp':
 
 	act 'Bike to the village (1:15)':
 		dirtyclothes = 0 & swamp_clothes = 0
-		if $clothingworntype ! 'nude' or pcs_exhibition > 50:
+		if $clothingworntype ! 'nude' or pcs_inhib > 50:
 			cls
 			minut += 75
 			run_exp += RAND(0,1)
@@ -190,7 +190,7 @@ if $ARGS[0] = 'swamp':
 			pcs_mood += 10
 			findvel = 1
 			hanters = 0
-			exhibition_exp += 4
+			inhib_exp += 4
 			gs'stat'
 			!gs'time'
 

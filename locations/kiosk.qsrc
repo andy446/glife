@@ -18,8 +18,8 @@ if $ARGS[0] = 'start':
 			gt 'kiosk', 'counter'
 		end
 
-		if pcs_exhibition >= 45:
-			act 'Flash both your tits and your pussy':
+		if pcs_exhibition >= 45 or pcs_inhib >= 55:
+			act 'Flash both your tits and your pussy to skip the line':
 				cls
 				minut += 1
 				exhibition_exp += rand(12,15)
@@ -30,8 +30,8 @@ if $ARGS[0] = 'start':
 			end
 		end
 
-		if pcs_exhibition >= 40:
-			act 'Flash your pussy':
+		if pcs_exhibition >= 40 or pcs_inhib >= 55:
+			act 'Flash your pussy to skip the line':
 				cls
 				minut += 1
 				exhibition_exp += rand(9,12)
@@ -42,8 +42,8 @@ if $ARGS[0] = 'start':
 			end
 		end
 
-		if pcs_exhibition >= 35:
-			act 'Flash your tits':
+		if pcs_exhibition >= 35 or pcs_inhib >= 40:
+			act 'Flash your tits to skip the line':
 				cls
 				minut += 1
 				exhibition_exp += rand(5,8)

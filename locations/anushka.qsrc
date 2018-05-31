@@ -333,7 +333,7 @@ if $ARGS[0] = 'temptation':
 				act 'Go home':minut += 15 & gt 'gschool_grounds', 'main'
 			end
 !!This is a option if exhibition is 20 but less than 30. I figure with someone else already naked and encouraging Sveta she could do it due to peer pressure even if her exhibition is not normally high enough.
-			if pcs_exhibition >= 20 and pcs_exhibition < 30:
+			if pcs_inhib >= 20 and pcs_inhib < 30:
 				act 'I would like to but...':
 					*clr
 					cla
@@ -345,7 +345,7 @@ if $ARGS[0] = 'temptation':
 					act 'Get Naked': gt 'anushka', 'naked'
 				end
 			end
-			if pcs_exhibition >= 30:
+			if pcs_inhib >= 30:
 				act 'Get Naked': gt 'anushka', 'naked'
 			end
 		end

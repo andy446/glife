@@ -39,11 +39,12 @@ if $ARGS[0] = 'start':
 
 	gs 'kseniyaQW', 'events'
 
-	if pcs_exhibition >= 35:
+	if pcs_inhib >= 35:
 		act 'Flash your tits':
 			if pcs_exhibition >= 50 and exhibitionQW = 0: gt 'kseniyaQW', 'event1'
 			cls
 			exhibition_exp += rand(5,8)
+			inhib_exp += rand(1,3)
 			gs 'events', 'flash_tits', 'outdoors', 5
 			gs 'stat'
 
@@ -128,7 +129,7 @@ if $ARGS[0] = 'prut2':
 	end
 
 	if temper >= 15 and month >= 5 and month <= 9:
-		if pcs_exhibition > 30:
+		if pcs_inhib > 30:
 			act 'Strip off and skinny dip (1:00)':
 				cla
 				*clr
@@ -141,13 +142,13 @@ if $ARGS[0] = 'prut2':
 				exhibition_exp += 4
 				gs 'clothing', 'strip'
 				gs 'underwear', 'remove'
-				if pcs_horny >= 80:
+				if pcs_horny >= 80 and pcs_inhib >= 60:
 					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/lake/secluded_beach/self/wetpussypants3.jpg"></center>'
 					'AS you strip off. A couple of passing men do a double-take and pause a moment to look at your sopping wet panties, probably thinking about what is making you so excited. You don''t care about what they might say or think of you and carry on stripping.'
 					'Once you are naked you play around and have fun in the pond, enjoying the feel of the warm water on your body. The clean pond water refreshes and invigorates you.'
-				elseif pcs_exhibition >= 40:
+				elseif pcs_inhib >= 60:
 					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/lake/secluded_beach/dress/undressnudebeach.jpg"></center>'
-					'Not caring if anyone is looking at you, you slowly take off your clothes.  You peel off each item like a stripper. You feel so naughty. Soon, you completely naked.'
+					'Not caring if anyone is looking at you, you slowly take off your clothes.  You peel off each item like a stripper. Soon, you are completely naked.'
 					'You play around and have fun in the pond, enjoying the feel of the warm water on your naked body. The clean pond water refreshes and invigorates you.'
 				else
 					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/lake/secluded_beach/dress/undressnudebeach.jpg"></center>'

@@ -119,7 +119,7 @@ if $ARGS[0] = 'pos8':
 		bomjqw = 1
 		money += 100
 		bomjshet += 1
-		exhibition_exp += 5
+		inhib_exp += 5
 		gs'stat'
 
 		'<center><img <<$set_imgh>> src="images/locations/city/residential/bumt1.jpg"></center>'

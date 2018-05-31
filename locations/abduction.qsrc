@@ -625,7 +625,7 @@ if $ARGS[0] = 'abdpushup':
 	cla
 	*clr
 	'<center><video autoplay loop src="images/pc/activities/push_naked.mp4"></video></center>'
-	gs 'exercise', 'tier2', 30, 'stren_exp', 'exhibition_exp'
+	gs 'exercise', 'tier2', 30, 'stren_exp'
 	'You do push-ups for <<$timestring>> minutes, improving your strength.'
 
 	randpushfact = rand(-5,5)

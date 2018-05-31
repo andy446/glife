@@ -100,7 +100,7 @@ if $ARGS[0] = 'masopt':
 	cla
 	*clr
 	gs 'stat'
-	if pcs_exhibition < 30:exhibition_exp += rand(1,3)
+	if pcs_inhib < 30:inhib_exp += rand(1,3)
 	pcs_mood += 15
 	pcs_willpwr += 15
 	'<center><img <<$set_imgh>> src="images/locations/city/residential/apartment/sex/balcony_dildo.jpg"></center>'
@@ -118,7 +118,7 @@ if $ARGS[0] = 'masopt':
 			'You begin to rub yourself, having your hand moving in small circles as you feel your wetness growing. Feeling aroused enough you take out your dildo and begin teasing your clit by gently rubbing the area.'
 			'As you stop teasing yourself, you slowly push the head inside your vagina. You slowly begin to fuck yourself picking up the pace. The feeling of your inside being streched out is great and you let out a quiet wimp as you keep on playing with the dildo.'
 			$orgasm_or = 'yes'
-			$orgasm_txt = 'After pleasuring yourself intensily with the dildo for a few minutes and as you reach orgasm you try to keep your voice down as you don''t want to get exposed.'
+			$orgasm_txt = 'After pleasuring yourself intensely with the dildo for a few minutes and as you reach orgasm you try to keep your voice down as you don''t want to get exposed.'
 			
 			gs 'arousal', 'vaginal_dildo', 10, 'exhibitionism'
 			gs 'arousal', 'end'
@@ -202,8 +202,8 @@ if $ARGS[0] = 'finger':
 				if pcs_exhibition >= 35:
 					exhibition_exp += 2
 					
-					'As you open your eyes, you lock eyes with one of your neighbours peering out the window in the house across...'
-					'Usually your first action would be to jump out of his field of view but not this time... You can''t help but smile as there''s someone enjoying the show...'
+					'As you open your eyes, you lock eyes with one of your neighbors peering out the window in the house across...'
+					'You can''t help but smile as there''s someone enjoying the show...'
 					
 					act 'Give him a show':gt 'balkon2', 'finger_solo'
 					

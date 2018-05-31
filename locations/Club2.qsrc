@@ -86,7 +86,7 @@ if $ARGS[0] = 'toilet':
 	act 'Caress yourself':
 		cla
 		TQuest = 1
-		if pcs_exhibition < 30:exhibition_exp += rand(1,3)
+		if pcs_inhib < 40:inhib_exp += rand(1,3)
 		money += 500
 		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/shared/sex/mast/tomas.jpg"></center>'

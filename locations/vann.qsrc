@@ -208,17 +208,17 @@ if $ARGS[0] = 'v4':
 	*clr
 	minut += 10
 	stat['mast'] += 1
-	if pcs_exhibition < 30:exhibition_exp += rand(1,3)
+	if pcs_inhib < 30:inhib_exp += rand(1,3)
 	'<center><img <<$set_imgh>> src="images/locations/city/island/university/dorm/sex/bathroom/v9.jpg"></center>'
-	'You have sent water faucet on pussy and tight jet of warm water began to caress you, then you put the funnel and its place was taken by his fingers. You selflessly masturbated suddenly heard that turn on the faucet in the sink. Opening his eyes, you see a guy standing at the sink, he looked at you and smiled.'
-	'"I''m sorry to interrupt, I''ll keep you will not interfere, " he said, without looking away from your pussy, which still Sherudilo your fingers.'
+	'You have spray water from the faucet directly onto your pussy and tight jet of warm water begins to caress you. Getting further into it, you push your fingers inside while the water takes care of your clit. You''re completely absorbed in your masturbation until suddenly you realize that someone has turned on on the faucet in the sink. Opening your eyes, you see a guy standing at the sink, looking at you and grinning.'
+	'"Sorry, don''t let me interrupt, I''m just enjoying the show" he says without looking away from your pussy, which is still filled with your fingers.'
 
 	act 'Scream':
 		cla
 		*clr
 		pcs_horny = 0
 		'<center><img <<$set_imgh>> src="images/locations/city/island/university/dorm/sex/bathroom/v10.jpg"></center>'
-		'You yelled so that you most laid ears. Guy without hesitation hurried retreat and left the bathroom. You are once again left alone, but the excitement is gone and you have nothing to like.'
+		'You scream so loud that you hurt your ears. The guy jumps at the sound and hurriedly retreats from the bathroom. You are once again left alone, but the excitement is gone and you don''t really feel like masturbating anymore.'
 
 		act 'To do their job':gt 'vann', 'start'
 	end
@@ -227,7 +227,7 @@ if $ARGS[0] = 'v4':
 		cla
 		*clr
 		'<center><img <<$set_imgh>> src="images/locations/city/island/university/dorm/sex/bathroom/v10.jpg"></center>'
-		'You began to slowly crawl to the bathroom, that would cover his naked pussy, soapy water, and tried to close the chest hand that you do not really succeed. The guy kept watch over you and his smile grew wider, and then you realize that your hand is still stroking your pussy and his eyes only excites you. Making an effort you took the hand. He walked up to you and sat on the edge of the tub, lifted out of the water loofah handed to you, "Can I help you? ... I mean back rub, " he said. You sat and stared blankly at him not knowing what to say, and his hands were pulled down again.'
+		'You began to slowly crawl from the bathroom, covering your naked pussy, soapy water, and tried to close the chest hand that you do not really succeed. The guy kept watch over you and his smile grew wider, and then you realize that your hand is still stroking your pussy and his eyes only excites you. Making an effort you took the hand. He walked up to you and sat on the edge of the tub, lifted out of the water loofah handed to you, "Can I help you? ... I mean back rub, " he said. You sat and stared blankly at him not knowing what to say, and his hands were pulled down again.'
 
 		act 'Refuse':
 			cla

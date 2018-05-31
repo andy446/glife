@@ -194,7 +194,7 @@ if $ARGS[0] = 'bathroom':
 		temp = rand(0,4)
 		!!LillianL-Randomise which shower event happens.
 		if ((hour >= 20 and hour < 23) or (week > 5 and hour >= 8 and hour < 16) or (week > 5 and hour >= 18 and hour < 23)) and temp = 0:
-			exhibition_exp += 1
+			inhib_exp += 1
 			'Despite the pattering noise of the running water, you hear the bathroom door open and you look past the shower curtain to see Eduard walking up to the toilet, unzipping his pants.'
 			act 'Uhm excuse me?':
 				*clr & cla
@@ -203,10 +203,10 @@ if $ARGS[0] = 'bathroom':
 				'He looks up at you when you question him and it takes him a moment to realize who you are. He quickly zips up his pants. "Shit sorry, I thought you were my wife." He turns away and hurries for the door. "I''ll just be going, sorry again," He says as he pulls the door closed. Unsure about what to think, you decide to just finish with your shower.'
 				act 'Get out of the shower': gt 'anushapt','bathroom'
 			end
-			if pcs_exhibition >= 30:
+			if pcs_inhib >= 50:
 				act 'Give him a show':
 				*clr & cla
-					exhibition_exp += 3
+					inhib_exp += 3
 					'<center><img src="images/locations/pavlovsk/resident/apartment/anushapt/showershow.jpg"></center>'
 					'It seems he hasn''t looked over to see who is in the shower yet. So you decide to pull the curtain wide open, giving him a proper view of your soapy naked body. "Excuse me, is this what you were looking for?" You ask him.'
 					*nl
@@ -217,7 +217,7 @@ if $ARGS[0] = 'bathroom':
 				end
 			end
 		elseif temp = 1 and maksimQW >= 5:
-			exhibition_exp += 1
+			inhib_exp += 1
 			'Despite the pattering noise of the running water, you hear the bathroom door creaking slightly. Looking past the shower curtain you see that the bathroom door has been cracked open a little bit. Through the small crack in the doorway you notice Maksim, Anushka''s younger brother, peeking in and watching you shower.'
 			act 'Yell at him':
 				*clr
@@ -227,11 +227,11 @@ if $ARGS[0] = 'bathroom':
 				'He laughs and then quickly ducks away. You hear Anushka yelling at him, wanting to know what he was doing. As you continue your shower you hear a lot more yelling from behind the door and there is even a loud crash, before a sudden silence.'
 				act 'Get out of the shower': gt 'anushapt','bathroom'
 			end
-			if pcs_exhibition >= 30:
+			if pcs_inhib >= 50:
 				act 'Give him a show':
 					*clr
 					cla
-					exhibition_exp += 3
+					inhib_exp += 3
 					'<center><img src="images/locations/pavlovsk/resident/apartment/anushapt/showershow.jpg"></center>'
 					'Looking straight at him you give him a smile, then you pull the curtain wide open, giving him the perfect view of your wet, naked body. His eyes go huge and he wastes no time, quickly coming into the bathroom and pushing the door closed behind him. After a few minutes of just watching you, you notice him pulling out his phone and trying to take a picture. You immediately shake your head at him, "No pictures, or I will tell your sister that you snuck in here and started taking pictures of me while I was having my shower." He doesn''t say anything but gives you a look with a mixture of disgust, annoyance and fear at the mention of his sister.'
 					'So he just settles in to watch you enjoy shower and dry yourself off. As you start getting dressed you shoo him out of the room before finishing up.'
@@ -333,7 +333,7 @@ if $ARGS[0] = 'computer':
 			act 'Masturbate as well':
 				*clr
 				cla
-				exhibition_exp += 3
+				inhib_exp += 3
 				'<center><h4><font color="maroon">Anushka''s Room</font></h4></center>'
 				'<center><video autoplay loop src="images/locations/pavlovsk/resident/apartment/anushapt/anushroom/dualmast.mp4"></video></center>'
 				'You think, well fuck it. The video has really turned you on and she obviously doesn''t think it''s big deal to masturbate in your company. With that thought, you start to masturbate as well; though you find it a little hard to get into it properly, knowing she is right next to you. After a while you start to relax, getting more comfortable with the situation as you begin to give in to the sensations, your arousal growing more and more. You glance over at Anushka and see her looking at you with a huge grin on her face, she is clearly enjoying the fact that the two of you are playing with yourselves together. At this point neither of you is really watching the porno anymore and instead you just lay back on the bed side by side, looking at each other while you masturbate.'
@@ -395,7 +395,7 @@ if $ARGS[0] = 'computer':
 				act 'Masturbate as well':
 					*clr
 					cla
-					exhibition_exp += 3
+					inhib_exp += 3
 					'<center><h4><font color="maroon">Anushka''s Room</font></h4></center>'
 					'<center><video autoplay loop src="images/locations/pavlovsk/resident/apartment/anushapt/anushroom/dualmast.mp4"></video></center>'
 					'You think, well fuck it. The video has really turned you on and she obviously doesn''t think it''s big deal to masturbate in your company. With that thought, you start to masturbate as well; though you find it a little hard to get into it properly, knowing she is right next to you. After a while you start to relax, getting more comfortable with the situation as you begin to give in to the sensations, your arousal growing more and more. You glance over at Anushka and see her looking at you with a huge grin on her face, she is clearly enjoying the fact that the two of you are playing with yourselves together. At this point neither of you is really watching the porno anymore and instead you just lay back on the bed side by side, looking at each other while you masturbate.'

@@ -18,8 +18,8 @@ if $ARGS[0] = 'start':
 			$postloc = 'counter' & gt 'postoffice'
 		end
 	
-		if pcs_exhibition >= 45:
-			act 'Flash both your tits and your pussy':
+		if pcs_exhibition >= 45 or pcs_inhib >= 55:
+			act 'Flash both your tits and your pussy to skip the line':
 				cls
 				exhibition_exp += rand(12,15)
 				gs 'events', 'flash_full', 'indoors', 5
@@ -29,8 +29,8 @@ if $ARGS[0] = 'start':
 			end
 		end
 
-		if pcs_exhibition >= 40:
-			act 'Flash your pussy':
+		if pcs_exhibition >= 40 or pcs_inhib >= 50:
+			act 'Flash your pussy to skip the line':
 				cls
 				exhibition_exp += rand(9,12)
 				gs 'events', 'flash_pussy', 'indoors', 5
@@ -40,8 +40,8 @@ if $ARGS[0] = 'start':
 			end
 		end
 
-		if pcs_exhibition >= 35:
-			act 'Flash your tits':
+		if pcs_exhibition >= 35 or pcs_inhib >= 45:
+			act 'Flash your tits to skip the line':
 				cls
 				exhibition_exp += rand(5,8)
 				gs 'events', 'flash_tits', 'indoors', 5
@@ -51,7 +51,7 @@ if $ARGS[0] = 'start':
 			end
 		end
 		
-		if sub['exp'] >= 10 and pcs_exhibition > 25:
+		if pcs_exhibition > 40:
 			act 'Suggest a blowjob in exchange for jumping the queue':
 				cls
 				if cumloc[12] = 0 and cumloc[11] = 0:

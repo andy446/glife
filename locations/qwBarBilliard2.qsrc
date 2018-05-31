@@ -109,7 +109,7 @@ if $ARGS[0] = 'VicArt_Ev1_Broke':
 		act 'Return to the bar': gt 'qwbarPolet'
 	end
 
-	if pcs_exhibition >= 20:
+	if pcs_inhib >= 40:
 		act 'Deal - If I lose, I strip':
 			cls
 			minut += 20
@@ -170,7 +170,7 @@ if $ARGS[0] = 'VicArt_Ev1_Broke':
 		end
 	end
 
-	if pcs_exhibition >= 25 and Jaska_Friend_Bill >= 2:
+	if pcs_inhib >= 50 and Jaska_Friend_Bill >= 2:
 		act 'Okay - If I lose, I masturbate':
 			![More Money!]
 
@@ -180,13 +180,13 @@ if $ARGS[0] = 'VicArt_Ev1_Broke':
 		end
 	end
 
-	if pcs_exhibition >= 30 and Jaska_Friend_Bill >= 3:
+	if pcs_inhib >= 40 and Jaska_Friend_Bill >= 3:
 		act 'Alright - If I lose, I blow you':
 			![More Money!]
 			!GETTING CAUGHT BY MARTIN!!!
 
 			if Jaska_Friend_Bill = 3:
-				!Also requires pcs_exhibition and maybe something else - blowjob experience?
+				!Also requires pcs_inhib and maybe something else - blowjob experience?
 
 				!Sveta offers giving both of them a blowjob as a wager
 
@@ -251,7 +251,7 @@ end
 
 	!!Different blowjob scene (with small variants after the one with Martin fired - no conditional change to Jaska_Friend_Bill necessary)
 
-	!Sex progression? first strip teases, masturbation, then handjobs/blowjobs, sex, anal, DP - dependent on pcs_exhibition - caught in a specific act (blowjob? sex?) - each act is worth more
+	!Sex progression? first strip teases, masturbation, then handjobs/blowjobs, sex, anal, DP - dependent on pcs_inhib - caught in a specific act (blowjob? sex?) - each act is worth more
 	!Small scene variants where she only blows one of them, only has sex with one of them etc.
 
 

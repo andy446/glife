@@ -1038,7 +1038,7 @@ if $ARGS[0] = 'bandsex':
 			cls
 			postbandQW = 2
 			postexhibi += 1
-			exhibition_exp += rand(1,3)
+			inhib_exp += rand(0,3)
 			'<center><img <<$set_imgh>> src="images/locations/shared/postoffice/events/postboobs1.jpg"></center>'
 			'"No, wait!" you blurt out, quickly stopping him. "I''ll do it..."'
 			'"I knew you would!" he grins, putting out his lighter but keeping it in his hand. He adds: "Go on, then... we don''t have all day!"'
@@ -1068,7 +1068,7 @@ if $ARGS[0] = 'bandsex':
 		act 'Show your boobs again':
 			cls
 			postexhibi += 1
-			exhibition_exp += rand(1,3)
+			inhib_exp += rand(1,3)
 			if postexhibi >=4: postbandQW = 3
 			postboobsrand = rand(1,4)
 			'<center><img <<$set_imgh>> src="images/locations/shared/postoffice/events/postboobs<<postboobsrand>>.jpg"></center>'
@@ -1088,7 +1088,7 @@ if $ARGS[0] = 'bandsex':
 		act 'Strip for them':
 			cls
 			postbandQW = 4
-			exhibition_exp += rand(4,6)
+			inhib_exp += rand(1,6)
 			gs 'stat'
 			'<center><img <<$set_imgh>> src="images/locations/shared/postoffice/events/poststrip.jpg"></center>'
 			'With a sigh you begin to strip for them, and soon you stand before them just wearing your shoes and socks.'

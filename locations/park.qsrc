@@ -55,16 +55,26 @@ if $ARGS[0] = 'start':
 		'Stands near the park <a href="exec:GS ''carF'', ''start''">your <<$car>></a>.'
 	end
 
-	if $pantyworntype = 'none' and PCloSkirt > 2 and hour > 6 and hour <= 20 and pcs_exhibition < 50:
+	if $pantyworntype = 'none' and PCloSkirt > 2 and hour > 6 and hour <= 20:
 		nurand = rand(0, 100)
 
 		if nurand >= 80:
 			pcs_mood -= 5
 			SUB += 1
 			pcs_horny += SUB
-			exhibition_exp += 2
+			
 			'A man walks past you and notices that you didn''t put on any panties. He whistles at you, "Did you forget to put on your underwear today, honey?"'
-			'You blush with shame and you try to walk out of his sight as fast as possible.'
+			*nl
+			if pcs_exhibition >= 35:
+				exhibition_exp += 2
+				mood += 5
+				'"Nope!" you call back. "Just remembered not to!" You flip up the back of your skirt, flashing your ass at him and keep walking, a bit of a spring in your step.'
+			elseif pcs_inhib > 30:
+				inhib_exp += 1
+				'"Nah, just didn''t feel like it," you shrug and continue on your way.'
+			else
+				'You blush with shame and you try to walk out of his sight as fast as possible.'
+			
 		end
 	end
 
@@ -208,11 +218,12 @@ if $ARGS[0] = 'start':
 
 	gs 'kseniyaQW', 'events'
 
-	if pcs_exhibition >= 35:
+	if pcs_inhib >= 40:
 		act 'Flash your tits':
+			inhib_exp += 2
 			if pcs_exhibition >= 50 and exhibitionQW = 0: gt 'kseniyaQW', 'event1'
 			cls
-			exhibition_exp += rand(5,8)
+			exhibition_exp += rand(1,4)
 			gs 'events', 'flash_tits', 'outdoors', 5
 			gs 'stat'
 
@@ -222,9 +233,10 @@ if $ARGS[0] = 'start':
 
 	if pcs_exhibition >= 40:
 		act 'Flash your pussy':
+			inhib_exp += 2
 			if pcs_exhibition >= 50 and exhibitionQW = 0: gt 'kseniyaQW', 'event1'
 			cls
-			exhibition_exp += rand(9,12)
+			exhibition_exp += rand(2,6)
 			gs 'events', 'flash_pussy', 'outdoors', 5
 			gs 'stat'
 
@@ -479,11 +491,12 @@ if $ARGS[0] = 'whore':
 
 	temp = rand(1, 10)
 
-	if pcs_exhibition > 35:
+	if pcs_inhib > 35:
 		act 'Flash breasts':
 			cla
 			*clr
 			exhibition_exp += 2
+			inhib_exp += 2
 			gs 'events', 'flash_tits', 'outdoors', 5
 			gs 'stat'
 			act 'Go back to the park':gt 'park', 'start'

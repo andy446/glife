@@ -444,7 +444,6 @@ if $ARGS[0] = 'rand_bj':
 	*clr & cla
 	pcs_horny += 50
 	gs'stat'
-	exhibition_exp += 3
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/building/sex/boysex_tualet2.jpg"></center>'
 	'You can''t believe you''re doing this! Minutes ago you were just looking to relax in the classroom between lessons, and now you''re about to give this guy the best blowjob he''s ever had, in front of all your classmates that''s so hot!'
 	'You impatiently undo the button on his pants and dig your hand in, surely enough finding a hard dick waiting for you. You scoot his pants down a bit and pull it out, giving it a little kiss as you drop to your knees.'
@@ -578,7 +577,6 @@ if $ARGS[0] = 'lunch_bj':
 	cls
 !!should add to arousal
 	gs 'stat'
-	exhibition_exp += 3
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/boysbathroom.jpg"></center>'
 	'Hmm he is kind of cute. It could be your good deed for the day? Plus your kinda bored and a little horny. Making sure no one is watching you, you tell him, "Alright then, come with me." You take him by the hand and quickly guide him to the men''s restroom. At first you have to pull him along, he seems to mostly be surprised you agreed, soon he is eagerly leading the way and pulling you along.'
 
@@ -609,7 +607,6 @@ if $ARGS[0] = 'lunch_sex':
 	cls
 	gs 'npcgeneratec', 0, 'a schoolboy you don''t know', rand(15,17)
 	gs 'boyStat', $npclastgenerated
-	exhibition_exp += 3
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/lunch/sex/roofbj.jpg"></center>'
 	'Once to the spot on the roof you see several blankets stuff in a corner in a safe little spot. You grab one and the boy helps you lay it out on the roof. With it down, both of you take off your clothes, he lays back on his back. Dropping down next to him you close your <<$liptalk3>> around his <<dick>>cm <<$dick_girth>> cock. Flicking your tongue over the head, licking the pee hole and stimulating the back side of the head with your tongue and lips, while one of your hands plays with his balls.'
 	gs 'arousal', 'bj', 5, 'unknown'

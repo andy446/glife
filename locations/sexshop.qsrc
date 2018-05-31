@@ -734,7 +734,7 @@ if $ARGS[0] = 'pip':
 						pcs_mood += 15
 						pcs_willpwr += 15
 						stat['mast'] += 1
-						if pcs_exhibition < 30:exhibition_exp += rand(1,3)
+						if pcs_inhib < 30:inhib_exp += rand(1,3)
 						'Gradually the pleasurable sensations spread throughout the body and you orgasm.'
 					end
 

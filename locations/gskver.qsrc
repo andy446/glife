@@ -147,7 +147,7 @@ if mey_vika['mey_vika_qw'] > 0 and mey_vika['mey_vika_qw'] < 27 and mey_vika['qw
 	end
 end
 
-if pcs_exhibition >= 35:
+if pcs_inhib >= 35:
 	act 'Flash your tits':
 		if pcs_exhibition >= 50 and exhibitionQW = 0: gt 'kseniyaQW', 'event1'
 		cls

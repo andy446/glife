@@ -75,7 +75,7 @@ if clothesAtLocation = 1:'Your clothes lie on the shore.'
 if clothesAtLocation = 0:
 	if $clothingworntype ! 'nude' and temper >= 15:
 		act'Undress':
-			if hantersKnowSlut > 0 or hanters = 0 or hour < 8 or hour >= 20 or pcs_exhibition > 35:
+			if hantersKnowSlut > 0 or hanters = 0 or hour < 8 or hour >= 20 or pcs_inhib > 35:
 				cla
 				*clr
 				minut+=5

@@ -558,7 +558,6 @@ if $ARGS[0] =  'Diner 1':
 
 					act 'Listen to them':
 						cls
-						exhibition_exp += 2
 						minut += 5
 						gs'stat'
 						'<center><img <<$set_imgh>> src="images/pc/body/cum/cumface/blonde/15.jpg"></center>'
@@ -572,7 +571,6 @@ if $ARGS[0] =  'Diner 1':
 						act 'Suck their dicks':
 							cls
 							gs 'clothing', 'strip'
-							exhibition_exp += 2
 							minut -= 10
 							gs'stat'
 							'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/niko/nikoev2/diner/gang/1.jpg"></center>'
@@ -593,7 +591,6 @@ if $ARGS[0] =  'Diner 1':
 
 							act 'Vaginal':
 								cls
-								exhibition_exp += 2
 								minut += 5
 								gs'stat'
 								'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/niko/nikoev2/diner/gang/3.jpg"></center>'
@@ -617,7 +614,6 @@ if $ARGS[0] =  'Diner 1':
 
 								act 'Anal':
 									cls
-									exhibition_exp += 2
 									minut -= 5
 									gs'stat'
 									'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/niko/nikoev2/diner/gang/4.jpg"></center>'
@@ -630,7 +626,6 @@ if $ARGS[0] =  'Diner 1':
 
 									act 'Both holes':
 										cls
-										exhibition_exp += 2
 										minut -= 5
 										gs'stat'
 										'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/niko/nikoev2/diner/gang/6.jpg"></center>'
@@ -652,7 +647,6 @@ if $ARGS[0] =  'Diner 1':
 											cls
 											pav_sex += 30
 											pav_prostitute += 60
-											exhibition_exp += 2
 											gs 'fame'
 											NikoEv = 18
 											minut -= 5

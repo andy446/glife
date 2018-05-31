@@ -909,7 +909,6 @@ if $ARGS[0] = 'izdev9':
 							act 'Continue':
 								*clr & cla
 								gs 'cum_call','stomach',$boy,1
-								if pcs_exhibition < 30:exhibition_exp += rand(1,3)
 								pcs_willpwr +=20
 								pcs_hairbsh = 0
 								'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/shulginhome/kuh/help/sex5-8.jpg"></center>'
@@ -1541,7 +1540,6 @@ if $ARGS[0] = 'izn2':
 				pcs_mood = 100
 				pcs_willpwr +=20
 				gs 'cum_call','anus',$boy,1
-				if pcs_exhibition < 30:exhibition_exp += rand(1,3)
 				pcs_hairbsh = 0
 				'<center><video autoplay loop src="images/locations/pavlovsk/resident/apartment/shulginhome/kuh/help/event/gif/ra'+rand(6,8)+'.mp4"></video></center>'
 				'Feeling his cock in your ass, you can''t resist the urge to masturbate. Sergey''s rough pounding makes it difficult for you to hold yourself in place and masturbate at the same time, but with some difficulty you manage and let your fingers dart over your clit. Your pussy and clit feel very slippery, probably because of your saliva from the extensive deepthroating earlier.'

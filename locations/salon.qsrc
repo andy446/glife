@@ -52,6 +52,7 @@ end
 if $ARGS[0] = 'solyariy':
 	minut += 60
 	pcs_tan += 10
+	inhib_exp += rand(1,5)
 	money -= 1000
 	if salonrand > 6 and npc_QW['A192'] > 2:gt 'etoexhib', 'pos1'
 	if salonrand = 0 and masha = 0:gt 'salon', '0'
@@ -125,6 +126,7 @@ if $ARGS[0] = 'lashTreatment':
 	minut += 30
 	if pcs_lashes < 2:pcs_lashes += 1
 	if pcs_naturallashes < 2:pcs_naturallashes += 1
+	inhib_exp += rand(1,5)
 	money -= 5000
 	gs 'body_shape', 'basebeautycalc', 1
 	
@@ -239,6 +241,7 @@ if $ARGS[0] = 'epilyaciya':
 	minut += 60
 	pcs_leghair = -10
 	pcs_pubes = -10
+	inhib_exp += rand(1,5)
 	money -= 2000
 	if salonrand = 0 and masha = 0:gt 'salon', '0'
 	gs 'stat'
@@ -249,7 +252,7 @@ end
 
 if $ARGS[0] = 'ozdormas':
 	minut += 60
-	vidageday += 3
+	vidageday -= 3
 	money -= 2500
 	gs 'stat'
 	if salonrand = 0:
@@ -260,7 +263,6 @@ if $ARGS[0] = 'ozdormas':
 		'During your massage, you moan with pleasure as the guy really knows how to get your muscles to relax, it even makes you a little turned on. You feel his had slide down to your ass and before you can even protest he slips a oiled up finger into your pussy and his thumb in your ass.'
 		act 'Indignant':gt 'salon', 'start'
 		act 'Enjoy':
-			guy += 1
 			gt 'sex', 'minet'
 		end
 	end
@@ -269,6 +271,7 @@ end
 
 if $ARGS[0] = 'uhodkosha':
 	minut += 60
+	inhib_exp += rand(1,5)
 	pcs_skin += 20
 	money -= 5000
 	gs 'body_shape', 'basebeautycalc', 1
@@ -281,7 +284,8 @@ end
 
 if $ARGS[0] = 'omoloshenie':
 	minut += 60
-	vidageday += 50
+	inhib_exp += rand(1,5)
+	vidageday -= 50
 	money -= 25000
 	gs 'body_shape', 'basebeautycalc', 1
 	if salonrand = 0 and masha = 0:gt 'salon', '0'
@@ -305,7 +309,7 @@ if $ARGS[0] = '0':
 	sparrcnt[i] = stat['cum_count']
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/mall/salon/sex/pri1.jpg"></center>'
 	'During the procedure, the girl manages to stain your clothes with a clearish white liquid, which looks very similar to sperm.'
-	'You start to get very upset, not knowing if the stain will come out and not willing to wear clothes that look like someone has cummed on them.'
+	'You start to get very upset, not knowing if the stain will come out and not willing to wear clothes that look like someone has cum on them.'
 	'The manager quickly comes over to see what the problem is. "What is the problem?"'
 	'You show him the stain on your clothes. "You girl her spilled that stuff on my clothes look at it, it''s ruined."'
 	'He gives the girl a glare for a moment before he gives you a reassuring smile. "Oh no that will come right out with a cleaning, we will do all we can to make this right, we will even pay for the cleaning and I will assure you she will be punished."'

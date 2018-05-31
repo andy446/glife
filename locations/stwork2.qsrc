@@ -27,7 +27,7 @@ if $ARGS[0] = 'strip':
 				fat -= 3
 				pcs_mood -= rand(2, 6)
 				dancero_exp += rand(2, 4)
-				if pcs_exhibition < 50:exhibition_exp += rand(1,3)
+				inhib_exp += rand(2,5)
 				city_stripping += rand(1,2)
 
 				if stpredmet = 1:pcs_sweat += 5
@@ -63,7 +63,7 @@ if $ARGS[0] = 'strip':
 				fat -= 5
 				pcs_mood -= rand(4, 8)
 				dancpol_exp += rand(2, 4)
-				if pcs_exhibition < 65:exhibition_exp += rand(1,3)
+				inhib_exp += rand(2,5)
 				city_stripping += rand(1,2)
 				
 				if stpredmet = 1:pcs_hairbsh = 0

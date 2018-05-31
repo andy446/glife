@@ -127,7 +127,7 @@ if $ARGS[0] = 'SMTV':
 				gs 'clothing', 'strip'
 				gs 'underwear', 'remove'
 				'<center><video autoplay loop src="images/locations/city/citycenter/photo/fullstrip.mp4"></video></center>'
-				if pcs_exhibition < 50:
+				if pcs_inhib < 50:
 					'Mr. Yanovich makes no move to leave the room as you shyly take off all your clothes and awkwardly stand naked before him.'
 					'He stares appreciatively at your nude body.'
 					if prcptn_lvl >= 30:'A hard bulge starts to form in the crotch of his trousers.'
@@ -203,7 +203,7 @@ if $ARGS[0] = 'SMTV':
 													*nl
 													'Looking over at the desk, you see a wad of cash laying there. You rush over and when you finish counting, you realize that it''s <<actpayfin>> <b>₽</b>!'
 													'<i>Holy crap! Acting is some serious money!</i>'
-													exhibition_exp += 20
+													inhib_exp += 20
 													casting = 1
 													room = 0
 													act'Leave':gt'talent_agency','end'
@@ -313,7 +313,7 @@ if $ARGS[0] = 'SMTV':
 			'Remembering that the shoot requires you to be fully naked, you start to strip down'
 			gs 'clothing', 'strip'
 			gs 'underwear', 'remove'
-			if pcs_exhibition < 50:
+			if pcs_inhib < 50:
 				'Mr. Yanovich makes no move to leave the room as you shyly take off all your clothes and awkwardly stand naked before him.'
 				'He stares appreciatively at your nude body.'
 				if prcptn_lvl >= 30:'A hard bulge starts to form in the crotch of his trousers.'
@@ -389,7 +389,7 @@ if $ARGS[0] = 'SMTV':
 												*nl
 												'Looking over at the desk, you see a wad of cash laying there. You rush over and when you finish counting, you realize that it''s <<actpayfin>> <b>₽</b>!'
 												'<i>Holy crap! Acting is some serious money!</i>'
-												exhibition_exp += 20
+												inhib_exp += 20
 												casting = 1
 												room = 0
 												act'Leave':gt'talent_agency','end'

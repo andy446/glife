@@ -245,6 +245,7 @@ if $ARGS[0] = 'sitting_events':
 			cla
 			pav_sex +=5
 			exhibition_exp +=5
+			inhib_exp += rand(1,3)
 			'<center><b><font color="maroon">Detention</font></b></center>'
 			'<center><video autoplay loop src="images/locations/pavlovsk/school/detention/detsitflash.mp4"></video></center>'
 			'You look around once more to make sure no one else is looking, then you wait for him to look back. When he does, you pull open your shirt and expose your tits to him. His eyes get huge in surprise, you can tell he is shocked by this. You start to giggle and quickly cover up, for the rest of the time you can''t help but smile. You catch him watching you for the rest of detention, while you mostly ignore him and play on your phone.'

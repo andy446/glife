@@ -398,7 +398,7 @@ if $ARGS[0] = 'serg_sex':
 			'Sergey is railing her quite roughly now, and since Sonia is not doing a good job of pleasing you, you encourage him: "Fuck that pussy, Sergey! No need to hold back on this whore''s slit, she can take it! Pleasing you is what she''s made for!"'
 			'Suddenly Sonia becomes far more eager to please you, and you feel her tongue actively rubbing against your clit. You smirk when you realize why; Sonia must understand that you''re the reason why Sergey is fucking her so roughly, and is trying to please you so you''ll choose her side again.'
 			if pcs_horny >=70:
-				if pcs_exhibition < 30:exhibition_exp += rand(1,3)
+				if pcs_inhib < 30:inhib_exp += rand(1,3)
 				pcs_mood += 35
 				pcs_willpwr +=20
 				$orgasm_or = 'custom'

@@ -830,7 +830,7 @@ if $ARGS[0] = 'ev44':
 	'You lay around the pool, the pool is filling up with people.'
 	'Jora swims up to you orders, "Take off your clothes in front of the crowd."'
 
-	if sub > 0 or pcs_exhibition > 35:act 'Hesitantly remove your top':gt 'klofdomhouse', 'ev45'
+	if sub > 0 or pcs_inhib > 35:act 'Hesitantly remove your top':gt 'klofdomhouse', 'ev45'
 
 	act 'Get out of here':
 		gs 'clothing', 'wear', $normalclothingworntype, normalclothingwornno
@@ -852,7 +852,7 @@ if $ARGS[0] = 'ev45':
 
 	'Jora says with a grin, "Show the people those tits, they want some entertainment."'
 
-	if sub > 5 or pcs_exhibition > 35:act 'Remove hands':gt 'klofdomhouse', 'ev46'
+	if sub > 5 or pcs_inhib > 35:act 'Remove hands':gt 'klofdomhouse', 'ev46'
 	gs 'arousal', 'flashlite', 5, 'sub'
 	exhibition_exp += 10
 	gs 'stat'
@@ -873,7 +873,7 @@ if $ARGS[0] = 'ev46':
 	'You lift your arms behind his head and strike a pose.'
 	'Jora orders, "Remove the rest."'
 
-	if sub > 10 or pcs_exhibition > 40:act 'Go into the water and remove bikini bottoms':gt 'klofdomhouse', 'ev47'
+	if sub > 10 or pcs_inhib > 40:act 'Go into the water and remove bikini bottoms':gt 'klofdomhouse', 'ev47'
 	
 	act 'Get out of here':
 		gs 'arousal', 'end'
@@ -891,7 +891,7 @@ if $ARGS[0] = 'ev47':
 	'You pull off your bikini bottoms and let them drift away in water.'
 	'Jora orders, "Come out and show yourself to everyone."'
 
-	if sub > 15 or pcs_exhibition > 40:act 'Get out of the water':gt 'klofdomhouse', 'ev48'
+	if sub > 15 or pcs_inhib > 40:act 'Get out of the water':gt 'klofdomhouse', 'ev48'
 	gs 'arousal', 'flash', 5, 'sub'
 	exhibition_exp += 10
 	gs 'stat'
@@ -911,7 +911,7 @@ if $ARGS[0] = 'ev48':
 	'You go to the edge of the pool, around you there is a crowd of excited guys.'
 	'Jora orders you, "Spread your legs."'
 
-	if sub > 20 or pcs_exhibition > 50:act 'Spread your legs':gt 'klofdomhouse', 'ev49'
+	if sub > 20 or pcs_inhib > 50:act 'Spread your legs':gt 'klofdomhouse', 'ev49'
 	gs 'arousal', 'flash', 5, 'sub'
 	exhibition_exp += 15
 	gs 'stat'
@@ -931,7 +931,7 @@ if $ARGS[0] = 'ev49':
 	'The excitement covers you in heat so you go into the shallow water and relax.'
 	'Jora orders, "Spread your lips."'
 
-	if sub > 25 or pcs_exhibition > 55:act 'Spread your lips':gt 'klofdomhouse', 'ev50'
+	if sub > 25 or pcs_inhib > 55:act 'Spread your lips':gt 'klofdomhouse', 'ev50'
 	gs 'arousal', 'flash', 5, 'sub'
 	exhibition_exp += 15
 	gs 'stat'
@@ -950,7 +950,7 @@ if $ARGS[0] = 'ev50':
 	'Most of the mens mouths are gaping open.'
 	'Jora orders, "play with yourself."'
 
-	if sub > 30 or pcs_exhibition > 60:act 'Caressing your pussy':gt 'klofdomhouse', 'ev51'
+	if sub > 30 or pcs_inhib > 60:act 'Caressing your pussy':gt 'klofdomhouse', 'ev51'
 	gs 'arousal', 'vaginal_finger', 5, 'exhibitionism', 'sub'
 	gs 'stat'
 	act 'Get out of here':

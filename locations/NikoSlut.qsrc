@@ -1240,7 +1240,6 @@ if $ARGS[0] = 'Customer 10':
 
 	act 'Continue':	
 		cls
-		exhibition_exp += 1
 		Vk = rand(1,3)
 		minut += 5
 		gs'stat'
@@ -1258,7 +1257,6 @@ if $ARGS[0] = 'Customer 10':
 		if VK = 1:
 			act 'Blowjob':	
 				cls
-				exhibition_exp += 1
 				minut += 5
 				gs'stat'
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/niko/nikoev2/diner/10/3.jpg"></center>'
@@ -1270,7 +1268,6 @@ if $ARGS[0] = 'Customer 10':
 				
 				act '':	
 					cls
-					exhibition_exp += 1
 					minut += 5
 					gs'stat'
 					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/niko/nikoev2/diner/10/4.jpg"></center>'
@@ -1322,7 +1319,6 @@ if $ARGS[0] = 'Customer 10':
 		elseif VK = 2:
 			act 'Lay down on the bike':	
 				cls
-				exhibition_exp += 1
 				minut += 5
 				gs'stat'
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/niko/nikoev2/diner/10/6.jpg"></center>'
@@ -1334,7 +1330,6 @@ if $ARGS[0] = 'Customer 10':
 				
 				act 'Vaginal':			
 					cls
-					exhibition_exp += 1
 					minut += 5
 					gs'stat'
 					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/niko/nikoev2/diner/10/vag2.jpg"></center>'
@@ -1382,7 +1377,6 @@ if $ARGS[0] = 'Customer 10':
 		elseif VK = 3:
 			act 'Stroke their cocks':	
 				cls
-				exhibition_exp += 1
 				minut += 5
 				gs'stat'
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/niko/nikoev2/diner/10/9.jpg"></center>'
@@ -1392,7 +1386,6 @@ if $ARGS[0] = 'Customer 10':
 							
 				act 'Vaginal':			
 					cls
-					exhibition_exp += 1
 					minut += 5
 					gs'stat'
 					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/niko/nikoev2/diner/10/10.jpg"></center>'

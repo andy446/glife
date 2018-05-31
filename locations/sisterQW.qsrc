@@ -354,7 +354,7 @@ end
 
 if $ARGS[0] = 'caress':
 	cls
-	if pcs_exhibition < 30:exhibition_exp += rand(1,3)
+	if pcs_inhib < 40:inhib += rand(1,3)
 	gs'stat'
 
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/anya/sex/sisboyqw_12.jpg"></center>'

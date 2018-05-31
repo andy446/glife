@@ -121,17 +121,19 @@ if $ARGS[0] = '':
 				npc_rel['A216'] -= 2
 				'Martin gives a stern look. "Don''t you think you should clean yourself up first?"'
 				*nl
-				'You are visibly covered in cum and Martin noticed it!'
-				if pcs_exhibition < 60:
+				if pcs_exhibition < 60 and pcs_inhib < 70:
+					'You are visibly covered in cum and Martin noticed it!'
+					*nl
 					'How embarrassing...'
+				elseif pcs_inhib >= 70 and pcs_exhibition < 60:
+					'"Huh?" You look over to the mirror behind the bar and realize that you still have cum on your face.'
+					'"Oh! Didn''t notice that. Yeah you''re right, I should go wash that off," you say before excusing yourself.'
 				else
+					'You are visibly covered in cum and Martin noticed it!'
 					'It''s kinda sexy to know that he noticed it. Your belly tingles at the thought that seeing the sperm must have made Martin imagine you having sex.'
-					'Still...'
+					'Still... You should probably go to the bathroom and wash it off.'
 				end
-				'You should probably go to the bathroom and wash it off.'
-
 				act 'Step away from the counter': gt 'qwBarPolet'
-
 			else
 				'"What do you want?" The bartender asks.'
 				gs 'food_menu', 'pub'
@@ -304,15 +306,19 @@ if $ARGS[0] = 'Ordering':
 		npc_rel['A216'] -= 2
 		'Martin gives a stern look. "Don''t you think you should clean yourself up first?"'
 		*nl
-		'You are visibly covered in cum and Martin noticed it!'
-		if pcs_exhibition < 60:
+		if pcs_exhibition < 60 and pcs_inhib < 70:
+			'You are visibly covered in cum and Martin noticed it!'
+			*nl
 			'How embarrassing...'
+		elseif pcs_inhib >= 70 and pcs_exhibition < 60:
+			'"Huh?" You look over to the mirror behind the bar and realize that you still have cum on your face.'
+			'"Oh! Didn''t notice that. Yeah you''re right, I should go wash that off," you say before excusing yourself.'
 		else
+			'You are visibly covered in cum and Martin noticed it!'
 			'It''s kinda sexy to know that he noticed it. Your belly tingles at the thought that seeing the sperm must have made Martin imagine you having sex.'
-			'Still...'
+			'Still... You should probably go to the bathroom and wash it off.'
 		end
-		'You should probably go to the bathroom and wash it off.'
-
+		
 		act 'Step away from the counter': gt 'qwBarPolet'
 
 	elseif alko >= 6:
@@ -460,11 +466,6 @@ if $ARGS[0] = 'RandomDrinkEvents':
 		act 'Finish your drink': gt 'qwBarPolet'
 
 	elseif DrinkingRand = 3:
-		if pcs_exhibition < 40:
-			exhibition_exp += rand(4,6)
-		else
-			exhibition_exp += rand(1,3)
-		end
 		'<center><video src="images/locations/city/industrial/bar/event5.mp4"></center>'
 		'"Sure," Martin nods and a few seconds later, your beverage sits in front of you. You give him a grateful smile as he directs his attention at the other patrons and, since you lack a partner to converse with, focus on your drink and let your mind wander.'
 		*nl
@@ -474,7 +475,7 @@ if $ARGS[0] = 'RandomDrinkEvents':
 		'The boldness of this display causes you to give Martin a quick glance - he''d probably throw them out if he noticed - but he seems occupied with one of his regulars, and it works in the couple''s favor that they''re getting busy in a dead angle of the room, which means that Martin can''t readily see them from behind the counter... but everybody else can.'
 		*nl
 		'And sure enough, as the probably drunk girl fellates her obviously drunk partner, some of the guys around them get restless. One or two even pull out their own dicks and wave it at the woman, but their subtle advances are quickly shot down by the lovebirds.'
-		'They don''t seem to mind the attention, though: He makes a point of grabbing her head and driving his dick almost ballsdeep into the pretty woman''s mouth while giving the bystanders superior looks; and she seems to be getting off on the exposure and his displays of dominance, since the hand under her skirt is visibly busy while she''s taking his shaft deep down her throat.'
+		'They don''t seem to mind the attention, though: He makes a point of grabbing her head and driving his dick almost balls deep into the pretty woman''s mouth while giving the bystanders superior looks; and she seems to be getting off on the exposure and his displays of dominance, since the hand under her skirt is visibly busy while she''s taking his shaft deep down her throat.'
 		*nl
 		'Either you missed most of it or he''s not one to last very long, but before you know it, the bobs of her head and work of her tongue cause him to tense up and shiver, suppressed groans reaching your ear as he blasts hot cum into her waiting mouth, causing the hand on her cunt to go crazy. She releases him and gulps visibly... and cheer breaks out among the people around them. The two of them smile at their audience without even a hint of embarrassment.'
 		*nl
@@ -486,18 +487,13 @@ if $ARGS[0] = 'RandomDrinkEvents':
 		act 'Finish your drink': gt 'qwBarPolet'
 
 	elseif DrinkingRand = 4:
-		if pcs_exhibition < 40:
-			exhibition_exp += rand(1,3)
-		else
-			exhibition_exp += rand(0,1)
-		end
 		if pcs_horny < 90: pcs_horny += rand(1,3)
 		'<center><img <<$set_imgh>> src="images/locations/city/industrial/bar/bartalk<<pic_rand>>.jpg"></center>'
 		'"Coming right up." Only seconds later, Martin puts down a full glass in front of you before directing his attention elsewhere.'
 		'As you forlornly muster the liquid, one of the many conversations in the bar piques your interest.'
 		*nl
 		'"-and then the guy just straight-up fingered that women, right there in the metro," one man narrates.'
-		'His friend seems more than a little sceptical. "You''re fucking with me!"'
+		'His friend seems more than a little skeptical. "You''re fucking with me!"'
 		'"No, and they didn''t fuck either, but the guy <i>did</i> push her down on her knees and got her to blow him."'
 		'"Come on, shit like that doesn''t really happen here."'
 		'"Oh no, it does," a third one confirms. "The metro''s full of perverts these days. And so are the trains: I caught a glimpse of a couple fucking in one of the compartments."'
@@ -512,18 +508,13 @@ if $ARGS[0] = 'RandomDrinkEvents':
 		act 'Finish your drink': gt 'qwBarPolet'
 
 	elseif DrinkingRand = 5:
-		if pcs_exhibition < 40:
-			exhibition_exp += rand(1,3)
-		else
-			exhibition_exp += rand(0,1)
-		end
 		if pcs_horny < 90: pcs_horny += rand(3,5)
 		'<center><img <<$set_imgh>> src="images/locations/city/industrial/bar/event1.jpg"></center>'
 		'"Coming right up." Only seconds later, Martin puts down a full glass in front of you before directing his attention elsewhere.'
 		*nl
 		'While sitting at the bar drinking, something catches your eye: A couple getting hot and heavy near you, whispering and fondling with little concern for possible onlookers; another girl you see nearby seems to have noticed them as well.'
 		*nl
-		'After observing the two for only a few moments, you watch wih arousal as the man shoves his hand down the pants of the woman, obviously stroking her pussy or finger-banging her - you can''t tell which one but the circumstances make it exciting nonetheless.'
+		'After observing the two for only a few moments, you watch with arousal as the man shoves his hand down the pants of the woman, obviously stroking her pussy or finger-banging her - you can''t tell which one but the circumstances make it exciting nonetheless.'
 		'Meanwhile, she is all smiles and coos, and melts into him as he plays with her, enjoying the explicit PDA. You might have thought she''d forgotten all about where she was if she hadn''t, at one point, met your eyes and subsequently bucked against her man''s hand and bit her lip to hold back moans as her lust overtook her.'
 		*nl
 		'But as time goes by, more and more patrons notice the couple and it borders on a miracle that Martin hasn''t seen them yet, so after a while, she whispers something into his ear - something that puts a shit-eating grin on his face - and they both hurry to the restroom...'
@@ -533,11 +524,7 @@ if $ARGS[0] = 'RandomDrinkEvents':
 		act 'Finish your drink': gt 'qwBarPolet'
 
 	elseif DrinkingRand = 6:
-		if pcs_exhibition < 40:
-			exhibition_exp += rand(1,3)
-		else
-			exhibition_exp += rand(0,1)
-		end
+
 		if pcs_horny < 90: pcs_horny += rand(3,5)
 		'<center><img <<$set_imgh>> src="images/locations/city/industrial/bar/event2.jpg"></center>'
 		'Martin nods and prepares your beverage, then places it in front of you.'
@@ -594,11 +581,6 @@ if $ARGS[0] = 'RandomDrinkEvents':
 		act 'Enjoy your drink': gt 'qwBarPolet'
 
 	elseif DrinkingRand = 9:
-		if pcs_exhibition < 40:
-			exhibition_exp += rand(1,3)
-		else
-			exhibition_exp += rand(0,1)
-		end
 		if pcs_horny < 90: pcs_horny += rand(1,3)
 		'<center><img <<$set_imgh>> src="images/locations/city/industrial/bar/event3.jpg"></center>'
 		'"Sure," Martin nods and a few seconds later, your beverage sits in front of you. You give him a grateful smile as he directs his attention at the other patrons and, since you lack a partner to converse with, focus on your drink and let your mind and your eyes wander.'
@@ -614,11 +596,6 @@ if $ARGS[0] = 'RandomDrinkEvents':
 		act 'Finish your drink': gt 'qwBarPolet'
 
 	elseif DrinkingRand = 10:
-		if pcs_exhibition < 40:
-			exhibition_exp += rand(1,3)
-		else
-			exhibition_exp += rand(0,1)
-		end
 		if pcs_horny < 90: pcs_horny += rand(1,3)
 		'<center><img <<$set_imgh>> src="images/locations/city/industrial/bar/event4.jpg"></center>'
 		'"Right away," Martin says. With practiced ease, he pours you a beverage and sets it in front of you. You can say little more than a "thank you" before he has to move on to the next customer. '+$OpenInnerThought+'Busy night.'+$CloseInnerThought
@@ -637,11 +614,6 @@ if $ARGS[0] = 'RandomDrinkEvents':
 		act 'Finish your drink': gt 'qwBarPolet'
 
 	elseif DrinkingRand = 11:
-		if pcs_exhibition < 40:
-			exhibition_exp += rand(1,3)
-		else
-			exhibition_exp += rand(0,1)
-		end
 		if pcs_horny < 90: pcs_horny += rand(1,3)
 		'<center><img <<$set_imgh>> src="images/locations/city/industrial/bar/event9.jpg"></center>'
 		'"Coming right up." Only seconds later, Martin puts down a full glass in front of you before directing his attention elsewhere.'

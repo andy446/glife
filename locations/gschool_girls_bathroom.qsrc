@@ -423,7 +423,7 @@ if $ARGS[0] = 'company1':
 	end
 	act 'Masturbate':
 		cls
-		if pcs_exhibition < 30:exhibition_exp += rand(1,3)
+		if pcs_inhib < 40:inhib_exp += rand(1,3)
 		'<center><b><font color="maroon">Girls bathroom</font></b></center>'
 		'<center><video autoplay loop src="images/locations/pavlovsk/school/bathroom/sex/masturbate'+ rand(1,2) +'.mp4"></video></center>'
 		'Listening to <<$rand_girl>> getting pounded, the constant slapping sounds of flesh and her moans of pleasure is exciting - too exciting for you. You know you shouldn''t, you know it''s risky, but you just can''t resist: You pull your panties off, hike up your skirt and spread you legs. Your hands slides down, down your thigh, then back up, up towards your crotch. Your pussy lips are already swollen and starting to get wet, and your clit stands out as if to make it easier for you to find it.' 
@@ -463,7 +463,7 @@ if $ARGS[0] = 'company2':
 	act 'Masturbate':
 		cls
 		stat['mast'] += 1
-		if pcs_exhibition < 30:exhibition_exp += rand(1,3)
+		if pcs_inhib < 40:inhib_exp += rand(1,3)
 		orgasm += 1
 		pcs_horny = 0
 		gs 'stat'
@@ -565,7 +565,7 @@ if $ARGS[0] = 'company4':
 	end
 	act 'Masturbate':
 		cls
-		if pcs_exhibition < 30:exhibition_exp += rand(1,3)
+		if pcs_inhib < 40:inhib_exp += rand(1,3)
 		'<center><b><font color="maroon">Girls bathroom</font></b></center>'
 		'<center><video autoplay loop src="images/locations/pavlovsk/school/bathroom/sex/masturbate'+ rand(1,2) +'.mp4"></video></center>'
 		'Listening to <<$rand_girl>> getting pounded, the constant slapping sounds of flesh and her moans of pleasure is exciting - too exciting for you. You know you shouldn''t, you know it''s risky, but you just can''t resist: You pull your panties off, hike up your skirt and spread you legs. Your hands slides down, down your thigh, then back up, up towards your crotch. Your pussy lips are already swollen and starting to get wet, and your clit stands out as if to make it easier for you to find it.' 

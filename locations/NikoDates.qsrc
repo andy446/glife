@@ -140,7 +140,7 @@ if $ARGS[0] =  'Date 1_2':
 
 			act 'Strip':
 				cls
-				exhibition_exp += 1
+				inhib_exp += 1
 				minut += 5
 				gs'stat'
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/niko/nikoev/dates/1/nude/strip1.jpg"></center>'
@@ -149,7 +149,7 @@ if $ARGS[0] =  'Date 1_2':
 				act 'Continue':
 					cls
 					gs 'clothing', 'strip'
-					exhibition_exp += 1
+					inhib_exp += 1
 					minut += 5
 					gs'stat'
 					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/niko/nikoev/dates/1/nude/nude.jpg"></center>'
@@ -159,7 +159,7 @@ if $ARGS[0] =  'Date 1_2':
 
 					act 'Agree':
 						cls
-						exhibition_exp += 1
+						inhib_exp += 1
 						minut += 5
 						gs'stat'
 						'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/niko/nikoev/dates/1/nude/pose1.jpg"></center>'
@@ -172,7 +172,7 @@ if $ARGS[0] =  'Date 1_2':
 
 						act 'Pose with bear':
 							cls
-							exhibition_exp += 1
+							inhib_exp += 1
 							minut += 5
 							gs'stat'
 							'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/niko/nikoev/dates/1/nude/pose3.jpg"></center>'
@@ -497,12 +497,11 @@ if $ARGS[0] =  'Cafeteria':
 
 	act 'Suck Niko''s dick':
 		cls
-		exhibition_exp += 6
 		gs'stat'
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/niko/nikoev/school/cafeteria/bj.jpg"></center>'
 		'Not wanting to disappoint Niko, you nod your head meekly then lower your head slowly, trying your best not to make any quick movements. You slowly wrap your lips around Niko''s penis, feeling the warmth of his dick in your mouth. You spend the next few minutes doing your best to please Niko while feeling the sweat dripping down your neck, terrified that someone might see you. Niko''s slides his hand down your shirt exposing your breast, causing you to start trembling in fear; wishing that you were invisible.'
 		*nl
-		'After a few minutes, Niko''s hand tightens around your breast, as his penis begins throbbing in your mouth, causing Niko''s cum to shoot down your throut which you swallow as best you can. Once Niko is fully spent, he pulls you up and kisses your forehead, "That''s my girl, so beautiful, and daring too. You really are a precious gem <<$pcs_firstname>>." Niko''s words, warm your already rapidly beating heart, leaving you speechless, as he gives you a wink, before buttoning his pants then walking away.'
+		'After a few minutes, Niko''s hand tightens around your breast, as his penis begins throbbing in your mouth, causing Niko''s cum to shoot down your throat which you swallow as best you can. Once Niko is fully spent, he pulls you up and kisses your forehead, "That''s my girl, so beautiful, and daring too. You really are a precious gem <<$pcs_firstname>>." Niko''s words, warm your already rapidly beating heart, leaving you speechless, as he gives you a wink, before buttoning his pants then walking away.'
 		*nl
 		'<center><video autoplay loop src="images/characters/pavlovsk/school/boy/fedor/fedorev2/home/bedroom/sex/bj2.mp4"></video></center>'
 		gs 'cum_call', 'mouth', $boy
@@ -550,7 +549,6 @@ if $ARGS[0] =  'Date 3':
 
 			act 'Jerk Niko off':
 				cls
-				exhibition_exp += 2
 				minut -= 5
 				gs'stat'
 				'<center><video autoplay loop src="images/characters/pavlovsk/school/boy/niko/nikoev/dates/3/d2.mp4"></video></center>'
@@ -563,7 +561,6 @@ if $ARGS[0] =  'Date 3':
 
 				act 'Suck Niko''s penis':
 					cls
-					exhibition_exp += 2
 					minut += 5
 					gs'stat'
 					'<center><video autoplay loop src="images/characters/pavlovsk/school/boy/fedor/fedorev2/home/bedroom/sex/bj1.mp4"></video></center>'
@@ -885,7 +882,7 @@ if $ARGS[0] = 'Hallway Strip':
 
 		act 'Begin stripping':
 			cls
-			exhibition_exp += 1
+			inhib_exp += 1
 			minut += 1
 			gs'stat'
 			'You look around to make sure that no one is looking before slowly reaching for your shirt and sliding it off while looking back to Niko, and seeing the pleased grin on his face, as you continue striping for him. You constantly look back at the cafeteria, checking if someone has noticed you. After removing your shirt, you look Niko in his eyes, "There...I took off my top...I feel more daring now..Thank you, I should go now." You then quickly try to put on your top when Niko grabs it, as he responds, "Come on now, don''t let fear get the better of you. Take it all off." You grab onto Niko''s hand, "Please...I...I can''t. Someone will see me." Niko whispers in your ear, "Don''t get cold feet now. Take it all off."'
@@ -894,7 +891,7 @@ if $ARGS[0] = 'Hallway Strip':
 
 			act 'Continue stripping':
 				cls
-				exhibition_exp += 2
+				inhib_exp += 2
 				gs 'clothing', 'strip'
 				minut += 1
 				gs'stat'
@@ -904,7 +901,7 @@ if $ARGS[0] = 'Hallway Strip':
 
 				act 'Pose':
 					cls
-					exhibition_exp += 2
+					inhib_exp += 2
 					minut += 2
 					gs'stat'
 					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/niko/nikoev/school/strip/strip3.jpg"></center>'
@@ -914,7 +911,6 @@ if $ARGS[0] = 'Hallway Strip':
 
 					act 'Suck Niko''s dick':
 						cls
-						exhibition_exp += 2
 						minut -= 3
 						gs'stat'
 						'You can feel your heart pounding with both, fear, and excitement. You see Niko unbutton his pants then pull out his penis, and begin slowly stroking it, as he stares at your body. <font color=#FF00FF>Niko has done so much for me. I need to do this for him</font>. You drop to your knees, and wrap your lips around Niko''s dick, feeling his penis, so warm, as it leaks with pre cum. <font color=#FF00FF>He must have craved this for some time. He wants me so bad, he needs me. I must give him the release he craves. I can''t let him down. Please Niko, enjoy my touch, and cum for me</font>.'
@@ -925,7 +921,6 @@ if $ARGS[0] = 'Hallway Strip':
 
 						act 'Make Niko cum':
 							cls
-							exhibition_exp += 2
 							minut -= 3
 							gs'stat'
 							'<center><video autoplay loop src="images/shared/sex/blowjob/kotovbj23.mp4"></video></center>'
@@ -983,7 +978,6 @@ if $ARGS[0] = 'After School':
 
 			act 'Continue crawling':
 				cls
-				exhibition_exp += 1
 				minut += 5
 				gs'stat'
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/niko/nikoev/school/locker/wos.jpg"></center>'
@@ -992,7 +986,7 @@ if $ARGS[0] = 'After School':
 				act 'Get dressed':
 					cls
 					gs 'clothing', 'wear_last_worn'
-					exhibition_exp += 1
+					inhib_exp += 1
 					minut += 5
 					gs'stat'
 					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/niko/nikoev/school/exhibition/clothed1.jpg"></center>'
@@ -1002,7 +996,7 @@ if $ARGS[0] = 'After School':
 
 					act 'Crawl':
 						cls
-						exhibition_exp += 2
+						inhib_exp += 2
 						minut += 5
 						gs'stat'
 						'<center><video autoplay loop src="images/characters/pavlovsk/school/boy/niko/nikoev/school/exhibition/clothed3.mp4"></video></center>'
@@ -1012,7 +1006,7 @@ if $ARGS[0] = 'After School':
 
 						act 'Listen':
 							cls
-							exhibition_exp += 2
+							inhib_exp += 2
 							minut += 5
 							gs'stat'
 							'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/niko/nikoev/school/exhibition/denis.jpg"></center>'
@@ -1074,7 +1068,6 @@ if $ARGS[0] = 'Disco':
 
 			act 'Unbutton Niko''s pants':
 				cls
-				exhibition_exp += 1
 				gs'stat'
 				'<center><video autoplay loop src="images/shared/sex/blowjob/kotovbj2.mp4"></video></center>'
 				'You feel too lightheaded to resist. You drop down to your knees in front of Niko, and begin unbuttoning his pants. Niko''s hard dick springs out of his pants, and almost hits you in the face. You take Niko''s dick into your hand and begin stroking it before licking the tip of it, in a circular motion while staring Niko in his eyes, noticing his lustful gaze, as he watches you.'
@@ -1085,7 +1078,6 @@ if $ARGS[0] = 'Disco':
 
 				act 'Suck Niko''s dick':
 					cls
-					exhibition_exp += 1
 					gs'stat'
 					'<center><video autoplay loop src="images/characters/pavlovsk/school/boy/niko/nikomisc/disco/bj2.mp4"></video></center>'
 					'Wanting to please Niko, you slide his penis into your mouth then begin licking, and sucking it intently. Niko moans, and grabs your hair, as you continue sucking his dick. Niko''s eyes begin squinting, as you pick up the pace, wanting Niko to cum for you. Niko''s head suddenly jerks back as he bites his lip, shooting his cum, down your throat. You do your best to swallow every drop, not wanting any of Niko''s cum to go to waste.'
@@ -1097,7 +1089,6 @@ if $ARGS[0] = 'Disco':
 
 					act 'Lick Niko''s dick clean':
 						cls
-						exhibition_exp += 1
 						gs'stat'
 						'<center><video autoplay loop src="images/characters/pavlovsk/school/boy/niko/nikomisc/disco/bj1.mp4"></video></center>'
 						'You finish licking all the cum off of Niko''s penis when Niko leans forward, and gives you a kiss on the forehead, "That''s my girl, Always getting braver everyday. Well I''m gonna go clean up, I''ll be right back." Niko then walks toward the restroom. As he leaves you think to yourself, <font color=#FF00FF>Getting braver?... Ohh shit, I totally forgot where I was, what if someone saw me? ohh no, I hope no one saw me.</font> You quickly look around to see in anyone noticed you, and you can see a few guy snickering, as they both whisper to each other. You slowly rise to your feet, feeling your face growing red. You walk to the other side of the dance floor while keeping an eye out for Niko.'
@@ -1173,7 +1164,7 @@ if $ARGS[0] = 'After School 2':
 		act 'Continue':
 			cls
 			gs 'clothing', 'strip'
-			exhibition_exp += 1
+			inhib_exp += 1
 			minut += 5
 			gs'stat'
 			'As you reach the back of the school, Niko whispers in your ear, "Alright <<$pcs_nickname>>, strip, and I''ll get this collar on you." You begin undressing, as Niko stares at your body with a very confident smile on his face. After you are completely nude, Niko says, "Good, now crawl up to me, like a good little pet." You drop to your hands and knees then begin crawling toward Niko in the sexiest way you can, wanting to see him happy. Niko kneels down in front of you then places the collar around your neck. After the collar is firmly around your neck, Niko runs his hands down your back then squeezing your ass firmly before standing up and saying, "Alright, let''s get moving." Niko then begins leading you toward the school.'
@@ -1182,7 +1173,7 @@ if $ARGS[0] = 'After School 2':
 
 			act 'Follow Niko':
 				cls
-				exhibition_exp += 2
+				inhib_exp += 2
 				minut += 5
 				gs'stat'
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/niko/nikoev/school/exhibition/crawl1.jpg"></center>'
@@ -1190,7 +1181,7 @@ if $ARGS[0] = 'After School 2':
 
 				act 'Enter school':
 					cls
-					exhibition_exp += 2
+					inhib_exp += 2
 					minut += 5
 					gs'stat'
 					'<center><video autoplay loop src="images/characters/pavlovsk/school/boy/niko/nikoev/school/exhibition/crawl2.mp4"></video></center>'
@@ -1200,7 +1191,6 @@ if $ARGS[0] = 'After School 2':
 
 					act 'Suck Niko''s dick':
 						cls
-						exhibition_exp += 2
 						gs'stat'
 						'<center><video autoplay loop src="images/shared/sex/blowjob/kotovbj23.mp4"></video></center>'
 						'You obediently wrap your lips around Niko''s dick, and begin sucking it eagerly. You lick and suck Niko''s hard cock while enjoying the warmth of his penis in your mouth. <font color=#FF00FF>I can''t believe that I''m doing this. I''m sucking Niko''s dick in the middle of the hallway. What if someone sees me? What if a teacher sees me? I can''t... but Niko will protect me, he always protects me. I just need to trust him. I will always be safe with him. Ohh Nikolai I hope that you enjoy what I do for you. Please let me continue to please you. I need you Nikolai</font>.'
@@ -1341,7 +1331,6 @@ if $ARGS[0] = 'Locker Room':
 
 							act '???':
 								cls
-								exhibition_exp += 1
 								gs 'boyStat', 'A10'
 								minut -= 2
 								gs'stat'
@@ -1400,7 +1389,6 @@ if $ARGS[0] = 'Locker Room':
 
 									act 'Plead':
 										cls
-										exhibition_exp += 2
 										minut += 5
 										gs'stat'
 										'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/niko/nikoev/school/locker/wos.jpg"></center>'
@@ -1513,7 +1501,7 @@ if $ARGS[0] =  'Exposed':
 	school_lunch = 0
 	NikoEv = 10
 	grupTipe[61] = 600
-	exhibition_exp += 10
+	inhib_exp += 10
 	if pav_sex < 230:pav_sex = 250
 	gs 'fame'
 	minut += 5
@@ -1540,7 +1528,7 @@ if $ARGS[0] =  'Exposed':
 
 	act 'Ride Radomir Popov''s cock':
 		cls
-		exhibition_exp += 5
+		inhib_exp += 5
 		gs 'boyStat', 'A154'
 		gs'stat'
 		'<center><video autoplay loop src="images/characters/pavlovsk/school/boy/niko/nikoev/school/locker/hall1.mp4"></video></center>'
@@ -1572,7 +1560,6 @@ if $ARGS[0] =  'Exposed':
 
 			act 'Locker room':
 				cls
-				exhibition_exp += 1
 				gs 'boyStat', 'A157'
 				gs'stat'
 				'<center><video autoplay loop src="images/characters/pavlovsk/school/boy/niko/nikoev/school/locker/hall2.mp4"></video></center>'
@@ -1587,7 +1574,6 @@ if $ARGS[0] =  'Exposed':
 
 				act 'Suck their dicks':
 					cls
-					exhibition_exp += 1
 					gs'stat'
 					'<center><video autoplay loop src="images/characters/pavlovsk/school/boy/niko/nikoev/school/locker/hall3.mp4"></video></center>'
 					'You wrap your lips around the first dick you see then use your hands to jerk off the other jocks. The jock that you are sucking begins rubbing your hair off of your face as he says, "That''s a good girl. Just like that." You look up to see Ivan Prokhorov, giving you a approving smile. You can hear some of the other jocks talking about you.'

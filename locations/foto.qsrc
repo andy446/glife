@@ -742,7 +742,7 @@ if $ARGS[0] = 'showers':
 						'Soon you feel a warm wave spreading over your entire body and you shudder as an orgasm overtakes you. You quickly look around hoping no one noticed your public masturbation session.'
 						act 'Dry off':gt 'foto', 'showers'
 					else
-						exhibition_exp +=8
+						exhibition_exp += 8
 						orgasm += 1
 						pcs_mood += 15
 						pcs_willpwr += 15

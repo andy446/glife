@@ -117,15 +117,16 @@ if $ARGS[0] = '1':
 		end
 	end
 	if hour >= 6 and hour <= 20 and sunWeather = 1:
-			act 'Walking in the woods':
-				cla
-				*clr
+		act 'Walking in the woods':
+			cla
+			*clr
 			minut += 60
 			pcs_mood += 20
 			pcs_willpwr += willpowermax/5
 			if $clothingworntype = 'nude':
 				pcs_health += healthmax/5 & pcs_horny += 5
 				inhib_exp += rand(1,5)
+			end
 			gs 'stat'
 
 			if month >= 4 and month <= 10:
@@ -154,8 +155,8 @@ if $ARGS[0] = '1':
 		end
 	end
 	if hour >= 6 and hour <= 20 and month >= 6 and month <= 9 and boletus + bilberry < 10 and edge_forestday ! daystart:
-			act 'To look for mushrooms and berries':
-				cla
+		act 'To look for mushrooms and berries':
+			cla
 			*clr
 			minut += 30
 			temp_gf = rand(1,2)
@@ -238,6 +239,7 @@ if $ARGS[0] = '1':
 	end
 	if rand(1,10)> 9: gs 'gadforest', 'torncloth'
 end
+
 if $ARGS[0] = '2':
 	$location_type = 'secluded'
 	!inside

@@ -437,7 +437,7 @@ if $ARGS[0] = '':
 										!!not prostitute
 										if CloStyle = 4:jump 'markbuyclomother'
 										!!Sveta can wear it and not too revealing
-										if CloExhibit > pcs_exhibition or CloExhibit > 30:jump 'markbuyclomother'
+										if CloInhibit > pcs_inhib or CloInhibit > 30:jump 'markbuyclomother'
 
 										if cheap[numrand] = 0:
 											cheap[numrand] = 1

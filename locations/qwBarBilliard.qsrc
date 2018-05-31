@@ -123,7 +123,7 @@ if $ARGS[0] = 'billiard_ev1':
 					end
 					if pcs_inhib >= 20:
 						act 'You''re on':
-							cla
+							cla & *clr
 							*nl
 							'<center><img <<$set_imgh>> src="images/locations/city/industrial/bar/sex/pool/pool2.jpg"></center>'
 							billiard_ev_var = 2
@@ -550,7 +550,7 @@ if $ARGS[0] = 'billiard_ev2':
 					'"It''s been a long day," one of them explains, "and I don''t think any of us are really up for a wager tonight, even if it''s a small one. We''d rather just have a good time, no risk involved."'
 
 					act 'Have a friendly match instead':
-						cla
+						cla & *clr
 						pool_exp += rand(1,4)
 						pcs_mood += rand(1,3)
 						minut += 30

@@ -519,7 +519,7 @@ if $ARGS[0] = '13':
 
 		act 'Report the man':
 			cla
-			'"I'm happy to help however I can. Wait right here while I go grab some clothes! I'll be right back..." You try not to sound too nervous as you turn to leave and find the manager.'
+			'"I''m happy to help however I can. Wait right here while I go grab some clothes! I''ll be right back..." You try not to sound too nervous as you turn to leave and find the manager.'
 			'After explaining the situation to your manager, you return to the man to try on some outfits. You can feel him eyeing you up as you as emerge from the changing room in a new skirt. Suddenly a few police officers approach the man.'
 			'The man attempts to explain himself, but the police do not listen to him. Instead, they tackle him to the ground before handcuffing him.'
 			'As they lead the man away, they explain that the daughter will be moved into protective custody where she can receive any help she may need. They thank you for reporting the man.'

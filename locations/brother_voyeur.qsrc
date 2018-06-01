@@ -113,16 +113,23 @@ end
 
 if $ARGS[0] = 'showertalk2':
 	brothershowertalk += 1
+	npc_rel['A34'] += rand(2,3)
 	if brothershowerlook = 1:gt'brother_voyeur','brothershowerlook'
 	cla & *clr
-	if brothershowerask ! daystart:'<center><img <<$set_imgh>> src="images/shared/home/bathroom/brothertalk1.jpg"></center>'
-	if brothershowerask = daystart:'<center><img <<$set_imgh>> src="images/shared/home/bathroom/brothertalkbusy.jpg"></center>'
+	if brothershowerask ! daystart:
+		'<center><img <<$set_imgh>> src="images/shared/home/bathroom/brothertalk1.jpg"></center>'
+	elseif brothershowerask = daystart:
+		'<center><img <<$set_imgh>> src="images/shared/home/bathroom/brothertalkbusy.jpg"></center>'
+	end
 	'	Seeing your brother spy on you through a crack the door again, call out to him.'
 	'	"Hey Kolka! Did you want to have another chat with me while I shower?"'
-	if brothershowertalk > 1 and brothershowertalk <= 5:'	He nods shyly at you. "Okay, come on in! Don''t forget to close the door!"'
-	if brothershowertalk > 5 and brothershowerlook >= 1:'	He nods enthusiastically, unable to hide his eager grin. "Well hurry up then!" you say with a smile to match his. "Quick! Before mom catches us!"'
-	if brothershowertalk > 5 and brothershowerlook < 1:'	He nods eagerly. You can''t help but smile at his resemblance to a begging puppy. "Well hurry up then!" you say. "Quick! Before mom catches you coming in!"'
-	npc_rel['A34'] += rand(2,3)
+	if brothershowertalk > 1 and brothershowertalk <= 5:
+		'	He nods shyly at you. "Okay, come on in! Don''t forget to close the door!"'
+	elseif brothershowertalk > 5 and brothershowerlook >= 1:
+		'	He nods enthusiastically, unable to hide his eager grin. "Well hurry up then!" you say with a smile to match his. "Quick! Before mom catches us!"'
+	elseif brothershowertalk > 5 and brothershowerlook < 1:
+		'	He nods eagerly. You can''t help but smile at his resemblance to a begging puppy. "Well hurry up then!" you say. "Quick! Before mom catches you coming in!"'
+	end
 
 	act'Continue':
 		if brothershowerlook >= 1:gt'brother_voyeur','brothershowerlook'
@@ -135,15 +142,16 @@ if $ARGS[0] = 'showertalk2':
 		act'"You can look at me you know"':
 			*clr & cla
 			brothershowerlook = 1
-			'<center><img <<$set_imgh>> src="images/shared/home/bathroom/brothertalk4.jpg"></center>'
 			npc_rel['A34'] += 5
+			bro_ass_compliment = rand(1,3)
+			'<center><img <<$set_imgh>> src="images/shared/home/bathroom/brothertalk4.jpg"></center>'
+			
 			'	"Kolka..." When you say this he starts to turn towards you a little bit but then stops himself and continues to stare at the wall. You sigh sympathetically. "It''s okay to look at me you know."'
 			'	He perks up and turns towards you slowly. "R-really?" His wide eyes rapidly flit between your face, your breasts, your <<$pcdesc_pubes>> pussy, the walls, and the floor, unable to make up his mind of where he should be looking.'
 			'	"Yes really!" you laugh. "Yeah, yeah, I know. I''ve got boobs. I''ve got a pussy instead of a penis. I know it''s strange and distracting and all that, but you''re my brother and I love you! I don''t want to have to share my conversations between you and the wall. So, I don''t mind you looking. If it means I can spend this time getting closer to you, you can look all you want. Okay?"'
 			'	Kolka''s eyes finally come to rest on your face, looking confidently at you confidently now. You can tell there''s love in his eyes and this vulnerability you''ve shown really means something to him and your relationship with him. "Okay!" he says with an enthusiastic smile.'
 			'	"Just don''t tell anyone else about it!" you laugh when he furiously nods in promised agreement. The two of you happily talk about random topics while you finish up your shower. For the most part, Kolka continues to look at your face but you can''t help but notice the frequent quick glance at your breasts that ever so slightly widens his smile.'
 			'	<i>Boys will be boys after all...</i> you muse to yourself, a smile subconsciously turning the corners of your own lips.'
-			bro_ass_compliment = rand(1,3)
 			if bro_ass_compliment = 1:
 				act'Continue':gt'brother_voyeur','ass_compliment'
 			elseif pcs_pubes >= 4 or pcs_leghair >= 4:
@@ -181,8 +189,11 @@ if $ARGS[0] = 'showertalk2':
 				elseif brothershowerdaytalk = 2:
 					'	"... so, yeah. Mom wants me to clean up my stuff on the couch, but if I''m going to sleep there anyways, why does it matter?" he asks, snapping you out of your idle thoughts and bringing you back to the room.'
 					*nl
-					if npc_rel['A29'] >= 40:'	"I know it seems pointless but you should listen to mom. You''ll get in trouble otherwise," you admonish him.'
-					if npc_rel['A29'] < 40:'	"Ugh, I know! Mom is always nagging me about everything! She can be such a pain in the ass sometimes!" you '
+					if npc_rel['A29'] >= 40:
+						'	"I know it seems pointless but you should listen to mom. You''ll get in trouble otherwise," you admonish him.'
+					elseif npc_rel['A29'] < 40:
+						'	"Ugh, I know! Mom is always nagging me about everything! She can be such a pain in the ass sometimes!" you '
+					end
 					if pcs_pubes >= 4 or pcs_leghair >= 4:
 						act'Continue':gt'brother_voyeur','shave'
 					else
@@ -220,8 +231,11 @@ if $ARGS[0] = 'showertalk2':
 				if brothershowerschooltalk = 1:
 					'	"I hate math so much!" he moans, snapping you out of your idle thoughts and bringing you back to the room. "I wish it could just go die in a hole!"'
 					*nl
-					if pcs_grades >= 50:'	"Oh, you shouldn''t think like that Kolka. Math is important!"'
-					if pcs_grades < 50:'	"Blegh! Yeah, you''re right. Math sucks!" you grumble in agreement.'
+					if pcs_grades >= 50:
+						'	"Oh, you shouldn''t think like that Kolka. Math is important!"'
+					elseif pcs_grades < 50:
+						'	"Blegh! Yeah, you''re right. Math sucks!" you grumble in agreement.'
+					end
 					if pcs_pubes >= 4 or pcs_leghair >= 4:
 						act'Continue':gt'brother_voyeur','shave'
 					else
@@ -328,24 +342,29 @@ if $ARGS[0] = 'brothershowerlook':
 	'<center><img <<$set_imgh>> src="images/shared/home/bathroom/brothertalk3.jpg"></center>'
 	inhib_exp += rand(1,3)
 	if npc_rel['A34'] <50 and brothershowerask ! daystart:npc_rel['A34'] += rand(1,2)
-	if brothershowertalk < 10 and brothershowerask ! daystart:'	He slips inside and takes his usual place on the toilet along with the traditional quick glance at your breasts. He''s gripping the edge of the seat and leaning forward with an eager smile. If nothing else, he''s certainly happy to be here.'
-	if brothershowertalk >= 10 and brothershowerask ! daystart:'	He slips inside and takes his usual place on the toilet seat, gripping the edge and leaning forward eagerly.'
-	if brothershowertalk >= 10 and brothershowerask ! daystart:*nl
-	if brothershowertalk >= 10 and brothershowerask ! daystart:'	You''ve noticed something recently. Lately, when Kolka has come in for these shower talks, he hasn''t been ogling you as much as he used to. A brief glance at your breasts here, a quick look at your ass there, of course, but no one could avoid looking entirely. For the most part though, he maintains eye contact with you. Although, you reason that he probably still gets a good look when you''re shampooing your hair or sudsing up your body.'
-	if brothershowerask = daystart:'	Maybe he''s right. It is a little risky and it would certainly be a much more compromising position for your mother to catch you in. Maybe it is better you just talk normally after all.'
+	if brothershowertalk < 10 and brothershowerask ! daystart:
+		'	He slips inside and takes his usual place on the toilet along with the traditional quick glance at your breasts. He''s gripping the edge of the seat and leaning forward with an eager smile. If nothing else, he''s certainly happy to be here.'
+	elseif brothershowertalk >= 10 and brothershowerask ! daystart:
+		'	He slips inside and takes his usual place on the toilet seat, gripping the edge and leaning forward eagerly.'
+		'<br>	You''ve noticed something recently. Lately, when Kolka has come in for these shower talks, he hasn''t been ogling you as much as he used to. A brief glance at your breasts here, a quick look at your ass there, of course, but no one could avoid looking entirely. For the most part though, he maintains eye contact with you. Although, you reason that he probably still gets a good look when you''re shampooing your hair or sudsing up your body.'
+	elseif brothershowerask = daystart:
+		'	Maybe he''s right. It is a little risky and it would certainly be a much more compromising position for your mother to catch you in. Maybe it is better you just talk normally after all.'
+	end
 	*nl
 	'	What do you want to talk about with him today?'
-
 	if npc_rel['A34'] >= 70 and brothershowerask ! daystart:
 		act'Ask if he wants to shower with you':gt'brother_voyeur','brother_shower_together_ask'
 	end
 
 	act'Ask him about his day':
 		cla & *clr
-		'<center><video src="images/shared/home/bathroom/brothershowertalk.mp4"></center>'
-		if brothershowertalk < 10:'	He happily talks to you about his day, sometimes unabashedly staring directly at your breasts while he goes off on a tangent. Not that it matters to you. Where he wants to look is his business. After all, you''re the one who invited him in, you can hardly complain now. You''re just happy to be spending some quality time with him.'
-		if brothershowertalk >= 10:'	He happily talks to you about his day, only rarely taking glances at your exposed breasts. For the most part, his attention seems to be focused more on the conversation than your naked body.'
 		brothershowerdaytalk = rand(1,3)
+		'<center><video src="images/shared/home/bathroom/brothershowertalk.mp4"></center>'
+		if brothershowertalk < 10:
+			'	He happily talks to you about his day, sometimes unabashedly staring directly at your breasts while he goes off on a tangent. Not that it matters to you. Where he wants to look is his business. After all, you''re the one who invited him in, you can hardly complain now. You''re just happy to be spending some quality time with him.'
+		elseif brothershowertalk >= 10:
+			'	He happily talks to you about his day, only rarely taking glances at your exposed breasts. For the most part, his attention seems to be focused more on the conversation than your naked body.'
+		end
 		*nl
 		if brothershowerdaytalk = 1:
 			'	"... but, yeah. It was a pretty good day overall," he finishes, snapping you out of your idle thoughts and bringing you back to the room.'
@@ -385,10 +404,13 @@ if $ARGS[0] = 'brothershowerlook':
 
 	act'Ask how school''s going':
 		cla & *clr
-		'<center><video src="images/shared/home/bathroom/brothershowertalk.mp4"></center>'
-		if brothershowertalk < 10:'	He energetically talks to you about school and how it''s going for him, unabashedly trying to get a good look at your ass the majority of the time. Not that it matters to you. Where he wants to look is his business. After all, you''re the one who invited him in, you can hardly complain now. You''re just happy to be spending some quality time with him.'
-		if brothershowertalk >= 10:'	He energetically talks to you about school and how it''s going for him, pretty much only taking a look at your ass when you turn around to wash or rinse. For the most part, he seems to be more engrossed by the conversation than your naked body.'
 		brothershowerschooltalk = rand(1,3)
+		'<center><video src="images/shared/home/bathroom/brothershowertalk.mp4"></center>'
+		if brothershowertalk < 10:
+			'	He energetically talks to you about school and how it''s going for him, unabashedly trying to get a good look at your ass the majority of the time. Not that it matters to you. Where he wants to look is his business. After all, you''re the one who invited him in, you can hardly complain now. You''re just happy to be spending some quality time with him.'
+		elseif brothershowertalk >= 10:
+			'	He energetically talks to you about school and how it''s going for him, pretty much only taking a look at your ass when you turn around to wash or rinse. For the most part, he seems to be more engrossed by the conversation than your naked body.'
+		end
 		*nl
 		if brothershowerschooltalk = 1:
 			'	"I hate math so much!" he moans, snapping you out of your idle thoughts and bringing you back to the room. "I wish it could just go die in a hole!"'
@@ -440,10 +462,13 @@ if $ARGS[0] = 'brothershowerlook':
 
 	act'Ask him about his friends':
 		cla & *clr
-		'<center><video src="images/shared/home/bathroom/brothershowertalk.mp4"></center>'
-		if brothershowertalk < 10:'	He cheerfully talks to you about him and his friends and what mischief they get up to together, shamelessly taking long appreciative looks at your <<$pcdesc_pubes>> pussy at random intervals of the conversation. Not that it matters to you. Where he wants to look is his business. After all, you''re the one who invited him in, you can hardly complain now. You''re just happy to be spending some quality time with him.'
-		if brothershowertalk >= 10:'	He cheerfully talks to you about him and his friends and what mischief they get up to together, only looking at your pussy when his attention is inadvertently drawn by you washing between your legs. For the most part, he seems more engaged in the conversation than your naked body.'
 		brothershowerfriendtalk = rand(1,3)
+		'<center><video src="images/shared/home/bathroom/brothershowertalk.mp4"></center>'
+		if brothershowertalk < 10:
+			'	He cheerfully talks to you about him and his friends and what mischief they get up to together, shamelessly taking long appreciative looks at your <<$pcdesc_pubes>> pussy at random intervals of the conversation. Not that it matters to you. Where he wants to look is his business. After all, you''re the one who invited him in, you can hardly complain now. You''re just happy to be spending some quality time with him.'
+		elseif brothershowertalk >= 10:
+			'	He cheerfully talks to you about him and his friends and what mischief they get up to together, only looking at your pussy when his attention is inadvertently drawn by you washing between your legs. For the most part, he seems more engaged in the conversation than your naked body.'
+		end
 
 		if brothershowerfriendtalk = 1:
 			'	... and then he sprayed milk all over his locker!" he says with a burst of laughter, snapping you out of your idle thoughts and bringing you back to the room. "It was <i>so</i> funny! Hey, are you listening?"'
@@ -653,9 +678,11 @@ if $ARGS[0] = 'brother_shower_together':
 
 			elseif brother_shower_times >= 3 or brotherSex >= 1:
 				'	Kolka answers readily, telling you about the mischief he gets up to with his friends.'
-				if seepornofut >= 1:'	"Still watching porn together like a bunch of gay bros?" you ask, teasingly.'
-				if seepornofut >= 1:'	"Yeah, you should join us again sometime," he grins. "It''s always so much better when you have a nice slut there to give handjobs."'
-				if seepornofut >= 1:'	You give him the finger but grin back at him anyways.'
+				if seepornofut >= 1:
+					'	"Still watching porn together like a bunch of gay bros?" you ask, teasingly.'
+					'<br>	"Yeah, you should join us again sometime," he grins. "It''s always so much better when you have a nice slut there to give handjobs."'
+					'<br>	You give him the finger but grin back at him anyways.'
+				end
 				act'Finish showering together':gt'brother_voyeur','brother_shower_end'
 				act'Suggest you wash each other':gt'brother_voyeur','brother_wash'
 			end
@@ -740,20 +767,27 @@ end
 if $ARGS[0] = 'brother_wash':
 	npc_rel['A34'] += 5
 	cla & *clr
-	gs 'arousal','breasts',3
-	gs 'arousal','massage',3
 	brotherwash += 1
 	'<center><img <<$set_imgh>> src="images/shared/home/bathroom/brotherwash.jpg"></center>'
 	'	You and Kolka spend some time lathering each other with soap and rubbing each other down, both of you appreciatively feeling each other''s bodies as you do so.'
-	if brotherwash > 5 or brotherSex > 0 or brotherfuck > 0:'	Kolka even slips his hands between your legs and gives your pussy a good cleaning, paying special attention to your clit and causing you to squirm and and moan under his touch.'
-	if brotherwash > 5 or brotherSex > 1:gs 'arousal','vaginal_finger',3
+	if brotherwash > 5 or brotherSex > 0 or brotherfuck > 0:
+		'	Kolka even slips his hands between your legs and gives your pussy a good cleaning, paying special attention to your clit and causing you to squirm and and moan under his touch.'
+		gs 'arousal','vaginal_finger',3
+	end
+	gs 'arousal','breasts',3
+	gs 'arousal','massage',3
+	gs 'arousal', 'end'
 	gs 'stat'
 
 	if pcs_leghair > 3 or pcs_pubes > 3:
 		*nl
-		if pcs_leghair > 3 and pcs_pubes > 3:'	As you rinse off, your brother gives a meaningful look at your lower body and you follow his gaze to your <<$pcdesc_legs>> legs and <<$pcdesc_pubes>> pussy.'
-		if pcs_leghair > 3 and pcs_pubes < 3:'	As you rinse off, your brother gives a meaningful look at your lower body and you follow his gaze to your <<$pcdesc_legs>> legs.'
-		if pcs_leghair < 3 and pcs_pubes > 3:'	As you rinse off, your brother gives a meaningful look at your lower body and you follow his gaze to your <<$pcdesc_pubes>> pussy.'
+		if pcs_leghair > 3 and pcs_pubes > 3:
+			'	As you rinse off, your brother gives a meaningful look at your lower body and you follow his gaze to your <<$pcdesc_legs>> legs and <<$pcdesc_pubes>> pussy.'
+		elseif pcs_leghair > 3 and pcs_pubes < 3:
+			'	As you rinse off, your brother gives a meaningful look at your lower body and you follow his gaze to your <<$pcdesc_legs>> legs.'
+		elseif pcs_leghair < 3 and pcs_pubes > 3:
+			'	As you rinse off, your brother gives a meaningful look at your lower body and you follow his gaze to your <<$pcdesc_pubes>> pussy.'
+		end
 		'	"Aren''t you going to shave?"'
 		if stanok = 0:
 			act'"I can''t. I don''t have any razors"':
@@ -1248,8 +1282,10 @@ if $ARGS[0] = 'brother_shower_shave':
 						'	"Hmm." You think to yourself for a moment. "Maybe you''re right after all," you say and start lathering up your legs and begin carefully shaving them.'
 						*nl
 						'	Once you''re finished you gently glide your hands over your smooth pussy and legs, enjoying the feeling.'
-						if brothershave = 1:'	As you rinse the remains of the lather away, Kolka asks, "So this is what all the girls do when they need to shave?"'
-						if brothershave = 1:'	You laugh at the naiveté of his question. "Yes, yes we do. So be appreciative when a girl''s clean shaven for you! We put a lot of work into looking nice for boys. Or other girls," you wink.'
+						if brothershave = 1:
+							'<br>	As you rinse the remains of the lather away, Kolka asks, "So this is what all the girls do when they need to shave?"'
+							'<br>	You laugh at the naiveté of his question. "Yes, yes we do. So be appreciative when a girl''s clean shaven for you! We put a lot of work into looking nice for boys. Or other girls," you wink.'
+						end
 						act'Continue':
 							if brotherfuck > 0 or brotherbj > 0 or brotherwash > 5:
 								cla & *clr
@@ -1262,7 +1298,8 @@ if $ARGS[0] = 'brother_shower_shave':
 									cla & *clr
 									gs 'arousal','vaginal_finger', 5
 									'<center><img <<$set_imgh>> src="images/shared/home/bathroom/brothershowersex2.jpg"></center>'
-									'	Clean from your shower together, and now with freshly a shaved pussy, you can''t help yourself as you start to get frisky with your brother. His hands slide up your body to caress your breasts. In response, you reach back and start jerking his cock feeling him harden under your touch.'									act'Blow him':gt'brother_voyeur','brother_shower_bj'
+									'	Clean from your shower together, and now with freshly a shaved pussy, you can''t help yourself as you start to get frisky with your brother. His hands slide up your body to caress your breasts. In response, you reach back and start jerking his cock feeling him harden under your touch.'
+									act'Blow him':gt'brother_voyeur','brother_shower_bj'
 									act'Fuck him':gt'brother_voyeur','brother_shower_fuck'
 								end
 							else
@@ -1367,15 +1404,16 @@ end
 
 if $ARGS[0] = 'brother_shower_bj':
 	gs 'boystat','A34'
-	gs 'arousal', 'bj', rand(3,5)
 	npc_rel['A34'] += 3
 	brotherbj += 1
 	brothershowerbj = daystart
 	brotherSex += 1
-	gs 'stat'
 	cla & *clr
 	'<center><video src="images/shared/home/bathroom/showerbj.mp4"></center>'
 	'	Kneeling down, you take Kolka''s freshly washed cock and push it between your lips, sucking gently. Several minutes go by while you to continue blowing your brother, going slowly up and down his length, the sound of water raining down from the showerhead muting the soft slurping sounds coming from your mouth.'
+	gs 'arousal', 'bj', rand(3,5)
+	gs 'arousal', 'end'
+	gs 'stat'
 	act'Keep sucking':
 		cla
 		gs 'arousal', 'bj', rand(1,5)
@@ -2470,8 +2508,11 @@ if $ARGS[0] = 'brother_shower_fuck_end':
 				npc_rel['A34'] += 25
 				cla & *clr
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/home/vanrpar.jpg"></center>'
-				if brothervirginlie = 1:'	"I... I don''t know. I just panicked I guess. Thought that maybe it might be better for you if you thought your big sister was more experienced and had been with other boys before." You look back at him apprehensively, worried about what he''ll say or do next now that you''ve admitted the truth.'
-				if brothervirginlie = 2:'	"I... I don''t know. I just panicked I guess. Thought that maybe it might be better for you if you thought your big sister was a big slut who fucked all the boys in town." You look back at him apprehensively, worried about what he''ll say or do next now that you''ve admitted the truth.'
+				if brothervirginlie = 1:
+					'	"I... I don''t know. I just panicked I guess. Thought that maybe it might be better for you if you thought your big sister was more experienced and had been with other boys before." You look back at him apprehensively, worried about what he''ll say or do next now that you''ve admitted the truth.'
+				elseif brothervirginlie = 2:
+					'	"I... I don''t know. I just panicked I guess. Thought that maybe it might be better for you if you thought your big sister was a big slut who fucked all the boys in town." You look back at him apprehensively, worried about what he''ll say or do next now that you''ve admitted the truth.'
+				end
 				'	Your brother regards you for a moment. And then he smiles.'
 				'	"Dummy."'
 				'	You shy away. And then blink a few times registering what you just heard.'
@@ -2485,6 +2526,7 @@ if $ARGS[0] = 'brother_shower_fuck_end':
 				'	"... now we have a bond that other siblings don''t have," you finish. "And no matter what else happens, we''ll carry each other''s virginities for the rest of our lives." He nods.'
 				act'Continue':
 					minut += 5
+					gs 'stat'
 					cla & *clr
 					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/home/vanrpar.jpg"></center>'
 					'	You stand together for a few more minutes, holding each other under the water of the shower, not saying anything. Finally, you break the silence.'
@@ -2521,46 +2563,49 @@ if $ARGS[0] = 'brother_shower_fuck_end':
 				*nl
 				act'Ruffle his hair and send him on his way':
 					cla
-					'	"Well, glad you enjoyed yourself," you say, ruffling his hair, smiling when he cringes back in response to the child-like treatment. "See you later bro."'
-					'	He nods back at you, picking up his clothes before peeking into the hallway to make sure no one is there and slipping out the door.'
 					brother_knows_not_virgin = 1
 					brothervirginlie = 0
+					'	"Well, glad you enjoyed yourself," you say, ruffling his hair, smiling when he cringes back in response to the child-like treatment. "See you later bro."'
+					'	He nods back at you, picking up his clothes before peeking into the hallway to make sure no one is there and slipping out the door.'
 					act'Finish drying off':mirror_steam = hour & gt $loc
 				end
 
 				act'Kiss him goodbye':
 					cla
+					brother_knows_not_virgin = 1
+					brothervirginlie = 0
 					'	You lean in to give your brother an intimate kiss, then stepping back to meet his eyes.'
 					'	"See you later," you whisper.'
 					'	He smiles back at you and picks up his clothes before peeking into the hallway to make sure no one is there and slipping out the door.'
-					brother_knows_not_virgin = 1
-					brothervirginlie = 0
 					act'Finish drying off':mirror_steam = hour & gt $loc
 				end
 
 				act'Until next time (grab his cock)':
 					cla
+					brotherSex += 1
+					brothervirginlie = 0
 					'	A sly smile on your face, you step forward to grab him by the cock.'
 					'	"Until next time little brother," you murmur into his ear, giving his dick a hard squeeze. Then, you slap his ass and push him towards the door. "Now, shoo! Before someone catches us in here together."'
 					'	Startled, he does as you say, picking up his clothes and peeking into the hallway to make sure no one is there before slipping out the door.'
-					brotherSex += 1
-					brothervirginlie = 0
 					act'Finish drying off':mirror_steam = hour & gt $loc
 				end
 			end
 			act'Kick him out':
 				cla & *clr
-				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/home/vanrpar.jpg"></center>'
-				if brothervirginlie ! 2:'	Thoroughly annoyed with Kolka, you shove him towards the door.'
-				if brothervirginlie = 2:'	Not knowing what else to do, you yank open the shower curtain and shove Kolka towards the door.'
-				'	"Get out."'
-				'	"But I-!"'
-				'	"Out!"'
-				'	Still dripping wet with his clothes in his arms, you shove your brother into the hallway naked. If your parents ask about it, you''ll just tell them he was peeping on you and you sprayed him with the showerhead.'
-				if brothervirginlie = 2:'	Your brother out of the room you lean back onto the door and close your eyes, feeling bad for what you just did. Maybe you shouldn''t have lied to him about that after all...'
-				if pcs_horny > 70 and brothervirginlie ! 2:'	And fuck! You''re still so goddamn horny!'
 				brother_knows_not_virgin = 1
 				brothervirginlie = 0
+				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/home/vanrpar.jpg"></center>'
+				if brothervirginlie ! 2:
+					'	Thoroughly annoyed with Kolka, you shove him towards the door.'
+				elseif brothervirginlie = 2:
+					'	Not knowing what else to do, you yank open the shower curtain and shove Kolka towards the door.'
+					'	"Get out."'
+					'	"But I-!"'
+					'	"Out!"'
+					'	Still dripping wet with his clothes in his arms, you shove your brother into the hallway naked. If your parents ask about it, you''ll just tell them he was peeping on you and you sprayed him with the showerhead.'
+					'<br>	Your brother out of the room you lean back onto the door and close your eyes, feeling bad for what you just did. Maybe you shouldn''t have lied to him about that after all...'
+				end
+				if pcs_horny > 70 and brothervirginlie ! 2:'	And fuck! You''re still so goddamn horny!'
 				act'Finish up':mirror_steam = hour & gt $loc
 			end
 		end
@@ -2570,13 +2615,13 @@ end
 
 if $ARGS[0] = 'ass_compliment':
 	cla & *clr
+	inhib_exp += 1
 	'<center><video src="images/shared/home/bathroom/ass_compliment.mp4"></center>'
 	'	While you''re shampooing your hair, your brother decides to speak up about something.'
 	'	"Hey <<$pcs_nickname>>. Can I say something?"'
 	'	"Hmm? Sure, what is it Kolka?"'
 	'	"You have a great ass!"'
 	'	Feeling his smile radiating from behind you, you look over your shoulder and give him a grin and a little shake of your ass to show your appreciation for his compliment.'
-	inhib_exp += 1
 	act'Continue':
 		if pcs_pubes >= 4 or pcs_leghair >= 4:
 			gt'brother_voyeur','shave'
@@ -2589,179 +2634,204 @@ end
 if $ARGS[0] = 'shave':
 	cla & *clr
 	if brothershowerlook = 1:
-		if pcs_leghair > 3 or pcs_pubes > 3:
-			'<center><img <<$set_imgh>> src="images/shared/home/bathroom/brothertalk4.jpg"></center>'
-			'	You''re rinsing off when you notice Kolka staring at your legs and what''s between them.'
-			'	"Excuse me?" you ask him pointedly. "Can I help you with something?"'
-			if pcs_pubes < 11 and pcs_leghair > 3:'	His lips twisted in thought, he says, "You''re looking kind of stubbly down there." You follow his gaze to look at your legs and pussy. "Aren''t you going to shave?"'
-			if pcs_pubes > 10 and pcs_pubes < 21 and pcs_leghair > 3:'	His lips twisted in thought, he says, "You''re growing a bit of a bush down there." You follow his gaze to look at your <<$pcdesc_legs>> legs and your trimmed pussy hair. "Looks like your legs are growing grass to match. Aren''t you going to shave?"'
-			if pcs_pubes > 20 and pcs_leghair > 3:'	His lips twisted in thought, he says, "That bush you''ve got is looking more like a forest right now." You follow his gaze to look at your <<$pcdesc_legs>> legs and the thick bush of pubic hair that covers your pussy. "Plus it looks like your legs are growing grass to match. Aren''t you going to shave?"'
-			if pcs_leghair <= 3 and pcs_pubes < 11: '	His lips twisted in thought, he says, "You''re looking kind of stubbly down there." You follow his gaze to look at the stubble growing on your pussy. "Aren''t you going to shave?"'
-			if pcs_leghair <= 3 and pcs_pubes > 10 and pcs_pubes < 21: '	His lips twisted in thought, he says, "You''re growing a bit of a bush down there." You follow his gaze to look at the small patch of hair on your pussy. "Aren''t you going to shave?"'
-			if pcs_leghair <= 3 and pcs_pubes > 20:'	His lips twisted in thought, he says, "That bush you''ve got is looking more like a forest right now." You follow his gaze to look at the thick bush of pubic hair that covers your pussy.'
-			if pcs_leghair > 3 and pcs_pubes <= 3:'	His lips twisted in thought, he says, "You''re looking a little hairy down there." You follow his gaze to look at your <<$pcdesc_legs>> legs. "Aren''t you going to shave?"'
+		if pcs_leghair > 0 or pcs_pubes > 0:
+		'<center><img <<$set_imgh>> src="images/shared/home/bathroom/brothertalk4.jpg"></center>'
+		'	You''re rinsing off when you notice Kolka staring at your legs and what''s between them.'
+		'	"Excuse me?" you ask him pointedly. "Can I help you with something?"'
+		if pcs_pubes < 11 and pcs_leghair > 3:
+			'	His lips twisted in thought, he says, "You''re looking kind of stubbly down there." You follow his gaze to look at your legs and pussy. "Aren''t you going to shave?"'
+		elseif pcs_pubes >= 11 and pcs_pubes < 21 and pcs_leghair > 3:
+			'	His lips twisted in thought, he says, "You''re growing a bit of a bush down there." You follow his gaze to look at your <<$pcdesc_legs>> legs and your trimmed pussy hair. "Looks like your legs are growing grass to match. Aren''t you going to shave?"'
+		elseif pcs_pubes >= 21 and pcs_leghair > 3:
+			'	His lips twisted in thought, he says, "That bush you''ve got is looking more like a forest right now." You follow his gaze to look at your <<$pcdesc_legs>> legs and the thick bush of pubic hair that covers your pussy. "Plus it looks like your legs are growing grass to match. Aren''t you going to shave?"'
+		elseif pcs_leghair <= 3 and pcs_pubes < 11:
+			'	His lips twisted in thought, he says, "You''re looking kind of stubbly down there." You follow his gaze to look at the stubble growing on your pussy. "Aren''t you going to shave?"'
+		elseif pcs_leghair <= 3 and pcs_pubes >= 11 and pcs_pubes < 21:
+			'	His lips twisted in thought, he says, "You''re growing a bit of a bush down there." You follow his gaze to look at the small patch of hair on your pussy. "Aren''t you going to shave?"'
+		elseif pcs_leghair <= 3 and pcs_pubes >= 21:
+			'	His lips twisted in thought, he says, "That bush you''ve got is looking more like a forest right now." You follow his gaze to look at the thick bush of pubic hair that covers your pussy.'
+		elseif pcs_leghair > 3 and pcs_pubes <= 3:
+			'	His lips twisted in thought, he says, "You''re looking a little hairy down there." You follow his gaze to look at your <<$pcdesc_legs>> legs. "Aren''t you going to shave?"'
+		end
+		if stanok = 0:
+			act'"I can''t. I don''t have any razors"':
+				cla
+				*nl
+				'	"I couldn''t even if I wanted to," you say to him wistfully. He looks at you in confusion. "I''m out of razors. Can''t shave without a razor kiddo."'
+				'	"Oh." He looks disappointed.'
+				act'Dry off':gt'brother_voyeur','dryoff'
+			end
 
-			if stanok = 0:
-				act'"I can''t. I don''t have any razors"':
-					cla
-					*nl
-					'	"I couldn''t even if I wanted to," you say to him wistfully. He looks at you in confusion. "I''m out of razors. Can''t shave without a razor kiddo."'
-					'	"Oh." He looks disappointed.'
-					act'Dry off':gt'brother_voyeur','dryoff'
-				end
+		else
+			if pcs_leghair > 3 and pcs_pubes > 3 and stanok = 1:
+				msg'As you pick up your razor, you realize that it''s probably only sharp enough for shaving one set of things. If you want to shave you''ll have to decide between keeping a <<$pcdesc_pubes>> pussy or <<$pcdesc_legs>> legs.'
+			end
 
-			else
-				if pcs_leghair > 3 and pcs_pubes > 3 and stanok = 1:
-					msg'As you pick up your razor, you realize that it''s probably only sharp enough for shaving one set of things. If you want to shave you''ll have to decide between keeping a <<$pcdesc_pubes>> pussy or <<$pcdesc_legs>> legs.'
-				end
+			act'"Not with you watching!"':
+				cla & *clr
+				'<center><img <<$set_imgh>> src="images/shared/home/bathroom/brothertalk3.jpg"></center>'
+				'	"Not with you watching!" you laugh. "That''s a bit intimate. Maybe I will when you''re not around."'
+				'	"Hmm..." He seems disappointed.'
+				act'Dry off':gt'brother_voyeur','dryoff'
+			end
 
-				act'"Not with you watching!"':
+			if pcs_leghair > 3 and pcs_pubes > 3 and stanok > 1:
+				act 'Shave your legs and pussy (0:10)':
 					cla & *clr
-					'<center><img <<$set_imgh>> src="images/shared/home/bathroom/brothertalk3.jpg"></center>'
-					'	"Not with you watching!" you laugh. "That''s a bit intimate. Maybe I will when you''re not around."'
-					'	"Hmm..." He seems disappointed.'
+					minut += 10
+					pcs_leghair = 0
+					pcs_pubes = 0
+					pcs_horny += 5
+					brothershave += 1
+					stanok -= 2
+					inhib_exp += rand(1,3)
+					gs 'stat'
+					'<center><video src="images/shared/home/bathroom/shave.mp4"></center>'
+					'	"Yeah, sure. Why not?" you smile.'
+					'	You lather up your legs and crotch and then start carefully shaving them. Kolka stares at you and watches the process intently.'
+					'	"Enjoying the show?" you say teasingly. He doesn''t say anything except nod, not looking away for a second. You have to admit, it''s a little bit exciting having someone watch you do this. You might be enjoying this almost as much as your brother is.'
+					*nl
+					'	Once you''re finished you gently glide your hands over your smooth pussy and legs, enjoying the smooth feeling.'
+					if brothershave = 1:
+						'	As you rinse the remains of the lather away, Kolka asks, "So this is what all the girls do when they need to shave?"'
+						'<br>	You laugh at the naiveté of his question. "Yes, yes we do. So be appreciative when a girl''s clean shaven for you! We put a lot of work into looking nice for boys. Or other girls," you wink.'
+					end
 					act'Dry off':gt'brother_voyeur','dryoff'
 				end
+			end
 
-				if pcs_leghair > 3 and pcs_pubes > 3 and stanok > 1:
-					act 'Shave your legs and pussy (0:10)':
-						cla & *clr
-						minut += 10
-						pcs_leghair = 0
-						pcs_pubes = 0
-						pcs_horny += 5
-						brothershave += 1
-						stanok -= 2
-						inhib_exp += rand(1,3)
-						'<center><video src="images/shared/home/bathroom/shave.mp4"></center>'
-						'	"Yeah, sure. Why not?" you smile.'
-						'	You lather up your legs and crotch and then start carefully shaving them. Kolka stares at you and watches the process intently.'
-						'	"Enjoying the show?" you say teasingly. He doesn''t say anything except nod, not looking away for a second. You have to admit, it''s a little bit exciting having someone watch you do this. You might be enjoying this almost as much as your brother is.'
-						*nl
-						'	Once you''re finished you gently glide your hands over your smooth pussy and legs, enjoying the smooth feeling.'
-						if brothershave = 1:'	As you rinse the remains of the lather away, Kolka asks, "So this is what all the girls do when they need to shave?"'
-						if brothershave = 1:'	You laugh at the naiveté of his question. "Yes, yes we do. So be appreciative when a girl''s clean shaven for you! We put a lot of work into looking nice for boys. Or other girls," you wink.'
+			if pcs_leghair > 3:
+				act 'Shave your legs (0:05)':
+					cla
+					*clr
+					minut += 5
+					pcs_leghair = 0
+					pcs_horny += 5
+					stanok -= 1
+					inhib_exp += rand(1,2)
+					gs 'stat'
+					'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shave2.jpg"></center>'
+					'	"Yeah, I guess my legs could do with a shave."'
+					'	You lather up your legs and then start carefully shaving them.'
+					if pcs_pubes > 3:
+						'	Kolka frowns. "You''re not going to shave your pussy?"'
+						if stanok = 0:
+							act'"I can''t. Razor''s gone dull"':
+								cla
+								*nl
+								'	"I couldn''t even if I wanted to," you say to him wistfully. He looks at you in confusion. "Razor''s gone dull." You thumb the razor to show him. Need a sharp razor to shave. <i>Especially</i> down there," you smile suggestively.'
+								'	"Oh." He looks disappointed.'
+								act'Dry off':gt'brother_voyeur','dryoff'
+							end
+						else
+							act'"Nah, I don''t feel like it right now"':
+								cla
+								*nl
+								'	"Nah," you say, continuing to run the razor over your legs. "I don''t feel like doing it right now. Too much work."'
+								'	Kolka seems disappointed. Once you''re finished you gently glide your hands over your smooth legs, making sure you didn''t miss a spot.'
+								act'Dry off':gt'brother_voyeur','dryoff'
+							end
 
-						act'Dry off':gt'brother_voyeur','dryoff'
-					end
-				end
-
-				if pcs_leghair > 3:
-					act 'Shave your legs (0:05)':
-						cla
-						*clr
-						minut += 5
-						pcs_leghair = 0
-						pcs_horny += 5
-						stanok -= 1
-						inhib_exp += rand(1,2)
-						'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shave2.jpg"></center>'
-						'	"Yeah, I guess my legs could do with a shave."'
-						'	You lather up your legs and then start carefully shaving them.'
-						if pcs_pubes > 3:
-							'	Kolka frowns. "You''re not going to shave your pussy?"'
-							if stanok = 0:
-								act'"I can''t. Razor''s gone dull"':
+							if pcs_pubes < 21:
+								act'"Nope! I''m thinking of growing it out"':
 									cla
 									*nl
-									'	"I couldn''t even if I wanted to," you say to him wistfully. He looks at you in confusion. "Razor''s gone dull." You thumb the razor to show him. Need a sharp razor to shave. <i>Especially</i> down there," you smile suggestively.'
-									'	"Oh." He looks disappointed.'
-									act'Dry off':gt'brother_voyeur','dryoff'
-								end
-							else
-								act'"Nah, I don''t feel like it right now"':
-									cla
-									*nl
-									'	"Nah," you say, continuing to run the razor over your legs. "I don''t feel like doing it right now. Too much work."'
+									'	"Nope! I''m thinking about growing it out," you say cheerfully, smiling at him.'
+									if pcs_pubes > 3 and pcs_pubes < 11:
+										'	"Hmph. I still think you''d look better if you just kept it smooth..." he mutters.'
+									elseif pcs_pubes >= 11 and pcs_pubes < 21:
+										'	"Hmph. I still think you''d look better if you shaved it off..."'
+									end
 									'	Kolka seems disappointed. Once you''re finished you gently glide your hands over your smooth legs, making sure you didn''t miss a spot.'
 									act'Dry off':gt'brother_voyeur','dryoff'
 								end
-
-								if pcs_pubes < 21:
-									act'"Nope! I''m thinking of growing it out"':
-										cla
-										*nl
-										'	"Nope! I''m thinking about growing it out," you say cheerfully, smiling at him.'
-										if pcs_pubes > 3 and pcs_pubes < 11:'	"Hmph. I still think you''d look better if you just kept it smooth..." he mutters.'
-										if pcs_pubes > 10 and pcs_pubes < 21:'	"Hmph. I still think you''d look better if you shaved it off..."'
-										'	Kolka seems disappointed. Once you''re finished you gently glide your hands over your smooth legs, making sure you didn''t miss a spot.'
-										act'Dry off':gt'brother_voyeur','dryoff'
-									end
-								else
-									act'"Nah, I''m too lazy"':
-										cla
-										*nl
-										'	"Nah," you say. "I''m too lazy to do it. If I start shaving now, I''ll have to keep shaving every few days. Too much trouble to maintain."'
-										'	"Hrmph. No wonder it''s such a mess down there..." he mutters.'
-										'	You glare at him a little but he doesn''t see it as he''s already crossed his arms and looked away, still frowning. He seems disappointed. Once you''re finished you gently glide your hands over your smooth legs, making sure you didn''t miss a spot.'
-										act'Dry off':gt'brother_voyeur','dryoff'
-									end
-								end
-
-								if pcs_pubes > 10:
-									act'"I like it like this!"':
-										cla
-										*nl
-										'	"I like it like this! Nothing wrong with a girl wanting to have a bit of bush down there," you say cheerfully, smiling at him.'
-										if pcs_pubes > 20:'	"Hrmph. More like a jungle..." he mutters. You glare at him a little but he doesn''t see it as he''s already crossed his arms and looked away, still frowning. "I still think you''d look better if you shaved it off..."'
-										if pcs_pubes < 21:'	"Hmph. I still think you''d look better if you shaved it off..."'
-										'	Once you''re finished you gently glide your hands over your smooth legs, making sure you didn''t miss a spot.'
-										act'Dry off':gt'brother_voyeur','dryoff'
-									end
-								end
-
-								act'"Hmm, maybe you''re right"':
-									cla & *clr
-									pcs_pubes = 0
-									pcs_horny += 5
-									brothershave += 1
-									minut += 5
-									stanok -= 1
-									'<center><video src="images/shared/home/bathroom/shave.mp4"></center>'
-									if pcs_pubes < 11:'	"Hmm." You think to yourself for a moment. "Maybe you''re right after all," you say and start lathering up your crotch.'
-									if pcs_pubes < 11:'	Kolka stares at you intensely as you carefully remove the bits of stubble from around your pussy.'
-									if pcs_pubes > 10:'	"Hmm." You think to yourself for a moment. "Yeah, you''re right. Maybe it''s time to get rid of this bush," you say and start lathering up your crotch.'
-									if pcs_pubes > 10:'	Kolka stares at you intensely as you carefully remove the hair from around your pussy.'
-									'	"Enjoying the show?" you say teasingly. He doesn''t say anything except nod, not looking away for a second. You have to admit, it''s a little bit exciting having someone watch you do this. You might be enjoying this almost as much as your brother is.'
+							else
+								act'"Nah, I''m too lazy"':
+									cla
 									*nl
-									'	Once you''re finished you gently glide your hands over your smooth pussy and legs, enjoying the feeling.'
-									if brothershave = 1:'	As you rinse the remains of the lather away, Kolka asks, "So this is what all the girls do when they need to shave?"'
-									if brothershave = 1:'	You laugh at the naiveté of his question. "Yes, yes we do. So be appreciative when a girl''s clean shaven for you! We put a lot of work into looking nice for boys. Or other girls," you wink.'
+									'	"Nah," you say. "I''m too lazy to do it. If I start shaving now, I''ll have to keep shaving every few days. Too much trouble to maintain."'
+									'	"Hrmph. No wonder it''s such a mess down there..." he mutters.'
+									'	You glare at him a little but he doesn''t see it as he''s already crossed his arms and looked away, still frowning. He seems disappointed. Once you''re finished you gently glide your hands over your smooth legs, making sure you didn''t miss a spot.'
 									act'Dry off':gt'brother_voyeur','dryoff'
 								end
+							end
+
+							if pcs_pubes > 10:
+								act'"I like it like this!"':
+									cla
+									*nl
+									'	"I like it like this! Nothing wrong with a girl wanting to have a bit of bush down there," you say cheerfully, smiling at him.'
+									if pcs_pubes > 20:'	"Hrmph. More like a jungle..." he mutters. You glare at him a little but he doesn''t see it as he''s already crossed his arms and looked away, still frowning. "I still think you''d look better if you shaved it off..."'
+									if pcs_pubes < 21:'	"Hmph. I still think you''d look better if you shaved it off..."'
+									'	Once you''re finished you gently glide your hands over your smooth legs, making sure you didn''t miss a spot.'
+									act'Dry off':gt'brother_voyeur','dryoff'
+								end
+							end
+
+							act'"Hmm, maybe you''re right"':
+								cla & *clr
+								pcs_pubes = 0
+								pcs_horny += 5
+								brothershave += 1
+								minut += 5
+								stanok -= 1
+								'<center><video src="images/shared/home/bathroom/shave.mp4"></center>'
+								if pcs_pubes < 11:
+									'<br>	"Hmm." You think to yourself for a moment. "Maybe you''re right after all," you say and start lathering up your crotch.<br>	Kolka stares at you intensely as you carefully remove the bits of stubble from around your pussy.'
+								elseif pcs_pubes >= 11:
+									'<br>	"Hmm." You think to yourself for a moment. "Yeah, you''re right. Maybe it''s time to get rid of this bush," you say and start lathering up your crotch.<br>	Kolka stares at you intensely as you carefully remove the hair from around your pussy.'
+									'<br>	"Enjoying the show?" you say teasingly. He doesn''t say anything except nod, not looking away for a second. You have to admit, it''s a little bit exciting having someone watch you do this. You might be enjoying this almost as much as your brother is.'
+								end
+								*nl
+								'<br>	Once you''re finished you gently glide your hands over your smooth pussy and legs, enjoying the feeling.'
+								if brothershave = 1:
+									'<br>	As you rinse the remains of the lather away, Kolka asks, "So this is what all the girls do when they need to shave?"'
+									'<br>	You laugh at the naiveté of his question. "Yes, yes we do. So be appreciative when a girl''s clean shaven for you! We put a lot of work into looking nice for boys. Or other girls," you wink.'
+								end
+								act'Dry off':gt'brother_voyeur','dryoff'
 							end
 						end
 					end
 				end
-				if pcs_pubes > 3:
-					act'"Hmm, maybe you''re right"':
-						cla & *clr
-						pcs_pubes = 0
-						pcs_horny += 5
-						brothershave += 1
-						minut += 5
-						stanok -= 1
-						inhib_exp += 1
-						'<center><video src="images/shared/home/bathroom/shave.mp4"></center>'
-						if pcs_pubes < 11:'	"Hmm." You think to yourself for a moment. "Maybe you''re right after all," you say and start lathering up your crotch.'
-						if pcs_pubes < 11:'	Kolka stares at you intensely as you carefully remove the bits of stubble from around your pussy.'
-						if pcs_pubes > 10:'	"Hmm." You think to yourself for a moment. "Yeah, you''re right. Maybe it''s time to get rid of this bush," you say and start lathering up your crotch.'
-						if pcs_pubes > 10:'	Kolka stares at you intensely as you carefully remove the hair from around your pussy.'
-						'	"Enjoying the show?" you say teasingly. He doesn''t say anything except nod, not looking away for a second. You have to admit, it''s a little bit exciting having someone watch you do this. You might be enjoying this almost as much as your brother is.'
-						*nl
-						'	Once you''re finished you gently glide your hands over your freshly shaved pussy, enjoying the smooth feeling.'
-						if brothershave = 1:'	As you rinse the remains of the lather away, Kolka asks, "So this is what all the girls do when they need to shave?"'
-						if brothershave = 1:'	You laugh at the naiveté of his question. "Yes, yes we do. So be appreciative when a girl''s clean shaven for you! We put a lot of work into looking nice for boys. Or other girls," you wink.'
-						act'Dry off':gt'brother_voyeur','dryoff'
+			end
+			if pcs_pubes > 3:
+				act'"Hmm, maybe you''re right"':
+					cla & *clr
+					pcs_pubes = 0
+					pcs_horny += 5
+					brothershave += 1
+					minut += 5
+					stanok -= 1
+					inhib_exp += 1
+					gs 'stat'
+					'<center><video src="images/shared/home/bathroom/shave.mp4"></center>'
+					if pcs_pubes < 11:
+						'<br>	"Hmm." You think to yourself for a moment. "Maybe you''re right after all," you say and start lathering up your crotch.'
+						'<br>	Kolka stares at you intensely as you carefully remove the bits of stubble from around your pussy.'
+					elseif pcs_pubes > 10:
+						'<br>	"Hmm." You think to yourself for a moment. "Yeah, you''re right. Maybe it''s time to get rid of this bush," you say and start lathering up your crotch.'
+						'<br>	Kolka stares at you intensely as you carefully remove the hair from around your pussy.'
+						'<br>	"Enjoying the show?" you say teasingly. He doesn''t say anything except nod, not looking away for a second. You have to admit, it''s a little bit exciting having someone watch you do this. You might be enjoying this almost as much as your brother is.'
 					end
+					*nl
+					'	Once you''re finished you gently glide your hands over your freshly shaved pussy, enjoying the smooth feeling.'
+					if brothershave = 1:
+						'<br>	As you rinse the remains of the lather away, Kolka asks, "So this is what all the girls do when they need to shave?"'
+						'<br>	You laugh at the naiveté of his question. "Yes, yes we do. So be appreciative when a girl''s clean shaven for you! We put a lot of work into looking nice for boys. Or other girls," you wink.'
+					end
+					act'Dry off':gt'brother_voyeur','dryoff'
 				end
 			end
 		end
 	else
 		'<center><video src="images/shared/home/bathroom/brothershowertalk.mp4"></center>'
-		if pcs_leghair > 3 and pcs_pubes > 3 and stanok > 0:'	While rinsing off, you notice your legs and pussy could use a shave. You look up and Kolka is still looking at the wall.'
-		if pcs_leghair < 4 and pcs_pubes > 3 and stanok > 0:'	While rinsing off, you notice that your pussy could use a shave. You look up and Kolka is still looking at the wall.'
-		if pcs_leghair > 3 and pcs_pubes < 4 and stanok > 0:'	While rinsing off, you notice your legs could use a shave. You look up and Kolka is still looking at the wall.'
+		if pcs_leghair >= 4 and pcs_pubes >= 4 and stanok > 0:
+			'	While rinsing off, you notice your legs and pussy could use a shave. You look up and Kolka is still looking at the wall.'
+		elseif pcs_leghair < 4 and pcs_pubes >= 4 and stanok > 0:
+			'	While rinsing off, you notice that your pussy could use a shave. You look up and Kolka is still looking at the wall.'
+		elseif pcs_leghair >= 4 and pcs_pubes < 4 and stanok > 0:
+			'	While rinsing off, you notice your legs could use a shave. You look up and Kolka is still looking at the wall.'
+		end
 		'	Do you want to shave right now?'
 		act'Skip it':
 			*clr & cla
@@ -2778,6 +2848,7 @@ if $ARGS[0] = 'shave':
 				pcs_pubes = 0
 				pcs_horny += 5
 				stanok -= 2
+				gs 'stat'
 				'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shave3.jpg"></center>'
 				'	You casually continue the conversation with your brother while lathering up your legs and crotch before starting to carefully shave them. You notice your brother make a few curious peeks but decide not to say anything and simply continue on with your business and the conversation.'
 				'	Once you''re finished you gently glide your hands over your smooth pussy and legs, enjoying the feeling and getting slightly more aroused by the touch.'
@@ -2793,6 +2864,7 @@ if $ARGS[0] = 'shave':
 				pcs_leghair = 0
 				pcs_horny += 5
 				stanok -= 1
+				gs 'stat'
 				'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shave2.jpg"></center>'
 				'	You casually continue the conversation with your brother while lathering up your legs before starting to carefully shave them. You notice your brother make a few curious peeks but decide not to say anything and simply continue on with your business and the conversation.'
 				'	Once you''re finished you gently glide your hands over your smooth legs, enjoying the feeling and getting slightly more aroused by the touch.'
@@ -2808,6 +2880,7 @@ if $ARGS[0] = 'shave':
 				pcs_pubes = 0
 				pcs_horny += 5
 				stanok -= 1
+				gs 'stat'
 				'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shave3.jpg"></center>'
 				'	You casually continue the conversation with your brother while lathering up the area between your legs before starting to carefully shave it. You notice your brother make a few curious peeks but you decide not to say anything and simply continue on with your business and the conversation.'
 				'	Once you''re finished you gently glide your hands over your smooth pussy, enjoying the feeling and getting slightly more aroused by the touch.'
@@ -2859,528 +2932,6 @@ if $ARGS[0] = 'showertalkbusy':
 	'	"Oh, okay..." he says dejectedly before closing the door and leaving you to finish your shower. You feel bad, but you really just don''t have time for him right now.'
 	act'Get out and dry off':gt $loc
 end
-
-if $ARGS[0] = 'homework':
-	brother_homework = daystart
-	if npc_rel['A34'] <50:npc_rel['A34'] += 1
-	minut += RAND(50,70)
-	ivrand = RAND(1,2)
-	if npc_QW['A34'] >= 2 and npc_rel['A34'] >= 60 and ivrand = 1:
-		cls
-		gs 'stat'
-		'<center><b><font color = maroon>Kolka</font></b></center>'
-		'<center><video src="images/characters/pavlovsk/resident/kolka/event/homework/homework_touch.mp4" width="1000" height="422"></center>'
-		if npc_QW['A34'] >= 3 and father_go = 1:
-			cla
-			pcs_horny += RAND(5,10)
-			'As soon as you begin to explain the material, Kolka begins again to stroke your leg his hand.'
-			act'Ignore and continue':
-				cla
-				if npc_rel['A34'] <50:npc_rel['A34'] += 2
-				pcs_horny += RAND(5,10)
-				'You continue to do the homework, trying hard not to pay attention to Kolka''s hand on your leg. Kolka knowing that you do not mind continues to have nice feel of your leg. You feel the warm rush of excitement.'
-				ivrand = RAND(1,3)
-				if ivrand = 1 and brotherEvSex ! daystart:
-					cla
-					if (sub > 0 and brotherknowslut = 1) or pav_slut >= 75 or brotherknowslut = 2:
-						'Kolka boldly slides his hands further upwards, continuing to stroke the insides of your leg, while he tells you:'
-						'"<<$pcs_nickname>>, help me with another matter now!"'
-						if pcs_horny > 90:
-							act 'I thought you would never ask': gs 'brother', 'brotherSexStart'
-						else
-							act 'Sure, I''m always willing to help my little brother': gs 'brother', 'brotherSexStart'
-							act 'Maybe next time...': gt 'sitrPar'
-						end
-					else
-						'After you finish explaining the new material, Kolka goes red with excitement and asks:'
-						'"<<$pcs_nickname>>, Can you help me out here now?"'
-						if pcs_horny > 80:
-							act 'How could i say no if you keep asking so nice?': gs 'brother', 'brotherSexStart'
-						else
-							act 'I think i could teach you a thing or two': gs 'brother', 'brotherSexStart'
-							act 'Maybe next time...': gt 'sitrPar'
-						end
-					end
-				elseif ivrand = 2 and (brotherEvSex ! daystart or anatomyhomeworkhelp = 1):
-					gs 'brother_voyeur', 'showbody'
-				else
-					act 'Finish': gt 'sitrPar'
-				end
-			end
-			act'Remove hand and continue':
-				cls
-				cla
-				pcs_horny += RAND(1,5)
-				npc_rel['A34'] -= 5
-				'<center><b><font color = maroon>Kolka</font></b></center>'
-				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/homework1.jpg"></center>'
-				'You whisper:'
-				'"Don''t, Our parents will see us." You remove his hand from your leg.'
-				'Kolka mutters something under his breath with grim resentment on his face.'
-
-				act 'Finish': gt 'sitrPar'
-			end
-		else
-			cla
-			pcs_horny += RAND(5,10)
-			'As you explain the material, Kolka suddenly began to slowly stroke your leg with his hand. You freeze in surprise, not knowing what to do.'
-			act'Ignore and continue':
-				cla
-                if npc_QW['A34'] < 3: npc_QW['A34'] = 3
-				npc_rel['A34'] += 2
-				pcs_horny += RAND(5,10)
-				'You decide to continue to do homework, trying not to pay attention to Kolka''s hand on your leg. He realizes that you don''t mind so he continues to stroke higher up your leg.'
-				act 'Finish': gt 'sitrPar'
-			end
-			act'Remove hand and continue':
-				cla
-				pcs_horny += RAND(1,5)
-				pcs_dom += 1
-				'You decide to remove his hand and continue to do homework. Kolka begins to blush and starts to try hard to solve the problems. While not looking you in the eye.'
-				act 'Finish': gt 'sitrPar'
-			end
-		end
-	else
-		cls
-		gs 'stat'
-		'<center><b><font color = maroon>Kolka</font></b></center>'
-		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/homework1.jpg"></center>'
-		'You help your brother with his homework for an hour.'
-
-		act 'Finish': gt 'sitrPar'
-	end
-end
-
-if $ARGS[0] = 'showbody':
-	cla & *clr
-	minut += RAND(3,5)
-	gs 'stat'
-	'<center><b><font color = maroon>Kolka</font></b></center>'
-	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/homework1.jpg"></center>'
-	if brothersexed < 1:
-		if anatomyhomeworkhelp = 0:
-			'	After you both finish studying, Kolka suddenly goes quiet and his cheeks turn a bright red.'
-			'	"<<$pcs_nickname>>..." he starts. "I have to learn about human anatomy, but I am having trouble with it. Can you help me?"'
-			'	"What do you mean?" you ask, a little confused.'
-			'	"Well, um..." Kolka hesitated, "Can you show me what girls look like...'
-			if sub < 30:
-				act'"No way"':
-					cla
-					'"How the fuck can I do that? Should I just take my clothes off in front of you and let you gawk at me? I''m your sister!"'
-					'"Yes, you are right. I''m sorry..." Kolka responded in embarrassment.'
-					act 'Finish':gt $loc, $metka
-				end
-			end
-
-			act'"Huh..."':
-				cla
-				'You briefly reflect on your brother''s request and reply, "How would you want me to do that? Should I just take my clothes off in front of you and let you gawk at me!?"'
-				'"Well... That would help but you could also explain each part." He adds.'
-				'You sigh and shake your head, "Surely your text books have pictures"'
-				'"There are pictures, but everything is so badly written, and the teacher skipped the lesson, saying "You already know everything." He explains with flushed face.'
-				'"Okay, I will help you, but only if you don''t tell anyone. Agreed? I''m serious, not a single person!" You say in a strict tone.'
-				'"<<$pcs_nickname>>, I promise not a word to anyone!"'
-				'After his promise you consider what to do.'
-
-				act'Undress':gt'brother','brother_voyeur_ev4'
-				act'Don''t do it':gt $loc, $metka
-			end
-
-			act'"What do you mean?"':
-				cla
-				*nl
-				'	"What do you mean?" you ask quizzically.'
-				'	"Uhmm... Well... T-the diagrams of b-bodies in this book a-aren''t very good... I d-don''t really get them..." he stammers. "So... I was hoping t-that... m-maybe I could just s-see the real thing... i-if... y-you know... y-you''d let me s-see yours..." When he''s finished speaking he looks down, seemingly ashamed for even asking.'
-				act'"What?! No way!"':
-					cla
-					*nl
-					'	It finally dawns on you what he''s asking and you pull back in disgust. "What the hell?! No way! I''m not about to let you use me as a science project! Ugh! Get a grip Kolka!"'
-					'	"I''m sorry <<$pcs_firstname>>..." he whimpers. "I shouldn''t have asked..."'
-					act 'Finish':gt $loc, $metka
-				end
-
-				act'Well, nothing beats practical learning':
-					cla
-					*nl
-					'	Now that you finally understand what he''s suggesting, you muse over it for a moment.'
-					'	<i>Well... practical learning is pretty helpful... Might help to show him the real thing,</i> you think to yourself while Kolka visibly squirms in front of you.'
-					'	"Okay. Sure."'
-					'	Kolka looks up at you in surprise. "Really? You''ll really do it?"'
-					'	"Yeah, I''ll do it," you say. "Like you said, it might help if you get to see the real thing. I''m happy to do it to help my little brother," you smile.'
-					npc_rel['A34'] += rand(2,3)
-					act'Undress':gt'brother_voyeur','anatomylesson1'
-				end
-			end
-		else
-			'	Towards the end of the study session, Kolka seems to remember something.'
-			'	"Hey <<$pcs_nickname>>, remember when you said that you would help me with my anatomy homework? You know, when..." he stops and cups his hands, leaning in to whisper, "...when you were in the shower? Are you still willing to help me with that?"'
-			act'"Not right now"':
-				cla
-				*nl
-				'	"Of course I am Kolka, just not right now," you say. "I''m a little busy at the moment, but if you ask me again later, maybe some other day, okay?"'
-				'	"Okay!" he nods, taking it as a promise.'
-				act 'Finish':gt $loc, $metka
-			end
-
-			act'"Of course!"':
-				cla
-				*nl
-				'	"Yeah of course!" you say. "How could I forget a promise to my little brother?"'
-				'	"Thanks <<$pcs_nickname>>! So, before I told you I was having trouble understanding the pictures and diagrams," he says, holding out the book to you. "Is there anything you can do to help me understand it better?" You take the book and flip through the pages he''s supposed to be studying. Looks like basic anatomy right now, but later on it seems to move into sexual reproduction and general sex ed.'
-				*nl
-				'	How do you want to try and teach it to Kolka?'
-				act'Use the book and try to find a way to explain it':
-					cla & *clr
-					'<center><b><font color = maroon>Kolka</font></b></center>'
-					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/homework1.jpg"></center>'
-					'	You do your best to go through the text with your brother and explain it to him but he''s still really struggling with it. Even you have to admit, those pictures and diagrams really aren''t very good.'
-					act'Finish':gt $loc, $metka
-				end
-
-				act'Use your body as an example and explain it that way':
-					cla & *clr
-					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/home/sitrpar.jpg"></center>'
-					'	"I think I have a pretty good idea..." you say mischievously while he looks at you quizzically.'
-					act'Undress':gt'brother_voyeur','anatomylesson1'
-				end
-			end
-		end
-	else
-		'	After finishing the rest of his homework, Kolka pipes up, "<<$pcs_nickname>>, I could still use some more help with my anatomy homework. Will you help me?"'
-		act'"Not right now"':
-			cla
-			*nl
-			'	"I''m sorry Kolka," you say. "I''m a little busy at the moment, maybe next time okay?"'
-			'	"Okay!" he nods, packing up the rest of his schoolwork.'
-			act 'Finish':gt $loc, $metka
-		end
-
-		act'"Sure!"':
-			cla
-			*nl
-			'	"Sure," you grin at him. "Just let me get ''presentable'' for you," you say with a wink before you start undressing.'
-			act'Undress':gt'brother_voyeur','anatomylesson1'
-		end
-
-		act'"Maybe i try something else this time"':
-			cla
-			*nl
-			'"I will help you, but only if you don''t tell anyone. Agreed? I''m serious, not a single person!" You say in a strict tone.'
-			'"<<$pcs_nickname>>, I promise not a word to anyone!"'
-			'After his promise you consider what to do.'
-
-			act'Undress':gt'brother','brother_voyeur_ev4'
-			act'Don''t do it':gt $loc, $metka
-		end
-	end
-end
-
-if $ARGS[0] = 'anatomylesson1':
-	cla & *clr
-	if brothersexed > 0:gt'brother_voyeur','anatomylesson2'
-	brothersexed += 1
-	gs 'clothing', 'strip'
-	gs 'underwear', 'remove'
-	gs 'stat'
-	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/1.jpg"></center>'
-	'	After taking a look around to make sure you''re in the clear, you quickly strip down until you''re completely naked in front of your brother.'
-	if anatomyhomeworkhelp = 1:'	"Woah! What are you doing?" Kolka exclaims.'
-	if anatomyhomeworkhelp = 1:'	"I''m doing what you asked me to do!" you say with a grin. "I''m going to help you understand the material better! Nothing should help you more with anatomy than being able to look at someone else''s body right?"'
-	act'Start the lesson':
-		cla & *clr
-		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/2.jpg"></center>'
-		'	"So looking at your book it says you''re learning about arteries and veins right now. Arteries are some of the tubes that carry blood around your body. And they all start here," you say, putting your hand around your left breast. "When you breathe in, your lungs take in oxygen which the rest of the body needs to survive. But in order to get it to the rest of the body, your heart needs pathways to deliver it. The oxygen attaches itself to your red blood vessels, and your arteries are the pathways that deliver it. So, for example if your body wants to get oxygenated blood from your heart to your brain it travels along an artery that passes right through..."'
-		act'Continue':
-			cla & *clr
-			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/3.jpg"></center>'
-			'	"... here!" you say, pointing to your neck. "This is your carotid artery, and it supplies all of your head and your neck with oxygenated blood. Come here and feel it!"'
-			'	Your brother timidly moves closer and puts his finger on your neck.'
-			'	"Push in gently. Do you feel the little ''ba-bump, ba-bump, ba-bump, ba-bump?'' That''s my heartbeat and you can feel the pulse through this artery. Since arteries come directly from the heart, they are the easiest ways to feel someone''s pulse!"'
-			'	"Woah!" your brother says in amazement. "That''s cool!"'
-			act'Continue':
-				cla & *clr
-				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/4.jpg"></center>'
-				'	You lay back and spend the rest of the lesson letting Kolka use your body as a map, tracing your blood vessels with his finger to understand where they all go and where they branch out from.'
-				*nl
-				'	As the lesson goes on, you suddenly realize that the gentle touch all over your body is actually turning you on a little bit. The tracing of his fingers feel like a lover''s caress and you feel warmth in your hips signalling that you''re starting to get wet.'
-				pcs_horny += 15
-				act'Continue':
-					cla & *clr
-					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/5.jpg"></center>'
-					'	Eventually, Kolka has traced out all the arteries and veins you have and you bring the lesson to a close.'
-					'	You quickly sit up to hide the growing wetness between you legs and ask him, "So how was that? Do you think you have a better understanding of the material now?"'
-					'	"Yeah!" he says excitedly. "I think I get it now! You really helped me out <<$pcs_nickname>>!" He unexpectedly wraps his arms around you, giving you a big hug. You''re surprised by this, mostly because you weren''t expecting him to do something like this while you were still naked.'
-					'	"You''re the best sister ever!" he cries.'
-					'	You hug him back, feeling the warmth of your bare skin spreading into his shirt. "Aww, thanks Kolka."'
-					'	He pulls back from the hug, eagerly sitting in front of you. "Will you help me with this again sometime?"'
-					'	"Of course I will. But you need to let me get dressed before mom or dad sees me helping you out like this. I don''t think they''d approve. Do you?" He twists his mouth up and shakes his head. "I didn''t think so. So make sure you don''t tell anyone else about this. But if you need more help, just ask me and I''ll see what I can do," you say, giving him a sweet smile before getting dressed again.'
-					act'Get dressed':
-						gs 'underwear', 'wear'
-						gs 'stat'
-						gs 'clothing', 'wear_last_worn'
-						gt $loc, $metka
-					end
-				end
-			end
-		end
-	end
-end
-
-if $ARGS[0] = 'anatomylesson2':
-	cla & *clr
-	brothersexed += 1
-	gs 'clothing', 'strip'
-	gs 'underwear', 'remove'
-	gs 'stat'
-	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/1.jpg"></center>'
-	'	You quickly get undressed taking small peeks at the book while you do so you know what you''re helping him with. It looks like this section is about female genitals.'
-	*nl
-	'	Once you''re completely naked you kneel down again and say, "Alright Kolka. All ready for today''s lesson?" He nods eagerly. "Okay! Let''s begin then!"'
-	act'Begin the lesson':
-		cla & *clr
-		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/6.jpg"></center>'
-		'	"So, your lesson today is about female genitals. We''ll start with the most obvious one because I know you love to look at them: breasts!" You pull your arms back behind your head to give him a good view. "Women have breasts because they''re used to feed babies-" you start to say before Kolka interrupts you.'
-		'	"Can I get a closer look? You know... for uhh... scientifical reasons?" he says. The look on his face says he''s genuinely curious but you''re still a little skeptical he isn''t doing this just to get close to your tits.'
-		'	<i>Oh, whatever. As long as he learns something right?</i>'
-		act'Continue':
-			cla & *clr
-			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/7.jpg"></center>'
-			'	"Uhh-ha... Okay I guess," you say with a bit of a nervous giggle. You stick your chest out some more and Kolka brings his face right next to your breasts.'
-			act'Continue':
-				cla & *clr
-				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/8.jpg"></center>'
-				'	A few awkward long moments go by of Kolka closely examining your breasts and nipples before you realize that he''s not going to sit back down. You sigh and figure you might as well get on with the lesson in the mean time. At least he''ll be able to see them clearly.'
-				'	"So... Like I was saying, women have breasts because of babies. When a woman is pregnant, her breasts start to produce milk which is then used to feed her newborn."'
-				'	"How does the milk come out?" Kolka asks, now inspecting your breasts from multiple angles. "Do you squeeze it and milk it out like cows?"'
-				'	You sputter in laughter saying, "What? No, silly! That would be really painful because girls nipples are very sensitive! No, the baby suckles, meaning they just use their mouth and suck to draw the milk out. That''s why they call it ''breastfeeding.''"'
-				'	"Oh! So you mean like this?" and before you can stop him, Kolka leans in to put your nipple in his mouth and starts sucking.'
-				act'"Hey! Stop that!"':
-					cla & *clr
-					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/7.jpg"></center>'
-					pcs_horny += 20
-					'	You push him back immediately. "Hey! What do you think you''re doing?! You can''t just do that to a girl!"'
-					'	"But you were sayin-"'
-					'	"I know what I was saying! You''re not a baby Kolka. You can''t just start sucking on someone''s nippes like that. I told you..." you trail off, nervously noticing the wetness beginning to seep from your pussy. "... girl''s nipples are very sensitive..."'
-					'	"Oh." he says very matter of factly. "Right. You did just say that. I forgot. I''m sorry <<$pcs_nickname>>."'
-					'	"It''s okay," you reply, gently massaging your nipple and trying your best not to accidentally wipe your love juice on anything. "Just, don''t do that so suddenly like that okay? At least ask next time."'
-					'	"Wait so if I ask I can do it?" he pipes up.'
-					'	"No!" you say with a stern smile. "I mean... I''ll think about it. But expect the answer to be more likely no than yes okay?"'
-					'	"Mkay," he says, while writing down some things in his notebook.'
-					'	<i><b>sigh</b> Boys...</i>'
-					'	Looking at the next part of the homework it talks about the anatomy of the vulva but doesn''t go on to the internals. At least you''ll be able to use your arousal for the lesson now..."'
-					act'Continue the lesson':gt'brother_voyeur','anatomylesson3'
-				end
-
-				act'"Wai-! Sto-... Ohhh..."':
-					cla & *clr
-					pcs_horny += 40
-					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/8.jpg"></center>'
-					'	"Kolk-! Ahh~! Wai- Uh~! Sto-... Ohh~!" you try to voice protests but they get lost in your stifled moans.'
-					'	Your brother continues to suck on your nipple with increased vigor, now grabbing your other breast to use as leverage and keep his face close. You squirm under his advances, trying to push him off but you''re too weak, your body floundering in pleasure.'
-					'	He pulls his lips off with a pop. "Huh. Why isn''t any milk coming out?" he asks. At last! A respite! You start to catch your breath and just as you''re about to tell him not to do that again, he leans forward and starts sucking again.'
-					'	"Ahh~!" A cry briefly escapes your lips before you clamp your own hand over them to make sure the rest of your family doesn''t overhear you. You can only imagine your mother''s reaction if she came in to find your brother sucking on your tits like this.'
-					'	After another minute of sucking and squirming, your brother finally relents. "<<$pcs_nickname>>, I thought you said milk came out. I''ve been sucking all this time and nothing''s come out. Why''s that?" Then he notices your heavy breathing. "Hey, are you okay? Is there something wrong with you?"'
-					act'Continue':
-						cla & *clr
-						'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/7.jpg"></center>'
-						'	"Kolka..." you sigh deeply before continuing. "First of all, you can''t just suck on a girl''s nipples like that! I told you..." you trail off, taking notice of the love juices dripping from your snatch and nervously smiling. "... they''re very sensitive... Second of all, I''m not pregnant dummy! Breasts only produce milk if you''re pregnant or recently gave birth."'
-						'	"Oh. Sorry."'
-						'	"It''s okay... It felt kind of good to be honest..." you admit with some embarrassment. "Just... ask next time? Please?"'
-						'	"Okay <<$pcs_nickname>>," he says, writing some things down in his notebook.'
-						'	You sigh again. Taking a look in the textbook, it says the next part of the homework is about the external female organs: the vulva. You slyly smile to yourself.'
-						'	<i>Well, at least I didn''t get wet for nothing.</i>'
-						act'Continue the lesson':gt'brother_voyeur','anatomylesson3'
-					end
-				end
-			end
-		end
-	end
-end
-
-if $ARGS[0] = 'anatomylesson3':
-	cla & *clr
-	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/9.jpg"></center>'
-	'	"Okay Kolka, the next part of the lesson is about the vulva," you say, leaning back and spreading your legs to give visual access to your pussy. "That means just the external parts, not what''s inside. We''ll go over that as part of your next lesson."'
-	'	"Woah..." he says, clutching his notebook but still sitting from afar.'
-	'	"Well come on! You just sucked on my tits, don''t be shy now, take a closer look!"'
-	act'Continue':
-		cla & *clr
-		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/10.jpg"></center>'
-		'	You spread your legs a little farther apart as Kolka leans in to take a look. You briefly go over everything explaining the mons pubis is where the hair grows and that the labia are the "lips" of your vagina.'
-		'	"Are you always this slimy down here?" he asks, in obvious reference to your wetness.'
-		'	"Well <i>that</i> is actually your fault!" you say.'
-		'	"Huh?" he looks up, concerned that he''s in trouble.'
-		'	"When a girl gets stimulated, say from sex or, I don''t know, getting their nipples sucked," you say meaningfully, causing him to blush, "They get wet down there. It comes from the Bartholin glands and it naturally lubricates the vagina to make sex more comfortable."'
-		'	"Ohhh! Okay!" he says, writing everything down. <i>This might just be helping him in school after all...</i> you think to yourself.'
-		act'Continue':
-			cla & *clr
-			if pcs_vag = 0:
-				'<center><img <<$set_imgh>> src="images/pc/body/pussy/vag0.jpg"></center>'
-				'	"Next is a very special part of the vagina," you start. You spread your pussy lips apart and let him look inside. "This is the hymen. Every girl is born with one and will have it until it gets torn."'
-				'	"How does it get torn?" Kolka quickly asks while continuing to stare at yours in wonder.'
-				'	"Well, it can get torn in a number of ways but the most common is when a girl loses her virginity. We''ll talk about this more next time, but when a boy and a girl have sex, the boy sticks his penis inside the girl''s vagina. The only way to get the penis all the way inside is to push through the hymen and break it. It usually causes a small amount of bleeding. That''s why they call it ''popping a cherry,''" you smile.'
-				'	He continues to look at your hymen for a few moments before asking, "So... does this mean..."'
-				'	"That I''ve never had sex? Yeah Kolka. It means I''m a virgin." The admittance causes you to blush for some reason, you''re not sure why. After a couple more questions, you continue with the lesson.'
-				act'Continue':gt'brother_voyeur','anatomylesson4'
-
-			elseif pcs_vag > 0 and guy > 0:
-				if pcs_vag <= 25:'<center><img <<$set_imgh>> src="images/pc/body/pussy/vag3.jpg"></center>'
-				if pcs_vag > 25 and pcs_vag <= 35:'<center><img <<$set_imgh>> src="images/pc/body/pussy/vag4.jpg"></center>'
-				if pcs_vag > 35:'<center><img <<$set_imgh>> src="images/pc/body/pussy/vag5.jpg"></center>'
-				'	"The next part I can''t actually show you, but I might as well show you where it should be," you say. You spread your pussy lips apart and let him look inside. "Normally, there''s something called a ''hymen'' here. You can see a diagram of it in your textbook. Every girl is born with one and will have it until it gets torn."'
-				'	"How does it get torn?" Kolka quickly asks while continuing to stare at yours in wonder.'
-				'	"Well, it can get torn in a number of ways but the most common is when a girl loses her virginity. We''ll talk about this more next time, but when a boy and a girl have sex, the boy sticks his penis inside the girl''s vagina. The only way to get the penis all the way inside is to push through the hymen and break it. It usually causes a small amount of bleeding. That''s why they call it ''popping a cherry,''" you smile.'
-				'	He takes note of your clear lack of a hymen and asks, "So... does this mean you''ve... you know...?"'
-				'	"That I''ve had sex? Yeah. Someone already took my v-card," You say somewhat proudly. "But don''t tell mom!"'
-				'	He nods in acknowledgement while writing down some more notes.'
-				if pcs_vag > 35:
-					'	"Woah! It''s like a cave in there! Are they all this wide?" he exclaims. You blush harder than you think you''ve ever blushed in your life.'
-					act'"I''ve had a lot of sex"':
-						cla
-						*nl
-						'	"I''ve had a lot of sex..." you say slowly.'
-						'	After a couple more questions, you continue on with the lesson.'
-						act'Continue':gt'brother_voyeur','anatomylesson4'
-					end
-
-					act'"There''ve been a few... big ones..."':
-						cla
-						*nl
-						'	"There''ve been..." you don''t really know how to say this without saying it. "There''ve been a few uhh, big guys inside me..." you trail off.'
-						'	After a couple more questions, you continue on with the lesson.'
-						act'Continue':gt'brother_voyeur','anatomylesson4'
-					end
-				elseif pcs_vag > 25 and pcs_vag <= 35:
-					'	"Is it supposed to look this loose?" he asks, causing you to blush hard.'
-					act'"I''ve had a lot of sex"':
-						cla
-						*nl
-						'	"I''ve had a lot of sex..." you say slowly.'
-						'	After a couple more questions, you continue on with the lesson.'
-						act'Continue':gt'brother_voyeur','anatomylesson4'
-					end
-
-					act'"There''ve been a few... big ones..."':
-						cla
-						*nl
-						'	"There''ve been..." you don''t really know how to say this without saying it. "There''ve been a few uhh, big guys inside me..." you trail off.'
-						'	After a couple more questions, you continue on with the lesson.'
-						act'Continue':gt'brother_voyeur','anatomylesson4'
-					end
-				else
-					*nl
-					'	After a couple more questions, you continue on with the lesson.'
-					act'Continue':gt'brother_voyeur','anatomylesson4'
-				end
-			else
-				if pcs_vag <= 25:'<center><img <<$set_imgh>> src="images/pc/body/pussy/vag3.jpg"></center>'
-				if pcs_vag > 25 and pcs_vag <= 35:'<center><img <<$set_imgh>> src="images/pc/body/pussy/vag4.jpg"></center>'
-				if pcs_vag > 35:'<center><img <<$set_imgh>> src="images/pc/body/pussy/vag5.jpg"></center>'
-				'	"The next part I can''t actually show you, but I might as well show you where it should be," you say. You spread your pussy lips apart and let him look inside. "Normally, there''s something called a ''hymen'' here. You can see a diagram of it in your textbook. Every girl is born with one and will have it until it gets torn."'
-				'	"How does it get torn?" Kolka quickly asks while continuing to stare at yours in wonder.'
-				'	"Well, it can get torn in a number of ways but the most common is when a girl loses her virginity. We''ll talk about this more next time, but when a boy and a girl have sex, the boy sticks his penis inside the girl''s vagina. The only way to get the penis all the way inside is to push through the hymen and break it. It usually causes a small amount of bleeding. That''s why they call it ''popping a cherry,''" you smile.'
-				'	He takes note of your clear lack of a hymen and asks, "So... does this mean you''ve... you know...?"'
-				'	"That I''ve had sex? No actually. I actually broke mine-" You stop and blush with the realization of what you''re about to admit. "... mastur...bating..."'
-				if pcs_vag > 35:
-					'	"Woah! It''s like a cave in there! Are they all this wide?" he exclaims. You blush even harder.'
-					'	"No... Not all..." you force out. "I masturbate a lot, okay...?" you mutter somewhat ashamed.'
-					'	After a couple more questions, you continue on with the lesson.'
-					act'Continue':gt'brother_voyeur','anatomylesson4'
-				elseif pcs_vag > 25:
-					'	"Is it supposed to look this loose?" he asks again. You blush even harder.'
-					'	"I masturbate a lot..."'
-					'	After a couple more questions, you continue on with the lesson.'
-					act'Continue':gt'brother_voyeur','anatomylesson4'
-				else
-					*nl
-					'	After a couple more questions, you continue on with the lesson.'
-					act'Continue':gt'brother_voyeur','anatomylesson4'
-				end
-			end
-		end
-	end
-end
-
-if $ARGS[0] = 'anatomylesson4':
-	cla & *clr
-	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/11.jpg"></center>'
-	'	"Hey <<$pcs_nickname>> is it alright if you lift your hips a bit? It''s kind of hard to see everything so close to the ground."'
-	'	"Uhm, sure?" you say, lifting your hips as he asked.'
-	'	You lean your weight back to make it easier on yourself while he continues to inspect your vagina for a little while while comparing it to his textbook and write things down in his notebook.'
-	'	"<<$pcs_nickname>>, what''s this little thing at the top?" he asks. You look down and he''s using his pencil to point towards the top of your labia. After a moment, you realize he''s pointing at your clit.'
-	'	"Oh! That! That''s..." You think to yourself how you want to proceed.'
-	act'Just explain it to him':
-		cla
-		*nl
-		'	"So, remember how we talked about the Bartholin glands and why girls get wet? That right there is called the clitoris and its only purpose is to get girls wet."'
-		'	"Woah! Really? That''s cool! How does it work?"'
-		'	"Well, it''s the most sensitive place a girl has on her body. When someone touches it with their fingers or licks it with their tongue or if a penis rubs it in the right way, it makes a girl feel <i>really</i> good. Do that enough, a girl can orgasm from it. I bet you already know what an orgasm is though, don''t you?" you say, causing him to blush.'
-		*nl
-		'	"Anyways, that''s the end of this section. Did you enjoy the lesson today?" you ask, followed by more of his furious nodding.'
-		'	"Thanks <<$pcs_nickname>>, you''re the best!" You smile back at him before going to get dressed.'
-		act'End the lesson':
-			gs 'underwear', 'wear'
-			gs 'stat'
-			gs 'clothing', 'wear_last_worn'
-			gt $loc, $metka
-		end
-	end
-
-	act'Give him a "practical" lesson':
-		cla & *clr
-		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/10.jpg"></center>'
-		'	With a sly look on your face, you decide to go through with your idea.'
-		'	"Kolka..." you start. "Did you like sucking on my nipples?" He blushes when you bring it up. "Oh come on, don''t be shy. Tell me the truth: did you enjoy it?"'
-		'	"Y-yeah..." he says, hesitantly.'
-		'	"Well, since you liked that, why don''t I let you try a more ''hands on'' approach to show you what you''re asking about?" He looks at you quizzically. You spread your legs open some more and roll your hips a little. "You see Kolka, what you''re asking about is called the clitoris and it exists for exactly one purpose: to give girls pleasure." His jaw drops as he stares at you with wide eyes.'
-		'	"It''s the most sensitive place a girl has on her body," you continue. "When someone touches it with their fingers or licks it with their tongue, it makes a girl feel <i>really</i> good. Do that enough and do it right, a girl can orgasm from it..." You trail off and look him right in the eye. "You want to see what that looks like?"'
-		'	"Yeah!" he almost shouts.'
-		'	You curl your index finger, motioning for him to come closer as you get up on the couch and invite him in between your legs. "Well then hurry up and get your head down here! Come find out what a girl tastes like!"'
-		act'Continue':
-			cla & *clr
-			'<center><video src="images/shared/sex/kuni/pussylick1.mp4"></center>'
-			'	You instruct him as best you can as he leans in and starts giving you head. It''s a little rough at first but with your encouragement he starts to focus more on your clit, licking and swirling his tongue around it.'
-			act'Continue':
-				cla & *clr
-				'<center><video src="images/shared/sex/kuni/pussylick3.mp4"></center>'
-				'	Before you know it, he''s found a rhythm and is licking you like there''s no tomorrow. You eyes roll back in your head and every other sensation fades and blurs into the background except the feeling of your brother''s tongue on your clit.'
-				'	He stops briefly and you vaguely hear him say, "Girls taste good," before diving back in and returning you to bliss.'
-				act'"I''m cumming!"':
-					cla & *clr
-					pcs_horny = 100
-					gs'stat'
-					'<center><video src="images/shared/sex/kuni/pussylickorgasm.mp4"></center>'
-					'	All your muscles start to tense up and you can feel a powerful orgasm approaching. Unable to do anything but moan as quietly as you can, you feel yourself explode in climax, your body violently quivering.'
-					'	Even through your orgasm, Kolka continues to lick you. His tongue on your hyper-sensitive clit is too much and you try to pull away but your brother is unrelenting, grabbing onto your legs and pulling you back, trying to keep drinking the flood of juices spilling from your honeypot.'
-					act'Continue':
-						cla & *clr
-						orgasm += 1
-						pcs_horny = 15
-						kuni += 1
-						gs'stat'
-						'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/12.jpg"></center>'
-						'	After what seems like an eternity of excruciating pleasure, your orgasm winds down and you find the mental acuity to speak, though your brother continues to lap up your girl cum.'
-						'	As tempting as it is to let him go another round, you push his head away, saying, "Okay Kolka, that''s enough," before laying back in exhaustion. You look at him with a weak smile. "Good job bro..."'
-						'	"Really?" he says, grinning. "I did good?"'
-						'	Your smile gets a bit more strength when you reply, "Good? Kolka you blew my fucking mind!"'
-						'	"Well, I had a great teacher didn''t I?" he says before starting to lick your pussy again.'
-						'	"Ohhh! Kolka~!" you say, pushing his head away with more than a small amount of regret. "As much as I''d love to let you keep going, we have to stop now. We don''t want mom or dad to catch us."'
-						'	"Yeah I know..." he says in a disappointed tone. "You just taste so good I want more!"'
-						'	You''re so tempted but your fear outweighs your temptation right now. "Maybe some other time kiddo," you say before you find the strength to put your clothes on while Kolka packs up his schoolwork.'
-						act'End the lesson':
-							gs 'underwear', 'wear'
-							gs 'stat'
-							gs 'clothing', 'wear_last_worn'
-							gt $loc, $metka
-						end
-					end
-				end
-			end
-		end
-	end
-end
-
-!!if $ARGS[0] = 'anatomylesson_uterus':
 
 --- brother_voyeur ----------------------------------
 

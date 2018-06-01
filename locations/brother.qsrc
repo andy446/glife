@@ -468,14 +468,14 @@ if $ARGS[0] = 'start':
 			'Your brother Kolka is younger than you, he''s <<brotherAge>> years old. While you share the same mother, unlike you and your sister, Kolka''s dad is your stepfather. He is a student at the same school as you, and enjoys soccer.'
 			*pl
 			'"<<$pcs_nickname>>, can you help me with my homework?"'
-			act'"Sure"':gt 'brother_voyeur', 'homework'
+			act'"Sure"':gt 'brother_lessons', 'homework'
 			act'"Later, I am busy now."':
 				cla
 				'Sorry, I''m busy right now.'
 				act 'Leave': gt 'sitrPar'
 			end
 		else
-			act'Offer help with homework': gt 'brother_voyeur', 'homework'
+			act'Offer help with homework': gt 'brother_lessons', 'homework'
 		end
 	end
 
@@ -615,7 +615,7 @@ if $ARGS[0] = 'homework':
 		'"Yes, I need help."'
 	end
 
-	act 'Further': gt 'brother_voyeur', 'homework'
+	act 'Further': gt 'brother_lessons', 'homework'
 end
 
 if $ARGS[0] = 'brotherSexStart':

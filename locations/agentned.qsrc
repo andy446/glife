@@ -8,7 +8,7 @@ if $ARGS[0] = 'start':
 	gs'stat'
 	gs'dina'
 	gs 'housing', 'rent'
-	'<center><b><font color = maroon>Real Estate Agency</font></b></center>'
+	'<center><b><font color = maroon>Kirsanova Real Estate Agency</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/realestate/agenstvo.jpg"></center>'
 	*nl
 	'The head office of the largest real estate agency in the area.'
@@ -39,7 +39,10 @@ if $ARGS[0] = 'start':
 	act 'View rentals': gt 'agentned', 'rent'
 	act 'View properties for sale': gt 'agentned', 'buy'
 
-	act '<B>Leave</B>': minut += 5 & gt'down'
+	act '<B>Leave</B>':
+		minut += 5
+		gt'down'
+	end
 end
 
 if $ARGS[0] = 'buy':
@@ -47,26 +50,30 @@ if $ARGS[0] = 'buy':
 	*clr
 	gs 'housing', 'sale'
 	'<center><b><font color = maroon>Real Estate Agency</font></b></center>'
-	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/realestate/agenstvo_paperwork.jpg"></center>'
+	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/realestate/agenstvo.jpg"></center>'
 	*nl
 	minut += 5
 	gs 'stat'
 	if home_owned[1] = 0 or home_owned[3] = 0 or home_owned[4] = 0 or home_owned[5] = 0:
 		if home_owned[1] = 0:
-			'There is an apartment in the city residential area available for 2 million <b>₽</b>.'
+			'There is an apartment in the city residential area available for <<$home_value_txt[1]>> <b>₽</b>.'
+			*nl
 			if karta + bankDebtLimit >= home_value[1]:act 'Buy the city residential apartment': gt 'agentned', 'buy_cityres'
 		elseif home_owned[1] = 1:
-			'You could buy your current rental apartment for 2 million <b>₽</b>.'
+			'You could buy your current rental apartment for <<$home_value_txt[1]>> <b>₽</b>.'
+			*nl
 			if karta + bankDebtLimit >= home_value[1]:act 'Buy the city residential apartment': gt 'agentned', 'buy_cityres'
 		end
 
 		if home_owned[3] = 0:
-			'There is a holiday cottage with an adjacent allotment in the village, for 150,000 <b>₽</b>.'
+			'There is a holiday cottage with an adjacent allotment in the village, for <<$home_value_txt[3]>> <b>₽</b>.'
+			*nl
 			if karta + bankDebtLimit >= home_value[3]:act 'Buy the cottage in the village': gt 'agentned','buy_dacha'
 		end
 
 		if home_owned[5] = 0:
-			'There is a plot in the suburbs with planning permission for a mansion for 1.5 million <b>₽</b>.'
+			'There is a plot in the suburbs with planning permission for a mansion for <<$home_value_txt[5]>> <b>₽</b>.'
+			*nl
 			if karta + bankDebtLimit >= home_value[5]:act 'Buy the plot in the suburbs': gt 'agentned','buy_Mansion'
 		end
 	else
@@ -80,15 +87,18 @@ if $ARGS[0] = 'sell':
 	*clr
 	gs 'housing', 'sale'
 	'<center><b><font color = maroon>Real Estate Agency</font></b></center>'
-	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/realestate/agenstvo_paperwork.jpg"></center>'
+	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/realestate/agenstvo.jpg"></center>'
 	*nl
 	if home_owned[1] = 2 and rembedr = 1 and remsitr = 1 and remkorr = 1 and remvanr = 1 and remkuhr = 1:
 		!Renovated city residential apartment
 		home_value1 = ((home_value[1] + 250000) + rand(-100000, 100000)) 
 		'We have found a buyer for your renovated apartment in the city residential area. They will offer <<home_value1>> <b>₽</b>, minus 5% for fees and taxes, bringing the total to <<home_value1/100*95>>'
 		act 'Sell the renovated apartment':
+			*clr
+			'<center><b><font color = maroon>Real Estate Agency</font></b></center>'
+			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/realestate/agenstvo_paperwork.jpg"></center>'
 			minut += 30
-			'You spend half an hour filling in the paperwork for the sale of your renovated apartment, with a loss of around 5% for fees and taxes. <<home_value1>> <b>₽</b> have been paid into your bank account.'
+			'You spend half an hour filling in the paperwork for the sale of your renovated apartment, with a loss of around 5% for fees and taxes. <<home_value1/100*95>> <b>₽</b> has been paid into your bank account.'
 			home_owned[1] = 0
 			ArendHouseSL = 0
 			if bankaccount = 1:
@@ -105,8 +115,11 @@ if $ARGS[0] = 'sell':
 		home_value1 = (home_value[1] + rand(-100000, 100000))
 		'We have found a buyer for your apartment in the city residential area. They will offer <<home_value1>> <b>₽</b>, minus 5% for fees and taxes, bringing the total to <<home_value1/100*95>>'
 		act 'Sell the city apartment':
+			*clr
+			'<center><b><font color = maroon>Real Estate Agency</font></b></center>'
+			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/realestate/agenstvo_paperwork.jpg"></center>'
 			minut += 30
-			'You spend half an hour filling in the paperwork for the sale of your apartment, with a loss of around 5% for fees and taxes. <<home_value1>> <b>₽</b> have been paid into your bank account.'
+			'You spend half an hour filling in the paperwork for the sale of your apartment, with a loss of around 5% for fees and taxes. <<home_value1/100*95>> <b>₽</b> has been paid into your bank account.'
 			home_owned[1] = 0
 			ArendHouseSL = 0
 			if bankaccount = 1:
@@ -123,8 +136,11 @@ if $ARGS[0] = 'sell':
 		home_value3 = (home_value[3] + rand(-5000, 5000))
 		'We have found a buyer for your small communal cottage. They will offer <<home_value3>> <b>₽</b>, minus 5% for fees and taxes, bringing the total to <<home_value3/100*95>>'
 		act 'Sell the holiday cottage':
+			*clr
+			'<center><b><font color = maroon>Real Estate Agency</font></b></center>'
+			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/realestate/agenstvo_paperwork.jpg"></center>'
 			minut += 30
-			'You spend half an hour filling in the paperwork for the sale of your small cottage, with a loss of around 5% for fees and taxes. <<home_value3>> <b>₽</b> have been paid into your bank account.'
+			'You spend half an hour filling in the paperwork for the sale of your small cottage, with a loss of around 5% for fees and taxes. <<home_value3/100*95>> <b>₽</b> has been paid into your bank account.'
 			home_owned[3] = 0
 			if bankaccount = 1:
 				karta += home_value3/100*95
@@ -140,8 +156,11 @@ if $ARGS[0] = 'sell':
 		home_value3 = ((home_value[3] + 200000) + rand(-10000, 10000))
 		'We have found a buyer for your small renovated communal cottage. They will offer <<home_value3>> <b>₽</b>, minus 5% for fees and taxes, bringing the total to <<home_value3/100*95>>'
 		act 'Sell the renovated cottage':
+			*clr
+			'<center><b><font color = maroon>Real Estate Agency</font></b></center>'
+			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/realestate/agenstvo_paperwork.jpg"></center>'
 			minut += 30
-			'You spend half an hour filling in the paperwork for the sale of the renovated cottage, with a loss of 1around 5% for fees and taxes. <<home_value3>> <b>₽</b> have been paid into your bank account.'
+			'You spend half an hour filling in the paperwork for the sale of the renovated cottage, with a loss of 1around 5% for fees and taxes. <<home_value3/100*95>> <b>₽</b> has been paid into your bank account.'
 			home_owned[3] = 0
 			if bankaccount = 1:
 				karta += home_value3/100*95
@@ -157,8 +176,11 @@ if $ARGS[0] = 'sell':
 		home_value5 = (home_value[5] + rand(-50000, 50000))
 		'We have found a buyer for your vacant plot of land in the suburbs. They will offer <<home_value5>> <b>₽</b>, minus 5% for fees and taxes, bringing the total to <<home_value5/100*95>>'
 		act 'Sell the vacant plot':
+			*clr
+			'<center><b><font color = maroon>Real Estate Agency</font></b></center>'
+			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/realestate/agenstvo_paperwork.jpg"></center>'
 			minut += 30
-			'You spend half an hour filling in the paperwork for the vacant plot, with a loss of around 5% for fees and taxes. <<home_value5>> <b>₽</b> have been paid into your bank account.'
+			'You spend half an hour filling in the paperwork for the vacant plot, with a loss of around 5% for fees and taxes. <<home_value5/100*95>> <b>₽</b> has been paid into your bank account.'
 			home_owned[5] = 0
 			if bankaccount = 1:
 				karta += home_value5/100*95
@@ -187,7 +209,7 @@ if $ARGS[0] = 'rent':
 	cla
 	*clr
 	'<center><b><font color = maroon>Real Estate Agency</font></b></center>'
-	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/realestate/agenstvo_paperwork.jpg"></center>'
+	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/realestate/agenstvo.jpg"></center>'
 	*nl
 	minut += 5
 	gs 'stat'
@@ -197,6 +219,7 @@ if $ARGS[0] = 'rent':
 	elseif home_owned[1] = 0 and home_owned[4] = 0:
 		''
 		'There are two properties available for rent.'
+		*nl
 		'There is an apartment in the city residential area, and an apartment in Pushkin available'
 		act 'View the city apartment details': gt 'agentned', 'rent_cityres'
 		act 'View the Pushkin apartment details': gt 'agentned', 'rent_pushkin'
@@ -220,11 +243,13 @@ if $ARGS[0] = 'rent_cityres':
 	'<center><b><font color = maroon>Real Estate Agency</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/realestate/agenstvo.jpg"></center>'
 	*nl
-	'“We have a flat available right now in the residential area of St. Petersburg.” The receptionist says as he starts pulling out the paperwork. “Rent is 15,000₽ and leases have to be renewed every 30 days, which can be taken automatically from your account or you can come in and pay directly. Last but not least, you have to make your first payment up front at signing.”'
-	'He pulls out a pen and slides the paperwork onto the counter. “Interested? We can get you moved in right away.”'
+	'“We have a flat available right now in the residential area of St. Petersburg.” The receptionist says as he starts pulling out the paperwork. “Rent is <<$home_rent_txt[1]>> ₽ and leases have to be renewed every 30 days, which can be taken automatically from your account or you can come in and pay directly. Last but not least, you have to make your first payment up front at signing.”'
+	'<br>He pulls out a pen and slides the paperwork onto the counter. “Interested? We can get you moved in right away.”'
 
 	if money >= home_rent[1]:
 		act 'Agree and pay':
+			cla
+			*clr
 			cls
 			minut += 30
 			money -= home_rent[1]
@@ -251,7 +276,7 @@ if $ARGS[0] = 'rent_cityres':
 		'<center><img <<$set_imgh>> src="images/locations/city/citycenter/realestate/agenstvo.jpg"></center>'
 		*nl
 		'You shake your head, “Actually, I need more time to think about this.”'
-		'The receptionist seems a bit miffed, but says nothing as he grabs the paperwork and stuffs it back in a drawer.'
+		'<br>The receptionist seems a bit miffed, but says nothing as he grabs the paperwork and stuffs it back in a drawer.'
 
 		act 'Return':gt'agentned', 'start'
 	end
@@ -264,8 +289,8 @@ if $ARGS[0] = 'rent_pushkin':
 	'<center><b><font color = maroon>Real Estate Agency</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/realestate/agenstvo.jpg"></center>'
 	*nl
-	'“We have a small apartment available right now in Pushkin’s city center. It’s a little bit pricey, but it’s been recently renovated to be more modern, and it looks quite nice. You won’t find a place like that outside of Pushkin.” The receptionist says as he starts pulling out the paperwork. “Rent is 10,000₽ and leases have to be renewed every 30 days, which can be taken automatically from your account or you can come in and pay directly. Last but not least, you have to make your first payment up front at signing.”'
-	'He pulls out a pen and slides the paperwork onto the counter. “Interested? We can get you moved in right away.”'
+	'“We have a small apartment available right now in Pushkin’s city center. It’s a little bit pricey, but it’s been recently renovated to be more modern, and it looks quite nice. You won’t find a place like that outside of Pushkin.” The receptionist says as he starts pulling out the paperwork. “Rent is <<$home_rent_txt[4]>> ₽ and leases have to be renewed every 30 days, which can be taken automatically from your account or you can come in and pay directly. Last but not least, you have to make your first payment up front at signing.”'
+	'<br>He pulls out a pen and slides the paperwork onto the counter. “Interested? We can get you moved in right away.”'
 
 	if money >= home_rent[4]:
 		act 'Agree and pay':
@@ -297,7 +322,7 @@ if $ARGS[0] = 'rent_pushkin':
 		'<center><img <<$set_imgh>> src="images/locations/city/citycenter/realestate/agenstvo.jpg"></center>'
 		*nl
 		'You shake your head, “Actually, I need more time to think about this.”'
-		'The receptionist seems a bit miffed, but says nothing as he grabs the paperwork and stuffs it back in a drawer.'
+		'<br>The receptionist seems a bit miffed, but says nothing as he grabs the paperwork and stuffs it back in a drawer.'
 
 		act 'Return':gt'agentned', 'start'
 	end
@@ -314,7 +339,7 @@ if $ARGS[0] = 'buy_cityres':
 	'<center><b><font color = maroon>Real Estate Agency</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/realestate/agenstvo_paperwork.jpg"></center>'
 	*nl
-	'You spend half an hour filling in the paperwork to buy an apartment in the residential area. 2,000,0000 <b>₽</b> are removed from your bank account.'
+	'You spend half an hour filling in the paperwork to buy an apartment in the residential area. <<$home_value_txt[1]>> <b>₽</b> has been removed from your bank account.'
 
 	act 'Return':gt'agentned', 'start'
 end
@@ -331,7 +356,7 @@ if $ARGS[0] = 'buy_dacha':
 	'<center><b><font color = maroon>Real Estate Agency</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/realestate/agenstvo_paperwork.jpg"></center>'
 	*nl
-	'You spend half an hour filling in the paperwork for the purchase of a cottage with a garden on the co-op 5km up the north road. 150,000 <b>₽</b> have been removed from your bank account.'
+	'You spend half an hour filling in the paperwork for the purchase of a cottage with a garden on the co-op 5km up the north road. <<$home_value_txt[3]>> <b>₽</b> has been removed from your bank account.'
 
 	act 'Return':gt'agentned', 'start'
 end
@@ -347,7 +372,7 @@ if $ARGS[0] = 'buy_Mansion':
 	'<center><b><font color = maroon>Real Estate Agency</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/realestate/agenstvo_paperwork.jpg"></center>'
 	*nl
-	'You spend half an hour filling in the paperwork for the purchase of a lot for building a mansion 1km up the north road. 1,500,0000 <b>₽</b> have been removed from your bank account.'
+	'You spend half an hour filling in the paperwork for the purchase of a lot for building a mansion 1km up the north road. <<$home_value_txt[5]>> <b>₽</b> has been removed from your bank account.'
 
 	act 'Return':gt'agentned', 'start'
 end

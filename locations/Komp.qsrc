@@ -47,7 +47,7 @@ if $ARGS[0] = 'brows':
 		'<center><img <<$set_imgh>> src="images/shared/accessories/computer/komp.jpg"></center>'
 		'You go to your favourite start page, while you try to decide on what you want to see right now.'
 
-		'A blinking banner for a <a href="exec:GT ''Komp'',''agent''">real estate agency</a> keeps popping up in the corner.'
+		'A blinking banner for a <a href="exec:GT ''Komp'',''agent''">Kirsanova Real Estate Agency</a> keeps popping up in the corner.'
 
 		if home_owned[1] = 2 and husband = 0:act 'Rent your apartment out':gt 'Komp', 'sale'
 
@@ -532,28 +532,50 @@ if $ARGS[0] = 'agent':
 	internet -= 1
 	gs 'stat'
 	gs 'housing', 'rent'
-	'<center><b>Real estate agency</b></center>'
+	gs 'housing', 'sale'
+	'<center><b>Kirsanova Real Estate Agency</b></center>'
 	'<center><img <<$set_imgh>> src="images/shared/accessories/computer/agent.jpg"></center>'
-	'You''re currently at the website of the largest real estate agency in the area.'
-	'They have apartments available in the city residential district and Pushkin. Renting one would cost you as low as 10000 <b>₽</b> for 30 days.'
-	''
-	if ArendHouseSL > 0:'You have <B><<ArendHouseSL>> days</B> remaining on the rental of your St. Petersburg apartment.'
-	if ArendHouseSL4 > 0:'You have <B><<ArendHouseSL4>> days</B> remaining on the rental of your Pushkin apartment.'
+	*nl
+	'You''re currently at the website of the largest real estate agency in the area, Kirsanova Real Estate Agency.'
+	'<br>The website shows they have apartments available for rent or purchase in various areas, both in and out of the city. Renting or purchase requires you visit the agency in the city center to fill an application and collect the keys. Rent on all properties is deducted every month on the 25th.'
+	*nl
+	'<b>Property listing</b>:'
+	if ArendHouseSL > 0:
+		'You have <B><<ArendHouseSL>> days</B> remaining on the rental of your St. Petersburg apartment.'
+		*nl
+	elseif home_owned[1] = 0 and ArendHouseSL = 0:
+		'There is an apartment in St. Petersburg residental area available, for rent or puchase.'
+		'Rent is: <<$home_rent_txt[1]>> ₽ per month. Curent sale price is listet at: <<$home_value_txt[1]>> <b>₽</b>'
+		*nl
+	end
+
+	if home_owned[3] = 0:
+		'There is a holiday cottage with an adjacent allotment in the communal village for sale.'
+		'Current sale price is listed at: <<$home_value_txt[3]>> <b>₽</b>.'
+		*nl
+	end
+	
+	if home_owned[4] > 0 and ArendHouseSL4 > 0:
+		'You have <B><<ArendHouseSL4>> days</B> remaining on the rental of your Pushkin apartment.'
+		*nl
+	elseif home_owned[4] = 0 and ArendHouseSL4 = 0:
+		'There is a n apartment in Pushkin area available to rent.'
+		'Rent is: <<$home_rent_txt[4]>> ₽ per month.'
+		*nl
+	end
+
+	if home_owned[5] = 0:
+		'There is a plot in the suburbs available for puchase, with planning permission for a mansion.'
+		'Current sale price is listed at: <<$home_value_txt[5]>> <b>₽</b>.'
+		*nl
+	end
+
 	if karta + bankDebtLimit >= home_rent[1] and home_owned[1] = 1:
 		act 'Pay rent on St. Petersburg':
 			cla
 			karta -= home_rent[1]
 			ArendHouseSL += ArendHouseSL_due
 			'After a very simple procedure, you can now call an apartment in the city residential district home for another 30 days. You have <B><<ArendHouseSL>> days</B> remaining on the rental of your apartment.'
-			act 'Leave this website':gt 'Komp','brows'
-		end
-	elseif karta + bankDebtLimit >= home_rent[1] and home_owned[1] = 0:
-		act 'Rent a city apartment':
-			cla
-			karta -= home_rent[1]
-			ArendHouseSL += ArendHouseSL_due
-			home_owned[1] = 1
-			'After a very simple procedure, you can now call an apartment in the city residential district home for 30 days.'
 			act 'Leave this website':gt 'Komp','brows'
 		end
 	end
@@ -565,22 +587,8 @@ if $ARGS[0] = 'agent':
 			'After a very simple procedure, you can now call an apartment in Pushkin home for another 30 days. You have <B><<ArendHouseSL4>> days</B> remaining on the rental of your apartment.'
 			act 'Leave this website':gt 'Komp','brows'
 		end
-	elseif karta + bankDebtLimit >= home_rent[4] and home_owned[4] = 0:
-		act 'Rent a Pushkin apartment':
-			cla
-			karta -= home_rent[4]
-			ArendHouseSL4 += ArendHouseSL_due
-			home_owned[4] = 1
-			'After a very simple procedure, you can now call an apartment in Pushkin home for 30 days.'
-			act 'Leave this website':gt 'Komp','brows'
-		end
 	end
-
 	act 'Leave this website':gt 'Komp','brows'
-end
-
-if $ARGS[0] = 'fin':
-	gt $loc, $metka
 end
 
 if $ARGS[0] = 'mfc':
@@ -1519,6 +1527,10 @@ if $ARGS[0] = 'bank':
 		end
 	end
 	act 'Close your browser':gt 'Komp', 'start'
+end
+
+if $ARGS[0] = 'fin':
+	gt $loc, $metka
 end
 
 --- Komp ---------------------------------

@@ -36,16 +36,30 @@ if $ARGS[0] = 'rent':
 	end
 
 	home_rent[1] = 15000
-	!home_rent[3] = 0000
+	$home_rent_txt[1] = '15,000'
+
+	!home_rent[3] = 00000
+	!$home_rent_txt[3] = '00,000'
+
 	home_rent[4] = 10000
+	$home_rent_txt[4] = '10,000'
+
 	!home_rent[5] = 00000
+	!$home_rent_txt[5] = '00,000'
 end
 
 if $ARGS[0] = 'sale':
 	home_value[1] = 2000000
+	$home_value_txt[1] = '2,000,000'
+
 	home_value[3] = 150000
+	$home_value_txt[3] = '150,000'
+
 	!home_value[4] = 000000
+	!$home_value_txt[4] = '000,000'
+
 	home_value[5] = 1500000
+	$home_value_txt[5] = '1,500,000'
 end
 
 if $ARGS[0] = 'util':

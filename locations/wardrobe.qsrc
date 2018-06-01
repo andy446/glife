@@ -82,7 +82,7 @@ if $ARGS[0] = 'start':
 
 	act 'Choose a default outfit': gt 'wardrobe', 'default'
 
-	act 'View stored clothing': gt 'clothing', 'view_clothing_list', 'store'
+	act 'Organise stored clothing': gt 'clothing', 'view_clothing_list', 'store'
 
 	act 'Set image height for this view':
 		cla

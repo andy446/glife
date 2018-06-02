@@ -678,7 +678,7 @@ if $ARGS[0] = 'abdRape':
 		act 'Continue':gt 'abduction', 'abdRoom'
 	elseif rapeType = 3:
 		pain['asshole'] += 10
-		gs 'cum_call', 'anal', 'torturer'
+		gs 'cum_call', 'anus', 'torturer'
 		gifornot = rand (1, 100)
 		if gifornot > 50:
 			'<center><img <<$set_imgh>> src="images/locations/shared/abduction/sex/fucktiedanal'+rand(1,4)+'.jpg"></center>'

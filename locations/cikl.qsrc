@@ -696,15 +696,6 @@ end
 
 exhibition_outdoors = 0
 
-if pcs_inhib = 0:
-	if inhib_exp >= 5: pcs_inhib = 1 & inhib_exp -= 5
-else
-!!Intentional double to add up to 2 points
-	if inhib_exp >= 5 * pcs_inhib / 2: inhib_exp -= 5 * pcs_inhib / 2 & pcs_inhib += 1
-	if inhib_exp >= 5 * pcs_inhib / 2: inhib_exp -= 5 * pcs_inhib / 2 & pcs_inhib += 1
-end
-if pcs_inhib > 50 and exhibitionQW < 3: pcs_inhib = 50
-
 !counter for Dimka avoidance
 if dimaFilm = 1 and dimaRudeBlock = 0:
 	nodimkaK += 1

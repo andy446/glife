@@ -585,7 +585,7 @@ if $shoplocation = 'tech':
 	*P FUNC ('$single_stock_item', 1, 'Washing machine', 30000, 'stiralka', $CURLOC, '', iif(home_owned[1] > 0 or home_owned[3] > 0 or home_owned[4] = 1 or home_owned[5] > 2, 0, 1), 'You need your own home')
 	*P FUNC ('$single_stock_item', 1, 'Camera', 20000, 'zenit', $CURLOC)
 	*P FUNC ('$single_stock_item', 1, 'Mini camera disguised as a cigarette pack', 100000, 'minifoto', $CURLOC)
-	*P FUNC ('$single_stock_item', 1, 'Webcam', 2000, 'webcamera', $CURLOC, '', iif((npc_rel['A11']>=30 and webcamera = 0) or (camwhore = 1 and webcamera = 0), 0, 1), 'You have no use this')
+	*P FUNC ('$single_stock_item', 1, 'Webcam', 2000, 'webcamera', $CURLOC, '', iif((npc_rel['A11']>=30 and webcamera = 0) or (camwhore = 1 and webcamera = 0), 0, 1), 'You have no use for this')
 	*P '</table></center>'
 	gs 'stat'
 	if night_mode = 1:

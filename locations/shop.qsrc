@@ -240,11 +240,9 @@ if $shoplocation = 'grocery':
 	*P FUNC ('$stock_item', 1, 'Diet food', 300, 'edaD', $CURLOC)
 	*P FUNC ('$stock_item', 10, 'Diet food', 3000, 'edaD', $CURLOC)
 	*P FUNC ('$stock_item', 10, 'Tea biscuits', 400, 'pranik', $CURLOC)
-	*P iif(bag > 0, FUNC ('$single_stock_item', 1, 'Bottle of water', 100, 'bottle', $CURLOC), '<tr><td></td><td>Bottle of water</td><td colspan=2>You need a handbag</td><td>for 50 <b>₽</b></td></tr>')
-	*P iif(bag > 0, FUNC ('$single_stock_item', 1, 'Sandwich', 100, 'buterbrod', $CURLOC), '<tr><td></td><td>Sandwich</td><td colspan=2>You need a handbag</td><td>for 100 <b>₽</b></td></tr>')
-	*P iif(bag > 0, FUNC ('$single_stock_item', 1, 'Cheap Bottle of wine', 200, 'wine', $CURLOC), '<tr><td></td><td>Bottle of wine</td><td colspan=2>You need a handbag</td><td>for 500 <b>₽</b></td></tr>')
-	!!*P iif(bag > 0, FUNC ('$single_stock_item', 1, 'Average Bottle of wine', 500, 'wine', $CURLOC), '<tr><td></td><td>Bottle of wine</td><td colspan=2>You need a handbag</td><td>for 500 <b>₽</b></td></tr>')
-	!!*P iif(bag > 0, FUNC ('$single_stock_item', 1, 'Quality Bottle of wine', 1000, 'wine', $CURLOC), '<tr><td></td><td>Bottle of wine</td><td colspan=2>You need a handbag</td><td>for 500 <b>₽</b></td></tr>')
+	*P FUNC ('$single_stock_item', 1, 'Bottle of water', 100, 'bottle', $CURLOC, '', iif(bag > 0, 0, 1), 'You need a handbag')
+	*P FUNC ('$single_stock_item', 1, 'Sandwich', 100, 'buterbrod', $CURLOC, '', iif(bag > 0, 0, 1), 'You need a handbag')
+	*P FUNC ('$single_stock_item', 1, 'Cheap Bottle of wine', 200, 'wine', $CURLOC, '', iif(bag > 0, 0, 1), 'You need a handbag')
 	*P '</table></center>'
 	gs 'stat'
 	if night_mode = 1:

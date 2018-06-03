@@ -480,23 +480,23 @@ if $ARGS[0] = 'weed':
 	train_event = 1
 	*clr & cla
 	gs 'stat'
-    '<center><h4>Pavlovsk Station</h4></center>'
-    '<center><img <<$set_imgh>> src="images/locations/shared/train/pavplat.jpg" ></center>'
-    'After you bought your ticket, they told you that you had just missed the train. A little miffed at this, you take a seat on one of the benches on the platform to wait for the next train to the city to one to arrive.'   
-    act 'A man approaches you with an offer':
+	'<center><h4>Pavlovsk Station</h4></center>'
+	'<center><img <<$set_imgh>> src="images/locations/shared/train/pavplat.jpg" ></center>'
+	'After you bought your ticket, they told you that you had just missed the train. A little miffed at this, you take a seat on one of the benches on the platform to wait for the next train to the city to one to arrive.'	
+	act 'A man approaches you with an offer':
 		*clr
 		cla
-        '<center><h4>Pavlovsk Station</h4></center>'
-        '<center><img <<$set_imgh>> src="images/locations/shared/train/sex/weed.jpg" ></center>'
+		'<center><h4>Pavlovsk Station</h4></center>'
+		'<center><img <<$set_imgh>> src="images/locations/shared/train/sex/weed.jpg" ></center>'
 		'Only a few minutes have passed when you hear someone walk up behind you and stop. You know they must be mere inches away, so you turn to look. Standing there is a young man, smiling at you, holding up a self-rolled cigarette... that looks suspiciously like a joint. The guy doesn''t seem too concerned about somebody catching him with that in public, though, and focuses entirely on you:'
-        *nl		
+		*nl		
 		'"Hey beautiful, I couldn''t help but notice you sitting here all by yourself. Guess you missed the train, too, huh?" He looks around, as if he only just noticed that he was walking around a public place with a joint in his hand, then leans down and whispers conspiratorially: "How about we blaze one while we wait?"'
 
-        act 'Refuse':
+		act 'Refuse':
 			*clr
 			cla
-            '<center><h4>Pavlovsk Station</h4></center>'
-            '<center><img <<$set_imgh>> src="images/locations/shared/train/pavplat.jpg" ></center>'
+			'<center><h4>Pavlovsk Station</h4></center>'
+			'<center><img <<$set_imgh>> src="images/locations/shared/train/pavplat.jpg" ></center>'
 			'You have no idea what could be in it and have no intention of being caught out in the open with marijuana either, so you shake your head. "No, thanks."'
 			'He shrugs and steps away. "Alright, just trying to be friendly. It''s your loss."'
 			*nl
@@ -505,17 +505,17 @@ if $ARGS[0] = 'weed':
 			'You can see them talk a little and even from where you''re sitting you can tell that the woman is giving him wanton looks. Before long, the two of them sneak off across the tracks and disappear; just as the train arrives, they come rushing back, clothes out of place and hair disheveled.'
 			'It isn''t hard to guess what they were doing to kill time.'
 
-            act 'Board the train to the city':
-                *clr & cla
-                minut += 40
-                gs 'stat'
-                '<center><img <<$set_imgh>> src="images/locations/shared/train/pavplat.jpg" ></center>'
+			act 'Board the train to the city':
+				*clr & cla
+				minut += 40
+				gs 'stat'
+				'<center><img <<$set_imgh>> src="images/locations/shared/train/pavplat.jpg" ></center>'
 				'After 40 minutes, you see the town of Pavlovsk approaching. Pavlovsk Castle is an impressive sight, even from a long distance. The train stops at its final destination, a platform in Pavlovsk station.'
 				act 'Get off the train':
 					if rand(1, 100) <= 5: gt 'train_incidental', 'end'
 					gt 'vokzalperG'
 				end
-            end
+			end
 		end
 		act 'Smoke with him':
 			*clr & cla
@@ -527,20 +527,20 @@ if $ARGS[0] = 'weed':
 			'You smile and nod, taking the joint from him - you only live once and it''s as good a pastime as any. He lights it as you take a long slow drag off it and hold it in, feeling it in your lungs... until you start coughing, causing him to chuckle. You feel the relaxing effect almost at once, your head feeling both lighter and heavier, your mind slowing down... but you notice a slightly odd taste to the smoke that you can''t place - maybe that''s just what this variety tastes like. You pace it back and forth with him, chatting idly as you smoke, and as you do, you are starting to feel aroused: Your nipples harden, your pussy is getting soaking wet and you feel so wound up that you have to actively keep your hands in check to prevent yourself from masturbating out in the open.'
 			'One thing you know for sure, even in your current state: Marijuana isn''t supposed to have this effect. You look at your smoking buddy. "What else was in this joint?"'
 			'"XTC", he responds with hesitation, a lazy smile on his face. "It feels great, right?" He grabs you by the hand and pulls you up along with him. "Come on, let''s go have some fun before the train arrives. I know you''re just as horny as I am."'
-			'If you were simply horny, you might not have accompanied him, but the XTC had fully taken effect by now, your mind was in a rush and you felt like you could trust the guy who just drugged you, so you went with him, looking forward to some ''fun''.'       
+			'If you were simply horny, you might not have accompanied him, but the XTC had fully taken effect by now, your mind was in a rush and you felt like you could trust the guy who just drugged you, so you went with him, looking forward to some ''fun''.'		
 
 			act 'Refuse':
 				*clr
 				cla
-	            '<center><h4>Pavlovsk Station</h4></center>'
-	            '<center><img <<$set_imgh>> src="images/locations/shared/train/pavplat.jpg" ></center>'
-			    'You still have enough presence of mind to know this would be a bad idea, so you shake your head. "No, thanks."'
-			    'He shrugs and steps away. "Alright, just trying to be friendly. It''s your loss."'
-			    *nl
-			    'He wanders around for a bit. Eventually another young woman comes down to the platform. You watch him go over, and you are sure he''s making her the same offer, but unlike you, she nods and they smoke the joint together. You briefly consider going to the bathrooms to masturbate but you don''t want to miss the train again.'
-			    *nl
-			    'You can see them talk a little and even from where you''re sitting you can tell that the woman is giving him wanton looks. Before long, the two of them sneak off across the tracks and disappear; just as the train arrives, they come rushing back, clothes out of place and hair disheveled.'
-			    'It isn''t hard to guess what they were doing to kill time. A part of you wishes you had taken him up on the offer.'
+				'<center><h4>Pavlovsk Station</h4></center>'
+				'<center><img <<$set_imgh>> src="images/locations/shared/train/pavplat.jpg" ></center>'
+				'You still have enough presence of mind to know this would be a bad idea, so you shake your head. "No, thanks."'
+				'He shrugs and steps away. "Alright, just trying to be friendly. It''s your loss."'
+				*nl
+				'He wanders around for a bit. Eventually another young woman comes down to the platform. You watch him go over, and you are sure he''s making her the same offer, but unlike you, she nods and they smoke the joint together. You briefly consider going to the bathrooms to masturbate but you don''t want to miss the train again.'
+				*nl
+				'You can see them talk a little and even from where you''re sitting you can tell that the woman is giving him wanton looks. Before long, the two of them sneak off across the tracks and disappear; just as the train arrives, they come rushing back, clothes out of place and hair disheveled.'
+				'It isn''t hard to guess what they were doing to kill time. A part of you wishes you had taken him up on the offer.'
 				act 'Board the train to the city':
 					*clr & cla
 					minut += 40
@@ -574,20 +574,20 @@ if $ARGS[0] = 'weed':
 					gs 'arousal', 'bj', 5, 'deepthroat', 'unknown'
 					act 'Fuck him':
 						*clr & cla
-                        '<center><h4>Pavlovsk Station</h4></center>'
-                        '<center><img <<$set_imgh>> src="images/locations/shared/train/sex/weedvag.jpg" ></center>'
+						'<center><h4>Pavlovsk Station</h4></center>'
+						'<center><img <<$set_imgh>> src="images/locations/shared/train/sex/weedvag.jpg" ></center>'
 						'He is having the time of his life, but all your blowjob does is making you hornier, and you can''t take it any longer: You start removing your clothes bit for bit while you keep blowing him, until every item below your waist is removed. Once your pussy and ass are bare, you pull him down and get him to lay down on his back.'
 						*nl
 						'He has barely even touched the ground when you have already straddled him, facing his legs, and lowering yourself down until you feel his <<dick>>cm <<$dick_girth>> cock stretch out your wet cunt. You moan out loud as you impale yourself on his shaft, going all the way down on the first stroke. You lift yourself up again and, again, take his entire length, faster this time. Then again, and again, riding him harder and faster with every stroke, his cock feeling as big as that of a prized stallion.'
-                        gs 'arousal', 'vaginal', 5, 'dom', 'unknown'
+						gs 'arousal', 'vaginal', 5, 'dom', 'unknown'
 						act 'Take his cum':
 							*clr & cla
-                            spafinloc = 12
-                            gs 'cum_manage'
-                            spafinloc = 11
-                            gs 'cum_manage'
-                            '<center><h4>Pavlovsk Station</h4></center>'
-                            '<center><img <<$set_imgh>> src="images/locations/shared/train/sex/weedcum.jpg" ></center>'
+							spafinloc = 12
+							gs 'cum_manage'
+							spafinloc = 11
+							gs 'cum_manage'
+							'<center><h4>Pavlovsk Station</h4></center>'
+							'<center><img <<$set_imgh>> src="images/locations/shared/train/sex/weedcum.jpg" ></center>'
 							'You give him the fuck of a lifetime, feeling your orgasm approaching fast, so close, so very close... but he lifts you off and quickly stands up. "I''m about to cum!"'
 							*nl
 							'You have half a mind to say the same but you are too turned on to speak. You squat down in front of him again, and start jerking him off as you open your mouth and stick out your tongue. It only takes a few strokes before he shoots most of his load into your mouth, with a few stray squirts landing on your chin.'
@@ -595,26 +595,26 @@ if $ARGS[0] = 'weed':
 							'With your mouth still open, you show him his sperm on your tongue before you swallow it down, then start sucking his cock again. He was getting soft, but you feel him getting hard again in your mouth and you are already looking forward to another go so you can have your own orgasm.' 
 							*nl
 							'That''s when you hear the train coming. "The train''s here; we have to stop", he states, with a hint of regret, as he pulls his cock out of your mouth. Without another look at you, he quickly pulls up his pants and rushes over to the train as it comes to a stop. You hurriedly get dressed as well and then rush after him to get on the train. You make it just in time - the doors close almost as soon as you are in.'
-                            gs 'arousal', 'end'
+							gs 'arousal', 'end'
 							gs 'stat'
-                            act 'Board the train to the city':
-                                *clr & cla
-                                minut += 5
-                                gs 'stat'
-                                '<center><img <<$set_imgh>> src="images/locations/shared/train/ride.jpg"></center>'
-                                'Once on the train, you look around but you don''t see the young man. Perhaps he got on a different car? You go looking for him, passing through a few different sections, hoping to continue what you started and deal with your overwhelming horniness, but after checking the entire train without seeing a hint of him, you give up and find a seat.'
+							act 'Board the train to the city':
+								*clr & cla
+								minut += 5
+								gs 'stat'
+								'<center><img <<$set_imgh>> src="images/locations/shared/train/ride.jpg"></center>'
+								'Once on the train, you look around but you don''t see the young man. Perhaps he got on a different car? You go looking for him, passing through a few different sections, hoping to continue what you started and deal with your overwhelming horniness, but after checking the entire train without seeing a hint of him, you give up and find a seat.'
 								'After 40 minutes, you see the town of Pavlovsk approaching. Pavlovsk Castle is an impressive sight, even from a long distance. The train stops at its final destination, a platform in Pavlovsk station.'
 								act 'Get off the train':
 									if rand(1, 100) <= 5: gt 'train_incidental', 'end'
 									gt 'vokzalperG'
 								end
-                            end
-                        end
-                    end
-                end
-            end
-        end
-    end
+							end
+						end
+					end
+				end
+			end
+		end
+	end
 end
 
 !!events starting on the train. Only one act will show up depending which one triggered but they all start the same.
@@ -624,12 +624,12 @@ if $ARGS[0] = 'private':
 	minut -= 35
 	train_event = 1
 	gs 'stat'
-    '<center><img <<$set_imgh>> src="images/locations/shared/train/ride.jpg" ></center>'
+	'<center><img <<$set_imgh>> src="images/locations/shared/train/ride.jpg" ></center>'
 	'You board the train and walk past several of the private compartments on your way to the general seating on the car you are on.'
 	act 'You walk past the private compartments':
 		*clr
 		cla
-	    '<center><img <<$set_imgh>> src="images/locations/shared/train/ride.jpg" ></center>'
+		'<center><img <<$set_imgh>> src="images/locations/shared/train/ride.jpg" ></center>'
 		'After the first stop you are walking past the open door of one of the private compartments, you hear a man''s voice call out to you: "Hello there, young lady! Would you care to join me?"'
 		'You stop and look inside, finding a clean-shaved man sitting there with a select few wrinkles that accentuate his angular features; you estimate that he''s in his late thirties or early forties. The expensive suit he''s wearing and the hints of cologne tickling your nose speak volumes of his wealth and his self-confident, even smug expression tells the rest of the story. He motions for you to sit with him. "It''s alright, there''s plenty of room in here. Why don''t you come in and close the door?"'
 		*nl
@@ -638,7 +638,7 @@ if $ARGS[0] = 'private':
 			*clr
 			cla
 			minut += 35
-	        '<center><img <<$set_imgh>> src="images/locations/shared/train/ride2.jpg" ></center>'
+			'<center><img <<$set_imgh>> src="images/locations/shared/train/ride2.jpg" ></center>'
 			'You shake your head indignantly. "Fuck you, I''m no whore! Who do you think you are?!" You don''t give him time to respond but simply walk away and take a seat in the general seating area.' 
 			*nl
 			'You spend some time talking to some of your fellow passengers and share the story with a couple of them. They seem shocked that a man would make such an offer to a nice young lady like you right on this train and speculate that only a crook would be insolent enough to try something like that.'
@@ -674,7 +674,7 @@ if $ARGS[0] = 'private':
 
 				act 'Second stop':
 					*clr & cla
-				    '<center><img <<$set_imgh>> src="images/locations/shared/train/sex/rideanal.jpg" ></center>'
+					'<center><img <<$set_imgh>> src="images/locations/shared/train/sex/rideanal.jpg" ></center>'
 					'Once he has you laying on your back, bedded on dusty seat cushions and your nether parts fully exposed to him and anybody who might enter, he moves up and slips his <<dick>>cm <<$dick_girth>> cock into your ass without warning. It enters surprisingly easily and even though you are unprepared, you manage to relax enough to avoid any pain. It certainly helps that he is taking it slow, giving your plenty of time to adjust to his cock while your mind is racing, running hot as it tries to comprehend how a simple train ride ended up with you having anal sex, on the train, with a complete stranger!' 
 					*nl
 					'Honestly, it makes relaxing difficult because your muscles are twitching around him in excitement and you can barely contain your moans. He goes a little deeper and a little faster, but your ass is too much for him and he can''t last much longer. You feel the first spurt of sperm deposited in your ass a second later and, as he continues to cum, he pulls out of you.'
@@ -686,20 +686,20 @@ if $ARGS[0] = 'private':
 						money += 500
 						gs 'cum_call','anus',$boy, 0,'','',20
 						gs 'cum_call','butt',$boy, 0,'','',20
-	                    '<center><img <<$set_imgh>> src="images/locations/shared/train/sex/ridecum.jpg" ></center>'
+						'<center><img <<$set_imgh>> src="images/locations/shared/train/sex/ridecum.jpg" ></center>'
 						'As he does, several spurts shoot all over your ass and you can feel more of his spunk leaking out of your gaping anus. With a final grunt and spurt, he sits down opposite you, giving you and the state he left you in an appreciative look before he puts his cock away and hands you the 500<b>₽</b>... And then, he simply pulls out a newspaper and starts reading it. The switch from ravaging your asshole to perusal is so sudden that you are confused for a moment. You soon realize, however, that he is really no longer paying attention to you and you are laying around with cum dripping out of your backdoor, so you quickly get up and get yourself cleaned up.'
 						
 						act 'Your stop':
 							*clr & cla
-						    '<center><video autoplay loop src="images/locations/shared/train/pantyup.mp4" ></video></center>'
+							'<center><video autoplay loop src="images/locations/shared/train/pantyup.mp4" ></video></center>'
 							'Once you are dressed again and have removed most off the sperm, you sit down and quietly study the man you had sex with who seems content to spend the rest of the ride in silence and feigned obliviousness to your presence. After a bit, you pull out your phone and amuse yourself with it until the train finally reaches your destination. "Well, this is my stop", you tell him.'
-						    *nl
-						    'He looks up from his newspaper for the first time since he came. "I wish you a safe trip. And thank you for making this ride a bit less dull." he adds with a wink before returning to the headlines. You leave the compartment, the strange and naughty events fresh on your mind, and make your way to the closest exit.'
-						    gs 'arousal', 'end'
-						    gs 'stat'
+							*nl
+							'He looks up from his newspaper for the first time since he came. "I wish you a safe trip. And thank you for making this ride a bit less dull." he adds with a wink before returning to the headlines. You leave the compartment, the strange and naughty events fresh on your mind, and make your way to the closest exit.'
+							gs 'arousal', 'end'
+							gs 'stat'
 
 							act 'Get off the train':gt $loc, $metka
-				        end
+						end
 					end
 				end
 			end
@@ -1014,7 +1014,15 @@ if $ARGS[0] = 'Gopnik':
 				'Well, that, and the hard cock you''re sucking with passion.'
 				gs 'arousal', 'bj', 10, 'exhibitionism', 'unknown'
 				gs 'stat'
-
+				
+				act '"Um... No"':
+					*clr
+					cla
+					'Even as he''s pulling down his pants, you are already shaking your head and laughing. "Do you think I''m a slut or something? I''m not gonna do something with you after a couple of compliments, especially not out in the open like this!" You turn and walk off, calling over your shoulder: "I thought you were a nice guy, but I guess I was wrong."' 
+					*nl
+					'The gopnik seems anything but pleased by your response. He tries to pull his pants back up and yells: "You fucking tease! Get back here!" You don''t; on the contrary, you exploit his current distraction with his pants to run back down the stairs to the platform and into the station before he can follow.'
+					act 'Return to the station': gt $loc, $metka
+				end
 				act 'Let him fuck you':
 					*clr & cla
 					'<center><img <<$set_imgh>> src="images/locations/shared/train/sex/gopnikvag.jpg" ></center>'

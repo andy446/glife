@@ -1134,7 +1134,7 @@ if day = 25:
 	end
 
 	! Utilities for all apartments.
-	if electroday = 0:
+	if (home_owned[1] > 0 or home_owned[4] > 0 or home_owned[5] = 2) and electroday = 0:
 		gs 'housing', 'util'
 		if bankAccount = 1 and karta >= elektro:
 			'<b><font color="yellow"> <<elektro>> <b>₽</b> for utilities, has been automatically deducted from your bank account.</font></b>'

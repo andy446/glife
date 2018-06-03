@@ -429,8 +429,7 @@ if $ARGS[0] = 'interview':
 				gs'foto','interview'
 			end
 		end
-	end
-	if howoldareyou > 0:
+	elseif howoldareyou > 0:
 		if howoldareyou = 1:
 			howoldareyou = 2
 			if age_truth = 1 or age >= 18:

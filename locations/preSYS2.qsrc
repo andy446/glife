@@ -13,6 +13,7 @@ if $ARGS[0] = 'start':
 	act 'Set money (<<money>>₽)': money = input 'Set Cash Amount' & gt'preSYS2','start'
 	act 'Return to preset character menu': gt 'preSYS', 'charselect'
 	act 'Confirm these options':
+		pcs_inhib = 100 - pcs_inhib
 		!!This line should get sveta to wear school uniform because she has no other clothing with >=40
 		if pcs_inhib >= 40: gs 'clothing', 'wear', 'school', 6
 		if bag = 1:
@@ -387,7 +388,7 @@ if $ARGS[0] = 'modatt':
 	gs 'preSYS2', 'modrel_setup2', 'pcs_prcptn', 'Perception'
 	if MagikDostup = 0: gs 'preSYS2', 'modrel_setup2', 'pcs_magik', 'Magic'
 	gs 'preSYS2', 'modrel_setup2', 'pcs_grades', 'Grades'
-	gs 'preSYS2', 'modrel_setup2', 'pcs_inhib', 'Exhibitionism'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_inhib', 'Inhibition'
 	gs 'preSYS2', 'modrel_setup2', 'pcs_heels', 'Heels'
 	'</table></center>'
 	nl
@@ -509,7 +510,7 @@ if $ARGS[0] = 'none':
 	pcs_chrsm = 30
 	pcs_prcptn = 30
 	pcs_grade = 75
-	pcs_inhib = 0	
+	pcs_inhib = 100	
 	pcs_heel = 5
 
 	!!Mental Skills Reset

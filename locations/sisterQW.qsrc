@@ -703,7 +703,7 @@ if $ARGS[0] = 'sisboyQW_party':
 	'You began to help the guys to lay out the table, they carried the drinks, you snacks, but there was so much booze that it covered the table leaving no where to put the snacks.'
 	'Everyone started to thump in unison, dealing, laughing, telling funny stories.'
 	'You cheerfully ask Anya. "You won''t leave me alone at the party will you?"'
-    'Anya smiles and hands you a bottle of vodka. "Of course not <<$pcs_nickname>>."'
+	'Anya smiles and hands you a bottle of vodka. "Of course not <<$pcs_nickname>>."'
 	act 'Drink':
 		cls
 		minut += 15
@@ -720,8 +720,8 @@ if $ARGS[0] = 'sisboyQW_party':
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/rekshome/party/sisboyqwparty_9.jpg"></center>'
 		*nl
 		'You took the bottle from her hands'
-        '"Well, let''s party." You say and gulp down a huge amount of vodka.'
-        ' Roma looks at Anya and smirks. "Look, <<$pcs_nickname>> is drinking more than you." with these words, everyone began to drink heavily.'
+		'"Well, let''s party." You say and gulp down a huge amount of vodka.'
+		' Roma looks at Anya and smirks. "Look, <<$pcs_nickname>> is drinking more than you." with these words, everyone began to drink heavily.'
 		act 'Go dance': gt 'sisterQW', 'dance'
 		act 'Drink': gt 'sisterQW', 'drink'
 		act 'Sit': gt 'sisterQW', 'sit'
@@ -742,8 +742,8 @@ if $ARGS[0] = 'sisboyQW_party':
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/rekshome/party/sisboyqwparty_9.jpg"></center>'
 		*nl
 		'You politely try and refuse the drink.'
-        'But seeing everyone watching gathered around began to chant: "Drink, drink, drink, drink, drink, drink."'
-        'Giving into peer pressure you take the bottle from Anya''s hand, and gulp down a huge amount of vodka.'
+		'But seeing everyone watching gathered around began to chant: "Drink, drink, drink, drink, drink, drink."'
+		'Giving into peer pressure you take the bottle from Anya''s hand, and gulp down a huge amount of vodka.'
 		act 'Go dance': gt 'sisterQW', 'dance'
 		act 'Drink': gt 'sisterQW', 'drink'
 		act 'Sit': gt 'sisterQW', 'sit'
@@ -759,8 +759,8 @@ if $ARGS[0] = 'sisboyQW_party':
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/rekshome/party/sisboyqwparty_9.jpg"></center>'
 		*nl
 		'Standing, you tried to get out from behind the table, to go dancing, but no one was dancing they was all just sitting and drinking.'
-        'Seeing, you got up and wanting to leave the table, Rex pulls you over: "Where are you going, it''s only the beginning, hold the bottle, and let''s drink, otherwise I would be offended."'
-        'You couldn''t deny the birthday boy and took the bottle from his hands, and gulp down a huge shot, feeling it burn down your throat. You hear others shouting in encouragement.'
+		'Seeing, you got up and wanting to leave the table, Rex pulls you over: "Where are you going, it''s only the beginning, hold the bottle, and let''s drink, otherwise I would be offended."'
+		'You couldn''t deny the birthday boy and took the bottle from his hands, and gulp down a huge shot, feeling it burn down your throat. You hear others shouting in encouragement.'
 		act 'Go dance': gt 'sisterQW', 'dance'
 		act 'Drink': gt 'sisterQW', 'drink'
 		act 'Sit': gt 'sisterQW', 'sit'
@@ -930,14 +930,15 @@ end
 if $ARGS[0] = 'reks':
 	cls
 	minut += 5
-	alko += 1
+	alko += 2
 	cumspclnt = 2
 	gs 'cum_cleanup'
 	pcs_breath = 0
 	gs'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/rekshome/party/sisboyqwparty_19.jpg"></center>'
 	*nl
-	'You''ve clearly been having fun this evening and to his surprise you are still covered in semen.'
+	!!'You''ve clearly been having fun this evening and to his surprise you are still covered in semen.'
+	!! 'Not sure how Sveta is supposed to be covered in semen at this point, as there is no application or check on this that I could see - 3xpurt'
 	'"Hey girly, damn you''ve been having fun. Oh yeah, you''re Anya''s sister, I know, she''s... that''s odd, I haven''t seen her. Although I have been drinking bubbly all day, here, drink up."'
 	'With this he starts pouring the sweet Champagne down your throat, he''s so drunk he pours it much to fast and as much as you try to keep up, alot of it spills on the floor.
 	 Then, without a word, Rex just staggers off.'
@@ -1002,7 +1003,7 @@ if $ARGS[0] = 'two_boy':
 			'"Fuck I think you''re right, she''s a sweet little thing, but I don''t fuck Schoolgirls." Looking at his friend getting a blowjob from you. "Hey I''ll trade you."'
 			gs 'arousal', 'vaginal', 5, 'sub', 'group', 'unknown'
 			gs 'arousal', 'bj', 5, 'sub', 'group', 'unknown'
-			minut -= 5 
+			minut -= 5
 			gs 'stat'
 			act 'Switch':
 				cls
@@ -1027,7 +1028,7 @@ if $ARGS[0] = 'two_boy':
 				gs 'arousal', 'vaginal', 5, 'sub', 'group', 'unknown'
 				gs 'arousal', 'bj', 5, 'sub', 'group', 'unknown'
 				gs 'arousal', 'end'
-				minut -= 5 
+				minut -= 5
 				gs 'stat'
 				act 'Look For Anya': gt 'sisterQW', 'anna_find'
 			end

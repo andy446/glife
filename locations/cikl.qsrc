@@ -906,9 +906,9 @@ if husband > 0 and husbandrink ! 11:husbandrink = rand(0, 10)
 
 !!Pussy_Kats job settings
 inWorkYoungShop = 0
-if day = 1 and young_shop_work = 100: young_shop_work = 1
-if day = 5 and young_shop_work1 = 100: young_shop_work1 = 1
-if day = 1 and young_shop_work2 = 100: young_shop_work2 = 1
+if week = 1 and young_shop_work = 100: young_shop_work = 1
+if week = 5 and young_shop_work1 = 100: young_shop_work1 = 1
+if week = 1 and young_shop_work2 = 100: young_shop_work2 = 1
 
 husbandsexday = 0
 borsexkol = 0

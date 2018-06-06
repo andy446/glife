@@ -2131,6 +2131,8 @@ if $ARGS[0] = 'sleeping_parc_alco_rape':
 													pcs_willpwr += 25
 													if dick - pcs_vag > 8: vgape = 2
 													gs 'arousal', 'end'
+													gs 'clothing', 'wear_last_worn'
+													gs 'underwear', 'wear'
 													gs 'stat'
 													act 'Leave the apartment':
 														if ParkBench = 1:

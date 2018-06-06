@@ -29,7 +29,10 @@ Please use one of the following terms:
 * removed
 * text edit
 
-Added and removed are for files being added or removed, fixed is for bug/code fixes, changed is for when events are changed and text edit is for changes to the text that'll appear on screen.
+<B>Added</B> and <B>removed</B> are for files being added or removed, <B>fixed</B> is for bug/code fixes, <B>changed</B> is for when events are changed and <B>text edit</B> is for changes to the text that'll appear on screen.
+
 These are for searching to aid those working on the files.
+
 Can you also include filenames (unless its a large number of files) and include any description you feel will help.
+
 If adding content that is disabled (due to being WIP) can you comment in the file that its disabled and include your name so that it doesn't get activated in error.

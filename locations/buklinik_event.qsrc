@@ -1,4 +1,4 @@
-# buklinik_event
+﻿# buklinik_event
 
 if $ARGS[0] = 'pos1':
 	cla
@@ -151,7 +151,7 @@ if $ARGS[0] = 'pos9':
 	'He shouts back, "No way! I''m good here. I see lovely young ladies jogging past every day. I won''t leave here unless you''ve got hot girls in panties there."'
 	'The volunteer turns to you, "We''ve been trying to move this old pervert out from here for weeks. <<$pcs_nickname>>, do you have any idea how to lure him out?'
 
-	if pcs_horny > 50 and $pantyworntype ! 'none' and PCloSkirt > 1 and pcs_exhibition > 20:
+	if pcs_horny > 50 and $pantyworntype ! 'none' and PCloSkirt > 1 and pcs_inhib > 20:
 		act 'There is one idea':gt 'buklinik_event', 'pos10'
 	end
 	act 'I have no idea':gt 'buklinik', 'olga2'

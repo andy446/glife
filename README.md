@@ -1,5 +1,17 @@
 # Girl Life (ЭТО) [English Community Version] - github edition
 
+## Formatting comments when posting commits
+Please use one of the following terms:
+* fixed
+* changed
+* added
+* removed
+* text edit
+Added and removed are for files being added or removed, fixed is for bug/code fixes, changed is for when events are changed and text edit is for changes to the text that'll appear on screen.
+These are for searching to aid those working on the files.
+Can you also include filenames (unless its a large number of files) and include any description you feel will help.
+If adding content that is disabled (due to being WIP) can you comment in the file that its disabled and include your name so that it doesn't get activated in error.
+
 ## Quick start (for Unixy machines)
 * clone/fork the repo
 * make edits to the files in `locations`

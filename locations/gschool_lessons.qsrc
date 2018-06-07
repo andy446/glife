@@ -1598,7 +1598,7 @@ if $ARGS[0] = 'biology':
 		if RAND(1,4) = 1:
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/classroom/sleeping.jpg"></center>'
 			'Today''s lessons don''t particularly interest you, and you find yourself drifting off constantly. After a while you notice Miss Orlov has stopped teaching and is looking at you intently, asking you to pay attention. Apparently this is already the third time she asked; you missed the first two completely while you was lost in your own thoughts. The whole class is looking at you now.'
-			'"<<pcs_nickname>>, please pay attention, this is very important. Today''s topic is going to be on the exam for sure."'
+			'"<<$pcs_nickname>>, please pay attention, this is very important. Today''s topic is going to be on the exam for sure."'
 			act 'Be a smart ass':
 				*clr & cla
 				demerit +=5
@@ -1646,7 +1646,7 @@ if $ARGS[0] = 'biology':
 				'You''re far too tired to pay attention in class today. You don''t even know what the lesson is about, sense you keep dozing off.'
 				'You''re snapped back to consciousness when you hear Miss Orlov call your name. Everyone is looking at you expectantly, realizing that you were just asked a question about the topic.'
 				*nl
-				'You take your best guess at what they might be asking. Some of the other kids snicker when you say something that''s obviously wrong. Miss Orlov tells you the correct answer. "<<pcs_nickname>> you''re a smart girl, I know you know this stuff. You only have to apply yourself and the sky is the limit for you. So please pay attention." She says trying to encourage you.'
+				'You take your best guess at what they might be asking. Some of the other kids snicker when you say something that''s obviously wrong. Miss Orlov tells you the correct answer. "<<$pcs_nickname>> you''re a smart girl, I know you know this stuff. You only have to apply yourself and the sky is the limit for you. So please pay attention." She says trying to encourage you.'
 				'It was an embarrassing experience having everyone staring at you, but the sudden adrenaline surge helps you to stay awake during the rest of the period.'
 			end
 			act 'Wait for the end of the lesson': gs 'gschool_lessonsev1', 'biology'
@@ -1673,7 +1673,7 @@ if $ARGS[0] = 'biology':
 		if RAND(1,4) = 1:
 			*clr & cla
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/classroom/phone.jpg"></center>'
-			'You hear a feminine throat clearing, you look up and see Miss Orlov looking at you. "Please put your phone away <<pcs_nickname>> and pay attention."'
+			'You hear a feminine throat clearing, you look up and see Miss Orlov looking at you. "Please put your phone away <<$pcs_nickname>> and pay attention."'
 			act 'Put your phone away':
 				*clr & cla
 				grupvalue[4] -=3
@@ -1693,10 +1693,10 @@ if $ARGS[0] = 'biology':
 					pcs_horny += 10
 					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/classroom/upskirtselfie.jpg"></center>'
 					'You decide to have some fun with your teacher, and quickly move the phone between your legs and snap some photos under your skirt as you see Miss Orlov walking towards your desk.'
-					'When Miss Orlov arrives at your desk, she tells you, "Please give me your phone <<pcs_nickname>>, this is important you need to pay attention."'
+					'When Miss Orlov arrives at your desk, she tells you, "Please give me your phone <<$pcs_nickname>>, this is important you need to pay attention."'
 					'You hand over your phone, the screen still on, with the last picture you took still on the screen of the phone.'
 					*nl
-					'Miss Orlov looks at what''s on the screen and she blushes deep red, quickly turning your phone off. She walks back to the head of class and takes a moment to compose herself. She then continues the lesson telling you, "I''m holding onto your phone for now, <<pcs_nickname>>. You can have it back after class."'
+					'Miss Orlov looks at what''s on the screen and she blushes deep red, quickly turning your phone off. She walks back to the head of class and takes a moment to compose herself. She then continues the lesson telling you, "I''m holding onto your phone for now, <<$pcs_nickname>>. You can have it back after class."'
 					act 'Wait for the end of the lesson': gs 'gschool_lessonsev1', 'biology'
 				end
 				act 'Put the phone between your boobs':
@@ -1922,7 +1922,7 @@ if $ARGS[0] = 'science':
 		if RAND(1,4) = 1:
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/classroom/sleeping.jpg"></center>'
 			'Today''s lessons don''t particularly interest you, and you find yourself drifting off constantly. After a while you notice Miss Orlov has stopped teaching and is looking at you intently, asking you to pay attention. Apparently this is already the third time she asked; you missed the first two completely while you was lost in your own thoughts. The whole class is looking at you now.'
-			'"<<pcs_nickname>>, please pay attention, this is very important. Today''s topic is going to be on the exam for sure."'
+			'"<<$pcs_nickname>>, please pay attention, this is very important. Today''s topic is going to be on the exam for sure."'
 			act 'Be a smart ass.':
 				*clr & cla
 				demerit +=5
@@ -1970,7 +1970,7 @@ if $ARGS[0] = 'science':
 				'You''re far too tired to pay attention in class today. You don''t even know what the lesson is about, sense you keep dozing off.'
 				'You''re snapped back to consciousness when you hear Miss Orlov call your name. Everyone is looking at you expectantly, realizing that you were just asked a question about the topic.'
 				*nl
-				'You take your best guess at what they might be asking. Some of the other kids snicker when you say something that''s obviously wrong. Miss Orlov tells you the correct answer. "<<pcs_nickname>> you''re a smart girl, I know you know this stuff. You only have to apply yourself and the sky is the limit for you. So please pay attention." She says trying to encourage you.'
+				'You take your best guess at what they might be asking. Some of the other kids snicker when you say something that''s obviously wrong. Miss Orlov tells you the correct answer. "<<$pcs_nickname>> you''re a smart girl, I know you know this stuff. You only have to apply yourself and the sky is the limit for you. So please pay attention." She says trying to encourage you.'
 				'It was an embarrassing experience having everyone staring at you, but the sudden adrenaline surge helps you to stay awake during the rest of the period.'
 			end
 			act 'Wait for the end of the lesson': gs 'gschool_lessonsev1', 'science'
@@ -1997,7 +1997,7 @@ if $ARGS[0] = 'science':
 		if RAND(1,4) = 1:
 			*clr & cla
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/classroom/phone.jpg"></center>'
-			'You hear a feminine throat clearing, you look up and see Miss Orlov looking at you. "Please put your phone away <<pcs_nickname>> and pay attention."'
+			'You hear a feminine throat clearing, you look up and see Miss Orlov looking at you. "Please put your phone away <<$pcs_nickname>> and pay attention."'
 			act 'Put your phone away':
 				*clr & cla
 				grupvalue[4] -=3
@@ -2017,10 +2017,10 @@ if $ARGS[0] = 'science':
 					pcs_horny += 10
 					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/classroom/upskirtselfie.jpg"></center>'
 					'You decide to have some fun with your teacher, and quickly move the phone between your legs and snap some photos under your skirt as you see Miss Orlov walking towards your desk.'
-					'When Miss Orlov arrives at your desk, she tells you, "Please give me your phone <<pcs_nickname>>, this is important you need to pay attention."'
+					'When Miss Orlov arrives at your desk, she tells you, "Please give me your phone <<$pcs_nickname>>, this is important you need to pay attention."'
 					'You hand over your phone, the screen still on, with the last picture you took still on the screen of the phone.'
 					*nl
-					'Miss Orlov looks at what''s on the screen and she blushes deep red, quickly turning your phone off. She walks back to the head of class and takes a moment to compose herself. She then continues the lesson telling you, "I''m holding onto your phone for now, <<pcs_nickname>>. You can have it back after class."'
+					'Miss Orlov looks at what''s on the screen and she blushes deep red, quickly turning your phone off. She walks back to the head of class and takes a moment to compose herself. She then continues the lesson telling you, "I''m holding onto your phone for now, <<$pcs_nickname>>. You can have it back after class."'
 					act 'Wait for the end of the lesson': gs 'gschool_lessonsev1', 'science'
 				end
 				act 'Put the phone between your boobs':

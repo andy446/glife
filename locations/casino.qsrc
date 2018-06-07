@@ -1,0 +1,14 @@
+# casino
+
+gs 'stat'
+'<right><img <<$set_imgh>> src="images/locations/city/industrial/casino/zdcasino.jpg"></right>'
+'You stand in front of the door of the huge building casinos.'
+
+act 'Enter the casino': minut += 1 & gt 'hall'
+
+act 'Return to the city industrial area': minut += 10 & gt 'nord'
+
+!!if tobiQW < 1000:tobiQW = 1000
+
+--- casino ---------------------------------
+

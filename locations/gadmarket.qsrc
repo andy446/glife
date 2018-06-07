@@ -1,0 +1,38 @@
+# gadmarket
+
+$location_type = 'public_indoors'
+
+frost = 0
+set minut += 5
+*pl '<center><h1><font color="maroon">Village Shop</font></h1></center>'
+*pl '<center><img <<$set_imgh>> src="images/locations/gadukino/village/market.jpg"></center>'
+
+'You walk into the small shop with four narrow aisles with chest high shelves crammed full of food and other household goods. There is little variety in the selections, just the most essential products.'
+'Slowly you browse the aisles looking for something to buy.'
+*nl
+'As you approach the teller, you notice a rack full of magazines, cigarettes, and a few hygienic items.'
+*nl
+
+$gadmarkettab = '<center><table align="center">'
+$gadmarkettab += FUNC ('$stock_item', 10, 'Package of Cookies', 400, 'pranik', 'gadmarket')
+$gadmarkettab += FUNC ('$stock_item', 20, 'Cigarettes', 150, 'siga', 'gadmarket')
+$gadmarkettab += FUNC ('$single_stock_item', 1, 'Fashion magazine', 450, 'fashmag', 'gadmarket')
+$gadmarkettab += FUNC ('$single_stock_item', 1, 'Computer magazine', 450, 'compmag', 'gadmarket')
+$gadmarkettab += FUNC ('$single_stock_item', 1, 'Biographical magazine', 450, 'biomag', 'gadmarket')
+$gadmarkettab += FUNC ('$single_stock_item', 1, 'Cooking magazine', 450, 'cookmag', 'gadmarket')
+$gadmarkettab += FUNC ('$single_stock_item', 1, 'Knitting magazine', 450, 'knitmag', 'gadmarket')
+$gadmarkettab += FUNC ('$stock_item', 5, 'Condoms', 600, 'prezikcount', 'gadmarket')
+$gadmarkettab += FUNC ('$stock_item', 20, 'Tampons', 250, 'tampon', 'gadmarket')
+$gadmarkettab += FUNC ('$stock_item', 10, 'Razors', 1000, 'stanok', 'gadmarket')
+$gadmarkettab += FUNC ('$single_stock_item', 1, 'Bottle of water', 100, 'bottle', 'gadmarket', '', iif(bag > 0, 0, 1), 'You need a handbag')
+$gadmarkettab += FUNC ('$single_stock_item', 1, 'Sandwich', 100, 'buterbrod', 'gadmarket', '', iif(bag > 0, 0, 1), 'You need a handbag')
+$gadmarkettab += FUNC ('$single_stock_item', 1, 'Cheap Bottle of wine', 200, 'wine', 'gadmarket', '', iif(bag > 0, 0, 1), 'You need a handbag')
+$gadmarkettab += '</table></center>'
+*pl $gadmarkettab
+killvar '$gadmarkettab'
+gs 'stat'
+
+act 'Leave the market': gt $loc
+
+--- gadmarket ---------------------------------
+

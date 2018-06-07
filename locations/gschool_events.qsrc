@@ -1,0 +1,739 @@
+# gschool_events
+
+!!From here down they happen before first class
+if $ARGS[0] = 'teacher_greet':
+	!!meet teacher, from 1.2.4
+	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/26.jpg"></center>'
+	'You walk down the corridor, past countless classrooms. On the next corner, you meet your teacher Anatoly Evgenievich.'
+	act 'Hello':
+		*clr & cla
+		if npc_rel['A26'] < 10:
+			if hotcat < 5:
+				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/26.jpg"></center>'
+				if rand(0,1) = 0:
+					'"Good morning, Anatoly Evgenievich, have a nice day."'
+					'The teacher just nods his head in your direction and passes, not paying attention to you.'
+				else
+					'"Hello Anatoly Evgenievich, looking forward to your classes."'
+					'"Hello Anna! You better hurry to class, before you''re late." the teacher replies, calling you a different name. Apparently, he doesn''t even remember your name.'
+				end
+				pcs_mood -= 5
+			else
+				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/26.jpg"></center>'
+				'"Good morning, Anatoly Evgenievich, have a nice day. Looking forward to your lessons." you turn to the teacher.'
+				'"Hello <<$pcs_nickname>>, I shall wait for such a wonderful student like you to start class." the teacher replies, obviously not looking you in the face, but somewhere on the level of your hips.'
+				npc_rel['A26'] += 1
+			end
+		else
+			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/26.jpg"></center>'
+			if rand(0,1) = 0:
+				'"Good morning, Anatoly Evgenievich, have a nice day. Looking forward to your lessons" you turn to the teacher.'
+				'"Hi, <<$pcs_nickname>>. Today I will ask for your homework. Prepared? Or shouldn''t I ask you?" he asks in a friendly manner.'
+				'"Oh you know, I tried to do my homework, but something came up late last night with the girls at the club. Can I give it to you tomorrow?" You plead, giving him your sweetest face.'
+				'"Okay <<$pcs_nickname>>, but this is the last time." He says, but he had said that more than once over the past few years.'
+				'"Thank you, Anatoly Evgenievich! You are such a nice man! I need to find a nice man." smiling to him.'
+				'"Sorry, I''m married." He replies and you both laughed.'
+				pcs_mood += 5
+			else
+				'"Anatoly Evgenyevich, what will the lesson be today? New theme? And maybe let us go early?" you ask your teacher.'
+				'"Yes, the new theme. Unfortunately, I can''t, the new Director strictly monitors it and said no." he replies sadly.'
+			end
+			npc_rel['A26'] += 1
+		end
+
+		act 'Continue': gt 'gschool_lessons', 'morning'
+	end
+	act 'Flirt':
+		*clr & cla
+		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/building/flirty.jpg"></center>'
+		if npc_rel['A26'] < 10:
+			if hotcat < 5:
+				if rand(0,1) = 0:
+					'"Hello, Anatoly Evgenievich, you are so handsome." you greet the teacher, trying to attract his attention with a smile.'
+					'"<<$pcs_lastname>>, you shouldn''t being saying things like that." but still smiles back at you in response.'
+				else
+					'You go to meet your teacher. You notice he is quite sour, so you decide to cheer him up and with a smile and wave to him.'
+					'In response, the teacher smiles back at you and goes on about his business'
+				end
+				npc_rel['A26'] += 1
+			else
+				if rand(0,1) = 0:
+					'"Hello, Anatoly Evgenievich, you are so handsome." you greet the teacher, trying to attract his attention with a smile.'
+					'"Thank you <<$pcs_nickname>>, I''d pay you a compliment, but we are not supposed to have such informal relationships with pupils." the teacher replies, but still smiles back.'
+					npc_rel['A26'] += 1
+				else
+					'"Good morning, Anatoly Evgenievich, you have a new suit, so chic." You say in a very erotic voice.'
+					'After your words, the teacher is acting kind of weird, speeding up heading towards the mens room. Before leaving, you heard him muttering incoherently - you think he was trying to say Hello or respond to the compliment, but apparently was a little flustered.'
+				end
+			end
+		else
+			if rand(0,1) = 0:
+				'"Hello, Anatoly Evgenievich, you are so handsome." you greet the teacher, trying to attract his attention with a smile.'
+				'"Wife has the night shift at work, so I had to eat at the cafe." your teacher replies and you laugh together.'
+				'"Well, maybe I''ll try to cook for you, just to say thank you for what I''ve learned in your class." you answer in a serious voice.'
+				'"You know, <<$pcs_nickname>>, maybe we should arrange something like that, a tea party with the class, the girls can make cakes and the guys can prepare the classroom." your teacher replies, obviously not understanding your hint.'
+				'"That''s not what I meant." you say and go away.'
+				pcs_mood -= 10
+				npc_rel['A26'] -= 1
+			else
+				'"Good morning, Anatoly Evgenievich, you have a new suit, so chic." You say in a very erotic voice.'
+				'"Thanks <<$pcs_nickname>>. I bought it myself with my last paycheck." he replies.'
+				npc_rel['A26'] += 1
+			end
+		end
+
+		act 'Continue': gt 'gschool_lessons', 'morning'
+	end
+	act 'Silently pass by':
+		*clr & cla
+		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/26.jpg"></center>'
+		if npc_rel['A26'] < 10:
+			*clr & cla
+			if hotcat < 5:
+				'You hurry down the hallway, already late. So you decide to just pass by. Whats more, the teacher wasn''t even looking in your direction.'
+			else
+				'"Good morning, <<$pcs_lastname>>, no time to say hello to your teacher?" ask your teacher.'
+				'"Oh, Anatoly Evgenievich, good morning, sorry I didn''t notice you, was just day dreaming." you reply and you run away.'
+			end
+
+			act 'Continue': gt 'gschool_lessons', 'morning'
+		else
+			*clr & cla
+			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/26.jpg"></center>'
+			'"Good morning, <<$pcs_lastname>>. Why not say Hello? A teacher can''t punish or reward such actions. But still you''ve got this year''s exam. Should behave more kindly." your teacher jokes.'
+			act 'Apologize':
+				*clr & cla
+				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/26.jpg"></center>'
+				'"Oh, Anatoly Evgenievich, I''m sorry, I didn''t see you. Of course, good day to you. Looking forward to our lessons." you say smiling.'
+				npc_rel['A26'] += 1
+
+				act 'Continue': gt 'gschool_lessons', 'morning'
+			end
+			act 'Touch and apologize':
+				*clr & cla
+				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/26.jpg"></center>'
+				'"Oh, Anatoly Evgenievich, I''m sorry, I didn''t see you." You say happily, coming closer and as if by accident, touch his arm.'
+				'He either doesn''t notice the touch or pretends not to notice it.'
+				if hotcat >= 5: npc_rel['A26'] += 1
+
+				act 'Continue': gt 'gschool_lessons', 'morning'
+			end
+			act 'Ignore the comment':
+				*clr & cla
+				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/26.jpg"></center>'
+				'You pretend not to hear the teacher''s remark and go on about your business.'
+				pcs_dom += 1
+				npc_rel['A26'] -= 1
+
+				act 'Continue': gt 'gschool_lessons', 'morning'
+			end
+		end
+	end
+	if npc_rel['A26'] > 20 and hotcat >= 5:
+		act 'Seduce':
+			*clr & cla
+			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/26.jpg"></center>'
+			'You decided try a more direct route, to earn some extra points with your teacher.'
+			act 'Lick lips':
+				*clr & cla
+				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/building/licklips.jpg"></center>'
+				'You decide to tease Anatoly Evgenyevich and, catching his eyes on you, you lick your lips.'
+				'Seeing this, the teacher smiles for a moment, but then pretends nothing had happened, and goes on his way.'
+				npc_rel['A26'] += 1
+
+				act 'Continue': gt 'gschool_lessons', 'morning'
+			end
+			if pcs_inhib > 25:
+				act 'Drop some textbooks':
+					*clr & cla
+					if $pantyworntype ! 'none':
+						exhibition_exp += 2
+						inhib_exp += rand(0,2)
+						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/building/bendover.jpg"></center>'
+						npc_rel['A26'] += 1
+						'You drop some books and bend over at the waist to pick up the books, showing off your ass.'
+						'"<<$pcs_nickname>>, you should bend at the knees to squat down instead of bend over like that or one of the boys might take advantage." He says with a smile.'
+					else
+						exhibition_exp += 3
+						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/building/bendoverbare.jpg"></center>'
+						npc_rel['A26'] += 1
+						'You drop some books and bend over at the waist to pick up the books, showing off your ass.'
+						'"<<$pcs_nickname>>, you should bend at the knees to squat down instead of bend over like that or one of the boys might take advantage." He says with a smile.'
+					end
+					act 'Stand up and try to start a conversation':
+						*clr & cla
+						'"Well, then I was lucky that it was you. A grown and respectable man and not some kid. I don''t really understand boys and therefore I prefer to make friends and chat with more mature people." you answer the teacher.'
+						'"Yes, <<$pcs_lastname>>, their behavior is often bad." he says as he went down the hall. While leaving, he gently runs his hand over your back.'
+						pcs_horny += 3
+						act 'Continue': gt 'gschool_lessons', 'morning'
+					end
+					if $pantyworntype = 'none':
+						if pcs_inhib > 35:
+							act 'Show more':
+								*clr & cla
+								exhibition_exp += 2
+								'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/building/bendover.jpg"></center>'
+								'You don''t pay attention to the teacher''s words and decide to have fun a little more. Reaching for the next book, you inadvertently pull your skirt up, giving the teacher a full view of your panty clad ass.'
+								'"<<$pcs_lastname>>, cover up." the teacher rushes to you and pulls your skirt down, covering your ass.'
+								'"Anatoly Evgenievich, but it''s just us. I always feel safe when you are around." you reply, standing up.'
+								'The teacher gives you a lecture on how to properly pick up books from the floor, then you both leave, not saying a word more to each other.'
+								act 'Continue': gt 'gschool_lessons', 'morning'
+							end
+						else
+							act 'Show more':
+								exhibition_exp += 3
+								'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/building/bendoverbare.jpg"></center>'
+								'You don''t pay attention to the teacher''s words and decide to have fun a little more. Reaching for the next book, you inadvertently pull your skirt up, giving the teacher a full view of your pussy and ass.'
+								'"<<$pcs_lastname>>, cover up." the teacher notices that you are not wearing any panties. He quickly runs up to you and pulls your skirt down, covering up your naked ass.'
+								'The teacher gives you a lecture on how to properly pick up books from the floor, then you both leave, not saying a word more to each other.'
+								act 'Continue': gt 'gschool_lessons', 'morning'
+							end
+						end
+					end
+				end
+			end
+			act 'Stumble and fall to the teacher':
+				*clr & cla
+				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/26.jpg"></center>'
+				if rand(0,4) > 0:
+					'You stumble and fall into your teacher''s arms as he deftly catches you.'
+					'"<<$pcs_lastname>>, are you ok, did you hurt yourself?" Once he made sure you are ok he goes on about his business.'
+				else
+					'You stumble and fall in front of the teacher. However, he lacks the agility to catch you. You bruise your knees form falling as he bends over to help you up.'
+					'"Oh-Oh-Oh, my leg hurts. Oh, Anatoly Evgenievich, look, is it alright?" you say and stretch out your leg in front of the teacher''s face. He begins to inspect the leg, one hand at the ankle, the other stroking your thigh, just above the bruise.'
+					'"Well, <<$pcs_nickname>>, you need to be careful. You have very beautiful legs, it would be a shame if you badly injured them." He gently whispers to you.'
+					'"It doesn''t look bad, bat you should go to the infirmary, so they can check it out." he helps you back to your feet and goes about his business.'
+					npc_rel['A26'] += 2
+				end
+
+				act 'Continue': gt 'gschool_lessons', 'morning'
+			end
+		end
+	end
+end
+!!****************************end of before first class
+
+!!This should be a random event that can happen after school, when lunch break first starts. Not sure what the trigger is now.
+if $ARGS[0] = 'rand_gopnic':
+
+	if rand(0,1) = 0:
+		r = 9
+	else
+		r = 42
+	end
+
+	if grupTipe = 4:
+		*clr & cla
+		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/<<r>>.jpg"></center>'
+		'You step away from him, pulling out of reach as you turn around. You point your finger at him. "Don''t make me hurt you, you know I will."'
+		'He laughs a bit and steps up closer again, crowding you a bit but keeps his hands to himself. "Come on <<$pcs_nickname>> you know you want to have some fun, stop acting like you are not all hot and bothered by this. We can help you with that itch."'
+		act 'Back off':
+			*clr & cla
+			grupvalue[4] += 5
+			inhib_exp += 2
+			'<center><video autoplay loop src="images/locations/pavlovsk/school/lunch/buttflash.mp4"></video></center>'
+			'You snort at him and then look at his friend before looking back at him, as you wiggle your middle finger at him. Flipping him off while pretending you are wiggling your finger for another reason. "If I needed something that small to satisfy my itch, I could just use this." His friends howl with laughter, while he fumes a little. Then you turn and walk away with a laugh, flashing them your butt as you do. Teasing them a bit on what they are missing out on.'
+			act 'Walk away':gt 'gschool_lessons', 'short_break'
+		end
+		act 'Sure why not':
+			*clr & cla
+			if grupvalue[4] > 50:
+				grupvalue[4] -= 5
+				if grupvalue[4] < 50:grupvalue[4] = 50
+			end
+			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/boysbathroom.jpg"></center>'
+			'You are in the mood anyways so why not, hopefully it isn''t to quick. They lead you to the men''s room, one of the guys drives everyone else out; it''s just you and the Gopniks in there now. One of them leans against the door to block anyone else from coming in. While the rest all start unzipping their pants and pulling out their dicks.'
+			'The walls of the restroom are covered in crude texts, quite a few of them involving you in some way.'
+			*nl
+			if pav_slut > 25: 'On one wall you see written in particularly large letters, "<b><<$pcs_nickname>> <<$pcs_lastname>> = <<$gnikname>>"</b>.'
+			act 'Start sucking':
+				cls
+				if r = 9:
+					gs 'boyStat', 'A157'
+					gs 'cum_call', 'mouth', $boy,1
+					gs 'boyStat', 'A9'
+					gs 'cum_call', 'mouth', $boy,1
+					gs 'boyStat', 'A10'
+					gs 'cum_call', 'mouth', $boy,1
+					gs 'boyStat', 'A11'
+					gs 'cum_call', 'mouth', $boy,1
+				else
+					gs 'boyStat', 'A157'
+					gs 'cum_call', 'mouth', $boy,1
+					gs 'boyStat', 'A155'
+					gs 'cum_call', 'mouth', $boy,1
+					gs 'boyStat', 'A156'
+					gs 'cum_call', 'mouth', $boy,1
+					gs 'boyStat', 'A154'
+					gs 'cum_call', 'mouth', $boy,1
+				end
+				swallow += 4
+				'<center><video autoplay loop src="images/locations/pavlovsk/school/building/sex/rand_scoolboy6.mp4"></video></center>'
+				'You kneel down, then you wrap your <<$liptalk3>> around <<$boydesc>>''s hard cock and start to suck. Not forgetting the other''s you spend some time alternating between the between all the cocks, stroking the ones you''re not sucking with your hand.'
+				'Finally, you feel a jet of sperm hit your throat and <<$boydesc>> moans. "That''s right bitch, swallow it all, like a good little slut." Finally <<$boydesc>> seems satisfied and tucks his cock back in his pants and swaps place with the one that was at the door, who comes over pulling out his cock to get his turn.'
+				*nl
+				'You immediately switch to the cock one of the other guys standing next to you, and receive another mouthful from him. You carefully swallow his load as well, which earns you a nod of approval and a pat on the head. "Good little whore." Then he moves aside as well, soon you finish of the last two guys and they both shoot their loads in your mouth as well. As you get up off your knees you hear one of them laugh. "You''re the best cock sucker we got <<$pcs_nickname>>!" said as they leave you alone in the bathroom and only more horny than when you started. You say to yourself outloud. "Fucking assholes!" Then you clean up and leave.'
+				gs 'arousal', 'bj', 20, 'group', 'sub'
+				gs 'arousal', 'end'
+				gs 'stat'
+				act 'Continue': gt 'gschool_lessons', 'short_break'
+			end
+		end
+	else
+		if r = 9:
+			$boydesc = 'Vitek'
+		else
+			$boydesc = 'Radomir'
+		end
+		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/<<r>>.jpg"></center>'
+		'You look at <<$boydesc>> with contempt, "What the fuck do you want?" He''s not impressed in the slightest, your loose reputation undermining any authority you try to impose.'
+		act 'Continue':
+			*clr & cla
+			pcs_mood -= 20
+			gs'stat'
+			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/rand_scoolboy5.jpg"></center>'
+			'"I''ll show you what the fuck I want, slut." With these words, <<$boydesc>> suddenly grabs you by the hair and presses your face against his desk. "What I want is your lips around my dick, right now. Everyone already knows you''re a <<$gnikname>>, you better start acting like it or there will be consequences." He turns to his friends and says, "Come on boys, this whore doesn''t understand her place in life. It''s about time we show her."'
+			i = 0
+			:rand_jock_loop
+			r = rand(0,55)
+			$school_static_num = $school_static_num[r]
+			if npcPol[r] = 0 and grupTipe[r] = 2 and npc_rel[$school_static_num] > 50:
+				$jock = $npc_firstname[$school_static_num]
+!!can you make the name <<$jock>> be which ever jock is selected I would use the jock boy with the highest friendship.
+				'As you try and pull away <<$jock>> comes over and pulls the gopnik off you and turns to him. "Leave her alone!"'
+				'The gopnik turns towards him and narrows his eyes. "Or what pussy?"'
+				'<<$jock>> Steps up close crowding him. "Or I will fucking kick your ass right here!" Then they start shoving each other, but before more can happen a teacher interupts. "What''s going on here, break it up all of you." With that you word a thank you to <<$jock>> and slip away.'
+				act 'Continue': gt 'gschool_lessons', 'short_break'
+			elseif i < 50:
+				i += 1
+				jump 'rand_jock_loop'
+			else
+				act 'Resist':
+					*clr & cla
+					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/resistgop.jpg"></center>'
+					'You manage to pull away from him, but the others are blocking you. You back up but eventually find your back against one of the walls, you turn your head away from him. The boy leans in close to you. "Just do as your told or this will be a lot worse for you."'
+					act 'Go to the men''s room with them':gt 'gschool_events', 'toilet_bj'
+					act 'Threaten to scream':
+						*clr & cla
+						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/resistgop.jpg"></center>'
+						'"I''ll scream and when the teachers arrive I will tell him you tried to rape me." He fumes and leans in real close. "You''ll regreat this slut, I promise." With that he relents and leaves with the others going with him, all giving you looks you would rather not think about.'
+						act 'Continue': gt 'gschool_lessons', 'short_break'
+					end
+				end
+
+				act 'Go to the men''s room with them': gt 'gschool_events', 'toilet_bj'
+			end
+		end
+	end
+end
+
+if $ARGS[o] = 'toilet_bj':
+	cls
+	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/boysbathroom.jpg"></center>'
+	'You know perfectly well, that the group of boys are not going to let you escape. You meekly let the boys drag you to the men''s room, hoping for a miracle to save you. It never comes. When you arrive at the men''s room, one of the guys drives everyone else out; it''s just you and the Gopniks in there now. He goes outside and keeps watch, while two of the others reach for their pants. Several more came in, to watch.'
+	'The walls of the restroom are covered in crude texts, quite a few of them involving you in some way. On the wall of the restroom, you see written in particularly large letters, "<b><<$pcs_nickname>> <<$pcs_lastname>> = <<$gnikname>>"</b>.'
+	act 'Start sucking':
+		cls
+		if $boydesc = 'Vitek':
+			gs 'boyStat', 'A157'
+			gs 'cum_call', 'mouth', $boy,1
+			gs 'boyStat', 'A9'
+			gs 'cum_call', 'mouth', $boy,1
+			gs 'boyStat', 'A10'
+			gs 'cum_call', 'mouth', $boy,1
+			gs 'boyStat', 'A11'
+			gs 'cum_call', 'mouth', $boy,1
+		else
+			gs 'boyStat', 'A157'
+			gs 'cum_call', 'mouth', $boy,1
+			gs 'boyStat', 'A155'
+			gs 'cum_call', 'mouth', $boy,1
+			gs 'boyStat', 'A156'
+			gs 'cum_call', 'mouth', $boy,1
+			gs 'boyStat', 'A154'
+			gs 'cum_call', 'mouth', $boy,1
+		end
+		swallow += 4
+		'<center><video autoplay loop src="images/locations/pavlovsk/school/building/sex/rand_scoolboy6.mp4"></video></center>'
+		'You know there''s only one way they will let you go, and you dutifully kneel down. <<$boydesc>> takes his cock out of his pants, a second Gopnik stands to your right and takes his cock out too. You wrap your <<$liptalk3>> around <<$boydesc>>''s hard cock and start to suck. Not forgetting the other''s you spend some time alternating between the between all the cocks, stroking the ones you''re not sucking with your hand.'
+		'Finally, you feel a jet of sperm hit your throat and <<$boydesc>> says in a menacing voice, "Swallow it all, whore. If you miss a drop, you''re licking it up from the ground." You diligently swallow his sperm, doing your best to lick it all up from his dick and your lips. Finally <<$boydesc>> seems satisfied and tucks his cock back in his pants and swaps place with the one that was at the door, who comes over pulling out his cock to get his turn.'
+		*nl
+		'You immediately switch to the cock one of the other guys standing next to you, and receive another mouthful from him. You carefully swallow his load as well, which earns you a nod of approval and a pat on the head. "Good little whore." Then he moves aside as well, soon you finish of the last two guys and they both shoot their loads in your mouth as well. As you get up off your knees you hear one of them laugh. "Do you understand your place in life now? That place is right here, on your knees, whenever we say so. Got that?" You obediently nod, fully aware of the nasty taste of semen in the your mouth.'
+		gs 'arousal', 'bj', 20, 'group', 'sub'
+		gs 'arousal', 'end'
+		gs 'stat'
+		act 'Continue': gt 'gschool_lessons', 'short_break'
+	end
+end
+!!end of after school or during lunch.
+
+!!this should be a random event that can happen at lunch if I recall correctly.
+if $ARGS[0] = 'rand_scoolboy':
+	scoolboy = rand(1,5)
+	*clr & cla
+	if scoolboy = 1:
+		if DimaRudeBlock = 0 and rand(0,2) = 0:
+			r = 1
+		elseif rand(0,1) = 0:
+			r = 4
+		else
+			r = 28
+		end
+		$school_static_num = $school_static_num[r]
+		$rand_boy = $npc_firstname[$school_static_num]
+	elseif scoolboy = 3:
+		if artQW > 1 and rand(0,2) = 0:
+			r = 2
+		elseif rand(0,1) = 0:
+			r = 6
+		else
+			r = 36
+		end
+		$school_static_num = $school_static_num[r]
+		$rand_boy = $npc_firstname[$school_static_num]
+	elseif scoolboy = 4:
+		if pav_sex >= 50 and kotovLoveQW <= 0: gt 'gschool_events', 'rand_gopnic'
+	else
+		gs 'gschool_events', 'rand_boy_arg', 0, 1, 0, 0, 1, 0
+	end
+	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/<<r>>.jpg"></center>'
+	if npcsex[r] = 0:
+		if scoolboy = 3:
+!!Instead of random lets make it Artem(unless they are dating), Feofan, or Petka
+			'You can tell from the embarrassed look on his face and the admiring glances of his friends that <<$rand_boy>> was the one touching your ass. Looks like he scored some points in his group today.'
+		elseif scoolboy = 2:
+!!This one is fine if it is random but Fedor should be blocked if they are dating.
+			'You can tell from his disappointed expression that <<$rand_boy>> was the one groping your ass. Perhaps he was expecting something firmer, after hanging out with the athletic girls so much? Maybe you should work out more...'
+		elseif scoolboy = 1:
+!!instead of random have it be Dimka(though he is blocked if you erased the video tape he can get), Igor, Andrey, or Mefodiy(Not sure on him, I don''t know if he is openly gay or not, if he is not he might do it to hide being gay. You wanted to do a story with him so your call if he is included here.)
+			'Even though he tries to hide it as best he can, the proud grin the face of <<$rand_boy>> tells you that he was the one groping your ass.'
+		elseif scoolboy = 4:
+!!instead of random lets make it Vitek, Dan, or Vasily which uses group 1 in this pav_sex act. Or Roman, Lavrenti, Radomir or Arkadi then it is group two for the pav_sex act
+			'The brazen look on his face betrays <<$rand_boy>>, it must have been him touching your ass. Knowing him, he probably would''ve gone further if there weren''t so many people here.'
+		elseif scoolboy = 5:
+!!Random is fine since we only have two of them currently and Fedor if he becomes a outcast but again block Fedor if Sveta is still seeing him.
+			'<<$rand_boy>> is trembling slightly, his eyes shifting back and forth as he awkwardly tries to not be noticed by you. It must''ve been him.'
+			'"<<$rand_boy>>, are you out of your mind!?" you cry out, as the other boys burst out into laughter. You can see the panic in his face as he raises his hands in defense, rapidly apologizing:'
+			'"Please, I didn''t want to! They made me, I promise! I''m sorry!"'
+			'You stare him down for a few seconds, and you realize he''s not lying. You know <<$rand_boy>> already doesn''t have an easy time in school. You give the other guys a derogatory look as you let him off the hook, "Alright, I believe you. Just don''t do it again, okay?"'
+			'He thanks you and quickly takes his seat for the class, visibly relieved you didn''t report him.'
+			act 'Continue': gt 'gschool_lessons', 'short_break'
+			exit
+		else
+			'Wait a minute... you don''t recognize any of these people! You must be in the wrong classroom!'
+		end
+		if npc_rel[$school_static_num] <= 50 and scoolboy ! 3:
+!!this option doesn''t show up if it is a outcast since the text above says you believe him.
+			act 'Slap him across the face as hard as you can':
+				*clr & cla
+				npc_rel[$school_static_num] -= 5
+				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/rand_scoolboy1.jpg"></center>'
+				if mesec > 0:
+					'It''s bad enough he did it, it is worse because you are on your period. "You fucking pervert!" you shout angrily, and you slap him across the face as hard as you can. You shake the stinging out of your hand afterwards, while he clutches his cheek in agony. When he finally pulls his hands away from his face, the outline of your hand is clearly visible on his cheek that''s going to leave a bruise. The other boys laugh loudly, this is the best entertainment they''ve had during the break in a long time.'
+				else
+					'"You fucking pervert!" you shout angrily, and you slap him across the face as hard as you can. You shake the stinging out of your hand afterwards, while he clutches his cheek in agony. When he finally pulls his hands away from his face, the outline of your hand is clearly visible on his cheek that''s going to leave a bruise. The other boys laugh loudly, this is the best entertainment they''ve had during the break in a long time.'
+!!follow up text to either of the above based on the boy in question.
+					if $rand_boy = 'Dimka':
+						'Dimka rubs his face and glares at those laughing then glares at you. "You''ll pay for that bitch!" With that he walks off.'
+					elseif scoolboy = 1 or scoolboy = 2:
+						'After rubbing his face he looks at you in disbelief. "What the fuck was that for? I was just messing with you." Then he walks off.'
+					elseif scoolboy = 4 and $rand_boy ! 'Roman':
+						if gruptipe = 4:
+							'As the others laugh at him his eyes get hard and he raises his hand to obviously slap you. But your look back to him promises him a lot more than just a slap back from you if he does. He seems to hesitate, then he finally snorts a laugh obviously over it. He just gives you a look like he will get you back for this and then heads out.'
+						else
+							'As the others laugh at him his eyes get hard and he slaps you back, not as hard as he could. But hard enough your face is really stinging now. "Don''t fucking every slap me!" Then he storms off.'
+						end
+					end
+				end
+				act 'Continue': gt 'gschool_lessons', 'short_break'
+			end
+		elseif npc_rel[$school_static_num] > 50:
+!!can we change this so both slap him playfully and lift your skirt are options if you have a relationship of 50+ with the boy?
+			act 'Slap him playfully':
+				npc_rel[$school_static_num] -= 2
+				*clr & cla
+				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/rand_scoolboy2.jpg"></center>'
+				'You think to yourself, "<<$rand_boy>> ain''t so bad... but still, I can''t just let him do this."'
+				'You give him a playful slap in the face. It''s not hard enough to really hurt him but enough to send a message. The other boys laugh loudly, this is the best entertainment they''ve had during the break in a long time.'
+				act 'Continue': gt 'gschool_lessons', 'short_break'
+			end
+			act 'Lift your skirt':
+				*clr & cla
+				exhibition_exp += 5
+				inhib_exp += 2
+				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/rand_scoolboy3.jpg"></center>'
+				'You think to yourself, "<<$rand_boy>> is actually kind of cute..."'
+				'You pretend the other boys aren''t there and sweetly ask him, "Come on <<$rand_boy>>, you know you only have to ask do you want to see more?" as you slowly begin to lift your skirt. That made him the hero of your class, and all the boys look at your body, and then at him in admiration. Then you drop your skirt back down and wave him off, "Just kidding, you pervert! Not with all these other guys around, anyway." and you give him a cute wink as you sit down and get ready for your next class. When you look back, you can see his face is all flustered.'
+				act 'Continue': gt 'gschool_lessons', 'short_break'
+			end
+		else
+			act 'Continue': gt 'gschool_lessons', 'short_break'
+		end
+	elseif npcsex[r] = 1:
+		'You notice the confident stares of <<$rand_boy>> it must''ve been him.'
+		act 'Taunt him':
+			pcs_horny += 50
+			gs 'boyStat', $school_static_num
+			gs'stat'
+			*clr & cla
+			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/rand_scoolboy4.jpg"></center>'
+			'He''s kind of cute. You''re so horny right now, you decide to tease him and see if you can push him into doing more. You put your finger in your mouth and quietly ask him in a lewd voice, "Come on <<$rand_boy>>, is that all you have for me?"'
+			'His friends heard your question, and are now daring him to take you to the men''s room. He doesn''t seem so sure.'
+			act 'Tease him':
+				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/rand_scoolboy3.jpg"></center>'
+				'You can see him starting to get turned on and sure this is going to turn out good for him. Then you lean in real close and whisper in his ear, but loud enough for others to hear. "Because this is what I have for you." You start sliding your skirt slowly up your thighs, now all the boys are watching and just before it gets high enough to show anything you let it go and it drops back in place. "Which is nothing." You say with a giggle and laugh off, you hear one of the boys saying to his friend. "God so close. She is such a tease."'
+				act 'Continue': gt 'gschool_lessons', 'short_break'
+			end
+			act 'Drag him to the men''s room':
+				*clr & cla
+				grupvalue[1] -= 10
+				grupvalue[2] -= 10
+				grupvalue[3] -= 10
+				pav_sex +=30
+				exhibition_exp += 10
+				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/building/sex/boysex_tualet1.jpg"></center>'
+				'You give him a sweet smile and take him by the hand, pulling him into the men''s room. Slightly lifting up your skirt, you put his hand between your legs. The other boys all follow the two of you, and now you''re being fondled in front of a crowd.'
+				act 'Take his cock out of his pants': gt 'gschool_sex', 'rand_bj'
+			end
+			act 'Take him behind the school building':
+				grupvalue[1] -= 5
+				grupvalue[2] -= 5
+				grupvalue[3] -= 5
+				pav_sex +=10
+				gt 'gschool_sex', 'rand_sex'
+			end
+			if katschoolsex = 1:
+				act 'Go to the back room with the guy':
+					grupvalue[1] -= 5
+					grupvalue[2] -= 5
+					grupvalue[3] -= 5
+					pav_sex +=10
+					*clr & cla
+					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/kiss.jpg"></center>'
+					'You remember the back room that Katja showed you. When you tell <<$rand_boy>> about it, he takes your hand and tells you to guide him there. As soon as you pull the door shut behind you when you arrive there, <<$rand_boy>> pounces you and begins to kiss you.'
+					act 'Get on the couch':
+						*clr & cla
+						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/building/sex/boysex_secretroom1.jpg"></center>'
+						'Feeling playful, you push him away and quickly move to the couch, your back turned towards him. You make a show of really slowly lifting your skirt.'
+						if $pantyworntype = 'none':
+							'Since you''re not wearing panties, you reveal your bare pussy and puckered butthole to him, giving him a sly grin when you turn your head back. You innocently ask him, "Do you like what you see?"'
+						elseif $pantyworntype ! 'none':
+							'You quickly take your panties off and throw them in a corner. You slap your bare ass as you show off your pussy and anus and innocently ask him, "Do you like what you see?"'
+						end
+						act 'Get on your hands and knees':
+							*clr & cla
+							'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/building/sex/boysex_secretroom2.jpg"></center>'
+							'You lean forward as <<$rand_boy>> approaches. He greedily puts his hands on your ass, fondling your ass cheeks enthusiastically. His touch invokes shivers throughout your body, you''re so horny you don''t know what you''ll do if you don''t get some soon! Slowly but surely he moves his hands more towards your crack, and after a while two of his fingers are inside your dripping pussy.'
+							gs 'arousal', 'vaginal_finger', 5
+							act 'Lie down on your back':
+								*clr & cla
+								'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/building/sex/boysex_secretroom3.jpg"></center>'
+								'As you turn to lie down on your back, his fingers never leave you. The squishing of your wet hole being fingered fills the room, as he kisses you and teasingly runs his thumb over your clit. His fingers give you sweet pleasure, but you become frustrated once you see his evil grin: he has no intentions of actually making you orgasm this way.'
+								gs 'arousal', 'vaginal_finger', 5
+								act 'Beg him to fuck you':
+									*clr & cla
+									gs 'cum_call', '', $boy, 1
+									'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/building/sex/boysex_secretroom4.jpg"></center>'
+									$sexstart2orgazm5 = 'After a few minutes of being on the edge, you can''t hold back any more. You push his hand away and shift back to your hands and knees, begging for him to fuck you. <<$rand_boy>> has a mischievous grin on his face, thoroughly amused that his constant teasing got you this desperate. Nevertheless, he obliges: he guides the head of his hard cock against your pussy lips and immediately rams it in. Not giving you any chance to recover, he pounds you like his life depends on it.'
+									'You moan loudly perhaps a bit too loudly, because you soon find his hand covering your mouth, stifling your moans as he fucks you hard from behind.'
+									'The squeezing of your tight pussy around his dick sends him over the edge.'
+									gs 'arousal', 'vaginal', 10
+									'When he pulls out of you, a slow trickle of sperm leaks from your pussy.'
+									gs 'stat'
+									act 'Lick him clean':
+										*clr & cla
+										stat['bj'] += 1
+										gs'stat'
+										'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/building/sex/boysex_secretroom5.jpg"></center>'
+										'Realizing you have to get to class soon, you quickly scoot over and take his penis in your mouth. As you quickly lick him clean, you taste the mixture of his and your juices; it makes you feel kind of raunchy, and you wouldn''t mind having another go if it wasn''t for class starting any minute now. You quickly straighten your clothes and hand him his pants, and quickly check your hair before you both run to class.'
+										gs 'arousal', 'bj', 2
+										gs 'arousal', 'end'
+										act 'Continue': gt 'gschool_lessons', 'short_break'
+									end
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+		!! apmeet=6 This closure molestation nerds, Well I think so from the code, who knows if there is no correct.
+		!! dimarudeblock=1 This video stolen from Nosov.
+		if (apmeet = 6 and (r = 6 or r = 2)) or (dimarudeblock = 1 and r = 1):
+			*nl
+			'After all <<$rand_boy>> did with you, he''s still pinching your ass in school like that? He''s kinda cute, but still that''s just wrong!'
+			act 'Kick him in the balls':
+				npc_rel[$school_static_num] -= 10
+				grupvalue[4] += 5
+				*clr & cla
+				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/rand_scoolboy8.jpg"></center>'
+				'You kick <<$rand_boy>> in the balls, sending him and all of his classmates the message that you will not put up with this behavior in school. You watch him writhe in pain on the floor for a second, before collecting your things and making your way to your next class.'
+				act 'Continue': gt 'gschool_lessons', 'short_break'
+			end
+		end
+	end
+end
+!!end of lunch stuff.
+
+
+if $ARGS[0] = 'sweet':
+	if pcs_grades >= 90:
+		Sweet_talk = 10
+	elseif pcs_grades >= 80:
+		Sweet_talk = 5
+	elseif pcs_grades >= 70:
+		Sweet_talk = 0
+	elseif pcs_grades >= 60:
+		Sweet_talk = -5
+	elseif pcs_grades >= 60:
+		Sweet_talk = -10
+	else
+		Sweet_talk = -20
+	end
+	if grupTipe = 3: Sweet_talk += 10
+	if grupTipe = 2: Sweet_talk += 10
+	if grupTipe = 1: Sweet_talk += 5
+	if grupTipe = 4: Sweet_talk -= 10
+	Sweet_talk += (hotcat - 5) * 5
+end
+
+!!Random boy, arguments set to 1 mean included, groups are cool kids, jock, nerd, gopnik, outcast, teachers
+if $ARGS[0] = 'rand_boy_arg':
+	grup0 = 0
+	grup1 = 0
+	grup2 = 0
+	grup3 = 0
+	grup4 = 0
+	grup5 = 0
+	if ARGS[1] = 1:grup0 = 1
+	if ARGS[2] = 1:grup1 = 2
+	if ARGS[3] = 1:grup2 = 3
+	if ARGS[4] = 1:grup3 = 4
+	if ARGS[5] = 1:grup4 = 5
+	if ARGS[6] = 1:grup5 = 6
+	boy_counter = 0
+	:rnd_boy_loop
+	boy_counter += 1
+	r = rand(0,ARRSIZE('grupTipe'))
+	if npcPol[r] = 0 and (grupTipe[r] = grup0 or grupTipe[r] = grup1 or grupTipe[r] = grup2 or grupTipe[r] = grup3 or grupTipe[r] = grup4 or grupTipe[r] = grup5):
+		$school_static_num = $school_static_num[r]
+		$rand_boy = $npc_firstname[$school_static_num]
+		killvar 'boy_counter'
+	elseif boy_counter = 50:
+		$school_static_num = 0
+		$rand_boy = 'boy you don''t know'
+		killvar 'boy_counter'
+	else
+		jump 'rnd_boy_loop'
+	end
+end
+
+if $ARGS[0] = 'rand_boy_arg1':
+	grup0 = 0
+	grup1 = 0
+	grup2 = 0
+	grup3 = 0
+	grup4 = 0
+	grup5 = 0
+	if ARGS[1] = 1:grup0 = 1
+	if ARGS[2] = 1:grup1 = 2
+	if ARGS[3] = 1:grup2 = 3
+	if ARGS[4] = 1:grup3 = 4
+	if ARGS[5] = 1:grup4 = 5
+	if ARGS[6] = 1:grup5 = 6
+	boy_counter = 0
+	:rnd_boy1_loop
+	boy_counter += 1
+	r = rand(0,ARRSIZE('grupTipe'))
+	if npcPol[r] = 0 and (grupTipe[r] = grup0 or grupTipe[r] = grup1 or grupTipe[r] = grup2 or grupTipe[r] = grup3 or grupTipe[r] = grup4 or grupTipe[r] = grup5):
+		$school_static_num = $school_static_num[r]
+		$rand_boy1 = $npc_firstname[$school_static_num]
+		if $rand_boy = $rand_boy1: jump 'rnd_boy1_loop'
+		killvar 'boy_counter'
+	elseif boy_counter = 50:
+		$school_static_num = 0
+		$rand_boy1 = 'boy you don''t know'
+		killvar 'boy_counter'
+	else
+		jump 'rnd_boy1_loop'
+	end
+end
+
+if $ARGS[0] = 'rand_girl_arg':
+	grup0 = 0
+	grup1 = 0
+	grup2 = 0
+	grup3 = 0
+	grup4 = 0
+	grup5 = 0
+	if ARGS[1] = 1:grup0 = 1
+	if ARGS[2] = 1:grup1 = 2
+	if ARGS[3] = 1:grup2 = 3
+	if ARGS[4] = 1:grup3 = 4
+	if ARGS[5] = 1:grup4 = 5
+	if ARGS[6] = 1:grup5 = 6
+	girl_counter = 0
+	:rnd_girl_loop
+	girl_counter += 1
+	r = rand(0,ARRSIZE('grupTipe'))
+	if npcPol[r] = 1 and (grupTipe[r] = grup0 or grupTipe[r] = grup1 or grupTipe[r] = grup2 or grupTipe[r] = grup3 or grupTipe[r] = grup4 or grupTipe[r] = grup5):
+		$school_static_num = $school_static_num[r]
+		$rand_girl = $npc_firstname[$school_static_num]
+		killvar 'girl_counter'
+	elseif girl_counter = 50:
+		$school_static_num = 0
+		$rand_girl = 'girl you don''t know'
+		killvar 'girl_counter'
+	else
+		jump 'rnd_girl_loop'
+	end
+end
+
+if $ARGS[0] = 'rand_girl_arg1':
+	grup0 = 0
+	grup1 = 0
+	grup2 = 0
+	grup3 = 0
+	grup4 = 0
+	grup5 = 0
+	if ARGS[1] = 1:grup0 = 1
+	if ARGS[2] = 1:grup1 = 2
+	if ARGS[3] = 1:grup2 = 3
+	if ARGS[4] = 1:grup3 = 4
+	if ARGS[5] = 1:grup4 = 5
+	if ARGS[6] = 1:grup5 = 6
+	girl_counter = 0
+	:rnd_girl1_loop
+	girl_counter += 1
+	r = rand(0,ARRSIZE('grupTipe'))
+	if npcPol[r] = 1 and (grupTipe[r] = grup0 or grupTipe[r] = grup1 or grupTipe[r] = grup2 or grupTipe[r] = grup3 or grupTipe[r] = grup4 or grupTipe[r] = grup5):
+		$school_static_num = $school_static_num[r]
+		$rand_girl1 = $npc_firstname[$school_static_num]
+		if $rand_girl = $rand_girl1: jump 'rnd_girl1_loop'
+		killvar 'girl_counter'
+	elseif girl_counter = 50:
+		$school_static_num = 0
+		$rand_girl1 = 'girl you don''t know'
+		killvar 'girl_counter'
+	else
+		jump 'rnd_girl1_loop'
+	end
+end
+
+!!Random teacher, male
+if $ARGS[0] = 'rand_teacher_arg':
+	teacher_counter = 0
+	:rnd_teacher_loop
+	teacher_counter += 1
+	r = rand(0,ARRSIZE('grupTipe'))
+	if teacher_counter = 50:
+		$rand_teacher = 'Tsarev'
+		killvar 'teacher_counter'
+	elseif grupTipe[r] ! 6 or npcPol[r] = 1:
+		jump 'rnd_teacher_loop'
+	end
+	$rand_teacher = dyneval('$result = $npc_lastname[$school_static_num[<<r>>]]')
+end
+
+--- gschool_events ---------------------------------
+

@@ -1,0 +1,276 @@
+# bedr
+CLOSE ALL
+
+if home_owned[1] = 0:gt'street'
+$metkaM = ''
+$locM = 'bedr'
+$metka = ''
+$loc = 'bedr'
+$location_type = 'private'
+$locclass = 'bedr'
+act 'The corridor':
+	gt 'korr'
+end
+
+clr
+minut += 1
+housrA = 1
+housrMir = 1
+elektro += 1
+gs 'stat'
+if night_mode = 1:
+	fcolor = rgb(255, 255, 255)
+	bcolor = rgb(0, 0, 0)
+	lcolor = rgb(106, 90, 205)
+else
+	fcolor = rgb(0, 0, 0)
+	bcolor = rgb(255, 255, 255)
+	lcolor = rgb(106, 90, 205)
+end
+
+if pcs_magik >= 6 and spellbefshild = 1 and tobiQW = 0:gt 'tobiQW', 'start'
+
+'<center><b><font color="maroon">Bedroom</font></b></center>'
+
+if rembedr = 0:
+	'<center><img <<$set_imgh>> src="images/locations/city/residential/apartment/bedr.jpg"></center>'
+	'A tight, little room with a <a href="exec:gt ''bed'', ''start''">double bed</a> and an <a href="exec:gt ''budilnik'', ''start''">alarm clock</a>.'
+	'An old wooden <a href="exec:gt ''wardrobe'', ''start''">wardrobe</a> (where you can choose outfits and organize your clothing) stands near the door to the corridor.The windows are closed with faded, heavy curtains.'
+else
+	'<center><img <<$set_imgh>> src="images/locations/city/residential/apartment/bedr2.jpg"></center>'
+	'A bright and beautiful room, with a large, kingsized <a href="exec:gt ''bed'', ''start''">double bed</a>.'
+	'A modern <a href="exec:gt ''wardrobe'', ''start''">wardrobe</a> (where you can choose outfits and organize your clothing) stands near the door to the corridor. Against the wall, stands a make-up table with a <a href="exec:gt ''mirror'', ''start''">mirror</a> on it.'
+end
+
+if $clothingworntype = 'nude':
+	$nude = 'Go into the corridor'
+else
+	$nude = 'Get dressed'
+end
+
+if husbandrinkday = daystart:
+	if husbanstrapon = 1:'Your drunken husband sleeps on the bed, with a butt plug up his ass.'
+	if husbanstrapon = 2:'Your drunken husband sleeps on the bed, after you''ve put a dildo up his ass.'
+	if husbanstrapon = 3:'Your drunken husband sleeps on the bed, after you''ve fucked him with a strapon.'
+end
+if husband > 0 and husbandrink ! 10 and husbandrinkday ! daystart:
+	if hour > 22 or hour < 7:'<a href="exec:gt ''husb'', ''start''">Husband is sleeping on the bed.</a>'
+end
+
+if husbandrink = 11 and husbanstrapon > 0 and husbandrinkday ! daystart:
+	cla
+	'Your husband approaches you and asks, "Honey, my ass hurts, like a lot, do you know why?"'
+
+	act 'Lie':
+		cla
+		husbanstrapon = 0
+		'"No dear, I do''nt know anything", you answer, trying to look as innocent as possible. He shruggs and walks away'
+
+		act 'Finish':gt 'bedr'
+	end
+
+	act 'Confess':
+		cla
+
+		if husbanstrapon = 1:'"Honey, you were so drunk last night, that I decided to teach you a lesson and put a anal plug up your ass. I''ll never do it again, forgive me please", you say.'
+		if husbanstrapon = 2:'"Dear, I wanted to make you happy, so I started to give you a blowjob, but you didn''t cum, so I inserted a finger into your asshole, but you still didn''t cum, then I took a small dildo and some lube and put in your ass, I''ve never seen you cum like that before. I even gave you a secong blowjob. Forgive me, but you seemed to enjoy it so much, that I could''t stop. I just wanted to make you happy.", you lie to him.'
+		if husbanstrapon = 3:'"Dear, I wanted to make you a happy, so I started to give you a blowjob, but you didn''t cum, so I inserted a finger into your asshole, but you still didn''t cum. When I put in a second finger you began to move your ass towards my fingers moaning heavily, I thought that you like it, so I put on a strapon. You enjoyed it so much that you finished over and over again, and I continued until I was tired. I then licked all the cum off your body and went to sleep. I just wanted to make you happy and you were enjoying it. Forgive me please", you lie him.'
+
+		if harakHusb = 2:
+			husbizvradd = 0
+			husbharmin = 0
+			husbandMark = 0
+			husband = 0
+			divorced += 1
+			fingal += 1
+			minut += 120
+			'The next thing you feel is a powerful punch in the face. When you come back to your senses, you realize that your husband and his things are gone. He left a note, telling you he is going to file for divorce.'
+		elseif harakHusb = 1:
+			if husbanstrapon = 1:
+				'"Look, do not do it again!", he says and storms off angry.'
+			elseif husbanstrapon = 2:
+				husbizvradd += 1
+				'"Do not do it again, I''m still a man and I''m not supposed to get fucked in my ass!", he says and storms off angry.'
+
+			elseif husbanstrapon = 3:
+				if pcs_intel > 40 or izvratH = 1:
+					husbharmin += 1
+					'"Are you serious, I''m not some kind of bitch, that wants to get fucked up the arse!" he yells at you. You start to cry and say that you only wanted to please him, he looks at you and says, sighting, "Don''t cry sweetie, I believe you, but do not do it again."'
+				elseif pcs_intel <= 40:
+					husbizvradd = 0
+					husbharmin = 0
+					husbandMark = 0
+					husband = 0
+					divorced += 1
+					fingal += 1
+					minut += 120
+			'The next thing you feel is a powerful punch in the face. When you come back to your senses, you realize that your husband and his things are gone. He left a note, telling you he is going to file for divorce.'
+				end
+			end
+		elseif harakHusb = 0:
+			if husbanstrapon = 1:
+				'"I''m sorry I will not get that drunk again, " he says and leaves the room.'
+			elseif husbanstrapon = 2:
+				husbizvradd += 1
+				'"You''re so thoughtful, instead of scolding me, you still wanted to make me happy, thank you dear." he says and leaves the room.'
+			elseif husbanstrapon = 3:
+				husbizvradd += 1
+				'"Did I really like it?" he asks. You nod.'
+				'"Well then, thank you dear, but the next time you should ask me first!" he says and leaves the room.'
+			end
+		end
+
+		act 'Finish':husbanstrapon = 0 & gt 'bedr'
+	end
+end
+
+if husbandrink = 10 and hour > 20 and hour < 23 and husbanstrapon = 0:
+	'<<$husName>> came home drunk and fell asleep on the bed.'
+	'<i>That pig!</i>, you think, but an idea springs to your mind, <i>Maybe I should teach him a lesson, so he won''t get drunk again</i>'
+
+	if analplug = 1:
+		act 'Insert a butt plug in his ass':
+			cla
+			*clr
+			husbandrinkday = daystart
+			husbandrink = 11
+			husbanstrapon = 1
+			minut += 10
+			'<center><img <<$set_imgh>> src="images/characters/city/husband/sex/h0.jpg"></center>'
+
+			if analplugin = 1:'You pull the plug out of your own anus and shove it up his ass.'
+			if analplugin = 0:'You go take an anal plug and put it into his ass.'
+
+			'<<$husName>> moved, but he doesn''t wake up'
+
+			if dildo > 0:
+				act 'Insert a dildo into his ass':
+					cla
+					*clr
+					husbanstrapon = 2
+					swallow += 1
+					spafinloc = 12
+					gs 'cum_manage'
+					'<center><img <<$set_imgh>> src="images/characters/city/husband/sex/h1.jpg"></center>'
+					'You pull out the plug and replace with it with a dildo, <<$husName>> did not even budge. You slowly move the dildo in and out, trying not to wake him up. You notice his cock starts to get rock hard, and <<$husName>> starts to moan softly, but is still asleep. With the dildo in his ass, his dick starts to throb, it seems like he is going to cum. You take his dick in your mouth and you don''t need to suck on it for long. He starts to cum, you swallow it and completely clean his cock. You carefully put back on his underpants.'
+
+					gs 'arousal', 'bj', 20
+					gs 'arousal', 'anal_dildo_give', 20
+					minut -= 20
+					gs 'arousal', 'end'
+					gs 'stat'
+
+					act 'Finish':gt 'bedr'
+				end
+			end
+
+			if strapon > 0:
+				act 'Use the strapon':
+					cla
+					*clr
+					minut += 20
+					husbanstrapon = 3
+					swallow += 1
+					spafinloc = 12
+					gs 'cum_manage'
+					pcs_horny += 30
+					'<center><img <<$set_imgh>> src="images/characters/city/husband/sex/h2.jpg"></center>'
+					'You put on the strapon and pull out the butt plug. You gently move the shaft of the strapon inside his ass, <<$husName>>  moves but doesn''t wake up. You continue to slowly move it in and out, trying not to wake him. You notice his cock is getting rock hard and <<$husName>> starts to moan softly, still not waking up. Hopeing that he won''t wake up, you increase your speed and push the entire length of the strapon into his has. You see his hard dick and you start to stroke it in addition to pounding him like a little bitch. Realizing he is not far from cumming, you pull out and funish him by giving him a blowjob. He cums inside it, you swallow it down and clean his cock. You carefully put back on his underpants.'
+
+					gs 'arousal', 'bj', 20
+					gs 'arousal', 'anal_strap_give', 20
+					minut -= 20
+					gs 'arousal', 'end'
+					gs 'stat'
+
+					act 'Finish':gt 'bedr'
+				end
+			end
+
+			act 'Finish':gt 'bedr'
+		end
+	end
+end
+
+if sick >= 1:
+	act 'Go to sleep (You''re sick)':
+		cla
+		*clr
+		minut += 240
+		pcs_sleep += 40
+		sick -= 1
+
+		if sick < 0:sick = 0
+
+		gs 'stat'
+		picrand = rand(11, 17)
+		'<center><img <<$set_imgh>> src="images/locations/shared/apartment/event/sick/sick<<picrand>>.jpg"></center>'
+		'You are lying in bed, coughing, sneezing and blowing your nose'
+
+		act 'Measure temperature':gt 'bedr'
+	end
+end
+
+if dur > 0:'You have hidden <<dur>> doses pale lady'
+
+if dur > 0 and narkday ! daystart:
+	act 'Take some coke (0:05)':
+		cla
+		*clr
+		minut += 5
+		narkday = daystart
+		pcs_health = pcs_vital * 10 + pcs_stren * 5
+		pcs_willpwr = pcs_intel * 5 + pcs_sprt * 5
+		pcs_mood = 100
+		pcs_horny = 100
+		nark += 10
+		dur -= 1
+		'<center><img <<$set_imgh>> src="images/shared/drugs/dur.jpg"></center>'
+		'You take a small dose of coke and not long after you just start to feel great.'
+
+		act 'Leave':gt $curloc
+	end
+end
+
+if pcs_horny >= 50:
+	act 'Masturbate':gt 'selfplay', 'start'
+end
+
+if pornMagazine > 0:'Under your mattress you hide a porn magazine.'
+
+gs 'events', 'read_porn'
+gs 'subkid'
+
+if pcs_sleep <= 80:
+	if $clothingworntype = 'nude':
+		$sleep_txt = 'Go to sleep'
+	else
+		$sleep_txt = 'Undress and go to sleep'
+	end
+	if succubusQW = 2:
+		act '<<$sleep_txt>>':
+			if $clothingworntype ! 'nude': gs 'clothing', 'strip'
+			gt 'bed2', 'succhoice'
+		end
+	else
+		act '<<$sleep_txt>>':
+			if disable_autosave = 0:
+				if StoryLine = 0:
+					savegame 'autosave.sav'
+				else
+					savegame 'autosave_alt.sav'
+				end
+			end
+			if $clothingworntype ! 'nude': gs 'clothing', 'strip'
+			if magf2bdo = 2:
+				gt 'bed2', 'magbstchoice'
+			else
+				gt 'bed2', 'sleep'
+			end
+		end
+		killvar '$sleep_txt'
+	end
+end
+
+--- bedr ---------------------------------
+

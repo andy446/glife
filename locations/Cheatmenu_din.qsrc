@@ -1,0 +1,2337 @@
+# Cheatmenu_din
+
+!All the active dynamics for the cheat menu are here
+$cheatmenu['empty'] = {
+	!Yes, intentionally empty, do not remove it
+}
+
+$cheatmenu['work'] = {
+	if cheatWork = 0:
+		cheatWork = 1
+		dynamic $cheatmenu['permanent']
+		exit
+	elseif cheatWork = 1:
+		cheatWork = 0
+		dynamic $cheatmenu['permanent']
+	end
+}
+
+$cheatmenu['hair'] = {
+	if cheatHapri = 0:
+		cheatHapri = 1
+		dynamic $cheatmenu['permanent']
+		exit
+	elseif cheatHapri = 1:
+		cheatHapri = 0
+		dynamic $cheatmenu['permanent']
+	end
+}
+
+$cheatmenu['enema'] = {
+	if cheatKlisma = 0:
+		cheatKlisma = 1
+		dynamic $cheatmenu['permanent']
+		exit
+	elseif cheatKlisma = 1:
+		cheatKlisma = 0
+		dynamic $cheatmenu['permanent']
+	end
+}
+
+$cheatmenu['nomakeup'] = {
+	if cheatNomakeup = 0:
+		cheatNomakeup = 1
+		dynamic $cheatmenu['permanent']
+		exit
+	elseif cheatNomakeup = 1:
+		cheatNomakeup = 0
+		dynamic $cheatmenu['permanent']
+	end
+}
+
+$cheatmenu['nosweat'] = {
+	if cheatNoSweat = 0:
+		cheatNoSweat = 1
+		dynamic $cheatmenu['permanent']
+		exit
+	elseif cheatNoSweat = 1:
+		cheatNoSweat = 0
+		dynamic $cheatmenu['permanent']
+	end
+}
+
+$cheatmenu['noEat'] = {
+	if cheatNoEat = 0:
+		cheatNoEat = 1
+		dynamic $cheatmenu['permanent']
+		exit
+	elseif cheatNoEat = 1:
+		cheatNoEat = 0
+		dynamic $cheatmenu['permanent']
+	end
+}
+
+$cheatmenu['noDrink'] = {
+	if cheatNoDrink = 0:
+		cheatNoDrink = 1
+		dynamic $cheatmenu['permanent']
+		exit
+	elseif cheatNoDrink = 1:
+		cheatNoDrink = 0
+		dynamic $cheatmenu['permanent']
+	end
+}
+
+$cheatmenu['noSleep'] = {
+	if cheatNoSleep = 0:
+		cheatNoSleep = 1
+		dynamic $cheatmenu['permanent']
+		exit
+	elseif cheatNoSleep = 1:
+		cheatNoSleep = 0
+		dynamic $cheatmenu['permanent']
+	end
+}
+
+$cheatmenu['noFat'] = {
+	if cheatNoFat = 0:
+		cheatNoFat = 1
+		dynamic $cheatmenu['permanent']
+		exit
+	elseif cheatNoFat = 1:
+		cheatNoFat = 0
+		dynamic $cheatmenu['permanent']
+	end
+}
+
+$cheatmenu['health'] = {
+	if cheatHealth = 0:
+		cheatHealth = 1
+		dynamic $cheatmenu['permanent']
+		exit
+	elseif cheatHealth = 1:
+		cheatHealth = 0
+		dynamic $cheatmenu['permanent']
+	end
+}
+
+$cheatmenu['Bandit'] = {
+	if cheatBandit = 0:
+		cheatBandit = 1
+		dynamic $cheatmenu['permanent']
+		exit
+	elseif cheatBandit = 1:
+		cheatBandit = 0
+		dynamic $cheatmenu['permanent']
+	end
+}
+
+$cheatmenu['age'] = {
+	:tooyoung
+	age = year - ((pcs_dob - (pcs_dob mod 10000)) / 10000)
+	if ((month * 100) + day) <= pcs_dob mod 10000: age -= 1
+	if age < 15: pcs_dob -= 10000 & jump 'tooyoung'
+	dynamic $cheatmenu['looks']
+}
+
+$cheatmenu['visualage'] = {
+	vidage = input("For how many years you want to look?")
+	if vidage <= 14: vidage = 14
+	dynamic $cheatmenu['looks']
+}
+
+$cheatmenu['money'] = {
+	money = input("How much money do you want to have?")
+	if money < 0:money = 0
+	dynamic $cheatmenu['status']
+}
+
+$cheatmenu['bodyMod'] = {
+	clr
+	pl '<center><a href="exec:dynamic $cheatmenu"><b>Cheat menu</b></a></center>'
+	pl ''
+	pl '<center><a href="exec:dynamic $cheatmenu[''status'']">Return to last menu</a></center>'
+	pl ''
+	pl '<center><b><font color="red">WARNING!</font></b></center>'
+	pl ''
+	pl 'Using this function to change body shape does not resize clothes and may cause other adverse interactions.'
+	pl 'Use at your own risk!'
+	pl ''
+	pl 'You are currently <<$body>>.'
+	pl ''
+	pl 'You may select from the following sizes:'
+	pl ''
+	pl 'starving (No, you may not select ''starving'', it''s here to show where the scale starts)'
+	pl ''
+	if salocatnow ! 1:
+		pl '<a href="exec:salo = 20 & gs ''body_shape'', ''softreset'' & gs ''stat'' & dynamic $cheatmenu[''bodyMod'']"><<$bodimgsets[((bodset * 10) + 1)]>></a>'
+		pl ''
+	end
+	if salocatnow ! 2:
+		pl '<a href="exec:salo = 40 & gs ''body_shape'', ''softreset'' & gs ''stat'' & dynamic $cheatmenu[''bodyMod'']"><<$bodimgsets[((bodset * 10) + 2)]>></a>'
+		pl ''
+	end
+	if salocatnow ! 3:
+		pl '<a href="exec:salo = 60 & gs ''body_shape'', ''softreset'' & gs ''stat'' & dynamic $cheatmenu[''bodyMod'']"><<$bodimgsets[((bodset * 10) + 3)]>></a>'
+		pl ''
+	end
+	if salocatnow ! 4:
+		pl '<a href="exec:salo = 80 & gs ''body_shape'', ''softreset'' & gs ''stat'' & dynamic $cheatmenu[''bodyMod'']"><<$bodimgsets[((bodset * 10) + 4)]>></a>'
+		pl ''
+	end
+	if salocatnow ! 5:
+		pl '<a href="exec:salo = 100 & gs ''body_shape'', ''softreset'' & gs ''stat'' & dynamic $cheatmenu[''bodyMod'']"><<$bodimgsets[((bodset * 10) + 5)]>></a>'
+		pl ''
+	end
+	if salocatnow ! 6:
+		pl '<a href="exec:salo = 120 & gs ''body_shape'', ''softreset'' & gs ''stat'' & dynamic $cheatmenu[''bodyMod'']"><<$bodimgsets[((bodset * 10) + 6)]>></a>'
+		pl ''
+	end
+	if salocatnow ! 7:
+		pl '<a href="exec:salo = 140 & gs ''body_shape'', ''softreset'' & gs ''stat'' & dynamic $cheatmenu[''bodyMod'']"><<$bodimgsets[((bodset * 10) + 7)]>></a>'
+		pl ''
+	end
+}
+
+$cheatmenu['addict'] = {
+	if NarkImmune = 0:
+		NarkImmune = 1
+		dynamic $cheatmenu['permanent']
+		exit
+	elseif NarkImmune = 1:
+		NarkImmune = 0
+		dynamic $cheatmenu['permanent']
+	end
+}
+
+$cheatmenu['cheatHorny'] = {
+	if cheatHorny = 0:
+		cheatHorny = 1
+		dynamic $cheatmenu['permanent']
+		exit
+	elseif cheatHorny = 1:
+		cheatHorny = 0
+		dynamic $cheatmenu['permanent']
+	end
+}
+$cheatmenu['slutshot'] = {
+	if cheatSlut = 0:
+		cheatSlut = 1
+		cycle = 6
+		dynamic $cheatmenu['permanent']
+		exit
+	elseif cheatSlut = 1:
+		cheatSlut = 0
+		cycle = 0
+		dynamic $cheatmenu['permanent']
+	end
+}
+
+$cheatmenu['cheat_NoPregnancy'] = {
+	if cheat_NoPregnancy = 1:
+		killvar 'cheat_NoPregnancy'
+		$cheat_NoPregnancy = 'YES'
+		dynamic $cheatmenu['permanent']
+	else
+		cheat_NoPregnancy = 1
+		$cheat_NoPregnancy = 'NO'
+		dynamic $cheatmenu['permanent']
+	end
+}
+
+$cheatmenu['Vibrator'] = {
+	if cheatVib = 0:
+		cheatVib = 1
+		bedvibrator = 1
+		dynamic $cheatmenu['permanent']
+	elseif cheatVib = 1:
+		cheatVib = 0
+		bedvibrator = 0
+		dynamic $cheatmenu['permanent']
+	end
+}
+
+$cheatmenu['BimboCloth'] = {
+	if $cheatBimbo = '<b>ON</b>':
+		$cheatBimbo = 'OFF'
+	elseif $cheatBimbo = 'OFF':
+		$cheatBimbo = '<b>ON</b>'
+	end
+}
+
+$cheatmenu['permanent'] = {
+	gs'stat'
+	clr
+	if cheatWork = 0:$cheatWork = 'OFF'
+	if cheatWork = 1:$cheatWork = '<b>ON</b>'
+	if cheatHapri = 0:$cheatHapri = 'OFF'
+	if cheatHapri = 1:$cheatHapri = '<b>ON</b>'
+	if cheatKlisma = 0:$cheatKlisma = 'OFF'
+	if cheatKlisma = 1:$cheatKlisma = '<b>ON</b>'
+	if cheatNomakeup = 0:$cheatNomakeup = 'OFF'
+	if cheatNomakeup = 1:$cheatNomakeup = '<b>ON</b>'
+	if cheatNoSweat = 0:$cheatNoSweat = 'OFF'
+	if cheatNoSweat = 1:$cheatNoSweat = '<b>ON</b>'
+	if cheatNoEat = 0:$cheatNoEat = 'OFF'
+	if cheatNoEat = 1:$cheatNoEat = '<b>ON</b>'
+	if cheatNoDrink = 0:$cheatNoDrink = 'OFF'
+	if cheatNoDrink = 1:$cheatNoDrink = '<b>ON</b>'
+	if cheatNoSleep = 0:$cheatNoSleep = 'OFF'
+	if cheatNoSleep = 1:$cheatNoSleep = '<b>ON</b>'
+	if cheatNoFat = 0:$cheatNoFat = 'OFF'
+	if cheatNoFat = 1:$cheatNoFat = '<b>ON</b>'
+	if cheatHealth = 0:$cheatHealth = 'OFF'
+	if cheatHealth = 1:$cheatHealth = '<b>ON</b>'
+	if NarkImmune = 0:$NarkImmune = 'OFF'
+	if NarkImmune = 1:$NarkImmune = '<b>ON</b>'
+	if cheatSlut = 0:$cheatSlut = 'NO'
+	if cheatSlut = 1:$cheatSlut = '<b>YES</b>'
+	if cheatHorny = 0:$cheatHorny = 'NO'
+	if cheatHorny = 1:$cheatHorny = '<b>YES</b>'
+	if bedvibrator = 0:$cheatVib = 'NO'
+	if bedvibrator = 1:$cheatVib = '<b>YES</b>'
+	if cheatBandit = 0:$cheatBandit = 'NO'
+	if cheatBandit = 1:$cheatBandit = '<b>YES</b>'
+	if cheat_NoPregnancy = 0:$cheat_NoPregnancy = 'NO'
+	if cheat_NoPregnancy = 1:$cheat_NoPregnancy = '<b>YES</b>'
+	if $cheatBimbo = '':$cheatBimbo = 'OFF'
+
+	pl'<center><a href="exec:dynamic $cheatmenu"><b>Cheat menu</b></a></center>'
+	nl
+	pl'More than one job is possible: <a href="exec:dynamic $cheatmenu[''work'']"><<$cheatWork>></a>'
+	pl'Always combed: <a href="exec:dynamic $cheatmenu[''hair'']"><<$cheatHapri>></a>'
+	pl'Always do an enema: <a href="exec:dynamic $cheatmenu[''enema'']"><<$cheatKlisma>></a>'
+	pl'Cosmetics never smeared: <a href="exec:dynamic $cheatmenu[''nomakeup'']"><<$cheatNomakeup>></a>'
+	pl'Never sweat: <a href="exec:dynamic $cheatmenu[''nosweat'']"><<$cheatNoSweat>></a>'
+	pl'Never eat: <a href="exec:dynamic $cheatmenu[''noEat'']"><<$cheatNoEat>></a>'
+	pl'Never drink: <a href="exec:dynamic $cheatmenu[''noDrink'']"><<$cheatNoDrink>></a>'
+	pl'Never sleep: <a href="exec:dynamic $cheatmenu[''noSleep'']"><<$cheatNoSleep>></a>'
+	pl'Never lose or gain weight: <a href="exec:dynamic $cheatmenu[''noFat'']"><<$cheatNoFat>></a>'
+	pl'Disable STDs: <a href="exec:dynamic $cheatmenu[''health'']"><<$cheatHealth>></a>'
+	pl'Never get addicted: <a href="exec:dynamic $cheatmenu[''addict'']"><<$NarkImmune>></a>'
+	if Enable_sforma = 1:
+		pl'Allow any clothing for school: <a href="exec:Enable_sforma = 0 & dynamic $cheatmenu[''permanent'']">ON</a>'
+	else
+		pl'Allow any clothing for school: <a href="exec:Enable_sforma = 1 & dynamic $cheatmenu[''permanent'']">OFF</a>'
+	end
+	nl
+
+	pl'Enable sleeping with vibrator inserted: <a href="exec:dynamic $cheatmenu[''Vibrator'']"><<$cheatVib>></a>'
+	pl'Bandit always horny: <a href="exec:dynamic $cheatmenu[''Bandit'']"><<$cheatBandit>></a>'
+	pl'Bimbo clothing without becoming bimbo: <a href="exec:dynamic $cheatmenu[''BimboCloth''] & dynamic $cheatmenu[''permanent'']"><<$cheatBimbo>></a>'
+	nl
+	pl'Set arousal to always be at 50 or more: <a href="exec:dynamic $cheatmenu[''cheatHorny'']"><<$cheatHorny>></a>'
+	pl'Turn off periods (and pregnancies): <a href="exec:dynamic $cheatmenu[''slutshot'']"><<$cheatSlut>></a>'
+	pl'Impregnation is no longer in the game: <a href="exec:dynamic $cheatmenu[''cheat_NoPregnancy'']"><<$cheat_nopregnancy>></a>'
+	nl
+	if cyccustom = 0:pl'Automatic period tracking: <a href="exec:dynamic $cheatmenu[''auto_period'']">OFF</a>'
+	if cyccustom = 1:pl'Automatic period tracking: <a href="exec:dynamic $cheatmenu[''auto_period'']">ON</a>'
+	nl
+	if Enable_autotampon = 1:
+		pl'Automatic cheat on Tampon: <a href="exec:Enable_autotampon = 0 & dynamic $cheatmenu[''permanent'']">ON</a>'
+	else
+		pl'Automatic cheat on Tampon: <a href="exec:Enable_autotampon = 1 & dynamic $cheatmenu[''permanent'']">OFF</a>'
+	end
+	nl
+	if Enable_nodream > 0:
+		pl'No dream chance: <a href="exec:Enable_nodream=input(''Enter no dream chance (%)'') & dynamic $cheatmenu[''permanent'']"><<Enable_nodream>>%</a>, <a href="exec:Enable_nodream=0 & dynamic $cheatmenu[''permanent'']">ON</a>'
+	else
+		pl'No dream chance: <a href="exec:Enable_nodream=input(''Enter no dream chance (%)'') & dynamic $cheatmenu[''permanent'']">OFF</a>'
+	end & !1.2.3 new function
+	if Enable_skipnoevclass > 0:
+		pl'Only allow Class event with (Anatoly E.), with chance : <a href="exec:Enable_skipnoevclass=input(''Enter event chance (%)'') & dynamic $cheatmenu[''permanent'']"><<Enable_skipnoevclass>>%</a>, <a href="exec:Enable_skipnoevclass=0 & dynamic $cheatmenu[''permanent'']">ON</a>'
+	else
+		pl'Only allow Class event with (Anatoly E.): <a href="exec:Enable_skipnoevclass=input(''Enter event chance (%)'') & dynamic $cheatmenu[''permanent'']">OFF</a>'
+	end
+	nl
+	pl'<B>WARNING</B>:some events need cum/sweat/non-Virgin to trigger. These cheat may cause bug'
+	!{
+	if Enable_clearcum = 1:
+		pl' <a href="exec:Enable_clearcum = 0 & dynamic $cheatmenu[''permanent'']">Clean cum Instantly: ON</a>'
+	else
+		pl' <a href="exec:Enable_clearcum = 1 & dynamic $cheatmenu[''permanent'']">Clean cum Instantly: OFF</a>'
+	end
+	}
+}
+
+$cheatmenu['status'] = {
+	gs'stat'
+	clr
+
+	pl'<center><a href="exec:dynamic $cheatmenu"><b>Cheat menu</b></a></center>'
+	nl
+	pl'Set alcohol levels:'
+	pl'<a href="exec:alko = 0 & dynamic $cheatmenu[''status'']">Sober</a> <a href="exec:alko = 2 & dynamic $cheatmenu[''permanent'']">Tipsy</a> <a href="exec:alko = 4 & dynamic $cheatmenu[''permanent'']">Drunk</a> <a href="exec:alko = 7 & dynamic $cheatmenu[''permanent'']">Wasted</a> <a href="exec:alko = 11 & dynamic $cheatmenu[''permanent'']">Barely coherent</a>'
+	nl
+	pl'<a href="exec:pcs_horny = 100 & dynamic $cheatmenu[''status'']">Max arousal</a>'
+	pl'<a href="exec:pcs_horny = 0 & dynamic $cheatmenu[''status'']">Min arousal</a>'
+	pl'<a href="exec:dynamic $cheatmenu[''bodyMod'']">Body Modification</a>'
+	nl
+	pl'<a href="exec:pcs_health = pcs_vital*10 + pcs_stren*5+1000 & pcs_willpwr = pcs_intel*5 + will*5+1000 & pcs_manna = (pcs_intel*pcs_magik) + pcs_magik*100 + pcs_vital*10 + rikudo & vgape = 0 & agape = 0 & nippain = 0 & dynamic $cheatmenu">Full restoration of Health, Manna, Reason.</a>'
+	pl'<a href="exec:pcs_sleep = 100 & pcs_stam = stammax & pcs_mood = 100 & dynamic $cheatmenu">Full restoration of Sleep, Stamina, Mood.</a>'
+	pl'<a href="exec:pcs_energy = 200 & pcs_hydra = 200 & dynamic $cheatmenu">Full restoration of Hunger and Water.</a>'
+	pl'<a href="exec:dynamic $cheatmenu[''money'']">Change money</a>'
+	pl'<a href="exec:money = 0 & dynamic $cheatmenu">Zero money</a>'
+	pl'<a href="exec:dynamic $cheatmenu[''std_cure'']">Cure all stds</a>'
+	pl'<a href="exec:vgape = 0 & agape = 0 & nippain = 0 & painpub = 0 & pirs_pain_ton = 0 & mesec = 0 & spanked = 0 & SLomka = 0 & Narkoman = 0 & strongnark = 0 & SNarkTimes = 0 & nark = 0 & fingal = 0 & mosol = 0 & frost = 0 & sick = 0 & hypnoAddict = 0 & hypnoWithdrawal = 0 & dynamic $cheatmenu[''std_cure''] & dynamic $cheatmenu[''pain_killer'']">Cure all ailments.</a>'
+	nl
+	pl'<a href="exec:dynamic $cheatmenu[''force_preg'']">Force random pregnancy</a>'
+	pl'<a href="exec:dynamic $cheatmenu[''remove_preg'']">Remove pregnancy</a>'
+	pl'<a href="exec:dynamic $cheatmenu[''cycle'']"><b>Set stage of menstrual cycle</b></a>'
+	pl '<a href="exec:gs''cum_cleanup'',''reset''">Remove all cum</a>'
+}
+
+$cheatmenu['avatar_hair_set'] = {
+	$av_hair = input("Input your custom hair:")
+	if $av_hair='':exit
+	avatar_hair = 1
+	dynamic $cheatmenu['looks']
+}
+
+$cheatmenu['rename'] = {
+	$pcs_firstname = input("What is your first name? (Leave blank for default)")
+
+	if $pcs_firstname = '':$pcs_firstname = 'Svetlana'
+
+	$pcs_lastname = input("What is your last name? (Leave blank for default)")
+
+	if $pcs_lastname = '':$pcs_lastname = 'Lebedev'
+
+	!!!0.2.6 addition
+	$pcs_nickname = input("What is your nickname? (Note: If you chose a custom name, you have to enter something here!)")
+
+	if $pcs_nickname = '':$pcs_nickname = 'Sveta'
+}
+
+$cheatmenu['looks'] = {
+	gs'stat'
+	clr
+	pl'<center><a href="exec:dynamic $cheatmenu"><b>Cheat menu</b></a></center>'
+	nl
+	pl'<<$pcs_firstname>> <<$pcs_lastname>> (<<$pcs_nickname>>). <a href="exec:dynamic $cheatmenu[''rename'']">Rename</a>'
+	if player_avatar = 1:
+		pl' <a href="exec:player_avatar = 0 & dynamic $cheatmenu[''looks'']">Custom Avatar: ON</a>'
+	else
+		pl' <a href="exec:player_avatar = 1 & dynamic $cheatmenu[''looks'']">Custom Avatar: OFF</a>'
+	end
+	if avatar_hair = 1:
+		pl'<a href="exec:avatar_hair = 0 & dynamic $cheatmenu[''looks'']">Custom Hair: ON</a>'
+		pl'<<$av_hair>>'
+	else
+		pl'<a href="exec:dynamic $cheatmenu[''avatar_hair_set'']">Custom Hair: OFF</a>'
+	end
+	nl
+	pl'<a href="exec:dynamic $cheatmenu[''parameters'']">Show design parameters of body</a>'
+	pl'<a href="exec:dynamic $cheatmenu[''vneshpara'']">Show beauty parameters</a>'
+	nl
+	pl'You are <a href="exec: pcs_dob += 10000 & dynamic $cheatmenu[''age'']">(-1)</a> <<age>> <a href="exec: pcs_dob -= 10000 & dynamic $cheatmenu[''age'']">(+1)</a> years old'
+	nl
+	pl'<a href=>You look <<vidage>> years old</a>'
+	pl'<a href="exec:dynamic $cheatmenu[''visualage'']">Change apparent age</a>'
+	nl
+	pl 'You have <<$titsize>> breasts'
+	if tits => 0 and tits < 11:pl'<a href="exec:silicone += 5 & dynamic $cheatmenu[''looks'']">Enlarge breasts(silicone)</a>'
+	if silicone => 1:pl'<a href="exec:silicone -= 5 & dynamic $cheatmenu[''looks'']">Shrink breasts(silicone)</a>'
+	if tits => 0 and tits < 11:pl'<a href="exec:nbsize += 5 & dynamic $cheatmenu[''looks'']">Enlarge breasts(natural)</a>'
+	if nbsize => 1:pl'<a href="exec:nbsize -= 5 & titreduc = 1 & dynamic $cheatmenu[''looks'']">Shrink breasts(natural)</a>'
+	nl
+	pl'<<$lip>>'
+	if pcs_lip < 4:pl'<a href="exec:pcs_lip += 1 & dynamic $cheatmenu[''looks'']">Enlarge lips</a>'
+	if pcs_lip > 0:pl'<a href="exec:pcs_lip -= 1 & dynamic $cheatmenu[''looks'']">Shrink lips</a>'
+	nl
+	pl'<<$skin>>'
+	if pcs_skin < 100: pl'<a href="exec:pcs_skin += 20 & gs ''body_shape'', ''basebeautycalc'', 1 & dynamic $cheatmenu[''looks'']">Improve skin</a>'
+	if pcs_skin > 0: pl'<a href="exec:pcs_skin -= 20 & gs ''body_shape'', ''basebeautycalc'', 1 & dynamic $cheatmenu[''looks'']">Worsen skin</a>'
+	if pcs_tan >= 0:pl'<a href="exec:pcs_tan += 10 & dynamic $cheatmenu[''looks'']">Become sunburnt</a>'
+	if pcs_tan > 0:pl'<a href="exec:pcs_tan = 0 & dynamic $cheatmenu[''looks'']">Remove pcs_tan</a>'
+	nl
+	pl'<<$pcs_throat>>'
+	if pcs_throat <= 31:pl'<a href="exec:pcs_throat += 5 & dynamic $cheatmenu[''looks'']">Increase throat capacity</a>'
+	if pcs_throat >= 5:pl'<a href="exec:pcs_throat -= 5 & dynamic $cheatmenu[''looks'']">Decrease throat capacity</a>'
+	if dounspell = 1:
+		nl
+		pl'<a href="exec:dounsplkil = 2 & gs ''body_shape'', ''hardreset''">Hard Reset body shape</a>'
+	end
+	nl
+	pl'<a href="exec:dynamic $cheatmenu[''looks2'']">Go to page 2</a>				<a href="exec:dynamic $cheatmenu[''looks3'']">Go to page 3</a>'
+}
+
+$cheatmenu['looks2'] = {
+	gs'stat'
+	clr
+	pl'<center><a href="exec:dynamic $cheatmenu"><b>Cheat menu</b></a></center>'
+	nl
+	pl'<<$pcs_vag>>'
+	if pcs_vag > 0:pl'<a href="exec:pcs_vag = 0 & dynamic $cheatmenu[''looks2'']">Reinstate virginity</a>'
+	if pcs_vag <= 31:pl'<a href="exec:pcs_vag += 5 & dynamic $cheatmenu[''looks2'']">Enlarge the vagina</a>'
+	if pcs_vag >= 5:pl'<a href="exec:pcs_vag -= 5 & dynamic $cheatmenu[''looks2'']">Reduce the vagina</a>'
+	pl 'Your vagina will shrink by <<vshrink>> every <<vshrinkdays>> days.'
+	if vshrink < 10:pl'<a href="exec:vshrink += 1 & dynamic $cheatmenu[''looks2'']">Increase the amount to shrink</a>'
+	if vshrink > 0:pl'<a href="exec:vshrink -= 1 & dynamic $cheatmenu[''looks2'']">Reduce the amount to shrink</a>'
+	if vshrinkdays < 10:pl'<a href="exec:vshrinkdays += 1 & dynamic $cheatmenu[''looks2'']">Increase the number of days it takes</a>'
+	if vshrinkdays > 1:pl'<a href="exec:vshrinkdays -= 1 & dynamic $cheatmenu[''looks2'']">Reduce the number of days it takes</a>'
+	nl
+	pl'<<$pcs_ass>>'
+	if pcs_ass <= 31:pl'<a href="exec:pcs_ass += 5 & dynamic $cheatmenu[''looks2'']">Enlarge anus</a>'
+	if pcs_ass >= 5:pl'<a href="exec:pcs_ass -= 5 & dynamic $cheatmenu[''looks2'']">Reduce the anus</a>'
+	pl 'Your anus will shrink by <<ashrink>> every <<ashrinkdays>> days.'
+	if ashrink < 10:pl'<a href="exec:ashrink += 1 & dynamic $cheatmenu[''looks2'']">Increase the amount to shrink</a>'
+	if ashrink > 0:pl'<a href="exec:ashrink -= 1 & dynamic $cheatmenu[''looks2'']">Reduce the amount to shrink</a>'
+	if ashrinkdays < 10:pl'<a href="exec:ashrinkdays += 1 & dynamic $cheatmenu[''looks2'']">Increase the number of days it takes</a>'
+	if ashrinkdays > 1:pl'<a href="exec:ashrinkdays -= 1 & dynamic $cheatmenu[''looks2'']">Reduce the number of days it takes</a>'
+	nl
+	if dounspell = 0:
+		if fat ! 0: pl'<a href="exec:fat = 0 & dynamic $cheatmenu[''looks2'']">Zero fat</a>'
+		pl'Body Fat = (<<salo>>): <a href="exec:salo -= 10 & & gs ''body_shape'', ''softreset'' & dynamic $cheatmenu[''looks2'']">-10</a> <a href="exec:salo -= 5 & gs ''body_shape'', ''softreset'' & dynamic $cheatmenu[''looks2'']">-5</a> <a href="exec:salo -= 1 & gs ''body_shape'', ''softreset'' & dynamic $cheatmenu[''looks2'']">-1</a> <a href="exec:salo += 1 & gs ''body_shape'', ''softreset'' & dynamic $cheatmenu[''looks2'']">+1</a> <a href="exec:salo += 5 & gs ''body_shape'', ''softreset'' & dynamic $cheatmenu[''looks2'']">+5</a> <a href="exec:salo += 10 & gs ''body_shape'', ''softreset'' & dynamic $cheatmenu[''looks2'']">+10</a>'
+		pl'Note: You need some Body Fat to survive, any value under 11 is clasified as "starving" and a value of 0 can lead to a Game Over.'
+	end
+	nl
+	pl'<a href="exec:dynamic $cheatmenu[''tatoo'']">Tattoo removal</a>'
+	nl
+	pl'<a href="exec:dynamic $cheatmenu[''looks'']">Go to page 1</a>				<a href="exec:dynamic $cheatmenu[''looks3'']">Go to page 3</a>'
+}
+
+$cheatmenu['looks3'] = {
+	gs'stat'
+	clr
+	pl'<center><a href="exec:dynamic $cheatmenu"><b>Cheat menu</b></a></center>'
+	nl
+	pl'<<$hair>>'
+	if pcs_haircol =< 0:
+		pl'Your hair is now (prev) <<$pcs_haircol>> <a href="exec:pcs_haircol +=1 & dynamic $cheatmenu[''looks3''] & pcs_haircol = nathcol">(next)</a>'
+	elseif pcs_haircol > 0 and pcs_haircol < 3:
+		pl'Your hair is now <a href="exec:pcs_haircol -=1 & dynamic $cheatmenu[''looks3'']" & pcs_haircol = nathcol>(prev)</a> <<$pcs_haircol>> <a href="exec:pcs_haircol +=1 & dynamic $cheatmenu[''looks3'']" & pcs_haircol = nathcol>(next)</a>'
+	elseif pcs_haircol => 3:
+		pl'Your hair is now <a href="exec:pcs_haircol -=1 & dynamic $cheatmenu[''looks3'']" & pcs_haircol = nathcol>(prev)</a> <<$pcs_haircol>> (next)'
+	end
+	if pcs_hairlng > 975:
+		pl'Hair length (<<pcs_hairlng>>)  <a href="exec:pcs_hairlng -= 100 & dynamic $cheatmenu[''looks3'']">-100</a> <a href="exec:pcs_hairlng -= 25 & dynamic $cheatmenu[''looks3'']">-25</a> <a href="exec:pcs_hairlng -= 5 & dynamic $cheatmenu[''looks3'']">-5</a> <a href="exec:pcs_hairlng += 5 & dynamic $cheatmenu[''looks3'']">+5</a>'
+	elseif pcs_hairlng > 900:
+		pl'Hair length (<<pcs_hairlng>>)  <a href="exec:pcs_hairlng -= 100 & dynamic $cheatmenu[''looks3'']">-100</a> <a href="exec:pcs_hairlng -= 25 & dynamic $cheatmenu[''looks3'']">-25</a> <a href="exec:pcs_hairlng -= 5 & dynamic $cheatmenu[''looks3'']">-5</a> <a href="exec:pcs_hairlng += 5 & dynamic $cheatmenu[''looks3'']">+5</a> <a href="exec:pcs_hairlng += 25 & dynamic $cheatmenu[''looks3'']">+25</a>'
+	elseif pcs_hairlng >= 100:
+		pl'Hair length (<<pcs_hairlng>>)  <a href="exec:pcs_hairlng -= 100 & dynamic $cheatmenu[''looks3'']">-100</a> <a href="exec:pcs_hairlng -= 25 & dynamic $cheatmenu[''looks3'']">-25</a> <a href="exec:pcs_hairlng -= 5 & dynamic $cheatmenu[''looks3'']">-5</a> <a href="exec:pcs_hairlng += 5 & dynamic $cheatmenu[''looks3'']">+5</a> <a href="exec:pcs_hairlng += 25 & dynamic $cheatmenu[''looks3'']">+25</a> <a href="exec:pcs_hairlng += 100 & dynamic $cheatmenu[''looks3'']">+100</a>'
+	elseif pcs_hairlng >= 25:
+		pl'Hair length (<<pcs_hairlng>>)  <a href="exec:pcs_hairlng -= 25 & dynamic $cheatmenu[''looks3'']">-25</a> <a href="exec:pcs_hairlng -= 5 & dynamic $cheatmenu[''looks3'']">-5</a> <a href="exec:pcs_hairlng += 5 & dynamic $cheatmenu[''looks3'']">+5</a> <a href="exec:pcs_hairlng += 25 & dynamic $cheatmenu[''looks3'']">+25</a> <a href="exec:pcs_hairlng += 100 & dynamic $cheatmenu[''looks3'']">+100</a>'
+	elseif pcs_hairlng >= 5:
+		pl'Hair length (<<pcs_hairlng>>)  <a href="exec:pcs_hairlng -= 5 & dynamic $cheatmenu[''looks3'']">-5</a> <a href="exec:pcs_hairlng += 5 & dynamic $cheatmenu[''looks3'']">+5</a> <a href="exec:pcs_hairlng += 25 & dynamic $cheatmenu[''looks3'']">+25</a> <a href="exec:pcs_hairlng += 100 & dynamic $cheatmenu[''looks3'']">+100</a>'
+	else
+		pl'Hair length (<<pcs_hairlng>>)  <a href="exec:pcs_hairlng += 5 & dynamic $cheatmenu[''looks3'']">+5</a> <a href="exec:pcs_hairlng += 25 & dynamic $cheatmenu[''looks3'']">+25</a> <a href="exec:pcs_hairlng += 100 & dynamic $cheatmenu[''looks3'']">+100</a>'
+	end
+	if hairgrowcht = 0:pl'<a href="exec:hairgrowcht = 1 & dynamic $cheatmenu[''looks3'']">Stop hair growth</a>'
+	if hairgrowcht = 1:pl'<a href="exec:hairgrowcht = 0 & dynamic $cheatmenu[''looks3'']">Allow hair growth</a>'
+	nl
+	pl'<<$glaza>>'
+	if pcs_lashes < 2:pl'<a href="exec:pcs_lashes += 1 & dynamic $cheatmenu[''looks3'']">Enlarge lashes</a>'
+	if pcs_lashes > 0:pl'<a href="exec:pcs_lashes -= 1 & dynamic $cheatmenu[''looks3'']">Shrink lashes</a>'
+	if pcs_eyesize < 3:pl'<a href="exec:pcs_eyesize += 1 & dynamic $cheatmenu[''looks3'']">Increase the size of the eye</a>'
+	if pcs_eyesize > 0:pl'<a href="exec:pcs_eyesize -= 1 & dynamic $cheatmenu[''looks3'']">Reduce the size of the eye</a>'
+	if pcs_eyecol <= 0:
+		pl'Your eyes are now (prev) <<$pcs_eyecol>> <a href="exec:pcs_eyecol +=1 & dynamic $cheatmenu[''looks3'']">(next)</a>'
+	elseif pcs_eyecol > 0 and pcs_eyecol < 3:
+		pl'Your eyes are now <a href="exec:pcs_eyecol -=1 & dynamic $cheatmenu[''looks3'']">(prev)</a> <<$pcs_eyecol>> <a href="exec:pcs_eyecol +=1 & dynamic $cheatmenu[''looks3'']">(next)</a>'
+	elseif pcs_eyecol >= 3:
+		pl'Your eyes are now <a href="exec:pcs_eyecol -=1 & dynamic $cheatmenu[''looks3'']">(prev)</a> <<$pcs_eyecol>> (next)'
+	end
+	nl
+	pl'<a href="exec:dynamic $cheatmenu[''looks'']">Go to page 1</a>				<a href="exec:dynamic $cheatmenu[''looks2'']">Go to page 2</a>'
+}
+
+$cheatmenu['parameters'] = {
+	clr
+	pl'<center><a href="exec:dynamic $cheatmenu"><b>Cheat menu</b></a> - <a href="exec:dynamic $cheatmenu[''looks'']"><b>Outward Appearance</b></a></center>'
+	nl
+	pl'Body Shape Parameters'
+	pl'<<pcs_bust>> - <<pcs_waist>> - <<pcs_hips>>, <<$titsize>> breasts, the difference between the hips and waist <<pcs_hips-pcs_waist>> cm'
+	pl'Muscularity: musle = <<musle>>, salo =  <<salo>>, fat = <<fat>>'
+	pl'Variable List:'
+	pl'agilbuf = <<agilbuf>>'
+	pl'strenbuf = <<strenbuf>>'
+	pl'vitalbuf = <<vitalbuf>>'
+	pl'weight (pcs_weight) = <<pcs_weight>>'
+	pl'bust (pcs_bust) = <<pcs_bust>>'
+	pl'band (pcs_band) = <<pcs_band>>'
+	pl'waist (pcs_waist) = <<pcs_waist>>'
+	pl'hips (pcs_hips) = <<pcs_hips>>'
+	pl'bust - band (pcs_cupsize) = <<pcs_cupsize>>'
+	pl'silicone = <<silicone>>'
+	pl'nbsize = <<nbsize>>'
+	pl'magicf2b = <<magicf2b>>'
+	pl'genbsize = <<genbsize>>'
+	pl'vhips = <<vhips>>'
+	pl'vhtmp = <<vhtmp>>'
+	pl'wratio = <<wratio>>'
+	pl'bratio = <<bratio>>'
+	pl'hratio = <<hratio>>'
+	pl'vofat = <<vofat>>'
+	pl'salocatnow = <<salocatnow>>'
+	pl'salocatlast = <<salocatlast>>'
+	pl'magf2bdo = <<magf2bdo>>'
+	pl'mgf2bnocnt = <<mgf2bnocnt>>'
+	pl'magtarcup = <<magtarcup>>'
+	pl'normbuffpick = <<normbuffpick>>'
+	pl'nrmbfpckct = <<nrmbfpckct>>'
+	pl'btwarn = <<btwarn>>'
+	pl'salolast = <<salolast>>'
+}
+
+$cheatmenu['vneshpara'] = {
+	clr
+	pl'<center><a href="exec:dynamic $cheatmenu"><b>Cheat menu</b></a> - <a href="exec:dynamic $cheatmenu[''looks'']"><b>Outward Appearance</b></a></center>'
+	nl
+	pl 'Appearance Parameters'
+	pl 'vidage = <<vidage>>'
+	pl 'pcs_lashes = <<pcs_lashes>>'
+	pl 'pcs_eyesize = <<pcs_eyesize>>'
+	pl 'pcs_lip = <<pcs_lip>>'
+	pl 'pcs_apprncbase = <<pcs_apprncbase>>'
+	pl 'PXCloThinness = <<PXCloThinness>>'
+	pl 'PXCloTopCut = <<PXCloTopCut>>'
+	pl 'PXCloSkirtShortness = <<PXCloSkirtShortness>>'
+	pl 'PXCloPantsShortness = <<PXCloPantsShortness>>'
+	pl 'CloAdjustedBeauty = <<CloAdjustedBeauty>>'
+	pl 'mopkoef = <<mopkoef>>'
+	pl 'pcs_hairbsh = <<pcs_hairbsh>>'
+	pl 'lipbalmKoef = <<lipbalmKoef>>'
+	pl 'pcs_breath = <<pcs_breath>>'
+	pl 'sweatKoef = <<sweatKoef>>'
+	pl 'glassvnesh = <<glassvnesh>>'
+	pl 'dyevmod = <<dyevmod>>'
+	pl 'hairkoef = <<hairkoef>>'
+	pl 'legkoef = <<legkoef>>'
+}
+
+$cheatmenu['tatoo'] = {
+	gs'stat'
+	clr
+	pl'<center><a href="exec:dynamic $cheatmenu"><b>Cheat menu</b></a> - <a href="exec:dynamic $cheatmenu[''looks2'']"><b>Outward Appearance</b></a></center>'
+	nl
+	if tatarm = 0:pl'You do not have a tattoo on your arm</a>'
+	if tatarm >= 1:pl'<a href="exec:tattCount-=1 & tatarm = 0 & dynamic $cheatmenu[''tatoo'']">Remove your arm tattoo</a>'
+	if tatass = 0:pl'You do not have a tattoo on your ass</a>'
+	if tatass >= 1:pl'<a href="exec:tattCount-=1 & tatass = 0 & dynamic $cheatmenu[''tatoo'']">Remove your ass tattoo</a>'
+	if tatback = 0:pl'You do not have a tattoo on your back</a>'
+	if tatback >= 1:pl'<a href="exec:tattCount-=1 & tatback = 0 & dynamic $cheatmenu[''tatoo'']">Remove your back tattoo</a>'
+	if tatblly = 0:pl'You do not have a tattoo on your belly</a>'
+	if tatblly >= 1:pl'<a href="exec:tattCount-=1 & tatblly = 0 & dynamic $cheatmenu[''tatoo'']">Remove your belly tattoo</a>'
+	if tatbrst = 0:pl'You do not have a tattoo on your breast</a>'
+	if tatbrst >= 1:pl'<a href="exec:tattCount-=1 & tatbrst = 0 & dynamic $cheatmenu[''tatoo'']">Remove your breast tattoo</a>'
+	if tatchst = 0:pl'You do not have a tattoo on your chest</a>'
+	if tatchst >= 1:pl'<a href="exec:tattCount-=1 & tatchst = 0 & dynamic $cheatmenu[''tatoo'']">Remove your chest tattoo</a>'
+	if tatfce = 0:pl'You do not have a tattoo on your face</a>'
+	if tatfce >= 1:pl'<a href="exec:tattCount-=1 & tatfce = 0 & dynamic $cheatmenu[''tatoo'']">Remove your face tattoo</a>'
+	if tatankle = 0:pl'You do not have a tattoo on your ankle</a>'
+	if tatankle >= 1:pl'<a href="exec:tattCount-=1 & tatankle = 0 & dynamic $cheatmenu[''tatoo'']">Remove your ankle tattoo</a>'
+	if tatleg = 0:pl'You do not have a tattoo on your leg</a>'
+	if tatleg >= 1:pl'<a href="exec:tattCount-=1 & tatleg = 0 & dynamic $cheatmenu[''tatoo'']">Remove your leg tattoo</a>'
+	if tatlip = 0:pl'You do not have a tattoo on your lip</a>'
+	if tatlip >= 1:pl'<a href="exec:tattCount-=1 & tatlip = 0 & dynamic $cheatmenu[''tatoo'']">Remove your lip tattoo</a>'
+	if tatneck = 0:pl'You do not have a tattoo on your neck</a>'
+	if tatneck >= 1:pl'<a href="exec:tattCount-=1 & tatneck = 0 & dynamic $cheatmenu[''tatoo'']">Remove your neck tattoo</a>'
+	if tatvag = 0:pl'You do not have a public tattoo</a>'
+	if tatvag >= 1:pl'<a href="exec:tattCount-=1 & tatvag = 0 & dynamic $cheatmenu[''tatoo'']">Remove your pubic tattoo</a>'
+	if tatlech = 0:pl'You do not have a tattoo on your shoulder</a>'
+	if tatlech >= 1:pl'<a href="exec:tattCount-=1 & tatlech = 0 & dynamic $cheatmenu[''tatoo'']">Remove your shoulder tattoo</a>'
+	if tatside = 0:pl'You do not have a tattoo on your side</a>'
+	if tatside >= 1:pl'<a href="exec:tattCount-=1 & tatside = 0 & dynamic $cheatmenu[''tatoo'']">Remove your the tattoo on your side</a>'
+	if tatupb = 0:pl'You do not have a tramp stamp</a>'
+	if tatupb >= 1:pl'<a href="exec:tattCount-=1 & tatupb = 0 & dynamic $cheatmenu[''tatoo'']">Remove your tramp stamp</a>'
+	if tatunder = 0:pl'You do not have an under breast tattoo</a>'
+	if tatunder >= 1:pl'<a href="exec:tattCount-=1 & tatunder = 0 & dynamic $cheatmenu[''tatoo'']">Remove your under breast tattoo</a>'
+	if tatwrist = 0:pl'You do not have a tattoo on your wrist</a>'
+	if tatwrist >= 1:pl'<a href="exec:tattCount-=1 & tatwrist = 0 & dynamic $cheatmenu[''tatoo'']">Remove your wrist tattoo</a>'
+	if tathand = 0:pl'You do not have a tattoo on your hand</a>'
+	if tathand >= 1:pl'<a href="exec:tattCount-=1 & tathand = 0 & dynamic $cheatmenu[''tatoo'']">Remove your hand tattoo</a>'
+}
+
+$cheatmenu['stats'] = {
+	gs'stat'
+	clr
+	pl'<center><a href="exec:dynamic $cheatmenu"><b>Cheat menu</b></a></center>'
+	nl
+	pl 'Strength (<<stren_lvl>>): <a href="exec:stren_lvl += 1 & stren_lvlst = stren_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:stren_lvl += 5 & stren_lvlst = stren_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:stren_lvl += 10 & stren_lvlst = stren_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:stren_lvl -= 1 & stren_lvlst = stren_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:stren_lvl -= 5 & stren_lvlst = stren_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:stren_lvl -= 10 & stren_lvlst = stren_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Agility (<<agil_lvl>>): <a href="exec:agil_lvl += 1 & agil_lvlst = agil_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:agil_lvl += 5 & agil_lvlst = agil_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:agil_lvl += 10 & agil_lvlst = agil_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:agil_lvl -= 1 & agil_lvlst = agil_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:agil_lvl -= 5 & agil_lvlst = agil_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:agil_lvl -= 10 & agil_lvlst = agil_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Endurance (<<vital_lvl>>): <a href="exec:vital_lvl += 1 & vital_lvlst = vital_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:vital_lvl += 5 & vital_lvlst = vital_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:vital_lvl += 10 & vital_lvlst = vital_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:vital_lvl -= 1 & vital_lvlst = vital_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:vital_lvl -= 5 & vital_lvlst = vital_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:vital_lvl -= 10 & vital_lvlst = vital_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Intelligence (<<intel_lvl>>): <a href="exec:intel_lvl += 1 & intel_lvlst = intel_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:intel_lvl += 5 & intel_lvlst = intel_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:intel_lvl += 10 & intel_lvlst = intel_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:intel_lvl -= 1 & intel_lvlst = intel_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:intel_lvl -= 5 & intel_lvlst = intel_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:intel_lvl -= 10 & intel_lvlst = intel_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Mental Agility (<<react_lvl>>): <a href="exec:react_lvl += 1 & react_lvlst = react_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:react_lvl += 5 & react_lvlst = react_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:react_lvl += 10 & react_lvlst = react_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:react_lvl -= 1 & react_lvlst = react_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:react_lvl -= 5 & react_lvlst = react_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:react_lvl -= 10 & react_lvlst = react_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Sprit (<<sprt_lvl>>): <a href="exec:sprt_lvl += 1 & sprt_lvlst = sprt_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:sprt_lvl += 5 & sprt_lvlst = sprt_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:sprt_lvl += 10 & sprt_lvlst = sprt_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:sprt_lvl -= 1 & sprt_lvlst = sprt_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:sprt_lvl -= 5 & sprt_lvlst = sprt_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:sprt_lvl -= 10 & sprt_lvlst = sprt_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Charisma (<<chrsm_lvl>>): <a href="exec:chrsm_lvl += 1 & chrsm_lvlst = chrsm_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:chrsm_lvl += 5 & chrsm_lvlst = chrsm_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:chrsm_lvl += 10 & chrsm_lvlst = chrsm_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:chrsm_lvl -= 1 & chrsm_lvlst = chrsm_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:chrsm_lvl -= 5 & chrsm_lvlst = chrsm_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:chrsm_lvl -= 10 & chrsm_lvlst = chrsm_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Perception (<<prcptn_lvl>>): <a href="exec:prcptn_lvl += 1 & prcptn_lvlst = prcptn_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:prcptn_lvl += 5 & prcptn_lvlst = prcptn_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:prcptn_lvl += 10 & prcptn_lvlst = prcptn_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:prcptn_lvl -= 1 & prcptn_lvlst = prcptn_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:prcptn_lvl -= 5 & prcptn_lvlst = prcptn_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:prcptn_lvl -= 10 & prcptn_lvlst = prcptn_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	if MagikDostup = 0: pl 'Magic (<<magik_lvl>>): <a href="exec:magik_lvl += 1 & magik_lvlst = magik_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:magik_lvl += 5 & magik_lvlst = magik_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:magik_lvl += 10 & magik_lvlst = magik_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:magik_lvl -= 1 & magik_lvlst = magik_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:magik_lvl -= 5 & magik_lvlst = magik_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:magik_lvl -= 10 & magik_lvlst = magik_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	nl
+	pl'<b>Sexual:</b>'
+	pl 'Inhibition level (<<100 - pcs_inhib>>): <a href="exec:inhib_lvl -= 1 & inhib_lvlst = inhib_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:inhib_lvl -= 5 & inhib_lvlst = inhib_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:inhib_lvl -= 10 & inhib_lvlst = inhib_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:inhib_lvl += 1 & inhib_lvlst = inhib_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:inhib_lvl += 5 & inhib_lvlst = inhib_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:inhib_lvl += 10 & inhib_lvlst = inhib_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	if pcs_dom < 0 or sub < 0: pcs_dom = 0 & sub = 0
+	if pcs_dom > 100: pcs_dom = 100
+	if sub > 100: sub = 100
+	if pcs_dom >= 0 and sub = 0:
+		pl 'Dominance (<<pcs_dom>>): <a href="exec:pcs_dom += 1 & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:pcs_dom += 5 & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:pcs_dom += 10 & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:pcs_dom -= 1 & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:pcs_dom -= 5 & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:pcs_dom -= 10 & dynamic $cheatmenu[''stats'']" >-10</a>'
+	else
+		pl 'Submissiveness (<<sub>>): <a href="exec:sub += 1 & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:sub += 5 & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:sub += 10 & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:sub -= 1 & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:sub -= 5 & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:sub -= 10 & dynamic $cheatmenu[''stats'']" >-10</a>'
+	end
+	nl
+	pl'<b>Combat:</b>'
+	pl 'Jabs - Adjusted total (<<pcs_jab>>) - Skill level (<<jab_lvl>>): <a href="exec:jab_lvl += 1 & jab_lvlst = jab_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:jab_lvl += 5 & jab_lvlst = jab_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:jab_lvl += 10 & jab_lvlst = jab_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:jab_lvl -= 1 & jab_lvlst = jab_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:jab_lvl -= 5 & jab_lvlst = jab_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:jab_lvl -= 10 & jab_lvlst = jab_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Power - Strikes Adjusted total (<<pcs_punch>>) - Skill level (<<punch_lvl>>): <a href="exec:punch_lvl += 1 & punch_lvlst = punch_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:punch_lvl += 5 & punch_lvlst = punch_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:punch_lvl += 10 & punch_lvlst = punch_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:punch_lvl -= 1 & punch_lvlst = punch_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:punch_lvl -= 5 & punch_lvlst = punch_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:punch_lvl -= 10 & punch_lvlst = punch_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Kicks - Adjusted total (<<pcs_kick>>) - Skill level (<<kick_lvl>>): <a href="exec:kick_lvl += 1 & kick_lvlst = kick_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:kick_lvl += 5 & kick_lvlst = kick_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:kick_lvl += 10 & kick_lvlst = kick_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:kick_lvl -= 1 & kick_lvlst = kick_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:kick_lvl -= 5 & kick_lvlst = kick_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:kick_lvl -= 10 & kick_lvlst = kick_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Defence - Adjusted total (<<pcs_def>>) - Skill level (<<def_lvl>>): <a href="exec:def_lvl += 1 & def_lvlst = def_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:def_lvl += 5 & def_lvlst = def_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:def_lvl += 10 & def_lvlst = def_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:def_lvl -= 1 & def_lvlst = def_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:def_lvl -= 5 & def_lvlst = def_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:def_lvl -= 10 & def_lvlst = def_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Marksmanship - Adjusted total (<<pcs_shoot>>) - Skill level (<<shoot_lvl>>): <a href="exec:shoot_lvl += 1 & shoot_lvlst = shoot_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:shoot_lvl += 5 & shoot_lvlst = shoot_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:shoot_lvl += 10 & shoot_lvlst = shoot_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:shoot_lvl -= 1 & shoot_lvlst = shoot_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:shoot_lvl -= 5 & shoot_lvlst = shoot_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:shoot_lvl -= 10 & shoot_lvlst = shoot_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	nl
+	pl'<b>Craft:</b>'
+	pl 'Singing - Adjusted total (<<pcs_vokal>>) - Skill level (<<vokal_lvl>>): <a href="exec:vokal_lvl += 1 & vokal_lvlst = vokal_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:vokal_lvl += 5 & vokal_lvlst = vokal_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:vokal_lvl += 10 & vokal_lvlst = vokal_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:vokal_lvl -= 1 & vokal_lvlst = vokal_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:vokal_lvl -= 5 & vokal_lvlst = vokal_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:vokal_lvl -= 10 & vokal_lvlst = vokal_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Tailoring - Adjusted total (<<pcs_sewng>>) - Skill level (<<sewng_lvl>>): <a href="exec:sewng_lvl += 1 & sewng_lvlst = sewng_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:sewng_lvl += 5 & sewng_lvlst = sewng_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:sewng_lvl += 10 & sewng_lvlst = sewng_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:sewng_lvl -= 1 & sewng_lvlst = sewng_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:sewng_lvl -= 5 & sewng_lvlst = sewng_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:sewng_lvl -= 10 & sewng_lvlst = sewng_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Instrumental - Music Adjusted total (<<pcs_instrmusic>>) - Skill level (<<instrmusic_lvl>>): <a href="exec:instrmusic_lvl += 1 & instrmusic_lvlst = instrmusic_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:instrmusic_lvl += 5 & instrmusic_lvlst = instrmusic_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:instrmusic_lvl += 10 & instrmusic_lvlst = instrmusic_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:instrmusic_lvl -= 1 & instrmusic_lvlst = instrmusic_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:instrmusic_lvl -= 5 & instrmusic_lvlst = instrmusic_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:instrmusic_lvl -= 10 & instrmusic_lvlst = instrmusic_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Photography - Adjusted total (<<pcs_photoskl>>) - Skill level (<<photoskl_lvl>>): <a href="exec:photoskl_lvl += 1 & photoskl_lvlst = photoskl_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:photoskl_lvl += 5 & photoskl_lvlst = photoskl_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:photoskl_lvl += 10 & photoskl_lvlst = photoskl_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:photoskl_lvl -= 1 & photoskl_lvlst = photoskl_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:photoskl_lvl -= 5 & photoskl_lvlst = photoskl_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:photoskl_lvl -= 10 & photoskl_lvlst = photoskl_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Artistic - Skills Adjusted total (<<pcs_artskls>>) - Skill level (<<artskls_lvl>>): <a href="exec:artskls_lvl += 1 & artskls_lvlst = artskls_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:artskls_lvl += 5 & artskls_lvlst = artskls_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:artskls_lvl += 10 & artskls_lvlst = artskls_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:artskls_lvl -= 1 & artskls_lvlst = artskls_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:artskls_lvl -= 5 & artskls_lvlst = artskls_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:artskls_lvl -= 10 & artskls_lvlst = artskls_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	nl
+	pl'<b>Dance:</b>'
+	pl 'Modern Dancing - Adjusted total (<<pcs_danc>>) - Skill level (<<danc_lvl>>): <a href="exec:danc_lvl += 1 & danc_lvlst = danc_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:danc_lvl += 5 & danc_lvlst = danc_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:danc_lvl += 10 & danc_lvlst = danc_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:danc_lvl -= 1 & danc_lvlst = danc_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:danc_lvl -= 5 & danc_lvlst = danc_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:danc_lvl -= 10 & danc_lvlst = danc_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Erotic Dancing - Adjusted total (<<pcs_dancero>>) - Skill level  (<<dancero_lvl>>): <a href="exec:dancero_lvl += 1 & dancero_lvlst = dancero_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:dancero_lvl += 5 & dancero_lvlst = dancero_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:dancero_lvl += 10 & dancero_lvlst = dancero_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:dancero_lvl -= 1 & dancero_lvlst = dancero_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:dancero_lvl -= 5 & dancero_lvlst = dancero_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:dancero_lvl -= 10 & dancero_lvlst = dancero_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Pole Dancing - Adjusted total (<<pcs_dancpol>>) - Skill level  (<<dancpol_lvl>>): <a href="exec:dancpol_lvl += 1 & dancpol_lvlst = dancpol_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:dancpol_lvl += 5 & dancpol_lvlst = dancpol_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:dancpol_lvl += 10 & dancpol_lvlst = dancpol_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:dancpol_lvl -= 1 & dancpol_lvlst = dancpol_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:dancpol_lvl -= 5 & dancpol_lvlst = dancpol_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:dancpol_lvl -= 10 & dancpol_lvlst = dancpol_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	nl
+	pl'<b>Sport:</b>'
+	pl 'Running - Adjusted total (<<pcs_run>>) - Skill level (<<run_lvl>>): <a href="exec:run_lvl += 1 & run_lvlst = run_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:run_lvl += 5 & run_lvlst = run_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:run_lvl += 10 & run_lvlst = run_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:run_lvl -= 1 & run_lvlst = run_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:run_lvl -= 5 & run_lvlst = run_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:run_lvl -= 10 & run_lvlst = run_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Volleyball - Adjusted total (<<pcs_vball>>) - Skill level (<<vball_lvl>>): <a href="exec:vball_lvl += 1 & vball_lvlst = vball_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:vball_lvl += 5 & vball_lvlst = vball_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:vball_lvl += 10 & vball_lvlst = vball_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:vball_lvl -= 1 & vball_lvlst = vball_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:vball_lvl -= 5 & vball_lvlst = vball_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:vball_lvl -= 10 & vball_lvlst = vball_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Ice Skating - Adjusted total (<<pcs_icesktng>>) - Skill level (<<icesktng_lvl>>): <a href="exec:icesktng_lvl += 1 & icesktng_lvlst = icesktng_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:icesktng_lvl += 5 & icesktng_lvlst = icesktng_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:icesktng_lvl += 10 & icesktng_lvlst = icesktng_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:icesktng_lvl -= 1 & icesktng_lvlst = icesktng_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:icesktng_lvl -= 5 & icesktng_lvlst = icesktng_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:icesktng_lvl -= 10 & icesktng_lvlst = icesktng_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Wrestling - Adjusted total (<<pcs_wrstlng>>) - Skill level (<<wrstlng_lvl>>): <a href="exec:wrstlng_lvl += 1 & wrstlng_lvlst = wrstlng_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:wrstlng_lvl += 5 & wrstlng_lvlst = wrstlng_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:wrstlng_lvl += 10 & wrstlng_lvlst = wrstlng_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:wrstlng_lvl -= 1 & wrstlng_lvlst = wrstlng_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:wrstlng_lvl -= 5 & wrstlng_lvlst = wrstlng_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:wrstlng_lvl -= 10 & wrstlng_lvlst = wrstlng_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Football - Adjusted total (<<pcs_ftbll>>) - Skill level (<<ftbll_lvl>>): <a href="exec:ftbll_lvl += 1 & ftbll_lvlst = ftbll_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:ftbll_lvl += 5 & ftbll_lvlst = ftbll_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:ftbll_lvl += 10 & ftbll_lvlst = ftbll_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:ftbll_lvl -= 1 & ftbll_lvlst = ftbll_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:ftbll_lvl -= 5 & ftbll_lvlst = ftbll_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:ftbll_lvl -= 10 & ftbll_lvlst = ftbll_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	nl
+	pl'<b>Work:</b>'
+	pl 'Serving - Adjusted total (<<pcs_servng>>) - Skill level (<<servng_lvl>>): <a href="exec:servng_lvl += 1 & servng_lvlst = servng_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:servng_lvl += 5 & servng_lvlst = servng_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:servng_lvl += 10 & servng_lvlst = servng_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:servng_lvl -= 1 & servng_lvlst = servng_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:servng_lvl -= 5 & servng_lvlst = servng_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:servng_lvl -= 10 & servng_lvlst = servng_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Modeling - Adjusted total (<<pcs_mdlng>>) - Skill level (<<mdlng_lvl>>): <a href="exec:mdlng_lvl += 1 & mdlng_lvlst = mdlng_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:mdlng_lvl += 5 & mdlng_lvlst = mdlng_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:mdlng_lvl += 10 & mdlng_lvlst = mdlng_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:mdlng_lvl -= 1 & mdlng_lvlst = mdlng_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:mdlng_lvl -= 5 & mdlng_lvlst = mdlng_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:mdlng_lvl -= 10 & mdlng_lvlst = mdlng_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Medicine - Adjusted total (<<pcs_medcn>>) - Skill level (<<medcn_lvl>>): <a href="exec:medcn_lvl += 1 & medcn_lvlst = medcn_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:medcn_lvl += 5 & medcn_lvlst = medcn_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:medcn_lvl += 10 & medcn_lvlst = medcn_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:medcn_lvl -= 1 & medcn_lvlst = medcn_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:medcn_lvl -= 5 & medcn_lvlst = medcn_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:medcn_lvl -= 10 & medcn_lvlst = medcn_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	nl
+	pl'<b>Others:</b>'
+	pl 'Chess - Adjusted total (<<pcs_chess>>) - Skill level (<<chess_lvl>>): <a href="exec:chess_lvl += 1 & chess_lvlst = chess_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:chess_lvl += 5 & chess_lvlst = chess_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:chess_lvl += 10 & chess_lvlst = chess_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:chess_lvl -= 1 & chess_lvlst = chess_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:chess_lvl -= 5 & chess_lvlst = chess_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:chess_lvl -= 10 & chess_lvlst = chess_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Gaming - Adjusted total (<<pcs_ttgmng>>) - Skill level (<<ttgmng_lvl>>): <a href="exec:ttgmng_lvl += 1 & ttgmng_lvlst = ttgmng_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:ttgmng_lvl += 5 & ttgmng_lvlst = ttgmng_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:ttgmng_lvl += 10 & ttgmng_lvlst = ttgmng_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:ttgmng_lvl -= 1 & ttgmng_lvlst = ttgmng_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:ttgmng_lvl -= 5 & ttgmng_lvlst = ttgmng_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:ttgmng_lvl -= 10 & ttgmng_lvlst = ttgmng_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'People - skills Adjusted total (<<pcs_humint>>) - Skill level (<<humint_lvl>>): <a href="exec:humint_lvl += 1 & humint_lvlst = humint_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:humint_lvl += 5 & humint_lvlst = humint_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:humint_lvl += 10 & humint_lvlst = humint_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:humint_lvl -= 1 & humint_lvlst = humint_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:humint_lvl -= 5 & humint_lvlst = humint_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:humint_lvl -= 10 & humint_lvlst = humint_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Persuasion - Adjusted total (<<pcs_persuas>>) - Skill level (<<persuas_lvl>>): <a href="exec:persuas_lvl += 1 & persuas_lvlst = persuas_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:persuas_lvl += 5 & persuas_lvlst = persuas_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:persuas_lvl += 10 & persuas_lvlst = persuas_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:persuas_lvl -= 1 & persuas_lvlst = persuas_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:persuas_lvl -= 5 & persuas_lvlst = persuas_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:persuas_lvl -= 10 & persuas_lvlst = persuas_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Observation - Adjusted total (<<pcs_observ>>) - Skill level (<<observ_lvl>>): <a href="exec:observ_lvl += 1 & observ_lvlst = observ_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:observ_lvl += 5 & observ_lvlst = observ_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:observ_lvl += 10 & observ_lvlst = observ_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:observ_lvl -= 1 & observ_lvlst = observ_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:observ_lvl -= 5 & observ_lvlst = observ_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:observ_lvl -= 10 & observ_lvlst = observ_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Makeup - Adjusted total (<<pcs_makupskl>>) - Skill level (<<makupskl_lvl>>): <a href="exec:makupskl_lvl += 1 & makupskl_lvlst = makupskl_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:makupskl_lvl += 5 & makupskl_lvlst = makupskl_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:makupskl_lvl += 10 & makupskl_lvlst = makupskl_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:makupskl_lvl -= 1 & makupskl_lvlst = makupskl_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:makupskl_lvl -= 5 & makupskl_lvlst = makupskl_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:makupskl_lvl -= 10 & makupskl_lvlst = makupskl_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Computer - Skill Adjusted total (<<pcs_compskl>>) - Skill level (<<compskl_lvl>>): <a href="exec:compskl_lvl += 1 & compskl_lvlst = compskl_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:compskl_lvl += 5 & compskl_lvlst = compskl_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:compskl_lvl += 10 & compskl_lvlst = compskl_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:compskl_lvl -= 1 & compskl_lvlst = compskl_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:compskl_lvl -= 5 & compskl_lvlst = compskl_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:compskl_lvl -= 10 & compskl_lvlst = compskl_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Hacking - Adjusted total (<<pcs_comphckng>>) - Skill level (<<comphckng_lvl>>): <a href="exec:comphckng_lvl += 1 & comphckng_lvlst = comphckng_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:comphckng_lvl += 5 & comphckng_lvlst = comphckng_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:comphckng_lvl += 10 & comphckng_lvlst = comphckng_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:comphckng_lvl -= 1 & comphckng_lvlst = comphckng_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:comphckng_lvl -= 5 & comphckng_lvlst = comphckng_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:comphckng_lvl -= 10 & comphckng_lvlst = comphckng_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	pl 'Handy-work - Adjusted total (<<pcs_hndiwrk>>) - Skill level (<<hndiwrk_lvl>>): <a href="exec:hndiwrk_lvl += 1 & hndiwrk_lvlst = hndiwrk_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:hndiwrk_lvl += 5 & hndiwrk_lvlst = hndiwrk_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:hndiwrk_lvl += 10 & hndiwrk_lvlst = hndiwrk_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:hndiwrk_lvl -= 1 & hndiwrk_lvlst = hndiwrk_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:hndiwrk_lvl -= 5 & hndiwrk_lvlst = hndiwrk_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:hndiwrk_lvl -= 10 & hndiwrk_lvlst = hndiwrk_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	if MagikDostup = 0: pl 'Spell - Casting Adjusted total (<<pcs_splcstng>>) - Skill level (<<splcstng_lvl>>): <a href="exec:splcstng_lvl += 1 & splcstng_lvlst = splcstng_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:splcstng_lvl += 5 & splcstng_lvlst = splcstng_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:splcstng_lvl += 10 & splcstng_lvlst = splcstng_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:splcstng_lvl -= 1 & splcstng_lvlst = splcstng_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:splcstng_lvl -= 5 & splcstng_lvlst = splcstng_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:splcstng_lvl -= 10 & splcstng_lvlst = splcstng_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'
+	nl
+	if workPTU > 1:pl'<a href="exec:teachlevel += 10 & dynamic $cheatmenu[''stats'']">Reputation teacher+10: <<teachlevel>></a>'
+	if workPTU > 1:pl'<a href="exec:teachlevel -= 10 & dynamic $cheatmenu[''stats'']">Reputation teacher-10: <<teachlevel>></a>'
+	if pcs_grades >= 0:pl'<a href="exec:pcs_grades += 10 & dynamic $cheatmenu[''stats'']">Improve their academic performance: <<pcs_grades>></a>'
+	if schoolprogul >= 0:pl'<a href="exec:schoolprogul = 0 & dynamic $cheatmenu[''stats'']">Zero Absenteeism: <<schoolprogul>></a>'
+}
+
+$cheatmenu['reputation'] = {
+	gs'stat'
+	clr
+	pl'<center><a href="exec:dynamic $cheatmenu"><b>Cheat menu</b></a></center>'
+	pl 'Relationship values are from 0 - 100. If they exceed this limit they will be reset overnight.'
+	if storyline = 1:
+		nl
+		pl'Relationships in Pavlovsk'
+		nl
+		pl '<font color="blue"><b>Family</b></font>'
+		if Enable_reputation_family = 0:
+			pl '<a href="exec:Enable_reputation_family = 1 & dynamic $cheatmenu[''reputation'']">Show details</a>'
+		end
+		if Enable_reputation_family = 1:
+			pl '<a href="exec:Enable_reputation_family = 0 & dynamic $cheatmenu[''reputation'']">Hide details</a>'
+			pl 'Stepfather: <<npc_rel[''A28'']>>  <a href="exec:npc_rel[''A28''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A28''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl 'Mother: <<npc_rel[''A29'']>>  <a href="exec:npc_rel[''A29''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A29''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl 'Sister: <<npc_rel[''A33'']>>  <a href="exec:npc_rel[''A33''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A33''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl 'Brother: <<npc_rel[''A34'']>>  <a href="exec:npc_rel[''A34''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A34''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+		end
+		nl
+		nl
+		pl '<font color="blue"><b>School</b></font>'
+		pl '<i>Popular Kids</i>'
+		if Enable_reputation_popular = 0:
+			pl '<a href="exec:Enable_reputation_popular = 1 & dynamic $cheatmenu[''reputation'']">Show details</a>'
+		end
+		if Enable_reputation_popular = 1:
+			pl '<a href="exec:Enable_reputation_popular = 0 & dynamic $cheatmenu[''reputation'']">Hide details</a>'
+			pl '<<$npc_firstname[''A1'']>> <<$npc_lastname[''A1'']>>: <<npc_rel[''A1'']>>  <a href="exec:npc_rel[''A1''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A1''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A4'']>> <<$npc_lastname[''A4'']>>: <<npc_rel[''A4'']>>  <a href="exec:npc_rel[''A4''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A4''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A14'']>> <<$npc_lastname[''A14'']>>: <<npc_rel[''A14'']>>  <a href="exec:npc_rel[''A14''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A14''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A15'']>> <<$npc_lastname[''A15'']>>: <<npc_rel[''A15'']>>  <a href="exec:npc_rel[''A15''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A15''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A17'']>> <<$npc_lastname[''A17'']>>: <<npc_rel[''A17'']>>  <a href="exec:npc_rel[''A17''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A17''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A23'']>> <<$npc_lastname[''A23'']>>: <<npc_rel[''A23'']>>  <a href="exec:npc_rel[''A23''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A23''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A146'']>> <<$npc_lastname[''A146'']>>: <<npc_rel[''A146'']>>  <a href="exec:npc_rel[''A146''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A146''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A147'']>> <<$npc_lastname[''A147'']>>: <<npc_rel[''A147'']>>  <a href="exec:npc_rel[''A147''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A147''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A148'']>> <<$npc_lastname[''A148'']>>: <<npc_rel[''A148'']>>  <a href="exec:npc_rel[''A148''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A148''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			if soniaPS = 0: pl '<<$npc_firstname[''A25'']>> <<$npc_lastname[''A25'']>>: <<npc_rel[''A25'']>>  <a href="exec:npc_rel[''A25''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A25''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A139'']>> <<$npc_lastname[''A139'']>>: <<npc_rel[''A139'']>>  <a href="exec:npc_rel[''A139''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A139''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A140'']>> <<$npc_lastname[''A140'']>>: <<npc_rel[''A140'']>>  <a href="exec:npc_rel[''A140''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A140''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+		end
+		nl
+		pl '<i>Athletes</i>'
+		if Enable_reputation_athletes = 0:
+			pl '<a href="exec:Enable_reputation_athletes = 1 & dynamic $cheatmenu[''reputation'']">Show details</a>'
+		end
+		if Enable_reputation_athletes = 1:
+			pl '<a href="exec:Enable_reputation_athletes = 0 & dynamic $cheatmenu[''reputation'']">Hide details</a>'
+			pl '<<$npc_firstname[''A3'']>> <<$npc_lastname[''A3'']>>: <<npc_rel[''A3'']>>  <a href="exec:npc_rel[''A3''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A3''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			if fedormasha = 0: pl '<<$npc_firstname[''A5'']>> <<$npc_lastname[''A5'']>>: <<npc_rel[''A5'']>>  <a href="exec:npc_rel[''A5''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A5''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A8'']>> <<$npc_lastname[''A8'']>>: <<npc_rel[''A8'']>>  <a href="exec:npc_rel[''A8''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A8''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A13'']>> <<$npc_lastname[''A13'']>>: <<npc_rel[''A13'']>>  <a href="exec:npc_rel[''A13''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A13''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			if zverRageQW = 0 or zverRageQW = 10: pl '<<$npc_firstname[''A18'']>> <<$npc_lastname[''A18'']>>: <<npc_rel[''A18'']>>  <a href="exec:npc_rel[''A18''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A18''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A19'']>> <<$npc_lastname[''A19'']>>: <<npc_rel[''A19'']>>  <a href="exec:npc_rel[''A19''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A19''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A22'']>> <<$npc_lastname[''A22'']>>: <<npc_rel[''A22'']>>  <a href="exec:npc_rel[''A22''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A22''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A149'']>> <<$npc_lastname[''A149'']>>: <<npc_rel[''A149'']>>  <a href="exec:npc_rel[''A149''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A149''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A150'']>> <<$npc_lastname[''A150'']>>: <<npc_rel[''A150'']>>  <a href="exec:npc_rel[''A150''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A150''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A141'']>> <<$npc_lastname[''A141'']>>: <<npc_rel[''A141'']>>  <a href="exec:npc_rel[''A141''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A141''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+		end
+		nl
+		pl '<i>Nerds</i>'
+		if Enable_reputation_nerds = 0:
+			pl '<a href="exec:Enable_reputation_nerds = 1 & dynamic $cheatmenu[''reputation'']">Show details</a>'
+		end
+		if Enable_reputation_nerds = 1:
+			pl '<a href="exec:Enable_reputation_nerds = 0 & dynamic $cheatmenu[''reputation'']">Hide details</a>'
+			pl '<<$npc_firstname[''A2'']>> <<$npc_lastname[''A2'']>>: <<npc_rel[''A2'']>>  <a href="exec:npc_rel[''A2''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A2''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A6'']>> <<$npc_lastname[''A6'']>>: <<npc_rel[''A6'']>>  <a href="exec:npc_rel[''A6''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A6''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A12'']>> <<$npc_lastname[''A12'']>>: <<npc_rel[''A12'']>>  <a href="exec:npc_rel[''A12''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A12''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A16'']>> <<$npc_lastname[''A16'']>>: <<npc_rel[''A16'']>>  <a href="exec:npc_rel[''A16''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A16''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A151'']>> <<$npc_lastname[''A151'']>>: <<npc_rel[''A151'']>>  <a href="exec:npc_rel[''A151''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A151''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A152'']>> <<$npc_lastname[''A152'']>>: <<npc_rel[''A152'']>>  <a href="exec:npc_rel[''A152''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A152''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A153'']>> <<$npc_lastname[''A153'']>>: <<npc_rel[''A153'']>>  <a href="exec:npc_rel[''A153''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A153''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A142'']>> <<$npc_lastname[''A142'']>>: <<npc_rel[''A142'']>>  <a href="exec:npc_rel[''A142''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A142''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+		end
+		nl
+		pl '<i>Gopniks</i>'
+		if Enable_reputation_gopniks = 0:
+			pl '<a href="exec:Enable_reputation_gopniks = 1 & dynamic $cheatmenu[''reputation'']">Show details</a>'
+		end
+		if Enable_reputation_gopniks = 1:
+			pl '<a href="exec:Enable_reputation_gopniks = 0 & dynamic $cheatmenu[''reputation'']">Hide details</a>'
+			pl '<<$npc_firstname[''A9'']>> <<$npc_lastname[''A9'']>>: <<npc_rel[''A9'']>>  <a href="exec:npc_rel[''A9''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A9''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A10'']>> <<$npc_lastname[''A10'']>>: <<npc_rel[''A10'']>>  <a href="exec:npc_rel[''A10''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A10''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A11'']>> <<$npc_lastname[''A11'']>>: <<npc_rel[''A11'']>>  <a href="exec:npc_rel[''A11''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A11''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A20'']>> <<$npc_lastname[''A20'']>>: <<npc_rel[''A20'']>>  <a href="exec:npc_rel[''A20''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A20''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A21'']>> <<$npc_lastname[''A21'']>>: <<npc_rel[''A21'']>>  <a href="exec:npc_rel[''A21''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A21''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A24'']>> <<$npc_lastname[''A24'']>>: <<npc_rel[''A24'']>>  <a href="exec:npc_rel[''A24''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A24''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A154'']>> <<$npc_lastname[''A154'']>>: <<npc_rel[''A154'']>>  <a href="exec:npc_rel[''A154''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A154''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A155'']>> <<$npc_lastname[''A155'']>>: <<npc_rel[''A155'']>>  <a href="exec:npc_rel[''A155''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A155''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A156'']>> <<$npc_lastname[''A156'']>>: <<npc_rel[''A156'']>>  <a href="exec:npc_rel[''A156''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A156''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A157'']>> <<$npc_lastname[''A157'']>>: <<npc_rel[''A157'']>>  <a href="exec:npc_rel[''A157''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A157''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A158'']>> <<$npc_lastname[''A158'']>>: <<npc_rel[''A158'']>>  <a href="exec:npc_rel[''A158''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A158''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A143'']>> <<$npc_lastname[''A143'']>>: <<npc_rel[''A143'']>>  <a href="exec:npc_rel[''A143''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A143''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A144'']>> <<$npc_lastname[''A144'']>>: <<npc_rel[''A144'']>>  <a href="exec:npc_rel[''A144''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A144''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A145'']>> <<$npc_lastname[''A145'']>>: <<npc_rel[''A145'']>>  <a href="exec:npc_rel[''A145''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A145''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+		end
+		nl
+		pl '<i>Outcasts/Loners</i>'
+		if Enable_reputation_outcasts = 0:
+			pl '<a href="exec:Enable_reputation_outcasts = 1 & dynamic $cheatmenu[''reputation'']">Show details</a>'
+		end
+		if Enable_reputation_outcasts = 1:
+			pl '<a href="exec:Enable_reputation_outcasts = 0 & dynamic $cheatmenu[''reputation'']">Hide details</a>'
+			pl '<<$npc_firstname[''A7'']>> <<$npc_lastname[''A7'']>>: <<npc_rel[''A7'']>>  <a href="exec:npc_rel[''A7''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A7''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			if soniaPS > 0: pl '<<$npc_firstname[''A25'']>> <<$npc_lastname[''A25'']>>: <<npc_rel[''A25'']>>  <a href="exec:npc_rel[''A25''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A25''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			if zverRageQW > 1 and zverRageQW < 10: pl '<<$npc_firstname[''A18'']>> <<$npc_lastname[''A18'']>>: <<npc_rel[''A18'']>>  <a href="exec:npc_rel[''A18''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A18''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			if fedormasha = 1: pl '<<$npc_firstname[''A5'']>> <<$npc_lastname[''A5'']>>: <<npc_rel[''A5'']>>  <a href="exec:npc_rel[''A5''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A5''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A159'']>> <<$npc_lastname[''A159'']>>: <<npc_rel[''A159'']>>  <a href="exec:npc_rel[''A159''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A159''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+		end
+		nl
+		pl '<i>Teachers/Coaches</i>'
+		if Enable_reputation_teachers = 0:
+			pl '<a href="exec:Enable_reputation_teachers = 1 & dynamic $cheatmenu[''reputation'']">Show details</a>'
+		end
+		if Enable_reputation_teachers = 1:
+			pl '<a href="exec:Enable_reputation_teachers = 0 & dynamic $cheatmenu[''reputation'']">Hide details</a>'
+			pl '<<$npc_firstname[''A26'']>> <<$npc_lastname[''A26'']>>: <<npc_rel[''A26'']>>  <a href="exec:npc_rel[''A26''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A26''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl 'Mikhail Nikolayevich: <<npc_rel[''A69'']>>  <a href="exec:npc_rel[''A69''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A69''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A128'']>> <<$npc_lastname[''A128'']>>: <<npc_rel[''A128'']>>  <a href="exec:npc_rel[''A128''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A128''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A129'']>> <<$npc_lastname[''A129'']>>: <<npc_rel[''A129'']>>  <a href="exec:npc_rel[''A129''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A129''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A130'']>> <<$npc_lastname[''A130'']>>: <<npc_rel[''A130'']>>  <a href="exec:npc_rel[''A130''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A130''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A131'']>> <<$npc_lastname[''A131'']>>: <<npc_rel[''A131'']>>  <a href="exec:npc_rel[''A131''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A131''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A132'']>> <<$npc_lastname[''A132'']>>: <<npc_rel[''A132'']>>  <a href="exec:npc_rel[''A132''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A132''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A133'']>> <<$npc_lastname[''A133'']>>: <<npc_rel[''A133'']>>  <a href="exec:npc_rel[''A133''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A133''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A134'']>> <<$npc_lastname[''A134'']>>: <<npc_rel[''A134'']>>  <a href="exec:npc_rel[''A134''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A134''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A135'']>> <<$npc_lastname[''A135'']>>: <<npc_rel[''A135'']>>  <a href="exec:npc_rel[''A135''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A135''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A136'']>> <<$npc_lastname[''A136'']>>: <<npc_rel[''A136'']>>  <a href="exec:npc_rel[''A136''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A136''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A137'']>> <<$npc_lastname[''A137'']>>: <<npc_rel[''A137'']>>  <a href="exec:npc_rel[''A137''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A137''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+			pl '<<$npc_firstname[''A138'']>> <<$npc_lastname[''A138'']>>: <<npc_rel[''A138'']>>  <a href="exec:npc_rel[''A138''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A138''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+		end
+		nl
+		nl
+		pl '<font color="blue"><b>Others</b></font>'
+		nl
+		if npc_rel['A112'] >= 0:
+			pl 'Sergei Shulgin: <<npc_rel[''A112'']>>  <a href="exec:npc_rel[''A112''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A112''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+		end
+	end
+	nl
+	if npc_rel['A219'] >= 0:
+		pl 'Kat: <<npc_rel[''A219'']>>  <a href="exec:npc_rel[''A219''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A219''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+	end
+	if npc_rel['A218'] >= 0:
+		pl 'Tanya: <<npc_rel[''A218'']>>  <a href="exec:npc_rel[''A218''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A218''] & dynamic $cheatmenu[''reputation'']">-10</a>'
+	end
+	if npc_rel['A220'] >= 0:
+		pl 'Vika: <<npc_rel[''A220'']>>  <a href="exec:npc_rel[''A220''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A220''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+	end
+	if npc_rel['A93'] >= 0:
+		pl 'Irina: <<npc_rel[''A93'']>>  <a href="exec:npc_rel[''A93''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A93''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+	end
+	if npc_rel['A43'] >= 0:
+		pl 'Tamara: <<npc_rel[''A93'']>>  <a href="exec:npc_rel[''A43''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A43''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+	end
+	if alla >= 0:
+		pl 'Alla: <<alla>>  <a href="exec:alla += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:alla -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+	end
+	if masha >= 0:
+		pl 'Masha: <<masha>>  <a href="exec:masha += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:masha -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+	end
+	if npc_rel['A41'] >= 0:
+		pl 'Givi: <<npc_rel[''A41'']>>  <a href="exec:npc_rel[''A41''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A41''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+	end
+	if npc_rel['A42'] >= 0:
+		pl 'Ashot: <<npc_rel[''A42'']>>  <a href="exec:npc_rel[''A42''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A42''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+	end
+	if afra >= 0:
+		pl 'Black Guys: <<afra>>  <a href="exec:afra += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:afra -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+	end
+	if npc_rel['A89'] >= 0:
+		pl 'Eugene: <<npc_rel[''A89'']>>  <a href="exec:npc_rel[''A89''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A89''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+	end
+	if npc_rel['A217'] >= 0:
+		pl 'Pavlin: <<npc_rel[''A217'']>>  <a href="exec:npc_rel[''A217''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A217''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+	end
+	if hantersAndreiQw >= 0:
+		pl 'Hunter Andrew: <<hantersAndreiQw>>  <a href="exec:hantersAndreiQw += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:hantersAndreiQw -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+	end
+	if hantersSergeiQw >= 0:
+		pl 'Hunter Sergei: <<hantersSergeiQw>>  <a href="exec:hantersSergeiQw += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:hantersSergeiQw -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+	end
+	if hantersIgorQw >= 0:
+		pl 'Hunter Igor: <<hantersIgorQw>>  <a href="exec:hantersIgorQw += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:hantersIgorQw -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+	end
+	if npc_rel['A217'] >= 0:
+		pl 'Martin: <<npc_rel[''A216'']>>  <a href="exec:npc_rel[''A216''] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:npc_rel[''A216''] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+	end
+
+	if pcs_lovers[0] = 1:
+		nl
+		pl'You are dating <<$loverdesc[0]>>.'
+		if loverrelation[0] < 0: loverrelation[0] = 0
+		if loverdays[0] < 0: loverdays[0] = 0
+		if haraklover[0] > 2: haraklover[0] = 0
+		if loverizvrat[0] > 1: loverizvrat[0] = 0
+		pl'Change lover''s personality: <a href="exec:haraklover[0] += 1 & dynamic $cheatmenu[''reputation'']"><<haraklover[0]>></a>'
+		pl'Change lover''s perversion: <a href="exec:loverizvrat[0] += 1 & dynamic $cheatmenu[''reputation'']"><<loverizvrat[0]>></a>'
+		pl'Relationship: <<loverrelation[0]>> <a href="exec:loverrelation[0] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:loverrelation[0] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+		pl'You''ve been dating for <<loverdays[0]>> days. <a href="exec:loverdays[0] += 5 & dynamic $cheatmenu[''reputation'']">+5</a> <a href="exec:loverdays[0] -= 5 & dynamic $cheatmenu[''reputation'']">-5</a>'
+	end
+	if pcs_lovers[1] = 1:
+		nl
+		pl'You are dating <<$loverdesc[1]>>.'
+		if loverrelation[1] < 0: loverrelation[1] = 0
+		if loverdays[1] < 0: loverdays[1] = 0
+		if haraklover[1] > 2: haraklover[1] = 0
+		if loverizvrat[1] > 1: loverizvrat[1] = 0
+		pl'Change lover''s personality: <a href="exec:haraklover[1] += 1 & dynamic $cheatmenu[''reputation'']"><<haraklover[1]>></a>'
+		pl'Change lover''s perversion: <a href="exec:loverizvrat[1] += 1 & dynamic $cheatmenu[''reputation'']"><<loverizvrat[1]>></a>'
+		pl'Relationship: <<loverrelation[1]>> <a href="exec:loverrelation[1] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:loverrelation[1] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+		pl'You''ve been dating for <<loverdays[1]>> days. <a href="exec:loverdays[1] += 5 & dynamic $cheatmenu[''reputation'']">+5</a> <a href="exec:loverdays[1] -= 5 & dynamic $cheatmenu[''reputation'']">-5</a>'
+	end
+	if pcs_lovers[2] = 1:
+		nl
+		pl'You are dating <<$loverdesc[2]>>.'
+		if loverrelation[2] < 0: loverrelation[2] = 0
+		if loverdays[2] < 0: loverdays[2] = 0
+		if haraklover[2] > 2: haraklover[2] = 0
+		if loverizvrat[2] > 1: loverizvrat[2] = 0
+		pl'Change lover''s personality: <a href="exec:haraklover[2] += 1 & dynamic $cheatmenu[''reputation'']"><<haraklover[2]>></a>'
+		pl'Change lover''s perversion: <a href="exec:loverizvrat[2] += 1 & dynamic $cheatmenu[''reputation'']"><<loverizvrat[2]>></a>'
+		pl'Relationship: <<loverrelation[2]>> <a href="exec:loverrelation[2] += 10 & dynamic $cheatmenu[''reputation'']">+10</a> <a href="exec:loverrelation[2] -= 10 & dynamic $cheatmenu[''reputation'']">-10</a>'
+		pl'You''ve been dating for <<loverdays[2]>> days. <a href="exec:loverdays[2] += 5 & dynamic $cheatmenu[''reputation'']">+5</a> <a href="exec:loverdays[2] -= 5 & dynamic $cheatmenu[''reputation'']">-5</a>'
+	end
+	nl
+	if pav_slut >= 25:pl'In Pavlovsk you are known as a <<$gnikname>>'
+	if opusk > 0 or gnewQW < 4 or sipovka > 0:pl'<a href="exec:opusk = 0 & sipovka = 0 & gnewQW = 0 & dynamic $cheatmenu[''reputation'']">Clear reputation with Gopniks</a>'
+	if StoryLine = 1:
+		if motherKnowWhore > 0 or motherKnowSpravka > 0 or brotherSex >= 1 or evgenQW >= 3 or brotherknowslut > 0 or sisterknowslut > 0:
+			nl
+			pl'<font color="red"><B>WARNING</B></font> Clearing reputation flags with your family MAY CAUSE BUGS!!'
+			if motherKnowWhore > 0:
+				pl'Your mother thinks you are a whore. <a href="exec:motherKnowWhore = 0 & dynamic $cheatmenu[''reputation'']">Clear</a>'
+			elseif motherKnowSpravka > 0:
+				pl'Your mother thinks that you are a virgin. <a href="exec:motherKnowSpravka = 0 & dynamic $cheatmenu[''reputation'']">Clear</a>'
+			end
+			nl
+			if brotherSex >= 1:
+				pl'Your brother thinks you are a slut. <a href="exec:brotherSex = 0 & dynamic $cheatmenu[''reputation'']">Clear</a>'
+			elseif evgenQW >= 3:
+				pl'Your brother thinks you are a slut. <a href="exec:evgenQW = 0 & dynamic $cheatmenu[''reputation'']">Clear</a>'
+			end
+			if brotherknowslut = 1: pl'Your brother saw semen on your body and thinks you fuck around. <a href="exec:brotherknowslut = 0 & dynamic $cheatmenu[''reputation'']">Clear</a>'
+			if brotherknowslut >= 2: pl'Your brother saw you in the park fucking the Gopniks. <a href="exec:brotherknowslut = 1 & dynamic $cheatmenu[''reputation'']">Clear</a>'
+			nl
+			if sisterknowslut > 1 and sisboypartyQW > 1:
+				pl'Your sister says you are a slut <a href="exec:sisboypartyQW = 0 & dynamic $cheatmenu[''reputation'']">Clear</a>'
+			elseif sisterknowslut > 0:
+				pl'Your sister knows that you sleep around. <a href="exec:sisterknowslut = 0 & dynamic $cheatmenu[''reputation'']">Clear</a>'
+			end
+		end
+	end
+}
+
+$cheatmenu['documents'] = {
+	gs'stat'
+	clr
+	pl'<center><a href="exec:dynamic $cheatmenu"><b>Cheat menu</b></a></center>'
+	nl
+	if SchoolAtestat = 0:pl'<a href="exec:SchoolAtestat = 1 & dynamic $cheatmenu[''documents'']">Get School Certificate</a>'
+	if SchoolAtestat = 1:pl'Already have a School Certificate'
+	if diplom = 0:pl'<a href="exec:diplom = 1 & dynamic $cheatmenu[''documents'']">Get Diploma</a>'
+	if diplom = 1:pl'You already have a Diploma'
+	if secrdiplom = 0:pl'<a href="exec:secrdiplom = 1 & dynamic $cheatmenu[''documents'']">Get Secretarial Diploma</a>'
+	if secrdiplom = 1:pl'You already have a Secretarial Diploma'
+	if masash < 10:pl'<a href="exec:masash = 10 & dynamic $cheatmenu[''documents'']">Get Masseuse Certificate</a>'
+	if masash >= 10:pl'You already have a Masseuse Certificate'
+	if prava = 0:pl'<a href="exec:prava = 1 & dynamic $cheatmenu[''documents'']">Get Driving Licence</a>'
+	if prava = 1:pl'You already have Driving Licence'
+}
+
+$cheatmenu['input_time'] = {
+	inputtmp = input("Enter time with 4-digit (input 0102 for 1:02)")
+	if inputtmp/100 >= 0 and inputtmp/100 <= 23:hour = inputtmp/100
+	inputtmp = inputtmp mod 100
+	if inputtmp >= 0 and inputtmp <= 59:minut = inputtmp
+	killvar 'inputtmp'
+	dynamic $cheatmenu['time']
+}
+
+$cheatmenu['time'] = {
+	gs 'daystart'
+	gs 'outdoors', 'temp_set'
+	gs 'stat'
+
+	temp_daystart = (year - 2016) * 365
+!!2016 is a leapyear so no adjustment before division
+	temp_daystart += (year - 2016) / 4
+	i=1
+	:temp_daystart
+	if temp_month > i:
+		temp_daystart += monthsend[i]
+		i += 1
+		jump 'temp_daystart'
+	end
+	temp_daystart += temp_day
+	temp_daystart -= daystart_start
+	temp_daystart += 1
+
+	if currtimecheck = 1:
+		killvar 'currtimecheck'
+		if currday ! daystart:
+			if currday < daystart:
+				week = (week + daystart - currday) mod 7
+			else
+				temp = week - ((currday - daystart) mod 7)
+				if temp <= 0: week = 7 - temp else week = temp
+			end
+			currday = daystart
+		end
+		if currhour < (daystart-1) * 24 + hour:femcycloop = (daystart-1) * 24 + hour - currhour
+		:femcycloop
+		if femcycloop > 0:gs 'femcyc' & femcycloop -= 1 & jump 'femcycloop'
+	end
+	clr
+	pl'<center><a href="exec:dynamic $cheatmenu"><b>Cheat menu</b></a></center>'
+	nl
+	if temp_minut > 9:
+		if temp_hour > 9: $temptime = '<b><<temp_hour>>:<<temp_minut>></b>' else $temptime = '<b>0<<temp_hour>>:<<temp_minut>></b>'
+	else
+		if temp_hour > 9: $temptime = '<b><<temp_hour>>:0<<temp_minut>></b>' else $temptime = '<b>0<<temp_hour>>:0<<temp_minut>></b>'
+	end
+	if minut > 9:
+		if hour > 9: $tempcurtime = '<b><<hour>>:<<minut>></b>' else $tempcurtime = '<b>0<<hour>>:<<minut>></b>'
+	else
+		if hour > 9: $tempcurtime = '<b><<hour>>:0<<minut>></b>' else $tempcurtime = '<b>0<<hour>>:0<<minut>></b>'
+	end
+
+	if temp_daystart > daystart:
+		temp = (temp_daystart - daystart) mod 7
+		if (temp + week) mod 7 = 0:temp_week = 7 else temp_week = (temp + week) mod 7
+	elseif temp_daystart < daystart:
+		temp = (daystart - temp_daystart) mod 7
+		if (week - temp) mod 7 = 0:
+			temp_week = 7
+		elseif (week - temp) mod 7 < 0:
+			temp_week = ((week - temp) mod 7) + 7
+		else
+			temp_week = week - temp
+		end
+	else
+		temp_week = week
+	end
+	killvar 'temp'
+
+	pl'Current time: <b><<$week[week]>></b>, <b><<day>></b>. day of <b><<$month>></b>, <b><<year>></b>, <<$tempcurtime>>'
+	pl'Target time: <b><<$week[temp_week]>></b>, <b><<temp_day>></b>. day of <b><<$temp_month>></b>, <b><<temp_year>></b>, <<$temptime>>'
+	pl'Daychange: <<temp_daystart - daystart>>'
+	nl
+	pl'Year:  <a href="exec:temp_year += 1 & dynamic $cheatmenu[''time'']">+1 Year</a>  <a href="exec:temp_year -= 1 & dynamic $cheatmenu[''time'']">-1 Year</a>'
+	pl'Select <a href="exec:dynamic $cheatmenu[''month'']">Month</a>'
+	$daychange = '  <a href="exec:temp_day += 7 & dynamic $cheatmenu[''time'']">+7 Day</a>'
+	$daychange += '  <a href="exec:temp_day += 1 & dynamic $cheatmenu[''time'']">+1 Day</a>'
+	$daychange += '  <a href="exec:temp_day -= 1 & dynamic $cheatmenu[''time'']">-1 Day</a>'
+	$daychange += '  <a href="exec:temp_day -= 7 & dynamic $cheatmenu[''time'']">-7 Day</a>'
+	pl 'Day:' +$daychange
+	killvar 'daychange'
+	$SS = 'Hour: '
+	if temp_hour > 0:$SS += '<a href="exec:temp_hour -= 1 & dynamic $cheatmenu[''time'']">-1</a>  ' else $SS += '	'
+	if temp_hour > 3:$SS += '<a href="exec:temp_hour -= 4 & dynamic $cheatmenu[''time'']">-4</a>  ' else $SS += '	'
+	if temp_hour ! 0:$SS += '<a href="exec:temp_hour = 0 & dynamic $cheatmenu[''time'']">0</a>  ' else $SS += '	'
+	if temp_hour < 23:$SS += '<a href="exec:temp_hour += 1 & dynamic $cheatmenu[''time'']">+1</a>  ' else $SS += '	'
+	if temp_hour < 20:$SS += '<a href="exec:temp_hour += 4 & dynamic $cheatmenu[''time'']">+4</a>'
+	pl $SS
+	$SS = 'Minute: '
+	if temp_minut > 14:$SS += '<a href="exec:temp_minut -= 15 & dynamic $cheatmenu[''time'']">-15</a> ' else $SS += '	'
+	if temp_minut > 0:$SS += '<a href="exec:temp_minut -= 1 & dynamic $cheatmenu[''time'']">-1</a> ' else $SS += '	'
+	if temp_minut ! 0:$SS += '<a href="exec:temp_minut = 0 & dynamic $cheatmenu[''time'']">0</a> ' else $SS += '   '
+	if temp_minut < 59:$SS += '<a href="exec:temp_minut += 1 & dynamic $cheatmenu[''time'']">+1</a> '
+	if temp_minut < 46:$SS += '<a href="exec:temp_minut += 15 & dynamic $cheatmenu[''time'']">+15</a>'
+	pl $SS
+	killvar 'SS'
+	pl
+	pl' <a href="exec:dynamic $cheatmenu[''input_time'']">Direct input time</a>'
+	pl
+	pl'Weather: <a href="exec:sunWeather=iif(sunWeather=0,1,0) & $pogoda=iif(sunWeather=0,''Rain...'',''Clear...'') & chWeather = 1 & gs ''outdoors'', ''weather'' & dynamic $cheatmenu[''time'']">'+iif(sunWeather=0,'Rain','Sunny')+'</a>'
+	pl
+	pl'<a href="exec:day = temp_day & $month = $temp_month & month = temp_month & year = temp_year & hour = temp_hour & minut = temp_minut & currtimecheck = 1 & dynamic $cheatmenu[''time'']">Accept target date & time</a>'
+	pl'<a href="exec:temp_day = day & $temp_month = $month & temp_month = month & temp_year = year & temp_hour = hour & temp_minut = minut & dynamic $cheatmenu[''time'']">Reset target date & time</a>'
+	pl
+	pl'Temperature = <<$temperature>> - <a href="exec:temper += 1 & dynamic $cheatmenu[''time'']">+1 degree</a> - <a href="exec:temper += 5 & dynamic $cheatmenu[''time'']">+5 degrees</a> - <a href="exec:temper -= 1 & dynamic $cheatmenu[''time'']">-1 degree</a> - <a href="exec:temper -= 5 & dynamic $cheatmenu[''time'']">-5 degrees</a>'
+	pl
+	if TempUnit = 0: pl'Use <a href="exec:TempUnit = 1 & gs ''outdoors'',''weather'' & dynamic $cheatmenu[''time'']">Fahrenheit</a> scale' else pl'Use <a href="exec:TempUnit = 0 & gs ''outdoors'',''weather'' & dynamic $cheatmenu[''time'']">Celsius</a> scale'
+}
+
+$cheatmenu['week'] = {
+	gs'stat'
+	clr
+	pl'<center><a href="exec:dynamic $cheatmenu"><b>Cheat menu</b></a> - <a href="exec:dynamic $cheatmenu[''time'']"><b>Time</b></a></center>'
+	nl
+	pl'Current time: <b><<day>></b>. day of <b><<$month>></b>, <b><<year>></b>, <<$tempcurtime>>'
+	pl'Target time: <b><<temp_day>></b>. day of <b><<$temp_month>></b>, <b><<temp_year>></b>, <<$temptime>>'
+	nl
+	pl'<a href="exec:week = 1 & dynamic $cheatmenu[''time'']">Monday</a>'
+	pl'<a href="exec:week = 2 & dynamic $cheatmenu[''time'']">Tuesday</a>'
+	pl'<a href="exec:week = 3 & dynamic $cheatmenu[''time'']">Wednesday</a>'
+	pl'<a href="exec:week = 4 & dynamic $cheatmenu[''time'']">Thursday</a>'
+	pl'<a href="exec:week = 5 & dynamic $cheatmenu[''time'']">Friday</a>'
+	pl'<a href="exec:week = 6 & dynamic $cheatmenu[''time'']">Saturday</a>'
+	pl'<a href="exec:week = 7 & dynamic $cheatmenu[''time'']">Sunday</a>'
+}
+
+$cheatmenu['month'] = {
+	gs'stat'
+	clr
+	pl'<center><a href="exec:dynamic $cheatmenu"><b>Cheat menu</b></a> - <a href="exec:dynamic $cheatmenu[''time'']"><b>Time</b></a></center>'
+	nl
+	pl'Current time: <b><<day>></b>. day of <b><<$month>></b>, <b><<year>></b>, <<$tempcurtime>>'
+	pl'Target time: <b><<temp_day>></b>. day of <b><<$temp_month>></b>, <b><<temp_year>></b>, <<$temptime>>'
+	nl
+	pl'<a href="exec:temp_month = 1 & $temp_month = ''January'' & dynamic $cheatmenu[''time'']">January</a>'
+	pl'<a href="exec:temp_month = 2 & $temp_month = ''February'' & dynamic $cheatmenu[''time'']">February</a>'
+	pl'<a href="exec:temp_month = 3 & $temp_month = ''March'' & dynamic $cheatmenu[''time'']">March</a>'
+	pl'<a href="exec:temp_month = 4 & $temp_month = ''April'' & dynamic $cheatmenu[''time'']">April</a>'
+	pl'<a href="exec:temp_month = 5 & $temp_month = ''May'' & dynamic $cheatmenu[''time'']">May</a>'
+	pl'<a href="exec:temp_month = 6 & $temp_month = ''June'' & dynamic $cheatmenu[''time'']">June</a>'
+	pl'<a href="exec:temp_month = 7 & $temp_month = ''July'' & dynamic $cheatmenu[''time'']">July</a>'
+	pl'<a href="exec:temp_month = 8 & $temp_month = ''August'' & dynamic $cheatmenu[''time'']">August</a>'
+	pl'<a href="exec:temp_month = 9 & $temp_month = ''September'' & dynamic $cheatmenu[''time'']">September</a>'
+	pl'<a href="exec:temp_month = 10 & $temp_month = ''October'' & dynamic $cheatmenu[''time'']">October</a>'
+	pl'<a href="exec:temp_month = 11 & $temp_month = ''November'' & dynamic $cheatmenu[''time'']">November</a>'
+	pl'<a href="exec:temp_month = 12 & $temp_month = ''December'' & dynamic $cheatmenu[''time'']">December</a>'
+}
+
+$cheatmenu['magic'] = {
+	gs'stat'
+	clr
+	pl'<center><a href="exec:dynamic $cheatmenu"><b>Cheat menu</b></a></center>'
+	nl
+	if succubusflag = 1:
+		pl '<a href="exec:dynamic $cheatmenu[''succubreset'']"><b>Remove & Reset Succubus status</b></a>'
+		nl
+	end
+	pl'<a href="exec:pcs_magik += 1 & dynamic $cheatmenu[''magic'']">Is magical: <<pcs_magik>></a>'
+	nl
+	if spelltuman = 0:pl'<a href="exec:spelltuman = 1 & dynamic $cheatmenu[''magic'']">Cover the area fog</a>'
+	if spellklon = 0:pl'<a href="exec:spellklon = 1 & dynamic $cheatmenu[''magic'']">Override clone of yourself</a>'
+	if spellstun = 0:pl'<a href="exec:spellstun = 1 & dynamic $cheatmenu[''magic'']">Checkmate</a>'
+	if spellweap = 0:pl'<a href="exec:spellweap = 1 & dynamic $cheatmenu[''magic'']">Invest energy into a weapon (It requires weapons)</a>'
+	if spellwind = 0:pl'<a href="exec:spellwind = 1 & dynamic $cheatmenu[''magic'']">Blow away the fog</a>'
+	if spellklon2 = 0:pl'<a href="exec:spellklon2 = 1 & dynamic $cheatmenu[''magic'']">Substitute itself clones (3 pieces)</a>'
+	if spellenergo = 0:pl'<a href="exec:spellenergo = 1 & dynamic $cheatmenu[''magic'']">Create a weak energy shield</a>'
+	if spellinit = 0:pl'<a href="exec:spellinit = 1 & dynamic $cheatmenu[''magic'']">Create a slight delay of time</a>'
+	if spellhel = 0:pl'<a href="exec:spellhel = 1 & dynamic $cheatmenu[''magic'']">Battle Heal</a>'
+	if spellfire0 = 0 or spellfire2 = 0 or spellfire3 = 0 or spellfire4 = 0 or spellfire5 = 0:
+		nl
+		pl'<b>Elemental Spells Fire:</b></a>'
+	end
+	if spellfire0 = 0:pl'<a href="exec:spellfire0 = 1 & dynamic $cheatmenu[''magic'']">Flame</a>'
+	if spellfire2 = 0:pl'<a href="exec:spellfire2 = 1 & dynamic $cheatmenu[''magic'']">The release of fire</a>'
+	if spellfire3 = 0:pl'<a href="exec:spellfire3 = 1 & dynamic $cheatmenu[''magic'']">Fire Barrier</a>'
+	if spellfire4 = 0:pl'<a href="exec:spellfire4 = 1 & dynamic $cheatmenu[''magic'']">Firestorm</a>'
+	if spellfire5 = 0:pl'<a href="exec:spellfire5 = 1 & dynamic $cheatmenu[''magic'']">Flame Shield</a>'
+
+	if spellele0 = 0 or spellele2 = 0 or spellele3 = 0 or spellele4 = 0 or spellele5 = 0:
+		nl
+		pl'<b>Elements Lightning Spells:</b></a>'
+	end
+	if spellele0 = 0:pl'<a href="exec:spellele0 = 1 & dynamic $cheatmenu[''magic'']">Category</a>'
+	if spellele2 = 0:pl'<a href="exec:spellele2 = 1 & dynamic $cheatmenu[''magic'']">Lightning</a>'
+	if spellele3 = 0:pl'<a href="exec:spellele3 = 1 & dynamic $cheatmenu[''magic'']">Electric barrier</a>'
+	if spellele4 = 0:pl'<a href="exec:spellele4 = 1 & dynamic $cheatmenu[''magic'']">Dance of thousands of birds</a>'
+	if spellele5 = 0:pl'<a href="exec:spellele5 = 1 & dynamic $cheatmenu[''magic'']">Dancing Sphere</a>'
+
+	if spellert0 = 0 or spellert2 = 0 or spellert3 = 0 or spellert4 = 0 or spellert5 = 0:
+		nl
+		pl'<b>Spells Earth Elements:</b></a>'
+	end
+	if spellert0 = 0:pl'<a href="exec:spellert0 = 1 & dynamic $cheatmenu[''magic'']">Quicksand</a>'
+	if spellert2 = 0:pl'<a href="exec:spellert2 = 1 & dynamic $cheatmenu[''magic'']">Active protection</a>'
+	if spellert3 = 0:pl'<a href="exec:spellert3 = 1 & dynamic $cheatmenu[''magic'']">Abyss</a>'
+	if spellert4 = 0:pl'<a href="exec:spellert4 = 1 & dynamic $cheatmenu[''magic'']">Absolute protection</a>'
+	if spellert5 = 0:pl'<a href="exec:spellert5 = 1 & dynamic $cheatmenu[''magic'']">Sando</a>'
+
+	if spellwind0 = 0 or spellwind2 = 0 or spellwind3 = 0 or spellwind4 = 0 or spellwind5 = 0:
+		nl
+		pl'<b>Wind Elemental Spells:</b></a>'
+	end
+	if spellwind0 = 0:pl'<a href="exec:spellwind0 = 1 & dynamic $cheatmenu[''magic'']">Wind gust</a>'
+	if spellwind2 = 0:pl'<a href="exec:spellwind2 = 1 & dynamic $cheatmenu[''magic'']">The horrific pressure</a>'
+	if spellwind3 = 0:pl'<a href="exec:spellwind3 = 1 & dynamic $cheatmenu[''magic'']">Vacuum Sphere</a>'
+	if spellwind4 = 0:pl'<a href="exec:spellwind4 = 1 & dynamic $cheatmenu[''magic'']">Vacuum shells</a>'
+	if spellwind5 = 0:pl'<a href="exec:spellwind5 = 1 & dynamic $cheatmenu[''magic'']">Devouring vacuum</a>'
+
+	if spellwater0 = 0 or spellwater2 = 0 or spellwater3 = 0 or spellwater4 = 0 or spellwater5 = 0:
+		nl
+		pl'<b>Water Elemental Spell:</b></a>'
+	end
+	if spellwater0 = 0:pl'<a href="exec:spellwater0 = 1 & dynamic $cheatmenu[''magic'']">Creek manna</a>'
+	if spellwater2 = 0:pl'<a href="exec:spellwater2 = 1 & dynamic $cheatmenu[''magic'']">Flooding</a>'
+	if spellwater3 = 0:pl'<a href="exec:spellwater3 = 1 & dynamic $cheatmenu[''magic'']">Blister</a>'
+	if spellwater4 = 0:pl'<a href="exec:spellwater4 = 1 & dynamic $cheatmenu[''magic'']">Water shark rocket</a>'
+	if spellwater5 = 0:pl'<a href="exec:spellwater5 = 1 & dynamic $cheatmenu[''magic'']">The Great Flood</a>'
+}
+
+$cheatmenu['dynamic'] = {
+   $dynamicCommand = input("Enter command to execute.")
+   if $dynamicCommand = '':exit
+   dynamic $dynamicCommand
+}
+
+$cheatmenu['std_cure'] = {
+	venera = 0
+	GerpesOnce = 0
+	Gerpes = 0
+	SifacOnce = 0
+	Sifilis = 0
+	TriperOnce = 0
+	Triper = 0
+	TriperOral = 0
+	KandidozOnce = 0
+	Kandidoz = 0
+}
+
+$cheatmenu['auto_period'] = {
+	if cyccustom = 0:
+		cyccustom = 1
+	else
+		cyccustom = 0
+	end
+	dynamic $cheatmenu['permanent']
+}
+
+$cheatmenu['force_preg'] = {
+	if mesec ! 0: mesec = 0
+	if FocH ! 0: FocH = 0
+	if EggRH ! 0: EggRH = 0
+	if Ovulate ! 0: Ovulate = 0
+	if UnfertEgg ! 0: UnfertEgg = 0
+	if LutH ! 0: LutH = 0
+	if RecovH ! 0: RecovH = 0
+	preg = 1
+	cycle = 5
+	PregChem = 150
+	$wombthfath = 'A sperm donor'
+	babyembryo += 1
+	if fertegg = 0:
+		Nextbaby = arrsize('$ChildFath')
+		Temppolkid = rand(0,1)
+		polkid[nextbaby] = Temppolkid
+		$kidname[nextbaby] = 'unborn'
+		kidage[nextbaby] = 0
+		daykid[nextbaby] = 0
+		monthkid[nextbaby] = 0
+		yearkid[nextbaby] = 0
+		Babyptype[nextbaby] = 0
+		$ChildFath[nextbaby] = 'A sperm donor'
+		$ChildThFath[nextbaby] = 'A sperm donor'
+		hairkid[nextbaby] = rand(0, 3)
+		eyeskid[nextbaby] = rand(0, 3)
+		ChildConType[nextbaby] = 0
+		Babyptype[nextbaby] = 1
+	else
+		fertegg -= 1
+	end
+}
+
+$cheatmenu['remove_preg'] = {
+	pregtime = 0
+	pregtalk = 0
+	preg = 0
+	thinkpreg = 0
+	knowpreg = 0
+	cycle = 4
+	RecovH = rand(7,70)
+	RecovH += pregchem
+	knowpregloss = 2
+	!! I am not sure, why is it here this cycle, but I leave it so (rachels)
+	nextbaby = arrsize('yearkid')
+	:poliabortloop
+	!!Changed to check if baby has a birth year instead, if it doesn''t, do abortion
+	if yearkid[nextbaby-1] = 0:
+		KILLVAR 'polkid',nextbaby-1
+		KILLVAR '$kidname',nextbaby-1
+		KILLVAR 'kidage',nextbaby-1
+		KILLVAR 'daykid',nextbaby-1
+		KILLVAR 'monthkid',nextbaby-1
+		KILLVAR 'yearkid',nextbaby-1
+		KILLVAR 'Babyptype',nextbaby-1
+		KILLVAR '$ChildFath',nextbaby-1
+		KILLVAR '$ChildThFath',nextbaby-1
+		KILLVAR 'hairkid',nextbaby-1
+		KILLVAR 'eyeskid',nextbaby-1
+		KILLVAR 'cumarrcon',nextbaby-1
+		KILLVAR '$wombpotfath'
+		BabyEmbryo -= 1
+	end
+	nextbaby -= 1
+	if nextbaby > 0:
+		jump 'poliabortloop'
+	end
+}
+
+$cheatmenu['cycle'] = {
+	if cycle ! 5:
+		EggRH = 0
+		LutH = 0
+		Ovulate = 0
+		UnfertEgg = 0
+		FertEgg = 0
+		RecovH = 0
+		mesec = 0
+		'<a href="exec:daylastperiod = daystart & Cycle = 0 & mesec = 96">Menstration</a>'
+		'<a href="exec:Cycle = 1">Follicular</a>'
+		'<a href="exec:Cycle = 2 & Ovulate = 24+rand(0,20) & EggRH = 160 + 160+rand(0, 5)">Ovulation</a>'
+		'<a href="exec:Cycle = 3">Luteal</a>'
+	end
+}
+
+$cheatmenu['display'] = {
+	!call this for pre-game setting
+	clr
+	if Enable_settingmode = 1:
+		!call from Menu - Game settings
+		pl '<center><B>Settings</B></center>'
+		nl
+		pl'<center> <a href="exec:dynamic $cheatmenu"><b>Cheat Menu</b></a></center>'
+		nl
+		pl '<center><a href="exec:FUNC (''$menu_obnovit'')"><b>Exit Menu</b></a></center>'
+		pl '<center><B>Game Play Setting</B></center>'
+	else
+		!value= 2, call from Character creation
+		pl '<center><B>Game Play Setting</B></center>'
+	end
+
+	pl 'Mod management page: <a href="exec:gt ''mod_setting''">Here</a>'
+
+	if Enable_nogameover = 1:
+		pl'Prevent Non-Drama GAMEOVER: Currently ON - <a href="exec:Enable_nogameover = 0 & dynamic $cheatmenu[''display'']">Turn OFF</a>'
+	else
+		pl'Prevent Non-Drama GAMEOVER: Currently OFF - <a href="exec:Enable_nogameover = 1 & dynamic $cheatmenu[''display'']">Turn ON</a>'
+	end
+	if music_on = 0:
+		pl'Music: Currently OFF - <a href="exec:music_on = 1 & music_loop = 1 & dynamic $cheatmenu[''display'']">Turn ON</a>'
+	else
+		pl'Music: Currently ON - <a href="exec:music_on = 0 & music_loop = 0 & close all & dynamic $cheatmenu[''display'']">Turn OFF</a>'
+	end
+	nl
+
+	if oldobjmenu = 1:
+		pl'Current Menu Style: <a href="exec:oldobjmenu = 0 & gs ''obj_din'',''new'' & dynamic $cheatmenu[''display'']">Old Style Menu</a>'
+	else
+		pl'Current Menu Style: <a href="exec:oldobjmenu = 1 & gs ''obj_din'',''old'' & dynamic $cheatmenu[''display'']">New Style Menu</a>'
+	end
+	if disable_autosave = 1:
+		pl'AutoSave: Currently OFF - <a href="exec:disable_autosave = 0 & dynamic $cheatmenu[''display'']">Turn ON</a>'
+	else
+		pl'AutoSave: Currently ON - <a href="exec:disable_autosave = 1 & dynamic $cheatmenu[''display'']">Turn OFF</a>'
+	end
+	if autohairbrush = 1:
+		pl'Auto brush hair on mirror visit: Currently ON - <a href="exec:autohairbrush = 0 & dynamic $cheatmenu[''display'']">Turn OFF</a>'
+	else
+		pl'Auto brush hair on mirror visit: Currently OFF - <a href="exec:autohairbrush = 1 & dynamic $cheatmenu[''display'']">Turn ON</a>'
+	end
+	if enfullmorrout = 1:
+		pl'Full morning routine enabled: Currently ON - <a href="exec:enfullmorrout = 0 & dynamic $cheatmenu[''display'']">Turn OFF</a>'
+	else
+		pl'Full morning routine enabled: Currently OFF - <a href="exec:enfullmorrout = 1 & dynamic $cheatmenu[''display'']">Turn ON</a>'
+	end
+	if editpornname = 1:
+		pl'Editing of the names of the porn movies you stared enabled: Currently ON - <a href="exec:editpornname = 0 & dynamic $cheatmenu[''display'']">Turn OFF</a>'
+	else
+		pl'Editing of the names of the porn movies you stared disabled: Currently OFF - <a href="exec:editpornname = 1 & dynamic $cheatmenu[''display'']">Turn ON</a>'
+	end
+	nl
+	pl '<center><B>Display Setting</B></center>'
+	if set_imgh > 0: set_imgw = 0
+	if set_imgw > 0: set_imgh = 0
+	if set_imgh <= 0 and set_imgw <= 0: $set_imgh = ''
+	if set_imgh > 0:
+		pl'Force Image Height: <a href="exec:set_imgw = 0 & set_imgh=input(''Enter the height of the images'') & dynamic $cheatmenu[''display'']"><<set_imgh>></a>, <a href="exec:set_imgh = 0 & dynamic $cheatmenu[''display'']">ON</a>'
+		$set_imgh = 'Height = <<set_imgh>>'
+	else
+		pl'Force Image height: <a href="exec:set_imgw = 0 & set_imgh=input(''Enter the height of the images'') & dynamic $cheatmenu[''display'']">OFF</a>'
+	end
+	if set_imgw > 0:
+		pl'Force Image Width: <a href="exec:set_imgh = 0 & set_imgh=input(''Enter the width of the images'') & dynamic $cheatmenu[''display'']"><<set_imgw>></a>, <a href="exec:set_imgw=0 & dynamic $cheatmenu[''display'']">ON</a>'
+		$set_imgh = 'width = <<set_imgh>>'
+	else
+		pl'Force Image Width: <a href="exec:set_imgh = 0 &set_imgh=input(''Enter the width of the images'') & dynamic $cheatmenu[''display'']">OFF</a>'
+	end
+	if night_mode = 1:
+		pl 'Night Mode: <a href="exec:night_mode = 0 & dynamic $cheatmenu[''display'']">ON</a>'
+	else
+		pl 'Night Mode: <a href="exec:night_mode = 1 & dynamic $cheatmenu[''display'']">OFF</a>'
+	end
+	if Enable_faceturn = 1:
+		pl'Always show face: <a href="exec:Enable_faceturn = 0 & dynamic $cheatmenu[''display'']">ON</a>'
+	else
+		pl'Always show face: <a href="exec:Enable_faceturn = 1 & dynamic $cheatmenu[''display'']">OFF</a>'
+	end
+	nl
+	if disable_LoadSave = 0:
+		pl'Save/Load Buttons: <a href="exec:disable_LoadSave = 2 & dynamic $cheatmenu[''display'']">Currently Image</a>'
+	elseif disable_LoadSave = 2:
+		pl'Save/Load Buttons: <a href="exec:disable_LoadSave = 1 & dynamic $cheatmenu[''display'']">Currently Text</a>'
+	elseif disable_LoadSave = 1:
+		pl'Save/Load Buttons: <a href="exec:disable_LoadSave = 0 & dynamic $cheatmenu[''display'']">Currently Off</a>'
+	end
+	nl
+	if Enable_tablemap = 1:
+		pl'List friends in table: <a href="exec:Enable_tablemap = 0 & dynamic $cheatmenu[''display'']">ON</a>'
+	else
+		pl'List friends in table: <a href="exec:Enable_tablemap = 1 & dynamic $cheatmenu[''display'']">OFF</a>'
+	end
+	if Enable_towntable = 1:
+		pl'Display Pavlovsk description in table: <a href="exec:Enable_towntable = 0 & dynamic $cheatmenu[''display'']">ON</a>'
+	else
+		pl'Display Pavlovsk description in table: <a href="exec:Enable_towntable = 1 & dynamic $cheatmenu[''display'']">OFF</a>'
+	end
+	nl
+	if Enable_clothwidth<0:Enable_clothwidth=0
+	if Enable_clothwidth > 0:
+		pl'Set Wardrobe cloth image width: <a href="exec:Enable_clothwidth=input(''Input wardrobe cloth image width'') & dynamic $cheatmenu[''display'']"><<Enable_clothwidth>></a>, <a href="exec:Enable_clothwidth=0 & dynamic $cheatmenu[''display'']">ON</a>'
+	else
+		pl'Set Wardrobe cloth image width: <a href="exec:Enable_clothwidth=input(''Input wardrobe cloth image width'') & dynamic $cheatmenu[''display'']">OFF</a>'
+	end
+	nl
+	if Enable_Android = 1:
+		pl 'Set Fontsize for Status: Unsupported'
+		pl '<a href="exec:Enable_Android = 0 & dynamic $cheatmenu[''display'']">Android Mode :ON</a>'
+		!pl 'click <a href="exec:clr & FUNC (''$menu_obnovit'')">refresh</a> to refresh status window.'
+		pl 'click <B>refresh</B> on top of status window to renew.'
+	else
+		pl '<a href="exec:Enable_Android = 1 & dynamic $cheatmenu[''display'']">Android Mode :OFF</a>'
+	end
+	nl
+	pl '<center><B>Status Window Display</B></center>'
+	if Enable_statfsize<0:Enable_statfsize=0
+	if Enable_statfsize > 0:
+		pl 'Set Fontsize for Status: <a href="exec:Enable_statfsize=input(''Enter Fontsize'') & dynamic $cheatmenu[''display'']"><<Enable_statfsize>></a>, <a href="exec:Enable_statfsize=0 & dynamic $cheatmenu[''display'']">ON</a>'
+	else
+		pl 'Set Fontsize for Status: <a href="exec:Enable_statfsize=input(''Enter fontsize'') & dynamic $cheatmenu[''display'']">OFF</a>'
+	end
+	if ETOmenu = 1:
+		pl'Status Display mode: <a href="exec:ETOmenu = 0 & dynamic $cheatmenu[''display'']">Text</a>'
+	else
+		pl'Status Display mode: <a href="exec:ETOmenu = 1 & dynamic $cheatmenu[''display'']">Scale Bar</a>'
+	end
+
+	if Enable_scalepic = 1:
+		pl 'Scalebar is now as <b>Image</b>, you can switch to <a href="exec:Enable_scalepic = 0 & dynamic $cheatmenu[''display'']">Character</a> or <a href="exec:Enable_scalepic = 2 & dynamic $cheatmenu[''display'']">Table</a>'
+		if Enable_scalewidth > 0:
+			pl'Scalebar Width: <a href="exec:input(''Input Scalebar Width (default to 120)'') & dynamic $cheatmenu[''display'']"><<Enable_scalewidth-1>></a>, Set is currently <a href="exec:Enable_scalewidth = 0 & dynamic $cheatmenu[''display'']">ON</a>'
+		else
+			pl'Scalebar Width: Lock is currently <a href="exec:Enable_scalewidth=1+input(''InputS calebar Width (default to 120)'') & dynamic $cheatmenu[''display'']">OFF</a>'
+		end
+		if Enable_scaleheight > 0:
+			pl'Scalebar Height: <a href="exec:input(''Input Scalebar Height (default to 15)'') & dynamic $cheatmenu[''display'']"><<Enable_scaleheight-1>></a>, Set is currently <a href="exec:Enable_scaleheight = 0 & dynamic $cheatmenu[''display'']">ON</a>'
+		else
+			pl'Scalebar Height: Lock is currently <a href="exec:Enable_scaleheight=1+input(''InputS calebar Height (default to 15)'') & dynamic $cheatmenu[''display'']">OFF</a>'
+		end
+	elseif Enable_scalepic = 0:
+		pl 'Scalebar is now as <b>Character</b>, you can switch to <a href="exec:Enable_scalepic = 1 & dynamic $cheatmenu[''display'']">Image</a> or <a href="exec:Enable_scalepic = 2 & dynamic $cheatmenu[''display'']">Table</a>'
+		if cheatStatusBars = 1:
+			pl ' <a href="exec:cheatStatusBars = 0 & dynamic $cheatmenu[''display'']">Switch to larger status bars</a>'
+		else
+			pl ' <a href="exec:cheatStatusBars = 1 & dynamic $cheatmenu[''display'']">Switch to smaller status bars</a>'
+		end
+	elseif Enable_scalepic = 2:
+		pl 'Scalebar is now as <b>Table</b>, you can switch to <a href="exec:Enable_scalepic = 0 & dynamic $cheatmenu[''display'']">Image</a> or <a href="exec:Enable_scalepic = 1 & dynamic $cheatmenu[''display'']">Character</a>'
+	end
+
+	if Enable_statfsize > 0:
+		pl 'Set Fontsize for Status: <a href="exec:Enable_statfsize=input(''Enter Fontsize'') & dynamic $cheatmenu[''display'']"><<Enable_statfsize>></a>, <a href="exec:Enable_statfsize=0 & dynamic $cheatmenu[''display'']">ON</a>'
+	else
+		pl 'Set Fontsize for Status: <a href="exec:Enable_statfsize=input(''Enter fontsize'') & dynamic $cheatmenu[''display'']">OFF</a>'
+	end
+
+	nl
+	pl '<center><B>Status Window toolbar</B></center>'
+	if Enable_showattr = 1:
+		pl'Show More attribute: <a href="exec:Enable_showattr = 0 & dynamic $cheatmenu[''display'']">ON</a>'
+	else
+		pl'Show More attribute: <a href="exec:Enable_showattr = 1 & dynamic $cheatmenu[''display'']">OFF</a>'
+	end
+	if Enable_showskill = 1:
+		pl'Show skill: <a href="exec:Enable_showskill = 0 & dynamic $cheatmenu[''display'']">ON</a>'
+	else
+		pl'Show skill: <a href="exec:Enable_showskill = 1 & dynamic $cheatmenu[''display'']">OFF</a>'
+	end
+	if Enable_showrelation = 1:
+		pl'Show relations: <a href="exec:Enable_showrelation = 0 & dynamic $cheatmenu[''display'']">ON</a>'
+	else
+		pl'Show relations: <a href="exec:Enable_showrelation = 1 & dynamic $cheatmenu[''display'']">OFF</a>'
+	end
+	if Enable_showstatimg = 1:
+		pl'Show image toolbar: <a href="exec:Enable_showstatimg = 0 & dynamic $cheatmenu[''display'']">ON</a>'
+	else
+		pl'Show image toolbar: <a href="exec:Enable_showstatimg = 1 & dynamic $cheatmenu[''display'']">OFF</a>'
+	end
+	nl
+	pl '<center><B>Image Toolbar Settings</B></center>'
+	!control image toolbar position
+	$stat_temp_text = '<br>Image toolbar position: <B>'
+	if Enable_statimg_loc = 0:
+		$stat_temp_text += 'Middle'
+	elseif Enable_statimg_loc = 1:
+		$stat_temp_text += 'Top'
+	elseif Enable_statimg_loc = 2:
+		$stat_temp_text += 'Bottom'
+	else
+		$stat_temp_text += 'ERROR! please reset it'
+	end
+	$stat_temp_text += '</B>. You can move it to '
+	if Enable_statimg_loc ! 0:$stat_temp_text += ' <a href="exec:Enable_statimg_loc=0 & dynamic $cheatmenu[''display'']">Middle</a>'
+	if Enable_statimg_loc ! 1:$stat_temp_text += ' <a href="exec:Enable_statimg_loc=1 & dynamic $cheatmenu[''display'']">Top</a>'
+	if Enable_statimg_loc ! 2:$stat_temp_text += ' <a href="exec:Enable_statimg_loc=2 & dynamic $cheatmenu[''display'']">Bottom</a>'
+
+	pl $stat_temp_text
+	killvar 'stat_temp_text'
+	!End control image toolbar position
+	if set_statimgh > 0: set_statimgw = 0
+	if set_statimgw > 0: set_statimgh = 0
+	if set_statimgh <= 0 and set_statimgw <= 0: $set_statimgh = ''
+	if set_statimgh > 0:
+		pl'Force Image toobar height: <a href="exec:set_statimgw=0 & set_statimgh=input(''Enter the height of the images'') & dynamic $cheatmenu[''display'']"><<set_statimgh>></a>, <a href="exec:set_statimgh=0 & dynamic $cheatmenu[''display'']">ON</a>'
+		$set_statimgh = 'height = <<set_statimgh>>'
+	else
+		pl'Force Image toobar height: <a href="exec:set_statimgw=0 & set_statimgh=input(''Enter the height of the images'') & dynamic $cheatmenu[''display'']">OFF</a>'
+	end
+	if set_statimgw > 0:
+		pl'Force Image toobar width: <a href="exec:set_statimgh=0 & set_statimgw=input(''Enter the width of the images'') & dynamic $cheatmenu[''display'']"><<set_statimgw>></a>, <a href="exec:set_statimgw=0 & dynamic $cheatmenu[''display'']">ON</a>'
+		$set_statimgh = 'width = <<set_statimgw>>'
+	else
+		pl'Force Image toobar width: <a href="exec:set_statimgh=0 & set_statimgw=input(''Enter the width of the images'') & dynamic $cheatmenu[''display'']">OFF</a>'
+	end
+	nl
+	pl '<center><B>Font Settings</B></center>'
+	pl
+	pl'<center><a href="exec:gs ''shortgs'',''fonts'', ''$cheatmenu[''''display'''']'',''$OpenInnerThought'',''$CloseInnerThought'' "> Set the style for Inner Thoughts </a></center>'
+	pl
+	pl $OpenInnerThought+'Oh my god, what will the neighbours think of us?'+$CloseInnerThought
+	nl
+	pl'<center> <a href="exec:dynamic $cheatmenu[''theme'']"><b>Phone Theme Menu</b></a></center>'
+
+!<a href="exec:gs ''Cheatmenu_din'' & Enable_settingmode = 1 & dynamic $cheatmenu[''display'']"><img src="<<FUNC(''$phone_theme'')>>icon_settings.png"></a>
+}
+
+$cheatmenu['theme'] = {
+	clr
+	pl '<center><B>Phone Theme Menu</B></center>'
+	nl
+	pl '<center><a href="exec:dynamic $cheatmenu[''display'']"><b>Settings Menu</b></a></center>'
+	nl
+	pl 'Current theme: <<$phonetheme_name[pcs_phonetheme]>>'
+	nl
+	pl 'Choose from the available themes'
+	nl
+
+	i = 0
+	:phonethemeloop
+	if phonetheme[i] = 1:pl'<a href="exec: pcs_phonetheme = <<i>> & dynamic $cheatmenu[''theme'']"><img src="images/system/phone/theme/' + $phonetheme_name[i] + '/icon_call.png"></a>'
+	i += 1
+	if i <= ARRSIZE('phonetheme'):jump 'phonethemeloop'
+
+}
+
+$cheatmenu['pain'] = {
+	if pain['head'] < 0:pain['head'] = 0
+	if pain['hair'] < 0:pain['hair'] = 0
+	if pain['ears'] < 0:pain['ears'] = 0
+	if pain['eyebrows'] < 0:pain['eyebrows'] = 0
+	if pain['eyes'] < 0:pain['eyes'] = 0
+	if pain['cheeks'] < 0:pain['cheeks'] = 0
+	if pain['nose'] < 0:pain['nose'] = 0
+	if pain['mouth'] < 0:pain['mouth'] = 0
+	if pain['lips'] < 0:pain['lips'] = 0
+	if pain['tongue'] < 0:pain['tongue'] = 0
+	if pain['throat'] < 0:pain['throat'] = 0
+	if pain['neck'] < 0:pain['neck'] = 0
+	if pain['back'] < 0:pain['back'] = 0
+	if pain['asscheeks'] < 0:pain['asscheeks'] = 0
+	if pain['asshole'] < 0:pain['asshole'] = 0
+	if pain['hips'] < 0:pain['hips'] = 0
+	if pain['thighs'] < 0:pain['thighs'] = 0
+	if pain['legL'] < 0:pain['legL'] = 0
+	if pain['legR'] < 0:pain['legR'] = 0
+	if pain['feet'] < 0:pain['feet'] = 0
+	if pain['toes'] < 0:pain['toes'] = 0
+	if pain['shoulders'] < 0:pain['shoulders'] = 0
+	if pain['armL'] < 0:pain['armL'] = 0
+	if pain['armR'] < 0:pain['armR'] = 0
+	if pain['hands'] < 0:pain['hands'] = 0
+	if pain['fingers'] < 0:pain['fingers'] = 0
+	if pain['chest'] < 0:pain['chest'] = 0
+	if pain['breasts'] < 0:pain['breasts'] = 0
+	if pain['nipples'] < 0:pain['nipples'] = 0
+	if pain['ribs'] < 0:pain['ribs'] = 0
+	if pain['tummy'] < 0:pain['tummy'] = 0
+	if pain['pubic'] < 0:pain['pubic'] = 0
+	if pain['vaginal'] < 0:pain['vaginal'] = 0
+	if pain['clitoris'] < 0:pain['clitoris'] = 0
+	if pain['urethra'] < 0:pain['urethra'] = 0
+	if pain['cervix'] < 0:pain['cervix'] = 0
+	clr
+	pl '<center><a href="exec:dynamic $cheatmenu"><b>Cheat menu</b></a></center>'
+	nl
+	pl '<a href="exec:killvar ''pain'' & dynamic $cheatmenu[''pain'']">No pain</a>'
+	pl 'pain[head] = <<pain[''head'']>> <a href="exec:pain[''head''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''head''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[hair] = <<pain[''hair'']>> <a href="exec:pain[''hair''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''hair''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[ears] = <<pain[''ears'']>> <a href="exec:pain[''ears''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''ears''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[eyebrows] = <<pain[''ears'']>> <a href="exec:pain[''eyebrows''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''eyebrows''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[eyes] = <<pain[''eyes'']>> <a href="exec:pain[''eyes''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''eyes''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[cheeks] = <<pain[''cheeks'']>> <a href="exec:pain[''cheeks''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''cheeks''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[nose] = <<pain[''nose'']>> <a href="exec:pain[''nose''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''nose''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[mouth] = <<pain[''mouth'']>> <a href="exec:pain[''mouth''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''mouth''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[lips] = <<pain[''lips'']>> <a href="exec:pain[''lips''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''lips''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[tongue] = <<pain[''tongue'']>> <a href="exec:pain[''tongue''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''tongue''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[throat] = <<pain[''throat'']>> <a href="exec:pain[''throat''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''throat''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[neck] = <<pain[''neck'']>> <a href="exec:pain[''neck''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''neck''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[back] = <<pain[''back'']>> <a href="exec:pain[''back''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''back''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[asscheeks] = <<pain[''asscheeks'']>> <a href="exec:pain[''asscheeks''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''asscheeks''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[asshole] = <<pain[''asshole'']>> <a href="exec:pain[''asshole''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''asshole''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[hips] = <<pain[''hips'']>> <a href="exec:pain[''hips''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''hips''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[thighs] = <<pain[''thighs'']>> <a href="exec:pain[''thighs''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''thighs''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[left leg] = <<pain[''legL'']>> <a href="exec:pain[''legL''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''legL''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[right leg] = <<pain[''legR'']>> <a href="exec:pain[''legR''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''legR''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[feet] = <<pain[''feet'']>> <a href="exec:pain[''feet''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''feet''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[toes] = <<pain[''toes'']>> <a href="exec:pain[''toes''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''toes''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[shoulders] = <<pain[''shoulders'']>> <a href="exec:pain[''shoulders''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''shoulders''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[left arm] = <<pain[''armL'']>> <a href="exec:pain[''armL''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''armL''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[right arm] = <<pain[''armR'']>> <a href="exec:pain[''armR''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''armR''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[hands] = <<pain[''hands'']>> <a href="exec:pain[''hands''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''hands''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[fingers] = <<pain[''fingers'']>> <a href="exec:pain[''fingers''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''fingers''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[chest] = <<pain[''chest'']>> <a href="exec:pain[''chest''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''chest''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[breasts] = <<pain[''breasts'']>> <a href="exec:pain[''breasts''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''breasts''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[nipples] = <<pain[''nipples'']>> <a href="exec:pain[''nipples''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''nipples''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[ribs] = <<pain[''ribs'']>> <a href="exec:pain[''ribs''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''ribs''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[tummy] = <<pain[''tummy'']>> <a href="exec:pain[''tummy''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''tummy''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[pubic] = <<pain[''pubic'']>> <a href="exec:pain[''pubic''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''pubic''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[vaginal] = <<pain[''vaginal'']>> <a href="exec:pain[''vaginal''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''vaginal''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[labia] = <<pain[''labia'']>> <a href="exec:pain[''labia''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''labia''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[clitoris] = <<pain[''clitoris'']>> <a href="exec:pain[''clitoris''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''clitoris''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[urethra] = <<pain[''urethra'']>> <a href="exec:pain[''urethra''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''urethra''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+	pl 'pain[cervix] = <<pain[''cervix'']>> <a href="exec:pain[''cervix''] -= 10 & dynamic $cheatmenu[''pain'']">-10</a> <a href="exec:pain[''cervix''] += 10 & dynamic $cheatmenu[''pain'']">+10</a>'
+}
+
+$cheatmenu['DNA'] = {
+	clr
+	pl '<center><a href="exec:dynamic $cheatmenu"><b>Cheat menu</b></a><br>DNA string generation<br>If parents are not in game, leave the respective IDs empty</center>'
+	nl
+	if $cheatDNAC ! '':
+		pl '<b>Child: <<$npc_firstname[''<<$cheatDNAC>>'']>> <<$npc_lastname[''<<$cheatDNAC>>'']>></b> (<<$cheatDNAC>>)<br><<$npc_dna[$cheatDNAC]>><br><a href="exec:killvar ''cheatDNAC'' & dynamic $cheatmenu[''DNA'']">Remove</a>'
+		npctemp = 0
+		killvar 'cheatDNAM'
+		killvar 'cheatDNAF'
+		:npcparentfind
+			if $npc_dna['A<<npctemp>>'] ! '':
+				if mid($npc_dna['A<<npctemp>>'],1,10) = mid($npc_dna[$cheatDNAC],12,10):
+					$cheatDNAM = 'A<<npctemp>>'
+				elseif mid($npc_dna['A<<npctemp>>'],1,10) = mid($npc_dna[$cheatDNAC],23,10):
+					$cheatDNAF = 'A<<npctemp>>'
+				end
+			end
+			if $npc_dna['B<<npctemp>>'] ! '':
+				if mid($npc_dna['B<<npctemp>>'],1,10) = mid($npc_dna[$cheatDNAC],12,10):
+					$cheatDNAM = 'B<<npctemp>>'
+				elseif mid($npc_dna['B<<npctemp>>'],1,10) = mid($npc_dna[$cheatDNAC],23,10):
+					$cheatDNAF = 'B<<npctemp>>'
+				end
+			end
+			if $npc_dna['C<<npctemp>>'] ! '':
+				if mid($npc_dna['C<<npctemp>>'],1,10) = mid($npc_dna[$cheatDNAC],12,10):
+					$cheatDNAM = 'C<<npctemp>>'
+				elseif mid($npc_dna['C<<npctemp>>'],1,10) = mid($npc_dna[$cheatDNAC],23,10):
+					$cheatDNAF = 'C<<npctemp>>'
+				end
+			end
+		if ($npc_dna['A<<npctemp>>'] ! '' or $npc_dna['B<<npctemp>>'] ! '' or $npc_dna['C<<npctemp>>'] ! '') and ($cheatDNAM = '' or $cheatDNAF = ''):npctemp += 1 & jump 'npcparentfind'
+		killvar 'npctemp'
+	else
+		pl '<a href="exec:killvar ''tempDNAC'' & dynamic $cheatmenu[''DNAC'']"><b>ID of child (if it is known)</b></a>'
+	end
+
+	if $cheatDNAM ! '':
+		pl '<br><b>Mother: <<$npc_firstname[''<<$cheatDNAM>>'']>> <<$npc_lastname[''<<$cheatDNAM>>'']>></b> (<<$cheatDNAM>>)<br><<$npc_dna[$cheatDNAM]>><br><a href="exec:killvar ''cheatDNAM'' & dynamic $cheatmenu[''DNA'']">Remove</a>'
+	else
+		pl '<br><a href="exec:killvar ''tempDNAM'' & dynamic $cheatmenu[''DNAM'']"><b>ID of mother (if it is known)</b></a>'
+	end
+
+	if $cheatDNAF ! '':
+		pl '<br><b>Father: <<$npc_firstname[''<<$cheatDNAF>>'']>> <<$npc_lastname[''<<$cheatDNAF>>'']>></b> (<<$cheatDNAF>>)<br><<$npc_dna[$cheatDNAF]>><br><a href="exec:killvar ''cheatDNAF'' & dynamic $cheatmenu[''DNA'']">Remove</a>'
+	else
+		pl '<br><a href="exec:killvar ''tempDNAF'' & dynamic $cheatmenu[''DNAF'']"><b>ID of father (if it is known)</b></a>'
+	end
+	nl
+	if $cheatDNAM ! '' and $cheatDNAF ! '':
+		$cheatDNAgenerated = func('DNA','generate',$npc_dna[$cheatDNAM],$npc_dna[$cheatDNAF])
+	elseif $cheatDNAM ! '':
+		if $cheatDNAC ! '':
+			$tempDNAF = func('DNA','generateF',$npc_dna[$cheatDNAC])
+		else
+			$tempDNAF = func('DNA','create')
+			$cheatDNAgenerated = func('DNA','generate',$npc_dna[$cheatDNAM],$tempDNAF)
+		end
+	elseif $cheatDNAF ! '':
+		if $cheatDNAC ! '':
+			$tempDNAM = func('DNA','generateM',$npc_dna[$cheatDNAC])
+		else
+			$tempDNAM = func('DNA','create')
+			$cheatDNAgenerated = func('DNA','generate',$tempDNAM,$npc_dna[$cheatDNAF])
+		end
+	else
+		if $cheatDNAC = '':
+			$tempDNAM = func('DNA','create')
+			$tempDNAF = func('DNA','create')
+			$cheatDNAgenerated = func('DNA','generate',$tempDNAM,$tempDNAF)
+		else
+			$tempDNAM = func('DNA','generateM',$npc_dna[$cheatDNAC])
+			$tempDNAF = func('DNA','generateF',$npc_dna[$cheatDNAC])
+		end
+
+
+	end
+	if $cheatDNAM = '':pl '<br><b>Random mother DNA:</b> <<$tempDNAM>>'
+	if $cheatDNAF = '':pl '<br><b>Random father DNA:</b> <<$tempDNAF>>'
+	if $cheatDNAC = '':pl '<br><b>Random child DNA:</b> <<$cheatDNAgenerated>>'
+	pl '<br><a href="exec:dynamic $cheatmenu[''DNA'']">Generate again</a>'
+	if $cheatDNAC ! '':
+		npctemp = 0
+		:npcgparfind
+			if $npc_dna['A<<npctemp>>'] ! '':
+				if mid($npc_dna[$cheatDNAC],34,10) = mid($npc_dna['A<<npctemp>>'],1,10) or mid($npc_dna[$cheatDNAC],56,10) = mid($npc_dna['A<<npctemp>>'],1,10):
+					pl '<br><b>Grandmother: <<$npc_firstname[''A<<npctemp>>'']>> <<$npc_lastname[''A<<npctemp>>'']>></b> (A<<npctemp>>)<br><<$npc_dna[''A<<npctemp>>'']>>'
+				elseif mid($npc_dna[$cheatDNAC],45,10) = mid($npc_dna['A<<npctemp>>'],1,10) or mid($npc_dna[$cheatDNAC],67,10) = mid($npc_dna['A<<npctemp>>'],1,10):
+					pl '<br><b>Grandfather: <<$npc_firstname[''A<<npctemp>>'']>> <<$npc_lastname[''A<<npctemp>>'']>></b> (A<<npctemp>>)<br><<$npc_dna[''A<<npctemp>>'']>>'
+				end
+			end
+			if $npc_dna['B<<npctemp>>'] ! '':
+				if mid($npc_dna[$cheatDNAC],34,10) = mid($npc_dna['B<<npctemp>>'],1,10) or mid($npc_dna[$cheatDNAC],56,10) = mid($npc_dna['B<<npctemp>>'],1,10):
+					pl '<br><b>Grandmother: <<$npc_firstname[''B<<npctemp>>'']>> <<$npc_lastname[''B<<npctemp>>'']>></b> (B<<npctemp>>)<br><<$npc_dna[''B<<npctemp>>'']>>'
+				elseif mid($npc_dna[$cheatDNAC],45,10) = mid($npc_dna['A<<npctemp>>'],1,10) or mid($npc_dna[$cheatDNAC],67,10) = mid($npc_dna['B<<npctemp>>'],1,10):
+					pl '<br><b>Grandfather: <<$npc_firstname[''B<<npctemp>>'']>> <<$npc_lastname[''B<<npctemp>>'']>></b> (B<<npctemp>>)<br><<$npc_dna[''B<<npctemp>>'']>>'
+				end
+			end
+			if $npc_dna['C<<npctemp>>'] ! '':
+				if mid($npc_dna[$cheatDNAC],34,10) = mid($npc_dna['C<<npctemp>>'],1,10) or mid($npc_dna[$cheatDNAC],56,10) = mid($npc_dna['C<<npctemp>>'],1,10):
+					pl '<br><b>Grandmother: <<$npc_firstname[''C<<npctemp>>'']>> <<$npc_lastname[''C<<npctemp>>'']>></b> (C<<npctemp>>)<br><<$npc_dna[''C<<npctemp>>'']>>'
+				elseif mid($npc_dna[$cheatDNAC],45,10) = mid($npc_dna['C<<npctemp>>'],1,10) or mid($npc_dna[$cheatDNAC],67,10) = mid($npc_dna['A<<npctemp>>'],1,10):
+					pl '<br><b>Grandfather: <<$npc_firstname[''C<<npctemp>>'']>> <<$npc_lastname[''C<<npctemp>>'']>></b> (C<<npctemp>>)<br><<$npc_dna[''C<<npctemp>>'']>>'
+				end
+			end
+		if $npc_dna['A<<npctemp>>'] ! '' or $npc_dna['B<<npctemp>>'] ! '' or $npc_dna['C<<npctemp>>'] ! '':npctemp += 1 & jump 'npcgparfind'
+	end
+	if $cheatDNAM ! '' or $cheatDNAF ! '':
+		npctemp = 0
+		:npcchildfind
+			if $npc_dna['A<<npctemp>>'] ! '':
+				if $cheatDNAM ! '' and $cheatDNAF = '' and mid($npc_dna['A<<npctemp>>'],12,10) = mid($npc_dna[$cheatDNAM],1,10):
+					pl '<br><b>Existing child: <<$npc_firstname[''A<<npctemp>>'']>> <<$npc_lastname[''A<<npctemp>>'']>></b> (A<<npctemp>>)<br><<$npc_dna[''A<<npctemp>>'']>>'
+				elseif $cheatDNAM = '' and $cheatDNAF ! '' and mid($npc_dna['A<<npctemp>>'],23,10) = mid($npc_dna[$cheatDNAF],1,10):
+					pl '<br><b>Existing child: <<$npc_firstname[''A<<npctemp>>'']>> <<$npc_lastname[''A<<npctemp>>'']>></b> (A<<npctemp>>)<br><<$npc_dna[''A<<npctemp>>'']>>'
+				elseif mid($npc_dna['A<<npctemp>>'],12,10) = mid($npc_dna[$cheatDNAM],1,10) and mid($npc_dna['A<<npctemp>>'],23,10) = mid($npc_dna[$cheatDNAF],1,10):
+					pl '<br><b>Existing child: <<$npc_firstname[''A<<npctemp>>'']>> <<$npc_lastname[''A<<npctemp>>'']>></b> (A<<npctemp>>)<br><<$npc_dna[''A<<npctemp>>'']>>'
+				end
+			end
+			if $npc_dna['B<<npctemp>>'] ! '':
+				if $cheatDNAM ! '' and $cheatDNAF = '' and mid($npc_dna['B<<npctemp>>'],12,10) = mid($npc_dna[$cheatDNAM],1,10):
+					pl '<br><b>Existing child: <<$npc_firstname[''B<<npctemp>>'']>> <<$npc_lastname[''B<<npctemp>>'']>></b> (B<<npctemp>>)<br><<$npc_dna[''B<<npctemp>>'']>>'
+				elseif $cheatDNAM = '' and $cheatDNAF ! '' and mid($npc_dna['B<<npctemp>>'],23,10) = mid($npc_dna[$cheatDNAF],1,10):
+					pl '<br><b>Existing child: <<$npc_firstname[''B<<npctemp>>'']>> <<$npc_lastname[''B<<npctemp>>'']>></b> (B<<npctemp>>)<br><<$npc_dna[''B<<npctemp>>'']>>'
+				elseif mid($npc_dna['B<<npctemp>>'],12,10) = mid($npc_dna[$cheatDNAM],1,10) and mid($npc_dna['B<<npctemp>>'],23,10) = mid($npc_dna[$cheatDNAF],1,10):
+					pl '<br><b>Existing child: <<$npc_firstname[''B<<npctemp>>'']>> <<$npc_lastname[''B<<npctemp>>'']>></b> (B<<npctemp>>)<br><<$npc_dna[''B<<npctemp>>'']>>'
+				end
+			end
+			if $npc_dna['C<<npctemp>>'] ! '':
+				if $cheatDNAM ! '' and $cheatDNAF = '' and mid($npc_dna['C<<npctemp>>'],12,10) = mid($npc_dna[$cheatDNAM],1,10):
+					pl '<br><b>Existing child: <<$npc_firstname[''C<<npctemp>>'']>> <<$npc_lastname[''C<<npctemp>>'']>></b> (C<<npctemp>>)<br><<$npc_dna[''C<<npctemp>>'']>>'
+				elseif $cheatDNAM = '' and $cheatDNAF ! '' and mid($npc_dna['C<<npctemp>>'],23,10) = mid($npc_dna[$cheatDNAF],1,10):
+					pl '<br><b>Existing child: <<$npc_firstname[''C<<npctemp>>'']>> <<$npc_lastname[''C<<npctemp>>'']>></b> (C<<npctemp>>)<br><<$npc_dna[''C<<npctemp>>'']>>'
+				elseif mid($npc_dna['C<<npctemp>>'],12,10) = mid($npc_dna[$cheatDNAM],1,10) and mid($npc_dna['C<<npctemp>>'],23,10) = mid($npc_dna[$cheatDNAF],1,10):
+					pl '<br><b>Existing child: <<$npc_firstname[''C<<npctemp>>'']>> <<$npc_lastname[''C<<npctemp>>'']>></b> (C<<npctemp>>)<br><<$npc_dna[''C<<npctemp>>'']>>'
+				end
+			end
+		if $npc_dna['A<<npctemp>>'] ! '' or $npc_dna['B<<npctemp>>'] ! '' or $npc_dna['C<<npctemp>>'] ! '':npctemp += 1 & jump 'npcchildfind'
+		npctemp = 0
+		:npcgchildfind
+			if $npc_dna['A<<npctemp>>'] ! '':
+				if $cheatDNAM ! '' and $cheatDNAF = '' and (mid($npc_dna['A<<npctemp>>'],34,10) = mid($npc_dna[$cheatDNAM],1,10) or mid($npc_dna['A<<npctemp>>'],56,10) = mid($npc_dna[$cheatDNAM],1,10)):
+					pl '<br><b>Existing grandchild: <<$npc_firstname[''A<<npctemp>>'']>> <<$npc_lastname[''A<<npctemp>>'']>></b> (A<<npctemp>>)<br><<$npc_dna[''A<<npctemp>>'']>>'
+				elseif $cheatDNAM = '' and $cheatDNAF ! '' and (mid($npc_dna['A<<npctemp>>'],45,10) = mid($npc_dna[$cheatDNAF],1,10) or mid($npc_dna['A<<npctemp>>'],67,10) = mid($npc_dna[$cheatDNAF],1,10)):
+					pl '<br><b>Existing grandchild: <<$npc_firstname[''A<<npctemp>>'']>> <<$npc_lastname[''A<<npctemp>>'']>></b> (A<<npctemp>>)<br><<$npc_dna[''A<<npctemp>>'']>>'
+				elseif ((mid($npc_dna['A<<npctemp>>'],34,10) = mid($npc_dna[$cheatDNAM],1,10) or mid($npc_dna['A<<npctemp>>'],56,10) = mid($npc_dna[$cheatDNAM],1,10)) and (mid($npc_dna['A<<npctemp>>'],45,10) = mid($npc_dna[$cheatDNAF],1,10) or mid($npc_dna['A<<npctemp>>'],67,10) = mid($npc_dna[$cheatDNAF],1,10))) or (mid($npc_dna['A<<npctemp>>'],12,10) = mid($npc_dna[$cheatDNAM],1,10) and (mid($npc_dna['A<<npctemp>>'],45,10) = mid($npc_dna[$cheatDNAF],1,10) or mid($npc_dna['A<<npctemp>>'],67,10) = mid($npc_dna[$cheatDNAF],1,10))) or ((mid($npc_dna['A<<npctemp>>'],34,10) = mid($npc_dna[$cheatDNAM],1,10) or mid($npc_dna['A<<npctemp>>'],56,10) = mid($npc_dna[$cheatDNAM],1,10)) and mid($npc_dna['A<<npctemp>>'],23,10) = mid($npc_dna[$cheatDNAF],1,10)):
+					pl '<br><b>Existing grandchild: <<$npc_firstname[''A<<npctemp>>'']>> <<$npc_lastname[''A<<npctemp>>'']>></b> (A<<npctemp>>)<br><<$npc_dna[''A<<npctemp>>'']>>'
+				end
+			end
+			if $npc_dna['B<<npctemp>>'] ! '':
+				if $cheatDNAM ! '' and $cheatDNAF = '' and (mid($npc_dna['B<<npctemp>>'],34,10) = mid($npc_dna[$cheatDNAM],1,10) or mid($npc_dna['B<<npctemp>>'],56,10) = mid($npc_dna[$cheatDNAM],1,10)):
+					pl '<br><b>Existing grandchild: <<$npc_firstname[''B<<npctemp>>'']>> <<$npc_lastname[''B<<npctemp>>'']>></b> (B<<npctemp>>)<br><<$npc_dna[''B<<npctemp>>'']>>'
+				elseif $cheatDNAM = '' and $cheatDNAF ! '' and (mid($npc_dna['B<<npctemp>>'],45,10) = mid($npc_dna[$cheatDNAF],1,10) or mid($npc_dna['B<<npctemp>>'],67,10) = mid($npc_dna[$cheatDNAF],1,10)):
+					pl '<br><b>Existing grandchild: <<$npc_firstname[''B<<npctemp>>'']>> <<$npc_lastname[''B<<npctemp>>'']>></b> (B<<npctemp>>)<br><<$npc_dna[''B<<npctemp>>'']>>'
+				elseif ((mid($npc_dna['B<<npctemp>>'],34,10) = mid($npc_dna[$cheatDNAM],1,10) or mid($npc_dna['B<<npctemp>>'],56,10) = mid($npc_dna[$cheatDNAM],1,10)) and (mid($npc_dna['B<<npctemp>>'],45,10) = mid($npc_dna[$cheatDNAF],1,10) or mid($npc_dna['B<<npctemp>>'],67,10) = mid($npc_dna[$cheatDNAF],1,10))) or (mid($npc_dna['B<<npctemp>>'],12,10) = mid($npc_dna[$cheatDNAM],1,10) and (mid($npc_dna['B<<npctemp>>'],45,10) = mid($npc_dna[$cheatDNAF],1,10) or mid($npc_dna['B<<npctemp>>'],67,10) = mid($npc_dna[$cheatDNAF],1,10))) or ((mid($npc_dna['B<<npctemp>>'],34,10) = mid($npc_dna[$cheatDNAM],1,10) or mid($npc_dna['B<<npctemp>>'],56,10) = mid($npc_dna[$cheatDNAM],1,10)) and mid($npc_dna['B<<npctemp>>'],23,10) = mid($npc_dna[$cheatDNAF],1,10)):
+					pl '<br><b>Existing grandchild: <<$npc_firstname[''B<<npctemp>>'']>> <<$npc_lastname[''B<<npctemp>>'']>></b> (B<<npctemp>>)<br><<$npc_dna[''B<<npctemp>>'']>>'
+				end
+			end
+			if $npc_dna['C<<npctemp>>'] ! '':
+				if $cheatDNAM ! '' and $cheatDNAF = '' and (mid($npc_dna['C<<npctemp>>'],34,10) = mid($npc_dna[$cheatDNAM],1,10) or mid($npc_dna['C<<npctemp>>'],56,10) = mid($npc_dna[$cheatDNAM],1,10)):
+					pl '<br><b>Existing grandchild: <<$npc_firstname[''C<<npctemp>>'']>> <<$npc_lastname[''C<<npctemp>>'']>></b> (C<<npctemp>>)<br><<$npc_dna[''C<<npctemp>>'']>>'
+				elseif $cheatDNAM = '' and $cheatDNAF ! '' and (mid($npc_dna['C<<npctemp>>'],45,10) = mid($npc_dna[$cheatDNAF],1,10) or mid($npc_dna['C<<npctemp>>'],67,10) = mid($npc_dna[$cheatDNAF],1,10)):
+					pl '<br><b>Existing grandchild: <<$npc_firstname[''C<<npctemp>>'']>> <<$npc_lastname[''C<<npctemp>>'']>></b> (C<<npctemp>>)<br><<$npc_dna[''C<<npctemp>>'']>>'
+				elseif ((mid($npc_dna['C<<npctemp>>'],34,10) = mid($npc_dna[$cheatDNAM],1,10) or mid($npc_dna['C<<npctemp>>'],56,10) = mid($npc_dna[$cheatDNAM],1,10)) and (mid($npc_dna['C<<npctemp>>'],45,10) = mid($npc_dna[$cheatDNAF],1,10) or mid($npc_dna['C<<npctemp>>'],67,10) = mid($npc_dna[$cheatDNAF],1,10))) or (mid($npc_dna['C<<npctemp>>'],12,10) = mid($npc_dna[$cheatDNAM],1,10) and (mid($npc_dna['C<<npctemp>>'],45,10) = mid($npc_dna[$cheatDNAF],1,10) or mid($npc_dna['C<<npctemp>>'],67,10) = mid($npc_dna[$cheatDNAF],1,10))) or ((mid($npc_dna['C<<npctemp>>'],34,10) = mid($npc_dna[$cheatDNAM],1,10) or mid($npc_dna['C<<npctemp>>'],56,10) = mid($npc_dna[$cheatDNAM],1,10)) and mid($npc_dna['C<<npctemp>>'],23,10) = mid($npc_dna[$cheatDNAF],1,10)):
+					pl '<br><b>Existing grandchild: <<$npc_firstname[''C<<npctemp>>'']>> <<$npc_lastname[''C<<npctemp>>'']>></b> (C<<npctemp>>)<br><<$npc_dna[''C<<npctemp>>'']>>'
+				end
+			end
+		if $npc_dna['A<<npctemp>>'] ! '' or $npc_dna['B<<npctemp>>'] ! '' or $npc_dna['C<<npctemp>>'] ! '':npctemp += 1 & jump 'npcgchildfind'
+		killvar 'npctemp'
+	end
+	killvar '$tempDNAF'
+	killvar '$tempDNAM'
+	killvar '$tempDNAC'
+	killvar 'cheatDNAgenerated'
+
+}
+
+$cheatmenu['DNAM'] = {
+   $cheatDNAM = input("Enter genetic mother ID (like A33, without apostrophe)")
+   if $cheatDNAM = '':exit
+   dynamic $cheatDNAM
+   dynamic $cheatmenu['DNA']
+}
+
+$cheatmenu['DNAF'] = {
+   $cheatDNAF = input("Enter genetic father ID (like A34, without apostrophe)")
+   if $cheatDNAF = '':exit
+   dynamic $cheatDNAF
+   dynamic $cheatmenu['DNA']
+}
+
+$cheatmenu['DNAC'] = {
+   $cheatDNAC = input("Enter genetic Child ID (like A34, without apostrophe)")
+   if $cheatDNAC = '':exit
+   dynamic $cheatDNAC
+   dynamic $cheatmenu['DNA']
+}
+
+$cheatmenu['quicktime'] = {
+	minut += ARGS[0]
+	*clr
+	gs 'daystart'
+	gs 'outdoors', 'weather'
+	gs 'stat'
+	gs 'cum_arrcheat'
+}
+
+$cheatmenu = {
+	gs'stat'
+	currhour = (daystart-1) * 24 + hour
+	currday = daystart
+	temp_week = week & temp_day = day & $temp_month = $month & temp_month = month & temp_year = year & temp_hour = hour & temp_minut = minut
+	clr
+	pl'<center><a href="exec:gs''$menu_obnovit''"><b>Exit Menu</b></a>			<a href="exec:dynamic $cheatmenu[''display'']"><b>Settings Menu</b></a></center>'
+	nl
+	pl'<a href="exec:dynamic $cheatmenu[''permanent'']"><b>Recurrent cheats</b></a>'
+	pl'<a href="exec:dynamic $cheatmenu[''status'']"><b>Status changes</b></a>'
+	pl'<a href="exec:dynamic $cheatmenu[''looks'']"><b>Change appearance</b></a>'
+	pl'<a href="exec:dynamic $cheatmenu[''stats'']"><b>Set attributes and skills</b></a>'
+	pl'<a href="exec:dynamic $cheatmenu[''reputation'']"><b>Set relationships and reputation</b></a>'
+	pl'<a href="exec:dynamic $cheatmenu[''documents'']"><b>Add diplomas, licenses and certificates</b></a>'
+	pl'<a href="exec:dynamic $cheatmenu[''time'']"><b>Manipulate time and temperature</b></a>'
+	if MagikDostup = 0: pl'<a href="exec:dynamic $cheatmenu[''magic'']"><b>Magic</b></a>'
+	pl'<a href="exec:gt ''NPCChanger'', ''Start''"><b>NPC Editor</b></a>'
+	pl'<a href="exec:dynamic $cheatmenu[''pain'']"><b>Pain management panel</b></a>'
+	pl'<a href="exec:dynamic $cheatmenu[''DNA'']"><b>Generating DNA string</b></a>'
+	pl '<a href="exec:dynamic $cheatmenu[''bdimmain'']"><b>Change image sets for body view</b></a>'
+	nl
+	nl
+	pl '<a href="exec:dynamic $cheatmenu[''dynamic'']">Dynamic Input Command</a>'
+	pl'<a href="exec:gs ''cum_arrcheat''">OOX Debug</a>'
+	pl'Right now <<$week[week]>> <<$month>> <<day>> <<year>> <<hour>>:<<minut>>'
+	pl '<a href="exec:dynamic $cheatmenu[''quicktime''], 15 & dynamic $cheatmenu">+15</a>'
+	nl
+	nl
+	pl'<a href="exec:gt''pavResidential''">Teleport to Pavlovsk</a>'
+	pl'<a href="exec:gt''street''">Teleport to City</a>'
+	pl'<a href="exec:gt''gadukino''">Teleport to Gadyukino</a>'
+	pl'<a href="exec:gt''dachi''">Teleport to Suburban Cooperative</a>'
+	pl'<b>Warning!</b> Teleporting while in event is likely to break your game!'
+	nl
+	pl'Pregnancy speed multiplier: <a href="exec:if pregspeedcheat < 3:pregspeedcheat += 1 & dynamic $cheatmenu else pregspeedcheat = 0 & dynamic $cheatmenu"><b><<pregspeedcheat+1>></b></a>'
+	nl
+	pl'<a href="exec:dynamic $cheatmenu[''vartracker'']"><b>Variable tracker</b></a>'
+	nl
+
+		nl
+	pl'<a href="exec: gt ''IbizaStart'',''cfonts''"><b>Set color fonts</b></a>'
+	pl'<a href="exec: gt ''IbizaStart'',''bwfonts''"><b>Set black fonts</b></a>'
+	nl
+	pl'<a href="exec: gt ''IbizaStart'',''start''"><b>Ibiza start</b></a>'
+	nl
+	pl'<a href="exec: gt ''IbizaStart'',''First Day''"><b>Saturday - go to Ibiza</b></a>'
+	nl
+	pl'<a href="exec: gt ''IbizaDay2'',''day two''"><b>Sunday</b></a>'
+	nl
+	pl'<a href="exec: gt ''IbizaDay3'',''day three''"><b>Monday</b></a>'
+	nl
+	pl'<a href="exec: gt ''IbizaDay4'',''day four''"><b>Tuesday</b></a>'
+	nl
+	pl'<a href="exec: gt ''IbizaDay5'',''day five''"><b>Wednesday</b></a>'
+	nl
+	pl'<a href="exec: gt ''IbizaDay6'',''day six''"><b>Thursday</b></a>'
+	nl
+	pl'<a href="exec: gt ''IbizaDay7'',''day seven''"><b>Friday</b></a>'
+	nl
+
+}
+
+$cheatmenu['vartracker'] = {
+	gs'stat'
+	clr
+	pl'<center><a href="exec:dynamic $cheatmenu"><b>Cheat menu</b></a></center>'
+	pl'<center>For testing purposes.<br>If reporting a bug only the lines in red are neccessary.</center>'
+	nl
+	pl'$loc: <<$loc>>'
+	pl'$locM: <<$locM>>'
+	pl'<font color = red>$CURLOC: <<$CURLOC>></font>'
+	pl'$location_type: <<$location_type>>'
+	pl'home_cur: <<home_cur>>'
+	pl'$home_town: <<$home_town>>'
+	pl'$home_name: <<$home_name>>'
+	pl'daystart: <<daystart>>'
+	pl'daystart_start: <<daystart_start>>'
+	pl'month: <<month>>'
+	pl'week: <<week>>'
+	pl'$temperature: <<$temperature>>'
+	pl'pffilmday: <<pffilmday>>'
+	pl'$pfname: <<$pfname>>'
+	pl'modelmon: <<modelmon>>'
+	pl'min_arousal: <<min_arousal>>'
+	pl'pcs_nips: <<pcs_nips>>'
+	pl'clit_size: <<clit_size>>'
+	pl'steroid_have: <<steroid_have>>'
+	pl'steroid_counter: <<steroid_counter>>'
+	pl'steroid_dose: <<steroid_dose>>'
+	pl'aphrodisiac_have: <<aphrodisiac_have>>'
+	pl'aphrodisiac_counter: <<aphrodisiac_counter>>'
+	pl'aphrodisiac_timer: <<aphrodisiac_timer>>'
+	pl'aphrodisiac_addiction: <<aphrodisiac_addiction>>'
+	pl'bcream_have: <<bcream_have>>'
+	pl'motherQW: <<npc_QW[''A29'']>>'
+	pl'Anastasia quest level: <<npc_QW[''A192'']>>'
+	pl'sex: <<stat[''vaginal'']>>'
+	pl'$clothingworntype: <<$clothingworntype>>'
+	pl'PCloQuality: <<PCloQuality>>'
+	pl'Mira''s Father Quest (npc_QW[''A64'']): <<npc_QW[''A64'']>>'
+	pl'Mira''s Quest (npc_QW[''A60'']): <<npc_QW[''A60'']>>'
+	pl'mirasextimes: <<mirasextimes>>'
+	pl'Bandit Quest Level (npc_QW[''A66'']): <<npc_QW[''A66'']>>'
+	pl'Mira''s Relationship (npc_rel[''A60'']): <<npc_rel[''A60'']>>'
+	pl'Mitka''s Quest (npc_QW[''A63'']): <<npc_QW[''A63'']>>'
+	pl'mirabrosextime: <<mirabrosextime>>'
+	pl'momslut: <<momslut>>'
+	pl'children: <<kid>>'
+	pl'fetus number: <<BabyEmbryo>>'
+	pl'pregnancy state: <<preg>>'
+	pl'thinkpreg: <<thinkpreg>>'
+	pl'knowpreg: <<knowpreg>>'
+	pl'knowpregrecover: <<knowpregrecover>>'
+	pl'cycle: <<cycle>>'
+	pl'menoage: <<menoage>>'
+	pl'age: <<age>>'
+	pl'mesec: <<mesec>>'
+	pl'FocH: <<FocH>>'
+	pl'EggRH: <<EggRH>>'
+	pl'Ovulate: <<Ovulate>>'
+	pl'UnfertEgg: <<UnfertEgg>>'
+	pl'FertEgg: <<FertEgg>>'
+	if FertEgg > 0:
+		i = arrpos('$kidname','unborn')
+		imax = arrsize('$kidname')-1
+		:chlp
+			pl'	<<i+1>>. baby''s pregnancy type: <<babyptype[i]>>'
+		if i < imax: i += 1 & jump 'chlp'
+		killvar 'i'
+		killvar 'imax'
+	end
+	pl'Implanted Embryos: <<BabyEmbryo>>'
+	pl'ferteggage: <<ferteggage>>'
+	pl'PregChem: <<PregChem>>'
+	pl'pillcon: <<pillcon>>'
+	pl'Believed pillcon: <<pillcon2>>'
+	pl'RecovH: <<RecovH>>'
+	pl'daylastperiod: <<daylastperiod>> (daystart difference: <<daystart-daylastperiod>>)'
+	pl'lastmens: <<lastmens>>'
+	pl'hypnoTime: <<hypnoTime>>'
+	pl'hypnoStrength: <<hypnoStrength>>'
+	pl'hypnoDay: <<hypnoDay>>'
+	pl'hypnoAddict: <<hypnoAddict>>'
+	pl'missCum: <<missCum>>'
+	pl'condoms/bad condoms: <<prezik>>/<<badprezik>>'
+	if tabletki > 0:
+		pl'pack(s) of birth control pills: <<tabletki>>'
+		if tabletkiold > 0: pl'   <<tabletkiold>> expired pack'
+		if tabletkifake > 0: pl'   <<tabletkifake>> counterfeit pack'
+		if tabletkirej > 0: pl'   <<tabletkirej>> factory rejected pack'
+		if tabletkifert > 0: pl'   <<tabletkifert>> fertility hormones pack'
+		if tabletkisug > 0: pl'   <<tabletkisug>> sugar pills pack'
+	end
+	if pillsleft[ptype] > 0:
+		if ptype = 0: $pilltype = 'normal '
+		if ptype = 1: $pilltype = 'expired '
+		if ptype = 2: $pilltype = 'counterfeit '
+		if ptype = 3: $pilltype = 'factory rejected '
+		if ptype = 4: $pilltype = 'sugar '
+		if ptype = 5: $pilltype = 'fertility hormone '
+		pl'<<pillsleft[ptype]>> <<$pilltype>>pills left of your currently used pack'
+		killvar '$pilltype'
+	end
+}
+
+$cheatmenu['bdimmain'] = {
+	gs 'stat'
+	clr
+	pl '<center><a href="exec:dynamic $cheatmenu"><b>Cheat menu</b></a></center>'
+	nl
+	pl '<center><b>Body Image Controls</b></center>'
+	nl
+	pl 'You are currently using set: <<$bodimgsets[((bodset * 10) + 9)]>>'
+	if bdsetlock = 1:
+		pl 'The set used is locked to current.'
+	else
+		pl 'The set used is unlocked.'
+	end
+	nl
+	pl 'This is the current default and custom (if any) body image sets:'
+	nl
+	pl '<a href="exec:chmbodset = 0 & dynamic $cheatmenu[''bdimdisplay'']"><b><<$bodimgsets[9]>></b></a>'
+	nl
+	pl '<a href="exec:chmbodset = 1 & dynamic $cheatmenu[''bdimdisplay'']"><b><<$bodimgsets[19]>></b></a>'
+	nl
+	pl '<a href="exec:chmbodset = 2 & dynamic $cheatmenu[''bdimdisplay'']"><b><<$bodimgsets[29]>></b></a>'
+	nl
+	if bodsetcnt >= 3:
+		pl 'You may edit aspects of a custom image set by clicking on their folder names below.'
+		nl
+		pl '<a href="exec:chmbodset = 3 & dynamic $cheatmenu[''bdimdisplay'']"><b><<$bodimgsets[39]>></b></a>'
+		nl
+	elseif bodsetcnt = 2:
+		pl '<a href="exec:dynamic $cheatmenu[''bdimcstadd'']"><b>Add new set</b></a>'
+		nl
+	end
+	if bodsetcnt >= 4:
+		pl '<a href="exec:chmbodset = 4 & dynamic $cheatmenu[''bdimdisplay'']"><b><<$bodimgsets[49]>></b></a>'
+		nl
+	elseif bodsetcnt = 3:
+		pl '<a href="exec:dynamic $cheatmenu[''bdimcstadd'']"><b>Add new set</b></a>'
+		nl
+	end
+	if bodsetcnt >= 5:
+		pl '<a href="exec:chmbodset = 5 & dynamic $cheatmenu[''bdimdisplay'']"><b><<$bodimgsets[59]>></b></a>'
+		nl
+	elseif bodsetcnt = 4:
+		pl '<a href="exec:dynamic $cheatmenu[''bdimcstadd'']"><b>Add new set</b></a>'
+		nl
+	end
+	if bodsetcnt >= 6:
+		pl '<a href="exec:chmbodset = 6 & dynamic $cheatmenu[''bdimdisplay'']"><b><<$bodimgsets[69]>></b></a>'
+		nl
+	elseif bodsetcnt = 5:
+		pl '<a href="exec:dynamic $cheatmenu[''bdimcstadd'']"><b>Add new set</b></a>'
+		nl
+	end
+	if bodsetcnt >= 7:
+		pl '<a href="exec:chmbodset = 7 & dynamic $cheatmenu[''bdimdisplay'']"><b><<$bodimgsets[79]>></b></a>'
+		nl
+	elseif bodsetcnt = 6:
+		pl '<a href="exec:dynamic $cheatmenu[''bdimcstadd'']"><b>Add new set</b></a>'
+		nl
+	end
+	if bodsetcnt >= 8:
+		pl '<a href="exec:chmbodset = 8 & dynamic $cheatmenu[''bdimdisplay'']"><b><<$bodimgsets[89]>></b></a>'
+		nl
+	elseif bodsetcnt = 7:
+		pl '<a href="exec:dynamic $cheatmenu[''bdimcstadd'']"><b>Add new set</b></a>'
+		nl
+	end
+	if bodsetcnt >= 9:
+		pl '<a href="exec:chmbodset = 9 & dynamic $cheatmenu[''bdimdisplay'']"><b><<$bodimgsets[99]>></b></a>'
+		nl
+	elseif bodsetcnt = 8:
+		pl '<a href="exec:dynamic $cheatmenu[''bdimcstadd'']"><b>Add new set</b></a>'
+		nl
+	end
+
+}
+
+$cheatmenu['bdimdisplay'] = {
+	gs 'stat'
+	clr
+	pl '<center><a href="exec:dynamic $cheatmenu"><b>Cheat menu</b></a></center>'
+	nl
+	pl '<center><b>Body Image Set Display</b></center>'
+	pl '<a href="exec:killvar ''chmbodset'' & dynamic $cheatmenu[''bdimmain'']"><b>Go Back</b></a>'
+	nl
+	if bdsetlock = 1 and chmbodset = fixbodset:
+		pl 'This is the currently locked set.'
+		pl '<a href="exec:bdsetlock = 0 & bodset = 1 & killvar ''fixbodset'' & dynamic $cheatmenu[''bdimdisplay'']"><b>Clear the lock.</b></a>'
+	else
+		pl '<a href="exec:bdsetlock = 1 & bodset = chmbodset & fixbodset = chmbodset & dynamic $cheatmenu[''bdimdisplay'']"><b>Use this set only.</b></a>'
+	end
+	nl
+	if chmbodset <= 2:
+		pl 'Folder: <<$bodimgsets[((chmbodset * 10) + 9)]>>'
+		pl 'Descriptors:'
+		pl '<a href="exec:view ''images/pc/body/shape/0.jpg''"><<$bodimgsets[((chmbodset * 10) + 0)]>></a>'
+		nl
+		pl '<a href="exec:view ''images/pc/body/shape/<<$bodimgsets[((chmbodset * 10) + 9)]>>/1.jpg''"><<$bodimgsets[((chmbodset * 10) + 1)]>></a>'
+		nl
+		pl '<a href="exec:view ''images/pc/body/shape/<<$bodimgsets[((chmbodset * 10) + 9)]>>/2.jpg''"><<$bodimgsets[((chmbodset * 10) + 2)]>></a>'
+		nl
+		pl '<a href="exec:view ''images/pc/body/shape/<<$bodimgsets[((chmbodset * 10) + 9)]>>/3.jpg''"><<$bodimgsets[((chmbodset * 10) + 3)]>></a>'
+		nl
+		pl '<a href="exec:view ''images/pc/body/shape/<<$bodimgsets[((chmbodset * 10) + 9)]>>/4.jpg''"><<$bodimgsets[((chmbodset * 10) + 4)]>></a>'
+		nl
+		pl '<a href="exec:view ''images/pc/body/shape/<<$bodimgsets[((chmbodset * 10) + 9)]>>/5.jpg''"><<$bodimgsets[((chmbodset * 10) + 5)]>></a>'
+		nl
+		pl '<a href="exec:view ''images/pc/body/shape/6.jpg''"><<$bodimgsets[((chmbodset * 10) + 6)]>></a>'
+		nl
+		pl '<a href="exec:view ''images/pc/body/shape/7.jpg''"><<$bodimgsets[((chmbodset * 10) + 7)]>></a>'
+		nl
+	else
+		pl 'Folder: <<$bodimgsets[((chmbodset * 10) + 9)]>>'
+		pl 'Descriptors: (Displayed as "You are:")'
+		pl '<a href="exec:view ''images/pc/body/shape/0.jpg''"><<$bodimgsets[((chmbodset * 10) + 0)]>></a>'
+		nl
+		pl '<a href="exec:view ''images/pc/body/shape/<<$bodimgsets[((chmbodset * 10) + 9)]>>/1.jpg''"><<$bodimgsets[((chmbodset * 10) + 1)]>></a> -- <a href="exec:chmbddes = 1 & dynamic $cheatmenu[''bdimcstdesed'']">Edit this</a>'
+		nl
+		pl '<a href="exec:view ''images/pc/body/shape/<<$bodimgsets[((chmbodset * 10) + 9)]>>/2.jpg''"><<$bodimgsets[((chmbodset * 10) + 2)]>></a> -- <a href="exec:chmbddes = 2 & dynamic $cheatmenu[''bdimcstdesed'']">Edit this</a>'
+		nl
+		pl '<a href="exec:view ''images/pc/body/shape/<<$bodimgsets[((chmbodset * 10) + 9)]>>/3.jpg''"><<$bodimgsets[((chmbodset * 10) + 3)]>></a> -- <a href="exec:chmbddes = 3 & dynamic $cheatmenu[''bdimcstdesed'']">Edit this</a>'
+		nl
+		pl '<a href="exec:view ''images/pc/body/shape/<<$bodimgsets[((chmbodset * 10) + 9)]>>/4.jpg''"><<$bodimgsets[((chmbodset * 10) + 4)]>></a> -- <a href="exec:chmbddes = 4 & dynamic $cheatmenu[''bdimcstdesed'']">Edit this</a>'
+		nl
+		pl '<a href="exec:view ''images/pc/body/shape/<<$bodimgsets[((chmbodset * 10) + 9)]>>/5.jpg''"><<$bodimgsets[((chmbodset * 10) + 5)]>></a> -- <a href="exec:chmbddes = 5 & dynamic $cheatmenu[''bdimcstdesed'']">Edit this</a>'
+		nl
+		if imgset6ovr[chmbodset] = 1:
+			pl '<a href="exec:view ''images/pc/body/shape/<<$bodimgsets[((chmbodset * 10) + 9)]>>/6.jpg''"><<$bodimgsets[((chmbodset * 10) + 6)]>></a> -- <a href="exec:chmbddes = 6 & dynamic $cheatmenu[''bdimcstdesed'']">Edit this</a>'
+			nl
+			pl 'You are using a <a href="exec:imgset6ovr[chmbodset] = 0 & dynamic $cheatmenu[''bdimdisplay'']">custom image 6</a> for this set.'
+			nl
+		else
+			pl '<a href="exec:view ''images/pc/body/shape/6.jpg''"><<$bodimgsets[((chmbodset * 10) + 6)]>></a>'
+			nl
+			pl 'You are using the <a href="exec:imgset6ovr[chmbodset] = 1 & dynamic $cheatmenu[''bdimdisplay'']">default image 6</a> for this set.'
+			nl
+		end
+		if imgset7ovr[chmbodset] = 1:
+			pl '<a href="exec:view ''images/pc/body/shape/<<$bodimgsets[((chmbodset * 10) + 9)]>>/7.jpg''"><<$bodimgsets[((chmbodset * 10) + 7)]>></a> -- <a href="exec:chmbddes = 7 & dynamic $cheatmenu[''bdimcstdesed'']">Edit this</a>'
+			nl
+			pl 'You are using a <a href="exec:imgset7ovr[chmbodset] = 0 & dynamic $cheatmenu[''bdimdisplay'']">custom image 7</a> for this set.'
+			nl
+		else
+			pl '<a href="exec:view ''images/pc/body/shape/7.jpg''"><<$bodimgsets[((chmbodset * 10) + 7)]>></a>'
+			nl
+			pl 'You are using the <a href="exec:imgset7ovr[chmbodset] = 1 & dynamic $cheatmenu[''bdimdisplay'']">default image 7</a> for this set.'
+			nl
+		end
+		pl '<a href="exec:dynamic $cheatmenu[''bdimcstdel'']">Delete this set.</a>'
+	end
+}
+
+$cheatmenu['bdimcstdel'] = {
+	clr
+	pl '<center><b>Body Image Set Removal</b></center>'
+	pl '<a href="exec:killvar ''klsetask'' & dynamic $cheatmenu[''bdimdisplay'']"><b>Go Back</b></a>'
+	nl
+	pl 'This is where you remove a body image set from use, please note it does not delete anything, it just clears the custom set from this game instance/save.'
+	if klsetask = 1:
+		pl '<a href="exec:klsetask = 2 & dynamic $cheatmenu[''bdimcstdel'']"><b>Are you sure you want to remove set <<$bodimgsets[((chmbodset * 10) + 9)]>>?</b></a>'
+	elseif klsetask = 2:
+		if chmbodset <= 2:
+			pl 'You have encoutered error 1'
+			pl '<a href="exec:killvar ''klsetask'' & dynamic $cheatmenu[''bdimdisplay'']"><b>Go Back</b></a>'
+			exit
+		end
+		if bdsetlock = 1 and fixbodset >= chmbodset: bdsetlock = 0 & killvar 'fixbodset'
+		if bodsetcnt > chmbodset:
+			cyci1 = 0
+			cyci2 = chmbodset
+
+			:overwriter1
+
+			$bodimgsets[((cyci2 * 10) + cyci1)] = $bodimgsets[(((cyci2 + 1) * 10) + cyci1)]
+			cyci1 += 1
+			if cyci1 < 10: jump 'overwriter1'
+			imgset6ovr[cyci2] = imgset6ovr[(cyci2 + 1)]
+			imgset7ovr[cyci2] = imgset7ovr[(cyci2 + 1)]
+			cyci1 = 0
+			cyci2 += 1
+			if cyci2 < bodsetcnt: jump 'overwriter1'
+			killvar 'cyci1' & killvar 'cyci2'
+		elseif bodsetcnt < chmbodset:
+			pl 'You have encoutered error 2'
+			pl '<a href="exec:killvar ''klsetask'' & dynamic $cheatmenu[''bdimdisplay'']"><b>Go Back</b></a>'
+			exit
+		end
+		cyci1 = 9
+
+		:poofer1
+
+		killvar 'bodimgsets', ((bodsetcnt * 10) + cyci1)
+		cyci1 -= 1
+		if cyci1 >= 0: jump 'poofer1'
+		killvar 'cyci1'
+		killvar 'imgset6ovr', bodsetcnt
+		killvar 'imgset7ovr', bodsetcnt
+		bodsetcnt -= 1
+		killvar 'klsetask'
+		dynamic $cheatmenu['bdimmain']
+	else
+		pl '<a href="exec:klsetask = 1 & dynamic $cheatmenu[''bdimcstdel'']">Remove set <<$bodimgsets[((chmbodset * 10) + 9)]>>?</a>'
+	end
+}
+
+$cheatmenu['bdimcstadd'] = {
+	clr
+	pl '<center><b>Body Image Set Addition</b></center>'
+	pl '<a href="exec:killvar ''klsetask'' & dynamic $cheatmenu[''bdimmain'']"><b>Go Back</b></a>'
+	nl
+	pl 'This is where you can add a new image set to a game.'
+	pl 'To add an image set, create a folder in images/pc/body/shape/ and name it anything you want (shorter will be easier to remember). Then put in it any images you want named 1.jpg, 2.jpg, etc. up 5, 6, or 7. Just make sure it contains images 1 to 5. Once you have done that, click the link below and put in your folder name to add that set.'
+	pl 'Note: This will only be for this instance/save of the game and you will have to redo the click the link step if you want to add the same folder to a different instance/save.'
+	nl
+	pl '<a href="exec:dynamic $cheatmenu[''bdimcstaddpro'']">Add Image Set</a>'
+}
+
+$cheatmenu['bdimcstaddpro'] = {
+	$tmpstrg = input("Enter folder name, do not include ''\''")
+	if $tmpstrg = '':
+		killvar '$tmpstrg'
+		dynamic $cheatmenu['bdimcstadd']
+	else
+		bodsetcnt += 1
+		cyci1 = 0
+		:addcyc
+		$bodimgsets[((bodsetcnt * 10) + cyci1)] = $bodimgsets[(10 + cyci1)]
+		cyci1 += 1
+		if cyci1 < 9: jump 'addcyc'
+		$bodimgsets[((bodsetcnt * 10) + 9)] = $tmpstrg
+		imgset6ovr[bodsetcnt] = 0
+		imgset7ovr[bodsetcnt] = 0
+		killvar '$tmpstrg'
+		killvar 'cyci1'
+		dynamic $cheatmenu['bdimmain']
+	end
+}
+
+$cheatmenu['bdimcstdesed'] = {
+	$tmpstrg = input("Enter a new descriptor")
+	if $tmpstrg = '':
+		killvar 'chmbddes'
+		killvar '$tmpstrg'
+	else
+		$bodimgsets[((chmbodset * 10) + chmbddes)] = $tmpstrg
+		killvar 'chmbddes'
+		killvar '$tmpstrg'
+		dynamic $cheatmenu['bdimdisplay']
+	end
+}
+
+$cheatmenu['succubreset'] = {
+	clr
+	pl 'Are you sure you want to reset your Succubus status? You will lose all levels, saved power, and succubus skill levels.'
+	nl
+	pl '<a href="exec:dynamic $cheatmenu[''magic'']"><b>No, nevermind.</b></a>'
+	nl
+	pl '<a href="exec:dynamic $cheatmenu[''sucresetdo'']"><b>Yes, remove & reset Succubus status</b></a>'
+}
+
+$cheatmenu['sucresetdo'] = {
+!!	Probably do not need to kill all of these, but better to unload them.
+	killvar 'scfwon'
+	killvar 'scpopt'
+	killvar '$sclocrt'
+	killvar '$scargrt'
+	killvar '$scsubloc'
+	killvar 'suceatinit'
+	killvar 'succubusflag'
+	killvar 'succubusQW'
+	killvar '$sucself1'
+	killvar 'succublvl'
+	killvar 'succubxp'
+	killvar 'sucxpsnapshot'
+	killvar 'succhungry'
+	killvar 'sucexcess'
+	killvar 'sexnutrition'
+	killvar 'suclezsex'
+	killvar 'sucabslez'
+	killvar 'sucabscum'
+	killvar '$sucabs1'
+	killvar '$sucabs2'
+	killvar '$sucabs3'
+	killvar 'succonfail'
+	killvar 'sucpowzeroed'
+	killvar 'suchuntday'
+	killvar 'sucpcinfo'
+	killvar 'karinsucsex'
+	killvar 'karinsucsexday'
+	killvar 'karinsucsexask'
+	killvar 'tatianasucsex'
+	killvar 'tatianasucsexday'
+	killvar 'tatianasucsexask'
+	killvar 'sucwalkday'
+	killvar '$sucgoloc'
+	killvar '$sucgometka'
+	killvar 'sucskill'
+	killvar 'sucstorecap'
+	killvar 'sucinfoday'
+	killvar 'sctrainprep'
+!!	This list will be updated as new variables are added
+	dynamic $cheatmenu['magic']
+}
+
+--- Cheatmenu_din ---------------------------------
+

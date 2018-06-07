@@ -1,0 +1,193 @@
+# sauna
+
+if night_mode = 1:
+	fcolor = rgb(255, 255, 255)
+	bcolor = rgb(0, 0, 0)
+	lcolor = rgb(106, 90, 205)
+else
+	fcolor = rgb(0, 0, 0)
+	bcolor = rgb(255, 255, 255)
+	lcolor = rgb(106, 90, 205)
+end
+
+if $ARGS[0] = '':
+	clr
+	$loc = 'sauna'
+	$metka = ''
+	sauna += 1
+	gs 'stat'
+	'<center><b>Sauna</b></center>'
+	'<center><img <<$set_imgh>> src="images/locations/city/residential/sauna/sauna.jpg"></center>'
+	'Luxurious high quality public sauna founded long time ago. The sauna houses separate changing rooms and shower facilities for men and women.'
+
+	act 'Leave':minut += 10 & gt 'street'
+
+	if SaunaWhore > 0:act 'Head to work':gt 'saunawhore', 'saunawork'
+
+	if week = 5 and workDisk = 2:
+		'There''s a security guard waiting at the entrance for you to arrive.'
+
+		act 'Hand over the disk':
+			cls
+			minut += 20
+			workDisk = 3
+			konvert = 1
+			gs 'stat'
+			'You hand over the disk to him and you are handed back a thick envelope.'
+
+			act 'Leave':minut += 10 & gt 'street'
+		end
+	end
+
+	if hour >= 8 and hour <= 23:act 'Head to the sauna':gt 'sauna', 'sauna2'
+end
+
+if $ARGS[0] = 'sauna2':
+	*clr & cla
+	$loc = 'sauna'
+	$metka = 'sauna2'
+	minut += 5
+	gs 'stat'
+	'<center><b><font color="maroon">Sauna</font></b></center>'
+	'<center><img <<$set_imgh>> src="images/locations/city/residential/sauna/sauna1.jpg"></center>'
+	'One hour visit - 2,000 <b>₽</b>'
+
+	act 'Leave':gt 'sauna'
+
+	if money >= 2000 and saunaday ! daystart:
+		act 'Stay (2,000 <b>₽</b>)':
+			cls
+			money = money - 2000
+			minut += 60
+			fat -= 10
+			pcs_sweat = rand(0,5)
+			dynamic $showerdin
+			saunaday = daystart
+			pcs_mood = 100
+			gs 'stat'
+			'<center><img <<$set_imgh>> src="images/locations/city/shared/sauna/sau.jpg"></center>'
+			'You spend an hour relaxing in the heat of the sauna, having a cool shower and dressing. You feel revitalised.'
+
+			act 'Leave':gt 'sauna'
+		end
+	end
+end
+
+if $ARGS[0] = 'saunaroom':
+	*clr & cla
+	$loc = 'sauna'
+	$metka = 'saunaroom'
+	$locBroom = 'sauna'
+	$metkaBroom = 'saunaroom'
+	$locM = 'sauna'
+	$metkaM = 'saunaroom'
+	$location_type = 'private'
+	saunaYouRoom = 1
+	gs 'stat'
+	'<center><b><font color="maroon">Room</font></b></center>'
+	'<center><img <<$set_imgh>> src="images/locations/city/residential/sauna/saunaroom.jpg"></center>'
+
+	'<br>The room has a thread bare <a href="exec:sec += 30 & gt ''bed2''">bed</a> and a cheap <a href="exec:gt ''wardrobe'', ''start''">wardrobe</a> (where you can choose outfits and organize your clothing).'
+
+	'<br>Hanging on the wall is a dirty <a href="exec:gt ''mirror'', ''start''">mirror</a>. The floor is littered with dozens of porn magazines, and a selection of adult toys are scattered throughout the room. There''s so much crap laying around, there''s barely enough space to do some basic <a href="exec:gt ''sauna'', ''saunafitness''">exercise</a>.'
+
+	if budilnikOn = 0:
+		'<br>Your <a href="exec:gt ''budilnik'', ''start''">alarm clock</a> is set for <<timer>> hours <<timerM>> minutes and currently turned <a href="exec: budilnikOn = 1 & GT ''<<$loc>>''">off</a>.'
+	else
+		'<br>Your <a href="exec:gt ''budilnik'', ''start''">alarm clock</a> is set for <<timer>> hours <<timerM>> minutes and currently turned <a href="exec: budilnikOn = 0 & GT ''<<$loc>>''">on</a>.'
+	end
+
+	if money > 0 and workDolg > 0:workDolg -= money & money = 0
+	if workDolg > 0:'Your debt is <<workDolg>> <b>₽</b>'
+
+	act '<b>Exit to the sauna</b>':gt 'saunawhore', 'saunawork'
+
+	if workDolg > 0:
+
+		act 'Have some food (0:15)':gs 'food', 'snack'
+		act 'Drink some water (0:05)':gs 'beverage', 'bev_wat'
+
+		act 'Borrow cosmetics':
+			workDolg += 1000
+			kosmetica += 25
+			gt $curloc
+		end
+	end
+	if workDolg <= 0 and SaunaWhore > 0:
+
+		if money >= 100:
+			act 'Buy some food (0:15) (100 <b>₽</b>)':
+				gs 'food', 'snack'
+				money -= 100
+			end
+		end
+		act 'Drink some water (0:05)':gs 'beverage', 'bev_wat'
+
+		dynamic $fatdel
+		dynamic $lekarstvo
+		dynamic $vitamin
+	end
+
+	gs 'events', 'read_porn'
+
+	if pcs_horny >= 50:
+		act 'Masturbate':gt 'selfplay', 'start'
+	end
+
+	if pcs_sleep <= 80:
+		if $clothingworntype = 'nude':
+			$sleep_txt = 'Go to sleep'
+		else
+			$sleep_txt = 'Undress and go to sleep'
+		end
+		if succubusQW = 2:
+			act '<<$sleep_txt>>':
+				if $clothingworntype ! 'nude': gs 'clothing', 'strip'
+				gt 'bed2', 'succhoice'
+			end
+		else
+			act '<<$sleep_txt>>':
+				if disable_autosave = 0:
+					if StoryLine = 0:
+						savegame 'autosave.sav'
+					else
+						savegame 'autosave_alt.sav'
+					end
+				end
+				if $clothingworntype ! 'nude': gs 'clothing', 'strip'
+				if magf2bdo = 2:
+					gt 'bed2', 'magbstchoice'
+				else
+					gt 'bed2', 'sleep'
+				end
+			end
+			killvar '$sleep_txt'
+		end
+	end
+end
+
+if $ARGS[0] = 'saunafitness':
+	$loc = 'sauna'
+	$metka = 'saunaroom'
+	cla
+	*clr
+	'<center><video autoplay loop src="images/pc/activities/push_naked.mp4"></video></center>'
+	gs 'exercise', 'tier2', 30, 'stren_exp'
+	'You do push-ups for <<$timestring>> minutes, improving your strength.'
+
+	randpushfact = rand(-5,5)
+	if pcs_energy < 40: randpushfact -= RAND(1,10)
+
+	pushnum = (pcs_stren * pcs_sleep * pcs_health)  / ( 1 * 67 *  healthmax) + randpushfact
+
+	if pushnum < 1: pushnum = rand(1,5)
+	KILLVAR 'randpushfact'
+	'<br>You managed to do <<pushnum>> push-ups. Your previous record is <<pushrecord>>.'
+
+	if pushrecord < pushnum:pushrecord = pushnum & 'This is a new record!'
+	gs 'stat'
+	act 'Finish': gt $loc, $metka
+end
+
+--- sauna ---------------------------------
+

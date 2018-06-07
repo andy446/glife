@@ -1,0 +1,194 @@
+# pavComplexb3
+
+!SETTINGS:
+CLOSE ALL
+if night_mode = 1:
+	fcolor = rgb(255, 255, 255)
+	bcolor = rgb(0, 0, 0)
+	lcolor = rgb(106, 90, 205)
+else
+	fcolor = rgb(0, 0, 0)
+	bcolor = rgb(255, 255, 255)
+	lcolor = rgb(106, 90, 205)
+end
+$metka = $ARGS[0]
+$loc = $CURLOC
+!elevator does not work
+if liftnotwork_day ! daystart: liftnotwork_count = 1
+!Apartment Uncle Misha
+if mishahouse_day ! daystart: mishahouse_count = 1	
+!how much money for sex give boys
+$rnd_money_sex = ''+rand(50,350)+''
+rnd_money_sex = $rnd_money_sex
+
+
+!================================================================================================!
+!FLOORS: ---------------------------Entrance to the town-------------------------------------- FLOORS:!
+!================================================================================================!
+!housemates
+$housemates = {
+	*clr & cla
+	minut +=1
+	gs 'stat'
+	 '<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/housemates.jpg"></center>'
+	'Floor 1 - Apartment number 1: Rolan Matveev'
+	'Floor 2 - Apartment number'
+	'Floor 3 - Apartment number'
+	'Floor 4 - Apartment number 30: Shared'
+	'Floor 5 - Apartment number'
+	act 'Leave': gt 'pavComplexb3', 'etaj_1'
+}
+
+!!locked in Pavlovsk, floor 1
+if $ARGS[0] = 'etaj_1':
+	CLOSE ALL
+	if sound = 0:PLAY 'sound/podezd.mp3',30
+	minut +=1
+	gs 'stat'
+	'<center><b><font color = maroon>Ground floor of the apartment building</font></b></center>'
+	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/podezd2.jpg"></center>'
+	'<center>A dirty and poorly maintained stairwell, the same as any other in your town.</center>'
+
+	'<<$pod_ev_rnd>>'
+
+	'There''s a <a href="exec: dynamic $housemates">list</a> of the people who live here on the wall.'
+	'Someone put up some <a href="exec:GT ''pavComplexb3'',''pod_objava''">advertisements</a> on the wall, near the entrance.'
+	act '<font color = maroon><b>Go outside</b></font>': gt 'pavcomplex', 'start'
+!!	if rolanblockhome ! 1 and storyline = 1:
+!!		act 'Knock Mr. Matveev''s door': gt 'rolanapt','home'
+!!	end
+	act 'Go up to the second floor': CLOSE ALL & gt 'pavComplexb3','etaj_2'
+	act 'Take the elevator': CLOSE ALL & gt 'pavComplexb3','lift','etaj_1'
+end
+
+!floor 2
+if $ARGS[0] = 'etaj_2':
+	minut +=1
+	gs 'stat'
+	'<center>2nd floor of the apartment building</center>'
+	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/etaj2.jpg"></center>'
+	'<center>The second floor stairwell is clean and well maintained. It was renovated not long ago, and the inhabitants do their best to keep it clean.</center>'
+	act 'Go down to the first floor': gt 'pavComplexb3','etaj_1'
+	act 'Go up to the third floor': gt 'pavComplexb3','etaj_3'
+	act 'Take the elevator': gt 'pavComplexb3','lift','etaj_2'
+end
+
+!floor 3
+if $ARGS[0] = 'etaj_3':
+	minut +=1
+	gs 'stat'
+	'<center>3rd floor of the apartment building</center>'
+	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/etaj3.jpg"></center>'
+	'<center>The third floor stairwell is clean and well maintained. It was renovated not long ago, and the inhabitants do their best to keep it clean.</center>'
+	act 'Go down to the second floor': gt 'pavComplexb3','etaj_2'
+	act 'Go up to the fourth floor': gt 'pavComplexb3','etaj_4'
+	act 'Take the elevator': gt 'pavComplexb3','lift','etaj_3'
+end
+
+!floor 4
+if $ARGS[0] = 'etaj_4':
+	minut +=1
+	gs 'stat'
+	'<center>4th floor of the apartment building</center>'
+	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/etaj4.jpg"></center>'
+	'<center>The fourth floor stairwell was renovated not long ago, but some hoodlums already sprayed graffiti on the walls.</center>'
+	if seenAd = 0:
+		gt 'pavSharedApt', 'advertNo30'
+	else:
+		act 'Go to door number 30': gt 'pavSharedApt', 'doorNo30'
+	end
+	act 'Go down to the third floor': gt 'pavComplexb3','etaj_3'
+	act 'Go up to the fifth floor': gt 'pavComplexb3','etaj_5'
+	act 'Take the elevator': gt 'pavComplexb3','lift','etaj_4'
+end
+
+!floor 5
+if $ARGS[0] = 'etaj_5':
+	minut +=1
+	gs 'stat'
+	'<center>Floor #5</center>'
+	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/etaj5.jpg"></center>'
+	'<center>The fifth floor stairwell looks much like most of the other floors, though it has a final set of stairs at the other end of the hall that go up to the roof.</center>'
+	act 'Go down to the fourth floor': gt 'pavComplexb3','etaj_4'
+	act 'Take the elevator': gt 'pavComplexb3','lift','etaj_5'
+	act 'Go to the roof': gt 'pavComplexb3', 'roof'
+end
+
+!!roof
+if $ARGS[0] = 'roof':
+	minut +=1
+	gs 'stat'
+	'<center>Roof</center>'
+	if month >= 11 or month <= 3:
+		!!if hour >= 8 and hour <= 21:
+			!!'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/roof/roofw.jpg"></center>'
+		!!else
+			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/roof/roofw.jpg"></center>'
+		!!end
+	else
+		if hour >= 8 and hour <= 21:
+			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/roof/roof.jpg"></center>'
+		else
+			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/roof/roofn.jpg"></center>'
+		end
+	end
+	'<center>The roof is fairly flat, with the roof access door in a raised part in the middle of the roof. Along one of the walls is another door to some type of storage or maintenances access. There is several ventilation stacks on the roof as well.</center>'
+	act 'Go down to the fifth floor': gt 'pavComplexb3','etaj_5'
+end
+
+!================================================================================================!
+!ELEVATOR: ------------------------------------------------------------------------------------ ELEVATOR:!
+!================================================================================================!
+!the lift
+if $ARGS[0] = 'lift':
+	*clr & cla
+	minut +=1
+	gs 'stat'
+	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/elevator.jpg"></center>'
+	'<center>The elevator in the apartment building is quite old. The building supervisor does his best to keep it running, but it breaks down a lot. Someone put up a <a href="exec:GT ''pavComplexb3'',''elev_objava''">notification</a> in the elevator.</center>'
+	act 'Push button: floor 1': gt 'pavComplexb3','etaj_1'
+	act 'Push button: floor 2': gt 'pavComplexb3','etaj_2'
+	act 'Push button: floor 3': gt 'pavComplexb3','etaj_3'
+	act 'Push button: floor 4': gt 'pavComplexb3','etaj_4'
+	act 'Push button: floor 5': gt 'pavComplexb3','etaj_5'
+	pod_lift_ev = RAND(0,100)
+	if pod_lift_ev <=5: 
+		*clr & cla
+		minut +=1
+		gs 'stat'
+		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/event/elevator'+rand(1,2)+'.jpg"></center>'
+		'When the elevator door opens, you see a naked woman standing in it! She looks at you in panic and is frantically pressing all the elevator buttons. You''re too baffled to do anything until it''s too late. The door is already closed again, and the elevator is moving away from you.'
+		act 'Leave': gt 'pavComplexb3',$ARGS[1]
+	elseif pod_lift_ev <=10 or liftnotwork_count <=0:
+		*clr & cla
+		minut +=1
+		liftnotwork_day = daystart
+		liftnotwork_count -= 1
+		gs 'stat'
+		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/liftnotwork.jpg"></center>'
+		'The building supervisor put a sign on the elevator: "Dear tenants, the elevator is out of order for today. Don''t worry, I should have it working again by tomorrow!"'
+		act 'Leave': gt 'pavComplexb3',$ARGS[1]
+	end
+	killvar 'pod_lift_ev'
+end
+
+!elevator ads
+if $ARGS[0] = 'elev_objava':
+		*clr & cla
+		minut +=1
+		gs 'stat'
+		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/elevator_ob'+rand(1,2)+'.jpg"></center>'
+	act 'Continue': gt 'pavComplexb3','lift'
+end
+
+!locked ads
+if $ARGS[0] = 'pod_objava':
+		*clr & cla
+		minut +=1
+		gs 'stat'
+		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/pod_ob'+rand(1,2)+'.jpg"></center>'
+	act 'Continue': gt 'pavComplexb3','etaj_1'
+end
+
+--- pavComplexb3 ---------------------------------
+

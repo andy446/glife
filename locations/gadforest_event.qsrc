@@ -1,0 +1,2762 @@
+# gadforest_event
+
+
+	!MiaLoc tells us where Mira is Located
+	!----------------------------------------------
+	!MiraLoc = 0 (Mira at home)
+	!MiraLoc = 1 (Mira at river)
+	!MiraLoc = 2 (Mira at meadow)
+	!MiraLoc = 3 (Mira at forest)
+	!MiraLoc = 4 (Mira at field)
+	!MiraLoc = 5 (Mira with gop)
+	!---------------------------------------------
+
+
+$location_type = 'event_outdoors'
+if $ARGS[0] = 'gopforest_mitka':
+	if $clothingworntype ! 'nude':
+		if MiraLoc ! 3:
+			if npc_QW['A63'] = 0 or gadriver_gang >= 3:
+				cla
+				*clr
+				minut += 15
+				gadboyday = daystart
+				gs 'stat'
+				!gs 'time'
+
+				'<center><b><font color = maroon>Mitka Pin</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mitka.jpg"></center>'
+				'Walking through the forest you met Mitka, you chatted with him for a bit and went on.'
+
+				act 'Further':gt 'gadforest','1'
+			else
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				gs 'stat'
+				!gs 'time'
+
+				'<center><b><font color = maroon>Mitka Pin</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mitka.jpg"></center>'
+				'Walking through the forest you met Mitka. You see him shamelessly scratching his balls.'
+				'"<<$pcs_nickname>>, seeing you always gives me a boner, let''s go fuck." he says grinning.'
+
+				act 'Agree':forest_gopsex = 1 & temphant = 4 & gt 'hanters', 'start'
+				if npc_QW['A63'] < 10 and alko < 6 and pcs_horny < 70:act 'Refuse':gt 'gadforest','1'
+			end
+		else
+			if npc_QW['A63'] = 0 or gadriver_gang >= 3:
+				if npc_QW['A60'] >= 2 and npc_QW['A60'] < 11:
+					cla
+					*clr
+					minut += 15
+					gadboyday = daystart
+					MiraLoc = 0
+					gs 'stat'
+					!gs 'time'
+
+					'<center><b><font color = maroon>Mitka Pin</font></b></center>'
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mitka.jpg"></center>'
+					'Walking through the forest with Mira, you met Mitka. You chatted a bit together, as you were about to go further you noticed Mira wasn''t following you.'
+					'"<<$pcs_nickname>>, you go on, I need to talk to Mitka in private." She says blushing. "He''ll take me home."'
+					'"Have fun!" you replied to Mira, throwing her a wink before you went on.'
+					act 'Go':gt 'gadforest','1'
+					act 'Spy':
+						if npc_QW['A60'] < 8:
+							cla
+							*clr
+							gs 'stat'
+							'<center><img <<$set_imgh>> src="images/characters/village/mira/mirameadowsex.jpg"></center>'
+							'They talk in whispers, hastily undressing along the way, but you can''t hear a word they are saying.'
+							gs 'arousal', 'voyeur', 2
+							gs 'stat'
+							act 'Watch':
+								cla
+								*clr
+								gs 'stat'
+								'<center><img <<$set_imgh>> src="images/characters/village/mira/mirameadowsex1.jpg"></center>'
+								'After a couple of minutes Mira lays down on a blanket in front of Mitka spreading her legs invitingly. He doesn''t waste a second before he is on her. He takes his place between her legs and starts slamming his cock into her eager vagina roughly. In no time Mira starts moaning and begging for more.'
+								gs 'arousal', 'voyeur', 5
+								gs 'stat'
+								act 'Watch':
+									cla
+									*clr
+									if npc_QW['A60'] = 2:npc_QW['A60'] = 3
+									gs 'stat'
+									'<center><img <<$set_imgh>> src="images/characters/village/mira/mirameadowsex2.jpg"></center>'
+									'After a few more minutes Mitka pulls out and cums on her stomach. They rest for a little while and then get dressed and go towards the village...'
+									gs 'arousal', 'voyeur', 5
+									gs 'stat'
+									act 'Further':gt 'gadforest','1'
+								end
+							end
+						else
+							cla
+							*clr
+							temp_gadf = RAND(0,1)
+							gs 'stat'
+							if temp_gadf = 0:
+								'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/mirameadowanal.jpg"></center>'
+								'Mira is working her ass up and down on Mitka''s hard member, every time she goes down her buttocks slap loudly on his thighs.'
+								gs 'arousal', 'voyeur', 2
+								gs 'stat'
+							else
+								'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/mirameadowanal1.jpg"></center>'
+								'Mira is on all fours and moaning loudly as Mitka spreads her asshole with his fingers and then drives his cock all the way in her wide open hole.'
+								gs 'arousal', 'voyeur', 2
+								gs 'stat'
+							end
+							act 'Watch':
+								cla
+								*clr
+								mirasextimes += 1
+								gs 'stat'
+								'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/mirameadowanal2.jpg"></center>'
+								'After a couple of minutes Mitka strongly slaps her ass and Mira quickly turns around, gets on her knees before him and sucks his cock for a few seconds before he spill his warm cum all over her face.'
+								gs 'arousal', 'voyeur', 10
+								gs 'stat'
+								act 'Further':gt 'gadforest','1'
+							end
+						end
+					end
+				elseif npc_QW['A60'] >= 11:
+					cla
+					*clr
+					minut += 5
+					gadboyday = daystart
+					MiraLoc = 0
+					gs 'stat'
+					!gs 'time'
+
+					'<center><b><font color = maroon>Mitka Pin</font></b></center>'
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mitka.jpg"></center>'
+					'Walking through the forest with Mira, you meet Mitka. Seeing Mira, Mitka grabbed her hand and dragged her into the nearest bush, seeing that Mira is not resisting, you decided not to interfere and mind your own business.'
+
+					act 'Go':gt 'gadforest','1'
+					act 'Spy':
+						cla
+						*clr
+						temp_gadf = RAND(0,1)
+						gs 'stat'
+						if temp_gadf = 0:
+							'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/mirameadowanal.jpg"></center>'
+							'Mira is working her ass up and down on Mitka''s hard member, every time she goes down her buttocks slap loudly on his thighs.'
+							gs 'arousal', 'voyeur', 2
+							gs 'stat'
+						else
+							'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/mirameadowanal1.jpg"></center>'
+							'Mira is on all fours and moaning loudly as Mitka spreads her asshole with his fingers and then drives his cock all the way in her wide open hole.'
+							gs 'arousal', 'voyeur', 2
+							gs 'stat'
+						end
+						act 'Watch':
+							cla
+							*clr
+							mirasextimes += 1
+							gs 'stat'
+							'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/mirameadowanal2.jpg"></center>'
+							'After a couple of minutes Mitka strongly slaps her ass and Mira quickly turns around, gets on her knees before him and sucks his cock for a few seconds before he spill his warm cum all over her face.'
+							gs 'arousal', 'voyeur', 10
+							gs 'stat'
+							act 'Further':gt 'gadforest','1'
+						end
+					end
+				else
+					cla
+					*clr
+					minut += 15
+					gadboyday = daystart
+					gs 'stat'
+					!gs 'time'
+					'<center><b><font color = maroon>Mitka Pin</font></b></center>'
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mitka.jpg"></center>'
+					'Walking through the forest with Mira, you met Mitka. You had a little chat, noticing the interest Mira showed Mitka, and went on.'
+					act 'Further':gt 'gadforest','1'
+				end
+			elseif npc_QW['A63'] > 0 and npc_QW['A63'] < 13 and gadriver_gang < 3 or npc_QW['A63'] >= 13 and npc_QW['A60'] < 11 and gadriver_gang < 3:
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				gs 'stat'
+				!gs 'time'
+
+				'<center><b><font color = maroon>Mitka Pin</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mitka.jpg"></center>'
+				'Walking through the woods with Mira you met Mitka. Scratching his balls and not paying any attention to Mira, who was standing right next to him, he said with a grin:'
+				'"<<$pcs_nickname>>, seeing you always gives me a boner, let''s go fuck."'
+
+				act 'Agree':MiraLoc = 0 & forest_gopsex = 1 & temphant = 4 & gt 'hanters', 'start'
+				if npc_QW['A63'] < 10 and alko < 6 and pcs_horny < 70:
+					act 'Refuse':gt 'gadforest','1'
+				end
+			elseif npc_QW['A63'] >= 13 and npc_QW['A60'] >= 11 and gadriver_gang < 3:
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				mirasextimes += 1
+				gs 'stat'
+				!gs 'time'
+
+				'<center><b><font color = maroon>Mitka Pin</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mitka.jpg"></center>'
+				'Walking through the woods with Mira you met Mitka. Scratching his balls, he said with a grin:'
+				'"Oh, you`re just who I need!" He grabbed you by the hand and dragged you into the nearest bush.'
+				act 'Further':mitboyrand = 1 & gt 'mitkasex'
+			else
+				cla
+				*clr
+				minut += 15
+				gadboyday = daystart
+				gs 'stat'
+				!gs 'time'
+
+				'<center><b><font color = maroon>Mitka Pin</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mitka.jpg"></center>'
+				'Walking through the forest with Mira, you met Mitka. You had a little chat and went on.'
+				act 'Further':gt 'gadforest','1'
+			end
+		end
+	else
+		inhib_exp += rand(1,3)
+		if MiraLoc ! 3 or gadriver_gang >= 3:
+			if npc_QW['A63'] = 0 and gadriver_gang < 3:
+				cla
+				*clr
+				minut += 5
+				temp_gadf = rand (1,2)
+				if temp_gadf = 1:gadboyday = daystart
+				gs 'stat'
+				!gs 'time'
+
+				'<center><b><font color = maroon>Mitka Pin</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mitka.jpg"></center>'
+				if temp_gadf = 1:'Walking through the forest you come face-to-face with Mitka. He stared longingly at your naked body, and you decide...'
+				if temp_gadf = 2:'Walking through the forest you saw Mitka. Realizing that he hasn''t noticed you yet, you decide...'
+				*pl
+				if temp_gadf = 1:
+					act 'To run away and dress':
+						cla
+						*clr
+						gopsawnaked += 1
+						if gopsawnaked >= 10:gopsawnaked = 0 & npc_QW['A63'] += 1
+						pcs_horny += 10
+						swamp_clothes = 0
+						minut += 5
+						gs 'underwear', 'wear'
+						gs 'clothing', 'recover_lost_clothes', 'gadforest', 1
+						gs 'stat'
+						!gs 'time'
+
+						'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/swampbackwaternude1.jpg"></center>'
+						'You yelp in surprise and you rush to where you left your clothes. Dressed and calm you decide to go on.'
+
+						act 'Further':gt 'gadforest','1'
+					end
+				else
+					act 'Hide':
+						cla
+						*clr
+						minut += 5
+						pcs_horny += 5
+						gs 'stat'
+						!gs 'time'
+
+						'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/mitkahideforest.jpg"></center>'
+						'You quickly hide in the nearby bushes. Mitka walks right past not noticing you. You let out a breath and go on.'
+
+						act 'Further':gt 'gadforest','1'
+					end
+				end
+				act 'Go further':
+					cla
+					*clr
+					gadboyday = daystart
+					minut += 5
+					if npc_QW['A63'] = 0:npc_QW['A63'] += 1
+					pcs_horny += 20
+					inhib_exp += rand(1,3)
+					gs 'stat'
+					!gs 'time'
+
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/mitkanudeforest.jpg"></center>'
+					'You pretend not to notice the stunned Mitka and walk right past him, swaying your hips pointedly to maximize the effect. Looking around, you notice that the effect has exceeded your expectations. Mitka dropped his pants and is hastily jerking off, looking after you.'
+
+					act 'Further':gt 'gadforest','1'
+				end
+			else
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				gs 'stat'
+				!gs 'time'
+
+				'<center><b><font color = maroon>Mitka Pin</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mitka.jpg"></center>'
+				'Walking through the forest you met Mitka. After spotting him him, you tried to dress, but Mitka, without wasting another minute he grabbed you by the hand and dragged you into the nearest bush.'
+
+				act 'Further':forest_gopsex = 1 & temphant = 4 & gt 'hanters', 'start'
+			end
+		else
+			if npc_QW['A63'] = 0 or gadriver_gang >= 3:
+				if npc_QW['A60'] < 11:
+					cla
+					*clr
+					minut += 15
+					gadboyday = daystart
+					temp_gadf = rand (1,2)
+					gs 'stat'
+					!gs 'time'
+
+					'<center><b><font color = maroon>Mitka Pin</font></b></center>'
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mitka.jpg"></center>'
+					if temp_gadf = 1:'Walking through the forest with Mira, you come face-to-face with Mitka. He stared longingly at your naked body...'
+					if temp_gadf = 2:'Walking through the forest you saw Mitka. Realizing that he hasn''t noticed you yet, you decide...'
+					if temp_gadf = 1:
+						act 'To run away and dress':
+							cla
+							*clr
+							if gopsawnaked >= 10:gopsawnaked = 0 & npc_QW['A63'] += 1
+							pcs_horny += 10
+							swamp_clothes = 0
+							minut += 5
+							gs 'underwear', 'wear'
+							gs 'clothing', 'recover_lost_clothes', 'gadforest', 1
+							gs 'stat'
+							!gs 'time'
+
+							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gopforestnude.jpg"></center>'
+							'You yelp in surprise, as you and Mira rush to where you left your clothes. Dressed and calm you decide to go on.'
+
+							act 'Further':gt 'gadforest','1'
+						end
+					else
+						act 'Hide':
+							cla
+							*clr
+							minut += 5
+							pcs_horny += 5
+							gs 'stat'
+							!gs 'time'
+
+							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
+							'You and Mira, quickly hide in the nearby bushes. Mitka walks right past not noticing you. You let out a breath and go on.'
+
+							act 'Further':gt 'gadforest','1'
+						end
+					end
+				elseif npc_QW['A60'] >= 11:
+					cla
+					*clr
+					minut += 5
+					gadboyday = daystart
+					temp_gadf = rand (1,2)
+					gs 'stat'
+					!gs 'time'
+
+					'<center><b><font color = maroon>Mitka Pin</font></b></center>'
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mitka.jpg"></center>'
+					if temp_gadf = 1:'Walking through the forest with Mira, you come face-to-face with Mitka. He stared longingly your naked body...'
+					if temp_gadf = 2:'Walking through the forest you saw Mitka. Realizing that he hasn''t noticed you yet, you decide...'
+
+					if temp_gadf = 1:
+						act 'To run away and dress':
+							cla
+							*clr
+							mitboyrand = 1
+							MiraLoc = 0
+							gopsawnaked += 1
+							if gopsawnaked >= 10:gopsawnaked = 0 & npc_QW['A63'] += 1
+							pcs_horny += 10
+							swamp_clothes = 0
+							minut += 5
+							gs 'underwear', 'wear'
+							gs 'clothing', 'recover_lost_clothes', 'gadforest', 1
+							gs 'stat'
+							!gs 'time'
+
+							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gopforestnude.jpg"></center>'
+							'You yelp in surprise, and you and Mira rush to your clothes. Running away you barely catch with the corner of your eye, Mitka grabbing Mira''s hand and dragging her into the nearest bush. Seeing that Mira is not resisting, you decide not to intervene. Dressed and calm you decide...'
+
+							act 'Go':gt 'gadforest','1'
+							act 'Spy':
+								cla
+								*clr
+								temp_gadf = RAND(0,1)
+								gs 'stat'
+								if temp_gadf = 0:
+									'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/mirameadowanal.jpg"></center>'
+									'Mira is working her ass up and down on Mitka''s hard member, every time she goes down her buttocks slap loudly on his thighs.'
+									gs 'arousal', 'voyeur', 2
+									gs 'stat'
+								else
+									'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/mirameadowanal1.jpg"></center>'
+									'Mira is on all fours and moaning loudly as Mitka spreads her asshole with his fingers and then drives his cock all the way in her wide open hole.'
+									gs 'arousal', 'voyeur', 2
+									gs 'stat'
+								end
+								act 'Watch':
+									cla
+									*clr
+									mirasextimes += 1
+									gs 'stat'
+									'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/mirameadowanal2.jpg"></center>'
+									'After a couple of minutes Mitka strongly slaps her ass and Mira quickly turns around, gets on her knees before him and sucks his cock for a few seconds before he spill his warm cum all over her face...'
+									gs 'arousal', 'voyeur', 10
+									gs 'stat'
+									act 'Further':gt 'gadforest','1'
+								end
+							end
+						end
+					else
+						act 'Hide':
+							cla
+							*clr
+							minut += 5
+							pcs_horny += 5
+							gs 'stat'
+							!gs 'time'
+
+							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
+							'You and Mira, quickly hide in the nearby bushes. Mitka walks right past not noticing you. You let out a breath and go on.'
+
+							act 'Further':gt 'gadforest','1'
+						end
+					end
+				end
+			elseif npc_QW['A63'] > 0 and npc_QW['A63'] < 13 and gadriver_gang < 3 or npc_QW['A63'] >= 13 and npc_QW['A60'] < 11 and gadriver_gang < 3:
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				temp_gadf = rand (1,2)
+				gs 'stat'
+				!gs 'time'
+
+				'<center><b><font color = maroon>Mitka Pin</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mitka.jpg"></center>'
+				if temp_gadf = 1:'Walking through the forest with Mira, you come face-to-face with Mitka. You yelp in surprise, and rush to your clothing. You are running away with Mira, but before you get too far Mitka grabs you in his arms and drags you with him into the nearest bush.'
+				if temp_gadf = 2:'Walking through the forest you saw Mitka. Realizing that he hasn''t noticed you yet, you decide...'
+
+				if temp_gadf = 1:act 'Further':MiraLoc = 0 & forest_gopsex = 1 & temphant = 4 & gt 'hanters', 'start'
+				if temp_gadf = 2:
+					act 'Hide':
+						cla
+						*clr
+						minut += 5
+						pcs_horny += 5
+						gs 'stat'
+						!gs 'time'
+
+						'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
+						'You and Mira, quickly hide in the nearby bushes. Mitka walks right past not noticing you. You let out a breath and go on.'
+
+						act 'Further':gt 'gadforest','1'
+					end
+				end
+
+			elseif npc_QW['A63'] >= 13 and npc_QW['A60'] >= 11 and gadriver_gang < 3:
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				gs 'stat'
+				!gs 'time'
+
+				'<center><b><font color = maroon>Mitka Pin</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mitka.jpg"></center>'
+				'Walking through the forest with Mira, you come face-to-face with Mitka. Seeing you naked Mitka scratched his balls and dragged you into the nearest bush.'
+				act 'Further':gt 'mitkasex', 'forest1', 'A63'
+			else
+				cla
+				*clr
+				minut += 15
+				gs 'stat'
+				!gs 'time'
+
+				'<center><b><font color = maroon>Mitka Pin</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mitka.jpg"></center>'
+				'Walking through the forest you saw Mitka. Realizing that he hasn''t noticed you yet, you decide...'
+				act 'Hide':
+					cla
+					*clr
+					minut += 5
+					pcs_horny += 5
+					gs 'stat'
+					!gs 'time'
+
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
+					'You and Mira, quickly hide in the nearby bushes. Mitka walks right past not noticing you. You let out a breath and go on.'
+
+					act 'Further':gt 'gadforest','1'
+				end
+			end
+		end
+	end
+end
+if $ARGS[0] = 'gopforest_kolyamba':
+	if $clothingworntype ! 'nude':
+		if MiraLoc ! 3:
+			if npc_QW['A63'] < 13 or gadriver_gang >= 3:
+				cla
+				*clr
+				minut += 15
+				gadboyday = daystart
+				gs 'stat'
+				!gs 'time'
+
+				'<center><b><font color = maroon>Calamba</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/kolyamba.jpg"></center>'
+				'Walking through the forest you met Kolambu. You chatted with him for a bit and then went on.'
+
+				act 'Further':gt 'gadforest','1'
+			else
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				gs 'stat'
+				!gs 'time'
+
+				'<center><b><font color = maroon>Calamba</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/kolyamba.jpg"></center>'
+				'Walking through the forest you met Kolambu. Seeing you, he scratched his balls and dragged you into the nearest bushes.'
+
+				act 'Further':forest_gopsex = 1 & temphant = 5 & gt 'hanters', 'start'
+			end
+		else
+			if npc_QW['A63'] < 13 or gadriver_gang >= 3:
+				if npc_QW['A60'] >= 11:
+					cla
+					*clr
+					minut += 5
+					Miraloc = 0
+					gadboyday = daystart
+					gs 'stat'
+					!gs 'time'
+
+					'<center><b><font color = maroon>Calamba</font></b></center>'
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/village/kolyamba.jpg"></center>'
+					'Walking through the forest with Mira, you met Kolambu. Seeing Mira he grabbed her hand and dragged her into the nearest bush, seeing that Mira is not resisting, you decided not to interfere and mind your own business.'
+
+					act 'Go':gt 'gadforest','1'
+					act 'Spy':
+						cla
+						*clr
+						mirasextimes += 1
+						gs 'stat'
+						'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/mirameadowbj2.jpg"></center>'
+						'Mira is still wearing her flip-flops, you see them sticking out, pressed right at Kolambu''s ass, as Mira has her legs wrapped around him. She groans loudly as Kolambu keeps slapping her crotch with his balls, driving his hard penis deep into her vagina. Mira is scratching the ground with her hands, her back arched like a cat''s, it looks like she is saying something to Kolambu. But he is not paying any attention, as he keeps battering her pussy, soon he brought her to orgasm and then he cums too...'
+						gs 'arousal', 'voyeur', 10
+						gs 'stat'
+						act 'Further':gt 'gadforest','1'
+					end
+				else
+					cla
+					*clr
+					minut += 15
+					gadboyday = daystart
+					gs 'stat'
+					!gs 'time'
+					'<center><b><font color = maroon>Calamba</font></b></center>'
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/village/kolyamba.jpg"></center>'
+					'Walking through the forest with Mira, you met Kolambu. You had a little chat and went on.'
+					act 'Further':gt 'gadforest','1'
+				end
+			elseif npc_QW['A63'] >= 13 and npc_QW['A60'] < 11 and gadriver_gang < 3:
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				Miraloc = 0
+				gs 'stat'
+				!gs 'time'
+
+				'<center><b><font color = maroon>Calamba</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/kolyamba.jpg"></center>'
+				'Walking through the woods with Mira you met Kolambu. Scratching his balls and not paying any attention to Mira, who was standing right next to him, he dragged you into the nearest bush.'
+
+				act 'Further':forest_gopsex = 1 & temphant = 5 & gt 'hanters', 'start'
+			elseif npc_QW['A63'] >= 13 and npc_QW['A60'] >= 11 and gadriver_gang < 3:
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				mirasextimes += 1
+				gs 'stat'
+				!gs 'time'
+
+				'<center><b><font color = maroon>Calamba</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/kolyamba.jpg"></center>'
+				'Walking through the woods with Mira you met Kolambu. Seeing you, he scratched his balls and grabbing you both by the arms, dragged into the bushes.'
+				act 'Further':gt 'mitkasex', 'forest1', 'A61'
+			else
+				cla
+				*clr
+				minut += 15
+				gadboyday = daystart
+				gs 'stat'
+				!gs 'time'
+
+				'<center><b><font color = maroon>Calamba</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/kolyamba.jpg"></center>'
+				'Walking through the forest with Mira, you met Kolambu. You had a little chat and went on.'
+				act 'Further':gt 'gadforest','1'
+			end
+		end
+	else
+		inhib_exp += rand(1,3)
+		if MiraLoc ! 3:
+			if npc_QW['A63'] < 13 and gadriver_gang >= 3:
+				cla
+				*clr
+				minut += 5
+				temp_gadf = rand (1,2)
+				gadboyday = daystart
+				gs 'stat'
+
+				'<center><b><font color = maroon>Calamba</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/kolyamba.jpg"></center>'
+				if temp_gadf = 1:'Walking through the forest you come face-to-face with Kolambu. He stared longingly at your naked body, and you decide...'
+				if temp_gadf = 2:'Walking through the forest you saw Kolambu. Realizing that he hasn''t noticed you yet, you decide...'
+				*pl
+				if temp_gadf = 1:
+					act 'To run away and dress':
+						cla
+						*clr
+						gopsawnaked += 1
+						if gopsawnaked >= 10:gopsawnaked = 0 & npc_QW['A63'] += 1
+						pcs_horny += 10
+						swamp_clothes = 0
+						minut += 5
+						gs 'underwear', 'wear'
+						gs 'clothing', 'recover_lost_clothes', 'gadforest', 1
+						gs 'stat'
+
+						'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/swampbackwaternude1.jpg"></center>'
+						'You yelp in surprise and you rush to where you left your clothes. Dressed and calm you decide to go on.'
+
+						act 'Further':gt 'gadforest','1'
+					end
+				else
+					act 'Hide':
+						cla
+						*clr
+						minut += 5
+						pcs_horny += 5
+						gs 'stat'
+						!gs 'time'
+
+						'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/mitkahideforest.jpg"></center>'
+						'You quickly hide in the nearby bushes. Kolambu walks right past not noticing you. You let out a breath and go on.'
+
+						act 'Further':gt 'gadforest','1'
+					end
+				end
+			else
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				Miraloc = 0
+				gs 'stat'
+				!gs 'time'
+
+				'<center><b><font color = maroon>Calamba</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/kolyamba.jpg"></center>'
+				'Walking through the forest you met Kolambu. After spotting him, you tried to dress, but Kolambu, without wasting another minute grabbed you by the hand and dragged you into the nearest bush.'
+
+				act 'Further':forest_gopsex = 1 & temphant = 5 & gt 'hanters', 'start'
+			end
+		else
+			if npc_QW['A63'] < 13 or gadriver_gang < 3:
+				if npc_QW['A60'] < 11:
+					cla
+					*clr
+					minut += 15
+					gadboyday = daystart
+					temp_gadf = rand (1,2)
+					gs 'stat'
+					!gs 'time'
+
+					'<center><b><font color = maroon>Calamba</font></b></center>'
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/village/kolyamba.jpg"></center>'
+					if temp_gadf = 1:'Walking through the forest you come face-to-face with Kolambu. He stared longingly at your naked body, and you decide...'
+					if temp_gadf = 2:'Walking through the forest you saw Kolambu. Realizing that he hasn''t noticed you yet, you decide...'
+					if temp_gadf = 1:
+						act 'To run away and dress':
+							cla
+							*clr
+							gopsawnaked += 1
+							if gopsawnaked >= 10:gopsawnaked = 0 & npc_QW['A63'] += 1
+							pcs_horny += 10
+							swamp_clothes = 0
+							minut += 5
+							gs 'underwear', 'wear'
+							gs 'clothing', 'recover_lost_clothes', 'gadforest', 1
+							gs 'stat'
+
+							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gopforestnude.jpg"></center>'
+							'You yelp in surprise, as you and Mira rush to where you left your clothes. Dressed and calm you decide to go on.'
+
+							act 'Further':gt 'gadforest','1'
+						end
+					else
+						act 'Hide':
+							cla
+							*clr
+							minut += 5
+							pcs_horny += 5
+							gs 'stat'
+							!gs 'time'
+
+							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
+							'You and Mira, quickly hide in the nearby bushes. Kolambu walks right past not noticing you. You let out a breath and go on.'
+
+							act 'Further':gt 'gadforest','1'
+						end
+					end
+				elseif npc_QW['A60'] >= 11:
+					cla
+					*clr
+					minut += 5
+					gadboyday = daystart
+					temp_gadf = rand (1,2)
+					gs 'stat'
+					!gs 'time'
+
+					'<center><b><font color = maroon>Calamba</font></b></center>'
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/village/kolyamba.jpg"></center>'
+					if temp_gadf = 1:'Walking through the forest you come face-to-face with Kolambu. He stared longingly at your naked body, and you decide...'
+					if temp_gadf = 2:'Walking through the forest you saw Kolambu. Realizing that he hasn''t noticed you yet, you decide...'
+
+					if temp_gadf = 1:
+						act 'To run away and dress':
+							cla
+							*clr
+							Miraloc = 0
+							gopsawnaked += 1
+							if gopsawnaked >= 10:gopsawnaked = 0 & npc_QW['A63'] += 1
+							pcs_horny += 10
+							swamp_clothes = 0
+							minut += 5
+							gs 'underwear', 'wear'
+							gs 'clothing', 'recover_lost_clothes', 'gadforest', 1
+							gs 'stat'
+							!gs 'time'
+
+							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gopforestnude.jpg"></center>'
+							'You yelp in surprise, and you and Mira rush to your clothes. Running away you barely catch with the corner of your eye Kolambu grabbing Mira''s hand and dragging her into the nearest bush. Seeing that Mira is not resisting, you decide not to intervene. Dressed and calm you decide...'
+
+							act 'Go':gt 'gadforest','1'
+							act 'Spy':
+								cla
+								*clr
+								minut += 10
+								pcs_horny += 30
+								mirasextimes += 1
+								gs 'stat'
+								'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/mirameadowbj2.jpg"></center>'
+								'Mira is still wearing her flip-flops, you see them sticking out, pressed right at Kolambu''s ass, as Mira has her legs wrapped around him. She groans loudly as Kolambu keeps slapping her crotch with his balls, driving his hard penis deep into her vagina. Mira is scratching the ground with her hands, her back arched like a cat''s, it looks like she is saying something to Kolambu. But he is not paying any attention, as he keeps battering her pussy, soon he brought her to orgasm and then he cums too...'
+								act 'Further':gt 'gadforest','1'
+							end
+						end
+					else
+						act 'Hide':
+							cla
+							*clr
+							minut += 5
+							pcs_horny += 5
+							gs 'stat'
+							!gs 'time'
+
+							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
+							'You and Mira, quickly hide in the nearby bushes. Kolambu walks right past not noticing you. You let out a breath and go on.'
+
+							act 'Further':gt 'gadforest','1'
+						end
+					end
+				end
+			elseif npc_QW['A63'] >= 13 and npc_QW['A60'] < 11 and gadriver_gang < 3:
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				temp_gadf = rand (1,2)
+				gs 'stat'
+				!gs 'time'
+
+				'<center><b><font color = maroon>Calamba</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/kolyamba.jpg"></center>'
+				 if temp_gadf = 1:'Walking through the forest with Mira, you come face-to-face with Kolambu. You yelp in surprise, and rush to your clothing. You are running away with Mira, but before you get too far Kolambu grabs you in his arms and drags you with him into the nearest bush.'
+				 if temp_gadf = 2:'Walking through the forest you saw Kolambu. Realizing that he hasn''t noticed you yet, you decide...'
+
+				if temp_gadf = 1:act 'Further':Miraloc = 0 & forest_gopsex = 1 & temphant = 5 & gt 'hanters', 'start'
+				if temp_gadf = 2:
+					act 'Hide':
+						cla
+						*clr
+						minut += 5
+						pcs_horny += 5
+						gs 'stat'
+						!gs 'time'
+
+						'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
+						'You and Mira, quickly hide in the nearby bushes. Kolambu walks right past not noticing you. You let out a breath and go on.'
+
+						act 'Further':gt 'gadforest','1'
+					end
+				end
+
+			elseif npc_QW['A63'] >= 13 and npc_QW['A60'] >= 11 and gadriver_gang < 3:
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				mirasextimes += 1
+				gs 'stat'
+				!gs 'time'
+
+				'<center><b><font color = maroon>Calamba</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/kolyamba.jpg"></center>'
+				'Walking through the forest with Mira, you come face-to-face with Kolambu. Seeing you naked Kolambu scratched his balls and dragged you into the nearest bush.'
+				act 'Further':gt 'mitkasex', 'forest1', 'A61'
+			else
+				cla
+				*clr
+				minut += 15
+				gadboyday = daystart
+				gs 'stat'
+				!gs 'time'
+
+				'<center><b><font color = maroon>Calamba</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/kolyamba.jpg"></center>'
+				'Walking through the forest you saw Kolambu. Realizing that he hasn''t noticed you yet, you decide...'
+				act 'Hide':
+					cla
+					*clr
+					minut += 5
+					pcs_horny += 5
+					gs 'stat'
+					!gs 'time'
+
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
+					'You and Mira, quickly hide in the nearby bushes. Kolambu walks right past not noticing you. You let out a breath and go on.'
+
+					act 'Further':gt 'gadforest','1'
+				end
+			end
+		end
+	end
+end
+if $ARGS[0] = 'gopforest_vasyan':
+	if $clothingworntype ! 'nude':
+		if MiraLoc ! 3 or gadriver_gang >= 3:
+			if npc_QW['A63'] < 13:
+				cla
+				*clr
+				minut += 15
+				gadboyday = daystart
+				gs 'stat'
+				!gs 'time'
+
+				'<center><b><font color = maroon>Vasan Package</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/vasyan.jpg"></center>'
+				'Walking through the forest you met Vasyan. Chatted with him a bit and went on.'
+
+				act 'Further':gt 'gadforest','1'
+			else
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				gs 'stat'
+				!gs 'time'
+
+				'<center><b><font color = maroon>Vasan Package</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/vasyan.jpg"></center>'
+				'Walking through the forest you met Vasyan. Seeing you, he scratched his balls and dragged you into the nearest bushes.'
+
+				act 'Further':forest_gopsex = 1 & temphant = 6 & gt 'hanters', 'start'
+			end
+		else
+			if npc_QW['A63'] < 13 or gadriver_gang >= 3:
+				if npc_QW['A60'] >= 11:
+					cla
+					*clr
+					minut += 5
+					gadboyday = daystart
+					Miraloc = 0
+					gs 'stat'
+					!gs 'time'
+
+					'<center><b><font color = maroon>Vasan Package</font></b></center>'
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/village/vasyan.jpg"></center>'
+					'Walking through the forest with Mira, you met Vasyan. Seeing Mira he grabbed her hand and dragged her into the nearest bush, seeing that Mira is not resisting, you decided not to interfere and mind your own business.'
+
+					act 'Go':gt 'gadforest','1'
+					act 'Spy':
+						cla
+						*clr
+						mirasextimes += 1
+						gs 'stat'
+						'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/mirameadowbj6.jpg"></center>'
+						'Mira is fully naked, bent over, right in front of Vasyan. She is exposing her ass as he drives his cock deep inside it. Judging by her lustful moans, she quite likes having him fuck her from behind, but after a couple of minutes Vasyan pulls out of her and lowers her ass...'
+						gs 'arousal', 'voyeur', 5
+						gs 'stat'
+						act 'Further':gt 'gadforest','1'
+					end
+				else
+					cla
+					*clr
+					minut += 15
+					gadboyday = daystart
+					gs 'stat'
+					!gs 'time'
+					'<center><b><font color = maroon>Vasan Package</font></b></center>'
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/village/vasyan.jpg"></center>'
+					'Walking through the forest with Mira, you met Vasyan. You had a little chat and went on.'
+					act 'Further':gt 'gadforest','1'
+				end
+			elseif npc_QW['A63'] >= 13 and npc_QW['A60'] < 11 and gadriver_gang < 3:
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				Miraloc = 0
+				gs 'stat'
+				!gs 'time'
+
+				'<center><b><font color = maroon>Vasan Package</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/vasyan.jpg"></center>'
+				'Walking through the woods with Mira you met Vasyan. Scratching his balls and not paying any attention to Mira, who was standing right next to him, he dragged you into the nearest bush.'
+
+				act 'Davie':forest_gopsex = 1 & temphant = 6 & gt 'hanters', 'start'
+			elseif npc_QW['A63'] >= 13 and npc_QW['A60'] >= 11 and gadriver_gang < 3:
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				mirasextimes += 1
+				gs 'stat'
+				!gs 'time'
+
+				'<center><b><font color = maroon>Vasan Package</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/vasyan.jpg"></center>'
+				'Walking through the woods with Mira you met Vasyan. Seeing you, he scratched his balls and grabbing you both by the arms and dragged you into the bushes.'
+				act 'Further':gt 'mitkasex', 'forest1', 'A62'
+			else
+				cla
+				*clr
+				minut += 15
+				gadboyday = daystart
+				gs 'stat'
+				!gs 'time'
+
+				'<center><b><font color = maroon>Vasan Package</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/vasyan.jpg"></center>'
+				'Walking through the forest with Mira, you met Vasyan. You had a little chat and went on.'
+				act 'Further':gt 'gadforest','1'
+			end
+		end
+	else
+		inhib_exp += rand(1,3)
+		if MiraLoc ! 3:
+			if npc_QW['A63'] < 13 or gadriver_gang >= 3:
+				cla
+				*clr
+				minut += 5
+				temp_gadf = rand (1,2)
+				gadboyday = daystart
+				gs 'stat'
+				!gs 'time'
+
+				'<center><b><font color = maroon>Vasan Package</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/vasyan.jpg"></center>'
+				if temp_gadf = 1:'Walking through the forest you come face-to-face with Vasyan. He stared longingly at your naked body, and you decide...'
+				if temp_gadf = 2:'Walking through the forest you saw Vasyan. Realizing that he hasn''t noticed you yet, you decide...'
+				*pl
+				if temp_gadf = 1:
+					act 'To run away and dress':
+						cla
+						*clr
+						gopsawnaked += 1
+						if gopsawnaked >= 10:gopsawnaked = 0 & npc_QW['A63'] += 1
+						pcs_horny += 10
+						swamp_clothes = 0
+						minut += 5
+						gs 'underwear', 'wear'
+						gs 'clothing', 'recover_lost_clothes', 'gadforest', 1
+						gs 'stat'
+						!gs 'time'
+
+						'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/swampbackwaternude1.jpg"></center>'
+						'You yelp in surprise and you rush to where you left your clothes. Dressed and calm you decide to go on.'
+
+						act 'Further':gt 'gadforest','1'
+					end
+				else
+					act 'Hide':
+						cla
+						*clr
+						minut += 5
+						pcs_horny += 5
+						gs 'stat'
+						!gs 'time'
+
+						'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/mitkahideforest.jpg"></center>'
+						'You quickly hide in the nearby bushes. Vasyan walks right past not noticing you. You let out a breath and go on.'
+
+						act 'Further':gt 'gadforest','1'
+					end
+				end
+			else
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				gs 'stat'
+				!gs 'time'
+
+				'<center><b><font color = maroon>Vasan Package</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/vasyan.jpg"></center>'
+				'Walking through the forest you met Vasyan. After spotting him, you tried to dress, but Vasyan, without wasting another minute grabbed you by the hand and dragged you into the nearest bush.'
+
+				act 'Further':forest_gopsex = 1 & temphant = 6 & gt 'hanters', 'start'
+			end
+		else
+			if npc_QW['A63'] < 13 or gadriver_gang >= 3:
+				if npc_QW['A60'] < 11:
+					cla
+					*clr
+					minut += 15
+					gadboyday = daystart
+					temp_gadf = rand (1,2)
+					gs 'stat'
+					!gs 'time'
+
+					'<center><b><font color = maroon>Vasan Package</font></b></center>'
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/village/vasyan.jpg"></center>'
+					if temp_gadf = 1:'Walking through the forest you come face-to-face with Vasyan. He stared longingly at your naked body, and you decide...'
+					if temp_gadf = 2:'Walking through the forest you saw Vasyan. Realizing that he hasn''t noticed you yet, you decide...'
+					if temp_gadf = 1:
+						act 'To run away and dress':
+							cla
+							*clr
+							gopsawnaked += 1
+							if gopsawnaked >= 10:gopsawnaked = 0 & npc_QW['A63'] += 1
+							pcs_horny += 10
+							swamp_clothes = 0
+							minut += 5
+							gs 'underwear', 'wear'
+							gs 'clothing', 'recover_lost_clothes', 'gadforest', 1
+							gs 'stat'
+							!gs 'time'
+
+							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gopforestnude.jpg"></center>'
+							'You yelp in surprise, as you and Mira rush to where you left your clothes. Dressed and calm you decide to go on.'
+
+							act 'Further':gt 'gadforest','1'
+						end
+					else
+						act 'Hide':
+							cla
+							*clr
+							minut += 5
+							pcs_horny += 5
+							gs 'stat'
+							!gs 'time'
+
+							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
+							'You and Mira, quickly hide in the nearby bushes. Vasyan walks right past not noticing you. You let out a breath and go on.'
+
+							act 'Further':gt 'gadforest','1'
+						end
+					end
+				elseif npc_QW['A60'] >= 11:
+					cla
+					*clr
+					minut += 5
+					gadboyday = daystart
+					temp_gadf = rand (1,2)
+					gs 'stat'
+					!gs 'time'
+
+					'<center><b><font color = maroon>Vasan Package</font></b></center>'
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/village/vasyan.jpg"></center>'
+					if temp_gadf = 1:'Walking through the forest you come face-to-face with Vasyan. He stared longingly at your naked body, and you decide...'
+					if temp_gadf = 2:'Walking through the forest you saw Vasyan. Realizing that he hasn''t noticed you yet, you decide...'
+
+					if temp_gadf = 1:
+						act 'To run away and dress':
+							cla
+							*clr
+							Miraloc = 0
+							gopsawnaked += 1
+							if gopsawnaked >= 10:gopsawnaked = 0 & npc_QW['A63'] += 1
+							pcs_horny += 10
+							swamp_clothes = 0
+							minut += 5
+							gs 'underwear', 'wear'
+							gs 'clothing', 'recover_lost_clothes', 'gadforest', 1
+							gs 'stat'
+							!gs 'time'
+
+							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gopforestnude.jpg"></center>'
+							'You yelp in surprise, and you and Mira rush to your clothes. Running away you barely catch with the corner of your eye, Vasyan grabbing Mira''s hand and dragging her into the nearest bush. Seeing that Mira is not resisting, you decide not to intervene. Dressed and calm you decide...'
+
+							act 'Go':gt 'gadforest','1'
+							act 'Spy':
+								cla
+								*clr
+								minut += 5
+								pcs_horny += 40
+								mirasextimes += 1
+								gs 'stat'
+								'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/mirameadowbj6.jpg"></center>'
+								'Mira is fully naked, bent over, right in front of Vasyan. She is exposing her ass as he drives his cock deep inside it. Judging by her lustful moans, she quite likes having him fuck her from behind, but after a couple of minutes Vasyan pulls out of her and lowers her ass...'
+								act 'Further':gt 'gadforest','1'
+							end
+						end
+					else
+						act 'Hide':
+							cla
+							*clr
+							minut += 5
+							pcs_horny += 5
+							gs 'stat'
+							!gs 'time'
+
+							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
+							'You and Mira, quickly hide in the nearby bushes. Vasyan walks right past not noticing you. You let out a breath and go on.'
+
+							act 'Further':gt 'gadforest','1'
+						end
+					end
+				end
+			elseif npc_QW['A63'] >= 13 and npc_QW['A60'] < 11 and gadriver_gang < 3:
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				temp_gadf = rand (1,2)
+				gs 'stat'
+				!gs 'time'
+
+				'<center><b><font color = maroon>Vasan Package</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/vasyan.jpg"></center>'
+				if temp_gadf = 1:'Walking through the forest with Mira, you come face-to-face with Vasyan. You yelp in surprise, and rush to your clothing. You are running away with Mira, but before you get too far Vasyan grabs you in his arms and drags you with him into the nearest bush.'
+				if temp_gadf = 2:'Walking through the forest you saw Vasyan. Realizing that he hasn''t noticed you yet, you decide...'
+
+				if temp_gadf = 1:act 'Further':Miraloc = 0 & forest_gopsex = 1 & temphant = 6 & gt 'hanters', 'start'
+				if temp_gadf = 2:
+					act 'Hide':
+						cla
+						*clr
+						minut += 5
+						pcs_horny += 5
+						gs 'stat'
+						!gs 'time'
+
+						'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
+						'You and Mira, quickly hide in the nearby bushes. Vasyan walks right past not noticing you. You let out a breath and go on.'
+
+						act 'Further':gt 'gadforest','1'
+					end
+				end
+
+			elseif npc_QW['A63'] >= 13 and npc_QW['A60'] >= 11 and gadriver_gang < 3:
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				mirasextimes += 1
+				gs 'stat'
+				!gs 'time'
+
+				'<center><b><font color = maroon>Vasan Package</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/vasyan.jpg"></center>'
+				'Walking through the forest with Mira, you come face-to-face with Vasyan. Seeing you naked Vasyan scratched his balls and dragged you into the nearest bush.'
+				act 'Further':gt 'mitkasex', 'forest1', 'A62'
+			else
+				cla
+				*clr
+				minut += 15
+				gs 'stat'
+				!gs 'time'
+
+				'<center><b><font color = maroon>Vasan Package</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/vasyan.jpg"></center>'
+				'Walking through the forest you saw Vasyan. Realizing that he hasn''t noticed you yet, you decide...'
+				act 'Hide':
+					cla
+					*clr
+					minut += 5
+					pcs_horny += 5
+					gadboyday = daystart
+					gs 'stat'
+					!gs 'time'
+
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
+					'You and Mira, quickly hide in the nearby bushes. Vasyan walks right past not noticing you. You let out a breath and go on.'
+
+					act 'Further':gt 'gadforest','1'
+				end
+			end
+		end
+	end
+end
+if $ARGS[0] = 'gopforest_2boys':
+	if $clothingworntype ! 'nude':
+		if MiraLoc ! 3:
+			temphant = rand(4,6)
+			if npc_QW['A63'] < 13 or gadriver_gang >= 3:
+				cla
+				*clr
+				minut += 15
+				gadboyday = daystart
+				gs 'stat'
+				!gs 'time'
+
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/2boys.'+rand(1,2)+'.jpg"></center>'
+				if temphant = 4:'Walking through the forest you met Mitka and Kolambu. You chatted with them a bit and went on.'
+				if temphant = 5:'Walking through the forest you met Mitka and Vasyan. You chatted with them a bit and went on.'
+				if temphant = 6:'Walking through the forest you met Kolambu and Vasyan. You chatted with them a bit and went on.'
+
+				act 'Further':gt 'gadforest','1'
+			else
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				gs 'stat'
+				!gs 'time'
+
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/2boys.'+rand(1,2)+'.jpg"></center>'
+				if temphant = 4:'Walking through the forest you met Mitka and Kolambu. Seeing you, they grinned and dragged you to the bushes.'
+				if temphant = 5:'Walking through the forest you met Mitka and Vasyan. Seeing you, they grinned and dragged you to the bushes.'
+				if temphant = 6:'Walking through the forest you met Kolambu and Vasyan. Seeing you, they grinned and dragged you to the bushes.'
+
+				act 'Further':forest_gopsex = 2 & gt 'hantersex', 'doublelovesex'
+			end
+		else
+			if npc_QW['A63'] < 13 or gadriver_gang >= 3:
+				mitboyrand = rand(1,3)
+				if npc_QW['A60'] >= 11:
+					cla
+					*clr
+					minut += 5
+					gadboyday = daystart
+					Miraloc = 0
+					gs 'stat'
+					!gs 'time'
+
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/2boys.'+rand(1,2)+'.jpg"></center>'
+					if mitboyrand = 1:'Walking through the forest with Mira, you meet Mitka and Kolambu. Seeing Mira, they grabbed by the arms and dragged her into the nearest bush, seeing that Mira is not resisting, you decided not to interfere and mind your own business.'
+					if mitboyrand = 2:'Walking through the forest with Mira, you meet Mitka and Vasyan. Seeing Mira, they grabbed by the arms and dragged her into the nearest bush, seeing that Mira is not resisting, you decided not to interfere and mind your own business.'
+					if mitboyrand = 3:'Walking through the forest with Mira, you meet Kolambu and Vasyan. Seeing Mira, they grabbed by the arms and dragged her into the nearest bush, seeing that Mira is not resisting, you decided not to interfere and mind your own business.'
+
+					act 'Go':gt 'gadforest','1'
+					act 'Spy':
+						cla
+						*clr
+						mirasextimes += 1
+						gs 'stat'
+						if mitboyrand = 1:
+							'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/mirameadowbj11.jpg"></center>'
+							'Mira squats in front of one of the boys and takes his cock in her mouth. Licking and stroking him until he cums. She then does the same with the to other guys...'
+							gs 'arousal', 'voyeur', 5
+							gs 'stat'
+						elseif mitboyrand = 2:
+							'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/mirameadowbj10.jpg"></center>'
+							'Two guys are fucking Mira, one in her pussy and the other in the mouth. They are chatting and laughing while Mira is moaning spread out beneath them... Fifteen minutes later they have all finished and start packing...'
+							gs 'arousal', 'voyeur', 5, 'group'
+							gs 'stat'
+						else
+							'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/mirameadowbj9.jpg"></center>'
+							'All three of the guys are almost naked. Mira sucks one of them, the second, apparently, already finished, just by touching her breasts and the third is squatted down behind her fucking her ass...'
+							gs 'arousal', 'voyeur', 5, 'group'
+							gs 'stat'
+						end
+						act 'Further':gt 'gadforest','1'
+					end
+				else
+					cla
+					*clr
+					minut += 15
+					gadboyday = daystart
+					gs 'stat'
+					!gs 'time'
+
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/2boys.'+rand(1,2)+'.jpg"></center>'
+					if mitboyrand = 1:'Walking through the forest with Mira, you meet Mitka and Kolambu. You chatted with them a bit and went on.'
+					if mitboyrand = 2:'Walking through the forest with Mira, you meet Mitka and Vasyan. You chatted with them a bit and went on.'
+					if mitboyrand = 3:'Walking through the forest with Mira, you meet Kolambu and Vasyan. You chatted with them a bit and went on.'
+					act 'Further':gt 'gadforest','1'
+				end
+			elseif npc_QW['A63'] >= 13 and npc_QW['A60'] < 11 and gadriver_gang < 3:
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				Miraloc = 0
+				gs 'stat'
+				!gs 'time'
+
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/2boys.'+rand(1,2)+'.jpg"></center>'
+				if mitboyrand = 1:'Walking through the forest with Mira, you meet Mitka and Kolambu. Seeing you, they smiled and not paying any attention to Mira, who was standing right next to them, they dragged you into the nearest bush.'
+				if mitboyrand = 2:'Walking through the forest with Mira, you meet Mitka and Vasyan. Seeing you, they smiled and not paying any attention to Mira, who was standing right next to them, they dragged you into the nearest bush.'
+				if mitboyrand = 3:'Walking through the forest with Mira you meet Kolambu and Vasyan. Seeing you, they smiled and not paying any attention to Mira, who was standing right next to them, they dragged you into the nearest bush.'
+
+				act 'Further':forest_gopsex = 2 & gt 'hantersex', 'doublelovesex'
+			elseif npc_QW['A63'] >= 13 and npc_QW['A60'] >= 11 and gadriver_gang < 3:
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				mirasextimes += 1
+				gs 'stat'
+				!gs 'time'
+
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/2boys.'+rand(1,2)+'.jpg"></center>'
+				if mitboyrand = 1:'Walking through the forest with Mira, you meet Mitka and Kolambu. They are happy to see you, grabbing you both by the arms, they drag you into the nearest bush.'
+				if mitboyrand = 2:'Walking through the forest with Mira, you meet Mitka and Vasyan. They are happy to see you, grabbing you both by the arms, they drag you into the nearest bush.'
+				if mitboyrand = 3:'Walking through the forest with Mira, you meet Kolambu and Vasyan. They are happy to see you, grabbing you both by the arms, they drag you into the nearest bush.'
+				act 'Further': gt 'mitkasex', 'forest2', mitboyrand
+			else
+				cla
+				*clr
+				minut += 15
+				gadboyday = daystart
+				gs 'stat'
+				!gs 'time'
+
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/2boys.'+rand(1,2)+'.jpg"></center>'
+				if mitboyrand = 1:'Walking through the forest with Mira, you meet Mitka and Kolambu. You chatted with them a bit and went on.'
+				if mitboyrand = 2:'Walking through the forest with Mira, you meet Mitka and Vasyan. You chatted with them a bit and went on.'
+				if mitboyrand = 3:'Walking through the forest with Mira, you meet Kolambu and Vasyan. You chatted with them a bit and went on.'
+				act 'Further':gt 'gadforest','1'
+			end
+		end
+	else
+		inhib_exp += rand(1,3)
+		if MiraLoc ! 3:
+			temphant = rand(4,6)
+			if npc_QW['A63'] < 13 or gadriver_gang >= 3:
+				cla
+				*clr
+				minut += 5
+				temp_gadf = rand (1,2)
+				gadboyday = daystart
+				gs 'stat'
+				!gs 'time'
+
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/2boys.'+rand(1,2)+'.jpg"></center>'
+				if temp_gadf = 1:
+					if temphant = 1:'Walking through the forest you come face-to-face with Mitka and Kolambu. They stared longingly at your naked body, and you decide...'
+					if temphant = 2:'Walking through the forest you come face-to-face with Mitka and Vasyan. They stared longingly at your naked body, and you decide...'
+					if temphant = 3:'Walking through the forest you come face-to-face with Kolambu and Vasyan. They stared longingly at your naked body, and you decide...'
+				else
+					if temphant = 1:'Walking through the forest you saw Mitka and Kolambu. Realizing that they haven''t noticed you yet, you decide...'
+					if temphant = 2:'Walking through the forest you saw Mitka and Vasyan. Realizing that they haven''t noticed you yet, you decide...'
+					if temphant = 3:'Walking through the woods you saw Kolambu and Vasyan. Realizing that they haven''t noticed you yet, you decide...'
+				end
+				*pl
+				if temp_gadf = 1:
+					act 'To run away and dress':
+						cla
+						*clr
+						gopsawnaked += 1
+						if gopsawnaked >= 10:gopsawnaked = 0 & npc_QW['A63'] += 1
+						pcs_horny += 10
+						swamp_clothes = 0
+						minut += 5
+						gs 'underwear', 'wear'
+						gs 'clothing', 'recover_lost_clothes', 'gadforest', 1
+						gs 'stat'
+
+						'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/swampbackwaternude1.jpg"></center>'
+						'You yelp in surprise and you rush to where you left your clothes. Dressed and calm you decide to go on.'
+
+						act 'Further':gt 'gadforest','1'
+					end
+				else
+					act 'Hide':
+						cla
+						*clr
+						minut += 5
+						pcs_horny += 5
+						gs 'stat'
+
+						'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/mitkahideforest.jpg"></center>'
+						'You quickly hide in the nearby bushes. The guys walked right past not noticing you. You let out a breath and go on.'
+
+						act 'Further':gt 'gadforest','1'
+					end
+				end
+			else
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				gs 'stat'
+
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/2boys.'+rand(1,2)+'.jpg"></center>'
+				if temphant = 1:'Walking through the forest you met Mitka and Kolambu. Seeing them you tried to run away and dress, but without wasting another minute they grabbed you by the arms and dragged you into the nearest bush.'
+				if temphant = 2:'Walking through the forest you met Mitka and Vasyan. Seeing them you tried to run away and dress, but without wasting another minute they grabbed you by the arms and dragged you into the nearest bush.'
+				if temphant = 3:'Walking through the forest you met Kolambu and Vasyan. Seeing them you tried to run away and dress, but without wasting another minute they grabbed you by the arms and dragged you into the nearest bush.'
+
+				act 'Further':forest_gopsex = 2 & gt 'hantersex', 'doublelovesex'
+			end
+		else
+			mitboyrand = rand(1,3)
+			if npc_QW['A63'] < 13 or gadriver_gang >= 3:
+				if npc_QW['A60'] < 11:
+					cla
+					*clr
+					minut += 15
+					gadboyday = daystart
+					temp_gadf = rand (1,2)
+					gs 'stat'
+					!gs 'time'
+
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/2boys.'+rand(1,2)+'.jpg"></center>'
+					if temp_gadf = 1:
+						if mitboyrand = 1:'Walking through the forest with Mira, you come face-to-face with Mitka and Kolambu. They stared longingly at your naked body, and you decide...'
+						if mitboyrand = 2:'Walking through the forest with Mira, you come face-to-face with Mitka and Vasyan. They stared longingly at your naked body, and you decide...'
+						if mitboyrand = 3:'Walking through the forest with Mira, you come face-to-face with Kolambu and Vasyan. They stared longingly at your naked body, and you decide...'
+					else
+						if mitboyrand = 1:'Walking through the forest with Mira you saw Mitka and Kolambu. Realizing that they haven''t noticed you yet, you decide...'
+						if mitboyrand = 2:'Walking through the forest with Mira you saw Mitka and Vasyan. Realizing that they haven''t noticed you yet, you decide...'
+						if mitboyrand = 3:'Walking through the forest with Mira you saw Kolambu and Vasyan. Realizing that they haven''t noticed you yet, you decide...'
+					end
+					if temp_gadf = 1:
+						act 'To run away and dress':
+							cla
+							*clr
+							gadboyday = daystart
+							gopsawnaked += 1
+							if gopsawnaked >= 10:gopsawnaked = 0 & npc_QW['A63'] += 1
+							pcs_horny += 10
+							swamp_clothes = 0
+							minut += 5
+							gs 'underwear', 'wear'
+							gs 'clothing', 'recover_lost_clothes', 'gadforest', 1
+							gs 'stat'
+							!gs 'time'
+
+							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gopforestnude.jpg"></center>'
+							'You yelp in surprise, as you and Mira rush to where you left your clothes. Dressed and calm you decide to go on.'
+
+							act 'Further':gt 'gadforest','1'
+						end
+					else
+						act 'Hide':
+							cla
+							*clr
+							minut += 5
+							pcs_horny += 5
+							gs 'stat'
+							!gs 'time'
+
+							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
+							'You and Mira, quickly hide in the nearby bushes. The guys walked right past not noticing you. You let out a breath and go on.'
+
+							act 'Further':gt 'gadforest','1'
+						end
+					end
+				elseif npc_QW['A60'] >= 11:
+					cla
+					*clr
+					minut += 5
+					gadboyday = daystart
+					temp_gadf = rand (1,2)
+					gs 'stat'
+					!gs 'time'
+
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/2boys.'+rand(1,2)+'.jpg"></center>'
+					if temp_gadf = 1:
+						if mitboyrand = 1:'Walking through the forest with Mira, you come face-to-face with Mitka and Kolambu. They stared longingly at your naked body, and you decide...'
+						if mitboyrand = 2:'Walking through the forest with Mira, you come face-to-face with Mitka and Vasyan. They stared longingly at your naked body, and you decide...'
+						if mitboyrand = 3:'Walking through the forest with Mira, you come face-to-face with Kolambu and Vasyan. They stared longingly at your naked body, and you decide...'
+					else
+						if mitboyrand = 1:'Walking through the forest with Mira you saw Mitka and Kolambu. Realizing that they haven''t noticed you yet, you decide...'
+						if mitboyrand = 2:'Walking through the forest with Mira you saw Mitka and Vasyan. Realizing that they haven''t noticed you yet, you decide...'
+						if mitboyrand = 3:'Walking through the forest with Mira you saw Kolambu and Vasyan. Realizing that they haven''t noticed you yet, you decide...'
+					end
+
+					if temp_gadf = 1:
+						act 'To run away and dress':
+							cla
+							*clr
+							Miraloc = 0
+							gopsawnaked += 1
+							if gopsawnaked >= 10:gopsawnaked = 0 & npc_QW['A63'] += 1
+							pcs_horny += 10
+							swamp_clothes = 0
+							minut += 5
+							gs 'underwear', 'wear'
+							gs 'clothing', 'recover_lost_clothes', 'gadforest', 1
+							gs 'stat'
+							!gs 'time'
+
+							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gopforestnude.jpg"></center>'
+							'You yelp in surprise, and you and Mira rush to your clothes. Running away you barely catch with the corner of your eye as the guys grabbed Mira by the arms, and dragged her into the nearest bush. Seeing that Mira is not resisting, you decide not to intervene. Dressed and calm you decide...'
+
+							act 'Go':gt 'gadforest','1'
+							act 'Spy':
+								cla
+								*clr
+								mirasextimes += 1
+								gs 'stat'
+								if mitboyrand = 1:
+									'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/mirameadowbj11.jpg"></center>'
+									'Mira squats in front of one of the boys and takes his cock in her mouth. Licking and stroking him until he cums. She then does the same with the to other guys...'
+									gs 'arousal', 'voyeur', 5
+									gs 'stat'
+								elseif mitboyrand = 2:
+									'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/mirameadowbj10.jpg"></center>'
+									'Two guys are fucking Mira, one in her pussy and the other in the mouth. They are chatting and laughing while Mira is moaning spread out beneath them... Fifteen minutes later they have all finished and start packing...'
+									gs 'arousal', 'voyeur', 5
+									gs 'stat'
+								else
+									'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/mirameadowbj9.jpg"></center>'
+									'All three of the guys are almost naked. Mira sucks one of them, the second, apparently, already finished, just by touching her breasts and the third is squatted down behind her fucking her ass...'
+									gs 'arousal', 'voyeur', 5
+									gs 'stat'
+								end
+								act 'Further':gt 'gadforest','1'
+							end
+						end
+					else
+						act 'Hide':
+							cla
+							*clr
+							minut += 5
+							pcs_horny += 5
+							gs 'stat'
+							!gs 'time'
+
+							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
+							'You and Mira, quickly hide in the nearby bushes. The guys walked right past not noticing you. You let out a breath and go on.'
+
+							act 'Further':gt 'gadforest','1'
+						end
+					end
+				end
+			elseif npc_QW['A63'] >= 13 and npc_QW['A60'] < 11 and gadriver_gang < 3:
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				temp_gadf = rand (1,2)
+				gs 'stat'
+				!gs 'time'
+
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/2boys.'+rand(1,2)+'.jpg"></center>'
+				if temp_gadf = 1:
+					if mitboyrand = 1:'Walking through the forest with Mira, you come face-to-face with Mitka and Kolambu. You yelp in surprise, and rush to your clothing. You are running away with Mira, but before you get too far the guys grab you by the arms and drag you with them into the nearest bush.'
+					if mitboyrand = 2:'Walking through the forest with Mira, you come face-to-face with Mitka and Vasyan. You yelp in surprise, and rush to your clothing. You are running away with Mira, but before you get too far the guys grab you by the arms and drag you with them into the nearest bush.'
+					if mitboyrand = 3:'Walking through the forest with Mira, you come face-to-face with Kolambu and Vasyan. You yelp in surprise, and rush to your clothing. You are running away with Mira, but before you get too far the guys grab you by the arms and drag you with them into the nearest bush.'
+				else
+					if mitboyrand = 1:'Walking through the forest with Mira you saw Mitka and Kolambu. Realizing that they haven''t noticed you yet, you decide...'
+					if mitboyrand = 2:'Walking through the forest with Mira you saw Mitka and Vasyan. Realizing that they haven''t noticed you yet, you decide...'
+					if mitboyrand = 3:'Walking through the forest with Mira you saw Kolambu and Vasyan. Realizing that they haven''t noticed you yet, you decide...'
+				end
+
+				if temp_gadf = 1:act 'Further':Miraloc = 0 & forest_gopsex = 2 & gt 'hantersex', 'doublelovesex'
+				if temp_gadf = 2:
+					act 'Hide':
+						cla
+						*clr
+						minut += 5
+						pcs_horny += 5
+						gs 'stat'
+						!gs 'time'
+
+						'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
+						'You and Mira, quickly hide in the nearby bushes. The guys walked right past not noticing you. You let out a breath and go on.'
+
+						act 'Further':gt 'gadforest','1'
+					end
+				end
+
+			elseif npc_QW['A63'] >= 13 and npc_QW['A60'] >= 11 and gadriver_gang < 3:
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				mirasextimes += 1
+				gs 'stat'
+				!gs 'time'
+
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/2boys.'+rand(1,2)+'.jpg"></center>'
+				if mitboyrand = 1:'Walking through the forest with Mira, you come face-to-face with Mitka and Kolambu. Seeing you naked they scratched their balls and dragged you into the nearest bush.'
+				if mitboyrand = 2:'Walking through the forest with Mira, you come face-to-face with Mitka and Vasyan. Seeing you naked they scratched their balls and dragged you into the nearest bush.'
+				if mitboyrand = 3:'Walking through the forest with Mira, you come face-to-face with Kolambu and Vasyan. Seeing you naked they scratched their balls and dragged you into the nearest bush.'
+				act 'Further': gt 'mitkasex', 'forest2', mitboyrand
+			else
+				cla
+				*clr
+				minut += 15
+				gadboyday = daystart
+				gs 'stat'
+				!gs 'time'
+
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/2boys.'+rand(1,2)+'.jpg"></center>'
+				if mitboyrand = 1:'Walking through the forest with Mira you saw Mitka and Kolambu. Realizing that they haven''t noticed you yet, you decide...'
+				if mitboyrand = 2:'Walking through the forest with Mira you saw Mitka and Vasyan. Realizing that they haven''t noticed you yet, you decide...'
+				if mitboyrand = 3:'Walking through the forest with Mira you saw Kolambu and Vasyan. Realizing that they haven''t noticed you yet, you decide...'
+				act 'Hide':
+					cla
+					*clr
+					minut += 5
+					pcs_horny += 5
+					gs 'stat'
+					!gs 'time'
+
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
+					'You and Mira, quickly hide in the nearby bushes. The guys walked right past not noticing you. You let out a breath and go on.'
+
+					act 'Further':gt 'gadforest','1'
+				end
+			end
+		end
+	end
+end
+if $ARGS[0] = 'gopforest_3boys':
+	if $clothingworntype ! 'nude':
+		if MiraLoc ! 3:
+			if npc_QW['A63'] < 13 or gadriver_gang >= 3:
+				cla
+				*clr
+				minut += 15
+				gadboyday = daystart
+				gs 'stat'
+				!gs 'time'
+
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/3boys.'+rand(1,2)+'.jpg"></center>'
+				'Walking through the forest you met Mitka, Kolambu and Vasyan. You chatted with them a bit and went on.'
+
+				act 'Further':gt 'gadforest','1'
+			else
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				gs 'stat'
+				!gs 'time'
+
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/3boys.'+rand(1,2)+'.jpg"></center>'
+				'Walking through the forest you met Mitka, Kolambu and Vasyan. Seeing you, they grinned and dragged you with them to the bushes.'
+
+				act 'Further':forest_gopsex = 3 & gt 'hanters', 'start'
+			end
+		else
+			if npc_QW['A63'] < 13 or gadriver_gang >= 3:
+				if npc_QW['A60'] >= 11:
+					cla
+					*clr
+					minut += 5
+					gadboyday = daystart
+					Miraloc = 0
+					gs 'stat'
+					!gs 'time'
+
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/3boys.'+rand(1,2)+'.jpg"></center>'
+					'Walking through the forest with Mira, you meet Mitka, Kolambu and Vasyan. Seeing Mira, they grabbed her by the arms and dragged her into the nearest bush, seeing that Mira is not resisting, you decided not to interfere and mind your own business.'
+
+					act 'Go':gt 'gadforest','1'
+					act 'Spy':
+						cla
+						*clr
+						mirasextimes += 1
+						gs 'stat'
+						'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/mirameadowbj8.jpg"></center>'
+						'Mira squats between the three friends and happily sucks their members. You watch as they take turns cumming in her mouth, and on her face...'
+						gs 'arousal', 'voyeur', 5
+						gs 'stat'
+						act 'Further':gt 'gadforest','1'
+					end
+				else
+					cla
+					*clr
+					minut += 15
+					gadboyday = daystart
+					gs 'stat'
+					!gs 'time'
+
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/3boys.'+rand(1,2)+'.jpg"></center>'
+					'Walking through the forest with Mira, you meet Mitka, Kolambu and Vasyan. You chatted with them a bit and went on.'
+					act 'Further':gt 'gadforest','1'
+				end
+			elseif npc_QW['A63'] >= 13 and npc_QW['A60'] < 11 and gadriver_gang < 3:
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				Miraloc = 0
+				gs 'stat'
+				!gs 'time'
+
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/3boys.'+rand(1,2)+'.jpg"></center>'
+				'Walking through the forest with Mira you meet Mitka, Kolambu and Vasyan. Seeing you, they smiled and not paying any attention to Mira, who was standing right next to them, they dragged you into the nearest bush.'
+
+				act 'Further':forest_gopsex = 3 & gt 'hanters', 'start'
+			elseif npc_QW['A63'] >= 13 and npc_QW['A60'] >= 11 and gadriver_gang < 3:
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				mirasextimes += 1
+				gs 'stat'
+				!gs 'time'
+
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/3boys.'+rand(1,2)+'.jpg"></center>'
+				'Walking through the forest with Mira you meet Mitka, Kolambu and Vasyan. They are happy to see you, grabbing you both by the arms, they drag you into the nearest bush.'
+				act 'Further': gt 'mitkasex', 'forest3'
+			else
+				cla
+				*clr
+				minut += 15
+				gadboyday = daystart
+				gs 'stat'
+				!gs 'time'
+
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/3boys.'+rand(1,2)+'.jpg"></center>'
+				'Walking through the forest with Mira you meet Mitka, Kolambu and Vasyan. You chatted with them a bit and went on.'
+				act 'Further':gt 'gadforest','1'
+			end
+		end
+	else
+		inhib_exp += rand(1,3)
+		if MiraLoc ! 3:
+			if npc_QW['A63'] < 13 or gadriver_gang >= 3:
+				cla
+				*clr
+				minut += 5
+				temp_gadf = rand (1,2)
+				gadboyday = daystart
+				gs 'stat'
+				!gs 'time'
+
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/3boys.'+rand(1,2)+'.jpg"></center>'
+				if temp_gadf = 1:
+					'Walking through the forest you come face-to-face with Mitka, Kolambu and Vasyan. They stared longingly at your naked body, and you decide...'
+				else
+					'Walking through the forest you saw Mitka, Kolambu and Vasyan. Realizing that they haven''t noticed you yet, you decide...'
+				end
+				*pl
+				if temp_gadf = 1:
+					act 'To run away and dress':
+						cla
+						*clr
+						gopsawnaked += 1
+						if gopsawnaked >= 10:gopsawnaked = 0 & npc_QW['A63'] += 1
+						pcs_horny += 10
+						swamp_clothes = 0
+						minut += 5
+						gs 'underwear', 'wear'
+						gs 'clothing', 'recover_lost_clothes', 'gadforest', 1
+						gs 'stat'
+						!gs 'time'
+
+						'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/swampbackwaternude1.jpg"></center>'
+						'You yelp in surprise and you rush to where you left your clothes. Dressed and calm you decide to go on.'
+
+						act 'Further':gt 'gadforest','1'
+					end
+				else
+					act 'Hide':
+						cla
+						*clr
+						minut += 5
+						pcs_horny += 5
+						gs 'stat'
+						!gs 'time'
+
+						'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/mitkahideforest.jpg"></center>'
+						'You quickly hide in the nearby bushes. The guys walked right past not noticing you. You let out a breath and go on.'
+
+						act 'Further':gt 'gadforest','1'
+					end
+				end
+			else
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				gs 'stat'
+				!gs 'time'
+
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/3boys.'+rand(1,2)+'.jpg"></center>'
+				'Walking through the forest you met Mitka, Kolambu and Vasyan. Seeing them you tried to run away and dress, but without wasting another minute they grabbed you by the arms and dragged you into the nearest bush.'
+
+				act 'Further':forest_gopsex = 3 & gt 'hanters', 'start'
+			end
+		else
+			if npc_QW['A63'] < 13 or gadriver_gang >= 3:
+				if npc_QW['A60'] < 11:
+					cla
+					*clr
+					minut += 15
+					gadboyday = daystart
+					temp_gadf = rand (1,2)
+					gs 'stat'
+					!gs 'time'
+
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/3boys.'+rand(1,2)+'.jpg"></center>'
+					if temp_gadf = 1:
+						'Walking through the forest with Mira, you come face-to-face with Mitka, Kolambu and Vasyan. They stared longingly at your naked body, and you decide...'
+					else
+						'Walking through the forest with Mira you saw Mitka, Kolambu and Vasyan. Realizing that they haven''t noticed you yet, you decide...'
+					end
+					if temp_gadf = 1:
+						act 'To run away and dress':
+							cla
+							*clr
+							gadboyday = daystart
+							gopsawnaked += 1
+							if gopsawnaked >= 10:gopsawnaked = 0 & npc_QW['A63'] += 1
+							pcs_horny += 10
+							swamp_clothes = 0
+							minut += 5
+							gs 'underwear', 'wear'
+							gs 'clothing', 'recover_lost_clothes', 'gadforest', 1
+							gs 'stat'
+							!gs 'time'
+
+							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gopforestnude.jpg"></center>'
+							'You yelp in surprise, as you and Mira rush to where you left your clothes. Dressed and calm you decide to go on..'
+
+							act 'Further':gt 'gadforest','1'
+						end
+					else
+						act 'Hide':
+							cla
+							*clr
+							minut += 5
+							pcs_horny += 5
+							gs 'stat'
+							!gs 'time'
+
+							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
+							'You and Mira, quickly hide in the nearby bushes. The guys walked right past not noticing you. You let out a breath and go on.'
+
+							act 'Further':gt 'gadforest','1'
+						end
+					end
+				elseif npc_QW['A60'] >= 11:
+					cla
+					*clr
+					minut += 5
+					gadboyday = daystart
+					temp_gadf = rand (1,2)
+					gs 'stat'
+					!gs 'time'
+
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/3boys.'+rand(1,2)+'.jpg"></center>'
+					if temp_gadf = 1:
+						'Walking through the forest with Mira, you come face-to-face with Mitka, Kolambu and Vasyan. They stared longingly at your naked body, and you decide...'
+					else
+						'Walking through the forest with Mira you saw Mitka, Kolambu and Vasyan. Realizing that they haven''t noticed you yet, you decide...'
+					end
+
+					if temp_gadf = 1:
+						act 'To run away and dress':
+							cla
+							*clr
+							Miraloc = 0
+							gopsawnaked += 1
+							if gopsawnaked >= 10:gopsawnaked = 0 & npc_QW['A63'] += 1
+							pcs_horny += 10
+							swamp_clothes = 0
+							minut += 5
+							gs 'underwear', 'wear'
+							gs 'clothing', 'recover_lost_clothes', 'gadforest', 1
+							gs 'stat'
+							!gs 'time'
+
+							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gopforestnude.jpg"></center>'
+							'You yelp in surprise, and you and Mira rush to your clothes. Running away you barely catch with the corner of your eye as the guys grabbed Mira by the arms, and dragged her into the nearest bush. Seeing that Mira is not resisting, you decide not to intervene. Dressed and calm you decide...'
+
+							act 'Go':gt 'gadforest','1'
+							act 'Spy':
+								cla
+								*clr
+								mirasextimes += 1
+								gs 'stat'
+								'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/mirameadowbj8.jpg"></center>'
+								'Mira squats between the three friends and happily sucks their members. You watch as they take turns cumming in her mouth, and on her face...'
+								gs 'arousal', 'voyeur', 5
+								gs 'stat'
+								act 'Further':gt 'gadforest','1'
+							end
+						end
+					else
+						act 'Hide':
+							cla
+							*clr
+							minut += 5
+							pcs_horny += 5
+							gs 'stat'
+							!gs 'time'
+
+							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
+							'You and Mira, quickly hide in the nearby bushes. The guys walked right past not noticing you. You let out a breath and go on.'
+
+							act 'Further':gt 'gadforest','1'
+						end
+					end
+				end
+			elseif npc_QW['A63'] >= 13 and npc_QW['A60'] < 11 and gadriver_gang < 3:
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				temp_gadf = rand (1,2)
+				gs 'stat'
+				!gs 'time'
+
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/3boys.'+rand(1,2)+'.jpg"></center>'
+				if temp_gadf = 1:
+					'Walking through the forest with Mira, you come face-to-face with Mitka, Kolambu and Vasyan. You yelp in surprise, and rush to your clothing. You are running away with Mira, but before you get too far the guys grab you by the arms and drag you with them into the nearest bush..'
+				else
+					'Walking through the forest with Mira you saw Mitka, Kolambu and Vasyan. Realizing that they haven''t noticed you yet, you decide...'
+				end
+
+				if temp_gadf = 1:act 'Further':Miraloc = 0 & forest_gopsex = 3 & gt 'hanters', 'start'
+				if temp_gadf = 2:
+					act 'Hide':
+						cla
+						*clr
+						minut += 5
+						pcs_horny += 5
+						gs 'stat'
+						!gs 'time'
+
+						'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
+						'You and Mira, quickly hide in the nearby bushes. The guys walked right past not noticing you. You let out a breath and go on.'
+
+						act 'Further':gt 'gadforest','1'
+					end
+				end
+
+			elseif npc_QW['A63'] >= 13 and npc_QW['A60'] >= 11 and gadriver_gang < 3:
+				cla
+				*clr
+				minut += 5
+				gadboyday = daystart
+				mirasextimes += 1
+				gs 'stat'
+				!gs 'time'
+
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/3boys.'+rand(1,2)+'.jpg"></center>'
+				'Walking through the forest with Mira, you come face-to-face with Mitka, Kolambu and Vasyan. Seeing you naked they scratched their balls and dragged you into the nearest bush.'
+				act 'Further': gt 'mitkasex', 'forest2', rand(1,3)
+			else
+				cla
+				*clr
+				minut += 15
+				gadboyday = daystart
+				gs 'stat'
+				!gs 'time'
+
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/3boys.'+rand(1,2)+'.jpg"></center>'
+				'Walking through the forest with Mira you saw Mitka, Kolambu and Vasyan. Realizing that they haven''t noticed you yet, you decide...'
+				act 'Hide':
+					cla
+					*clr
+					minut += 5
+					pcs_horny += 5
+					gs 'stat'
+					!gs 'time'
+
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
+					'You and Mira, quickly hide in the nearby bushes. The guys walked right past not noticing you. You let out a breath and go on.'
+
+					act 'Further':gt 'gadforest','1'
+				end
+			end
+		end
+	end
+end
+if $ARGS[0] = 'nude_event':
+	cla
+	*clr
+	minut += 5
+	miratalkforest = 2
+	if MiraLoc = 3:npc_rel['A60'] += 1
+	pcs_horny += 10
+	gs 'stat'
+	!gs 'time'
+
+	if MiraLoc ! 3:
+		'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/forest_road.jpg"></center>'
+		'Upon entering the forest, you suddenly remember the story Mira told you about walking naked in the forest and the miraculous effect of the local air on the body.'
+		'"Hmmm...." you thought "It''s probably just a fun story the locals say. But why not try?".'
+		'The thought that you will be naked in the woods, gives you a treacherous throb between your thighs. Finally after the hundredth time, of looking around to make sure no one is around, you decide...'
+	else
+		'<center><img <<$set_imgh>> src="images/characters/village/mira/miraforest4.jpg"></center>'
+		'You and Mira entered the woods, when she started the talking.'
+		'"<<$pcs_nickname>>, do you remember my story about the forest?" she began. "It''s just a story I guess, but why not try?".'
+		'"You mean the one about walking naked in the woods?" you ask.'
+		'"Yeah, about that." said Mira. "Do you want to try?".'
+		'"Eeee... I don`t know Mira" It''s an unexpected offer. On one hand you are afraid to do it, on the other you are seriously excited. "But what if someone sees us?".'
+		'"Oh, who will see us?" She laughed, turned away from you and yelled out. "Is anybody here?? Ahhhh!!!".'
+		'Aside from the chirping birds there was no other sound.'
+		'"You see, no one is here" she turned back in your direction.'
+		'You stood still and hesitantly looked around.'
+		'"Well, <<$pcs_nickname>>, come on, make up your mind" Mira said cheerfully and started to mess with your clothes, trying to pull them off.'
+		'Finally after the hundredth time, of looking around to make sure no one is around, you decide...'
+	end
+
+	act'Give in to the temptation':
+		cla
+		*clr
+		minut+=5
+		gs 'underwear', 'remove'
+		pcs_horny += 10
+		inhib_exp += rand(1,3)
+		if MiraLoc = 3:npc_rel['A60'] += 5
+		gs 'stat'
+		if CloSkirtShortness = 0 and MiraLoc ! 3:'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/nudeforest.jpg"></center>'
+		if CloSkirtShortness > 0 and MiraLoc ! 3:'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/nudeforest1.'+rand(1,2)+'.jpg"></center>'
+		if MiraLoc = 3:'<center><img <<$set_imgh>> src="images/characters/village/mira/miraforest5.jpg"></center>'
+		gs 'clothing', 'strip', 'gadforest'
+		if MiraLoc ! 3:'You do not hesitate and quickly get undressed, leaving your clothes in a pile on the forest floor.'
+		if MiraLoc = 3:'Seeing that the resistance stopped, Mira quickly began to undress you, leaving your clothes in a pile on the forest floor.'
+
+		act'Further':gt 'gadforest','1'
+	end
+
+	act 'Resist the temptation':
+		cla
+		*clr
+		if MiraLoc = 3:npc_rel['A60'] -= 3
+		gs 'stat'
+		if MiraLoc = 3:'<center><img <<$set_imgh>> src="images/characters/village/mira/miraforest2.jpg"></center>'
+		if MiraLoc ! 3:
+			if CloSkirtShortness = 0:'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gulforest0.'+rand(1,2)+'.jpg"></center>'
+			if $pantyworntype ! 'none' and CloSkirtShortness > 0:'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gulforest1.'+rand(1,3)+'.jpg"></center>'
+			if $pantyworntype = 'none' and CloSkirtShortness > 0:'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gulforest_tanga0.'+rand(1,2)+'.jpg"></center>'
+		end
+		if MiraLoc ! 3:'Although the temptation to strip naked is very strong, you are too afraid of getting caught so you decide to keep your clothes on.'
+		if MiraLoc = 3:'Mira pouts at you for refusing to undress for a moment then she smiles again, "C''mon, <<$pcs_nickname>>, I know a good spot to find berries."'
+
+		act'Further':gt 'gadforest','1'
+	end
+end
+
+if $ARGS[0] = 'mushroom_pickers1':
+	cla
+	*clr
+	minut += 5
+	mushroom_pickersday = daystart
+	gs 'stat'
+	!gs 'time'
+	'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/mushroom_pickers1.jpg"></center>'
+	'Wandering through the woods in search of mushrooms, you notice other mushroom pickers. I`m wondering whether to continue the search in this place, or should I go to another?'
+	if $clothingworntype = 'nude':'Well, they didn`t see you here, if they do, it would be the talk of the whole village.'
+	act 'Further':gt $loc, $metka
+end
+if $ARGS[0] = 'mushroom_pickers2':
+	cla
+	*clr
+	minut += 5
+	mushroom_pickersday = daystart
+	gs 'stat'
+	!gs 'time'
+	'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/mushroom_pickers2.jpg"></center>'
+	'On the edge of the forest you saw other hunters, going deep into the forest. Interesting, maybe we should go after them? Surely they will bring you to special places.'
+	if $clothingworntype = 'nude':'Well, they didn`t see you her, if they do, it would be the talk of the whole village.' & pcs_horny += 5
+
+	act 'Stay here':gt 'gadforest','1'
+	act 'Go for the mushroom':
+		temp_gadf = rand(1,3)
+		if temp_gadf = 1: gt 'gadforest','2'
+		if temp_gadf = 2: gt 'gadforest','3'
+		if temp_gadf = 3: gt 'gadforest','4'
+	end
+end
+if $ARGS[0] = 'mushroom_pickers3':
+	cla
+	*clr
+	minut += 5
+	gs 'stat'
+	!gs 'time'
+	'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/mushroom_pickers3.jpg"></center>'
+	'Wandering through the woods in search of mushrooms, you notice the other mushroom pickers had organized a camp.'
+	if $clothingworntype = 'nude':'Well, they didn`t see you here, if they do, it would be the talk of the whole village.' & pcs_horny += 5
+	act 'Pass by':pickersday = daystart & gt $loc, $metka
+	if ($clothingworntype ! 'nude' and $clothingworntype ! 'swimwear'):
+		act 'Hello':
+			cla
+			*clr
+			foresteventday = daystart
+			minut += 3
+			if pickersQW < 3:pickersQW += 1
+			gs 'stat'
+			'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/mushroom_pickers3.jpg"></center>'
+			'You politely greet them as you are passing by. The men glancing at you, responded the same.'
+			if pickersQW >= 3:
+				act 'Chat':
+					cla
+					*clr
+					minut += 10
+					pickersQW = rand(4,7)
+					goforest += rand(0,1)
+					gs 'stat'
+
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/mushroom_pickers3.jpg"></center>'
+					if pickersQW <= 5:'They are good with the mushrooms, one of them nudges you with his thumb, and then nodding to a basket full of mushrooms. You waste ten minutes talking about the forest and mushroom places, and then go away without saying good-bye.'
+					if pickersQW > 5 and boletus + bilberry < 5:'They are good wit the mushrooms, one of them nudges you with his thumb, and then nodding to a basket full of mushrooms.'
+							'"And how are you doing granddaughter?" asks one of them.'
+							'"So-so." You answer sadly, showing him your almost empty basket.'
+							'"Well guys, let''s help the girl out a ittle." he says to his friends. You are very happy to accept your basket back once it is much heavier.'
+							'You waste ten minutes talking about the forest and mushroom places, and then go away without saying good-bye.' & pickershelp = 1
+					if pickersQW > 5 and boletus + bilberry >= 5:'They are good with the mushrooms, one of them nudges you with his thumb, and then nodding to a basket full of mushrooms.'
+							'"And how are you doing granddaughter?" - asks one of them.'
+							'"Today okay." you say and show off your basket.'
+							'You waste ten minutes talking about the forest and mushroom places, and then go away without saying good-bye.'
+					if pickershelp = 1:pickershelp = 0 & boletus += rand(1,2) & bilberry += rand(1,2)
+					act 'Go':gt $loc, $metka
+				end
+			end
+			act 'Go':gt $loc, $metka
+		end
+	end
+end
+if $ARGS[0] = 'mushroom':
+	cla
+	*clr
+	foresteventday = daystart
+	gs 'stat'
+	!gs 'time'
+	'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/mushroom0.'+rand(1,3)+'.jpg"></center>'
+	'Wandering in the forest, you stumble upon a mushroom clearing. So lucky!.'
+
+	act 'To collect mushrooms':
+		cla
+		*clr
+		minut += 60
+		boletus += rand (5,10)
+		gs 'stat'
+
+		if ($clothingworntype ! 'nude' and $clothingworntype ! 'swimwear') and CloSkirtShortness = 0:'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/mushroom1.jpg"></center>'
+		if ($clothingworntype ! 'nude' and $clothingworntype ! 'swimwear') and $pantyworntype ! 'none' and CloSkirtShortness > 0:'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/mushroom2.jpg"></center>'
+		if ($clothingworntype ! 'nude' and $clothingworntype ! 'swimwear') and $pantyworntype = 'none' and CloSkirtShortness > 0:'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/mushroom3.jpg"></center>'
+		if $clothingworntype = 'nude':'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/mushroom4.'+rand(1,2)+'.jpg"></center>'
+		if $clothingworntype = 'nude':inhib_exp += rand(1,3)
+		'You begin collecting mushrooms trying to make everything fit in the basket.'
+		act 'Further':gt $loc, $metka
+	end
+end
+if $ARGS[0] = 'bilberry':
+	cla
+	*clr
+	foresteventday = daystart
+	gs 'stat'
+	!gs 'time'
+	'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/bilberry3.jpg"></center>'
+	'Wandering in the forest, you stumble upon a clearing with berries. So lucky!.'
+
+	act 'To gather berries':
+		cla
+		*clr
+		minut += 60
+		bilberry += rand (5,10)
+		gs 'stat'
+
+		'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/bilberry1.jpg"></center>'
+		'You begin collecting berries trying to make everything fit in the basket.'
+		act 'Further':gt $loc, $metka
+	end
+end
+if $ARGS[0] = 'basket':
+	cla
+	*clr
+	minut += 5
+	temp_gadf = rand(1,2)
+	foresteventday = daystart
+	gs 'stat'
+	!gs 'time'
+
+	if temp_gadf = 1:
+		'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/basket_boletus.jpg"></center>'
+		'Wandering in the forest you find a basket full of mushrooms. Strange, someone must have left it here or just lost it.'
+
+		act 'Take':boletus += 10 & gt $loc, $metka
+	end
+	if temp_gadf = 2:
+		'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/basket_bilberry.jpg"></center>'
+		'Wandering in the forest you find a basket full of berries. Strange, someone must have left it here or just lost it.'
+
+		act 'Take':bilberry += 10 & gt $loc, $metka
+	end
+end
+if $ARGS[0] = 'picnic':
+	cla
+	*clr
+	minut += 5
+	gs 'stat'
+	!gs 'time'
+	'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/picnic1.'+rand(1,4)+'.jpg"></center>'
+	'On the edge of the forest you see people. Apparently they are having a family picnic.'
+	if $clothingworntype = 'nude':'Well, they didn''t see you.'
+	if $clothingworntype = 'nude':
+		act 'To hide and dress':
+			cla
+			*clr
+			swamp_clothes = 0
+			minut += 5
+			gs 'underwear', 'wear'
+			gs 'clothing', 'recover_lost_clothes', 'gadforest', 1
+			if CloSkirtShortness = 0:'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/nudeforest.jpg"></center>'
+			if CloSkirtShortness > 0:'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/nudeforest1.'+rand(1,2)+'.jpg"></center>'
+			'You changed into your clothes.'
+			act 'Back': gt 'gadforest','1'
+		end
+ 	else
+		act 'Go':gt 'gadforest','1'
+	end
+end
+if $ARGS[0] = 'forest_hanters':
+	cla
+	*clr
+	minut += 5
+	foresteventday = daystart
+	gs 'stat'
+	!gs 'time'
+	'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/forest_hanters'+rand(1,2)+'.jpg"></center>'
+	if hanters = 0:'Wandering through the woods you come across people. Judging by their appearance they must be hunters.'
+	if hanters > 0:'Wandering through the woods you see people. It''s your friends, the hunters, Andrei, Sergei and Igor.'
+	*pl
+	if forest_lost = 1:
+		act 'Further':
+			if hantersKnow = 0:
+				cla
+				*clr
+				minut += 5
+				forest_lost = 0
+				hantersKnow = 1
+				gs 'stat'
+				!gs 'time'
+
+				if month >= 5 and month <= 9:
+					if $clothingworntype ! 'nude':'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gadfear1.jpg"></center>'
+					if $clothingworntype = 'nude':'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gadfear2.jpg"></center>'
+				else
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gadfear3.jpg"></center>'
+				end
+
+				if $clothingworntype ! 'nude':
+					'"Please help!" you rushed to them, shouting.'
+					'"What happened?" They asked pointing their guns in different directions.'
+					'"I got lost in the woods!" You said with tears in your eyes.'
+					'"Ugh!" an older man groaned and spat at the ground. "You shouted so loudly that we thought, you were chased by a pack of wolves, no less!".'
+					if wolf_know = 0:'"There are wolves out here?" You ask terrified.'
+					if wolf_know = 0:'"Of course" said one of the hunters. "During the day they are mostly hiding or resting, but at night... Well walking in the woods is not advised."'
+					'"Yes good job, frighten the poor girl even more." said another hunter. "You look exhausted, it would be better if you sit down for a moment."'
+					'"Yes, indeed, let`s go sit down" you agree with the first hunter. - In the legs there is no truth.'
+					'- Yeah, " laughed the second. - And above it either.'
+					'Then you went for derevaun clearing.'
+				else
+					inhib_exp += rand(0,2)
+					'You froze, not knowing what to do, whether to hide, or to ask for help. But hiding it was too late, the men noticed you and you are safely moved to meet them. Yet you went to him, men did not take his eyes off you. You were uncomfortable under these studies the views, but there was no other way.'
+					'- What happened? - started single, older, when you came closer. - And why are you in such... hmmm... the?'
+					'- I was lost - you said with tears in his eyes. And began to carry all sorts of nonsense about killers, rapists, car chases and other absurdities, explaining its is not suitable for walks in the forest view.'
+					'- Okay, okay, calm down, " he interrupted you. - It`s all over now. It`s good that you met us and not a pack of wolves what.'
+					if wolf_know = 0:'- And here they are? - terrified opened you eyes.'
+					if wolf_know = 0:'- Of course, said hunter. - During the day they mostly are not shown, but at night walking in the woods is not advised.'
+					'- Yes good to frighten the girl, " said another hunter. - Better give her something to hide behind, and that is, red as a lobster. And Crouch would suggest, look, exhausted all.'
+					'- Yes, indeed, " agreed the first and pokopavshis in the backpack took out a piece of some fabric. - Keep, Dolce Gabbana not sure, but the other is still there.'
+					'- Thank you, " squeaked in response and quickly wrapped the fabric like a towel.'
+					'- Well, now let`s go sit down, get acquainted, - said the first hunter. "My legs are shaking from fear.'
+					'"Yeah" laughed the second. "So is the rest of you."'
+					'Then you started heading back to the clearing.'
+					hanterslut += 1
+				end
+				act 'Further':
+					cla
+					*clr
+					minut += 30
+					wolf_know = 1
+					if $clothingworntype = 'nude':
+						swamp_clothes = 1
+						gs 'clothing', 'wear', $lastwornclothingtype, lastwornclothingnumber
+					end
+					gs 'stat'
+					!gs 'time'
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hanters.jpg"></center>'
+					'When they reached the clearing, they sat directly on the ground, with little thought, you did the same.'
+					if pcs_apprnc >= 60:
+						'"What''s your name, beautiful?" one of them asked.'
+					else
+						'"What should we call you?" one of them asked.'
+					end
+					'"<<$pcs_nickname>>," you answered.'
+					if gadriver_gang = 0:
+						'"I''m Andrei," replied the older man, "And these are my friends, from the village, Igor and Sergei."'
+						'"By any chance is your surname <<$pcs_lastname>>?" he asked. You looked at him and nodded.'
+						'"Don`t be surprised <<$pcs_nickname>>, you look a lot like your mother when she was younger. I ... Hmmm... very good to know, I''m also from Gadyukino." said Andrei.'
+					else
+						'"Bah, look what the cat dragged in." said in surprise the older man, looking at you closely, "It''s <<$pcs_nickname>> <<$pcs_lastname>>, the local slut.'
+						'You look at him in surprise.'
+						'"Don''t be surprised, I`m also from Gadyukino, and you look just like your mother when she was younger, and apparently you are a whore like her too." he said.'
+						'"I`m Andrei, " he added further, "And these are my friends, from the village, Igor and Sergei."'
+						'"Don`t run away, we are good, we don''t bite." said Sergei, seeing your attempt to jump to your feet.'
+						hantersKnowSlut = 1
+						hantersRape = 1
+					end
+					$npc_usedname['A172'] = 'Andrei'
+					$npc_usedname['A173'] = 'Igor'
+					$npc_usedname['A174'] = 'Sergei'
+					hantersKnow = 1
+					'After resting for half an hour the hunters began to rise to their feet.'
+					'"Okay <<$pcs_nickname>>, we will lead you out of the swamp," said Andrei. "Over there lies the the road back to the village, and if you want, we can stay here a little longer ."'
+					act 'Further':hanters = 1 & minut += 60 & gt 'swamp_yard'
+				end
+			else
+				cla
+				*clr
+				minut += 5
+				gs 'stat'
+				!gs 'time'
+
+				if month >= 5 and month <= 9:
+					if $clothingworntype ! 'nude':'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gadfear1.jpg"></center>'
+					if $clothingworntype = 'nude':'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gadfear2.jpg"></center>'
+				else
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gadfear3.jpg"></center>'
+				end
+
+				if $clothingworntype ! 'nude':
+					'"Oh guys! Please help!" you rushed to them, shouting.'
+					'"What happened?" They asked pointing their guns in different directions.'
+					'"Ugh!" an older man groaned and spat at the ground. "You shouted so loudly that we thought, you were chased by a pack of wolves, no less!".'
+					if wolf_know = 0:'"There are wolves out here?" You ask terrified.'
+					if wolf_know = 0:'"Of course" said one of the hunters. "During the day they are mostly hiding or resting, but at night... Well walking in the woods is not advised."'
+					if hantersKnowSlut = 0:
+						'"Yes, a good scare will do you good <<$pcs_nickname>>" said another hunter. "It''s better to not wander far from the swamp."'
+						'"Yes, indeed, stay by the swamp." agreed the first. "The wolves stay away from there or come to visit us or just stay in the village."'
+						'Then you went with the guys through the woods to the swamp.'
+					else
+						'"Yes good job, scare her." said Igor. "It is better to stay by the swamp."'
+						'"Yes, indeed, let''s go to the swamp." agreed Andrei and grinning lecherously, he added. "And then we can have some fun..."'
+						'You understood the hint.'
+						if pcs_horny < 40:'You obediently followed him, knowing where they were taking you and why.'
+						if pcs_horny >= 40 and pcs_horny < 70:'"It must be this way." you thought as you followed the guys, knowing where they were taking you and why.'
+						if pcs_horny >= 70:'"Well, that''s exactly what you need right now." you thought, feeling your pussy screaming with desire. You went with the guys, you were so eager, you almost lead the way.'
+					end
+				else
+					inhib_exp += rand(0,2)
+					'"<<$pcs_nickname>>, what happened?" asked Andrei, when you came closer. "And why are you in such... uummm... state?"'
+					'"I was lost!" you said with tears in your eyes and began talking too fast about all sorts of nonsense fears like killers, rapists, car chases and other absurdities.'
+					'"Okay, okay, calm down, " he interrupted you. "It`s all over now. It''s good that you met us and not a pack of wolves."'
+					if wolf_know = 0:'"There are wolves out here?" You ask terrified.'
+					if wolf_know = 0:'"Of course" he replied. "During the day they are mostly hiding or resting, but at night... Well walking in the woods is not advised."'
+					if hantersKnowSlut = 0:
+						'"Yes, a good scare will do you good <<$pcs_nickname>>," said another hunter. "Now, give her something to wear and let''s take her back to the swamp.'
+						'"Yes, indeed, let''s go to the swamp, " agreed the first, handing you a blanket that he pulled from his backpack. "And remember next time stay close to the swamp or to the village."'
+						'You quickly wrap yourself with the blanket and then follow the guys through the woods and back to the swamp.'
+					else
+						'"Yes good job, scare her." said Igor. "It is better to stay by the swamp."'
+						'"Yes, indeed, let''s go to the swamp." agreed Andrei taking you by the hand. Grinning lecherously, he added. "Did no one miss our little slut?"'
+						if pcs_horny < 40:'You obediently followed him, knowing where they were taking you and why.'
+						if pcs_horny >= 40 and pcs_horny < 70:'"It must be this way." you thought as you followed the guys, knowing where they were taking you and why.'
+						if pcs_horny >= 70:'"Well, that''s exactly what you need right now." you thought, feeling your pussy screaming with desire. You went with the guys, you were so eager, you almost lead the way.'
+					end
+				end
+				!re-arrange and 1-layer out for logic error by illume
+				if hantersKnowSlut = 0:
+					act 'Further':hanters = 1 & wolf_know = 1 & minut += 60 & gt 'swamp_yard'
+				else
+					act 'Further':
+						temp_gadf = rand(1,3)
+						temphant = rand(1,3)
+						hanters = 1
+						if temp_gadf = 1:
+							forest_hantersex = 1 & gt 'hanters', 'start'
+						elseif temp_gadf = 2:
+							forest_hantersex = 2 & gt 'hantersex', 'doublelovesex'
+						else
+							forest_hantersex = 3 & gt 'hanters', 'start'
+						end
+					end
+				end
+			end
+		end
+	else
+		if $clothingworntype ! 'nude':
+			act 'Approach them':
+				if hantersKnow = 0:
+					cla
+					*clr
+					minut += 30
+					hantersKnow = 1
+					gs 'stat'
+					!gs 'time'
+
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hanters.jpg"></center>'
+					'You decided to approach the strangers and socialize. You never know, maybe they can show you some mushroom filled places. After welcoming you, the whole company sat on the ground to rest and chat for a while.'
+					if pcs_apprnc >= 60:
+						'"What''s your name, beautiful?" one of them asked.'
+					else
+						'"What should we call you?" one of them asked.'
+					end
+					'"<<$pcs_nickname>>," you answered.'
+					if gadriver_gang = 0:
+						'"I''m Andrei," replied the older man, "And these are my friends, from the village, Igor and Sergei."'
+						'"By any chance is your surname <<$pcs_lastname>>?" he asked. You looked at him and nodded.'
+						'"Don`t be surprised <<$pcs_nickname>>, you look a lot like your mother when she was younger. I ... Hmmm... very good to know, I''m also from Gadyukino." said Andrei.'
+					else
+						'"Bah, look what the cat dragged in." said in surprise the older man, looking at you closely, "It''s <<$pcs_nickname>> <<$pcs_lastname>>, the local slut.'
+						'You stare at him in surprise.'
+						'"Don''t be surprised, I`m also from Gadyukino, and you look just like your mother when she was younger, and apparently you are a whore like her too." he said.'
+						'"I`m Andrei, " he added further, "And these are my friends, from the village, Igor and Sergei."'
+						'"Don`t run away, we are good, we don''t bite." said Sergei, seeing your attempt to jump to your feet.'
+						hantersKnowSlut = 1
+						hantersRape = 1
+					end
+					$npc_usedname['A172'] = 'Andrei'
+					$npc_usedname['A173'] = 'Igor'
+					$npc_usedname['A174'] = 'Sergei'
+					hantersKnow = 1
+					'Having chatted with you about this and that, for another hour or so, the hunters began to gather their things.'
+					'"Okay <<$pcs_nickname>>, it''s time for us to go." said Andrei.'
+					if hantersKnowSlut = 1:'"If you want, we can bring you to the swamp," he added after a short pause. "From there the road to the village is easier. Or if you want, you can even stay with us for a bit."'
+					if hantersKnowSlut = 1:act 'To go with the hunters':hanters = 1 & minut += 60 & gt 'swamp_yard'
+					act 'To stay in the woods':gt $loc, $metka
+				else
+					cla
+					*clr
+					minut += 5
+					gs 'stat'
+					!gs 'time'
+
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hanters.jpg"></center>'
+					'You decided to approach the guys and chat.'
+					if hantersKnowSlut = 0 or hantersKnowSlut > 0 and hantslutsex > 0:
+						minut += 30
+						'Having chatted with you about this and that, for another hour or so, the hunters began to gather their things.'
+						'"Okay <<$pcs_nickname>>, it''s time for us to go." said Andrei. "You should pay us another visit, ok?"'
+					else
+						' - Oh, <<$pcs_nickname>>, about time you showed up, " Andrei said with a satisfied smile, taking you by the hand.'
+						if pcs_horny < 40:'You obediently followed him, knowing where they were taking you and why.'
+						if pcs_horny >= 40 and pcs_horny < 70:'"It must be this way." you thought as you followed the guys, knowing where they were taking you and why.'
+						if pcs_horny >= 70:'"Well, that''s exactly what you need right now." you thought, feeling your pussy screaming with desire. You went with the guys, you were so eager, you almost lead the way.'
+					end
+
+					if hantersKnowSlut = 0 or hantersKnowSlut > 0 and hantslutsex > 0:
+						act 'To go with the hunters':hanters = 1 & minut += 60 & gt 'swamp_yard'
+						act 'Stay here':gt $loc, $metka
+					else
+						temp_gadf = rand(1,3)
+						temphant = rand(1,3)
+						if temp_gadf = 1:hanters = 1 & forest_hantersex = 1 & gt 'hanters', 'start'
+						if temp_gadf = 2:hanters = 1 & forest_hantersex = 2 & gt 'hantersex', 'doublelovesex'
+						if temp_gadf = 3:hanters = 1 & forest_hantersex = 3 & gt 'hanters', 'start'
+					end
+				end
+			end
+			act 'Pass by':gt $loc, $metka
+		end
+		if $clothingworntype = 'nude':
+			act 'Hide':
+				cla
+				*clr
+				minut += 5
+				gs 'stat'
+				!gs 'time'
+
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/hiding_woods.jpg"></center>'
+				'You decided to hide from sin, yet you have not noticed. He waited until the men leave, you continued your way.'
+
+				act 'Further':gt $loc, $metka
+			end
+		end
+	end
+end
+if $ARGS[0] = 'forest_road':
+	cla
+	*clr
+	temp_gadf = rand(1,10)
+	gs 'stat'
+	!gs 'time'
+	'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/forest_road.jpg"></center>'
+	'You`re off, on the road towards the village, humming happily to yourself.'
+	if temp_gadf > 3:
+		act 'Further':
+			cla
+			*clr
+			minut += 75
+			gs 'stat'
+			!gs 'time'
+
+			'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/howl.jpg"></center>'
+			'When you are about half way, you suddenly hear a terrifying howl from behind you.'
+			act 'Run away!!':
+				cla
+				*clr
+				lostrand = rand(0,100)
+				gs 'stat'
+
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/run.jpg"></center>'
+				'You don''t hesitate and start running.'
+
+				act 'Further':
+					if goforest > lostrand:
+						cla
+						*clr
+						minut += 25
+						pcs_sweat += 20
+						gs 'stat'
+
+						'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/run_end1.jpg"></center>'
+						'You`ve been running on the road, afraid to look back. The exhaustion made you stop, after a quick look around you realize that no one is behind you, chasing you and you are already at the edge of the forest.'
+
+						act 'Further':gt 'gadforest','1'
+					else
+						cla
+						*clr
+						minut += 25
+						temp_gadf = rand(1,4)
+						pcs_sweat += 20
+						gs 'stat'
+
+						'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/run_end2.jpg"></center>'
+						'You`ve been running up hill and down hill, too afraid to even to look behind you. In the end the exhaustion made you stop, after a quick look around you realize that no one is behind you, chasing you, but now you have no idea where you are.'
+
+						act 'Further':
+							if temp_gadf = 1: gt 'gadforestlost','1'
+							if temp_gadf = 2: gt 'gadforestlost','2'
+							if temp_gadf = 3: gt 'gadforestlost','3'
+							if temp_gadf = 4: gt 'gadforestlost','4'
+						end
+					end
+				end
+			end
+
+			act 'Freeze in terror':
+				cla
+				*clr
+				minut += 1
+				gs 'stat'
+
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/horror.jpg"></center>'
+				'You froze from fear, staring into the darkness which had already noticeable shadows in it. You were attacked in your stupor.'
+
+				act 'Further': over = 11 & gt 'gameover'
+			end
+		end
+ 	else
+		act 'Further':minut += 150 & gt 'gadforest','1'
+	end
+end
+if $ARGS[0] = 'swamp_road':
+	cla
+	*clr
+	temp_gadf = rand(1,10)
+	gs 'stat'
+	!gs 'time'
+	'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/forest_road.jpg"></center>'
+	'You went on the road in the direction of the swamp, merrily humming to yourself.'
+	if temp_gadf > 3:
+		act 'Further':
+			cla
+			*clr
+			minut += 75
+			gs 'stat'
+			!gs 'time'
+
+			'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/howl.jpg"></center>'
+			'When you are about halfway there, you suddenly hear a terrifying howl behind you.'
+			act 'Run away!!':
+				cla
+				*clr
+				lostrand = rand(0,100)
+				gs 'stat'
+
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/run.jpg"></center>'
+				'You don''t hesitate and start running.'
+
+				act 'Further':
+					if goforest > lostrand:
+						cla
+						*clr
+						minut += 25
+						pcs_sweat += 20
+						gs 'stat'
+
+						'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/run_end1.jpg"></center>'
+						'You`ve been running on the road, afraid to look back. The exhaustion made you stop, after a quick look around you realize that no one is behind you, chasing you and you are already at the edge of the forest.'
+
+						act 'Further':gt 'gadforest','1'
+					else
+						cla
+						*clr
+						minut += 25
+						temp_gadf = rand(1,4)
+						pcs_sweat += 20
+						gs 'stat'
+
+						'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/run_end2.jpg"></center>'
+						'You`ve been running up hill and down hill, too afraid to even to look behind you. In the end the exhaustion made you stop, after a quick look around you realize that no one is behind you, chasing you, but now you have no idea where you are.'
+
+						act 'Further':
+							if temp_gadf = 1: gt 'gadforestlost','1'
+							if temp_gadf = 2: gt 'gadforestlost','2'
+							if temp_gadf = 3: gt 'gadforestlost','3'
+							if temp_gadf = 4: gt 'gadforestlost','4'
+						end
+					end
+				end
+			end
+
+			act 'Freeze in terror':
+				cla
+				*clr
+				minut += 1
+				gs 'stat'
+
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/horror.jpg"></center>'
+				'You froze from fear, staring into the darkness which had already noticeable shadows in it. You were attacked in your stupor.'
+
+				act 'Further': over = 11 & gt 'gameover'
+			end
+		end
+ 	else
+		act 'Further':minut += 150 & gt 'swamp'
+	end
+end
+if $ARGS[0] = 'lost':
+	cla
+	*clr
+	gs 'stat'
+	!gs 'time'
+	'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gadforestsearch0.4.jpg"></center>'
+	'You wander through the woods trying to find familiar places in or out of the forest.'
+
+	act 'Further':
+		cla
+		*clr
+		minut += 75
+		gs 'stat'
+		!gs 'time'
+
+		'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/howl.jpg"></center>'
+		'Suddenly your hear a terrifying howl close behind you.'
+		act 'Run away!!':
+			cla
+			*clr
+			gs 'stat'
+
+			'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/run.jpg"></center>'
+			'You don''t hesitate and start running.'
+
+			cla
+			*clr
+			minut += 25
+			temp_gadf = rand(1,4)
+			pcs_sweat += 20
+			gs 'stat'
+
+			'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/run_end2.jpg"></center>'
+			'You`ve been running up hill and down hill, too afraid to even to look behind you. In the end the exhaustion made you stop, after a quick look around you realize that no one is behind you, chasing you, but now you have no idea where you are.'
+
+			act 'Further':
+				if temp_gadf = 1: gt 'gadforestlost','1'
+				if temp_gadf = 2: gt 'gadforestlost','2'
+				if temp_gadf = 3: gt 'gadforestlost','3'
+				if temp_gadf = 4: gt 'gadforestlost','4'
+			end
+		end
+
+		act 'Catch your breath':
+			cla
+			*clr
+			minut += 5
+			gs 'stat'
+
+			'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/run_wolf.jpg"></center>'
+			'You rushed to escape in panic, but almost immediately you felt a powerful push in the back and fell down.'
+
+			act 'Further':
+				cla
+				*clr
+				minut += 1
+				gs 'stat'
+
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/wolf.jpg"></center>'
+				'Slightly propped on your hands, you look around and see the grinning jaws of a wolf, right in your face.'
+
+				act 'Scream in terror': over = 11 & gt 'gameover'
+			end
+		end
+	end
+end
+
+if $ARGS[0] = 'relax':
+	cla
+	*clr
+	gs 'stat'
+	!gs 'time'
+	'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gadforestrelax3.jpg"></center>'
+	'You sit in the woods and relax, trying to remember the way back to the village.'
+
+	act 'Further':
+		cla
+		*clr
+		minut += 75
+		gs 'stat'
+		!gs 'time'
+
+		'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/howl.jpg"></center>'
+		'Suddenly you hear in the woods a terrifying howl.'
+		act 'Run away!!':
+			cla
+			*clr
+			gs 'stat'
+
+			'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/run.jpg"></center>'
+			'You don''t hesitate and start running.'
+
+			cla
+			*clr
+			minut += 25
+			temp_gadf = rand(1,4)
+			pcs_sweat += 20
+			gs 'stat'
+
+			'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/run_end2.jpg"></center>'
+			'You`ve been running up hill and down hill, too afraid to even to look behind you. In the end the exhaustion made you stop, after a quick look around you realize that no one is behind you, chasing you, but now you have no idea where you are.'
+
+			act 'Further':
+				if temp_gadf = 1: gt 'gadforestlost','1'
+				if temp_gadf = 2: gt 'gadforestlost','2'
+				if temp_gadf = 3: gt 'gadforestlost','3'
+				if temp_gadf = 4: gt 'gadforestlost','4'
+			end
+		end
+
+		act 'Freeze in terror':
+			cla
+			*clr
+			minut += 1
+			gs 'stat'
+
+			'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/horror.jpg"></center>'
+			'You froze from fear, staring into the darkness which had already noticeable shadows in it. You were attacked in your stupor.'
+
+			act 'Further': over = 11 & gt 'gameover'
+		end
+	end
+end
+
+
+--- gadforest_event ---------------------------------
+

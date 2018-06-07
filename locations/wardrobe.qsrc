@@ -1,0 +1,290 @@
+# wardrobe
+
+if $ARGS[0] = 'start':
+	$wloc = 'wardrobe'
+	if ward_img_hgt = 0:ward_img_hgt = 250
+	'<h3><center><b><font color="maroon">Wardrobe overview</b></h3><br><center><font color="maroon">These are the clothes you are currently wearing - Click on an item to change it</font></center>'
+	'<br><center><table border=0 cellspacing=<<ward_img_hgt/25>> cellpadding=5>'
+	*p '<TH>Bra worn</TH><TH>Outfit worn</TH><TH>Coat (only worn outside when cold)</TH>'
+	*P '<TR><TD><center><a href="exec:gt ''bras'', ''view_bra_list'', ''wardrobe''"><img Height = <<ward_img_hgt>> src="<<FUNC(''$body_image'',''bra'')>>"></a></center></TD><TD><center><a href="exec:gt ''clothing_QV'', ''list''"><img Height = <<ward_img_hgt * 2>> src="<<FUNC(''$body_image'',''clothes'')>>"></a></center></TD><TD><center>'
+	if defaultcoat = 0:
+		'<a href="exec:gt ''cloakroom'', ''view_coat_list''"><img Height = <<ward_img_hgt * 2>> src="images/pc/noitemdh.png"></a>'
+	else
+		'<a href="exec:gt ''cloakroom'', ''view_coat_list''"><img Height = <<ward_img_hgt * 2>> src="<<FUNC(''$body_image'', ''coat'')>>"></a>'
+	end
+	'</center></TD>'
+	'<TR><TD><center>'
+	if $braworntype ! 'none':
+		'<a href="exec:gs ''bras'', ''remove'' & gt ''wardrobe'', ''start''">Remove</a>'
+	else
+		'Remove'
+	end
+	'</center></TD><TD><center>'
+	if $clothingworntype ! 'nude':
+		'<a href="exec:gs ''clothing'', ''strip'' & gt ''wardrobe'', ''start''">Remove</a>'
+	else
+		'Remove'
+	end
+	'</center></TD><TD><center>'
+	if defaultcoat ! 0:
+		'<a href="exec:defaultcoat_warmth = 0 & defaultcoat = 0 & gt ''wardrobe'', ''start''">Remove</a>'
+	else
+		'Remove'
+	end
+	'</center></TD>'
+
+	*p '<TR><TH>Panties worn</TH><TH>Shoes (Only worn outside)</TH><TH>Purse worn</TH>'
+	*P '<TR><TD><center><a href="exec:gt ''panties'', ''view_panty_list'', ''wardrobe''"><img Height = <<ward_img_hgt>> src="<<FUNC(''$body_image'',''panties'')>>"></a></center></TD><TD><center><a href="exec:gt ''shoes'', ''view_shoe_list'', ''wardrobe''"><img Height = <<ward_img_hgt>> src="<<FUNC(''$body_image'', ''shoes'')>>"></a></center></TD><TD><center>'
+	if bag = 1:
+		'<a href="exec:gt ''purses'', ''view_purse_list''"><img Height = <<ward_img_hgt>> src="<<FUNC(''$purse_image'',  $currentpursetype, currentpursenumber)>>"></a>'
+	else
+		'<a href="exec:gt ''purses'', ''view_purse_list''"><img Height = <<ward_img_hgt>> src="images/pc/noitem.png"></a>'
+	end
+	'</center></TD>'
+	'<TR><TD><center>'
+	if $pantyworntype ! 'none':
+		'<a href="exec:gs ''panties'', ''remove'' & gt ''wardrobe'', ''start''">Remove</a>'
+	else
+		'Remove'
+	end
+	'</center></TD><TD><center>'
+	if $shoeworntype ! 'none':
+		'<a href="exec:gs ''shoes'', ''strip'' & gt ''wardrobe'', ''start''">Remove</a>'
+	else
+		'Remove'
+	end
+	'</center></TD><TD><center>'
+	if bag = 1:
+		'<a href="exec:gs ''purses'', ''remove'' & gt ''wardrobe'', ''start''">Remove</a>'
+	else
+		'Remove'
+	end
+	'</center></TD>'
+	'<TR><TD><TD><center>'
+	if ($clothingworntype ! 'nude' and (defaultcoat > 0 or bag > 0)) or (defaultcoat > 0 and bag > 0):
+		'<a href="exec:gs ''wardrobe'', ''removeall'' & gt ''wardrobe'', ''start''">Remove all items</a>'
+	else
+		'Remove all items'
+	end
+	'</center></TD>'
+	'</table></center>'
+	act 'Return': killvar '$wloc' & gt $loc, $metka
+
+	act 'Strip all clothing':
+		gs 'bras', 'remove'
+		gs 'clothing', 'strip'
+		gs 'panties', 'remove'
+		gs 'shoes', 'strip'
+		gt 'wardrobe', 'start'
+	end
+
+	act 'Set a default outfit': gt 'wardrobe', 'default_set'
+
+	act 'Choose a default outfit': gt 'wardrobe', 'default'
+
+	act 'Organise stored clothing': gt 'clothing', 'view_clothing_list', 'store'
+
+	act 'Set image height for this view':
+		cla
+		*clr
+		'The default is 250px'
+		ward_img_hgt = input("Enter height in pixels you want for images on this page (min 100, max 500)")
+		if ward_img_hgt < 100:
+			ward_img_hgt = 100
+		elseif ward_img_hgt > 500:
+			ward_img_hgt = 500
+		end
+		act 'Return': gt 'wardrobe', 'start'
+	end
+end
+
+if $ARGS[0] = 'removeall':
+	gs 'bras', 'remove'
+	gs 'clothing', 'strip'
+	gs 'panties', 'remove'
+	gs 'shoes', 'strip'
+	gs 'purses', 'remove'
+	defaultcoat = 0
+end
+
+!!---------------------------Oufit stuff----------------------------------
+
+if $ARGS[0] = 'default':
+	gs 'stat'
+	if ARRSIZE('defclothingnumber') = 0:
+		'You have no default outfits set.'
+	else
+		i = 0
+		:loopdefclothing
+		'<<$def_clothing_name[i]>> <a href="exec:gs ''wardrobe'', ''default_entry_wear'', <<i>>">Wear this default outfit</a> <a href="exec:gs ''wardrobe'', ''default_entry_delete'', <<i>>">Delete this default outfit</a>'
+		i += 1
+		if i < ARRSIZE('defclothingnumber'):jump 'loopdefclothing'
+	end
+	act 'Return': gt 'wardrobe', 'start'
+end
+
+if $ARGS[0] = 'default_entry_wear':
+	default_entry = ARGS[1]
+
+	gs 'clothing_attributes', $defclothingtype[default_entry], defclothingnumber[default_entry]
+	gs 'clothing', 'wear', $defclothingtype[default_entry], defclothingnumber[default_entry]
+
+	if dyneval('RESULT = <<$defbratype[default_entry]>>_bras[<<defbranumber[default_entry]>>]') = 0: $defbratype[default_entry] = 'none' & defbranumber[default_entry] = 0
+	gs 'bras', 'wear', $defbratype[default_entry], defbranumber[default_entry]
+
+	if dyneval('RESULT = <<$defpantytype[default_entry]>>_panties[<<defpantynumber[default_entry]>>]') = 0: $defpantytype[default_entry] = 'none' & defpantynumber[default_entry] = 0
+	gs 'panties', 'wear', $defpantytype[default_entry], defpantynumber[default_entry]
+
+	if dyneval('RESULT = s<<$defshoetype[default_entry]>>[<<defshoenumber[default_entry]>>]') = 0: $defshoetype[default_entry] = 'none' & defshoenumber[default_entry] = 0
+	gs 'shoes', 'wear', $defshoetype[default_entry], defshoenumber[default_entry]
+
+	if dyneval('RESULT = <<$defpursetype[default_entry]>>_purses[<<defpursenumber[default_entry]>>]') = 0:
+		$defpursetype[default_entry] = 'none' & defpursenumber[default_entry]
+	end
+	$currentpursetype = $defpursetype[default_entry]
+	currentpursenumber = defpursenumber[default_entry]
+	if $currentpursetype = 'none':
+		bag = 0
+	else
+		bag = 1
+	end
+	if menu_option = 1:dynamic $menu_addoldmenu
+	if menu_option = 0:gs 'obj_din', 'new'
+
+	if dyneval('RESULT = coat[<<defcoat[default_entry]>>]') = 0: defcoat[default_entry] = 0
+	defaultcoat = defcoat[default_entry]
+
+	!! default school girl uniform is always allowed to be worn if still in school
+	if StoryLine = 1 and SchoolAtestat = 0 and SchoolBlock = 0 and $defclothingtype[default_entry] = 'school' and defclothingnumber[default_entry] = 6:
+		cls
+		'<center><video autoplay loop src="images/locations/city/citycenter/photo/dress.mp4"></video></center>'
+		'Your put on your <<$def_clothing_name[default_entry]>> outfit without any problems.'
+		act 'Return to wardrobe':
+			killvar 'default_entry'
+			gs 'stat'
+			gt 'wardrobe', 'start'
+		end
+	!! do not own this clothing anymore
+	elseif dyneval('RESULT = <<$defclothingtype[default_entry]>>[<<defclothingnumber[default_entry]>>]') = 0:
+		cls
+		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/niko/nikoev/school/strip/strip2.jpg"></center>'
+		'As you go to pull your <<$def_clothing_name[default_entry]>> outfit out of your wardrobe you remember you don''t own that piece of clothing anymore. Maybe you should buy it again? Guess you will have to find something else to wear.'
+		act 'Return to wardrobe':
+			gs 'clothing', 'strip'
+			killvar 'default_entry'
+			gs 'stat'
+			gt 'wardrobe', 'start'
+		end
+	!! strength of clothing is less than or equal to 0
+	elseif dyneval('RESULT = <<$defclothingtype[default_entry]>>H[<<defclothingnumber[default_entry]>>]') <= 0:
+		cls
+		'<center><video autoplay loop src="images/characters/pavlovsk/school/girl/vicky/event/vika_game_strip16.mp4"></video></center>'
+		'Your <<$def_clothing_name[default_entry]>> outfit has worn out and can''t be used anymore. Guess you will have to find something else to wear.'
+		act 'Strip out of worn out clothing':
+			gs 'clothing', 'strip'
+			killvar 'default_entry'
+			gs 'stat'
+			gt 'wardrobe', 'start'
+		end
+	!! clothing exhibition is greater than player exhibition
+	elseif CloInhibit > pcs_inhib:
+		cls
+		'<center><video autoplay loop src="images/locations/pavlovsk/trainstation/bimbo.strip6.mp4"></video></center>'
+		'You don''t feel daring enough to wear your <<$def_clothing_name[default_entry]>> outfit. Maybe you will be confident enough in the future? Guess you will have to find something else to wear.'
+		act 'Strip out of revealing clothing':
+			gs 'clothing', 'strip'
+			killvar 'default_entry'
+			gs 'stat'
+			gt 'wardrobe', 'start'
+		end
+	!! not exercise clothing, not coat, and not loose fitting
+	elseif $defclothingtype[default_entry] ! 'exercise' and $defclothingtype[default_entry] ! 'coat' and CloStyle ! 5:
+		!! check for if the hipsize is too far from your hipsize
+		dynamic 'RESULT = <<$defclothingtype[default_entry]>>B[<<defclothingnumber[default_entry]>>]'
+		if RESULT < pcs_hips - 8 or RESULT > pcs_hips + 8:
+			cls
+			iif(RESULT < pcs_hips - 8,'<center><video autoplay loop src="images/locations/pavlovsk/clinic/therapist/dressup.mp4"></video></center>','<center><video autoplay loop src="images/locations/pavlovsk/clinic/therapist/stripping1.mp4"></video></center>')
+			'As you put on your <<$def_clothing_name[default_entry]>> outfit you notice it doesn''t fit correctly anymore. It''s ' + iif(RESULT < pcs_hips - 8,'unbearably tight and uncomfortable to wear.','extremely loose and won''t stay in place no matter how hard you try.') + ' You must have ' + iif(RESULT < pcs_hips - 8,'gained','lost') + ' some weight since this was purchased or last tailored. You will have to get this clothing resized before you can wear it again.'
+			act 'Strip out of ill-fitting clothing':
+				gs 'clothing', 'strip'
+				killvar 'default_entry'
+				gs 'stat'
+				gt 'wardrobe', 'start'
+			end
+		!! clothing ok to wear after passing hip check
+		else
+			cls
+			'<center><video autoplay loop src="images/locations/city/citycenter/photo/dress.mp4"></video></center>'
+			'Your put on your <<$def_clothing_name[default_entry]>> outfit without any problems.'
+			act 'Return to wardrobe':
+				killvar 'default_entry'
+				gs 'stat'
+				gt 'wardrobe', 'start'
+			end
+		end
+	!! clothing ok to wear without needing hip check and passing all other checks
+	else
+		cls
+		'<center><video autoplay loop src="images/locations/city/citycenter/photo/dress.mp4"></video></center>'
+		'Your put on your <<$def_clothing_name[default_entry]>> outfit without any problems.'
+		act 'Return to wardrobe':
+			killvar 'default_entry'
+			gs 'stat'
+			gt 'wardrobe', 'start'
+		end
+	end
+end
+
+if $ARGS[0] = 'default_set':
+	gs 'stat'
+	if ARRSIZE('defclothingnumber') ! 0:
+		i = 0
+		:loopdefclothing_set
+		'<<$def_clothing_name[i]>> <a href="exec:gs ''wardrobe'', ''default_entry_set'', <<i>>">Overwrite this</a>'
+		i += 1
+		if i < ARRSIZE('defclothingnumber'):jump 'loopdefclothing_set'
+	end
+	act 'Add as new default': gt 'wardrobe', 'default_entry_set', ARRSIZE('defclothingnumber')
+	act 'Return': gt 'wardrobe', 'start'
+end
+
+if $ARGS[0] = 'default_entry_set':
+	gs 'stat'
+	i = ARGS[1]
+	$defclothingtype[i] = $clothingworntype
+	defclothingnumber[i] = clothingwornnumber
+	$defbratype[i] = $braworntype
+	defbranumber[i] = brawornnumber
+	$defpantytype[i] = $pantyworntype
+	defpantynumber[i] = pantywornnumber
+	$defshoetype[i] = $shoeworntype
+	defshoenumber[i] = shoewornnumber
+	$defpursetype[i] = $currentpursetype
+	defpursenumber[i] = currentpursenumber
+	defcoat[i] = defaultcoat
+
+	$def_clothing_name[i] = input ('Enter name for for this outfit (Leave blank for default)')
+	if $def_clothing_name[i] = '': $def_clothing_name[i] = 'default <<i>>'
+	gt 'wardrobe', 'default_set'
+end
+
+if $ARGS[0] = 'default_entry_delete':
+	gs 'stat'
+	i = ARGS[1]
+	killvar 'defclothingtype', i
+	killvar 'defclothingnumber', i
+	killvar 'defbratype', i
+	killvar 'defbranumber', i
+	killvar 'defpantytype', i
+	killvar 'defpantynumber', i
+	killvar 'defshoetype', i
+	killvar 'defshoenumber', i
+	killvar 'defpursetype', i
+	killvar 'defpursenumber', i
+	killvar 'defcoat', i
+	killvar 'def_clothing_name', i
+	gt 'wardrobe', 'default_set'
+end
+
+--- wardrobe ---------------------------------
+

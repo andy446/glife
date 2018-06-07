@@ -1,0 +1,281 @@
+# anushkaev1
+
+if $ARGS[0] = 'strapon1':
+	*clr & cla
+	minut += 2
+	npc_rel['A144'] += 2
+	gs 'stat'
+	'<center><img src="images/locations/pavlovsk/resident/apartment/anushapt/anushroom/strapon.jpg"></center>'
+	if hotcat >= 5:
+		'You pull out the strap-on harness and hold it up. "Yeah, I like this."'
+		'Her eyes widen ever so slightly, you can tell that just turned her on. "Just what do you want to do with that?"'		
+		act '"Fuck me"':
+			*clr & cla
+			'<center><img src="images/locations/pavlovsk/resident/apartment/anushapt/anushroom/fuckme.jpg"></center>'
+			'You feel slightly aroused as you hand the strap-on over to Anushka. "Maybe you could wear it and show me what you can do with it?"'
+			'She takes it and points at it as she looks at you. "So you want me to wear this and fuck you silly with it, huh?"'
+			'You nod your head, thinking you already made that clear. She grins at the nod.'
+			act 'You asked for it':
+				*clr & cla
+				'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/sex/strapon/strapme1.jpg"></center>'
+				'Suddenly she grabs you and shoves you back on the bed, nearly shoving the dildo from the harness in your face. "Careful what you ask for because I am going to turn you into my little bitch!"'
+				gs 'arousal', 'foreplay', 3, 'lesbian'
+				gs 'stat'
+				act 'Kissed':
+					*clr & cla
+					'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/sex/strapon/strapme2.jpg"></center>'
+					'Before you can even respond to being told you are about to become her little bitch, she leans forward, laying the harness aside and starts kissing you. Surprised for a moment, you quickly give into the kiss and return the passion.'
+					gs 'arousal', 'foreplay', 3, 'lesbian'
+					gs 'stat'
+					act 'Get naked':
+						*clr & cla
+						'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/sex/strapon/strapme3.jpg"></center>'
+						'As the kiss continues, she starts undressing you. First taking off your top, revealing your breasts, then moving on to your bottoms until you are fully naked. Once done, you help her strip down as well, though she stops at her bra and panties.'
+						gs 'arousal', 'foreplay', 3, 'lesbian'
+						gs 'stat'
+						act 'Lay back':
+							*clr & cla
+							'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/sex/strapon/strapme4.jpg"></center>'
+							'She pushes you back on the bed, as you lay back you spread your legs. Giving her easy access to your pussy, she leans over and starts to lick your clit almost at once. She licks, sucks, kisses and nips at your clit, slowly working her tongue inside of your pussy where she tongue fucks you. As she does, she finishes pulling her own clothes off as well.'
+							gs 'arousal', 'cuni', 5, 'lesbian'
+							pcs_horny += 10
+							gs 'stat'
+							act 'Face sitting':
+								*clr & cla
+								'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/sex/strapon/strapme5.jpg"></center>'
+								'Once she has you soaking wet from her tongue lashes against your pussy. She crawls up on the bed, straddling your face, she easy down until her pussy is against your face. You start licking her in return, hearing her soft moans of pleasure just turns you own more.'
+								gs 'arousal', 'cuni_give', 5, 'lesbian'
+								gs 'stat'
+								act 'Suck this':
+									*clr & cla
+									gs 'boyStat', 'D3' 
+									'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/sex/strapon/strapme6.jpg"></center>'
+									'Several minutes go by, then she gets off your face and grabs the harness and quickly puts it on. Making sure it is securely in the place as she grabs you by the hair and pulls your face over the dildo. "Suck my dick slut." Doing her best guy impression.'
+									'You obediently open your mouth and take the <<dick>>cm <<$dick_girth>> dildo in your mouth. She mostly lets you control how deep you take it, though a couple of times she pushes it a bit deeper making you gag a little.'
+									gs 'arousal', 'bj', 5, 'lesbian'
+									gs 'stat'
+									act 'Get fucked':
+										*clr & cla
+										gs 'boyStat', 'D3' 
+										'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/sex/strapon/strapme7.jpg"></center>'
+										'Once she gets bored of watching you suck the dildo she flips you back on your back, spreading your legs she kneels between them. She rubs the tip of her dildo against your wet pussy lips till it is nice and wet as well, then slowly slides the <<dick>>cm <<$dick_girth>> dildo inside of you, causing you to moan with pleasure. She slowly and gently fucks you, as you get wetter and wetter.'
+										gs 'arousal', 'vaginal_strap', 5, 'lesbian'
+										gs 'stat'
+										act 'Doggy':
+											*clr & cla
+											'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/sex/strapon/strapme8.jpg"></center>'
+											'Several blissful minutes pass by until she finally grabs you and flips you over, pulling you up till you are on all fours. She scoots up behind you on her knees, you feel the tip of the dildo rub against your slit and then feel it easily slide inside of you.'
+											*nl
+											'After a few strokes, she grabs onto your hips and starts to really fuck you hard and fast. "Yea you little slut take my big cock, see how easy your pussy just swallows it up, you''re such a dirty slut." She says as she starts really pounding you.'
+											*nl
+											'She pounds her hips against your butt, leaning forward on you more and more, slowly pushing you forward until you are laying on your stomach. After a few more strokes like that she pulls out and you feel the tip of the dildo press against your asshole.'
+											gs 'arousal', 'vaginal_strap', 5, 'lesbian'
+											gs 'stat'
+											act '"Not my ass please"':
+												*clr & cla
+												'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/sex/strapon/strapme11.jpg"></center>'
+												'After asking her not too, you hear her "pfft" but you feel the dildo slide back into your pussy as she keeps fucking you for a while.'
+												$orgasm_txt = 'You are overwhelmed by the wild excitement of Anushka pounding your little pussy with her strap-on until you can take no more. Waves of pleasure come crashing over you, as you wither in ecstasy underneath her, she keeps fucking you until your shuddering stops.'
+												gs 'arousal', 'foreplay', 8, 'lesbian', 'dom'
+												killvar '$orgasm_txt'
+												'Finally sweating and panting she pulls out of you and collapses against you. You can feel the wet dildo pressing against your butt cheeks and back of your thighs. She kisses and nipples your ear a bit as she whispers. "Next time I want to fuck your ass."'
+												'Laughing slightly you don''t respond, the two of you lay against each other for a few minutes before she finally gets up and starts to get cleaned up and dressed. After which you do the same.'
+												minut += 5
+												gs 'arousal', 'end'
+												gs 'stat'
+												act 'Get dressed':gt 'anushapt','anushroom'
+											end
+											act 'Let her':
+												*clr & cla
+												gs 'boyStat', 'D3' 
+												'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/sex/strapon/strapme9.jpg"></center>'
+												'She straddles your thighs to get a better position, she uses her hands to pull your butt cheeks apart. As you glance back you see a huge grin on her face. She obviously loves the idea of fucking you in the ass.'
+												'You feel the tip of the wet dildo against your asshole, the pressure builds up until the head pops inside of your ass. She slowly slides the whole <<dick>>cm <<$dick_girth>> dildo, balls deep in your ass, causing you to wince and moan in a mixture of pleasure and pain. She slowly starts fucking your ass, building up a little speed with each stroke, starting to really pound your ass hard.'
+												gs 'pain', 2, 'asshole', 'stretch'
+												gs 'arousal', 'anal_strap', 5, 'lesbian'
+												gs 'stat'
+												act '"Not so rough"':
+													*clr & cla
+													'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/sex/strapon/strapme10.jpg"></center>'
+													'Once she starts to really hammer your ass the pleasure stats, but the pain grows a bit. You grip the bed sheets tightly in your hands, unsure if the pleasure or pain is winning out. Rising up your upper body you grunt out. "Not so rough!"'
+													'Her response is to slam you the full length of the dildo, as she leans forward. Putting lips by your ear as she says. "Shut your fucking mouth slut." She doesn''t relent with the pounding, but despite the bit of pain the pleasure is winning out.'
+													$orgasm_txt = 'You are overwhelmed by the wild excitement of Anushka pounding your tight little asshole with her strap-on. Despite the pain the pleasure begins to overwhelm you, unable to take it any more. You cry out in pleasure, as waves of pleasure come crashing over you. You wither in ecstasy underneath her, as she keeps pounding your ass until your shuddering as the orgasm stops.'
+													gs 'arousal', 'anal_strap', 5, 'lesbian', 'sub', 'rough'
+													killvar '$orgasm_txt'
+													gs 'pain', 3, 'asshole', 'stretch'
+													gs 'stat'
+													act 'Afterglow':
+														*clr & cla
+														'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/sex/strapon/strapme11.jpg"></center>'
+														'Finally, sweating and panting, she pulls out of you and collapses against you. You can feel the wet dildo pressing against your butt cheeks and back of your thighs. She kisses and nibbles your ear a bit as she whispers. "You okay? You sounded like you were really enjoying it."'
+														*nl
+														'Laughing slightly you nod. "Yeah, pleasure won out, but my ass kinda hurts too."'
+														'She giggles at that, "Well, I guess you need more practice at being an anal whore than. Don''t worry, by the time I am done with that ass, you will barely notice when a guy sticks his dick up your ass."'
+														'You roll your eyes at that. "Gee, thanks, I think I would rather not have a gaping ass like that if you don''t mind." The two of you laugh at the by play and then the two of you lay against each other for a few minutes before she finally gets up and starts to get cleaned up and dressed. After which you do the same.'
+														gs 'arousal', 'foreplay', 8, 'lesbian'
+														minut += 5
+														gs 'arousal', 'end'
+														gs 'stat'
+														act 'Get dressed':gt 'anushapt','anushroom'
+													end
+												end
+											end
+										end
+									end
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+		act 'I''m going to fuck you with it':
+			*clr & cla
+			'<center><img src="images/locations/pavlovsk/resident/apartment/anushapt/anushroom/fucknush.jpg"></center>'
+			'You hold it up by the harness, letting the dildo hang between your face and hers. "Well, I was thinking of strapping this thing on and fucking you silly with it."'
+			'You can tell by her expression that she got a little turned on by that. "Is that so?"'
+			act '"Yes"':
+				*clr & cla
+				'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/sex/strapon/strapnush1.jpg"></center>'
+				'You step into the harness and pull it up into place and start tightening the straps. As you do she starts playing with the dildo a bit.'
+				nushdom = 1
+				act 'Kiss her':
+					*clr & cla
+					'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/sex/strapon/strapnush2.jpg"></center>'
+					'With the harness secure you lean forward and kiss her, soon the two of you are passionately kissing.'
+					gs 'arousal', 'foreplay', 3, 'lesbian'
+					gs 'stat'
+					act 'Undress her':
+						*clr & cla
+						'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/sex/strapon/strapnush3.jpg"></center>'
+						'As you keep kissing you start pulling her clothes off, once she is naked she starts pulling yours off until soon you are both naked and still kissing. Stopping you crawl on the bed and lay down on your back.'
+						gs 'arousal', 'foreplay', 3, 'lesbian'
+						gs 'stat'
+						act 'Pull her on top':
+							*clr & cla
+							'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/sex/strapon/strapnush4.jpg"></center>'
+							'You grab her arm and pull her over, guiding her to straddle over you. Which she does, she wastes little time once she is straddling you. She quickly lines up the dildo and then eases herself down, you watch her impale her pussy on the dildo. Then she starts riding you.'
+							gs 'arousal', 'vaginal_strap_give', 5, 'lesbian'
+							gs 'stat'
+							act 'Ride it cowgirl':
+								*clr & cla
+								'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/sex/strapon/strapnush5.jpg"></center>'
+								'She starts moaning louder and louder, as she rides you with wild abandoned. She leans forward and starts kissing you as she rides the dildo deep inside of her.'
+								gs 'arousal', 'vaginal_strap_give', 5, 'lesbian'
+								gs 'stat'
+								act 'Doggy':
+									*clr & cla
+									'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/sex/strapon/strapnush6.jpg"></center>'
+									'You can tell she is starting to get close, but you are not yet done, in fact, you haven''t done too much other than just lay there and let her ride you. So you push her off, she reluctantly crawls off you. You get up on your knees and pull her ass over towards you, pushing her forward down onto all fours. You push the dildo back into her pussy, it slides in easily, causing her to moan loudly.'
+									*nl
+									'You start fucking her from behind, before long she is bouncing her ass back against you, fucking you as much as you are fucking her. She obviously loves it. On one of the backstrokes, you pull back enough, to slide the dildo out of her completely. She looks back over her shoulder, obviously super turned on and desperately wanting you to keep fucking her. "Don''t stop, keep fucking me." She says nearly breathlessly.'
+									gs 'arousal', 'vaginal_strap_give', 5, 'lesbian'
+									gs 'stat'
+									act 'Keep fucking her pussy':
+										*clr & cla
+										'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/sex/strapon/strapnush9.jpg"></center>'
+										'You keep fucking her pussy doggy style, it doesn''t take much longer until she has an intense orgasm. You fuck her all the way through, once it is finished, you pull off the harness and toss it aside. Looking at her you spread your legs. "Eat me, bitch!"'
+										'She giggles at that, but crawls over, placing her face between your legs and starts eating you out, her tongue darting around perfectly, the girl really knows how to eat a pussy.'
+										gs 'arousal', 'cuni', 5, 'lesbian', 'dom'
+										gs 'stat'
+										act 'Oh god':
+											*clr & cla
+											'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/sex/strapon/strapnush10.jpg"></center>'
+											'You are so wet, you can feel the bubbling building sensation within you threatening to burst out. You are just on the edge.'
+											$orgasm_txt = 'You are overwhelmed by the wild excitement of Anushka eating your pussy, you can''t take any more. Waves of pleasure come crashing over you, as you wither in ecstasy underneath her, she keeps eating you until your shuddering stops.'
+											gs 'arousal', 'cuni', 5, 'lesbian'
+											killvar '$orgasm_txt'
+											'Finally, she crawls up to lay beside you, leaning over to give you a kiss. You can taste your own pussy juices on her lips. After a brief kiss, the two of you lay side by side for a few moments. Then she finally gets up and starts to get cleaned up and dressed. After which you do the same.'
+											minut += 5
+											gs 'arousal', 'end'
+											gs 'stat'
+											act 'Get dressed':gt 'anushapt','anushroom'
+										end
+									end
+									act 'Your ass is mine':
+										*clr & cla
+										'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/sex/strapon/strapnush7.jpg"></center>'
+										'You grin as she begs you to keep fucking her, well maybe she should have been more specific on how. You push your hips forward and line the tip of the dildo up with her asshole. You barely get it lined up, before you push forward popping the dildo into her asshole, you hear her gasp in a mixture of pleasure and pain.'
+										'You very quickly work the dildo balls deep into her ass and you start to really fuck it hard. Her moans and cries of pleasure and pain grow with each thrust. Finally, she reaches back, one arm, placing her hand on your hip, obviously trying to slow you down a little and to keep you from going as deep.'
+										gs 'arousal', 'anal_strap_give', 5, 'lesbian', 'dom'
+										gs 'stat'
+										act 'Punish that ass':
+											*clr & cla
+											'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/sex/strapon/strapnush8.jpg"></center>'
+											'You push her hand away as you pull back until the dildo slides out of her ass. She drops her hand back down on the bed. Once she does she lean forward and push the tip against her gaping asshole and then shove it in balls deep, which causes her to cry out a little.'
+											'You grab her hips with both hands and start pounding her ass as hard as you can. "Bitch this is my ass to fuck, how I want. You try to pull away or push me back and I will just fuck your ass longer and harder until you can''t sit down for a week." You tell her in a commanding tone.'
+											'She doesn''t respond, you can tell it hurts but you can also tell she is getting off on it too. Just like you thought before too long she has a massive, intense orgasm that leaves her quivering like jelly for several minutes barely able to breathe.'
+											gs 'arousal', 'anal_strap_give', 5, 'lesbian', 'dom', 'rough', 'sadist'
+											gs 'stat'
+											act 'Eat me':
+												*clr & cla
+												'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/sex/strapon/strapnush9.jpg"></center>'
+												'You pull the dildo out of her ass and remove the harness, dropping it on the floor, then you lay on your back on the bed and spread your legs. You look at her from between your legs. "Eat me, bitch!" She giggles at that, but crawls over, placing her face between your legs and starts eating you out, her tongue darting around perfectly, the girl really knows how to eat a pussy.'
+												pcs_horny += 10
+												gs 'arousal', 'cuni', 5, 'lesbian', 'dom'
+												gs 'stat'
+												act 'Oh god':
+													*clr & cla
+													pcs_horny += 10
+													'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/sex/strapon/strapnush10.jpg"></center>'
+													'You are so wet, you can feel the bubbling building sensation within you threatening to burst out. You are just on the edge.'
+													$orgasm_txt ='You are overwhelmed by the wild excitement of Anushka eating your pussy, you can''t take any more. Waves of pleasure come crashing over you, as you wither in ecstasy underneath her, she keeps eating you until your shuddering stop.'
+													gs 'arousal', 'end'
+													killvar '$orgasm_txt'
+													'Finally, she crawls up to lay beside you, leaning over to give you a kiss. You can taste your own pussy juices on her lips. After a brief kiss, the two of you lay side by side for a few moments. Then she finally gets up and starts to get cleaned up and dressed. As she does you notice she is moving a little gingerly. Then looks at you and says. "Fuck my ass is already sore, it''s going to really hurt, later on, bitch!"'
+													'Laughing a bit, since you can tell she is mostly kidding, you get up and start to get dressed. "Oh please, you are such an anal whore, I damn near fell in."'
+													'She snorts and flips you off as the two of you get dressed. "Fuck you, Bitch!" She says in a obviously amussed tone.'
+													gs 'arousal', 'cuni', 5, 'lesbian'
+													minut += 5
+													gs 'stat'
+													act 'Finish getting dressed':gt 'anushapt','anushroom'
+												end
+											end
+										end
+										act 'Ease up':
+											*clr & cla
+											'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/sex/strapon/strapnush7.jpg"></center>'
+											'You take the hint and decided not to tear her ass up to bad. After you slow down a little she starts moaning louder. "Oh god, yes, fuck yes!" Shortly after she has a massive orgasm that leaves her withering on the bed. You pull the dildo out of her ass and remove the harness, dropping it on the floor, then lay back on the bed, on your back as you spread your legs.'
+											gs 'arousal', 'anal_strap_give', 5, 'lesbian', 'dom'
+											gs 'stat'
+											act 'Eat me':
+												*clr & cla
+												'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/sex/strapon/strapnush9.jpg"></center>'
+												'Laying on your back with your legs spread, you look at her from between your legs. "Eat me, bitch!" She giggles at that, but crawls over, placing her face between your legs and starts eating you out, her tongue darting around perfectly, the girl really knows how to eat a pussy.'
+												pcs_horny += 10
+												gs 'arousal', 'cuni', 5, 'lesbian'
+												gs 'stat'
+												act 'Oh god':
+													*clr & cla
+													pcs_horny += 10
+													'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/sex/strapon/strapnush10.jpg"></center>'
+													'You are so wet, you can feel the bubbling building sensation within you threatening to burst out. You are just on the edge.'
+													$orgasm_txt = 'You are overwhelmed by the wild excitement of Anushka eating your pussy, you can''t take any more. Waves of pleasure come crashing over you, as you wither in ecstasy underneath her, she keeps eating you until your shuddering stop.'
+													gs 'arousal', 'cuni', 5, 'lesbian'
+													killvar '$orgasm_txt'
+													'Finally, she crawls up to lay beside you, leaning over to give you a kiss. You can taste your own pussy juices on her lips. After a brief kiss, the two of you lay side by side for a few moments. Then she finally gets up and starts to get cleaned up and dressed. After which you do the same.'
+													minut += 5
+													gs 'arousal', 'end'
+													gs 'stat'
+													act 'Get dressed':gt 'anushapt','anushroom'
+												end
+											end
+										end
+									end
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+	else
+		'You pull out the strap-on harness and hold it up. "Yeah, I like this."'
+		'She laughs, walks over and takes it from you. She puts it back in the drawer and closes it. "Well then maybe you should buy one, then huh?"'
+		'A bit disappointed she doesn''t want to play you nod. "Yeah, guess I should."'
+		act 'Look around some more':gt 'anushapt','anushroom'
+	end
+end
+
+--- anushkaev1 ---------------------------------
+

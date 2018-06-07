@@ -1,0 +1,59 @@
+# gadroad
+$location_type = 'secluded'
+$metka = ''
+$loc = 'gadroad'
+gs 'gadukino_event', 'sound'
+clr
+gs'stat'
+!gs'time'
+
+'<center><H4>Forest road</H4></center>'
+
+if month >= 4 and month <= 10:
+	if hour >= 6 and hour < 22:
+		'<center><img <<$set_imgh>> src="images/locations/gadukino/village/gadroad.jpg"></center>'
+	else
+		'<center><img <<$set_imgh>> src="images/locations/gadukino/village/gadroad_night.jpg"></center>'
+	end
+else
+	if hour >= 8 and hour < 18:
+		'<center><img <<$set_imgh>> src="images/locations/gadukino/village/gadroad_winter.jpg"></center>'
+	else
+		'<center><img <<$set_imgh>> src="images/locations/gadukino/village/gadroad_winter_night.jpg"></center>'
+	end
+end
+
+'A dirt road leading to the forest. You are surrounded by grainfields where the grains appear reaching all the way to the heavens.'
+
+act 'Take a detour to the field':minut += 10 & gt'gadfield','field'
+act 'Go into the woods':minut += 30 & gt'gadforest','1'
+if $clothingworntype = 'exercise' and $shoeworntype = 'trainers' and hour >= 6 and hour < 22 and daybegskver ! daystart:
+	act 'Go for a run (1:00)':
+		cls
+		minut += 60
+		fat -= RAND(5,15)
+		run_exp += RAND(3,6)
+		pcs_sweat += 20
+		daybegskver = daystart
+		gs'stat'
+		!gs'time'
+		if month <= 3 or month >= 11:
+			'<center><img <<$set_imgh>> src="images/locations/gadukino/village/gadbeg4.jpg"></center>'
+		elseif month=9 or month=10 or month=4 or month=5:
+			'<center><img <<$set_imgh>> src="images/locations/gadukino/village/gadbeg3.jpg"></center>'
+		else
+		    if musle >= salo: 
+			    '<center><img <<$set_imgh>> src="images/locations/gadukino/village/gadbeg1.jpg"></center>'
+			else
+                '<center><img <<$set_imgh>> src="images/locations/gadukino/village/gadbeg2.jpg"></center>'
+            end    
+		end
+		'You run for an hour enjoying the scenery.'
+
+		act 'Further':gt'gadroad'
+	end
+end
+act 'Go to Gadukino':minut += 20 & gt'gadukino'
+
+--- gadroad ---------------------------------
+

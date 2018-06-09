@@ -439,7 +439,7 @@ $posudomashina = {
 }
 
 $pranik = {
-	act 'Have tea with cookies (0:05)':
+	act 'Have tea with biscuits (0:05)':
 		cla
 		*clr
 		minut += 5
@@ -459,7 +459,7 @@ $pranik = {
 		frost = 0
 		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/shared/food/food.jpg"></center>'
-		'You have tea with cookies. Sweet and very bad for your figure, but so good.'
+		'You have tea with biscuits. Sweet and very bad for your figure, but so good.'
 
 		act 'Get up from the table':gt $loc, $metka
 	end

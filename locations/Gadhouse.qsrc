@@ -268,9 +268,9 @@ if $ARGS[0] = 'Main':
 	end
 
 	if pranik > 0:
-		'You have <<pranik>> cookies on the plate.'
+		'You have <<pranik>> tea biscuits on the plate.'
 
-		act 'Drink tea with cookies (0:05)':
+		act 'Drink tea with biscuits (0:05)':
 			cla
 			*clr
 			minut += 5
@@ -290,7 +290,7 @@ if $ARGS[0] = 'Main':
 			frost = 0
 			gs 'stat'
 			'<center><img <<$set_imgh>> src="images/shared/food/food.jpg"></center>'
-			'You enjoy a cup of tea while you eat some of the cookies. They''re too sweet and can''t be good for your figure, but they taste so good!'
+			'You enjoy a cup of tea while you eat some of the tea biscuits. They''re too sweet and can''t be good for your figure, but they taste so good!'
 
 			act 'Get up from the table':gt 'Gadhouse', 'Main'
 		end

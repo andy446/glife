@@ -70,9 +70,9 @@ act 'Have a cup of tea (0:05)':
 end
 
 if pranik > 0:
-	'You have <<pranik>> cookies.'
+	'You have <<pranik>> tea biscuits.'
 
-	act 'Drink tea with cookies (0:05)':
+	act 'Drink tea with biscuits (0:05)':
 		cla
 		*clr
 		minut += 5
@@ -92,7 +92,7 @@ if pranik > 0:
 		frost = 0
 		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/shared/food/food.jpg"></center>'
-		'You drank tea and enjoyed the cookies. You know they''re too sweet and can''t be good for your figure, but they taste so good!'
+		'You drank tea and enjoyed the tea biscuits. You know they''re too sweet and can''t be good for your figure, but they taste so good!'
 
 		act 'Get up from the table':gt $curloc
 	end

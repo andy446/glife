@@ -1047,8 +1047,8 @@ if $ARGS[0] = 'ndRoom':
 		else
 			'You don''t have enough laundry detergent to clean the room'
 		end
-		act 'Leave':gt 'pavSharedApt', 'start'
 	end
+	act 'Leave':gt 'pavSharedApt', 'start'
 end
 
 if $ARGS[0] = 'gpRoom':
@@ -1077,8 +1077,8 @@ if $ARGS[0] = 'gpRoom':
 		else
 			'You don''t have enough laundry detergent to clean the room'
 		end
-		act 'Leave':gt 'pavSharedApt', 'start'
 	end
+	act 'Leave':gt 'pavSharedApt', 'start'
 end
 
 if $ARGS[0] = 'spRoom':
@@ -1109,8 +1109,8 @@ if $ARGS[0] = 'spRoom':
 		else
 			'You don''t have enough laundry detergent to clean the room'
 		end
-		act 'Leave':gt 'pavSharedApt', 'start'
 	end
+	act 'Leave':gt 'pavSharedApt', 'start'
 end
 
 --- pavSharedApt ---------------------------------

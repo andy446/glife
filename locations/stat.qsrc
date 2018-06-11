@@ -510,6 +510,9 @@ if minut >= 60:
 	if pcs_energy > 100:
 		fat += (pcs_energy - 100) / 4
 		pcs_energy = 100
+	elseif pcs_energy <= (10 + vitalbuf / 25) and fat > (2 + vitalbuf / 25):
+		pcs_energy += 6
+		fat -= 2
 	end
 
 	if pcs_hydra > 200: pcs_hydra = 200

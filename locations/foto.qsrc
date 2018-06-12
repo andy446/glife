@@ -959,7 +959,7 @@ if $ARGS[0] = 'practicemodel':
 					gs 'stat'
 					if fashionshoot = 1:'<center><video autoplay loop src="images/locations/city/citycenter/photo/fashion.mp4"></video></center>'
 					if fashionshoot = 2:'<center><video autoplay loop src="images/locations/city/citycenter/photo/fashion2.mp4"></video></center>'
-					if fashionshoot = 3:'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fasion3.jpg"></center>'
+					if fashionshoot = 3:'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fashion3.jpg"></center>'
 					if fashionshoot < 4:'	You dress up in the latest in fashion wear and spend the next two hours posing for the photographer.'
 					if fashionshoot = 4:
 						'<center><video autoplay loop src="images/locations/city/citycenter/photo/fashion4.mp4"></video></center>'
@@ -1862,7 +1862,7 @@ if $ARGS[0] = 'model':
 				gs 'stat'
 				if fashionshoot = 1:'<center><video autoplay loop src="images/locations/city/citycenter/photo/fashion.mp4"></video></center>'
 				if fashionshoot = 2:'<center><video autoplay loop src="images/locations/city/citycenter/photo/fashion2.mp4"></video></center>'
-				if fashionshoot = 3:'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fasion3.jpg"></center>'
+				if fashionshoot = 3:'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fashion3.jpg"></center>'
 				if fashionshoot < 4:'	You dress up in the latest in fashion wear and spend the next two hours posing for the photographer.'
 				if fashionshoot = 4:
 					'<center><video autoplay loop src="images/locations/city/citycenter/photo/fashion4.mp4"></video></center>'

@@ -258,7 +258,13 @@ else
 	'No Pregnancies registered.'
 end
 killvar '$cycletemp'
-act 'Leave':gt $curloc
+if $loc ! '' and $metka ! '':
+	act 'Leave':gt $loc, $metka
+elseif $loc ! '':
+	act 'Leave':gt $loc
+elseif $curloc ! '':
+	act 'Leave':gt $curloc
+end
 
 --- cum_arrcheat ---------------------------------
 

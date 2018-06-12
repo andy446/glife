@@ -69,7 +69,7 @@ if $ARGS[0] = '':
 			*nl
 			'You watch in silence as the three of them exchange a few more insults before the two older guys gather their things and finally leave. Jaska grabs his glass and finishes off the last bit of alcohol before making his way over to you. He leans against the pool table and looks you up and down. He’s close enough that you can smell a mixture of alcohol, cigarette and a hint of musk.'
 			'"I don’t think I’ve seen you around here before," he says after a moment, "What’s your name?"'
-			'"<<pcs_nickname>>," you tell him.'
+			'"<<$pcs_nickname>>," you tell him.'
 			'"Right. Well, I’m Jaska, if you didn’t already know." He laughs ruefully, "So, you ever play pool?" You shake your head and Jaska’s face lights up a bit. "Then how about I teach you," he suggests, not really asking as much as telling you.'
 
 			if pcs_billiard < 10:

@@ -49,8 +49,8 @@ act 'Leave the room':minut += 1 & gt 'ymans'
 if edahot > 0:'<a href="exec:dynamic $edahotd">There''s a warm meal on the table.</a>'
 
 if pranik > 0:
-	'You have <<pranik>> cookies.'
-	act 'Drink tea with cookies (0:05)':
+	'You have <<pranik>> tea biscuits.'
+	act 'Drink tea with biscuits (0:05)':
 		cla
 		*clr
 		minut += 5
@@ -66,7 +66,7 @@ if pranik > 0:
 		frost = 0
 		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/shared/food/food.jpg"></center>'
-		'You drank tea with cookies, it''s sweet and very bad for your figure, but they''re so good you can''t resist.'
+		'You drank tea with tea biscuits, it''s sweet and very bad for your figure, but they''re so good you can''t resist.'
 
 		act 'Get up from the table':gt $curloc
 	end

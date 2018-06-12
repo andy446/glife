@@ -387,7 +387,7 @@ if $ARGS[0] = 'fine_art':
 									'	She stares at you flatly. "Okay, how about zis? I vill pay you an extra 30,000 <b>₽</b> on top of ze already agreed upon fee if you do zis for me. Not an inzignificant amount of money, but we muzt make zacrifices for great art! I vill zacrifice my money to you, if you zacrifice your virginity for me. Do ve have a deal?"'
 									act'No, I''m not losing my virginity':
 										cla & *clr
-										fine_art_deal = 2
+										fine_art_deal = 3
 										'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/foto.jpg"></center>'
 										'	"No," you say, standing firm. "I''m not about to lose my virginity just for a modelling job. You''ll have to make do with that, or get another model who''s willing to <b>whore herself</b> out for your art."'
 										'	"Ugh," she rolls her eyes and waves her hand dismissively. "Vine, vine. I vill not take your virginity. Ve are vasting too much time. But Alexhandar, maintain your erection. I cannot have a flaccid penis in a piece that iz zat iz zupposed to exude <i>lust</i> and <i>eroticism!</i>"'

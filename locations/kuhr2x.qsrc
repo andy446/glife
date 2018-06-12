@@ -81,9 +81,9 @@ end
 
 if pranik > 0:
 	if pranik = 1:
-		'You only have a couple of cookies for a snack.'
+		'You only have a couple of tea biscuits for a snack.'
 	else
-		'You have enough cookies for <b><<pranik>></b> more snacks.'
+		'You have enough tea biscuits for <b><<pranik>></b> more snacks.'
 	end
 	dynamic $pranik
 end

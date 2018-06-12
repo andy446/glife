@@ -410,6 +410,7 @@ if $ARGS[0] = 'interview':
 		if age >= 18:
 			howoldareyou = 2
 			'	I''m <<age>>.'
+			'	"I see. Alright, undress. Let me take a look at you."'
 		elseif fakepassport = 1:
 			howoldareyou = 2
 			'	"I''m 18."'
@@ -428,10 +429,9 @@ if $ARGS[0] = 'interview':
 				gs'foto','interview'
 			end
 		end
-	end
-	if howoldareyou < 0:
+	elseif howoldareyou > 0:
 		if howoldareyou = 1:
-			howoldaryou = 2
+			howoldareyou = 2
 			if age_truth = 1 or age >= 18:
 				'	"I''m <<age>>."'
 				'	"I see. Alright, undress. Let me take a look at you."'
@@ -489,13 +489,12 @@ if $ARGS[0] = 'interview':
 				'	<i>This is so embarrassing!</i>'
 				act'Continue':gt'foto','job_offer'
 			end
-
-			act'I can''t do it':
-				*clr & cla
-				'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/foto.jpg"></center>'
-				'	Even if it''s just this one time, you can''t do it after all. It''s simply too embarrassing to get naked in front of a total stranger. You blush, apologize, and leave the studio.'
-				act 'Leave': minut += 1 & gt 'down'
-			end
+		end
+		act'I can''t do it':
+			*clr & cla
+			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/foto.jpg"></center>'
+			'	Even if it''s just this one time, you can''t do it after all. It''s simply too embarrassing to get naked in front of a total stranger. You blush, apologize, and leave the studio.'
+			act 'Leave': minut += 1 & gt 'down'
 		end
 	end
 end
@@ -960,7 +959,7 @@ if $ARGS[0] = 'practicemodel':
 					gs 'stat'
 					if fashionshoot = 1:'<center><video autoplay loop src="images/locations/city/citycenter/photo/fashion.mp4"></video></center>'
 					if fashionshoot = 2:'<center><video autoplay loop src="images/locations/city/citycenter/photo/fashion2.mp4"></video></center>'
-					if fashionshoot = 3:'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fasion3.jpg"></center>'
+					if fashionshoot = 3:'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fashion3.jpg"></center>'
 					if fashionshoot < 4:'	You dress up in the latest in fashion wear and spend the next two hours posing for the photographer.'
 					if fashionshoot = 4:
 						'<center><video autoplay loop src="images/locations/city/citycenter/photo/fashion4.mp4"></video></center>'
@@ -1863,7 +1862,7 @@ if $ARGS[0] = 'model':
 				gs 'stat'
 				if fashionshoot = 1:'<center><video autoplay loop src="images/locations/city/citycenter/photo/fashion.mp4"></video></center>'
 				if fashionshoot = 2:'<center><video autoplay loop src="images/locations/city/citycenter/photo/fashion2.mp4"></video></center>'
-				if fashionshoot = 3:'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fasion3.jpg"></center>'
+				if fashionshoot = 3:'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fashion3.jpg"></center>'
 				if fashionshoot < 4:'	You dress up in the latest in fashion wear and spend the next two hours posing for the photographer.'
 				if fashionshoot = 4:
 					'<center><video autoplay loop src="images/locations/city/citycenter/photo/fashion4.mp4"></video></center>'

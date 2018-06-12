@@ -666,6 +666,7 @@ if $ARGS[0] = 'Phone_notebook':
 	pl'<center><img src="<<FUNC(''$phone_theme'')>>icon_notebook.png" height="80" width="80"></center>'
 	pl'<center><<year>>-<<$month>>-<<day>>, <<$week[week]>><br></center>'
 	rent1 = -1
+	rent4 = -1
 	if home_owned[1] > 0 and ArendHouseSL > 0:rent1 = ArendHouseSL
 	if home_owned[4] > 0 and ArendHouseSL4 > 0:rent4 = ArendHouseSL4
 	preg1 = pregtime

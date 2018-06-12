@@ -14,17 +14,19 @@ set minut += 5
 *nl
 
 $gadmarkettab = '<center><table align="center">'
-$gadmarkettab += FUNC ('$stock_item', 10, 'Package of Cookies', 400, 'pranik', 'gadmarket')
+$gadmarkettab += FUNC ('$stock_item', 10, 'Package of tea biscuits', 400, 'pranik', 'gadmarket')
 $gadmarkettab += FUNC ('$stock_item', 20, 'Cigarettes', 150, 'siga', 'gadmarket')
 $gadmarkettab += FUNC ('$single_stock_item', 1, 'Fashion magazine', 450, 'fashmag', 'gadmarket')
 $gadmarkettab += FUNC ('$single_stock_item', 1, 'Computer magazine', 450, 'compmag', 'gadmarket')
 $gadmarkettab += FUNC ('$single_stock_item', 1, 'Biographical magazine', 450, 'biomag', 'gadmarket')
 $gadmarkettab += FUNC ('$single_stock_item', 1, 'Cooking magazine', 450, 'cookmag', 'gadmarket')
 $gadmarkettab += FUNC ('$single_stock_item', 1, 'Knitting magazine', 450, 'knitmag', 'gadmarket')
-$gadmarkettab += FUNC ('$stock_item', 5, 'condoms', 600, 'prezikcount', 'gadmarket')
+$gadmarkettab += FUNC ('$stock_item', 5, 'Condoms', 600, 'prezikcount', 'gadmarket')
 $gadmarkettab += FUNC ('$stock_item', 20, 'Tampons', 250, 'tampon', 'gadmarket')
-$gadmarkettab += FUNC ('$single_stock_item', 1, 'Sandwich', 200, 'buterbrod', 'gadmarket')
-$gadmarkettab += FUNC ('$single_stock_item', 1, 'Bottle of wine', 700, 'wine', 'gadmarket')
+$gadmarkettab += FUNC ('$stock_item', 10, 'Razors', 1000, 'stanok', 'gadmarket')
+$gadmarkettab += FUNC ('$single_stock_item', 1, 'Bottle of water', 100, 'bottle', 'gadmarket', '', iif(bag > 0, 0, 1), 'You need a handbag')
+$gadmarkettab += FUNC ('$single_stock_item', 1, 'Sandwich', 100, 'buterbrod', 'gadmarket', '', iif(bag > 0, 0, 1), 'You need a handbag')
+$gadmarkettab += FUNC ('$single_stock_item', 1, 'Cheap Bottle of wine', 200, 'wine', 'gadmarket', '', iif(bag > 0, 0, 1), 'You need a handbag')
 $gadmarkettab += '</table></center>'
 *pl $gadmarkettab
 killvar '$gadmarkettab'

@@ -342,5 +342,15 @@ if $home_town = '':
 	killvar 'svidboykafe'
 end
 
+!! exhibition to inhib
+if pcs_exhibition > 0 or exhibition_exp > 0:
+	pcs_inhib = pcs_exhibition
+	inhib_exp = exhibition_exp
+	inhib_lvlst = pcs_exhibition
+	inhib_lvl = pcs_exhibition
+	killvar 'pcs_exhibition'
+	killvar 'exhibition_exp'
+end
+
 --- saveupdater ---------------------------------
 

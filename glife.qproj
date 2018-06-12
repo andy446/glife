@@ -18,6 +18,7 @@
       <Location name="restoreposition"/>
       <Location name="saveposition"/>
       <Location name="mod_setting"/>
+      <Location name="$difficulty"/>
     </Folder>
     <Folder name="clothing">
       <Location name="wardrobe"/>

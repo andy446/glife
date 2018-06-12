@@ -1347,6 +1347,7 @@ $cheatmenu['display'] = {
 
 	pl 'Mod management page: <a href="exec:gt ''mod_setting''">Here</a>'
 
+
 	if Enable_nogameover = 1:
 		pl'Prevent Non-Drama GAMEOVER: Currently ON - <a href="exec:Enable_nogameover = 0 & dynamic $cheatmenu[''display'']">Turn OFF</a>'
 	else
@@ -1384,6 +1385,15 @@ $cheatmenu['display'] = {
 	else
 		pl'Editing of the names of the porn movies you stared disabled: Currently OFF - <a href="exec:editpornname = 1 & dynamic $cheatmenu[''display'']">Turn ON</a>'
 	end
+	nl
+
+	pl '<center><B>Difficulty Setting</B></center>'
+
+	pl 'Difficulty: Currenty at <<func(''_difficulty'',''getdifficulty'')>>'
+	pl '<ul><li>set to <a href="exec:FUNC(''_difficulty'',''setdifficulty'',''easy peasy'') & dynamic $cheatmenu[''display'']">easy peasy</a></li>'
+	pl '<li>set to <a href="exec:FUNC(''_difficulty'',''setdifficulty'',''relaxed'') & dynamic $cheatmenu[''display'']">relaxed</a></li>'
+	pl '<li>set to <a href="exec:FUNC(''_difficulty'',''setdifficulty'',''realistic'') & dynamic $cheatmenu[''display'']">realistic</a></li>'
+	pl '<li>set to <a href="exec:FUNC(''_difficulty'',''setdifficulty'',''hardcore'') & dynamic $cheatmenu[''display'']">hardcore</a></li></ul>'
 	nl
 	pl '<center><B>Display Setting</B></center>'
 	if set_imgh > 0: set_imgw = 0

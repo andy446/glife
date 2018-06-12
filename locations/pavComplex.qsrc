@@ -381,7 +381,7 @@ if $ARGS[0] = 'garages':
 													'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/garage/val6.jpg"></center>'
 													'He starts grunting as he fucks your ass and suddenly pulls out of you. He stands up and pulls you up to your knees, turning to face him. As you do, he is already jerking off and within moments warm cum starts spurting out of his dick and covering your tits in sperm. After a couple of more spurts of cum, the spray stops and he moans a sigh of relief.'
 													*nl
-													'He grins down at your cum covered tits grinning at his handy work. Then he cleans himself up and gets dressed as you do the same. Once you are both fully dressed again, he turns to you. "Thanks <<pcs_nickname>> I needed that, but I should get back to work on my bike. Talk to you tomorrow at school kay." Then he starts working on his bike again. You take one last look around to make sure you didn''t forget anything and leave.'
+													'He grins down at your cum covered tits grinning at his handy work. Then he cleans himself up and gets dressed as you do the same. Once you are both fully dressed again, he turns to you. "Thanks <<$pcs_nickname>> I needed that, but I should get back to work on my bike. Talk to you tomorrow at school kay." Then he starts working on his bike again. You take one last look around to make sure you didn''t forget anything and leave.'
 													gs 'arousal', 'foreplay', 10, 'unknown'
 													gs 'cum_call', 'breasts', $boy, 1
 													gs 'arousal', 'end'

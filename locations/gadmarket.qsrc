@@ -14,7 +14,7 @@ set minut += 5
 *nl
 
 $gadmarkettab = '<center><table align="center">'
-$gadmarkettab += FUNC ('$stock_item', 10, 'Package of Cookies', 400, 'pranik', 'gadmarket')
+$gadmarkettab += FUNC ('$stock_item', 10, 'Package of tea biscuits', 400, 'pranik', 'gadmarket')
 $gadmarkettab += FUNC ('$stock_item', 20, 'Cigarettes', 150, 'siga', 'gadmarket')
 $gadmarkettab += FUNC ('$single_stock_item', 1, 'Fashion magazine', 450, 'fashmag', 'gadmarket')
 $gadmarkettab += FUNC ('$single_stock_item', 1, 'Computer magazine', 450, 'compmag', 'gadmarket')

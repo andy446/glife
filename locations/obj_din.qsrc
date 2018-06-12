@@ -1922,7 +1922,13 @@ if $ARGS[0] = 'exit':
 	cla
 	if StoryLine = 1:act 'Go to Pavlovsk':gt 'pavResidential'
 	act 'Go to City Residental':gt 'street'
-	act 'Cancel':gt $curloc
+	if $loc ! '' and $metka ! '':
+		act 'Cancel':gt $loc, $metka
+	elseif $loc ! '':
+		act 'Cancel':gt $loc
+	elseif $curloc ! '':
+		act 'Cancel':gt $curloc
+	end
 end
 
 if $ARGS[0] = 'new':

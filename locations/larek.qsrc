@@ -105,7 +105,7 @@ act 'Exit Department':gt'larek','start'
          cls
          money-=300
          pranik+=10
-         'You bought a bag of cookies that go well with tea. You figure there''s about ten servings inside.'
+         'You bought a bag of biscuits that go well with tea. You figure there''s about ten servings inside.'
          act 'Exit Department':gt'larek','food'
          end
      end

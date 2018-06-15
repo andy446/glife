@@ -914,7 +914,7 @@ if $ARGS[0] = 'rep2':
 	nl
 	pl'<a href="exec:gs ''obj_din'', ''reputation''">Return to fame</a>'
 
-	if rinslut > 1 and kavslut > 0:pl'In the residential area of ​​you are known as a whore that sleeps with Caucasians.'
+	if rinslut > 0 or kavslut > 0:pl'In the residential area of ​​you are known as a whore that sleeps with Caucasians.'
 	if afra > 80: pl'In the student hostel, you are known for bedding blacks.'
 	if opusk > 0 or gnewQW >= 5: pl'In the residential area it is well known by all the guys that you are a whore.'
 	if StoryLine = 1:		

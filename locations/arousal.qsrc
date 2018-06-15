@@ -610,6 +610,7 @@ end
 !!-----------------------------------------------
 
 if $ARGS[0] = 'end':
+	if orgasm_buildup > 250: orgasm_buildup = 250
 	if orgasm_buildup > 200: orgasm_buildup -= 10
 	if orgasm_buildup > 150: orgasm_buildup -= 10
 	if orgasm_buildup > 100: orgasm_buildup -= 10

@@ -316,7 +316,7 @@ if $ARGS[0] = 'beg':
 			'"Fine, then there''s the door!" Mr. Sobulyagin snaps, clearly upset with your answer.'
 			act 'Leave':gt 'young_shop', 'start'
 		end
-		act 'Agree': gt 'andry', 'rehired'
+		act 'Agree': gt 'andrey', 'rehired'
 	end
 	act 'Leave':gt 'young_shop', 'start'
 end

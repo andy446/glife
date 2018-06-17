@@ -1003,7 +1003,7 @@ if $ARGS[0] = 'rep2':
 		if brothershowerlook = 1:pl'You let your brother look at you when you''re shower'
 		if brothershave > 0:pl'<<brothershave>> - Number of times you''ve let your brother watch you shave your pussy'
         if brotherbj > 0:pl'<<brotherbj>> - Number of times you''ve given your brother blowjobs'
-        if brotherfuck > 0:pl'<<brotherSex>> - Number of times you''ve had sex with your brother'
+        if brotherfuck > 0:pl'<<brotherfuck>> - Number of times you''ve had sex with your brother'
 
 	end
 end

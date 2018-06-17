@@ -10,7 +10,16 @@ if npc_QW['A34'] > 20 and npc_QW['A34'] < 25: npc_QW['A34'] = 20
 ! brothersawpirsF: Flag 0/1 Have your brother seen your nipple piercings
 ! npc_rel['A34']: relationship
 ! npc_dick['A34']: size of brothers dick (14cm)
-! brotherSex: Number of sexual interactions with brother (cap at 10)
+! brotherSex = 1 - You have kissed him
+! brotherSex = 2 - You have purposely shown him your tits
+! brotherSex = 3 - You have purposely shown him your naked body
+! brotherSex = 4 - You have let him touch you
+! brotherSex = 5 - You have given him a handjob
+! brotherSex = 6 - You have given him a blowjob
+! brotherSex = 7 - You've fucked
+! brotherSex = 8 - You've done anal
+! brotherSex = 9 - You are siblings with benefits
+! brotherSex = 10 - You are lovers
 ! npc_QW['A34']: Quest stages
 ! brotherAge: your age - 2
 ! brotherknowslut: brother knowledge of your sexual activity (1 = seen cum, 2 = groupsex in park)
@@ -102,7 +111,7 @@ if $ARGS[0] = 'start':
 			if brotherSex < 1:
 				'Your brother sarcastically comments on the small towel you are wearing:'
 				'<<$pcs_nickname>>, Are you sure that is not a hand towel?'
-			elseif brotherSex >= 1:
+			elseif brotherSex >= 2:
 				'Your brother sarcastically comments on the small towel you are wearing:'
 				'"Are you wearing that for me sis?"'
 			end
@@ -277,10 +286,10 @@ if $ARGS[0] = 'start':
 				brothersawpirsF=1
 				npc_rel['A34'] += 3
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/kolka/9vh2v.jpg" ></center>'
-				'"Look what I have," you walk up to Kolka, your chest bare, showing off your nipple pircings, "Don''t be shy, you can touch them."'
+				'"Look what I have," you walk up to Kolka, your chest bare, showing off your nipple piercings, "Don''t be shy, you can touch them."'
 				'Your brother, dumbfounded by your suggestion, hesitantly touches the piercing in one of your nipples, causing you to moan gently.'
 				if brotherSex = 0:
-					'He abruptly withdraws his hand and apologizes for his rudeness. You have no choice, but to apologise, that wasn''t fair. You cover your chest.'
+					'He abruptly withdraws his hand and apologizes for his rudeness. You have no choice, but to apologize, that wasn''t fair. You cover your chest.'
 				else
 					'Seeing the pleasure playing with your nipples brings you, he begins to play harder with your piercings, sometimes squeezing your exposed Breasts.
 					After playing for a while, he lets go of your breasts, and says, "I really like your new additions."'
@@ -293,7 +302,7 @@ if $ARGS[0] = 'start':
 
 
 		if indorf = 0 and $clothingworntype = 'nude' and pirsF > 0 and brothersawpirsF = 0:
-			if brotherSex = 0:
+			if brotherSex < 4:
 				if npc_rel['A34'] >= 70:
 					'"Looks good on you." your brother winks, and points toward your pierced nipples.'
 					if npc_rel['A34'] <50:npc_rel['A34'] += 1
@@ -328,11 +337,10 @@ if $ARGS[0] = 'start':
 
 		if indorf = 0 and brotherSexCount > 0 and brotherDay = daystart:
 			brotherRand = rand(0,10)
-			if hour >= 5 and hour < 7 and brotherSex > 0 and brotherMorningSex ! daystart and brotherRand < 2:
+			if hour >= 5 and hour < 7 and brotherSex > 4 and brotherMorningSex ! daystart and brotherRand < 2:
 				'Going up to your sleeping brother, you see he''s pitching a tent.'
 				if pcs_horny >= 90 and brothersex > 6:
 					act 'Mount him':
-						if brotherSex > 10: brotherSex = 10
 						cls
 						minut += 5
 						pcs_horny += 10
@@ -381,7 +389,6 @@ if $ARGS[0] = 'start':
 						gs 'cum_manage'
 						swallow += 1
 						brotherbj += 1
-						brotherSex += 1
 						brotherSexCount -= 1
 						brotherMorningSex = daystart
 						gs 'stat'
@@ -397,7 +404,7 @@ if $ARGS[0] = 'start':
 				end
 			end
 
-			if hour >= 21 and hour < 24 and brotherSex > 0 and brotherNightSex ! daystart:
+			if hour >= 21 and hour < 24 and brotherSex > 4 and brotherNightSex ! daystart:
 				'When you get close, he suddenly opens his eyes and says,:'
 				if sub > 0 or (evgenQW >= 4 and pav_slut >= 75):
 					'"<<$pcs_nickname>>, help me sleep." Then he throws back the blanket, revealing his erection.'
@@ -430,7 +437,7 @@ if $ARGS[0] = 'start':
 				'When you get close, He turns to you and says,:'
 				if sub > 0 or (evgenQW >= 4 and pav_slut >= 75):
 					gs 'boyStat', 'A34'
-					'"<<$pcs_nickname>>, Come on you have work to do, and quitely, you don''t want to wake our parents up." Then he drops his pants, and you see his hard <<dick>> cm dick.'
+					'"<<$pcs_nickname>>, come on you have work to do. And be quiet! You don''t want to wake up mom and dad." Then he drops his pants, and you see his hard <<dick>> cm dick.'
 					brotherSexCount -= 1
 					brotherEvSex = daystart
 
@@ -483,7 +490,6 @@ if $ARGS[0] = 'start':
 end
 
 if $ARGS[0] = 'sleepsexcum':
-	brotherSex += 1
 	brotherfuck += 1
 	minut += 15
 	if protect ! 1:
@@ -621,13 +627,12 @@ end
 if $ARGS[0] = 'brotherSexStart':
 	cla
 	gs 'boyStat', 'A34'
-	if brotherSex = 0:brotherSex = 1 & guy += 1
 	act 'Jerk your brother':
 		cls
 		minut += 5
 		stat['hj'] += 1
+		if brotherSex < 5:brotherSex = 5
 		gs 'stat'
-
 		'<center><img <<$set_imgh>> src="images/shared/sex/handjob/hj1.jpg"></center>'
 		'You take his hard cock in your hand and begin to masturbate him. Finally your brother groans and you watch sperm erupt from his cock.'
 		spafinloc = 13
@@ -635,13 +640,14 @@ if $ARGS[0] = 'brotherSexStart':
 		gs 'cum_manage'
 		gs 'brother', 'brotherSexEnd'
 	end
-	if brotherSex > 4:
+	if brotherSex >= 5:
 		act 'Suck your brother':
 			cls
 			minut += 5
 			pcs_horny += 10
 			brotherfuck += 1
 			stat['bj'] += 1
+			if brotherSex < 6:brotherSex = 6
 			gs 'stat'
 
 			'<center><video autoplay loop src="images/characters/pavlovsk/school/boy/kolka/sex/blow0,<<rand(0,6)>>.mp4"></video></center>'
@@ -686,9 +692,9 @@ if $ARGS[0] = 'brotherSexStart':
 
 				gs 'brother', 'brotherSexEnd'
 			end
-			if brotherSex > 6:
+			if brotherSex >= 6:
 				act 'Give yourself to your brother':
-					if brotherSex > 10: brotherSex = 10
+					if brotherSex < 7:brotherSex = 7
 					cls
 					minut += 5
 					pcs_horny += 10
@@ -708,12 +714,13 @@ if $ARGS[0] = 'brotherSexStart':
 					gs 'brother', 'brotherSexEnd'
 				end
 			end
-			if brotherSex >= 10:
+			if brotherSex >= 6:
 				act 'Offer your ass to your brother':
 					cls
 					minut += 5
 					pcs_horny += 10
 					brotherfuck += 1
+					if brotherSex < 8:brotherSex = 8
 					gs 'boyStat', 'A34'
 
 					gs 'stat'
@@ -729,10 +736,10 @@ if $ARGS[0] = 'brotherSexStart':
 			end
 		end
 	end
-	if brotherSex > 6:
+	if brotherSex >= 6:
 		act 'Give yourself to your brother':
 			brotherfuck += 1
-			if brotherSex > 10: brotherSex = 10
+			if brotherSex < 7:brotherSex = 7
 			cls
 			minut += 5
 			pcs_horny += 10
@@ -751,12 +758,13 @@ if $ARGS[0] = 'brotherSexStart':
 			gs 'brother', 'brotherSexEnd'
 		end
 	end
-	if brotherSex >= 10:
+	if brotherSex >= 7:
 		act 'Offer your ass to your brother':
 			brotherfuck += 1
 			cls
 			minut += 5
 			pcs_horny += 10
+			if brotherSex < 8:brotherSex = 8
 			gs 'boyStat', 'A34'
 
 			gs 'stat'
@@ -772,7 +780,6 @@ if $ARGS[0] = 'brotherSexStart':
 end
 
 if $ARGS[0] = 'brotherSexEnd':
-	brotherSex += 1
 	if sub > 0 or (evgenQW >= 4 and pav_slut >= 75):
 		if $loc = 'sitrPar' and father_go = 1 and hour >= 18 and hour < 21:
 			minut += 15
@@ -783,9 +790,7 @@ if $ARGS[0] = 'brotherSexEnd':
 			act 'Leave': gt 'sitrPar'
 		elseif $loc = 'sitrPar':
 			minut += 15
-
 			gs 'stat'
-
 			'Kolka catches his breath, then says, "Nice one <<$pcs_nickname>>, you''re well trained. Now don''t tell anyone!", and falls asleep.'
 			act 'Leave': gt 'sitrPar'
 		else
@@ -796,21 +801,16 @@ if $ARGS[0] = 'brotherSexEnd':
 	else
 		if $loc = 'sitrPar' and father_go = 1 and hour >= 18 and hour < 21:
 			minut += 15
-
 			gs 'stat'
-
 			'Kolka catches his breath, then says, "Many thanks, <<$pcs_nickname>>, you helped me a lot." He continues to go about his business.'
 			act 'Leave': gt 'sitrPar'
 		elseif $loc = 'sitrPar':
 			minut += 15
-
 			gs 'stat'
-
 			'Kolka catches his breath, then says, "Thank you, <<$pcs_nickname>>, you saved me. Now I can finally sleep.", and goes to sleep.'
 			act 'Leave': gt 'sitrPar'
 		else
 			'Kolka says, "Thanks for everything, Sis. Well, I''m off.", and leaves.'
-
 			act 'Continue':gt $loc, $metka
 		end
 	end
@@ -995,10 +995,10 @@ if $ARGS[0] = 'brother_sex_end':
 	minut += RAND(2,5)
 	'<center><video src="images/characters/pavlovsk/resident/kolka/event/shower/shower.mp4"></center>'
 	'You stay under the shower for a while, touching yourself, remembering Kolka inside of you.'
-	if brothersex > 10:
+	if brothersex >= 9:
 		'You really enjoyed this little tryst, and in secret you are hoping for a repeat.'
 	elseif brothersex > 0:
-		'You are a little bedevilled that you just had sex with your own brother, in the shower, not the least, but you can''t deny that you enjoyed it, maybe more so because it is taboo.'
+		'You are a little bedeviled that you just had sex with your own brother, in the shower, not the least, but you can''t deny that you enjoyed it, maybe more so because it is taboo.'
  	else
 		'You can''t believe that you just had sex with your little brother. You are a little shocked, but also feel a strange glow, even knowing that this is fundamentally wrong.'
 	end
@@ -1151,7 +1151,7 @@ if $ARGS[0] = 'anus_check':
 		elseif brother_saw_analplug = 1:
 			'"There it is again with this thing in your ass?" asked Kolka, obviously referring to sex-toy in your ass.'
 			'"Aha..." you coquettishly answer.'
-			if brotherSex > 0:
+			if brotherSex > 4:
 				'"Maybe you should take it out and put it back in?" He asks.'
 				'"Maybe next time, Kolka"'
 			else
@@ -1292,11 +1292,12 @@ if $ARGS[0] = 'brother_voyeur_ev8':
 	minut += RAND(5,10)
 	ivrand = RAND(1,2)
 	brotherConfidence += 4
-	if brotherConfidence < 10 and brotherSex < 1:
+	if brotherConfidence < 10 and brotherSex < 4:
 		gs 'cum_call', 'stomach', 'A34', 1, 0, 0, rand(20,30)
 		gs 'cum_call', 'breasts', 'A34', 1, 0, 0, rand(10,20)
 		gs 'cum_call', 'labia', 'A34', 1, 0, 0, rand(10,20)
 		gs 'stat'
+		if brotherSex < 4:brotherSex = 4
 		if sound = 0:PLAY 'sound/moaning<<ivrand>>.mp3',30
 			picrand = RAND(1,2)
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/f (6.<<picrand>>).jpg"></center>'
@@ -1327,7 +1328,7 @@ if $ARGS[0] = 'brother_voyeur_ev8':
 			end
 			act'Dress':gt $loc, $metka
 		end
-	elseif brotherSex > 0:
+	elseif brotherSex >= 4:
 		cls
 		minut += 5
 		pcs_horny += 10
@@ -1337,7 +1338,6 @@ if $ARGS[0] = 'brother_voyeur_ev8':
 		sexpartkno = 1
 		gs 'cum_manage'
 		swallow += 1
-		brotherSex += 1
 		brotherSexCount -= 1
 		brotherEvSex = daystart
 		gs 'stat'
@@ -1358,7 +1358,7 @@ if $ARGS[0] = 'brother_voyeur_ev8':
 			'You don''t say anything as you get dressed.'
 			act'Dress':gt $loc, $metka
 		end
-	elseif brotherConfidence > 10 and brotherSex = 0:
+	elseif brotherConfidence > 10 and brotherSex < 4:
 		cls
 		minut += 5
 		pcs_horny += 10
@@ -1368,7 +1368,7 @@ if $ARGS[0] = 'brother_voyeur_ev8':
 		sexpartkno = 1
 		gs 'cum_manage'
 		swallow += 1
-		brotherSex += 1
+		if brotherSex < 4:brotherSex = 4
 		brotherSexCount -= 1
 		brotherEvSex = daystart
 		gs 'stat'
@@ -1395,21 +1395,21 @@ end
 
 if $ARGS[0] = 'pregreact':
 	if pregTalkbrother = 0 and knowpreg = 1:
-		if $clothingworntype = 'nude' and pregchem > 2000 and brotherSex = 0 and kid = 0:
+		if $clothingworntype = 'nude' and pregchem > 2000 and brotherSex < 7 and kid = 0:
 			'Surprised, your brother looks at your tummy. "<<$pcs_nickname>>, are you pregnant? Mom and dad are going to be pissed!" After a moments pause he adds "You do still look good pregnant, though."'
 			pregTalkbrother = 1
 
 			act 'Continue' :gt 'sitrPar'
 		exit
 
-		elseif $clothingworntype ! 'nude' and pregchem > 3460 and brotherSex = 0 and kid = 0:
+		elseif $clothingworntype ! 'nude' and pregchem > 3460 and brotherSex < 7 and kid = 0:
 			'Surprised, your brother looks at your tummy, "<<$pcs_nickname>>, why didn''t you tell me I''m going to be an uncle? '
 			pregTalkbrother = 1
 
 			act 'Continue' :gt 'sitrPar'
 		exit
 
-		elseif brotherSex > 0 and kid = 0 and pregTalkMom = 0 and (($clothingworntype = 'nude' and pregchem > 2000) or ($clothingworntype ! 'nude' and pregchem >= 3460) or ($clothingworntype = 'nude' and pregchem < 2000) or ($clothingworntype ! 'nude' and pregchem < 3460)):
+		elseif brotherSex >= 7 and kid = 0 and pregTalkMom = 0 and (($clothingworntype = 'nude' and pregchem > 2000) or ($clothingworntype ! 'nude' and pregchem >= 3460) or ($clothingworntype = 'nude' and pregchem < 2000) or ($clothingworntype ! 'nude' and pregchem < 3460)):
 			cla
 			'"Are you really pregnant? It''s.. It''s not mine, is it?"'
 			*nl
@@ -1425,7 +1425,7 @@ if $ARGS[0] = 'pregreact':
 		exit
 
 
-		elseif ($clothingworntype = 'nude' and pregchem > 2000) or ($clothingworntype ! 'nude' and pregchem > 3460) and brotherSex = 0 and kid > 0:
+		elseif ($clothingworntype = 'nude' and pregchem > 2000) or ($clothingworntype ! 'nude' and pregchem > 3460) and brotherSex < 7 and kid > 0:
 			'"You''re already pregnant again? This is starting to look like a new hobby," he laughs.'
 			'"You know what? Maybe it is," you joke back. "Some girls play sports; I get serially impregnated."'
 			'"Well, congratulations on taking home the gold in getting knocked up."'
@@ -1436,7 +1436,7 @@ if $ARGS[0] = 'pregreact':
 
 			act 'Continue' :pregTalkbrother = 1 & gt 'sitrPar'
 
-		elseif brotherSex > 0 and pregTalkMom = 0 and kid > 0 and (($clothingworntype = 'nude' and pregchem >= 2000) or ($clothingworntype ! 'nude' and pregchem >= 3460) or ($clothingworntype = 'nude' and pregchem < 2000) or ($clothingworntype ! 'nude' and pregchem < 3460)):
+		elseif brotherSex >= 7 and pregTalkMom = 0 and kid > 0 and (($clothingworntype = 'nude' and pregchem >= 2000) or ($clothingworntype ! 'nude' and pregchem >= 3460) or ($clothingworntype = 'nude' and pregchem < 2000) or ($clothingworntype ! 'nude' and pregchem < 3460)):
 			cla
 			'"Wow, you''re pregnant again? Is it mine this time?"'
 			*nl

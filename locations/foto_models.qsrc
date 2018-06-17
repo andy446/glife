@@ -485,17 +485,17 @@ if $ARGS[0] = 'mari_chat':
 					'	You think of your siblings and smile, "Yeah. We are."'
 					act 'Keep chatting':gt 'foto_models','mari_chat'
 
-				elseif sisterLesb >= 5 and brotherSex >= 1 and brotherSex < 6 and npc_rel['A34'] >= 80:
+				elseif sisterLesb >= 5 and brotherSex >= 1 and brotherSex < 7 and npc_rel['A34'] >= 80:
 					'	"Yeah, I''ve got two. My sister who''s about the same age as you are and my adorable little brother. I love them both so much!"'
 					'	Mari smiles at you. "You sound close."'
 					'	Your mind wanders back to your siblings and how you''ve fooled around with both of them separately.'
 					'	"You could say that..."'
 					act 'Keep chatting':gt 'foto_models','mari_chat'
 
-				elseif sisterLesb >= 5 and brotherSex >= 6 and npc_rel['A34'] >= 80:
+				elseif sisterLesb >= 5 and brotherSex >= 7 and npc_rel['A34'] >= 80:
 					'	"Yeah, I''ve got two. My sister who''s about the same age as you are and my adorable little brother. I love them both so much!"'
 					'	Mari smiles at you. "You sound close."'
-					'	Your mind wanders back to your siblings and how you''ve fooled around with your sister and even had full fledged intercourse with your brother. Your thoughts wander to the memory of the last time his cock slid out of you and it causes you to blush.'
+					'	Your mind wanders back to your siblings and how you''ve fooled around with your sister and even had full fledged intercourse with your brother. Your thoughts wander to the memory of the last time his cock was inside you and it causes you to blush.'
 					'	"You could say that..."'
 					act 'Keep chatting':gt 'foto_models','mari_chat'
 

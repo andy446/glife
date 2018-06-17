@@ -957,9 +957,7 @@ $cheatmenu['reputation'] = {
 				pl'Your mother thinks that you are a virgin. <a href="exec:motherKnowSpravka = 0 & dynamic $cheatmenu[''reputation'']">Clear</a>'
 			end
 			nl
-			if brotherSex >= 1:
-				pl'Your brother thinks you are a slut. <a href="exec:brotherSex = 0 & dynamic $cheatmenu[''reputation'']">Clear</a>'
-			elseif evgenQW >= 3:
+			if evgenQW >= 3:
 				pl'Your brother thinks you are a slut. <a href="exec:evgenQW = 0 & dynamic $cheatmenu[''reputation'']">Clear</a>'
 			end
 			if brotherknowslut = 1: pl'Your brother saw semen on your body and thinks you fuck around. <a href="exec:brotherknowslut = 0 & dynamic $cheatmenu[''reputation'']">Clear</a>'

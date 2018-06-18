@@ -142,8 +142,6 @@ if coatH[defaultcoat] <= 0: defaultcoat = 0
 !!------------------------------------------------------------------------------------------------------------
 !!	Bimbo
 !!------------------------------------------------------------------------------------------------------------
-!!A Succubus cannot be a Bimbo
-if succubusflag = 1 and bimbo > 0: bimbo -= succublvl * 2
 
 !!Bonus from clothing and shoes
 if succubusflag = 0 and $cheatBimbo ! '<b>ON</b>':
@@ -180,14 +178,48 @@ if bimbolevel = 1: supnatvnesh = 2 & bimbostupidity = (pcs_intel / 6)
 if bimbolevel = 2: supnatvnesh = 4 & bimbostupidity = (pcs_intel / 4)
 if bimbolevel = 3: supnatvnesh = 8 & bimbostupidity = (pcs_intel / 3)
 
+!!A Succubus cannot be a Bimbo
+if succubusflag = 1:
+	if bimbolevel > 0 and bimbo > 0: bimbowithdrawal = 40
+elseif bimbolevel >= 1:
+!!Checks how often sex has occured in the last 24 hours and for drops in bimbo score, for calculating withdrawal
+	bimbo += ((stat['vaginal'] + stat['bj'] + stat['anal']) - snapshotX) - 3
+	if bimbo > snapshotY:
+		bimbowithdrawal = 0
+	else
+		bimbowithdrawal += 1
+	end
+end
+
+if bimbo < 0: bimbo = 0
+snapshotX = (stat['vaginal'] + stat['bj'] + stat['anal'])
+snapshotY = bimbo
+
+!!------------------------------------------------------------------------------------------------------------
+!!	Exhibitionist
+!!------------------------------------------------------------------------------------------------------------
+
+if Exhibitionist > 0 or Exhibitionist_lvl > 0:
+    if Exhibitionist < 10:
+        Exhibitionist -= 1
+    elseif Exhibitionist < 20:
+    	Exhibitionist_lvl = 1
+    elseif Exhibitionist < 30:
+    	Exhibitionist_lvl = 2
+    else
+        Exhibitionist_lvl = 3
+    end
+end
+
+!!------------------------------------------------------------------------------------------------------------
+!!	Succubus
+!!------------------------------------------------------------------------------------------------------------
+
 !!Succubus Level & hunger calcs
 if succubusflag = 1:
 
 	cheatHealth = 1
 	dynamic $cheatmenu['std_cure']
-
-!!	A Succubus cannot be a Bimbo
-	if bimbolevel > 0 and bimbo > 0: bimbowithdrawal = 40
 
 !!	Hunger handling
 	if sucxpsnapshot >= succubxp: succhungry += 1
@@ -273,21 +305,6 @@ if succubusflag = 1:
 		end
 	end
 end
-
-!!Bimbo second half, after Succubus so changes there can be reflected here if still bimbo and Succubus
-!!Checks how often sex has occured in the last 24 hours and for drops in bimbo score, for calculating withdrawal
-if bimbolevel >= 1:
-	bimbo += ((stat['vaginal'] + stat['bj'] + stat['anal']) - snapshotX) - 3
-	if bimbo > snapshotY:
-		bimbowithdrawal = 0
-	else
-		bimbowithdrawal += 1
-	end
-end
-
-if bimbo < 0: bimbo = 0
-snapshotX = (stat['vaginal'] + stat['bj'] + stat['anal'])
-snapshotY = bimbo
 
 !!------------------------------------------------------------------------------------------------------------
 

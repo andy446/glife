@@ -1994,6 +1994,7 @@ if $ARGS[0] = 'brother_shower_fuck_first':
 			end
 
 			act'No, I''m a slut (lie)':
+				cla
 				brothervirginlie = 2
 				'	"Nope!" You smile at him. "Sorry to disappoint, but yours is just going to be one more of many different dicks that have been inside my pussy little brother."'
 				'	You''re not really sure why you''re lying to him about this, especially with the implication that you''re a huge slut, but there''s no time to think about that as you push your ass towards him and impale yourself on his cock.'
@@ -2008,6 +2009,7 @@ if $ARGS[0] = 'brother_shower_fuck_first':
 			end
 
 			act'No, I''m a slut':
+				cla
 				'	"Nope!" You smile at him. "Sorry to disappoint, but yours is just going to be one more of many different dicks that have been inside my pussy little brother."'
 				'	You''re not really sure why you''re telling him about this, especially with the implication that you''re a huge slut, but there''s no time to think about that as you push your ass towards him and swallow his cock with your pussy.'
 				act'Continue':gt'brother_voyeur','brother_shower_fuck_first2'
@@ -2378,7 +2380,7 @@ if $ARGS[0] = 'brother_shower_fuck_end':
 	if brotherfuck = 1 and brother_knows_not_virgin >= 1:
 		pcs_horny = 0
 		gs'stat'
-		'<center><img <<$set_imgh>> src="images/shared/home/bathroom/broshowersex2.jpg"></center>'
+		'<center><img <<$set_imgh>> src="images/shared/home/bathroom/brothershowersex2.jpg"></center>'
 		'	Thoroughly satisfied with the dicking you received from your brother, you lean into him letting him feel you up from behind.'
 		'	"So," you ask, nonchalantly grabbing his cock and working it gently. "Did you enjoy losing your virginity? Was it everything your teenage brain dreamed of?"'
 		'	"Everything and more," he responds, gently pinching your nipples, causing you to moan and squeeze his dick in response. "But more than that, I''m happy to be part of the club."'
@@ -2389,7 +2391,7 @@ if $ARGS[0] = 'brother_shower_fuck_end':
 			'	He hesitates before he asks his next question. "Does that mean that I''m going to be the only ''active'' member of the club? I mean... does this mean that I''m going to be the only one you have sex with?"'
 			act'No, it means we help each other out':
 				cla & *clr
-				'<center><img <<$set_imgh>> src="images/shared/home/bathroom/broshowersex2.jpg"></center>'
+				'<center><img <<$set_imgh>> src="images/shared/home/bathroom/brothershowersex2.jpg"></center>'
 				if brotherSex < 9:brotherSex = 9
 				'	"Well..." You think for a moment. "I''d still like to get a boyfriend, maybe get married some day. And I like fucking you, but you''re still just my brother to me. I can''t really see you any other way. Besides, I''m sure that you''d like to get a real girlfriend someday. Not just be that boy who''s so pathetic because the only poon he can get is from his sister. Maybe we can just take care of each other? So we''d still see other people and stuff, but we can always fuck each other''s brains out whenever we need some relief. How does that sound?"'
 				'	"Sounds good," he grins at you. "Besides, you can''t be the only girl I have sex with. I need to fuck a real virgin some day. Not some loose slut throwing freebies to her brother."'
@@ -2399,7 +2401,7 @@ if $ARGS[0] = 'brother_shower_fuck_end':
 			end
 			act'Yes, I love you':
 				cla & *clr
-				'<center><img <<$set_imgh>> src="images/shared/home/bathroom/broshowersex2.jpg"></center>'
+				'<center><img <<$set_imgh>> src="images/shared/home/bathroom/brothershowersex2.jpg"></center>'
 				if brotherSex < 10:brotherSex = 10
 				'	His question strikes you by surprise. Even more surprisingly, you hear yourself whispering.'
 				'	"Yes."'
@@ -2414,7 +2416,7 @@ if $ARGS[0] = 'brother_shower_fuck_end':
 
 		act'Glad to have a new member (slut)':
 			cla & *clr
-			'<center><img <<$set_imgh>> src="images/shared/home/bathroom/broshowersex2.jpg"></center>'
+			'<center><img <<$set_imgh>> src="images/shared/home/bathroom/brothershowersex2.jpg"></center>'
 			'	"Oh yeah, I''m glad to have a new member. You can never have enough members inside y-, I mean, in the club," you say, winking at him mischievously.'
 			'	"Slut."'
 			'	"Cocktoy."'

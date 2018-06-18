@@ -876,6 +876,9 @@ if GspravkaT = 1:Gspravka -= 1
 if IvanPodstavaQW = 2 and PodpiskaNeviezd = 30:IvanPodstavaQW = 3
 if IvanPodstavaQW = 2 and PodpiskaNeviezd > 0 and PodpiskaNeviezd < 30:PodpiskaNeviezd += 1
 
+!!remove degradation for inhibition
+inhib_flr = inhib_lvl
+
 gs 'stat_sklattrib', 'daycall'
 
 if dounspell = 1:

@@ -57,6 +57,7 @@ if $ARGS[0] = 'showertalk1':
 				npc_rel['A34'] += 5
 				*clr & cla
 				brothershowerlook = 1
+				if brotherSex < 3:brotherSex = 3
 				'<center><img <<$set_imgh>> src="images/shared/home/bathroom/brothertalk4.jpg"></center>'
 				npc_rel['A34'] += 5
 				'	"Kolka..." When you say this he starts to turn towards you a little bit but then stops himself and continues to stare at the wall. You sigh sympathetically. "It''s okay to look at me you know."'
@@ -142,6 +143,7 @@ if $ARGS[0] = 'showertalk2':
 		act'"You can look at me you know"':
 			*clr & cla
 			brothershowerlook = 1
+			if brotherSex < 3:brotherSex = 3
 			npc_rel['A34'] += 5
 			bro_ass_compliment = rand(1,3)
 			'<center><img <<$set_imgh>> src="images/shared/home/bathroom/brothertalk4.jpg"></center>'
@@ -628,10 +630,10 @@ if $ARGS[0] = 'brother_shower_together':
 			cla & *clr
 			'<center><img <<$set_imgh>> src="images/shared/home/bathroom/brothershower.jpg"></center>'
 			'	"So, how was your day?" you ask cheerfully.'
-			if brother_shower_times < 3 or brotherSex < 1:
+			if brother_shower_times < 3 or brotherSex < 4:
 				'	"It, uhh... was... g-good... uhm..." he stammers.'
 				act'Continue':gt'brother_voyeur','brother_shower_together_first'
-			elseif brotherSex >= 1 and brothergrope = 1:
+			elseif brotherSex >= 4 and brothergrope = 1:
 				'	"Getting better by the moment..." he says, sliding up behind you.'
 				act'"Eek-!"':gt'brother_voyeur','showerfun'
 
@@ -651,7 +653,7 @@ if $ARGS[0] = 'brother_shower_together':
 				'	"It''s... Uhh... fine..." he stammers.'
 				act'Continue':gt'brother_voyeur','brother_shower_together_first'
 
-			elseif brotherSex >= 1 and brothergrope = 1:
+			elseif brotherSex >= 4 and brothergrope = 1:
 				brothergrope = 2
 				'	"It''s fine, but I''ve been having a little trouble paying attention in class lately," he says, stepping behind you.'
 				'	"Why''s that?"'
@@ -671,7 +673,7 @@ if $ARGS[0] = 'brother_shower_together':
 			if brother_shower_times < 3 or brotherSex < 1:
 				'	"They''re... Uhh... fine..." he stammers.'
 				act'Continue':gt'brother_voyeur','brother_shower_together_first'
-			elseif brotherSex >= 1 and brothergrope = 1:
+			elseif brotherSex >= 4 and brothergrope = 1:
 				brothergrope = 3
 				'	"Who cares about them?" he says, stepping behind you.'
 				act'"Eek-!"':gt'brother_voyeur','showerfun'
@@ -733,10 +735,10 @@ if $ARGS[0] = 'brother_shower_together':
 					'	"Hey Kolka, want to see something cool?"'
 					'	"Huh?" He asks, confused. "What is it?"'
 					'	His eyes go wide when you grab him by the cock. Slightly panicked, he looks back at you when you start to kneel.'
-					'	"It''s my mouth around your cock!" you grin at him.'
+					'	"It''s my mouth around your cock!"'
 					act'Blow him':gt'brother_voyeur','brother_shower_bj'
 				else
-					'	Looking at Kolka, he glances back at you to see a mischievous twinkle in your eye. Without a second''s thought or warning, you get on your knees and start blowing him.'
+					'	Looking at Kolka, he glances back at you to see a mischievous twinkle in your eye. Without a second''s thought or warning, you get on your knees and wrap your lips around his <<dick>> cm cock.'
 					act'Blow him':gt'brother_voyeur','brother_shower_bj'
 				end
 			end
@@ -766,11 +768,12 @@ end
 
 if $ARGS[0] = 'brother_wash':
 	npc_rel['A34'] += 5
+	if brotherSex < 4:brotherSex = 4
 	cla & *clr
 	brotherwash += 1
 	'<center><img <<$set_imgh>> src="images/shared/home/bathroom/brotherwash.jpg"></center>'
 	'	You and Kolka spend some time lathering each other with soap and rubbing each other down, both of you appreciatively feeling each other''s bodies as you do so.'
-	if brotherwash > 5 or brotherSex > 0 or brotherfuck > 0:
+	if brotherwash > 5 or brotherSex > 5 or brotherfuck > 0:
 		'	Kolka even slips his hands between your legs and gives your pussy a good cleaning, paying special attention to your clit and causing you to squirm and and moan under his touch.'
 		gs 'arousal','vaginal_finger',3
 	end
@@ -1407,7 +1410,7 @@ if $ARGS[0] = 'brother_shower_bj':
 	npc_rel['A34'] += 3
 	brotherbj += 1
 	brothershowerbj = daystart
-	brotherSex += 1
+	if brotherSex < 6:brotherSex = 6
 	cla & *clr
 	'<center><video src="images/shared/home/bathroom/showerbj.mp4"></center>'
 	'	Kneeling down, you take Kolka''s freshly washed cock and push it between your lips, sucking gently. Several minutes go by while you to continue blowing your brother, going slowly up and down his length, the sound of water raining down from the showerhead muting the soft slurping sounds coming from your mouth.'
@@ -1906,11 +1909,11 @@ if $ARGS[0] = 'brother_shower_fuck_first':
 	npc_rel['A34'] += 20
 	gs 'boystat','A34'
 	cla & *clr
+	if brotherSex < 7:brotherSex = 7
 	'<center><video src="images/shared/home/bathroom/BroShower2.mp4"></center>'
 	'	You lean back into your brother, gripping his member and jerking it a few times to make sure he''s still hard enough for what you want to do next. You pull on him, carefully guiding his cock until you can feel the tip pressing against the entrance of pussy.'
 	if brother_knows_not_virgin = 1:
 		brotherfuck += 1
-		brotherSex += 1
 		'	"I was wondering if you were going to let me join the "Boys Who Fuck <<$pcs_nickname>>" Club," he says, grin radiating from behind you.'
 		*nl
 		act'It''s pretty exclusive':
@@ -1969,7 +1972,6 @@ if $ARGS[0] = 'brother_shower_fuck_first':
 		end
 	else
 		brotherfuck += 1
-		brotherSex += 1
 		'	You feel Kolka tense up behind you and he hesitates.'
 		'	"Is this...? Are you...?"'
 		'	"My first time? A virgin?"'
@@ -2082,6 +2084,7 @@ if $ARGS[0] = 'brother_shower_fuck':
 	gs 'boystat','A34'
 	if brotherfuck < 1:gt'brother_voyeur','brother_shower_fuck_first'
 	brotherfuck += 1
+	if brotherSex < 7:brotherSex = 7
 	npc_rel['A34'] += 5
 	gs 'arousal', 'vaginal', rand(5,10)
 	gs 'stat'
@@ -2387,9 +2390,9 @@ if $ARGS[0] = 'brother_shower_fuck_end':
 			act'No, it means we help each other out':
 				cla & *clr
 				'<center><img <<$set_imgh>> src="images/shared/home/bathroom/broshowersex2.jpg"></center>'
-				'	"Well..." You think for a moment. "I''d still like to get a boyfriend, maybe get married some day. And I like fucking you, but you''re still just my brother to me. I don''t really see you that way. And I''m sure that you''d like to get a real girlfriend someday too, not just get favors from your sister. So maybe we''d just take care of each other? So we''d still see other people and stuff, but we can always fuck each other''s brains out whenever we need some relief. Deal?"'
-				'	Your brother thinks to himself briefly before his mouth splits into a wide grin.'
-				'	"Deal. Besides, you can''t be the only girl I have sex with. I need to fuck a real virgin some day. Not some loose slut throwing freebies to her brother."'
+				if brotherSex < 9:brotherSex = 9
+				'	"Well..." You think for a moment. "I''d still like to get a boyfriend, maybe get married some day. And I like fucking you, but you''re still just my brother to me. I can''t really see you any other way. Besides, I''m sure that you''d like to get a real girlfriend someday. Not just be that boy who''s so pathetic because the only poon he can get is from his sister. Maybe we can just take care of each other? So we''d still see other people and stuff, but we can always fuck each other''s brains out whenever we need some relief. How does that sound?"'
+				'	"Sounds good," he grins at you. "Besides, you can''t be the only girl I have sex with. I need to fuck a real virgin some day. Not some loose slut throwing freebies to her brother."'
 				'	You smack his arm but smile anyways. "Yeah, but I still have <i>your</i> virginity. No matter how many other girls'' you take, yours will always be mine!"'
 				'	The two of you banter back and forth for a little while longer before you realize someone might notice that your brother is missing and become suspicious. You quickly shut off the water and dry him off, gathering Kolka''s clothes and shooing him into the hallway.'
 				act'Finish':mirror_steam = hour & gt $loc
@@ -2397,6 +2400,7 @@ if $ARGS[0] = 'brother_shower_fuck_end':
 			act'Yes, I love you':
 				cla & *clr
 				'<center><img <<$set_imgh>> src="images/shared/home/bathroom/broshowersex2.jpg"></center>'
+				if brotherSex < 10:brotherSex = 10
 				'	His question strikes you by surprise. Even more surprisingly, you hear yourself whispering.'
 				'	"Yes."'
 				'	"You''re the only one for Kolka. You''re my brother and I love you like a brother but... I also feel something more for you. I want to be with you. I love you."'

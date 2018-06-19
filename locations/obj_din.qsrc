@@ -751,7 +751,7 @@ if $ARGS[0] = 'stats_sport':
 	pl'Marksmanship <<pcs_shoot>>'
 	pl'Chess <<pcs_chess>>'
 	pl'Ice Skating <<pcs_icesktng>>'
-	pl'Gaming <<pcs_ttgmng>>'
+	pl'Gaming <<pcs_gaming>>'
 end
 
 if $ARGS[0] = 'stats_beauty':

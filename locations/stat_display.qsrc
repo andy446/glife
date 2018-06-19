@@ -370,7 +370,7 @@ else
 		if pcs_shoot > 0: gs 'show_table', '<<pcs_shoot>> Marksmanship', '2'
 		if pcs_chess > 0: gs 'show_table', '<<pcs_chess>> Chess', '2'
 		if pcs_icesktng > 0: gs 'show_table', '<<pcs_icesktng>> Ice Skating', '2'
-		if pcs_ttgmng > 0: gs 'show_table', '<<pcs_ttgmng>> Gaming', '2'
+		if pcs_gaming > 0: gs 'show_table', '<<pcs_gaming>> Gaming', '2'
 		if pcs_pool > 0: gs 'show_table', '<<pcs_pool>> Pool', '2'
 	end
 

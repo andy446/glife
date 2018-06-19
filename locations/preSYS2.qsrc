@@ -440,7 +440,7 @@ if $ARGS[0] = 'modskl_spo':
 	gs 'preSYS2', 'modrel_setup2', 'pcs_shoot', 'Marskmanship'
 	gs 'preSYS2', 'modrel_setup2', 'pcs_chess', 'Chess'
 	gs 'preSYS2', 'modrel_setup2', 'pcs_icesktng', 'Ice Skating'
-	gs 'preSYS2', 'modrel_setup2', 'pcs_ttgmng', 'Gaming'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_gaming', 'Gaming'
 	'</table></center>'
 	nl
 
@@ -530,7 +530,7 @@ if $ARGS[0] = 'none':
 	pcs_shoot = 0
 	pcs_chess = 0
 	pcs_icesktng = 0
-	pcs_ttgmng = 0
+	pcs_gaming = 0
 	
 	!!Beauty Skills Reset
 	pcs_makupskl = 20

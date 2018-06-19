@@ -80,7 +80,7 @@ if $ARGS[0] = 'wakeup':
 				act'Pull up your top':
 					cla & *clr
 					npc_rel['A34'] += 4
-					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/wakeup/titflash<<rand(1,4)>>.jpg"></center>'
+					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/titflash<<rand(1,4)>>.jpg"></center>'
 					'Following through on your promise, you lift up your top, revealing your breasts to your brother. Still tired, he smiles only faintly in satisfaction.'
 					'"There. Happy now?"'
 					if brotherwaketrick = 1:
@@ -99,7 +99,7 @@ if $ARGS[0] = 'wakeup':
 				act'Pull down your bra':
 					cla & *clr
 					npc_rel['A34'] += 4
-					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/wakeup/titflash5.jpg"></center>'
+					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/titflash5.jpg"></center>'
 					'Following through on your promise, you pull down your bra, revealing your breasts to your brother. Still tired, he smiles only faintly in satisfaction.'
 					'"There. Happy now?"'
 					if brotherwaketrick = 1:
@@ -167,7 +167,7 @@ if $ARGS[0] = 'wakeup':
 			act'Expose yourself':
 				cla & *clr
 				npc_rel['A34'] += 4
-				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/wakeup/pussyflash.jpg"></center>'
+				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/pussyflash.jpg"></center>'
 				'Following through on your promise, you pull down your panties and pull up your top, exposing your breasts and pussy to your brother. Still tired, he smiles only faintly in satisfaction.'
 				'"There. Happy now?"'
 				if brotherwaketrick = 1:
@@ -247,9 +247,9 @@ if $ARGS[0] = 'wakeup':
 				swallow += 1
 				if brotherSex < 6:brotherSex = 6
 				if $clothingworntype = 'nude' and $braworntype = 'none':
-					'<center><video src="images/characters/pavlovsk/resident/kolka/event/wakeup/bj1.mp4"></center>'
+					'<center><video src="images/characters/pavlovsk/resident/kolka/bj1.mp4"></center>'
 				else
-					'<center><video src="images/characters/pavlovsk/resident/kolka/event/wakeup/bj2.mp4"></center>'
+					'<center><video src="images/characters/pavlovsk/resident/kolka/bj2.mp4"></center>'
 				end
 				'Kneeling down, you lean forward and wrap your lips around Kolka''s cock. You suck on it gently, but move your head forward and backward with quick bobbing motions.'
 				'Several minutes go by before you feel hot viscous liquid shooting into your mouth without warning and hear your brother sighing loudly in satisfaction. You pull back as he finishes cumming and realizing there''s nowhere else for you to deposit his sperm, swallow it in one gulp.'

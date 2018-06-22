@@ -540,11 +540,11 @@ if $ARGS[0] = 'stats_achievements':
 	if maxdamage > 0:pl 'The impact force on the dynamometer <<maxdamage>> kgN' & nl
 
 	if stripdancesum > 0 and hidden_stripdancesum = 0:
-		pl 'You have been dancing <<stripdancesum>> times in the stripclub'
+		pl 'You have danced <<stripdancesum>> times in the stripclub'
 	elseif stripdancesum = 0 and hidden_stripdancesum > 0:
-		pl 'You have been dancing <<hidden_stripdancesum>> times in the stripclub, but you do nor remember it'
+		pl 'You have danced <<hidden_stripdancesum>> times in the stripclub, but you do nor remember it'
 	elseif stripdancesum > 0 and hidden_stripdancesum > 0:
-		pl 'You have been dancing <<stripdancesum+hidden_stripdancesum>> times in the stripclub, but you only remember <<stripdancesum>> times'
+		pl 'You have danced <<stripdancesum+hidden_stripdancesum>> times in the stripclub, but you only remember <<stripdancesum>> times'
 	end
 	if profiDanceTime > 0:pl 'You danced <<profiDanceTime>> times professionally.'
 	if SchoolAtestat = 1:pl 'You have finished school.'
@@ -751,7 +751,7 @@ if $ARGS[0] = 'stats_sport':
 	pl'Marksmanship <<pcs_shoot>>'
 	pl'Chess <<pcs_chess>>'
 	pl'Ice Skating <<pcs_icesktng>>'
-	pl'Gaming <<pcs_ttgmng>>'
+	pl'Gaming <<pcs_gaming>>'
 end
 
 if $ARGS[0] = 'stats_beauty':

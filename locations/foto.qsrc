@@ -957,11 +957,10 @@ if $ARGS[0] = 'practicemodel':
 					mdlng_exp += rand(3,5)
 					fashionshoot = rand(1,4)
 					gs 'stat'
-					if fashionshoot = 1:'<center><video autoplay loop src="images/locations/city/citycenter/photo/fashion.mp4"></video></center>'
-					if fashionshoot = 2:'<center><video autoplay loop src="images/locations/city/citycenter/photo/fashion2.mp4"></video></center>'
-					if fashionshoot = 3:'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fashion3.jpg"></center>'
-					if fashionshoot < 4:'	You dress up in the latest in fashion wear and spend the next two hours posing for the photographer.'
-					if fashionshoot = 4:
+					if fashionshoot <= 2:'<center><video autoplay loop src="images/locations/city/citycenter/photo/fashion<<rand(1,2>>.mp4"></video></center>'
+					if fashionshoot >= 3 and fashionshoot < 5:'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fashion<<rand(1,3)>>.jpg"></center>'
+					if fashionshoot < 5:'	You dress up in the latest in fashion wear and spend the next two hours sexily posing for the photographer.'
+					if fashionshoot = 5:
 						'<center><video autoplay loop src="images/locations/city/citycenter/photo/fashion4.mp4"></video></center>'
 						'	You spend the next two hours putting on various dresses, practicing modelling for the online catalogs of retail clothing stores. Apparently for consistency they want you to have the exact same expression on your face every time, so you spend most of the time practicing that.'
 					end
@@ -1462,8 +1461,36 @@ if $ARGS[0] = 'practicemodel':
 					end
 				end
 			end
+			
+			
+			
+				
+					cla
+					act 'Not for me':gt 'foto','studio'
 
-			act 'Nude with covered genitals':
+					act 'Agree (2:00)':
+						*clr & cla
+						minut += 120
+						modelpayfin = 0
+						mdlng_exp += rand(8,10)
+						inhib_exp += 4
+						gs 'stat'
+						'<center><video autoplay loop src="images/locations/city/citycenter/photo/lingerie_trans<<rand(1,3)>>.mp4"></video></center>'
+						'	You put on some very lacy, very transparent underwear and get to posing, your nipples often showing through the thin fabric.'
+						*nl
+						'	After having taken all his pictures, the photographer thanks you for your time and concludes the shoot, counting out your <<modelpayfin>> <b>₽</b> to hand to you.'
+						*nl
+						if pornstudio = 0:pornstudio = 2 & '	At the end of the shoot a staff member comes up to you. "By the way, you should take this," he says, handing you a business card. You''re shocked to see that it''s for a porn production company in St. Petersburg. "Since you''ve shown that you''re willing to go full nude, we figure we might as well let you know this opportunity exists. We share a couple of models with them and from what we can tell, it increases sales for both of us. If you feel like you''re up to it, use this card and tell them we sent you. That will get you a special audition. But we understand if you don''t go. We know it''s not for everyone and that some of you want more legitimate fame."'
+						if pcs_mdlng >= 40 and commercial = 0:
+							act 'Leave':gt'foto','commercial'
+						else
+							act 'Leave':gt 'foto', 'end'
+						end
+					end
+				end
+			end
+			
+			act 'Transparent Lingerie':
 				cla
 				act 'Not for me':gt 'foto','studio'
 
@@ -1473,17 +1500,17 @@ if $ARGS[0] = 'practicemodel':
 						minut += 120
 						modelpayfin = 0
 						mdlng_exp += 1
-						inhib_exp += rand(3,5)
+						inhib_exp += rand(1,2)
 						gs 'stat'
-						'<center><video autoplay loop src="images/locations/city/citycenter/photo/model6.mp4"></video></center>'
-						'	It''s okay... It''s a nude shoot but you don''t have to show your pussy. That makes it just like a topless so it''s fine right? A topless shoot except with more of your legs exposed... Or almost completely exposed...'
-						'	You pick up the prop you''re using and spend the next two hours taking photos in various poses for a photographer.'
+						'<center><video autoplay loop src="images/locations/city/citycenter/photo/lingerie_trans<<rand(1,3)>>.mp4"></video></center>'
+						'	It''s okay... It''s just like a normal lingerie shoot... Except that your nipples will be clearly visible. That makes it just like a topless so it''s fine right? Even though the transparent lace feels more exposing than being topless...'
+						'	You slip into the lacy underwear and spend the next two hours practicing poses with the photographer.'
 						if pcs_mdlng < 20:
 							act'Continue':
 								cla
 								*nl
-								'	You keep your crotch covered with your hands or props during the shoot. The urge to use them to cover up completely is almost irresistible but you have to power through this if you want to do this kind of work. You must be bold!'
-								'	That being said, you''re having a difficult time of it and you can tell you aren''t doing a very good job.'
+								'	Each time the camera clicks, you give a small yelp, shielding your nipples from the flash that threatens to highlight them by turning your back. The sighs of the photographer from behind the camera are very audible.'
+								'	You''re going to have to work on your basic confidence as a model if you want to start confronting your confidence in your own body.'
 								act'Continue':
 									*clr & cla
 									*nl
@@ -1496,8 +1523,11 @@ if $ARGS[0] = 'practicemodel':
 							act'Continue':
 								*clr & cla
 								*nl
+								inhib_exp += rand(1,3)
 								'<center><video autoplay loop src="images/locations/city/citycenter/photo/modelbts2.mp4"></video></center>'
 								'	The practice shoot ends and he calls you over to his computer to show you what you need to work on.'
+								*nl
+								'	You have the discipline to not turn or shy your body away from the camera to hide yourself, but your expressions are very rigid and sometimes awkward. Maybe you need to work more on your confidence in your body before you''ll be able to progress here.'
 								if pcs_mdlng >= 40 and commercial = 0:
 									act 'Leave':gt'foto','commercial'
 								else
@@ -1514,13 +1544,13 @@ if $ARGS[0] = 'practicemodel':
 						mdlng_exp += rand(8,10)
 						inhib_exp += 4
 						gs 'stat'
-						'<center><video autoplay loop src="images/locations/city/citycenter/photo/model6.mp4"></video></center>'
-						'	You step onto the set spend the next two hours taking photos in various poses for a photographer, keeping your pussy covered with hands, props, or carefully crossed legs.'
+						'<center><video autoplay loop src="images/locations/city/citycenter/photo/lingerie_trans<<rand(1,3)>>.mp4"></video></center>'
+						'	You put on some lacy underwear and spend the next two hours practicing poses with the photographer.'
 						if pcs_mdlng < 20:
 							act'Continue':
 								cla
 								*nl
-								'	As the shoot progresses, you find it difficult to use what you have as coverage in a way that is still sexy or good for the camera. You probably need more practice.'
+								'	As the shoot progresses, you find it difficult surprisingly difficult to use the lingerie to your advantage. Despite its inherent seductiveness, there are certain poses and postures that you need to be in to fully accentuate what you''re trying to show off underneath. You probably need more practice.'
 								act'Continue':
 								*clr & cla
 								*nl
@@ -1546,91 +1576,8 @@ if $ARGS[0] = 'practicemodel':
 				end
 			end
 
-			act 'Nude with stockings':
-				cla
-				act 'Not for me':gt 'foto','studio'
 
-				if pcs_inhib < 60:
-					act 'Practice (2:00)':
-					*clr & cla
-					minut += 120
-					modelpayfin = 0
-					mdlng_exp += 1
-					inhib_exp += rand(4,6)
-					gs 'stat'
-					'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/model2.jpg"></center>'
-					'	This is it... If you want to be a top model you''re going to have to be willing to show what''s between you legs on camera... This is a necessary step for moving forward... but that doesn''t make it easy either...'
-					'	You go to the changing room and pull up some stockings. Even though it doesn''t cover any of your privates, it''s somehow comforting to be wearing something instead of being completely nude.'
-					'	You spend the next two hours with a photographer taking photos in poses that accentuate your breasts and pussy.'
-						if pcs_mdlng < 20:
-							act'Continue':
-								cla
-								*nl
-								'	You''re panicking and it''s showing through to the photographer. The idea of doing this for real and having pictures of your vagina on display in magazines and the internet for people to see horrifies you. Over the course of the session, the photographer helps you find ways to relax and be more comfortable in the nude, but you don''t think your skill as a model has improved very much.'
-								act'Continue':
-									*clr & cla
-									*nl
-									'<center><video autoplay loop src="images/locations/city/citycenter/photo/modelbts2.mp4"></video></center>'
-									'	The practice shoot ends and he calls you over to his computer to show you what you need to work on.'
-									act 'Leave':gt 'foto', 'end'
-								end
-							end
-						else
-							act'Continue':
-								*clr & cla
-								*nl
-								'<center><video autoplay loop src="images/locations/city/citycenter/photo/modelbts2.mp4"></video></center>'
-								'	The practice shoot ends and he calls you over to his computer to show you what you need to work on.'
-								if pcs_mdlng >= 40 and commercial = 0:
-									act 'Leave':gt'foto','commercial'
-								else
-									act 'Leave':gt 'foto', 'end'
-								end
-							end
-						end
-					end
-				else
-					act 'Practice (2:00)':
-						*clr & cla
-						minut += 120
-						modelpayfin = 0
-						mdlng_exp += rand(8,10)
-						inhib_exp += 2
-						gs 'stat'
-						'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/model2.jpg"></center>'
-						'	You go to the changing room and pull up some stockings.'
-						'	You spend the next two hours with a photographer taking photos in poses that accentuate your breasts and pussy.'
-						if pcs_mdlng < 20:
-							act'Continue':
-								cla
-								*nl
-								'	You''re having difficulty getting in the poses the photographer wants you in. The stockings can be slippery sometimes and it''s hard finding ways to use them to amplify your own beauty. This will take some getting used to.'
-								act'Continue':
-									cla & *clr
-									*nl
-									'<center><video autoplay loop src="images/locations/city/citycenter/photo/modelbts2.mp4"></video></center>'
-									'	The practice shoot ends and he calls you over to his computer to show you what you need to work on.'
-									act 'Leave':gt 'foto','end'
-								end
-							end
-						else
-							act'Continue':
-								cla & *clr
-								*nl
-								'<center><video autoplay loop src="images/locations/city/citycenter/photo/modelbts2.mp4"></video></center>'
-								'	The practice shoot ends and he calls you over to his computer to show you what you need to work on.'
-								if pcs_mdlng >= 40 and commercial = 0:
-									act 'Leave':gt'foto','commercial'
-								else
-									act 'Leave':gt 'foto', 'end'
-								end
-							end
-						end
-					end
-				end
-			end
-
-			act 'Completely nude':
+			act 'Nude':
 				cla
 				act 'Maybe not today':gt 'foto','studio'
 
@@ -1858,18 +1805,17 @@ if $ARGS[0] = 'model':
 				mdlng_exp += rand(5,8)
 				city_modelling += rand(7,12)
 				pav_modelling += rand(1,city_modelling)/10
-				fashionshoot = rand(1,4)
+				fashionshoot = rand(1,5)
 				gs 'stat'
-				if fashionshoot = 1:'<center><video autoplay loop src="images/locations/city/citycenter/photo/fashion.mp4"></video></center>'
-				if fashionshoot = 2:'<center><video autoplay loop src="images/locations/city/citycenter/photo/fashion2.mp4"></video></center>'
-				if fashionshoot = 3:'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fashion3.jpg"></center>'
-				if fashionshoot < 4:'	You dress up in the latest in fashion wear and spend the next two hours posing for the photographer.'
-				if fashionshoot = 4:
-					'<center><video autoplay loop src="images/locations/city/citycenter/photo/fashion4.mp4"></video></center>'
+				if fashionshoot <= 2:'<center><video autoplay loop src="images/locations/city/citycenter/photo/fashion<<rand(1,2>>.mp4"></video></center>'
+				if fashionshoot >= 3 and fashionshoot < 5:'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fashion<<rand(1,3)>>.jpg"></center>'
+				if fashionshoot < 5:'	You dress up in the latest in fashion wear and spend the next two hours sexily posing for the photographer.'
+				if fashionshoot = 5:
+					'<center><video autoplay loop src="images/locations/city/citycenter/photo/fashion3.mp4"></video></center>'
 					'	You spend the next two hours modelling for the online catalogs of retail clothing stores, wearing various different dresses but the same expression. It''s boring but it still gets you paid.'
 				end
 				*nl
-				'	Finally having taken all his pictures, the photographer thanks you for your time, counts out your <<modelpayfin>> <b>₽</b>, and pays it to you.'
+				'	After having taken all his pictures, the photographer thanks you for your time and concludes the shoot, counting out your <<modelpayfin>> <b>₽</b> to hand to you.'
 				act 'Leave':gt 'foto', 'end'
 			end
 		end
@@ -1947,7 +1893,8 @@ if $ARGS[0] = 'model':
 					gs 'stat'
 					'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/model1.jpg"></center>'
 					'	You dress up in sexy clothes and spend the next two hours posing for the photographer.'
-					'	Finally having taken all his pictures, the photographer thanks you for your time, counts out your <<modelpayfin>> <b>₽</b>, and pays it to you.'
+					*nl
+					'	After having taken all his pictures, the photographer thanks you for your time and concludes the shoot, counting out your <<modelpayfin>> <b>₽</b> to hand to you.'
 					act 'Leave':gt 'foto', 'end'
 				end
 			end
@@ -1971,9 +1918,10 @@ if $ARGS[0] = 'model':
 					pav_modelling += rand(0,city_modelling)/10
 					inhib_exp += 2
 					gs 'stat'
-					'<center><video autoplay loop src="images/locations/city/citycenter/photo/lingerie.mp4"></video></center>'
+					'<center><video autoplay loop src="images/locations/city/citycenter/photo/lingerie<<rand(1,2)>>.mp4"></video></center>'
 					'	You put on some sexy lingerie and spend the next two hours striking various poses for a photographer.'
-					'	Finally having taken all his pictures, the photographer thanks you for your time, counts out your <<modelpayfin>> <b>₽</b>, and pays it to you.'
+					*nl
+					'	After having taken all his pictures, the photographer thanks you for your time and concludes the shoot, counting out your <<modelpayfin>> <b>₽</b> to hand to you.'
 					if pcs_mdlng >= 40 and commercial = 0:
 						act 'Leave':gt'foto','commercial'
 					else
@@ -2016,7 +1964,8 @@ if $ARGS[0] = 'nude_shoot':
 			gs 'stat'
 			'<center><video autoplay loop src="images/locations/city/citycenter/photo/model5.mp4"></video></center>'
 			'	You dressed up in sexy clothes and spend the next two hours striking various poses for a photographer, your nipples occasionally slipping out from behind the clothing.'
-			'	Finally having taken all his pictures, the photographer thanks you for your time, counts out your <<modelpayfin>> <b>₽</b>, and pays it to you.'
+			*nl
+			'	After having taken all his pictures, the photographer thanks you for your time and concludes the shoot, counting out your <<modelpayfin>> <b>₽</b> to hand to you.'
 			if pcs_mdlng >= 40 and commercial = 0:
 				act 'Leave':gt'foto','commercial'
 			else
@@ -2025,7 +1974,7 @@ if $ARGS[0] = 'nude_shoot':
 		end
 	end
 
-	act 'Transparent clothing that exposes your breasts':
+	act 'Transparent clothing':
 		!!already matched the exhibitionism value above
 		cla
 		act 'Maybe not today':gt 'foto','studio'
@@ -2044,7 +1993,7 @@ if $ARGS[0] = 'nude_shoot':
 			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/seethru1.jpg"><img <<$set_imgh>> src="images/locations/city/citycenter/photo/seethru2.jpg"></center>'
 			'	You put on a transparent top and spend the next two hours in various poses for the photographer, a flash highlighting your breasts with every click of the camera.'
 			*nl
-			'	Finally having taken all his pictures, the photographer thanks you for your time, counts out your <<modelpayfin>> <b>₽</b>, and pays it to you.'
+			'	After having taken all his pictures, the photographer thanks you for your time and concludes the shoot, counting out your <<modelpayfin>> <b>₽</b> to hand to you.'
 			if pcs_mdlng >= 40 and commercial = 0:
 				act 'Leave':gt'foto','commercial'
 			else
@@ -2074,7 +2023,8 @@ if $ARGS[0] = 'nude_shoot':
 				gs 'stat'
 				'<center><video autoplay loop src="images/locations/city/citycenter/photo/model4.mp4"></video></center>'
 				'	You put on some pants and omit a top leaving your breasts exposed. You spend the next two hours striking various poses, covering and uncovering your breasts, and listen to instruction while the photographer takes pictures of you.'
-				'	Finally having taken all his pictures, the photographer thanks you for your time, counts out your <<modelpayfin>> <b>₽</b>, and pays it to you.'
+				*nl
+				'	After having taken all his pictures, the photographer thanks you for your time and concludes the shoot, counting out your <<modelpayfin>> <b>₽</b> to hand to you.'
 				if pcs_mdlng >= 40 and commercial = 0:
 					act 'Leave':gt'foto','commercial'
 				else
@@ -2084,7 +2034,7 @@ if $ARGS[0] = 'nude_shoot':
 		end
 	end
 
-	act 'Nude with covered genitals':
+	act 'Transparent Lingerie':
 		if pcs_inhib < 55:
 			msg'You think about asking to do this shoot but then blush and realize you aren''t confident enough to have pictures of yourself like this circling around the internet. Maybe you could practice it later, but you''re not ready to do it for real.'
 			gt 'foto', 'nude_shoot'
@@ -2097,16 +2047,16 @@ if $ARGS[0] = 'nude_shoot':
 				minut += 120
 				modelpayfin = 800 + (modelpay * 2) + (15*rand(0,7))
 				modelfoto_nip += 1
-				modelfoto_topless += 1
-				modelfoto_nude += 1
+				modelfoto_lingerie += 1
 				mdlng_exp += rand(8,10)
 				city_modelling += rand(9,14)
 				pav_modelling += rand(0,city_modelling)/10
 				inhib_exp += 4
 				gs 'stat'
-				'<center><video autoplay loop src="images/locations/city/citycenter/photo/model6.mp4"></video></center>'
-				'	You step onto the set spend the next two hours taking photos in various poses for a photographer, keeping your pussy covered with hands, props, or carefully crossed legs.'
-				'	Finally having taken all his pictures, the photographer thanks you for your time, counts out your <<modelpayfin>> <b>₽</b>, and pays it to you.'
+				'<center><video autoplay loop src="images/locations/city/citycenter/photo/lingerie_trans<<rand(1,3)>>.mp4"></video></center>'
+				'	You put on some very lacy, very transparent underwear and get to posing, your nipples often showing through the thin fabric.'
+				*nl
+				'	After having taken all his pictures, the photographer thanks you for your time and concludes the shoot, counting out your <<modelpayfin>> <b>₽</b> to hand to you.'
 				*nl
 				if pornstudio = 0:pornstudio = 2 & '	At the end of the shoot a staff member comes up to you. "By the way, you should take this," he says, handing you a business card. You''re shocked to see that it''s for a porn production company in St. Petersburg. "Since you''ve shown that you''re willing to go full nude, we figure we might as well let you know this opportunity exists. We share a couple of models with them and from what we can tell, it increases sales for both of us. If you feel like you''re up to it, use this card and tell them we sent you. That will get you a special audition. But we understand if you don''t go. We know it''s not for everyone and that some of you want more legitimate fame."'
 				if pcs_mdlng >= 40 and commercial = 0:
@@ -2118,43 +2068,8 @@ if $ARGS[0] = 'nude_shoot':
 		end
 	end
 
-	act 'Nude with stockings':
-		if pcs_inhib < 60:
-			msg'You think about asking to do this shoot but then blush and realize you aren''t confident enough to have pictures of yourself like this circling around the internet. Maybe you could practice it later, but you''re not ready to do it for real.'
-			gt 'foto', 'nude_shoot'
-		else
-			cla
-			act 'Not for me':gt 'foto','studio'
 
-			act 'Agree (2:00)':
-				*clr & cla
-				minut += 120
-				modelpayfin = 800 + (modelpay * 2) + (15*rand(0,7))
-				modelfoto_nip += 1
-				modelfoto_nude += 1
-				modelfoto_pussy += 1
-				mdlng_exp += rand(8,10)
-				city_modelling += rand(10,18)
-				pav_modelling += rand(0,city_modelling)/10
-				inhib_exp += 5
-				gs 'stat'
-				'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/model2.jpg"></center>'
-				'	You strip down your clothes and pull up some stockings and spend the next two hours taking photos in various poses for a photographer.'
-				'	Finally having taken all his pictures, the photographer thanks you for your time, counts out your <<modelpayfin>> <b>₽</b>, and pays it to you.'
-				'	The majority of photos seem to be focused on your naked breasts and pussy.'
-				*nl
-				if pornstudio = 0:pornstudio = 2 & '	At the end of the shoot a staff member comes up to you. "By the way, you should take this," he says, handing you a business card. You''re shocked to see that it''s for a porn production company in St. Petersburg. "Since you''ve shown that you''re willing to go full nude, we figure we might as well let you know this opportunity exists. We share a couple of models with them and from what we can tell, it increases sales for both of us. If you feel like you''re up to it, use this card and tell them we sent you. That will get you a special audition. But we understand if you don''t go. We know it''s not for everyone and that some of you want more legitimate fame."'
-
-				if pcs_mdlng >= 40 and commercial = 0:
-					act 'Leave':gt'foto','commercial'
-				else
-					act 'Leave':gt 'foto', 'end'
-				end
-			end
-		end
-	end
-
-	act 'Full nude shoot':
+	act 'Nude':
 		if pcs_inhib < 60:
 			msg'You think about asking to do this shoot but then blush and realize you aren''t confident enough to have pictures of yourself like this circling around the internet. Maybe you could practice it later, but you''re not ready to do it for real.'
 			gt 'foto', 'nude_shoot'
@@ -2166,19 +2081,41 @@ if $ARGS[0] = 'nude_shoot':
 				*clr & cla
 				minut += 120
 				modelpayfin = 800 + (modelpay * 2) + (15*rand(0,7))
-				modelfoto_nip += 1
-				modelfoto_topless += 1
 				modelfoto_nude += 1
-				modelfoto_pussy += 1
 				mdlng_exp += rand(9,10)
 				city_modelling += rand(10,20)
 				pav_modelling += rand(0,city_modelling)/4
 				inhib_exp += 5
+				shoot_type rand(1,3)
 				gs 'stat'
-				'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/nude.jpg"></center>'
-				'	Already naked, you step onto set and begin the shoot immediately.'
-				*nl
-				'	You spend the next two hours posing confidently for a photographer taking full frontal pictures of you. When the shoot ends, both you and the photographers are very proud of the results and you are paid <<modelpayfin>> <b>₽</b> for your work.'
+				if shoot_type = 1:
+					modelfoto_pussy += 1
+					modelfoto_nip += 1
+					if pcs_pubes <= 20:
+						'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/nude<<rand(1,3)>>.jpg"></center>'
+						'	Already naked, you step onto set and begin the shoot immediately.'
+						*nl
+						'	You spend the next two hours posing confidently for a photographer taking pictures of you that fully expose your breasts and pussy. When the shoot ends, both you and the photographers are very proud of the results and you are paid <<modelpayfin>> <b>₽</b> for your work.'
+					else
+						'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/nude<<rand(13,15)>>.jpg"></center>'
+						'	Already naked, you step onto set and begin the shoot immediately.'
+						*nl
+						'	You spend the next two hours posing confidently for a photographer taking pictures of you, your thick bush being used as a simple censor of your pussy and make it more "acceptable" as art while still maintaining the feeling of eroticism. When the shoot ends, both you and the photographers are very proud of the results and you are paid <<modelpayfin>> <b>₽</b> for your work.'
+					end
+				elseif shoot_type = 2:
+					modelfoto_nip += 1
+					'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/nude<<rand(4,11)>>.jpg"></center>'
+					'	Already naked, you step onto set and begin the shoot immediately.'
+					*nl
+					'	You spend the next two hours posing confidently for a photographer taking pictures of you, often being asked to carefully position your hands or legs in ways that tastefully shields your pussy while simultaneously teasing the would-be readers of what they cannot see. When the shoot ends, both you and the photographers are very proud of the results and you are paid <<modelpayfin>> <b>₽</b> for your work.'
+				else
+					city_modelling += rand(0,5)
+					pav_modelling += rand(0,2)
+					'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/nude12.jpg"></center>'
+					'	Already naked, you step onto set and begin the shoot immediately.'
+					*nl
+					'	You spend the next two hours posing confidently for a photographer taking pictures of you, often being asked to carefully position your hands or legs in ways that tastefully hides your pussy and nipples. These images, though incredibly provocative, are still somehow considered to be conservative enough to be allowed on the front cover of fashion, sports, and other tabloid magazines. When the shoot ends, both you and the photographers are very proud of the results and you are paid <<modelpayfin>> <b>₽</b> for your work.'
+				end
 				*nl
 				if pornstudio = 0:pornstudio = 2 & '	At the end of the shoot a staff member comes up to you. "By the way, you should take this," he says, handing you a business card. You''re shocked to see that it''s for a porn production company in St. Petersburg. "Since you''ve shown that you''re willing to go full nude, we figure we might as well let you know this opportunity exists. We share a couple of models with them and from what we can tell, it increases sales for both of us. If you feel like you''re up to it, use this card and tell them we sent you. That will get you a special audition. But we understand if you don''t go. We know it''s not for everyone and that some of you want more legitimate fame."'
 
@@ -2216,7 +2153,7 @@ if $ARGS[0] = 'nude_shoot':
 				'<center><video autoplay loop src="images/locations/city/citycenter/photo/vmodel.mp4"></video></center>'
 				'	You spend the next two hours posing for the photographer, changing in and out of various underwears, sexy clothings, and lingeries until you end the shoot fully striped down and dancing naked.'
 				*nl
-				'	Finally having taken all his pictures, the photographer thanks you for your time, counts out your <<modelpayfin>> <b>₽</b>, and pays it to you.'
+				'	After having taken all his pictures, the photographer thanks you for your time and concludes the shoot, counting out your <<modelpayfin>> <b>₽</b> to hand to you.'
 				if pcs_mdlng >= 40 and commercial = 0:
 					act 'Leave':gt'foto','commercial'
 				else

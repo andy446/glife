@@ -1576,7 +1576,7 @@ if lashair = 0:
 		$pcdesc_pubeswordy = 'scratchy, roughly-stubbled'
 	elseif pcs_pubes <= 20:
 		lobkoef = 0
-		$pcs_pubes = 'You have light, wispy hair around your <a href="exec:view''images/pc/body/pussy/spussy.jpg''">pussy</a>. <<$pirspiz>><br><<$clitsize>>'
+		$pcs_pubes = 'You have neatly trimmed triangle of hair around your <a href="exec:view''images/pc/body/pussy/spussy.jpg''">pussy</a>. <<$pirspiz>><br><<$clitsize>>'
 		rand_pubes = rand(0,3)
 		if rand_pubes = 0:$pcdesc_pubesrandom = 'wispy-haired'
 		if rand_pubes = 1:$pcdesc_pubesrandom = 'lightly-furred'

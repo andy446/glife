@@ -40,6 +40,8 @@ if npc_QW['A34'] > 20 and npc_QW['A34'] < 25: npc_QW['A34'] = 20
 
 if $ARGS[0] = 'start':
 	gs 'stat'
+	gs 'boystat','A34'
+	dick = npc_dick['A<<34>>']
 	'<center><b><font color="maroon">Kolka</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/kolka/brother.jpg"></center>'
 	'Your brother Kolka is younger than you, he''s <<brotherAge>> years old. While you share the same mother, unlike you and your sister, Kolka''s dad is your stepfather. He is a student at the same school as you, and enjoys soccer.'
@@ -341,71 +343,14 @@ if $ARGS[0] = 'start':
 
 		if indorf = 0 and brotherSexCount > 0 and brotherDay = daystart:
 			brotherRand = rand(0,10)
-			if hour >= 5 and hour < 7 and brotherSex > 4 and brotherMorningSex ! daystart and brotherRand < 2:
-				'Going up to your sleeping brother, you see he''s pitching a tent.'
-				if pcs_horny >= 90 and brothersex > 6:
-					act 'Mount him':
-						cls
-						minut += 5
-						pcs_horny += 10
-						gs 'boyStat', 'A34'
-						pose = 0
-
-						gs 'stat'
-
-						'<center><img <<$set_imgh>> src="images/locations/shared/sex/sexrand/nae22.jpg"></center>'
-						'Approaching your brother, you gently pull back the covers and carefully straddle his sleeping body, taking care not to wake him.'
-						if pcs_sleep <= 50 and rand(0,4) =0:
-
-							$risk_boy = 'your own brother'
-							gs 'dinsex','vaginal_sex',10
-							gs 'brother', 'sleepsexcum'
-						else
-							protect = 0
-							vidageday -= 1
-
-							if prezik > 0:
-								dynamic $prezik
-								protect = 1
-								if preziktype = 2:
-									sexcontra = 7
-									'You take a sabotaged condom and put it on <<$boydesc>>.'
-								else
-									sexcontra = 3
-									'You take a condom and put it on <<$boydesc>>.'
-								end
-
-							end
-							$risk_boy = 'your own brother'
-							gs 'dinsex','vaginal_sex',10
-							gs 'brother', 'sleepsexcum'
-						end
-					end
-				else
-					act 'Solve your brother''s morning problem':
-						cls
-						minut += 5
-						pcs_horny += 10
-						stat['bj'] += 1
-						gs 'boyStat', 'A34'
-						spafinloc = 12
-						sexpartkno = 1
-						gs 'cum_manage'
-						swallow += 1
-						brotherbj += 1
-						brotherSexCount -= 1
-						brotherMorningSex = daystart
-						gs 'stat'
-
-						'<center><img <<$set_imgh>> src="images/shared/sex/blowjob/bj34.jpg"></center>'
-						'Approaching your brother, you gently pull back the covers and begin to suck his <<dick>> cm dick. After a few minutes, he moans softly in his sleep and his cock twitches.'
-						'Your mouth quickly fills with warm sperm and you feel its sharp taste.'
-						'Swallowing the semen, you gently replace the blanket and, seeing a slight smile on your sleeping brother, you leave.'
-
-						act '<B>Move away</B>':gt 'sitrPar'
-						exit
-					end
+			if hour >= 6 and hour < 7 and brotherMorningSex ! daystart:
+				'You look at your brother sleeping peacefully on the couch.'
+				if brotherRand < 5:'As you look, you can also clearly see the outline of his morning wood pitching a tent under the blanket.'
+				if week < 6 and kanikuli = 0:
+					act'Wake him up for breakfast':gt'brother2','wakeup'
 				end
+			elseif hour < 7 and brotherMorningSex = daystart:
+				'Your brother is busying himself getting ready for school.'
 			end
 
 			if hour >= 21 and hour < 24 and brotherSex > 4 and brotherNightSex ! daystart:

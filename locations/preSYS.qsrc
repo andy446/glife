@@ -316,7 +316,7 @@ if $ARGS[0] = 'charselect':
 				pcs_grades = 80
 				pcs_compskl = 40
 				pcs_comphckng = 20
-				pcs_ttgmng = 30
+				pcs_gaming = 30
 				internet = 20
 				npc_rel['A152'] += 10
 				npc_rel['A153'] += 10
@@ -868,7 +868,7 @@ end
 
 if $ARGS[0] = 'nerd':
 	pcs_tan = 0
-	pcs_ttgmng = 20
+	pcs_gaming = 20
 	if glass < 1 : glass = 1
 	if player_avatar ! 1: pcs_haircol = 1
 	if player_avatar ! 1: pcs_eyecol = 0

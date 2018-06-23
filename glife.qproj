@@ -194,6 +194,7 @@
       <Location name="events"/>
       <Location name="street_event"/>
       <Location name="noticeboard"/>
+	  <Location name="lact_lib"/>							  
     </Folder>
     <Folder name="Post office">
       <Location name="postoffice"/>

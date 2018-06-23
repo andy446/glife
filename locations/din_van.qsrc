@@ -688,8 +688,6 @@ if $ARGS[0] = 'private':
 	if fillimplant = 1 and siliconeBag >= 1:'<a href="exec:cls & siliconeBag -= 1 & silicone += 10 & gt $loc, $metka">Inject silicone into breast implants.</a>'
 	if fillimplant = 1 and silicone >= 20:'<a href="exec:cls & silicone -= 10 & gt $loc, $metka">Drain silicone from breast implants.</a>'
 
-	if breastpump > 0:'<a href="exec:gt ''shortgs'', ''milk_me''">Use breast pump.</a></center>'
-
 	dynamic $bteeth
 
 	dynamic $tampon
@@ -900,6 +898,13 @@ if $ARGS[0] = 'private':
 			end
 
 			act 'Finish':gt $loc, $metka
+		end
+	end
+	
+	!!breast pump is now in the menue, not on the screen
+	if breastpump > 0:
+		act 'Use breast pump':
+			gt 'lact_lib', 'bp_milking'
 		end
 	end
 end

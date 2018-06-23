@@ -1387,8 +1387,6 @@ elseif mentats_dose > 1:
     pain['head'] += 20 * mentats_dose
     mentats_dose = 0
 end
-if breastpumped = 0 and breastcount > 0: breastcount -= 1
-if breastpumped = 1: breastpumped = 0
 
 !!Appearance base calculation call
 gs 'body_shape', 'basebeautycalc'

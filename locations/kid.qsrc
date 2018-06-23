@@ -13,11 +13,13 @@ $breastfeed = {
 		minut += 5
 	else
 		minut += 15
-		'You lift <<$kidname[ks]>> to your breast and feed your baby <<$polreb[ks]>>. <<$kidPosProPN[ks]>> drinks <<lactatemv>>ml of your milk.'
+																																		  
 		breastcounter += 1
-		lactatemv = 0
-		if pain['nipples'] < 10:
-			pain['nipples'] += 20
+		milkedvolume = func('$get_breastmilk', 2, 15)
+		if milkedvolume < 800:
+			'You lift <<$kidname[ks]>> to your breast and feed your baby <<$polreb[ks]>>. Your baby doesn''t seem to be satisfied with the amount of milk.'
+		else
+			'You lift <<$kidname[ks]>> to your breast and feed your baby <<$polreb[ks]>>. Your baby seems satisfied with the amount of your milk.'
 		end
 	end
 	'You gently lay <<$kidname[ks]>> back <<$babyloc>>.'
@@ -122,8 +124,8 @@ if $ARGS[0] = 'start':
 	if kid > 0:
 		k = 0
 		end
-		if lactate > 0 and lactatemv <= 1:
-			'You cannot breast feed right now.'
+		if lactate > 0 and pain['nipples'] > 60:
+			'You cannot breast feed right now. Your nipples are too sore.'
 		end
 		:loop
 		if k < kid:
@@ -235,7 +237,7 @@ if $ARGS[0] = 'kidlist':
 		end
 		if kid > 0 and kidage[ks] < 1:
 			
-			if lactate > 0 and lactatemv > 1:
+			if lactate > 0:
 				act 'Breast Feed <<$kidname[ks]>>':dyneval($breastfeed)
 			end
 			if $babyloc = 'onto the blanket':

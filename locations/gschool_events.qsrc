@@ -167,8 +167,18 @@ if $ARGS[0] = 'teacher_greet':
 						pcs_horny += 3
 						act 'Continue': gt 'gschool_lessons', 'morning'
 					end
-					if $pantyworntype = 'none':
-						if pcs_inhib > 35:
+					if pcs_inhib > 35:
+						if $pantyworntype = 'none':
+							act 'Show more':
+								*clr & cla
+								exhibition_exp += 3
+								'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/building/bendoverbare.jpg"></center>'
+								'You don''t pay attention to the teacher''s words and decide to have fun a little more. Reaching for the next book, you inadvertently pull your skirt up, giving the teacher a full view of your pussy and ass.'
+								'"<<$pcs_lastname>>, cover up." the teacher notices that you are not wearing any panties. He quickly runs up to you and pulls your skirt down, covering up your naked ass.'
+								'The teacher gives you a lecture on how to properly pick up books from the floor, then you both leave, not saying a word more to each other.'
+								act 'Continue': gt 'gschool_lessons', 'morning'
+							end
+						else
 							act 'Show more':
 								*clr & cla
 								exhibition_exp += 2
@@ -176,15 +186,6 @@ if $ARGS[0] = 'teacher_greet':
 								'You don''t pay attention to the teacher''s words and decide to have fun a little more. Reaching for the next book, you inadvertently pull your skirt up, giving the teacher a full view of your panty clad ass.'
 								'"<<$pcs_lastname>>, cover up." the teacher rushes to you and pulls your skirt down, covering your ass.'
 								'"Anatoly Evgenievich, but it''s just us. I always feel safe when you are around." you reply, standing up.'
-								'The teacher gives you a lecture on how to properly pick up books from the floor, then you both leave, not saying a word more to each other.'
-								act 'Continue': gt 'gschool_lessons', 'morning'
-							end
-						else
-							act 'Show more':
-								exhibition_exp += 3
-								'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/building/bendoverbare.jpg"></center>'
-								'You don''t pay attention to the teacher''s words and decide to have fun a little more. Reaching for the next book, you inadvertently pull your skirt up, giving the teacher a full view of your pussy and ass.'
-								'"<<$pcs_lastname>>, cover up." the teacher notices that you are not wearing any panties. He quickly runs up to you and pulls your skirt down, covering up your naked ass.'
 								'The teacher gives you a lecture on how to properly pick up books from the floor, then you both leave, not saying a word more to each other.'
 								act 'Continue': gt 'gschool_lessons', 'morning'
 							end

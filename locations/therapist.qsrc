@@ -452,7 +452,7 @@ if $ARGS[0] = 'hypnoEnd':
 	elseif hypnoTime < 10:
 		hypnoAddict = 1
 		hypnoDay = daystart
-		exhibition_exp += (100+sub-pcs_dom)/25+1
+		pcs_exhib += (100+sub-pcs_dom)/25+1
 		inhib_exp += (100+sub-pcs_dom)/25+1
 		pain['vaginal'] -= 5
 		pain['asshole'] -= 5
@@ -464,7 +464,7 @@ if $ARGS[0] = 'hypnoEnd':
 	else
 		hypnoAddict = 2
 		hypnoDay = daystart
-		exhibition_exp += (100+sub-pcs_dom)/25+2
+		pcs_exhib += (100+sub-pcs_dom)/25+2
 		inhib_exp += (100+sub-pcs_dom)/25+1
 		pain['vaginal'] -= 5
 		pain['asshole'] -= 5

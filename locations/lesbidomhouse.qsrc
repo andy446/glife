@@ -1122,7 +1122,7 @@ if $ARGS[0] = 'QW8':
 		cla
 		*clr
 		lesbiQW = 10
-		exhibition_exp += 5
+		pcs_exhib += 2
 		gs'stat'
 		temp = RAND(0,2)
 

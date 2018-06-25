@@ -45,17 +45,21 @@ if $ARGS[0] = 'menu':
 	if Exhibitionist_lvl = 0:
 		pl 'You do not have this trait.'
 		pl 'To gain this trait you must have low enough inhibition and choose to expose your breasts in public.'
-		pl 'You have <<Exhibitionist>> out of 10 points towards level 1.'
+		pl 'You have <<pcs_exhib>> out of 10 points towards level 1. This will slowly decrease each day unless you expose yourself.'
     elseif Exhibitionist_lvl = 1:
 		pl 'You have this trait at level 1.'
 		pl 'To increase this trait you must choose to expose your breasts and/or bare bottom in public.'
 		pl 'This trait grants you a small amount or excitement from exposing yourself.'
-		pl 'You have <<Exhibitionist>> out of 20 points towards level 2.'
+		pl 'You have <<pcs_exhib>> out of 50 points towards level 2.'
     elseif Exhibitionist_lvl = 2:
 		pl 'You have this trait at level 2.'
 		pl 'To increase this trait you must choose to expose your breasts, bare bottom and/or pussy in public.'
 		pl 'This trait grants you a moderate amount or excitement from exposing yourself.'
-		pl 'You have <<Exhibitionist>> out of 30 points towards level 3.'
+		if pcs_exhib < 100:
+			pl 'You have <<pcs_exhib>> out of 100 points towards level 3.'
+		else
+			pl 'You must trigger an event in the park to gain level 3.'
+		end
     else
 		pl 'You have this trait at level 3.'
 		pl 'This is the highest level of this trait.'

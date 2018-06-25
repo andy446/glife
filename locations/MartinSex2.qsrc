@@ -274,7 +274,7 @@ if $ARGS[0] = 'MartinSexDyn':
 			*nl
 			'It only adds to the excitement of it all to know that this is a public place, even if nobody else is here right now.'
 			
-			if exhibitionism > 50 or exhibitionism['pref'] > 50: 'This idea, and the memories of your previous exhibitionist acts manifest themselves in a small fantasy: You imagine what it would be like if the bar wasn''t empty but bustling with people, what it might be like to fuck the bartender right here in the center, with all of their eyes on you...' & pcs_horny += 10
+			if exhibitionist_lvl > 1 or exhibitionism['pref'] > 50: 'This idea, and the memories of your previous exhibitionist acts manifest themselves in a small fantasy: You imagine what it would be like if the bar wasn''t empty but bustling with people, what it might be like to fuck the bartender right here in the center, with all of their eyes on you...' & pcs_horny += 10
 			$orgasm_txt = 'And it''s this fantasy that sets you off, causing you to cry out in heat and your <<$pcs_vag>> pussy to quiver around Martin''s cock as you imagine how strangers jerk off to your fucking. As you come down from your high, you feel like a pervert... but that''s not a bad thing, right?'
 			gs 'arousal', 'vaginal', 3, 'exhibitionism'
 			*nl
@@ -311,7 +311,7 @@ if $ARGS[0] = 'MartinSexDyn':
 			*nl
 			'It only adds to the excitement of it all to know that this is a public place, even if nobody''s here now.'
 			
-			if exhibitionism > 50 or exhibitionism['pref'] > 50: 'This idea, and the memories of your previous exhibitionist acts manifest themselves in a small fantasy: You imagine what it would be like if the bar wasn''t empty but bustling with people, what it might be like to be fuck by the bartender right here in the center, with all of their eyes on you...' & pcs_horny += 10
+			if exhibitionist_lvl > 1 or exhibitionism['pref'] > 50: 'This idea, and the memories of your previous exhibitionist acts manifest themselves in a small fantasy: You imagine what it would be like if the bar wasn''t empty but bustling with people, what it might be like to be fuck by the bartender right here in the center, with all of their eyes on you...' & pcs_horny += 10
 			$orgasm_txt = 'And it''s this fantasy that sets you off, causing you to cry out in heat and your <<$pcs_vag>> pussy to quiver around Martin''s cock as you imagine how strangers jerk off to your fucking. As you come down from your high, you feel like a pervert... but that''s not a bad thing, right?'
 			gs 'arousal', 'vaginal', 3, 'exhibitionism'
 			*nl
@@ -348,7 +348,7 @@ if $ARGS[0] = 'MartinSexDyn':
 			*nl
 			'It only adds to the excitement of it all to know that this is a public place, even if nobody''s here now.'
 			
-			if exhibitionism > 50 or exhibitionism['pref'] > 50: 'This idea, and the memories of your previous exhibitionist acts manifest themselves in a small fantasy: You imagine what it would be like if the bar wasn''t empty but bustling with people, what it might be like to be fuck by the bartender right here in the center, with all of their eyes on you...' & pcs_horny += 10
+			if exhibitionist_lvl > 1 or exhibitionism['pref'] > 50: 'This idea, and the memories of your previous exhibitionist acts manifest themselves in a small fantasy: You imagine what it would be like if the bar wasn''t empty but bustling with people, what it might be like to be fuck by the bartender right here in the center, with all of their eyes on you...' & pcs_horny += 10
 			$orgasm_txt = 'And it''s this fantasy that sets you off, causing you to cry out in heat and your <<$pcs_vag>> pussy to quiver around Martin''s cock as you imagine how strangers jerk off to your fucking. As you come down from your high, you feel like a pervert... but that''s not a bad thing, right?'
 			gs 'arousal', 'vaginal', 3, 'exhibitionism'
 			*nl
@@ -392,7 +392,7 @@ if $ARGS[0] = 'MartinSexDyn':
 			*nl
 			'It only adds to the excitement of it all to know that this is a public place, even if nobody''s here now.'
 			
-			if exhibitionism > 50 or exhibitionism['pref'] > 50: 'This idea, and the memories of your previous exhibitionist acts manifest themselves in a small fantasy: You imagine what it would be like if the bar wasn''t empty but bustling with people, what it might be like to be fuck by the bartender right here in the center, with all of their eyes on you...' & pcs_horny += 10
+			if exhibitionist_lvl > 1 or exhibitionism['pref'] > 50: 'This idea, and the memories of your previous exhibitionist acts manifest themselves in a small fantasy: You imagine what it would be like if the bar wasn''t empty but bustling with people, what it might be like to be fuck by the bartender right here in the center, with all of their eyes on you...' & pcs_horny += 10
 			$orgasm_txt = 'And it''s this fantasy that sets you off, causing you to cry out in heat and your <<$pcs_vag>> pussy to quiver around Martin''s cock as you imagine how strangers jerk off to your fucking. As you come down from your high, you feel like a pervert... but that''s not a bad thing, right?'
 			gs 'arousal', 'vaginal', 3, 'exhibitionism'
 			*nl
@@ -756,7 +756,7 @@ if $ARGS[0] = 'MartinAnalDyn':
 		
 		act 'Continue':
 			cls
-			$orgasm_txt = iif(dominance > 20,'Wresting control from','Submitting to') + ' Martin and the intense feeling of him filling your ass drive you ever closer to the edge until you can no longer take it. You cum loudly, shivering all over' + iif(exhibitionism>50 or exhibitionism['pref']>50,' as your mind basks in your exhibitionist fantasy','') + ', your ass clenching around and massaging Martin''s cock with its contractions as if it wanted to squeeze the cum out of him as' + iif($martinpos='doggystyle',' he fucks you',' you fuck him') + '. Your anal orgasm lasts for what feels like an eternity, but when it has passed and you look back at him, Martin gives you a smug, self-satisfied look that makes you chuckle. You''re not done with each other yet, though, and before long, you''ve resumed your fast, hard rhythm.'
+			$orgasm_txt = iif(dominance > 20,'Wresting control from','Submitting to') + ' Martin and the intense feeling of him filling your ass drive you ever closer to the edge until you can no longer take it. You cum loudly, shivering all over' + iif(exhibitionist_lvl > 1 or exhibitionism['pref']>50,' as your mind basks in your exhibitionist fantasy','') + ', your ass clenching around and massaging Martin''s cock with its contractions as if it wanted to squeeze the cum out of him as' + iif($martinpos='doggystyle',' he fucks you',' you fuck him') + '. Your anal orgasm lasts for what feels like an eternity, but when it has passed and you look back at him, Martin gives you a smug, self-satisfied look that makes you chuckle. You''re not done with each other yet, though, and before long, you''ve resumed your fast, hard rhythm.'
 			
 			if $martinpos = 'rev_cowgirl':
 				'<center><video src="images/locations/city/industrial/bar/sex/bar/martin/anal/anal_rev.mp4"></center>'
@@ -778,7 +778,7 @@ if $ARGS[0] = 'MartinAnalDyn':
 					'Being fucked from below, your lover proving that he is still the man of the house turns you on, plain and simple, and the fact that you are doing it in the middle of an empty bar, <b>his</b> empty bar, just makes it more exciting.'
 				end
 				*nl
-				if exhibitionism > 50 or exhibitionism['pref'] > 50: 'This final thought, and the memories of your previous exhibitionist acts manifest themselves in a small fantasy: You imagine what it would be like if the bar wasn''t empty but bustling with people, what it might be like to take the bartender''s cock up your ass right here in the center, with all of their eyes on you...' & pcs_horny += 10
+				if exhibitionist_lvl > 1 or exhibitionism['pref'] > 50: 'This final thought, and the memories of your previous exhibitionist acts manifest themselves in a small fantasy: You imagine what it would be like if the bar wasn''t empty but bustling with people, what it might be like to take the bartender''s cock up your ass right here in the center, with all of their eyes on you...' & pcs_horny += 10
 				*nl
 				if pcs_dom > 20:
 					gs 'arousal', 'anal', 10, 'dom'
@@ -807,7 +807,7 @@ if $ARGS[0] = 'MartinAnalDyn':
 					'"You''re fucking me," you moan, aroused by the power he has over you. "You''re fucking my ass in the middle of your bar." As you say it, you are reminded of how public of a place this really is, despite being empty, and that alone is almost enough to make you cum.'
 				end
 				*nl
-				if exhibitionism > 50 or exhibitionism['pref'] > 50: 'That final thought, and the memories of your previous exhibitionist acts manifest themselves in a small fantasy: You imagine what it would be like if the bar wasn''t empty but bustling with people, what it might be like to take the bartender''s cock up your ass right here in the center, with all of their eyes on you...' & pcs_horny += 10
+				if exhibitionist_lvl > 1 or exhibitionism['pref'] > 50: 'That final thought, and the memories of your previous exhibitionist acts manifest themselves in a small fantasy: You imagine what it would be like if the bar wasn''t empty but bustling with people, what it might be like to take the bartender''s cock up your ass right here in the center, with all of their eyes on you...' & pcs_horny += 10
 				*nl
 				if pcs_dom > 20:
 					gs 'arousal', 'anal', 10

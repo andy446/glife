@@ -668,35 +668,65 @@ end
 
 if lactate = 1 and night_mode = 0:
 	if lactatemv >= lactatemm-1:
-			$stat_msg += '<BR><font color = black>Your breasts are so full they hurt and a little milk is constantly dribbling out.</font><BR>'
-		elseif lactatemv > lactatemm*9/10:
-			$stat_msg += '<BR><font color = black>Your breasts are firm and full, and starting to hurt from all the milk they contain.</font><BR>'
-		elseif lactatemv > lactatemm*3/4:
-			$stat_msg += '<BR><font color = black>Your breasts feel firm and heavy, full of milk.</font><BR>'
-		elseif lactatemv > lactatemm/2:
-			$stat_msg += '<BR><font color = black>Your breasts are heavy, a cargo of milk inside.</font><BR>'
-		elseif lactatemv > lactatemm/4:
-			$stat_msg += '<BR><font color = black>Your breasts feel a little heavy.</font><BR>'
-		elseif lactatemv > 0:
-			$stat_msg += '<BR><font color = black>Your breasts tingle a little from the feeling of milk production.</font><BR>'
+		if lact_engorgement > 3 and lact_engorgement <= 6:
+									
+			$stat_msg += '<BR><font color = red>Your breasts are so full they hurt and you can feel milk seeping out.</font><BR>'
+		elseif lact_engorgement > 6:
+																									
+								 
+			$stat_msg += '<BR><font color = red>Your breasts are so full they hurt and you can feel your milk spraying out.</font><BR>'
+								 
+																					  
+					   
+																													  
 		else
-			$stat_msg += '<BR><font color = black>Your breasts feel soft and empty.</font><BR>'
+			$stat_msg += '<BR><font color = orange>Your breasts are so full they hurt.</font><BR>'
+		end
+		if $clothingworntype = 'nude' and lactatemess > 0:
+			if lactatemess < 3:
+				$stat_msg += '<font color = black>You have a little milk residue around your nipples.</font>'
+			elseif lactatemess < 7:
+				$stat_msg += '<font color = orange>You have a lot of milk residue around your nipples.</font>'
+			else
+				$stat_msg += '<font color = red>Your breasts are drenched with milk residue.</font>'
+			end
+		elseif lactatemess > 0:
+			if lactatemess < 3:
+				$stat_msg += '<font color = orange>You have tiny wet spots on your clothes above your nipples.</font>'
+			elseif lactatemess < 7:
+				$stat_msg += '<font color = red>Milk has soaked through your clothes and made visible circles on your breasts.</font>'
+			else
+				$stat_msg += '<font color = red>Your shirt is drenched with milk from your breasts.</font>'
+			end
+		end		
+	elseif lactatemv > lactatemm*9/10:
+		$stat_msg += '<BR><font color = black>Your breasts are firm and full, and starting to hurt from all the milk they contain.</font><BR>'
+	elseif lactatemv > lactatemm*3/4:
+		$stat_msg += '<BR><font color = black>Your breasts feel firm and heavy, full of milk.</font><BR>'
+	elseif lactatemv > lactatemm/2:
+		$stat_msg += '<BR><font color = black>Your breasts are heavy, a cargo of milk inside.</font><BR>'
+	elseif lactatemv > lactatemm/4:
+		$stat_msg += '<BR><font color = black>Your breasts feel a little heavy.</font><BR>'
+	elseif lactatemv > 0:
+		$stat_msg += '<BR><font color = black>Your breasts tingle a little from the feeling of milk production.</font><BR>'
+	else
+		$stat_msg += '<BR><font color = black>Your breasts feel soft and empty.</font><BR>'
 	end
 elseif lactate = 1 and night_mode = 1:
 	if lactatemv >= lactatemm-1:
-			$stat_msg += '<BR><font color = white>Your breasts are so full they hurt and a little milk is constantly dribbling out.</font><BR>'
-		elseif lactatemv > lactatemm*9/10:
-			$stat_msg += '<BR><font color = white>Your breasts are firm and full, and starting to hurt from all the milk they contain.</font><BR>'
-		elseif lactatemv > lactatemm*3/4:
-			$stat_msg += '<BR><font color = white>Your breasts feel firm and heavy, full of milk.</font><BR>'
-		elseif lactatemv > lactatemm/2:
-			$stat_msg += '<BR><font color = white>Your breasts are heavy, a cargo of milk inside.</font><BR>'
-		elseif lactatemv > lactatemm/4:
-			$stat_msg += '<BR><font color = white>Your breasts feel a little heavy.</font><BR>'
-		elseif lactatemv > 0:
-			$stat_msg += '<BR><font color = white>Your breasts tingle a little from the feeling of milk production.</font><BR>'
-		else
-			$stat_msg += '<BR><font color = white>Your breasts feel soft and empty.</font><BR>'
+		$stat_msg += '<BR><font color = white>Your breasts are so full they hurt.</font><BR>'
+	elseif lactatemv > lactatemm*9/10:
+		$stat_msg += '<BR><font color = white>Your breasts are firm and full, and starting to hurt from all the milk they contain.</font><BR>'
+	elseif lactatemv > lactatemm*3/4:
+		$stat_msg += '<BR><font color = white>Your breasts feel firm and heavy, full of milk.</font><BR>'
+	elseif lactatemv > lactatemm/2:
+		$stat_msg += '<BR><font color = white>Your breasts are heavy, a cargo of milk inside.</font><BR>'
+	elseif lactatemv > lactatemm/4:
+		$stat_msg += '<BR><font color = white>Your breasts feel a little heavy.</font><BR>'
+	elseif lactatemv > 0:
+		$stat_msg += '<BR><font color = white>Your breasts tingle a little from the feeling of milk production.</font><BR>'
+	else
+		$stat_msg += '<BR><font color = white>Your breasts feel soft and empty.</font><BR>'
 	end
 end
 
@@ -1018,25 +1048,6 @@ killvar 'cumvolume'
 killvar 'cumcount'
 killvar 'knownguy'
 killvar 'cumowner'
-
-
-if $clothingworntype = 'nude' and lactatemess > 0:
-	if lactatemess < 3:
-		$stat_msg += '<BR><font color = black>You have a little milk residue around your nipples.</font>'
-	elseif lactatemess < 7:
-		$stat_msg += '<BR><font color = black>You have a lot of milk residue around your nipples.</font>'
-	else
-		$stat_msg += '<BR><font color = black>Your breasts are drenched with milk residue.</font>'
-	end
-elseif lactatemess > 0:
-	if lactatemess < 3:
-		$stat_msg += '<BR><font color = black>You have tiny wet spots on your clothes above your nipples.</font>'
-	elseif lactatemess < 7:
-		$stat_msg += '<BR><font color = black>Milk has soaked through your clothes and made visible circles on your breasts.</font>'
-	else
-		$stat_msg += '<BR><font color = black>Your shirt is drenched with milk from your breasts.</font>'
-	end
-end
 
 if Gerpes >= 10 and GenHerpes = 1:
 	$stat_msg += '<BR><b><font color="red">On your pussy sores have appeared. This is genital herpes.</font></b>'

@@ -153,7 +153,7 @@ if $ARGS[0] = 'fairy_chat':
 				elseif fairy_surprise <= 4:
 					clit_size += 5
 					pcs_horny += 10
-					gs 'stat'				
+					gs 'stat'
 					if clit_size < 20:'<center><img <<$set_imgh>> src="images/pc/body/clit/clit1.jpg"></center>'
 					if clit_size >= 20 and clit_size < 40:'<center><img <<$set_imgh>> src="images/pc/body/clit/clit2.jpg"></center>'
 					if clit_size >= 40 and clit_size < 60:'<center><img <<$set_imgh>> src="images/pc/body/clit/clit3.jpg"></center>'
@@ -165,14 +165,14 @@ if $ARGS[0] = 'fairy_chat':
 					'You two say your goodbyes and the fairy flies off.'
 				elseif fairy_surprise = 5:
 					clit_size -= 5
-					gs 'stat'				
+					gs 'stat'
 					if clit_size < 20:'<center><img <<$set_imgh>> src="images/pc/body/clit/clit1.jpg"></center>'
 					if clit_size >= 20 and clit_size < 40:'<center><img <<$set_imgh>> src="images/pc/body/clit/clit2.jpg"></center>'
 					if clit_size >= 40 and clit_size < 60:'<center><img <<$set_imgh>> src="images/pc/body/clit/clit3.jpg"></center>'
 					if clit_size >= 60 and clit_size < 80:'<center><img <<$set_imgh>> src="images/pc/body/clit/clit4.jpg"></center>'
 					if clit_size >= 80:'<center><img <<$set_imgh>> src="images/pc/body/clit/clit5.jpg"></center>'
 					'You hear a giggle and you feel a warm tingle at the top of your slit, you reach down and part your pussy lips with your fingers.'
-					'Your clitoris has shunk, and seems to more demure than before! You can''t help but rub all around it, feeling the warm tingling and the moisture build at the entrance.'	
+					'Your clitoris has shunk, and seems to more demure than before! You can''t help but rub all around it, feeling the warm tingling and the moisture build at the entrance.'
 				elseif fairy_surprise <= 7:
 					min_arousal += rand(1,5)
 					'You hear a giggle, then sparkles surround your body and you get all tingly.'
@@ -193,7 +193,7 @@ killvar '$din_fairy_chat_no1' & killvar '$din_fairy_shoo' & killvar '$din_fairy_
 if $ARGS[0] = 'fairychattopic':
 !!	These are the random chat texts for the Fairy from UsagiTripleSix
 	frandchat = rand(0,14)
-	
+
 	if frandchat = 1:
 		'You spend a while chatting with the fairy. She openly wonders why human children need to go to school, and brags about how fairies already know everything there is to know.'
 	elseif frandchat = 2:
@@ -225,7 +225,8 @@ if $ARGS[0] = 'fairychattopic':
 	else
 		'Today the fairy introduces you to fairy knock-knock jokes. She spends almost half an hour telling joke after joke, but you failed to understand a single one. By the time you''re ready to leave, she''s complaining about how humans have no sense of humor.'
 	end
-	
+
+	act 'Go on your way': gt $loc, $metka
 	killvar 'frandchat'
 
 end

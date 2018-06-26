@@ -196,20 +196,60 @@ snapshotX = (stat['vaginal'] + stat['bj'] + stat['anal'])
 snapshotY = bimbo
 
 !!------------------------------------------------------------------------------------------------------------
-!!	Exhibitionist
+!!	Exhibitionism
 !!------------------------------------------------------------------------------------------------------------
 
-if Exhibitionist > 0 or Exhibitionist_lvl > 0:
-    if Exhibitionist < 10:
-        Exhibitionist -= 1
-    elseif Exhibitionist < 20:
-    	Exhibitionist_lvl = 1
-    elseif Exhibitionist < 30:
-    	Exhibitionist_lvl = 2
+if pcs_exhib > 0 or exhibitionist_lvl > 0:
+    if pcs_exhib < 10:
+        pcs_exhib -= 1
+    elseif pcs_exhib < 20:
+    	exhibitionist_lvl = 1
+    elseif pcs_exhib < 30:
+    	exhibitionist_lvl = 2
     else
-        Exhibitionist_lvl = 3
+        exhibitionist_lvl = 3
     end
 end
+
+!!Inhibition increases from wearing revealing clothing
+
+if exhibition_outdoors > 0:
+	if pcs_inhib > 90:
+		exhibition_outdoors = exhibition_outdoors * 3
+	elseif pcs_inhib > 75:
+		exhibition_outdoors = exhibition_outdoors * 5 / 2
+	elseif pcs_inhib > 60:
+		exhibition_outdoors = exhibition_outdoors * 2
+	elseif pcs_inhib > 30:
+		exhibition_outdoors = exhibition_outdoors * 3 / 2
+	end
+
+	if exhibition_outdoors <= 5:
+		inhib_exp += rand(3,6)
+	elseif exhibition_outdoors <= 10:
+		inhib_exp += rand(5,9)
+	elseif exhibition_outdoors <= 15:
+		inhib_exp += rand(7,12)
+	elseif exhibition_outdoors <= 20:
+		inhib_exp += rand(9,15)
+	elseif exhibition_outdoors <= 25:
+		inhib_exp += rand(12,20)
+	elseif exhibition_outdoors <= 30:
+		inhib_exp += rand(16,25)
+	elseif exhibition_outdoors <= 35:
+		inhib_exp += rand(20,30)
+	elseif exhibition_outdoors <= 40:
+		inhib_exp += rand(25,40)
+	elseif exhibition_outdoors <= 50:
+		inhib_exp += rand(35,50)
+	elseif exhibition_outdoors <= 65:
+		inhib_exp += rand(50,75)
+	else
+		inhib_exp += rand(70,100)
+	end
+end
+
+exhibition_outdoors = 0
 
 !!------------------------------------------------------------------------------------------------------------
 !!	Succubus
@@ -672,46 +712,6 @@ end
 if pcs_horny < 0:pcs_horny = 0
 
 !!------------------------------------------------------------------------------------------------------------
-
-!!Exhibitionism
-
-if exhibition_outdoors > 0:
-	if pcs_inhib > 90:
-		exhibition_outdoors = exhibition_outdoors * 3
-	elseif pcs_inhib > 75:
-		exhibition_outdoors = exhibition_outdoors * 5 / 2
-	elseif pcs_inhib > 60:
-		exhibition_outdoors = exhibition_outdoors * 2
-	elseif pcs_inhib > 30:
-		exhibition_outdoors = exhibition_outdoors * 3 / 2
-	end
-
-	if exhibition_outdoors <= 5:
-		inhib_exp += rand(3,6)
-	elseif exhibition_outdoors <= 10:
-		inhib_exp += rand(5,9)
-	elseif exhibition_outdoors <= 15:
-		inhib_exp += rand(7,12)
-	elseif exhibition_outdoors <= 20:
-		inhib_exp += rand(9,15)
-	elseif exhibition_outdoors <= 25:
-		inhib_exp += rand(12,20)
-	elseif exhibition_outdoors <= 30:
-		inhib_exp += rand(16,25)
-	elseif exhibition_outdoors <= 35:
-		inhib_exp += rand(20,30)
-	elseif exhibition_outdoors <= 40:
-		inhib_exp += rand(25,40)
-	elseif exhibition_outdoors <= 50:
-		inhib_exp += rand(35,50)
-	elseif exhibition_outdoors <= 65:
-		inhib_exp += rand(50,75)
-	else
-		inhib_exp += rand(70,100)
-	end
-end
-
-exhibition_outdoors = 0
 
 !counter for Dimka avoidance
 if dimaFilm = 1 and dimaRudeBlock = 0:

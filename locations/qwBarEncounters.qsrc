@@ -303,7 +303,7 @@ if $ARGS[0] = '':
 			act 'He might have a point - Finish your drink': gt 'qwBarPolet'
 		end
 		
-		if pcs_horny >= 70 or sub >= 20 or alko >= 5 or pcs_exhibition >= 40:
+		if pcs_horny >= 70 or sub >= 20 or alko >= 5 or exhibitionist_lvl > 1:
 			act 'Grind back against him':
 				cla
 				*clr

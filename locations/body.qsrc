@@ -463,7 +463,7 @@ if pcs_hairlng <= 80:
 	if defcurly = 0:
 		curly = 0
 	else
-		!! ...Wat?
+		!! This sets curly hair to as high a number as possible to prevent it straightening in error
 		curly = 2147483647
 	end
 	hbraids = 0

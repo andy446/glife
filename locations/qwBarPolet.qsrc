@@ -113,7 +113,7 @@ if $ARGS[0] = '':
 
 		act 'Order a snack':
 			if cumloc[7] > 0 or cumloc[10] > 0 or cumloc[11] > 0 or cumloc[13] > 0 or cumloc[16] > 0:
-				if pcs_exhibition < 60:
+				if exhibitionist_lvl < 2:
 					mood -= rand(2,5)
 				else
 					pcs_horny += 5
@@ -121,11 +121,11 @@ if $ARGS[0] = '':
 				npc_rel['A216'] -= 2
 				'Martin gives a stern look. "Don''t you think you should clean yourself up first?"'
 				*nl
-				if pcs_exhibition < 60 and pcs_inhib < 70:
+				if exhibitionist_lvl < 2 and pcs_inhib < 70:
 					'You are visibly covered in cum and Martin noticed it!'
 					*nl
 					'How embarrassing...'
-				elseif pcs_inhib >= 70 and pcs_exhibition < 60:
+				elseif pcs_inhib >= 70 and exhibitionist_lvl < 2:
 					'"Huh?" You look over to the mirror behind the bar and realize that you still have cum on your face.'
 					'"Oh! Didn''t notice that. Yeah you''re right, I should go wash that off," you say before excusing yourself.'
 				else
@@ -298,7 +298,7 @@ if $ARGS[0] = 'Ordering':
 	!Different Picture/s?!
 	'You go to the counter, sit down on one of the stools and, when the bartender notices you, ask: "Hey, could you bring me something to drink?"'
 	if cumloc[7] > 0 or cumloc[10] > 0 or cumloc[11] > 0 or cumloc[13] > 0 or cumloc[16] > 0:
-		if pcs_exhibition < 60:
+		if exhibitionist_lvl < 2:
 			mood -= rand(2,5)
 		else
 			pcs_horny += 5
@@ -306,11 +306,11 @@ if $ARGS[0] = 'Ordering':
 		npc_rel['A216'] -= 2
 		'Martin gives a stern look. "Don''t you think you should clean yourself up first?"'
 		*nl
-		if pcs_exhibition < 60 and pcs_inhib < 70:
+		if exhibitionist_lvl < 2 and pcs_inhib < 70:
 			'You are visibly covered in cum and Martin noticed it!'
 			*nl
 			'How embarrassing...'
-		elseif pcs_inhib >= 70 and pcs_exhibition < 60:
+		elseif pcs_inhib >= 70 and exhibitionist_lvl < 2:
 			'"Huh?" You look over to the mirror behind the bar and realize that you still have cum on your face.'
 			'"Oh! Didn''t notice that. Yeah you''re right, I should go wash that off," you say before excusing yourself.'
 		else

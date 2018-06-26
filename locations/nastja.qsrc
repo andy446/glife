@@ -595,7 +595,7 @@ end
 if $ARGS[0] = 'pos28':
 	cla
 	*clr
-	pcs_exhib += 2
+	gs 'exhibitionism', 2
 	gs 'stat'
 
 	'<center><img <<$set_imgh>> src="images/characters/city/anastasia/towel.jpg"></center>'

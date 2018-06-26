@@ -360,8 +360,7 @@ end
 
 if $ARGS[0] = 'flash_butt':
 	*clr
-	gs 'arousal', 'flashlite', ARGS[2]
-	gs 'arousal', 'end'
+	gs 'exhibitionism', 2
 	if PCloSkirt > 0:
 		if $ARGS[1] = 'inside':
 			'<center><img <<$set_imgh>> src="images/pc/flashing/dress/inside/butt/' + rand(1,7) + '.jpg"></center>'
@@ -383,8 +382,7 @@ end
 
 if $ARGS[0] = 'flash_full':
 	*clr
-	gs 'arousal', 'flash', ARGS[2]
-	gs 'arousal', 'end'
+	gs 'exhibitionism', 3
 	if PCloSkirt > 0:
 		if $ARGS[1] = 'inside':
 			if pcs_pubes <= 20:
@@ -422,8 +420,7 @@ end
 
 if $ARGS[0] = 'flash_panties':
 	*clr
-	gs 'arousal', 'flashlite', ARGS[2]
-	gs 'arousal', 'end'
+	gs 'exhibitionism', 2
 	if PCloSkirt > 0:
 		if $ARGS[1] = 'inside':
 			'<center><img <<$set_imgh>> src="images/pc/flashing/dress/inside/panty/' + rand(1,4) + '.jpg"></center>'
@@ -445,8 +442,7 @@ end
 
 if $ARGS[0] = 'flash_panties_rear':
 	*clr
-	gs 'arousal', 'flashlite', ARGS[2]
-	gs 'arousal', 'end'
+	gs 'exhibitionism', 2
 	if PCloSkirt > 0:
 		if $ARGS[1] = 'inside':
 			'<center><img <<$set_imgh>> src="images/pc/flashing/dress/inside/pantyrear/' + rand(1,4) + '.jpg"></center>'
@@ -468,8 +464,7 @@ end
 
 if $ARGS[0] = 'flash_pussy':
 	*clr
-	gs 'arousal', 'flash', ARGS[2]
-	gs 'arousal', 'end'
+	gs 'exhibitionism', 3
 	if PCloSkirt > 0:
 		if $ARGS[1] = 'inside':
 			if pcs_pubes <= 20:
@@ -507,8 +502,7 @@ end
 
 if $ARGS[0] = 'flash_tits':
 	*clr
-	gs 'arousal', 'flash', ARGS[2]
-	gs 'arousal', 'end'
+	gs 'exhibitionism', 1
 	if PCloSkirt > 0:
 		if $ARGS[1] = 'inside':
 			'<center><img <<$set_imgh>> src="images/pc/flashing/dress/inside/tits/' + rand(1,8) + '.jpg"></center>'

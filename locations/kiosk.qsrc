@@ -22,7 +22,7 @@ if $ARGS[0] = 'start':
 			act 'Flash both your tits and your pussy to jump the queue':
 				cls
 				minut += 1
-				pcs_exhib += rand(3,4)
+				gs 'exhibitionism', 3
 				gs 'events', 'flash_full', 'outdoors', 5
 				gs 'stat'
 				
@@ -34,7 +34,7 @@ if $ARGS[0] = 'start':
 			act 'Flash your pussy to jump the queue':
 				cls
 				minut += 1
-				pcs_exhib += rand(2,3)
+				gs 'exhibitionism', 3
 				gs 'events', 'flash_pussy', 'outdoors', 5
 				gs 'stat'
 				
@@ -46,7 +46,7 @@ if $ARGS[0] = 'start':
 			act 'Flash your tits to jump the queue':
 				cls
 				minut += 1
-				pcs_exhib += rand(1,2)
+				gs 'exhibitionism', 1
 				gs 'events', 'flash_tits', 'outdoors', 5
 				gs 'stat'
 				
@@ -62,7 +62,7 @@ if $ARGS[0] = 'start':
 					gs 'npcgeneratec', 0, 'stranger from the post office', rand(19,45)
 					gs 'boyStat', $npclastgenerated
 
-					pcs_exhib += rand(1,2)
+					inhib_exp += rand(3,5)
 					'<center><img <<$set_imgh>> src="images/shared/sex/blowjob/kiosk_blowjob.jpg"></center>'
 					'A man agrees to your suggestion and lets you move in front of him.'
 

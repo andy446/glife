@@ -61,7 +61,7 @@ if $ARGS[0] = 'start':
 		act 'Flash your tits':
 			if pcs_exhib = 100 and exhibitionQW = 0: gt 'kseniyaQW', 'event1'
 			cls
-			pcs_exhib += 1
+			gs 'exhibitionism', 1
 			inhib_exp += rand(1,3)
 			gs 'events', 'flash_tits', 'outdoors', 5
 			gs 'stat'
@@ -74,7 +74,7 @@ if $ARGS[0] = 'start':
 		act 'Flash your pussy':
 			if pcs_exhib = 100 and exhibitionQW = 0: gt 'kseniyaQW', 'event1'
 			cls
-			pcs_exhib += 3
+			gs 'exhibitionism', 3
 			gs 'events', 'flash_pussy', 'outdoors', 5
 			gs 'stat'
 

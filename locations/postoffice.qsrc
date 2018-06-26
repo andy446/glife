@@ -21,7 +21,6 @@ if $ARGS[0] = 'start':
 		if exhibitionist_lvl > 2:
 			act 'Flash both your tits and your pussy to skip the line':
 				cls
-				pcs_exhib += rand(3,4)
 				gs 'events', 'flash_full', 'indoors', 5
 				gs 'stat'
 
@@ -32,7 +31,6 @@ if $ARGS[0] = 'start':
 		if exhibitionist_lvl > 1:
 			act 'Flash your pussy to skip the line':
 				cls
-				pcs_exhib += rand(2,3)
 				gs 'events', 'flash_pussy', 'indoors', 5
 				gs 'stat'
 
@@ -43,7 +41,6 @@ if $ARGS[0] = 'start':
 		if exhibitionist_lvl > 0 or pcs_inhib >= 45:
 			act 'Flash your tits to skip the line':
 				cls
-				pcs_exhib += rand(1,2)
 				gs 'events', 'flash_tits', 'indoors', 5
 				gs 'stat'
 
@@ -59,7 +56,7 @@ if $ARGS[0] = 'start':
 					gs 'npcgeneratec', 0, 'stranger', rand(18,45)
 					gs 'boyStat', $npclastgenerated
 
-					pcs_exhib += rand(1,2)
+					inhib_exp += rand(2,5)
 					gs 'arousal', 'bj', 10, 'sub'
 					gs 'stat'
 				

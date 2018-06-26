@@ -78,7 +78,7 @@ if $ARGS[0] = 'pos1':
 						act 'Next':
 							cla
 							*clr
-							pcs_exhib += 2
+							gs 'exhibitionism', 2
 							gs 'stat'
 							'<center><img <<$set_imgh>> src="images/locations/city/citycenter/mall/salon/solar7.jpg"></center>'
 							'Finally, you cover yourself in a powerful orgasms and you became exhausted. Also,you can not hear the sniff any more, it seems the secret observer finished with you.'
@@ -157,7 +157,7 @@ if $ARGS[0] = 'pos4':
 		minut += 5
 		pcs_horny += sub
 
-		pcs_exhib += 2
+		gs 'exhibitionism', 2
 
 		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/locations/suburban/2fores.jpg"></center>'
@@ -173,7 +173,7 @@ if $ARGS[0] = 'pos5':
 	minut += 5
 	pcs_horny += sub
 
-	pcs_exhib += 3
+	gs 'exhibitionism', 3
 
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/suburban/3fores.jpg"></center>'

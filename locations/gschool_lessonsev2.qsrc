@@ -15,11 +15,11 @@ if $ARGS[0] = 'geography':
 			pcs_mood -= 10
 			gs'stat'
 			if $pantyworntype ! 'none':
-				pcs_exhib += 1
+				gs 'exhibitionism', 1
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/scoolrand_4_1.jpg"></center>'
 				'When you walk up to the blackboard to answer a question, you trip and fall. Somehow you manage to fall in such a way that your skirt ends up on your back, while the whole class can see your panty-clad ass. You quickly get up and straighten your clothes with a bright red face, trying to ignore the hollering from your classmates. You can tell that most of the guys and even a few girls definitely appreciated your show, even if it was involuntarily.'
 			else
-				pcs_exhib += 2
+				gs 'exhibitionism', 2
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/scoolrand_4_2.jpg"></center>'
 				'Before you can answer the question your teacher poses you, you have to clean the blackboard. You accidentally drop the cloth used to wipe it clean with, and totally forgot you are not wearing panties. The whistling and shouting from the boys and murmurs of disapproval from most of the girls behind you tell you that everyone has a clear view of your bare ass, and both of your holes are on display for everyone to see. Everyone but the teacher, who has no clue why your class is so riled up and desperately tries to calm them down.'
 			end
@@ -69,7 +69,7 @@ if $ARGS[0] = 'geography':
 						gs 'arousal', 'foreplay', 10, 'exhibitionism'
 						act 'Enjoy more':
 							cla
-							pcs_exhib += 2
+							gs 'exhibitionism', 2
 							'You spend the rest of class with Lazar''s hand coming and going to squeeze your breast and tweak your nipple, still careful to make sure the teacher doesn''t catch on.'
 							if $pantyworntype ! 'none':
 								'Enjoying the feeling of Lazar''s hand massaging your breast and his fingers tweaking your nipple, you decide to take advantage of the opportunity. The pencil you were using to take notes, goes under your skirt and begins to prod and play with your hard clitoris through your quickly soaking panties. Eventually you get bored of it and shift the fabric to the side to get access to your bare pussy and insert your two middle fingers. They easily slide between your wet lips and your breathing hitches slightly, matching the rhythm of your pistoning fingers.'
@@ -186,7 +186,7 @@ if $ARGS[0] = 'geography':
 			end
 			act 'You ignore it':
 				*clr & cla
-				pcs_exhib += 1
+				gs 'exhibitionism', 1
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/classroom/open.jpg"></center>'
 				'You let Artem continue to gawk at you. You find yourself somewhat amused at how little it takes to completely enthrall some boys.'
 				act 'Wait for the end of the lesson': gt 'gschool_lessons', 'short_break'
@@ -285,13 +285,13 @@ if $ARGS[0] = 'math':
 			pcs_mood -= 10
 			gs 'stat'
 			if $pantyworntype ! 'none':
-				pcs_exhib += 1
+				gs 'exhibitionism', 1
 				'<center><b><font color=#00BFFF><<"Anatoly E. Tsarev">></font></b></center>'
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/26.jpg"></center>'
 				'Mr. Tsarev calls you up to the blackboard to answer a question. As you are approach the front of the class, you trip and fall, landing on your chest with your skirt on your back, giving the whole class a good view up your skirt. You quickly get up and straighten your clothes while trying to hide how red your face is while the boys begin hollering. It is quite obvious that most of the guys and even a few of the girls, appreciate the show, even if it was involuntarily.'
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/scoolrand_4_1.jpg"></center>'
 			else
-				pcs_exhib += 2
+				gs 'exhibitionism', 2
 				'<center><b><font color=#00BFFF><<"Anatoly E. Tsarev">></font></b></center>'
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/26.jpg"></center>'
 				'Mr. Tsarev calls you up to the blackboard to answer a question. As you begin solving the problem, you drop the chalk on the floor. You quickly bend over to pick it up, having forgot that you are not wearing any panties and giving everyone in the class a clear view of both of your holes. The boys begin whistling and hollering while many of the girls begin whispering to each other.'
@@ -382,7 +382,7 @@ if $ARGS[0] = 'math':
 			end
 			act 'Ignore his stares':
 				*clr & cla
-				pcs_exhib += 1
+				gs 'exhibitionism', 1
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/classroom/open.jpg"></center>'
 				'You let Igor continue to gawk at you. You find yourself somewhat amused at how little it takes to completely enthrall some boys.'
 				'<center><b><font color=#FFC600><<"Igor Kruglov">></font></b></center>'
@@ -422,12 +422,12 @@ if $ARGS[0] = 'math':
 				*clr & cla
 				npc_rel['A26'] += 2
 				if $pantyworntype ! 'none':
-					pcs_exhib += 1
+					gs 'exhibitionism', 1
 					pcs_horny += 30
 					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/classroom/spread.jpg"></center>'
 					'The thoughts of him checking you out so sneakily causes your heart to beat rapidly in excitement, and knowing how wrong this is, turns you on. You purposely spread your legs whenever Mr. Tsarev looks your way, and you can tell by your teacher''s more frequent stares that he is enjoying your show. Unable to control yourself, you occasionally rub your clitoris through your underwear, preferably when Mr. Tsarev glances your way. By the end of the class your panties have a large damp spot on you panties; large enough for him to see from across the room. The outline of your pussy is clearly visible in the wet fabric.'
 				else
-					pcs_exhib += 2
+					gs 'exhibitionism', 2
 					pcs_horny += 40
 					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/classroom/spreadb.jpg"></center>'
 					'The thoughts of him checking you out so sneakily causes your heart to beat rapidly in excitement, and knowing how wrong this is, turns you on further. You purposely spread your legs whenever Mr. Tsarev looks your way, and you can tell by Mr. Tsarev''s fidgeting that he getting really turned on. Unable to control yourself, you occasionally rub your exposed clitoris, preferably when Mr. Tsarev glances your way. By the end of the class your pussy lips are soaked in your juices, and without realizing, you put your finger into your mouth to taste your own juices.'
@@ -519,11 +519,11 @@ if $ARGS[0] = 'history':
 			pcs_mood -= 10
 			gs'stat'
 			if $pantyworntype ! 'none':
-				pcs_exhib += 1
+				gs 'exhibitionism', 1
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/scoolrand_4_1.jpg"></center>'
 				'When you walk up to the blackboard to answer a question, you trip and fall. Somehow you manage to fall in such a way that your skirt ends up on your back, while the whole class can see your panty-clad ass. You quickly get up and straighten your clothes with a bright red face, trying to ignore the hollering from your classmates. You can tell that most of the guys and even a few girls definitely appreciated your show, even if it was involuntarily.'
 			else
-				pcs_exhib += 2
+				gs 'exhibitionism', 2
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/scoolrand_4_2.jpg"></center>'
 				'Before you can answer the question your teacher poses you, you have to clean the blackboard. You accidentally drop the cloth used to wipe it clean with, and totally forgot you are not wearing panties. The whistling and shouting from the boys and murmurs of disapproval from most of the girls behind you tell you that everyone has a clear view of your bare ass, and both of your holes are on display for everyone to see. Everyone but the teacher, who has no clue why your class is so riled up and desperately tries to calm them down.'
 			end
@@ -573,7 +573,7 @@ if $ARGS[0] = 'history':
 						gs 'arousal', 'foreplay', 10, 'exhibitionism'
 						act 'Enjoy more':
 							cla
-							pcs_exhib += 2
+							gs 'exhibitionism', 2
 							'You spend the rest of class with Roman''s hand coming and going to squeeze your breast and tweak your nipple, still careful to make sure the teacher doesn''t catch on.'
 							if $pantyworntype ! 'none':
 								'Enjoying the feeling of Roman''s hand massaging your breast and his fingers tweaking your nipple, you decide to take advantage of the opportunity. The pencil you were using to take notes, goes under your skirt and begins to prod and play with your hard clitoris through your quickly soaking panties. Eventually you get bored of it and shift the fabric to the side to get access to your bare pussy and insert your two middle fingers. They easily slide between your wet lips and your breathing hitches slightly, matching the rhythm of your pistoning fingers.'
@@ -711,7 +711,7 @@ if $ARGS[0] = 'history':
 			end
 			act 'You ignore it':
 				*clr & cla
-				pcs_exhib += 1
+				gs 'exhibitionism', 1
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/classroom/open.jpg"></center>'
 				'You let Petka continue to gawk at you. You find yourself somewhat amused at how little it takes to completely enthrall some boys.'
 				act 'Wait for the end of the lesson': gt 'gschool_lessons', 'short_break'
@@ -750,11 +750,11 @@ if $ARGS[0] = 'shop':
 			pcs_mood -= 10
 			gs'stat'
 			if $pantyworntype ! 'none':
-				pcs_exhib += 1
+				gs 'exhibitionism', 1
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/scoolrand_4_1.jpg"></center>'
 				'When you walk up to the blackboard to answer a question, you trip and fall. Somehow you manage to fall in such a way that your skirt ends up on your back, while the whole class can see your panty-clad ass. You quickly get up and straighten your clothes with a bright red face, trying to ignore the hollering from your classmates. You can tell that most of the guys and even a few girls definitely appreciated your show, even if it was involuntarily.'
 			else
-				pcs_exhib += 2
+				gs 'exhibitionism', 2
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/scoolrand_4_2.jpg"></center>'
 				'Before you can answer the question your teacher poses you, you have to clean the blackboard. You accidentally drop the cloth used to wipe it clean with, and totally forgot you are not wearing panties. The whistling and shouting from the boys and murmurs of disapproval from most of the girls behind you tell you that everyone has a clear view of your bare ass, and both of your holes are on display for everyone to see. Everyone but the teacher, who has no clue why your class is so riled up and desperately tries to calm them down.'
 			end
@@ -808,7 +808,7 @@ if $ARGS[0] = 'shop':
 						gs 'arousal', 'foreplay', 10, 'exhibitionism'
 						act 'Enjoy more':
 							cla
-							pcs_exhib += 2
+							gs 'exhibitionism', 2
 							'You spend the rest of class with Dan''s hand coming and going to squeeze your breast and tweak your nipple, still careful to make sure the teacher doesn''t catch on.'
 							if $pantyworntype ! 'none':
 								'Enjoying the feeling of Dan''s hand massaging your breast and his fingers tweaking your nipple, you decide to take advantage of the opportunity. The pencil you were using to take notes, goes under your skirt and begins to prod and play with your hard clitoris through your quickly soaking panties. Eventually you get bored of it and shift the fabric to the side to get access to your bare pussy and insert your two middle fingers. They easily slide between your wet lips and your breathing hitches slightly, matching the rhythm of your pistoning fingers.'
@@ -932,7 +932,7 @@ if $ARGS[0] = 'shop':
 			end
 			act 'You ignore it':
 				*clr & cla
-				pcs_exhib += 1
+				gs 'exhibitionism', 1
 				npc_rel['A146'] += 1
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/classroom/open.jpg"></center>'
 				'You let Marcus continue to gawk at you. You find yourself somewhat amused at how little it takes to completely enthrall some boys.'

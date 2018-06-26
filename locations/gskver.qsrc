@@ -149,9 +149,9 @@ end
 
 if pcs_inhib >= 35:
 	act 'Flash your tits':
-		if pcs_exhibition >= 50 and exhibitionQW = 0: gt 'kseniyaQW', 'event1'
+		if pcs_exhib = 100 and exhibitionQW = 0: gt 'kseniyaQW', 'event1'
 		cls
-		exhibition_exp += rand(5,8)
+		pcs_exhib += 1
 		gs 'events', 'flash_tits', 'outdoors', 5
 		gs 'stat'
 
@@ -163,9 +163,9 @@ gs 'kseniyaQW', 'events'
 
 if pcs_exhibition >= 40:
 	act 'Flash your pussy':
-		if pcs_exhibition >= 50 and exhibitionQW = 0: gt 'kseniyaQW', 'event1'
+		if pcs_exhib = 100 and exhibitionQW = 0: gt 'kseniyaQW', 'event1'
 		cls
-		exhibition_exp += rand(9,12)
+		pcs_exhib += 3
 		gs 'events', 'flash_pussy', 'outdoors', 5
 		gs 'stat'
 

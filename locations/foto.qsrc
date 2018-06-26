@@ -721,44 +721,47 @@ if $ARGS[0] = 'showers':
 			act 'Use the shower head on your pussy':
 				cla
 				*clr
-				minut += 10
-				exhibition_exp += 10
-				gs 'arousal','masturbate', 5
+				pcs_exhib += 1
 				'<center><video autoplay loop src="images/shared/home/bathroom/wash2.mp4"></video></center>'
 				*nl
 				'Despite the openness of the shower area, you can''t help yourself and place the shower head between your legs, massaging your pussy with powerful jets of warm water and fingers.'
 
-				if pcs_horny >= 90:
-					pcs_horny = 0
-					if pcs_exhibition < 50:
-						exhibition_exp += 1
-						orgasm += 1
-						pcs_mood += 15
-						pcs_willpwr += 15
-						'Soon you feel a warm wave spreading over your entire body and you shudder as an orgasm overtakes you. You quickly look around hoping no one noticed your public masturbation session.'
-						act 'Dry off':gt 'foto', 'showers'
-					else
-						exhibition_exp += 8
-						orgasm += 1
-						pcs_mood += 15
-						pcs_willpwr += 15
-						pcs_horny = 40
-						'You loudly groan as you shudder in orgasm, uncaring if anyone notices what you''re up to. In fact, it kind of turns you on and makes you want to keep going...'
-						act 'Dry off':gt 'foto', 'showers'
-					end
-				else
-					pcs_horny += 5
-					pcs_mood += 10
-					pcs_willpwr += 10
-					'At first it feels very nice, but after a while you become self conscious of how long you''ve been masturbating in the public staff showers. You think maybe it''s time to stop.'
-					act 'Dry off':gt 'foto', 'showers'
-				end
 				if hypnoAddict > 0:
+					minut += 10
 					'You unconsciously avoid spraying water into your vagina.'
 				else
-					cumspclnt = 8
-					gs 'cum_cleanup'
+					if pcs_horny >= 70:
+						if exhibitionist_lvl > 0:
+							pcs_exhib += 1
+							pcs_mood += 15
+							pcs_willpwr += 15
+							$orgasm_or = 'yes'
+							$orgasm_txt = 'Soon you feel a warm wave spreading over your entire body and you shudder as an orgasm overtakes you. You quickly look around hoping no one noticed your public masturbation session.'
+							gs 'arousal','masturbate', 10
+							gs 'arousal', 'end'
+							act 'Dry off':gt 'foto', 'showers'
+						else
+							pcs_exhib += 2
+							pcs_mood += 15
+							pcs_willpwr += 15
+							$orgasm_or = 'yes'
+							$orgasm_txt = 'You loudly groan as you shudder in orgasm, uncaring if anyone notices what you''re up to. In fact, it kind of turns you on and makes you want to keep going...'
+							gs 'arousal','masturbate', 10
+							gs 'arousal', 'end'
+							act 'Dry off':gt 'foto', 'showers'
+						end
+					else
+						pcs_horny += 5
+						pcs_mood += 10
+						pcs_willpwr += 10
+						'At first it feels very nice, but after a while you become self conscious of how long you''ve been masturbating in the public staff showers. You think maybe it''s time to stop.'
+						gs 'arousal','masturbate', 10
+						gs 'arousal', 'end'
+						act 'Dry off':gt 'foto', 'showers'
+					end
 				end
+				cumspclnt = 8
+				gs 'cum_cleanup'
 			end
 		end
 
@@ -799,7 +802,7 @@ if $ARGS[0] = 'krystalshower':
 		pcs_horny += 15
 		pcs_hairbsh = 0
 		pcs_makeup = 1
-		exhibition_exp += 10
+		pcs_exhib += 1
 		dynamic $showerdin
 		'<center><video autoplay loop src="images/shared/home/bathroom/dush.mp4"></video><video autoplay loop src="images/characters/pavlovsk/resident/kolka/event/shower/BroShower.mp4"></video></center>'
 		'	You step into a stall and turn on the shower, trying your best to ignore what is going on while Krystal starts getting fucked from behind.'
@@ -807,24 +810,25 @@ if $ARGS[0] = 'krystalshower':
 			act 'Use the shower head on your pussy':
 				cla
 				*clr
-				pcs_horny = 0
-				minut += 10
-				exhibition_exp += 15
+				pcs_exhib += 2
 				'<center><video autoplay loop src="images/shared/home/bathroom/wash2.mp4"></video><video autoplay loop src="images/locations/city/citycenter/photo/portraits/krystal_b/showerfuck.mp4"></video></center>'
 				*nl
 				'	Her boyfriend pushes her against the wall and pulls her leg up to get deep inside her. Krystal''s moans and the sound of cock slamming into her pussy are too much for you and you can''t stop yourself from placing the shower head between your legs, massaging your pussy with powerful jets of warm water and fingers.'
 				'	Your voices start to sync together, echoing out of the stalls in perfect time with each other.'
+				gs 'arousal','masturbate', 5
 				act 'Continue':
 					cla & *clr
 					stat['mast'] += 1
-					if pcs_exhibition < 50:
-					orgasm += 1
-					pcs_mood += 15
-					pcs_willpwr += 15
-					exhibition_exp +=10
-					'<center><video autoplay loop src="images/locations/city/citycenter/photo/portraits/krystal_b/showercum.mp4"></video></center>'
-					'	Her boyfriend pulls out of her and she jacks him off furiously until he spatters her belly with his cum.'
-					'	You feel a warm wave spreading over your entire body and orgasm, biting your lip hard to suppress the scream that wants to come out. You can''t believe that you just masturbated in the studio showers to Krystal having shower sex with her boyfriend...'
+					if exhibitionist_lvl < 2:
+						pcs_mood += 15
+						pcs_willpwr += 15
+						pcs_exhib += 1
+						'<center><video autoplay loop src="images/locations/city/citycenter/photo/portraits/krystal_b/showercum.mp4"></video></center>'
+						'	Her boyfriend pulls out of her and she jacks him off furiously until he spatters her belly with his cum.'
+						$orgasm_or = 'yes'
+						$orgasm_txt = '	You feel a warm wave spreading over your entire body and orgasm, biting your lip hard to suppress the scream that wants to come out. You can''t believe that you just masturbated in the studio showers to Krystal having shower sex with her boyfriend...'
+						gs 'arousal','masturbate', 5
+						gs 'arousal', 'end'
 						act 'Dry off':
 							cla & *clr
 							'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/vladimir/sex/bath_voyer_3.jpg"></center>'
@@ -834,13 +838,14 @@ if $ARGS[0] = 'krystalshower':
 							act'Leave':gt 'foto', 'studio'
 						end
 					else
-						orgasm += 1
 						pcs_mood += 15
 						pcs_willpwr += 15
-						pcs_horny = 40
 						'<center><video autoplay loop src="images/locations/city/citycenter/photo/portraits/krystal_b/showercum.mp4"></video></center>'
 						'	Her boyfriend pulls out of her and she jacks him off furiously until he spatters her belly with his cum.'
-						'	You loudly groan as you shudder in orgasm, relishing the beautiful image of Krystal''s boyfriend''s cum all over her.'
+						$orgasm_or = 'yes'
+						$orgasm_txt = '	You loudly groan as you shudder in orgasm, relishing the beautiful image of Krystal''s boyfriend''s cum all over her.'
+						gs 'arousal','masturbate', 5
+						gs 'arousal', 'end'
 						act 'Dry off':
 							cla & *clr
 							'<center><video autoplay loop src="images/characters/pavlovsk/resident/vladimir/sex/bath_voyer_2.mp4"></video></center>'
@@ -856,7 +861,7 @@ if $ARGS[0] = 'krystalshower':
 			end
 		end
 
-		if pcs_exhibition > 50:
+		if exhibitionist_lvl > 1:
 			act 'Dry off':
 				cla & *clr
 				'<center><video autoplay loop src="images/locations/city/citycenter/photo/portraits/krystal_b/showerfuck.mp4"></video></center>'

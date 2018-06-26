@@ -357,7 +357,7 @@ if $ARGS[0] = 'mensmast':
 			pcs_mood += 15
 			pcs_willpwr += 15
 			minut += 5
-			if pcs_inhib < 30:exhibition_exp += rand(1,3)
+			if pcs_inhib < 30:pcs_exhib += rand(1,3)
 			gs 'stat'
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/bathroom/mens/sex/mensmast1.jpg"></center>'
 			$orgasm_or = 'custom'

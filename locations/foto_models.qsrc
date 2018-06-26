@@ -1477,7 +1477,7 @@ if $ARGS[0] = 'krystal_chat':
 						'	Suddenly you realize Krystal is giving you a weird look.'
 						'	"W-What...?" you stammer. "Is there something on my face?"'
 						'	"No..." she says while eyeing you up. "I just wanted you to know that if you ever want to do some uhh... ''fat burning exercises'' with me and Ben... you''re more than welcome to join us." She gives you another smirk as she bites her lip.'
-						if pcs_exhibition < 50:
+						if exhibitionist_lvl < 2:
 							'	You break eye contact with her and look away, blushing furiously and try to mumble some kind of response. "I... uhh... ummm... yeah..."'
 							'	<i>What the hell am I even supposed to say to that?</i> you think to yourself.'
 							act'Keep chatting':gt'foto_models','krystal_chat'

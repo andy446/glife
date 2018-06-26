@@ -199,7 +199,7 @@ if $ARGS[0] = 'finger':
 				cla
 				*clr
 				'<center><img <<$set_imgh>> src="images/locations/city/residential/apartment/sex/balcony_mas1-4.jpg"></center>'
-				if pcs_exhibition >= 35:
+				if exhibitionist_lvl > 0:
 					pcs_exhib += 2
 					
 					'As you open your eyes, you lock eyes with one of your neighbors peering out the window in the house across...'

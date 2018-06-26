@@ -797,7 +797,7 @@ if $ARGS[0] = 'run':
 			gs 'stat'
 			'<center><img <<$set_imgh>> src="images/locations/shared/park/parkbeg.jpg"></center>'
 			'You prepare yourself for a nice run in the beautiful park, pacing yourself so you last for a full hour.'
-			if pcs_exhibition >= 35:
+			if pcs_inhib >= 35:
 				act 'Expose your breasts':			
 					*clr
 					cla

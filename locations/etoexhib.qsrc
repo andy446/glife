@@ -132,7 +132,7 @@ if $ARGS[0] = 'pos3':
 		'You can see the mushroom picker far way from you.'
 
 		act 'Get his attention':gt 'etoexhib', 'pos4'
-	elseif foresrand > 90 and pcs_exhibition > 50:
+	elseif foresrand > 90 and exhibitionist_lvl > 1:
 		cla
 		*clr
 		'<center><img <<$set_imgh>> src="images/locations/suburban/1fores.jpg"></center>'

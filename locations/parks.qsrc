@@ -19,7 +19,7 @@ if $ARGS[0] = 'start':
 	act 'Go to the town center': minut += 10 & gt 'liam'
 
 	act 'Walk around the park (1 hour)':
-		if pcs_exhibition >= 50 and exhibitionQW = 0: gt 'kseniyaQW', 'event1', 1
+		if pcs_exhib = 100 and exhibitionQW = 0: gt 'kseniyaQW', 'event1', 1
 		cla
 		minut += 60
 		pcs_mood += 10

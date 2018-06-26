@@ -570,7 +570,7 @@ if $ARGS[0] = 'job_offer':
 				end
 			end
 
-			if pcs_exhibition >= 40:
+			if exhibitionist_lvl > 1:
 				act 'Tell him the truth and tell him how horny this job makes you':
 					*clr & cla
 					pcs_horny += 90

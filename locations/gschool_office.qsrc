@@ -417,7 +417,7 @@ if $ARGS[0] = 'detPunishment1':
 	minut += 15
 	gs 'underwear', 'remove'
 	gs 'clothing', 'strip'
-	exhibition_exp += 3
+	pcs_exhib += 2
 	gs 'pain', 7, 'asscheeks', 'spank'
 	gs 'stat'
 	'<center><img src="images/locations/pavlovsk/school/detention/ffspank1.jpg"></center>'

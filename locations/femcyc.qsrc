@@ -289,7 +289,7 @@ if $ARGS[0] = '':
 			milkgrowday = daystart
 		end
 	elseif lactate > 0 and milkoverdemand => 0 and prolactinlvl >= 0:
-		lactatemm = func('$calc_lactatemm')
+		lactatemm = func('lact_lib','$calc_lactatemm')
 		!! checking if induced or not and if girl went through pregnancy already.
 		if lactateinduced > 0 and kid <= 0:
 			if milkgrowday < daystart:
@@ -919,7 +919,7 @@ if $ARGS[0] = 'preg':
 			'You begin lactating'
 			lactate = 1
 			lactatemv = 0
-			lactatemm = func('$calc_lactatemm')
+			lactatemm = func('lact_lib','$calc_lactatemm')
 			lacaterate = 10
 			prolactinlvl = 150
 		else

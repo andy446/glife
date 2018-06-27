@@ -171,7 +171,7 @@ if $ARGS[0] = '':
 				act 'Finish your drink': gt 'qwBarPolet'
 			end
 				
-			act 'Challange accepted':
+			act 'Challenge accepted':
 				cls
 				'<center><img <<$set_imgh>> src="images/locations/city/industrial/bar/sex/pool/pool1.jpg"></center>'
 				minut += 30
@@ -307,7 +307,7 @@ if $ARGS[0] = '':
 			act 'Grind back against him':
 				cla
 				*clr
-				'<center><img <<$set_imgh>> src="images/locations/city/industrial/bar/sex/bar/bargrind2.gif"></center>'
+				'<center><video autoplay loop src="images/locations/city/industrial/bar/sex/bar/bargrind2.mp4"></video></center>'
 				gs 'boyStat', $npclastgenerated
 				'Maybe it''s the alcohol, ' + iif(sub>=20,'maybe you are','or maybe you are just') + ' really horny ' + iif(sub>=20,'or maybe you are just too submissive to refuse him ','') + '- whatever the case may be, you don''t really want the stranger to stop. Quite the opposite, in fact.'
 				*nl
@@ -318,7 +318,7 @@ if $ARGS[0] = '':
 				act 'Let him guide you':
 					cla
 					*clr
-					'<center><img <<$set_imgh>> src="images/locations/city/industrial/bar/sex/bar/bargrinds1.gif"></center>'
+					'<center><video autoplay loop src="images/locations/city/industrial/bar/sex/bar/bargrinds1.mp4"></video></center>'
 					gs 'boyStat', $npclastgenerated
 					'He works your clit with his fingers for a bit, clearly knowing what he''s doing and getting you hot and bothered before he pulls his hand free. He turns you around so your back is against the bar and then pushes down on your shoulders until you are squatted down in front of him and hidden from most views.' 
 					'The strangers pulls out his cock and shoves it in your open mouth - you already knew what to expect and at this point, you are eager to suck his cock. He leans in close and starts fucking your mouth, and you are reveling in it, masturbating as he shoves his <<dick>>cm <<$dick_girth>> cock down your throat again and again. You don''t know if anybody''s watching and you are too drunk to feel anything but excitement at the prospect.'
@@ -375,7 +375,7 @@ if $ARGS[0] = '':
 						act 'Return the favor':
 							cla
 							*clr
-							'<center><img <<$set_imgh>> src="images/locations/city/industrial/bar/sex/bar/bargrinds1.gif"></center>'
+							'<center><video autoplay loop src="images/locations/city/industrial/bar/sex/bar/bargrinds1.mp4"></video></center>'
 							gs 'boyStat', $npclastgenerated
 							'Seeing as he got down on you right then and there, it seems only fair for you to do the same for him, so you get down on your knees, squatted down in front of him with your back against the counter, hidden from most views.'
 							'The strangers pulls out his cock and shoves it in your open mouth - you already knew what to expect and at this point, you are eager to suck his cock. He leans in close and starts fucking your mouth, and you are reveling in it, masturbating as he shoves his <<dick>>cm <<$dick_girth>> cock down your throat again and again. You don''t know if anybody''s watching and you are too drunk to feel anything but excitement at the prospect.'

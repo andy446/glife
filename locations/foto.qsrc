@@ -411,10 +411,12 @@ if $ARGS[0] = 'interview':
 			howoldareyou = 2
 			'	I''m <<age>>.'
 			'	"I see. Alright, undress. Let me take a look at you."'
+			gs'foto','interview'
 		elseif fakepassport = 1:
 			howoldareyou = 2
 			'	"I''m 18."'
 			'	"I see. Alright, undress. Let me take a look at you."'
+			gs'foto','interview'
 		else
 			act 'Tell the truth':
 				age_truth = 1

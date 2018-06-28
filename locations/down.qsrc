@@ -132,7 +132,8 @@ end
 *nl
 if hour = 8 and minut >= 30:
 	$desc_txt1 = '<a href="exec: minut += 5 & gt ''torgcentr''">The Galeria mall</a>'
-if hour >= 9 and hour <= 20:
+	$desc_txt2 = '<a href="exec:msg ''The Havana Fitness Center is closed and will reopen at 9:00''">Havana Fitness Center</a>'
+elseif hour >= 9 and hour <= 20:
 	$desc_txt1 = '<a href="exec: minut += 5 & gt ''torgcentr''">The Galeria mall</a>'
 	$desc_txt2 = '<a href="exec:gt ''fit'', ''start''">Havana Fitness Center</a>'
 else

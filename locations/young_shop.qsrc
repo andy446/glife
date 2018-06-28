@@ -48,7 +48,7 @@ if $ARGS[0] = 'start':
 			'You spend 4 hours cleaning the department, folding and rehanging clothes and serving customers. The store now looks clean and pretty organized.'
 			gs 'young_shop', 'events'
 		end
-	elseif ((hour = 9 and minut <= 5) or (hour = 8 and minut >= 30)) and young_shop_work1 = 1 and week = 6:
+	elseif ((hour = 9 and minut <= 5) or (hour = 8 and minut >= 30)) and young_shop_work1 = 1 and week > 5:
 		act '<b>Work</b>':
 			cla
 			inWorkYoungShop = 1
@@ -61,7 +61,7 @@ if $ARGS[0] = 'start':
 			'You spend 6 hours cleaning the department, folding and rehanging clothes and serving customers. The store now looks clean and pretty organized.'
 			gs 'young_shop', 'events'
 		end
-!!	elseif ((hour = 9 and minut <= 5) or (hour = 8 and minut >= 30)) and young_shop_work2 = 1 and week > 6:
+!!	elseif ((hour = 9 and minut <= 5) or (hour = 8 and minut >= 30)) and young_shop_work2 = 1 and week < 6:
 !!		act '<b>Work</b>':
 !!			cla
 !!			inWorkYoungShop = 1

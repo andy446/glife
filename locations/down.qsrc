@@ -130,11 +130,13 @@ else
 end
 'The neon green sign of a <<$desc_txt1>> catches your eye. It''s open 8-10 selling magazines and cigarettes for cheap.'
 *nl
+if hour = 8 and minut >= 30:
+	$desc_txt1 = '<a href="exec: minut += 5 & gt ''torgcentr''">The Galeria mall</a>'
 if hour >= 9 and hour <= 20:
 	$desc_txt1 = '<a href="exec: minut += 5 & gt ''torgcentr''">The Galeria mall</a>'
 	$desc_txt2 = '<a href="exec:gt ''fit'', ''start''">Havana Fitness Center</a>'
 else
-	$desc_txt1 = '<a href="exec:msg ''The Galeria mall is closed and will reopen at 9:00''">The Galeria mall</a>'
+	$desc_txt1 = '<a href="exec:msg ''The Galeria mall is closed and will reopen at 8:30''">The Galeria mall</a>'
 	$desc_txt2 = '<a href="exec:msg ''The Havana Fitness Center is closed and will reopen at 9:00''">Havana Fitness Center</a>'
 end
 '<<$desc_txt1>> is front and center in the commercial area. Nearby is a <<$desc_txt2>> which has a swimming pool that can be used for a small fee.'

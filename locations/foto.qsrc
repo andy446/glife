@@ -409,14 +409,20 @@ if $ARGS[0] = 'interview':
 		'	"You want to work here? How old are you?"'
 		if age >= 18:
 			howoldareyou = 2
-			'	I''m <<age>>.'
-			'	"I see. Alright, undress. Let me take a look at you."'
-			gs'foto','interview'
+			act 'I''m <<age>>.':
+				age_truth = 1
+				howoldareyou = 1
+				cla
+				gs'foto','interview'
+			end
 		elseif fakepassport = 1:
 			howoldareyou = 2
-			'	"I''m 18."'
-			'	"I see. Alright, undress. Let me take a look at you."'
-			gs'foto','interview'
+			act 'I''m 18.':
+				age_truth = 1
+				howoldareyou = 1
+				cla
+				gs'foto','interview'
+			end
 		else
 			act 'Tell the truth':
 				age_truth = 1
@@ -432,6 +438,7 @@ if $ARGS[0] = 'interview':
 			end
 		end
 	elseif howoldareyou > 0:
+		'	"I see. Alright, undress. Let me take a look at you."'
 		if howoldareyou = 1:
 			howoldareyou = 2
 			if age_truth = 1 or age >= 18:

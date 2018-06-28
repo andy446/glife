@@ -692,7 +692,7 @@ if $ARGS[0] = 'back':
 		:looptatback
 		*p '<a href="exec:n = <<n>> & gt ''pirsingsalon'', ''back_get''"><img src="images/pc/body/tattoos/back/tatback<<n>>.jpg" height="250" /></a>'
 		n += 1
-		if n <= 55:jump 'looptatback'
+		if n <= 56:jump 'looptatback'
 		*nl
 
 	else

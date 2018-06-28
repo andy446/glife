@@ -137,7 +137,7 @@ if $ARGS[0] = 'MartinSexDyn':
 	elseif $martinpos = 'rev_cowgirl':
 		'<center><img <<$set_imgh>> src="images/locations/city/industrial/bar/sex/bar/martin/rev_cowgirl/rev_cowgirl<<pic_rand>>.jpg"></center>'
 	elseif $martinpos = 'doggystyle':
-		'<center><img <<$set_imgh>> src="images/locations/city/industrial/bar/sex/bar/martin/doggystyle/doggystyle<<pic_rand>>.jpg"></center>'
+		'<center><img <<$set_imgh>> src="images/locations/city/industrial/bar/sex/bar/martin/doggystyle/doggy<<pic_rand>>.jpg"></center>'
 	elseif $martinpos = 'missionary':
 		'<center><img <<$set_imgh>> src="images/locations/city/industrial/bar/sex/bar/martin/missionary/missionary<<pic_rand>>.jpg"></center>'
 	elseif $martinpos = 'sideways':
@@ -270,12 +270,12 @@ if $ARGS[0] = 'MartinSexDyn':
 			else
 				'<center><img <<$set_imgh>> src="images/locations/city/industrial/bar/sex/bar/martin/rev_cowgirl/rev_cowgirl<<pic_rand2>>.jpg"></center>'
 			end
-			'You are moving ever faster, trying to take Martin''s wonderful cock deeper into your <<$pcs_vag>> pussy, fucking him harder, moaning louder as you go. It may have started off gently but there''s no gentleness left to be found here anymore: You are riding this man in the middle of his bar, giving him a fantastic view of your ' + iif($martinpos='rev_cowgirl','ass','tits') + ' in the same spot some guys talked about their shitty jobs and marital problems a few hours ago.'
+			'You are moving ever faster, trying to take Martin''s wonderful cock deeper into your <<$pcdesc_pussyrandom>> pussy, fucking him harder, moaning louder as you go. It may have started off gently but there''s no gentleness left to be found here anymore: You are riding this man in the middle of his bar, giving him a fantastic view of your ' + iif($martinpos='rev_cowgirl','ass','tits') + ' in the same spot some guys talked about their shitty jobs and marital problems a few hours ago.'
 			*nl
 			'It only adds to the excitement of it all to know that this is a public place, even if nobody else is here right now.'
 			
 			if exhibitionist_lvl > 1 or exhibitionism['pref'] > 50: 'This idea, and the memories of your previous exhibitionist acts manifest themselves in a small fantasy: You imagine what it would be like if the bar wasn''t empty but bustling with people, what it might be like to fuck the bartender right here in the center, with all of their eyes on you...' & pcs_horny += 10
-			$orgasm_txt = 'And it''s this fantasy that sets you off, causing you to cry out in heat and your <<$pcs_vag>> pussy to quiver around Martin''s cock as you imagine how strangers jerk off to your fucking. As you come down from your high, you feel like a pervert... but that''s not a bad thing, right?'
+			$orgasm_txt = 'And it''s this fantasy that sets you off, causing you to cry out in heat and your <<$pcdesc_pussyrandom>> pussy to quiver around Martin''s cock as you imagine how strangers jerk off to your fucking. As you come down from your high, you feel like a pervert... but that''s not a bad thing, right?'
 			gs 'arousal', 'vaginal', 3, 'exhibitionism'
 			*nl
 			'Martin, who has been relatively passive so far, leaving you in control, shakes you out of your reverie when his hands move to your hips. No doubt he intends to take a little more initiative.'
@@ -299,7 +299,7 @@ if $ARGS[0] = 'MartinSexDyn':
 				'"Please what?"'
 				'"Please fuck me with your hard cock again. I need it!"'
 				*nl
-				'That was all he wanted to hear. In the blink of an eye, Martin is balls-deep inside you again, his pelvis slamming into your <<$pcs_vag>> hole from below. You cannot move, his strong arms firmly holding you in place, and are helpless to let him fuck you from below.' 
+				'That was all he wanted to hear. In the blink of an eye, Martin is balls-deep inside you again, his pelvis slamming into your <<$pcdesc_pussyrandom>> hole from below. You cannot move, his strong arms firmly holding you in place, and are helpless to let him fuck you from below.' 
 				'And you are loving every second of it.'
 				gs 'arousal', 'vaginal', 8, 'sub'
 				gs 'stat'
@@ -312,7 +312,7 @@ if $ARGS[0] = 'MartinSexDyn':
 			'It only adds to the excitement of it all to know that this is a public place, even if nobody''s here now.'
 			
 			if exhibitionist_lvl > 1 or exhibitionism['pref'] > 50: 'This idea, and the memories of your previous exhibitionist acts manifest themselves in a small fantasy: You imagine what it would be like if the bar wasn''t empty but bustling with people, what it might be like to be fuck by the bartender right here in the center, with all of their eyes on you...' & pcs_horny += 10
-			$orgasm_txt = 'And it''s this fantasy that sets you off, causing you to cry out in heat and your <<$pcs_vag>> pussy to quiver around Martin''s cock as you imagine how strangers jerk off to your fucking. As you come down from your high, you feel like a pervert... but that''s not a bad thing, right?'
+			$orgasm_txt = 'And it''s this fantasy that sets you off, causing you to cry out in heat and your <<$pcdesc_pussyrandom>> pussy to quiver around Martin''s cock as you imagine how strangers jerk off to your fucking. As you come down from your high, you feel like a pervert... but that''s not a bad thing, right?'
 			gs 'arousal', 'vaginal', 3, 'exhibitionism'
 			*nl
 			'Martin was firmly in control so far, but it seems like it''s not enough for him: All of a sudden, you can feel his hand at your neck, grabbing you, forcing you to look at him and increasing both his leverage and sense of power over you.'
@@ -349,7 +349,7 @@ if $ARGS[0] = 'MartinSexDyn':
 			'It only adds to the excitement of it all to know that this is a public place, even if nobody''s here now.'
 			
 			if exhibitionist_lvl > 1 or exhibitionism['pref'] > 50: 'This idea, and the memories of your previous exhibitionist acts manifest themselves in a small fantasy: You imagine what it would be like if the bar wasn''t empty but bustling with people, what it might be like to be fuck by the bartender right here in the center, with all of their eyes on you...' & pcs_horny += 10
-			$orgasm_txt = 'And it''s this fantasy that sets you off, causing you to cry out in heat and your <<$pcs_vag>> pussy to quiver around Martin''s cock as you imagine how strangers jerk off to your fucking. As you come down from your high, you feel like a pervert... but that''s not a bad thing, right?'
+			$orgasm_txt = 'And it''s this fantasy that sets you off, causing you to cry out in heat and your <<$pcdesc_pussyrandom>> pussy to quiver around Martin''s cock as you imagine how strangers jerk off to your fucking. As you come down from your high, you feel like a pervert... but that''s not a bad thing, right?'
 			gs 'arousal', 'vaginal', 3, 'exhibitionism'
 			*nl
 			'Martin was firmly in control so far, but it seems like it''s not enough to him: All of a sudden, you can feel his hand at your neck, grabbing you, forcing you to look at him and increasing both his leverage and sense of power over you.'
@@ -393,7 +393,7 @@ if $ARGS[0] = 'MartinSexDyn':
 			'It only adds to the excitement of it all to know that this is a public place, even if nobody''s here now.'
 			
 			if exhibitionist_lvl > 1 or exhibitionism['pref'] > 50: 'This idea, and the memories of your previous exhibitionist acts manifest themselves in a small fantasy: You imagine what it would be like if the bar wasn''t empty but bustling with people, what it might be like to be fuck by the bartender right here in the center, with all of their eyes on you...' & pcs_horny += 10
-			$orgasm_txt = 'And it''s this fantasy that sets you off, causing you to cry out in heat and your <<$pcs_vag>> pussy to quiver around Martin''s cock as you imagine how strangers jerk off to your fucking. As you come down from your high, you feel like a pervert... but that''s not a bad thing, right?'
+			$orgasm_txt = 'And it''s this fantasy that sets you off, causing you to cry out in heat and your <<$pcdesc_pussyrandom>> pussy to quiver around Martin''s cock as you imagine how strangers jerk off to your fucking. As you come down from your high, you feel like a pervert... but that''s not a bad thing, right?'
 			gs 'arousal', 'vaginal', 3, 'exhibitionism'
 			*nl
 			'Martin was firmly in control so far, and his switch of position only served to emphasize that, but it seems like it''s not enough to him: All of a sudden, you can feel one of his hands leave your hips and grab your neck, forcing you to look back at him and increasing both his leverage and sense of power over you.'
@@ -467,12 +467,12 @@ if $ARGS[0] = 'MartinSexDyn':
 			if $martinpos = 'cowgirl':
 				'"Did you enjoy yourself?" You ask coquettishly, leaning forward onto his chest.'
 				'Martin smiles up at you, and pulls you down to give you a kiss. "I think you know the answer."'
-				'"Perhaps..." You grin and lift yourself off, feeling his softening <<dick>>cm <<$dick_girth>> cock slide out of your <<$pcs_vag>> pussy.' 
+				'"Perhaps..." You grin and lift yourself off, feeling his softening <<dick>>cm <<$dick_girth>> cock slide out of your <<$pcdesc_pussyrandom>> pussy.' 
 			
 			elseif $martinpos = 'rev_cowgil':
 				'"Did you enjoy yourself?" You ask coquettishly, wiggling your butt as you look back over your shoulder.'
 				'Martin smiles up at you, and gives your ass a resounding smack. "I think you know the answer."'
-				'"Perhaps..." You grin and lift yourself off, feeling his softening <<dick>>cm <<$dick_girth>> cock slide out of your <<$pcs_vag>> pussy.'
+				'"Perhaps..." You grin and lift yourself off, feeling his softening <<dick>>cm <<$dick_girth>> cock slide out of your <<$pcdesc_pussyrandom>> pussy.'
 			
 			else
 				if $martinpos = 'doggystyle':
@@ -599,7 +599,7 @@ if $ARGS[0] = 'MartinAnalDyn':
 	elseif MartinSurpAnal = 1:
 		'Your change of heart is a little sudden, no doubt, but when you tell Martin that you want him to fuck your ass instead, he doesn''t look unhappy about it. After all, what man would refuse an offer like that?'
 	else
-		'With your <<$pcs_vag>> pussy thoroughly plowed, you moan: "I want your hard cock in my ass right now!"'
+		'With your <<$pcdesc_pussyrandom>> pussy thoroughly plowed, you moan: "I want your hard cock in my ass right now!"'
 		'"You and me both, corazón," Martin murmurs as he pulls out.'
 	end
 	

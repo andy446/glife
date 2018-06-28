@@ -57,7 +57,7 @@ if $ARGS[0] = 'suck':
 	gs 'arousal', 'bj', 10, 'sub', 'group'
 	gs 'stat'
 	
-	if pcs_horny >= (randhorny - pcs_exhibition):
+	if pcs_horny >= (randhorny - pcs_exhib):
 		'You feel so horny in this situation, you''re very close to having a spontaneous orgasm with the guy''s cock still in your mouth. The other girl notices and gives you a sweet wink while she takes over, giving you some time to rub your clit furiously.'
 	
 		$orgasm_or = 'yes'
@@ -96,7 +96,7 @@ if $ARGS[0] = 'pussy':
 	gs 'arousal', 'vaginal', 10, 'sub', 'group'
 	gs 'stat'
 	
-	if pcs_horny >= (randhorny - pcs_exhibition):
+	if pcs_horny >= (randhorny - pcs_exhib):
 		'You feel so horny in this situation, you''re very close to having a spontaneous orgasm. You close your eyes and surrender yourself to the moment, reaching an explosive orgasm without ever touching yourself.'
 	
 		$orgasm_or = 'yes'
@@ -128,7 +128,7 @@ if $ARGS[0] = 'ass':
 	gs 'arousal', 'anal', 10, 'sub', 'group'
 	gs 'stat'
 	
-	if pcs_horny >= (randhorny - pcs_exhibition):
+	if pcs_horny >= (randhorny - pcs_exhib):
 		'You feel so horny in this situation, you''re very close to having a spontaneous orgasm. You close your eyes and surrender yourself to the moment, reaching an explosive orgasm without ever touching yourself.'
 	
 		$orgasm_or = 'yes'
@@ -149,7 +149,7 @@ if $ARGS[0] = 'voy':
 	sexvar -= 1
 	if sexvar < 0: sexstart = 0
 	gs 'dinsex2', 'stamina_npc'
-	if pcs_horny >= (randhorny - pcs_exhibition):
+	if pcs_horny >= (randhorny - pcs_exhib):
 
 		$orgasm_or = 'custom'
 		$orgasm_txt = 'You have an orgasm.'

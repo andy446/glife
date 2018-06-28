@@ -288,7 +288,7 @@ end
 if $ARGS[0] = 'bp_milking':
 	pumptime = 0
 	pumptype = 0
-	if $location_type ! 'bathroom' and pcs_exhibition < 60:
+	if $location_type ! 'bathroom' and exhibitionist_lvl < 1:
 		'You can''t use it here.'
 	else
 		*clr
@@ -309,7 +309,7 @@ end
 if $ARGS[0] = 'man_milking':
 	pumptime = 0
 	pumptype = 1
-	if $location_type ! 'bathroom' and pcs_exhibition < 60:
+	if $location_type ! 'bathroom' and exhibitionist_lvl < 1:
 		'You can''t do this here.'
 	else
 		*clr

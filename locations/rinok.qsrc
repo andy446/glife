@@ -46,7 +46,7 @@ if $ARGS[0] = 'start' or $metka = 'start':
 
 		if nurand >= 80:
 			pcs_mood -= 5
-			exhibition_exp += 2
+			gs 'exhibitionism', 1
 			'You feel someones hand gently touch <a href="exec:gt ''etoexhib'', ''pos15''">your butt</a>.'
 
 			gs 'arousal', 'foreplay', 3

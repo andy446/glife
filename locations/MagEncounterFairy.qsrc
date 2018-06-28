@@ -226,8 +226,7 @@ if $ARGS[0] = 'fairychattopic':
 		'Today the fairy introduces you to fairy knock-knock jokes. She spends almost half an hour telling joke after joke, but you failed to understand a single one. By the time you''re ready to leave, she''s complaining about how humans have no sense of humor.'
 	end
 
-	act 'Go on your way': gt $loc, $metka
-	killvar 'frandchat'
+	act 'Go on your way': killvar 'frandchat' & gt $loc, $metka
 
 end
 

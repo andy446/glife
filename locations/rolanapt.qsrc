@@ -726,7 +726,7 @@ end
 
 
 if $ARGS[0] = 'mypanty':
-    if pcs_exhibition > 35 and pcs_intel > 35 and rolanpantyconfession ! 1:
+    if exhibitionist_lvl > 0 and pcs_intel > 35 and rolanpantyconfession ! 1:
 		cla
 		*clr
 		minut += 1
@@ -1732,7 +1732,7 @@ if $ARGS[0] = 'chef':
 								'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/aptrolan/kitch/lesson/Stroganoff/Stroganoff5.jpg"></center>'
 								'"Also add oil salt paprika and pepper, and a little of water if required.....Uh? Did you say something Rolan"'
 								'You turn to see Rolan staring at your panty...you quickly put your shirt back...'
-								if pcs_exhibition > 50:
+								if exhibitionist_lvl > 1:
 									act 'sexon':
 										cla
 										*clr

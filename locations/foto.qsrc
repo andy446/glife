@@ -411,10 +411,12 @@ if $ARGS[0] = 'interview':
 			howoldareyou = 2
 			'	I''m <<age>>.'
 			'	"I see. Alright, undress. Let me take a look at you."'
+			gs 'foto', 'interview_undress'
 		elseif fakepassport = 1:
 			howoldareyou = 2
 			'	"I''m 18."'
 			'	"I see. Alright, undress. Let me take a look at you."'
+			gs 'foto', 'interview_undress'
 		else
 			act 'Tell the truth':
 				age_truth = 1
@@ -429,73 +431,78 @@ if $ARGS[0] = 'interview':
 				gs'foto','interview'
 			end
 		end
-	elseif howoldareyou > 0:
-		if howoldareyou = 1:
-			howoldareyou = 2
-			if age_truth = 1 or age >= 18:
-				'	"I''m <<age>>."'
-				'	"I see. Alright, undress. Let me take a look at you."'
-			elseif fakepassport = 1:
-				'	"I''m 18."'
-				'	"I see. Alright, undress. Let me take a look at you."'
-			end
+	else
+		howoldareyou = 2
+		if age_truth = 1 or age >= 18:
+			'	"I''m <<age>>."'
+			'	"I see. Alright, undress. Let me take a look at you."'
+			gs 'foto', 'interview_undress'
+		elseif fakepassport = 1:
+			'	"I''m 18."'
+			'	"I see. Alright, undress. Let me take a look at you."'
+			gs 'foto', 'interview_undress'
 		end
-		if undress_ask = 0:
-			act'What? Why?':
-				undress_ask = 1
-				*clr
-				gs'stat'
-				'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fotograph.jpg"></center>'
-				'	"What?? Why?"'
-				'	"Hmm? This is a modelling studio. That means sometimes we dress our models up in skimpy clothes and lingerie. Our studio is also popular for its nude spreads. You don''t necessarily need to do shoots with nudity, but you need to have your body inspected to make sure you match the criteria for working here."'
-			end
+	end
+end
+
+if $ARGS[0] = 'interview_undress':
+	if undress_ask = 0:
+		act'What? Why?':
+			undress_ask = 1
+			*clr
+			gs'stat'
+			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fotograph.jpg"></center>'
+			'	"What?? Why?"'
+			'	"Hmm? This is a modelling studio. That means sometimes we dress our models up in skimpy clothes and lingerie. Our studio is also popular for its nude spreads. You don''t necessarily need to do shoots with nudity, but you need to have your body inspected to make sure you match the criteria for working here."'
+			gs 'foto', 'interview_undress'
 		end
-		if why_here = 0:
-			act'Right here?':
-				why_here = 1
-				*clr
-				gs'stat'
-				'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fotograph.jpg"></center>'
-				'	"Right here?" you ask. "Shouldn''t we be doing this in some kind of interview room or something?"'
-				'	"Might as well be here," he shrugs. "If you want to work here, we have a dress code policy for the models."'
-				'	"So? What does that have to do with me getting naked in the middle of a workplace?"'
-				'	"The policy is that models don''t wear clothes while on the premises. It makes the logistics of dressing and undressing them for shoots easier. Come on. You want to work for a modelling studio that specializes in nude spreads. Don''t get shy about showing your body to a few people here when you might be on a magazine cover showing it to the entire country. Now are you going to undress so I can do my job or are you going to keep wasting my time here?"'
-			end
+	end
+	if why_here = 0:
+		act'Right here?':
+			why_here = 1
+			*clr
+			gs'stat'
+			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/fotograph.jpg"></center>'
+			'	"Right here?" you ask. "Shouldn''t we be doing this in some kind of interview room or something?"'
+			'	"Might as well be here," he shrugs. "If you want to work here, we have a dress code policy for the models."'
+			'	"So? What does that have to do with me getting naked in the middle of a workplace?"'
+			'	"The policy is that models don''t wear clothes while on the premises. It makes the logistics of dressing and undressing them for shoots easier. Come on. You want to work for a modelling studio that specializes in nude spreads. Don''t get shy about showing your body to a few people here when you might be on a magazine cover showing it to the entire country. Now are you going to undress so I can do my job or are you going to keep wasting my time here?"'
+			gs 'foto', 'interview_undress'
 		end
-		if pcs_inhib >= 40:
-			act 'Do as he says':
-				*clr & cla
-				gs 'clothing', 'strip'
-				gs 'underwear', 'remove'
-				gs 'stat'
-				'<center><video autoplay loop src="images/locations/city/citycenter/photo/strip1.mp4"></video><video autoplay loop src="images/locations/city/citycenter/photo/strip2.mp4"></video></center>'
-				'	You take off your clothes and leave them on the floor while the photographer examines you.'
-				'	He circles you slowly, occasionally asking you to adjust your pose slightly, carefully inspecting every aspect of your nude body. Your <<$pcs_eyecol>> eyes framed by your <<$pcs_haircol>> hair, your <<$liptalk3>>, your <<$titsize>> breasts, your <<$skin1>> <<$pcs_tan>> skin, your thighs, even your <<$vaginatipe>> pussy...'
-				'	He spends several minutes doing this without saying anything. Several people walk by while he does, including several beautiful and nude women who glance at you, whispering to each other before moving on.'
-				act'Continue':gt'foto','job_offer'
-			end
-		elseif pcs_inhib >= 15:
-			act'Reluctantly undress':
-				reluctant_undress = 1
-				*clr & cla
-				gs 'clothing', 'strip'
-				gs 'underwear', 'remove'
-				gs 'stat'
-				'<center><video autoplay loop src="images/locations/city/citycenter/photo/strip1.mp4"></video><video autoplay loop src="images/locations/city/citycenter/photo/strip2.mp4"></video></center>'
-				'	You take a deep breath and begin to take off your clothes. As long as it''s just this one time, you can handle it for now. You leave them on the floor while the photographer examines you.'
-				!if pcs_inhib <= 20'	You instinctively cover up as he steps closer, your hands trying to shield your nipples and pussy.'
-				'	He circles you slowly, occasionally asking you to adjust your pose slightly, carefully inspecting every aspect of your nude body. Your <<$pcs_eyecol>> eyes framed by your <<$pcs_haircol>> hair, your <<$liptalk3>>, your <<$titsize>> breasts, your <<$skin1>> <<$pcs_tan>> skin, your thighs, even your <<$vaginatipe>> pussy...'
-				'	He spends several minutes doing this without saying anything. Several people walk by while he does, including several beautiful and nude women who glance at you, whispering to each other before moving on.'
-				'	<i>This is so embarrassing!</i>'
-				act'Continue':gt'foto','job_offer'
-			end
-		end
-		act'I can''t do it':
+	end
+	if pcs_inhib >= 40:
+		act 'Do as he says':
 			*clr & cla
-			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/foto.jpg"></center>'
-			'	Even if it''s just this one time, you can''t do it after all. It''s simply too embarrassing to get naked in front of a total stranger. You blush, apologize, and leave the studio.'
-			act 'Leave': minut += 1 & gt 'down'
+			gs 'clothing', 'strip'
+			gs 'underwear', 'remove'
+			gs 'stat'
+			'<center><video autoplay loop src="images/locations/city/citycenter/photo/strip1.mp4"></video><video autoplay loop src="images/locations/city/citycenter/photo/strip2.mp4"></video></center>'
+			'	You take off your clothes and leave them on the floor while the photographer examines you.'
+			'	He circles you slowly, occasionally asking you to adjust your pose slightly, carefully inspecting every aspect of your nude body. Your <<$pcs_eyecol>> eyes framed by your <<$pcs_haircol>> hair, your <<$liptalk3>>, your <<$titsize>> breasts, your <<$skin1>> <<$pcs_tan>> skin, your thighs, even your <<$vaginatipe>> pussy...'
+			'	He spends several minutes doing this without saying anything. Several people walk by while he does, including several beautiful and nude women who glance at you, whispering to each other before moving on.'
+			act'Continue':gt'foto','job_offer'
 		end
+	elseif pcs_inhib >= 15:
+		act'Reluctantly undress':
+			reluctant_undress = 1
+			*clr & cla
+			gs 'clothing', 'strip'
+			gs 'underwear', 'remove'
+			gs 'stat'
+			'<center><video autoplay loop src="images/locations/city/citycenter/photo/strip1.mp4"></video><video autoplay loop src="images/locations/city/citycenter/photo/strip2.mp4"></video></center>'
+			'	You take a deep breath and begin to take off your clothes. As long as it''s just this one time, you can handle it for now. You leave them on the floor while the photographer examines you.'
+			!if pcs_inhib <= 20'	You instinctively cover up as he steps closer, your hands trying to shield your nipples and pussy.'
+			'	He circles you slowly, occasionally asking you to adjust your pose slightly, carefully inspecting every aspect of your nude body. Your <<$pcs_eyecol>> eyes framed by your <<$pcs_haircol>> hair, your <<$liptalk3>>, your <<$titsize>> breasts, your <<$skin1>> <<$pcs_tan>> skin, your thighs, even your <<$vaginatipe>> pussy...'
+			'	He spends several minutes doing this without saying anything. Several people walk by while he does, including several beautiful and nude women who glance at you, whispering to each other before moving on.'
+			'	<i>This is so embarrassing!</i>'
+			act'Continue':gt'foto','job_offer'
+		end
+	end
+	act'I can''t do it':
+		*clr & cla
+		'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/foto.jpg"></center>'
+		'	Even if it''s just this one time, you can''t do it after all. It''s simply too embarrassing to get naked in front of a total stranger. You blush, apologize, and leave the studio.'
+		act 'Leave': minut += 1 & gt 'down'
 	end
 end
 
@@ -570,7 +577,7 @@ if $ARGS[0] = 'job_offer':
 				end
 			end
 
-			if pcs_exhibition >= 40:
+			if exhibitionist_lvl > 1:
 				act 'Tell him the truth and tell him how horny this job makes you':
 					*clr & cla
 					pcs_horny += 90
@@ -721,44 +728,47 @@ if $ARGS[0] = 'showers':
 			act 'Use the shower head on your pussy':
 				cla
 				*clr
-				minut += 10
-				exhibition_exp += 10
-				gs 'arousal','masturbate', 5
+				gs 'exhibitionism', 1
 				'<center><video autoplay loop src="images/shared/home/bathroom/wash2.mp4"></video></center>'
 				*nl
 				'Despite the openness of the shower area, you can''t help yourself and place the shower head between your legs, massaging your pussy with powerful jets of warm water and fingers.'
 
-				if pcs_horny >= 90:
-					pcs_horny = 0
-					if pcs_exhibition < 50:
-						exhibition_exp += 1
-						orgasm += 1
-						pcs_mood += 15
-						pcs_willpwr += 15
-						'Soon you feel a warm wave spreading over your entire body and you shudder as an orgasm overtakes you. You quickly look around hoping no one noticed your public masturbation session.'
-						act 'Dry off':gt 'foto', 'showers'
-					else
-						exhibition_exp += 8
-						orgasm += 1
-						pcs_mood += 15
-						pcs_willpwr += 15
-						pcs_horny = 40
-						'You loudly groan as you shudder in orgasm, uncaring if anyone notices what you''re up to. In fact, it kind of turns you on and makes you want to keep going...'
-						act 'Dry off':gt 'foto', 'showers'
-					end
-				else
-					pcs_horny += 5
-					pcs_mood += 10
-					pcs_willpwr += 10
-					'At first it feels very nice, but after a while you become self conscious of how long you''ve been masturbating in the public staff showers. You think maybe it''s time to stop.'
-					act 'Dry off':gt 'foto', 'showers'
-				end
 				if hypnoAddict > 0:
+					minut += 10
 					'You unconsciously avoid spraying water into your vagina.'
 				else
-					cumspclnt = 8
-					gs 'cum_cleanup'
+					if pcs_horny >= 70:
+						if exhibitionist_lvl > 0:
+							gs 'exhibitionism', 1
+							pcs_mood += 15
+							pcs_willpwr += 15
+							$orgasm_or = 'yes'
+							$orgasm_txt = 'Soon you feel a warm wave spreading over your entire body and you shudder as an orgasm overtakes you. You quickly look around hoping no one noticed your public masturbation session.'
+							gs 'arousal','masturbate', 10
+							gs 'arousal', 'end'
+							act 'Dry off':gt 'foto', 'showers'
+						else
+							gs 'exhibitionism', 2
+							pcs_mood += 15
+							pcs_willpwr += 15
+							$orgasm_or = 'yes'
+							$orgasm_txt = 'You loudly groan as you shudder in orgasm, uncaring if anyone notices what you''re up to. In fact, it kind of turns you on and makes you want to keep going...'
+							gs 'arousal','masturbate', 10
+							gs 'arousal', 'end'
+							act 'Dry off':gt 'foto', 'showers'
+						end
+					else
+						pcs_horny += 5
+						pcs_mood += 10
+						pcs_willpwr += 10
+						'At first it feels very nice, but after a while you become self conscious of how long you''ve been masturbating in the public staff showers. You think maybe it''s time to stop.'
+						gs 'arousal','masturbate', 10
+						gs 'arousal', 'end'
+						act 'Dry off':gt 'foto', 'showers'
+					end
 				end
+				cumspclnt = 8
+				gs 'cum_cleanup'
 			end
 		end
 
@@ -799,7 +809,7 @@ if $ARGS[0] = 'krystalshower':
 		pcs_horny += 15
 		pcs_hairbsh = 0
 		pcs_makeup = 1
-		exhibition_exp += 10
+		gs 'exhibitionism', 1
 		dynamic $showerdin
 		'<center><video autoplay loop src="images/shared/home/bathroom/dush.mp4"></video><video autoplay loop src="images/characters/pavlovsk/resident/kolka/event/shower/BroShower.mp4"></video></center>'
 		'	You step into a stall and turn on the shower, trying your best to ignore what is going on while Krystal starts getting fucked from behind.'
@@ -807,24 +817,25 @@ if $ARGS[0] = 'krystalshower':
 			act 'Use the shower head on your pussy':
 				cla
 				*clr
-				pcs_horny = 0
-				minut += 10
-				exhibition_exp += 15
+				gs 'exhibitionism', 2
 				'<center><video autoplay loop src="images/shared/home/bathroom/wash2.mp4"></video><video autoplay loop src="images/locations/city/citycenter/photo/portraits/krystal_b/showerfuck.mp4"></video></center>'
 				*nl
 				'	Her boyfriend pushes her against the wall and pulls her leg up to get deep inside her. Krystal''s moans and the sound of cock slamming into her pussy are too much for you and you can''t stop yourself from placing the shower head between your legs, massaging your pussy with powerful jets of warm water and fingers.'
 				'	Your voices start to sync together, echoing out of the stalls in perfect time with each other.'
+				gs 'arousal','masturbate', 5
 				act 'Continue':
 					cla & *clr
 					stat['mast'] += 1
-					if pcs_exhibition < 50:
-					orgasm += 1
-					pcs_mood += 15
-					pcs_willpwr += 15
-					exhibition_exp +=10
-					'<center><video autoplay loop src="images/locations/city/citycenter/photo/portraits/krystal_b/showercum.mp4"></video></center>'
-					'	Her boyfriend pulls out of her and she jacks him off furiously until he spatters her belly with his cum.'
-					'	You feel a warm wave spreading over your entire body and orgasm, biting your lip hard to suppress the scream that wants to come out. You can''t believe that you just masturbated in the studio showers to Krystal having shower sex with her boyfriend...'
+					if exhibitionist_lvl < 2:
+						pcs_mood += 15
+						pcs_willpwr += 15
+						gs 'exhibitionism', 1
+						'<center><video autoplay loop src="images/locations/city/citycenter/photo/portraits/krystal_b/showercum.mp4"></video></center>'
+						'	Her boyfriend pulls out of her and she jacks him off furiously until he spatters her belly with his cum.'
+						$orgasm_or = 'yes'
+						$orgasm_txt = '	You feel a warm wave spreading over your entire body and orgasm, biting your lip hard to suppress the scream that wants to come out. You can''t believe that you just masturbated in the studio showers to Krystal having shower sex with her boyfriend...'
+						gs 'arousal','masturbate', 5
+						gs 'arousal', 'end'
 						act 'Dry off':
 							cla & *clr
 							'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/vladimir/sex/bath_voyer_3.jpg"></center>'
@@ -834,13 +845,14 @@ if $ARGS[0] = 'krystalshower':
 							act'Leave':gt 'foto', 'studio'
 						end
 					else
-						orgasm += 1
 						pcs_mood += 15
 						pcs_willpwr += 15
-						pcs_horny = 40
 						'<center><video autoplay loop src="images/locations/city/citycenter/photo/portraits/krystal_b/showercum.mp4"></video></center>'
 						'	Her boyfriend pulls out of her and she jacks him off furiously until he spatters her belly with his cum.'
-						'	You loudly groan as you shudder in orgasm, relishing the beautiful image of Krystal''s boyfriend''s cum all over her.'
+						$orgasm_or = 'yes'
+						$orgasm_txt = '	You loudly groan as you shudder in orgasm, relishing the beautiful image of Krystal''s boyfriend''s cum all over her.'
+						gs 'arousal','masturbate', 5
+						gs 'arousal', 'end'
 						act 'Dry off':
 							cla & *clr
 							'<center><video autoplay loop src="images/characters/pavlovsk/resident/vladimir/sex/bath_voyer_2.mp4"></video></center>'
@@ -856,7 +868,7 @@ if $ARGS[0] = 'krystalshower':
 			end
 		end
 
-		if pcs_exhibition > 50:
+		if exhibitionist_lvl > 1:
 			act 'Dry off':
 				cla & *clr
 				'<center><video autoplay loop src="images/locations/city/citycenter/photo/portraits/krystal_b/showerfuck.mp4"></video></center>'
@@ -2086,7 +2098,7 @@ if $ARGS[0] = 'nude_shoot':
 				city_modelling += rand(10,20)
 				pav_modelling += rand(0,city_modelling)/4
 				inhib_exp += 5
-				shoot_type rand(1,3)
+				shoot_type = rand(1,3)
 				gs 'stat'
 				if shoot_type = 1:
 					modelfoto_pussy += 1

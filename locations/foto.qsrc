@@ -410,16 +410,12 @@ if $ARGS[0] = 'interview':
 		if age >= 18:
 			howoldareyou = 2
 			act 'I''m <<age>>.':
-				age_truth = 1
-				howoldareyou = 1
 				cla
 				gs'foto','interview'
 			end
 		elseif fakepassport = 1:
 			howoldareyou = 2
 			act 'I''m 18.':
-				age_truth = 1
-				howoldareyou = 1
 				cla
 				gs'foto','interview'
 			end

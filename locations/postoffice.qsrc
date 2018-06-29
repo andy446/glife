@@ -21,7 +21,7 @@ if $ARGS[0] = 'start':
 		if exhibitionist_lvl > 2:
 			act 'Flash both your tits and your pussy to skip the line':
 				cls
-				gs 'events', 'flash_full', 'indoors', 5
+				gs 'flash', 'full', 'indoors', 5
 				gs 'stat'
 
 				act 'Go to the counter':$postloc = 'counter' & gt 'postoffice'
@@ -31,7 +31,7 @@ if $ARGS[0] = 'start':
 		if exhibitionist_lvl > 1:
 			act 'Flash your pussy to skip the line':
 				cls
-				gs 'events', 'flash_pussy', 'indoors', 5
+				gs 'flash', 'pussy', 'indoors', 5
 				gs 'stat'
 
 				act 'Go to the counter':$postloc = 'counter' & gt 'postoffice'
@@ -41,7 +41,7 @@ if $ARGS[0] = 'start':
 		if exhibitionist_lvl > 0 or pcs_inhib >= 45:
 			act 'Flash your tits to skip the line':
 				cls
-				gs 'events', 'flash_tits', 'indoors', 5
+				gs 'flash', 'tits', 'indoors', 5
 				gs 'stat'
 
 				act 'Go to the counter':$postloc = 'counter' & gt 'postoffice'

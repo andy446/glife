@@ -224,7 +224,7 @@ if $ARGS[0] = 'start':
 			if pcs_exhib = 100 and exhibitionQW = 0: gt 'kseniyaQW', 'event1'
 			cls
 			gs 'exhibitionism', 1
-			gs 'events', 'flash_tits', 'outdoors', 5
+			gs 'flash', 'tits', 'outdoors', 5
 			gs 'stat'
 
 			act 'Continue': gt 'park', 'start'
@@ -237,7 +237,7 @@ if $ARGS[0] = 'start':
 			if pcs_exhib = 100 and exhibitionQW = 0: gt 'kseniyaQW', 'event1'
 			cls
 			gs 'exhibitionism', 3
-			gs 'events', 'flash_pussy', 'outdoors', 5
+			gs 'flash', 'pussy', 'outdoors', 5
 			gs 'stat'
 
 			act 'Continue': gt 'park', 'start'
@@ -497,7 +497,7 @@ if $ARGS[0] = 'whore':
 			*clr
 			gs 'exhibitionism', 1
 			inhib_exp += 2
-			gs 'events', 'flash_tits', 'outdoors', 5
+			gs 'flash', 'tits', 'outdoors', 5
 			gs 'stat'
 			act 'Go back to the park':gt 'park', 'start'
 		end

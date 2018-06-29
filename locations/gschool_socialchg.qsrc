@@ -1700,8 +1700,8 @@ if $ARGS[0] = 'gopnik slut':
 						cla & *clr
 						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/oldschool/gophangout/slut/4.jpg"></center>'
 						'With that taken care of Vitek lets go of you and walks away. The music starts back up, plastic cups are passed around and the vodka and other drinks are shared. You stay just as you are as the party happens around you, with your ass and pussy on full display. Yet it seems most people are not paying a lot of attention to you, at least not yet. Occasionally someone takes a look or slaps your ass, but mostly they ignore you and just have a party. Maybe this won''t be so bad after all.'
-						gs 'arousal', 'flash_ass', 5, 'group', 'sub', 'humiliation', 'exhibitionism'
-						gs 'arousal', 'flash_pussy', -5, 'group', 'sub', 'humiliation'
+						gs 'arousal', 'flash', 5, 'group', 'sub', 'humiliation', 'exhibitionism'
+						gs 'arousal', 'flash', -5, 'group', 'sub', 'humiliation'
 						gs 'stat'
 
 						act 'Learning your place':

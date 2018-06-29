@@ -59,14 +59,14 @@ if $ARGS[0] = 'wash':
 					gt 'zaprFWash', 'titsQ'
 				end
 			else
-				gs 'zaprF', 'flash_passing'
+				gs 'zaprFWash', 'flash_passing'
 			end
 		else
 			! slightly more money for wearing bimbo or prostitute clothing but not looking too great
 			'You washed the windows of several cars and earned 80 <b>₽</b>.'
 			money += 80
 			
-			gs 'zaprF', 'flash_passing'
+			gs 'zaprFWash', 'flash_passing'
 		end
 	else
 		minut += 60
@@ -80,7 +80,7 @@ if $ARGS[0] = 'wash':
 		! normal money just for the car washing
 		'You washed the windows of several cars and earned 60 <b>₽</b>.'
 		
-		gs 'zaprF', 'flash_passing'
+		gs 'zaprFWash', 'flash_passing'
 	end
 end
 
@@ -100,7 +100,6 @@ if $ARGS[0] = 'titsQ':
 	
 	! inhibition or exhibitionism requirements needed to accept the offer or just have fun with him
 	if pcs_inhib >= 30 or pcs_horny >= 40: act 'Agree and show him your tits':gt 'zaprFWash', 'titsFlash', 'Paid', 'Question'
-	if pcs_inhib >= 35 or pcs_horny >= 50: act 'Show him your tits for free instead':gt 'zaprFWash', 'titsFlash', 'Free', 'Question'
 	act 'Refuse':gt 'zaprFWash', 'refuse'
 end
 
@@ -112,7 +111,6 @@ if $ARGS[0] = 'assQ':
 	
 	! inhibition or exhibitionism requirements needed to accept the offer or just have fun with him
 	if exhibitionist_lvl > 0 or pcs_horny >= 60: act 'Agree and show him your ass':gt 'zaprFWash', 'assFlash', 'Paid', 'Question'
-	if exhibitionist_lvl > 0 or pcs_horny >= 70: act 'Show him your ass for free instead':gt 'zaprFWash', 'assFlash', 'Free', 'Question'
 	act 'Refuse':gt 'zaprFWash', 'refuse'
 end
 
@@ -124,7 +122,6 @@ if $ARGS[0] = 'pussyQ':
 		
 	! inhibition or exhibitionism requirements needed to accept the offer or just have fun with him
 	if exhibitionist_lvl > 1 or pcs_horny >= 80: act 'Agree and show him your pussy':gt 'zaprFWash', 'pussyFlash', 'Paid', 'Question'
-	if exhibitionist_lvl > 1 or pcs_horny >= 90: act 'Show him your pussy for free instead':gt 'zaprFWash', 'pussyFlash', 'Free', 'Question'
 	act 'Refuse':gt 'zaprFWash', 'refuse'
 end
 
@@ -136,7 +133,6 @@ if $ARGS[0] = 'handQ':
 	
 	! slut or horny requirements needed to accept the offer or just have fun with him
 	if pav_slut >= 25 or pcs_horny >= 25: act 'Agree and give him a handjob':gt 'zaprFWash', 'handjob', 'Paid'
-	if pav_slut >= 30 or pcs_horny >= 30: act 'Give him a handjob for free instead':gt 'zaprFWash', 'handjob', 'Free'
 	act 'Refuse':gt 'zaprFWash', 'refuse'
 end
 
@@ -148,7 +144,6 @@ if $ARGS[0] = 'blowQ':
 	
 	! slut or horny requirements needed to accept the offer or just have fun with him
 	if pav_slut >= 30 or pcs_horny >= 30: act 'Agree and give him a blowjob':gt 'zaprFWash', 'blowjob', 'Paid', 'Question'
-	if pav_slut >= 35 or pcs_horny >= 35: act 'Give him a blowjob for free instead':gt 'zaprFWash', 'blowjob', 'Free', 'Question'
 	act 'Refuse':gt 'zaprFWash', 'refuse'
 end
 
@@ -174,7 +169,7 @@ if $ARGS[0] = 'titsFlash':
 		money += 50
 		pav_prostitute += rand(0,1)
 	elseif $ARGS[1] = 'Free':
-		pav_sex += rand(0,1)
+		gs 'exhibitionism', 1
 	end
 	if pcs_inhib < 30: inhib_exp += rand(2,4)
 	mood += 5
@@ -273,7 +268,7 @@ if $ARGS[0] = 'assFlash':
 		money += 50
 		pav_prostitute += rand(0,1)
 	elseif $ARGS[1] = 'Free':
-		pav_sex += rand(0,1)
+		gs 'exhibitionism', 2
 	end
 	if pcs_inhib < 30: inhib_exp += rand(2,4)
 	mood += 5
@@ -353,7 +348,7 @@ if $ARGS[0] = 'pussyFlash':
 		money += 50
 		pav_prostitute += 1
 	elseif $ARGS[1] = 'Free':
-		pav_sex += 1
+		gs 'exhibitionism', 3
 	end
 	if pcs_inhib < 40: inhib_exp += rand(4,6)
 	mood += 5
@@ -440,7 +435,6 @@ if $ARGS[0] = 'handjob':
 	
 	if sub >= 10 or pcs_dom >= 10 or bimbolevel >= 1 or pcs_horny >= 30:
 		if pcs_inhib >= 30 or pcs_horny >= 30:act 'Open your mouth for him':gt 'zaprFWash', 'blowjob', 'Paid', 'handjob'
-		if pcs_inhib >= 35 or pcs_horny >= 35:act 'Open your mouth for him for free instead':gt 'zaprFWash', 'blowjob', 'Free', 'handjob'
 		act 'Rub harder to make him cum':gt 'zaprFWash', 'handjobEndQ'
 	else
 		act 'Rub harder to make him cum':gt 'zaprFWash', 'handjobEndQ'
@@ -498,12 +492,9 @@ if $ARGS[0] = 'blowjob':
 	if sub >= 10 or pcs_dom >= 10 or bimbolevel >= 1 or pcs_horny >= 40:
 		if pcs_vag = 0:
 			if pcs_inhib >= 40 or pcs_horny >= 40: act 'Offer your ass instead (you don''t want to lose your virginity to this stranger...)':gt 'zaprFWash', 'fuckAnal', 'Paid'
-			if pcs_inhib >= 45 or pcs_horny >= 45: act 'Offer your ass for free instead (you don''t want to lose your virginity to this stranger...)':gt 'zaprFWash', 'fuckAnal', 'Free'
 		else
 			if pcs_inhib >= 40 or pcs_horny >= 40: act 'Offer your pussy':gt 'zaprFWash', 'fuckPussy', 'Paid'
-			if pcs_inhib >= 45 or pcs_horny >= 45: act 'Offer your pussy for free instead':gt 'zaprFWash', 'fuckPussy', 'Free'
 			if pcs_inhib >= 40 or pcs_horny >= 40: act 'Offer your ass':gt 'zaprFWash', 'fuckAnal', 'Paid'
-			if pcs_inhib >= 45 or pcs_horny >= 45: act 'Offer your ass for free instead':gt 'zaprFWash', 'fuckAnal', 'Free'
 		end
 		act 'Suck harder to make him cum':gt 'zaprFWash', 'blowjobEndQ'
 	else

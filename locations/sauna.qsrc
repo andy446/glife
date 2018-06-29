@@ -104,13 +104,18 @@ if $ARGS[0] = 'saunaroom':
 
 	if workDolg > 0:
 
-		act 'Have some food (0:15)':gs 'food', 'snack'
-		act 'Drink some water (0:05)':gs 'beverage', 'bev_wat'
-
+		act 'Have some food (0:15)':
+			gs 'food', 'snack'
+			workDolg += 100
+		end
+		act 'Drink some water (0:05)':
+			gs 'beverage', 'bev_wat'
+			workDolg += 50
+		end
 		act 'Borrow cosmetics':
 			workDolg += 1000
 			kosmetica += 25
-			gt $curloc
+			gt 'sauna', 'saunaroom'
 		end
 	end
 	if workDolg <= 0 and SaunaWhore > 0:
@@ -121,7 +126,12 @@ if $ARGS[0] = 'saunaroom':
 				money -= 100
 			end
 		end
-		act 'Drink some water (0:05)':gs 'beverage', 'bev_wat'
+		if money >= 50:
+			act 'Drink some water (0:05)':
+				gs 'beverage', 'bev_wat'
+				money -= 50
+			end
+		end
 
 		dynamic $fatdel
 		dynamic $lekarstvo
@@ -147,6 +157,7 @@ if $ARGS[0] = 'saunaroom':
 			end
 		else
 			act '<<$sleep_txt>>':
+				workDolg += 850
 				if disable_autosave = 0:
 					if StoryLine = 0:
 						savegame 'autosave.sav'

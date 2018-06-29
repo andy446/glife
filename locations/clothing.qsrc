@@ -200,10 +200,10 @@ if $ARGS[0] = 'view_clothing_list':
 
 		if $ARGS[1] = 'store':
 			cloc = 1
-		end
-
-		if $ARGS[1] = 'unwanted':
+		elseif $ARGS[1] = 'unwanted':
 			cloc = 2
+		else
+			cloc = 0
 		end
 
 		if $ARGS[2] = 'gm':

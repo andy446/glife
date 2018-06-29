@@ -460,50 +460,56 @@ if $ARGS[0] = 'mari_chat':
 					'	You blush. "Uh, yeah I do, but I, uh, forget to lock it sometimes..."'
 					act 'Keep chatting':gt 'foto_models','mari_chat'
 
-				elseif npc_rel['A34'] >= 20 and npc_rel['A34'] < 40:
+				elseif npc_rel['A34'] < 40:
 					'	"Yeah, I''ve got two. My sister who''s about the same age as you are and my annoying little brother."'
 					'	Mari sits up a bit. "Really? What''s so irritating about him?"'
 					'	"Oh, nothing much. Just sibling squabbles. He''s not all that bad, just gets on my nerves sometimes."'
 					act 'Keep chatting':gt 'foto_models','mari_chat'
 
-				elseif npc_rel['A34'] >= 40 and npc_rel['A34'] < 60:
+				elseif npc_rel['A34'] < 60:
 					'	"Yeah, I''ve got two. My sister who''s about the same age as you are and my little brother."'
 					'	"That sounds nice. What are they like?"'
 					'	"Well to be honest, my sister can be a bit of a slut, but she''s still the best one I could ask for. My brother loves playing football so sometimes I join him and his friends at the field."'
 					'	"Maybe I''ll get to meet them one day!"'
 					act 'Keep chatting':gt 'foto_models','mari_chat'
 
-				elseif npc_rel['A34'] >= 60 and npc_rel['A34'] < 80:
+				elseif npc_rel['A34'] < 80:
 					'	"Yeah, I''ve got two. My sister who''s about the same age as you are and my silly little brother."'
 					'	Mari smiles at you. "That''s sounds nice."'
 					'	You think of your siblings and smile. "Yeah. It is."'
 					act 'Keep chatting':gt 'foto_models','mari_chat'
 
-				elseif npc_rel['A34'] >= 80 and brothersex < 1:
+				elseif sisterLesb >= 5:
+					'	"Yeah, I''ve got two. My sister who''s about the same age as you are and my adorable little brother. I love them both so much!"'
+					'	Mari smiles at you. "You sound close."'
+					'	Your mind wanders back to your sister and how you sometimes wake her up in the middle of the night to fool around with her. "You could say that..."'
+
+					act 'Keep chatting':gt 'foto_models','mari_chat'
+
+				elseif brothersex < 1:
 					'	"Yeah, I''ve got two. My sister who''s about the same age as you are and my adorable little brother. I love them both so much!"'
 					'	Mari smiles at you. "You sound close."'
 					'	You think of your siblings and smile, "Yeah. We are."'
 					act 'Keep chatting':gt 'foto_models','mari_chat'
 
-				elseif sisterLesb >= 5 and brotherSex >= 1 and brotherSex < 7 and npc_rel['A34'] >= 80:
+				elseif sisterLesb >= 5 and brotherSex < 7:
 					'	"Yeah, I''ve got two. My sister who''s about the same age as you are and my adorable little brother. I love them both so much!"'
 					'	Mari smiles at you. "You sound close."'
 					'	Your mind wanders back to your siblings and how you''ve fooled around with both of them separately.'
 					'	"You could say that..."'
 					act 'Keep chatting':gt 'foto_models','mari_chat'
 
-				elseif sisterLesb >= 5 and brotherSex >= 7 and npc_rel['A34'] >= 80:
+				elseif sisterLesb >= 5:
 					'	"Yeah, I''ve got two. My sister who''s about the same age as you are and my adorable little brother. I love them both so much!"'
 					'	Mari smiles at you. "You sound close."'
 					'	Your mind wanders back to your siblings and how you''ve fooled around with your sister and even had full fledged intercourse with your brother. Your thoughts wander to the memory of the last time his cock was inside you and it causes you to blush.'
 					'	"You could say that..."'
 					act 'Keep chatting':gt 'foto_models','mari_chat'
 
-				elseif sisterLesb >= 5 and npc_rel['A34'] >= 80:
-					'	"Yeah, I''ve got two. My sister who''s about the same age as you are and my adorable little brother. I love them both so much!"'
-					'	Mari smiles at you. "You sound close."'
-					'	Your mind wanders back to your sister and how you sometimes wake her up in the middle of the night to fool around with her. "You could say that..."'
-
+				else
+					'	"Yeah, I''ve got two. My sister who''s about the same age as you are and my silly little brother."'
+					'	Mari smiles at you. "That''s sounds nice."'
+					'	You think of your siblings and smile. "Yeah. It is."'
 					act 'Keep chatting':gt 'foto_models','mari_chat'
 				end
 			else

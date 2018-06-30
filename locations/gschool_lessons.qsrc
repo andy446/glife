@@ -2711,7 +2711,7 @@ if $ARGS[0] = 'postphys':
 					zverevaQW = 3
 					gs 'stat'
 					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/christina/sex/school/chcoachbj.jpg"></center>'
-					'You open the door and enter Mr. Pavlovich''s room. Christine is startled, jumping up from her kneeling position and desperately wiping her mouth while your teacher quickly stuffs his erection back into his shorts. "Miss <<$pcs_lastname>>, has no one taught you you should knock!? Me and Christina were just discussing some important matters!" he exclaims, pretending to be insulted by your sudden intrusion.'
+					'You open the door and enter Mr. Pavlovich''s room. Christina is startled, jumping up from her kneeling position and desperately wiping her mouth while your teacher quickly stuffs his erection back into his shorts. "Miss <<$pcs_lastname>>, has no one taught you you should knock!? Me and Christina were just discussing some important matters!" he exclaims, pretending to be insulted by your sudden intrusion.'
 					*nl
 					'You can''t believe he''s even trying! You tell him just that, "Christina was using her mouth, but it certainly wasn''t for talking! You''re letting her suck you off so she can go to the regional competition instead of me!"'
 					*nl

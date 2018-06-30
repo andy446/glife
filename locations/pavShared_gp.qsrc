@@ -315,7 +315,11 @@ if $ARGS[0] = 'gpHandjob':
 	
 	!slow strokes
 	elseif step = 1:
-		orgB += rand(0, 10) / gp_mood
+		if gp_mood = 0:
+			orgB += rand(0, 10)
+		else
+			orgB += rand(0, 10) / gp_mood
+		end
 		'<center><video autoplay loop src="images/shared/sex/handjob/HandJob2.mp4"></video></center>'
 		''
 		'You grab <<$gp_name>>''s cock in your hand, jerking it slowly, changing the pressure from time to time.'

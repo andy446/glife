@@ -194,6 +194,7 @@
 		<Location name="metro"/>
 		<Location name="metro_events"/>
 		<Location name="events"/>
+		<Location name="flash"/>
 		<Location name="street_event"/>
 		<Location name="noticeboard"/>
 	</Folder>

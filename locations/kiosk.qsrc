@@ -23,7 +23,7 @@ if $ARGS[0] = 'start':
 				cls
 				minut += 1
 				gs 'exhibitionism', 3
-				gs 'events', 'flash_full', 'outdoors', 5
+				gs 'flash', 'full', 'outdoors', 5
 				gs 'stat'
 				
 				act 'Go to the counter': gt 'kiosk', 'counter'
@@ -35,7 +35,7 @@ if $ARGS[0] = 'start':
 				cls
 				minut += 1
 				gs 'exhibitionism', 3
-				gs 'events', 'flash_pussy', 'outdoors', 5
+				gs 'flash', 'pussy', 'outdoors', 5
 				gs 'stat'
 				
 				act 'Go to the counter': gt 'kiosk', 'counter'
@@ -47,7 +47,7 @@ if $ARGS[0] = 'start':
 				cls
 				minut += 1
 				gs 'exhibitionism', 1
-				gs 'events', 'flash_tits', 'outdoors', 5
+				gs 'flash', 'tits', 'outdoors', 5
 				gs 'stat'
 				
 				act 'Go to the counter': gt 'kiosk', 'counter'

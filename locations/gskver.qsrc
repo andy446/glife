@@ -152,7 +152,7 @@ if pcs_inhib >= 35:
 		if pcs_exhib = 100 and exhibitionQW = 0: gt 'kseniyaQW', 'event1'
 		cls
 		gs 'exhibitionism', 1
-		gs 'events', 'flash_tits', 'outdoors', 5
+		gs 'flash', 'tits', 'outdoors', 5
 		gs 'stat'
 
 		act 'Continue': gt 'gskver'
@@ -166,7 +166,7 @@ if exhibitionist_lvl > 1:
 		if pcs_exhib = 100 and exhibitionQW = 0: gt 'kseniyaQW', 'event1'
 		cls
 		gs 'exhibitionism', 3
-		gs 'events', 'flash_pussy', 'outdoors', 5
+		gs 'flash', 'pussy', 'outdoors', 5
 		gs 'stat'
 
 		act 'Continue': gt 'gskver'

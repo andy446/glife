@@ -162,7 +162,7 @@ if $ARGS[0] = 'sog1':
 									*clr
 									swallow += 1
 									husband -= 40
-									gs 'cum_call', 'mounth', $namesob, 1, 0, -1, 60
+									gs 'cum_call', 'mouth', $namesob, 1, 0, -1, 60
 									'<center><img <<$set_imgh>> src="images/beast/zoo/z7.jpg"></center>'
 									'You lay the dog on the floor and take his cock in my mouth, your husband looks at you with disgust as you suck the dogs cock.'
 									'In a couple of minutes the dog cums in your mouth and you swallow his sperm.'

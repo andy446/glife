@@ -176,6 +176,11 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 			end
 		end
 	end
+	if breastpump > 0:
+		act 'Use breast pump':
+			gt 'lact_lib', 'bp_milking'
+		end
+	end
 	if klismaday ! daystart and swamp_enema = 1 and analplugin = 0 and hour >= 8 and hour < 20 and hanters = 1 or klismaday ! daystart and swamp_enema = 1 and analplugin = 0 and hanters = 0:
 		act 'Perform an enema':
 			cla

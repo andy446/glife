@@ -430,7 +430,7 @@ if $ARGS[0] = 'fillers':
 	elseif randtext = 8 and soniaPS = 0:
 		$safesub = 'your curfew on weekends'
 	elseif randtext = 9:
-		$safesub = 'your garandparents'
+		$safesub = 'your grandparents'
 	elseif randtext = 0:
 		moral += 1
 		$safesub = 'God and Jesus'

@@ -811,11 +811,11 @@ if $ARGS[1] = 'main':
 					'<<$streetev_title>>'
 					'<center><video autoplay loop src="images/locations/shared/street/bottomed1.mp4"></video></center>'
 					'As you walk down the street you are suddenly pushed forward hard. You nearly lose your balance and only barely catch yourself. While you are half bent over and trying to recover you feel someone yank up your dress and yank down your panties, exposing your ass and pussy for everyone to see. You quickly regain your balance, as you do. You pull up your panties and smooth your dress back in place, by that time whoever did it is long gone.'
-					if pcs_exhibition >= 35:
-						exhibition_exp += 3
+					if exhibitionist_lvl = 1:
+						gs 'exhibitionism', 2
 						pcs_mood += 10
 						'You look around and notice several people staring at you, you are sure they''ve seen everything. You can''t help but smile, loving the attention even if it wasn''t your idea, you casually continue on your way, but with an extra bit of sway in your hips.'
-					elseif pcs_inhib >= 50:
+					elseif exhibitionist_lvl > 1:
 						pcs_mood -= 2
 						'You look around and notice several people staring at you, you are sure they''ve seen everything. You''re annoyed with the prankster, worrying that the elastic on your panties might have been stretched in the act but otherwise feel unembarrassed and continue on your way.'
 					else
@@ -831,11 +831,11 @@ if $ARGS[1] = 'main':
 					'<<$streetev_title>>'
 					'<center><video autoplay loop src="images/locations/shared/street/sharkdress.mp4"></video></center>'
 					'As you walk down the street someone comes up behind you and grabs the top of your dress and yanks it down around your ankles. Which leaves you standing stark naked with only your dress around your ankles. You quickly squat down and grab your dress, pulling it back up and into place, by that time who ever did it is long gone.'
-					if pcs_exhibition >= 35:
-						exhibition_exp += 5
+					if exhibitionist_lvl = 1:
+						gs 'exhibitionism', 3
 						pcs_mood += 10
 						'You look around and notice several people staring at you, you are sure they''ve seen seen. You can''t help but smile, loving the attention even if it wasn''t your idea, you casually continue on your way, but with a extra bit of sway in your hips.'
-					elseif pcs_inhib >= 50:
+					elseif exhibitionist_lvl > 1:
 						'You look around and notice several people staring at you, you are sure they''ve seen everything. You swear loudly, worrying less about how you were just exposed in the street and more about whether the prankster might have damaged your clothing. Satisfied that it appears to be unharmed, you continue on your way, albeit a little more annoyed than you were before.'
 					else
 						pcs_mood -= 10
@@ -850,11 +850,11 @@ if $ARGS[1] = 'main':
 					'<<$streetev_title>>'
 					'<center><video autoplay loop src="images/locations/shared/street/bottomeds'+ rand(1,2) +'.mp4"></video></center>'
 					'As you walk down the street someone comes up behind you and grabs your skirt and panties, yanking them down. Your skirt ends up around your ankles and your panties half way down your thighs. Which leaves your ass and pussy on fully display to everyone around. You quickly pull up your panties and then squat down and grab your skirt, pulling it back up and into place, by that time whoever did it is long gone.'
-					if pcs_exhibition >= 35:
-						exhibition_exp += 3
+					if exhibitionist_lvl = 1:
+						gs 'exhibitionism', 2
 						pcs_mood += 10
 						'You look around and notice several people staring at you, you are sure they''ve seen everything. You can''t help but smile, loving the attention even if it wasn''t your idea, you casually continue on your way, but with an extra bit of sway in your hips.'
-					elseif pcs_inhib >= 50:
+					elseif exhibitionist_lvl > 1:
 						pcs_mood -= 2
 						'You look around and notice several people staring at you, you are sure they''ve seen everything. You swear loudly, worrying less about how your pussy was just exposed in the street and more about whether the prankster might have damaged your panties and skirt. Satisfied that they appear to be unharmed, you continue on your way, albeit a little more annoyed than you were before.'
 					else
@@ -870,11 +870,11 @@ if $ARGS[1] = 'main':
 					'<<$streetev_title>>'
 					'<center><video autoplay loop src="images/locations/shared/street/topped'+ rand(1,2) +'.mp4"></video></center>'
 					'As you walk down the street someone comes up behind you and grabs your top, yanking it down. Which leaves your tits on full display to everyone around. You quickly pull up your top backup, by that time whoever did it is long gone.'
-					if pcs_exhibition >= 35:
-						exhibition_exp += 3
+					if exhibitionist_lvl = 1:
+						gs 'exhibitionism', 2
 						pcs_mood += 10
 						'You look around and notice several people staring at you, you are sure they''ve seen everything. You can''t help but smile, loving the attention even if it wasn''t your idea, you casually continue on your way, but with an extra bit of sway in your hips.'
-					elseif pcs_inhib >= 50:
+					elseif exhibitionist_lvl > 1:
 						pcs_mood -= 2
 						'You look around and notice several people staring at you, you are sure they''ve seen everything. You swear loudly, worrying less about how your tits were just flashed to everyone in the street and more about whether the prankster might have damaged your top. Satisfied that it appears to be unharmed, you continue on your way, albeit a little more annoyed than you were before.'
 					else
@@ -896,11 +896,11 @@ if $ARGS[1] = 'main':
 				'<<$streetev_title>>'
 				'<center><video autoplay loop src="images/locations/shared/street/breeze.mp4"></video></center>'
 				'As you walk down the street a strong breeze suddenly blows down the street, which causes your skirt to blow up. Which exposes your panty clad ass to everyone on the street. You quickly push it back down, but as soon as you let go the breeze blows it right back up, you fight against the breeze for almost a minute before it finally stops.'
-				if pcs_exhibition >= 35:
-					exhibition_exp += 1
+				if exhibitionist_lvl = 1:
+					gs 'exhibitionism', 1
 					pcs_mood += 10
 					'You look around and notice several people staring at you, you are sure they''ve seen everything. You can''t help but smile, loving the attention even if it wasn''t your idea, you casually continue on your way, but with an extra bit of sway in your hips.'
-				elseif pcs_inhib >= 40:
+				elseif exhibitionist_lvl > 1:
 					pcs_mood -= 2
 					'You look around and notice several people staring at you. <i>What''re they staring for? It''s just underwear...</i> you think to yourself and continue on your way.'
 				else
@@ -1014,11 +1014,11 @@ if $ARGS[1] = 'main':
 				'As you walk down the street you pass a woman wearing a long coat. All of a sudden she flashes you with a huge grin on her face. She flashes several other people as well, she seems to be enjoying the attention she is getting.'
 				gs 'arousal', 'voyeur', 5
 				act 'Continue':gt $loc
-				if pcs_exhibition >= 35:
+				if exhibitionist_lvl > 0:
 					act 'Flash her back':
 						cla
 						*clr
-						exhibition_exp += 3
+						gs 'exhibitionism', 1
 						'<<$streetev_title>>'
 						if PCloSkirt > 0:
 							'<center><img <<$set_imgh>> src="images/pc/flashing/dress/outside/tits/' + rand(1,12) + '.jpg"></center>'
@@ -1618,8 +1618,8 @@ if $ARGS[1] = 'main':
 					gt $loc
 				end
 			elseif streetrand > 46 and $pantyworntype = 'none' and PCloSkirt > 2 and hour > 6 and hour <= 20:
-				if pcs_exhibition < 30: pcs_mood -= 2
-				pcs_horny += pcs_exhibition/5
+				if exhibitionist_lvl = 0: pcs_mood -= 2
+				pcs_horny += pcs_exhib/5
 				*clr
 				cla
 				'<<$streetev_title>>'
@@ -1632,7 +1632,7 @@ if $ARGS[1] = 'main':
 				end
 				if pcs_inhib >= 50:
 					'<i>What? So now it''s a crime to prefer going commando now?</i> you think to yourself in annoyance as you continue passing by.'
-				elseif pcs_exhibition < 35:
+				elseif exhibitionist_lvl = 0:
 					'You blush in shame from the old ladies caustic remarks and hurry on your way.'
 				end
 				act 'Continue':gt $loc

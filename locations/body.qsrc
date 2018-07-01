@@ -451,6 +451,7 @@ if dounspell = 0:
 	
 !!This sets weight
 !! This variable is actually only used ONCE, when stripping, to see if you fall off the pole from being too heavy. I am reluctant to touch it, since the math is not explained. Maybe later.
+!! Weight = (height in cm x bottom of average weight in kilos for a 170cm female / 170cm + (hip modifier + 2 x overrun fat)/4 + cup size
 	pcs_weight = (pcs_hgt * 62 / 170) + (vhips + (vofat * 2)) / 4 + tits
 end
 
@@ -462,7 +463,7 @@ if pcs_hairlng <= 80:
 	if defcurly = 0:
 		curly = 0
 	else
-		!! ...Wat?
+		!! This sets curly hair to as high a number as possible to prevent it straightening in error
 		curly = 2147483647
 	end
 	hbraids = 0

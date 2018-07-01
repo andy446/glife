@@ -133,6 +133,11 @@ if mira = 0:
 			act 'Finish':gt $loc, $metka
 		end
 	end
+	if breastpump > 0:
+		act 'Use breast pump':
+			gt 'lact_lib', 'bp_milking'
+		end
+	end
 	if analplug = 1 and analplugin = 1:
 		act 'Remove your butt plug (0:05)':
 			cla

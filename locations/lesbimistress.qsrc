@@ -1197,7 +1197,8 @@ if $ARGS[0] = 'neutral_9':
 	act 'Go out with Mistress':
 		cla
 		*clr
-		exhibition_exp += 3
+		gs 'exhibitionism', 1
+		if exhibitionist_lvl < 1: pcs_horny += rand(1,3)
 		gs'stat'
 		'<center><img <<$set_imgh>> src="images/characters/city/natalya/sex/sub226.jpg"></center>'
 		'You get in Mistress'' car, and just look out the window where she drives you to where she wants to take you.'
@@ -1214,7 +1215,8 @@ if $ARGS[0] = 'neutral_9':
 		act 'Scrapbook time?':
 			cla
 			*clr
-			exhibition_exp += 7
+			gs 'exhibitionism', 2
+			if exhibitionist_lvl < 1: pcs_horny += rand(2,5)
 			gs'stat'
 			'<center><img <<$set_imgh>> src="images/characters/city/natalya/sex/sub227.jpg"></center>'
 			'You get back in the car once you get dressed, and let Mistress take you where she wants to go. She parks somewhere in the city center, and then guides you to a back alley. She taps a door several times with her knuckles in an irregular pattern, and it swings open almost immediately. Must''ve been a code.'
@@ -1229,7 +1231,8 @@ if $ARGS[0] = 'neutral_9':
 			act 'Continue':
 				cla
 				*clr
-				exhibition_exp += 5
+				gs 'exhibitionism', 1
+				if exhibitionist_lvl < 1: pcs_horny += rand(1,3)
 				gs'stat'
 				'<center><img <<$set_imgh>> src="images/characters/city/natalya/sex/sub228.jpg"></center>'
 				'Once Mistress leaves, you can tell that several of the patrons are looking at you very intently.'
@@ -1243,7 +1246,8 @@ if $ARGS[0] = 'neutral_9':
 				act 'Right...':
 					cla
 					*clr
-					exhibition_exp += 5
+					gs 'exhibitionism', 1
+					if exhibitionist_lvl < 1: pcs_horny += rand(1,3)
 					gs'stat'
 					'<center><img <<$set_imgh>> src="images/characters/city/natalya/sex/sub229.jpg"></center>'
 					'Just when you were starting to feel at ease, a man walks up to you. His eyes are scanning your body intently, greedily consuming every square inch of you.'

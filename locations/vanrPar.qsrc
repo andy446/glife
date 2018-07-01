@@ -64,7 +64,7 @@ if $ARGS[0] = 'peek':
 				end
 			end
 		end
-	elseif hour >= 18 and hour <= 21 and brother_ev1 ! daystart and rand(0,2) = 1:
+	elseif hour >= 18 and hour <= 23 and brother_ev1 ! daystart and rand(0,4) < 2:
 		cla
 		*clr
 		brother_ev1 = daystart

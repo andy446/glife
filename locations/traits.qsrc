@@ -5,8 +5,67 @@ if $ARGS[0] = 'menu':
 	pl '<center>Traits Menu</center>'
 	pl'<a href="exec:gs ''stat''">Leave</a>'
 	nl
-!!	pl '<b>Bimbo</b>'
-
+	pl '<b>Bimbo</b>'
+	if bimbolevel = 0:
+		pl 'You do not have this trait.'
+		pl 'To gain this trait you must wear bimbo clothing / shoes for a few days.'
+		pl 'You have <<bimbo>> out of 10 points towards level 1.'
+	elseif bimbolevel = 1:
+		pl 'You have this trait at level 1.'
+		pl 'To maintain this trait you must wear bimbo clothing / shoes and/or have regular sex.'
+		pl 'Due to this trait you gain a very small bonus to appearance and a very small penalty to intelligence.'
+		pl 'You have <<bimbo>> out of 20 points towards level 2.'
+		if bimbowithdrawal = 0:
+			pl 'You are not in withdrawal.'
+		else
+			pl 'You have <<bimbowithdrawal>> out of 30 points towards losing this trait.'
+		end
+	elseif bimbolevel = 2:
+		pl 'You have this trait at level 2.'
+		pl 'To maintain this trait you must wear bimbo clothing / shoes and/or have regular sex.'
+		pl 'Due to this trait you gain a small bonus to appearance and a small penalty to intelligence.'
+		pl 'You have <<bimbo>> out of 30 points towards level 3.'
+		if bimbowithdrawal = 0:
+			pl 'You are not in withdrawal.'
+		else
+			pl 'You have <<bimbowithdrawal>> out of 30 points towards losing this trait.'
+		end
+	else
+		pl 'You have this trait at level 3.'
+		pl 'To maintain this trait you must wear bimbo clothing / shoes and/or have regular sex.'
+		pl 'Due to this trait you gain a moderate bonus to appearance and a moderate penalty to intelligence.'
+		if bimbowithdrawal = 0:
+			pl 'You are not in withdrawal.'
+		else
+			pl 'You have <<bimbowithdrawal>> out of 30 points towards losing this trait.'
+		end
+	end
+	nl
+	pl '<b>Exhibitionist</b>'
+	if Exhibitionist_lvl = 0:
+		pl 'You do not have this trait.'
+		pl 'To gain this trait you must have low enough inhibition and choose to expose your breasts in public.'
+		pl 'You have <<pcs_exhib>> out of 10 points towards level 1. This will slowly decrease each day unless you expose yourself.'
+    elseif Exhibitionist_lvl = 1:
+		pl 'You have this trait at level 1.'
+		pl 'To increase this trait you must choose to expose your breasts and/or bare bottom in public.'
+		pl 'This trait grants you a small amount or excitement from exposing yourself.'
+		pl 'You have <<pcs_exhib>> out of 50 points towards level 2.'
+    elseif Exhibitionist_lvl = 2:
+		pl 'You have this trait at level 2.'
+		pl 'To increase this trait you must choose to expose your breasts, bare bottom and/or pussy in public.'
+		pl 'This trait grants you a moderate amount or excitement from exposing yourself.'
+		if pcs_exhib < 100:
+			pl 'You have <<pcs_exhib>> out of 100 points towards level 3.'
+		else
+			pl 'You must trigger an event in the park to gain level 3.'
+		end
+    else
+		pl 'You have this trait at level 3.'
+		pl 'This is the highest level of this trait.'
+		pl 'This trait grants you a large amount or excitement from exposing yourself.'
+    end
+	nl
 	pl '<b>Cumeater</b>'
 	if trt_cumeater = 0:
 		pl 'You do not have this trait.'

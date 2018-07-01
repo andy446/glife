@@ -244,7 +244,7 @@ if $ARGS[0] = 'sitting_events':
 			*clr
 			cla
 			pav_sex +=5
-			exhibition_exp +=5
+			gs 'exhibitionism', 1
 			inhib_exp += rand(1,3)
 			'<center><b><font color="maroon">Detention</font></b></center>'
 			'<center><video autoplay loop src="images/locations/pavlovsk/school/detention/detsitflash.mp4"></video></center>'
@@ -504,8 +504,7 @@ if $ARGS[0] = 'strange':
 		end
 		act '"Eat me out"':
 			*clr & cla
-!!I made this one 5 because Sveta is having sex in a place she could get caught. I know you said 1-3 but having sex in public seems like it should add more. But if you want to lower it go ahead.
-			exhibition_exp += 5
+			inhib_exp += rand(3,5)
 			pav_sex +=3
 			pcs_dom += 2
 			npc_rel['A152'] += 5

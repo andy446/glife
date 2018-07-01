@@ -147,14 +147,14 @@ if $ARGS[0] = 'teacher_greet':
 				act 'Drop some textbooks':
 					*clr & cla
 					if $pantyworntype ! 'none':
-						exhibition_exp += 2
+						gs 'exhibitionism', 1
 						inhib_exp += rand(0,2)
 						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/building/bendover.jpg"></center>'
 						npc_rel['A26'] += 1
 						'You drop some books and bend over at the waist to pick up the books, showing off your ass.'
 						'"<<$pcs_nickname>>, you should bend at the knees to squat down instead of bend over like that or one of the boys might take advantage." He says with a smile.'
 					else
-						exhibition_exp += 3
+						gs 'exhibitionism', 2
 						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/building/bendoverbare.jpg"></center>'
 						npc_rel['A26'] += 1
 						'You drop some books and bend over at the waist to pick up the books, showing off your ass.'
@@ -167,24 +167,25 @@ if $ARGS[0] = 'teacher_greet':
 						pcs_horny += 3
 						act 'Continue': gt 'gschool_lessons', 'morning'
 					end
-					if $pantyworntype = 'none':
-						if pcs_inhib > 35:
+					if pcs_inhib > 35:
+						if $pantyworntype = 'none':
 							act 'Show more':
 								*clr & cla
-								exhibition_exp += 2
-								'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/building/bendover.jpg"></center>'
-								'You don''t pay attention to the teacher''s words and decide to have fun a little more. Reaching for the next book, you inadvertently pull your skirt up, giving the teacher a full view of your panty clad ass.'
-								'"<<$pcs_lastname>>, cover up." the teacher rushes to you and pulls your skirt down, covering your ass.'
-								'"Anatoly Evgenievich, but it''s just us. I always feel safe when you are around." you reply, standing up.'
+								gs 'exhibitionism', 1
+								'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/building/bendoverbare.jpg"></center>'
+								'You don''t pay attention to the teacher''s words and decide to have fun a little more. Reaching for the next book, you inadvertently pull your skirt up, giving the teacher a full view of your pussy and ass.'
+								'"<<$pcs_lastname>>, cover up." the teacher notices that you are not wearing any panties. He quickly runs up to you and pulls your skirt down, covering up your naked ass.'
 								'The teacher gives you a lecture on how to properly pick up books from the floor, then you both leave, not saying a word more to each other.'
 								act 'Continue': gt 'gschool_lessons', 'morning'
 							end
 						else
 							act 'Show more':
-								exhibition_exp += 3
-								'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/building/bendoverbare.jpg"></center>'
-								'You don''t pay attention to the teacher''s words and decide to have fun a little more. Reaching for the next book, you inadvertently pull your skirt up, giving the teacher a full view of your pussy and ass.'
-								'"<<$pcs_lastname>>, cover up." the teacher notices that you are not wearing any panties. He quickly runs up to you and pulls your skirt down, covering up your naked ass.'
+								*clr & cla
+								gs 'exhibitionism', 1
+								'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/building/bendover.jpg"></center>'
+								'You don''t pay attention to the teacher''s words and decide to have fun a little more. Reaching for the next book, you inadvertently pull your skirt up, giving the teacher a full view of your panty clad ass.'
+								'"<<$pcs_lastname>>, cover up." the teacher rushes to you and pulls your skirt down, covering your ass.'
+								'"Anatoly Evgenievich, but it''s just us. I always feel safe when you are around." you reply, standing up.'
 								'The teacher gives you a lecture on how to properly pick up books from the floor, then you both leave, not saying a word more to each other.'
 								act 'Continue': gt 'gschool_lessons', 'morning'
 							end
@@ -459,7 +460,7 @@ if $ARGS[0] = 'rand_scoolboy':
 			end
 			act 'Lift your skirt':
 				*clr & cla
-				exhibition_exp += 5
+				gs 'exhibitionism', 1
 				inhib_exp += 2
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/rand_scoolboy3.jpg"></center>'
 				'You think to yourself, "<<$rand_boy>> is actually kind of cute..."'
@@ -490,7 +491,7 @@ if $ARGS[0] = 'rand_scoolboy':
 				grupvalue[2] -= 10
 				grupvalue[3] -= 10
 				pav_sex +=30
-				exhibition_exp += 10
+				gs 'exhibitionism', 3
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/building/sex/boysex_tualet1.jpg"></center>'
 				'You give him a sweet smile and take him by the hand, pulling him into the men''s room. Slightly lifting up your skirt, you put his hand between your legs. The other boys all follow the two of you, and now you''re being fondled in front of a crowd.'
 				act 'Take his cock out of his pants': gt 'gschool_sex', 'rand_bj'

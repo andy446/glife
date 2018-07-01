@@ -22,6 +22,7 @@ if $ARGS[0] = 'pos1':
 			cla
 			*clr
 			pcs_mood += 10
+			minut += 20
 			gs 'stat'
 			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/mall/salon/solar9.jpg"></center>'
 			'You are tanned and relaxed. Satisfied, you go out of the solarium and dressed out into the hall salon.'
@@ -35,6 +36,7 @@ if $ARGS[0] = 'pos1':
 		*clr
 		pcs_mood += 10
 		pcs_horny += 10
+		minut += 5
 		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/locations/city/citycenter/mall/salon/solar1.jpg"></center>'
 		'You decide to fool around a bit and leave the door for the room open. You start to slowly undress, when you take your bra off and exposes your breasts, long chills run through your bare back. Now, all of a sudden, anybody could go inside the room and see my breasts, what they would think of me?'
@@ -51,6 +53,7 @@ if $ARGS[0] = 'pos1':
 				cla
 				*clr
 				pcs_horny += 10
+				minut += 5
 				gs 'stat'
 				'<center><img <<$set_imgh>> src="images/locations/city/citycenter/mall/salon/solar4.jpg"></center>'
 				'You undressed and went naked into the solarium. There is just a person on the door looking at you. Of curiosity, you attach your legs and bent them to the side , peering into the darkness of the slightly open door. You can actually see and hear the shadow sniffing. There is no doubt, someone is obviously watching you. From the realization that someone is watching you, and that you are lying completely naked, your body begins to tremble. There is a pleasant feeling in the abdomen. You get so excited to the point that you start to spread your legs in different directions. To the joy of the mysterious stranger.'
@@ -67,22 +70,24 @@ if $ARGS[0] = 'pos1':
 						cla
 						*clr
 						pcs_horny += 20
-						gs 'stat'
 						'<center><img <<$set_imgh>> src="images/locations/city/citycenter/mall/salon/solar6.jpg"></center>'
 						'You start furiously rubbing your pussy to finally finish your shameless adventure. Gradually, you get excited to such an extent that you can not hold back anymore. You start to moan and push your labia with your fingers, showing your pussy to a stranger in all its glory.'
+						gs 'arousal', 'mastubate', 10, 'exhibitionism'
+						gs 'stat'
 
 						act 'Next':
 							cla
 							*clr
-							orgasm += 1
-							pcs_horny -= 50
-							pcs_mood = 100
-							exhibition_exp += 3
+							gs 'exhibitionism', 2
 							gs 'stat'
 							'<center><img <<$set_imgh>> src="images/locations/city/citycenter/mall/salon/solar7.jpg"></center>'
 							'Finally, you cover yourself in a powerful orgasms and you became exhausted. Also,you can not hear the sniff any more, it seems the secret observer finished with you.'
 							''
 							'Gradually you come to your senses, get dressed,and get out of the booth.'
+							$orgasm_or = 'yes'
+							gs 'arousal', 'mastubate', 10, 'exhibitionism'
+							gs 'arousal', 'end'
+							gs 'stat'
 
 							act 'Leave':gt 'salon', 'start'
 						end
@@ -127,7 +132,7 @@ if $ARGS[0] = 'pos3':
 		'You can see the mushroom picker far way from you.'
 
 		act 'Get his attention':gt 'etoexhib', 'pos4'
-	elseif foresrand > 90 and pcs_exhibition > 50:
+	elseif foresrand > 90 and exhibitionist_lvl > 1:
 		cla
 		*clr
 		'<center><img <<$set_imgh>> src="images/locations/suburban/1fores.jpg"></center>'
@@ -152,7 +157,7 @@ if $ARGS[0] = 'pos4':
 		minut += 5
 		pcs_horny += sub
 
-		exhibition_exp += 3
+		gs 'exhibitionism', 2
 
 		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/locations/suburban/2fores.jpg"></center>'
@@ -168,7 +173,7 @@ if $ARGS[0] = 'pos5':
 	minut += 5
 	pcs_horny += sub
 
-	exhibition_exp += 4
+	gs 'exhibitionism', 3
 
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/suburban/3fores.jpg"></center>'
@@ -524,11 +529,12 @@ if $ARGS[0] = 'pos16':
 	'<center><img <<$set_imgh>> src="images/locations/suburban/lake.jpg"></center>'
 
 	if temper >= 20 and bikini > 0 and hour >= 6 and hour <= 20:
-		act 'Swim with a swimsuit':
+		act 'Swim with a swimsuit (1 hour)':
 			cla
 			*clr
 			cumspclnt = 4
 			gs 'cum_cleanup'
+			pcs_inhib += rand(1,2)
 			minut += 60
 			gs 'exercise', 'tier1', 1, 'stren_exp'
 			pcs_sweat = 10 + rand(0,4)
@@ -541,12 +547,14 @@ if $ARGS[0] = 'pos16':
 	end
 
 	if temper >= 20 and hour >= 6 and hour <= 20:
-		act 'Swim naked':
+		act 'Swim naked (1 hour)':
 			cla
 			*clr
 			cumspclnt = 4
 			gs 'cum_cleanup'
-			gs 'exercise', 'tier1', 1, 'stren_exp', 'exhibition_exp'
+			pcs_inhib += 3
+			minut += 60
+			gs 'exercise', 'tier1', 1, 'stren_exp'
 			pcs_sweat = 10 + rand(0,4)
 			gs 'arousal', 'foreplay', 60, 'exhibition'
 			gs 'arousal', 'end'
@@ -1616,7 +1624,7 @@ if $ARGS[0] = 'pos53':
 			cla
 			*clr
 			minut += 60
-			if PCloExhibit + 10 > pcs_exhibition:exhibition_exp += rand(1,3)
+			inhib_exp += rand(1,3)
 			if pcs_sweat < 35 : pcs_sweat += 5
 			pcs_mood += 5
 			'<center><img <<$set_imgh>> src="images/locations/city/residential/apartment/zagar1.jpg"></center>'

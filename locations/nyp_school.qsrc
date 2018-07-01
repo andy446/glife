@@ -348,7 +348,7 @@ if $ARGS[0] = 'nerds':
 			*clr & cla
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/newyear/nerds.jpg"></center>'
 			'You stop and begin thinking about the right strategy, "I feel that we should approach this fight very carefully. The undead king seems kind of strong and should not be underestimated."'
-			'Zinadia nods, "I agree, remember the last time we went heads on with that dragon and almost got wiped out? That was such a bad decision by us... The game master nearly got us all killed there."'
+			'Zinaida nods, "I agree, remember the last time we went heads on with that dragon and almost got wiped out? That was such a bad decision by us... The game master nearly got us all killed there."'
 			'Feofan grins, "It''s not fault you decided to run into that fight without any plan. The blame is completely on you all. But I have to admit it was fun seeing you all sweat for a while."'
 			'"Well if you put that way then we really need to be careful." you reply. You continue on discussing the game, immersing yourself into the game world. All while Natasha shakes her head, "You guys are really the worst kind of nerds..."'
 			minut += 5
@@ -434,7 +434,7 @@ if $ARGS[0] = 'nerds':
 		*clr & cla
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/newyear/nerds.jpg"></center>'
 		'As you pass by the nerds table you hear Natasha sighing deeply, "All you guys always talk about is that damn game. Do we really have to talk about it all the fricking time? It''s so annoying."'
-		'Julia and Zinadia look at her confused, "But it''s really fun. You have an immersive world where there is lots of stuff happening. You can fight dragons, undead. You get to make decisions that in the end can affect the whole party. And the best of all you get to hang out with your friends in peace."'
+		'Julia and Zinaida look at her confused, "But it''s really fun. You have an immersive world where there is lots of stuff happening. You can fight dragons, undead. You get to make decisions that in the end can affect the whole party. And the best of all you get to hang out with your friends in peace."'
 		minut += 10
 		gs 'stat'
 

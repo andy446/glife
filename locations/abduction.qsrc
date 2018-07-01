@@ -511,7 +511,9 @@ if $ARGS[0] = 'abdEscapeWindow3':
 end
 
 if $ARGS[0] = 'abdFood':
+	$loc = 'abduction'
 	$locM = 'abduction'
+	$metka = 'abdFood'
 	$metkaM = 'abdFood'
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/shared/abduction/basement2.jpg"></center>'
@@ -598,7 +600,11 @@ if $ARGS[0] = 'abdFood':
 
 	act 'Look in the mirror': gt 'mirror', 'start'
 	if pcs_hairbsh = 0: act 'Brush your hair': gt 'mirror', 'brush'
-
+	if breastpump > 0:
+		act 'Use breast pump':
+			gt 'lact_lib', 'bp_milking'
+		end
+	end
 	act 'Take a cold shower (0:15)':
 		cumspclnt = 1
 		gs 'cum_cleanup'
@@ -650,7 +656,7 @@ if $ARGS[0] = 'abdRape':
 	if broken < 10:pcs_mood = 5
 
 	if rapeType = 1:
-		pain['mouth'] += 2
+		pain['mouth'] += 3
 		gs 'cum_call', 'mouth', 'torturer'
 		i = rand(1, 4)
 		gifornot = rand (1, 100)
@@ -722,7 +728,7 @@ if $ARGS[0] = 'abdRape':
 		act 'Continue':gt 'abduction', 'abdRoom'
 	else
 		pcs_throat += 1
-		pain['mouth'] += 2
+		pain['mouth'] += 5
 		gs 'cum_call', 'mouth', 'Torturer'
 
 		i = rand(1, 4)
@@ -793,7 +799,7 @@ end
 
 if $ARGS[0] = 'abdTortureA3':
 	cls
-	pain['asshole'] += 2
+	pain['asshole'] += 5
 	pcs_ass += 1
 	'<center><img <<$set_imgh>> src="images/locations/shared/abduction/sex/torturea3.jpg"></center>'
 	'After a while the tormentor comes back and brings a dildo attached to a longer stick.'
@@ -952,8 +958,8 @@ end
 
 if $ARGS[0] = 'abdTortureD5':
 	cls
-	pain['asshole'] += 2
-	pain['vaginal'] += 2
+	pain['asshole'] += 5
+	pain['vaginal'] += 5
 	pcs_vag += 1
 	pcs_ass += 1
 	gs 'cum_call', 'mouth', 'Torturer'
@@ -1663,7 +1669,7 @@ end
 
 if $ARGS[0] = 'abdTrainDildosMouthHorseUse':
 	dick = 40
-	if pcs_throat > dildoHorse:
+	if pcs_throat > 35:
 		'<center><video autoplay loop src="images/locations/shared/abduction/sex/slavewhoredildosmouthhorse.mp4"></video></center>'
 		'You start sucking the dildo with ease, your throat swallows it whole without any problem.'
 		gs 'arousal', 'deepthroat', 60

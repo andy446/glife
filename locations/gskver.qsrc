@@ -106,7 +106,7 @@ end
 act 'Sit down on the bench': ParkBench = 0 & gt'placer_sex','sleeping_parc_alco'
 
 act 'Go for a walk (0:15)':
-	if pcs_exhibition >= 50 and exhibitionQW = 0: gt 'kseniyaQW', 'event1', 1
+	if pcs_exhib = 100 and exhibitionQW = 0: gt 'kseniyaQW', 'event1', 1
 	cla
 	*clr
 	minut += 15
@@ -149,10 +149,10 @@ end
 
 if pcs_inhib >= 35:
 	act 'Flash your tits':
-		if pcs_exhibition >= 50 and exhibitionQW = 0: gt 'kseniyaQW', 'event1'
+		if pcs_exhib = 100 and exhibitionQW = 0: gt 'kseniyaQW', 'event1'
 		cls
-		exhibition_exp += rand(5,8)
-		gs 'events', 'flash_tits', 'outdoors', 5
+		gs 'exhibitionism', 1
+		gs 'flash', 'tits', 'outdoors', 5
 		gs 'stat'
 
 		act 'Continue': gt 'gskver'
@@ -161,12 +161,12 @@ end
 
 gs 'kseniyaQW', 'events'
 
-if pcs_exhibition >= 40:
+if exhibitionist_lvl > 1:
 	act 'Flash your pussy':
-		if pcs_exhibition >= 50 and exhibitionQW = 0: gt 'kseniyaQW', 'event1'
+		if pcs_exhib = 100 and exhibitionQW = 0: gt 'kseniyaQW', 'event1'
 		cls
-		exhibition_exp += rand(9,12)
-		gs 'events', 'flash_pussy', 'outdoors', 5
+		gs 'exhibitionism', 3
+		gs 'flash', 'pussy', 'outdoors', 5
 		gs 'stat'
 
 		act 'Continue': gt 'gskver'

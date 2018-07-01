@@ -190,10 +190,11 @@ if $ARGS[0] = 'Gadbitch':
 				cumspclnt = 4
 				gs 'cum_cleanup'
 				minut += 30
-				if $clothingworntype = 'nude': gs 'exercise', 'tier1', 1, 'stren_exp', 'exhibition_exp'
-				if $clothingworntype = 'nude':inhib_exp += rand(1,3)
-				if $clothingworntype ! 'nude': gs 'exercise', 'tier1', 1, 'stren_exp'
-				if $clothingworntype ! 'nude':
+				if $clothingworntype = 'nude':
+					gs 'exercise', 'tier1', 1, 'stren_exp'
+					inhib_exp += rand(1,3)
+				else
+					gs 'exercise', 'tier1', 1, 'stren_exp'
 					if pcs_inhib < 50:inhib_exp += rand(1,3)
 				end
 				pcs_sweat = 10 + rand(0,4)
@@ -384,7 +385,7 @@ if $ARGS[0] = 'Gadbitch':
 					elseif $clothingworntype = 'nude':
 						*clr & cla
 						minut += 60
-						exhibition_exp += rand(0,3)
+						gs 'exhibitionism', 2
 						inhib_exp += rand(1,3)
 						if pcs_sweat < 35 : pcs_sweat += 5
 						pcs_mood += 5
@@ -571,26 +572,29 @@ if $ARGS[0] = 'Gadbitch':
 
 				act'Agree':
 					cla
-					act 'Strip naked':
-						cla
-						minut += 5
-						gs 'underwear', 'remove'
-						gs 'clothing', 'strip', 'VillageRiver'
-						inhib_exp += rand(1,3)
-						'Without hesitation, you take off all your clothes and neatly fold them before putting them down on a pile. Without your clothes holding you back, you can go for a nice swim in the river or just lie down in the sand and do some sunbathing.'
+					if exhibitionist_lvl > 1:
+						act 'Strip naked':
+							cla
+							minut += 5
+							gs 'underwear', 'remove'
+							gs 'clothing', 'strip', 'VillageRiver'
+							inhib_exp += rand(1,3)
+							'Without hesitation, you take off all your clothes and neatly fold them before putting them down on a pile. Without your clothes holding you back, you can go for a nice swim in the river or just lie down in the sand and do some sunbathing.'
 
-						act 'Swim':
-							*clr & cla
-							'<center><img <<$set_imgh>> src="images/characters/village/mira/rivertwogirlsnude'+rand(0,5)+'.jpg"></center>'
-							'You wade into the river, you have fun with Mira spraying each other with water.'
-							temp_gr = RAND(0,15)
-							cumspclnt = 4 & gs 'cum_cleanup'
-							minut += 30
-							gs 'exercise', 'tier1', 1, 'stren_exp', 'exhibition_exp'
-							pcs_sweat = 10 + rand(0,4)
-							gs'stat'
+							act 'Swim':
+								*clr & cla
+								'<center><img <<$set_imgh>> src="images/characters/village/mira/rivertwogirlsnude'+rand(0,5)+'.jpg"></center>'
+								'You wade into the river, you have fun with Mira spraying each other with water.'
+								temp_gr = RAND(0,15)
+								cumspclnt = 4 & gs 'cum_cleanup'
+								minut += 30
+								gs 'exercise', 'tier1', 1, 'stren_exp'
+								gs 'exhibitionism', 2
+								pcs_sweat = 10 + rand(0,4)
+								gs'stat'
 
-							act 'Get out of the water':gt'Gadriver', 'Gadbitch'
+								act 'Get out of the water':gt'Gadriver', 'Gadbitch'
+							end
 						end
 					end
 					act 'Get changed':

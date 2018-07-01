@@ -18,40 +18,37 @@ if $ARGS[0] = 'start':
 			$postloc = 'counter' & gt 'postoffice'
 		end
 	
-		if pcs_exhibition >= 45 or pcs_inhib >= 55:
+		if exhibitionist_lvl > 2:
 			act 'Flash both your tits and your pussy to skip the line':
 				cls
-				exhibition_exp += rand(12,15)
-				gs 'events', 'flash_full', 'indoors', 5
+				gs 'flash', 'full', 'indoors', 5
 				gs 'stat'
 
 				act 'Go to the counter':$postloc = 'counter' & gt 'postoffice'
 			end
 		end
 
-		if pcs_exhibition >= 40 or pcs_inhib >= 50:
+		if exhibitionist_lvl > 1:
 			act 'Flash your pussy to skip the line':
 				cls
-				exhibition_exp += rand(9,12)
-				gs 'events', 'flash_pussy', 'indoors', 5
+				gs 'flash', 'pussy', 'indoors', 5
 				gs 'stat'
 
 				act 'Go to the counter':$postloc = 'counter' & gt 'postoffice'
 			end
 		end
 
-		if pcs_exhibition >= 35 or pcs_inhib >= 45:
+		if exhibitionist_lvl > 0 or pcs_inhib >= 45:
 			act 'Flash your tits to skip the line':
 				cls
-				exhibition_exp += rand(5,8)
-				gs 'events', 'flash_tits', 'indoors', 5
+				gs 'flash', 'tits', 'indoors', 5
 				gs 'stat'
 
 				act 'Go to the counter':$postloc = 'counter' & gt 'postoffice'
 			end
 		end
 		
-		if pcs_exhibition > 40:
+		if exhibitionist_lvl > 0:
 			act 'Suggest a blowjob in exchange for jumping the queue':
 				cls
 				if cumloc[12] = 0 and cumloc[11] = 0:
@@ -59,7 +56,7 @@ if $ARGS[0] = 'start':
 					gs 'npcgeneratec', 0, 'stranger', rand(18,45)
 					gs 'boyStat', $npclastgenerated
 
-					exhibition_exp += rand(5,8)
+					inhib_exp += rand(2,5)
 					gs 'arousal', 'bj', 10, 'sub'
 					gs 'stat'
 				

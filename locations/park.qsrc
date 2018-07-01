@@ -65,8 +65,8 @@ if $ARGS[0] = 'start':
 			
 			'A man walks past you and notices that you didn''t put on any panties. He whistles at you, "Did you forget to put on your underwear today, honey?"'
 			*nl
-			if pcs_exhibition >= 35:
-				exhibition_exp += 2
+			if pcs_inhib >= 35:
+				gs 'exhibitionism', 2
 				mood += 5
 				'"Nope!" you call back. "Just remembered not to!" You flip up the back of your skirt, flashing your ass at him and keep walking, a bit of a spring in your step.'
 			elseif pcs_inhib > 30:
@@ -181,7 +181,7 @@ if $ARGS[0] = 'start':
 				end
 			end
 
-			if pcs_exhibition >= 35:
+			if pcs_inhib >= 35:
 				act 'Expose your breasts':
 					*clr
 					cla
@@ -218,26 +218,26 @@ if $ARGS[0] = 'start':
 
 	gs 'kseniyaQW', 'events'
 
-	if pcs_inhib >= 40:
+	if pcs_inhib >= 35:
 		act 'Flash your tits':
 			inhib_exp += 2
-			if pcs_exhibition >= 50 and exhibitionQW = 0: gt 'kseniyaQW', 'event1'
+			if pcs_exhib = 100 and exhibitionQW = 0: gt 'kseniyaQW', 'event1'
 			cls
-			exhibition_exp += rand(1,4)
-			gs 'events', 'flash_tits', 'outdoors', 5
+			gs 'exhibitionism', 1
+			gs 'flash', 'tits', 'outdoors', 5
 			gs 'stat'
 
 			act 'Continue': gt 'park', 'start'
 		end
 	end
 
-	if pcs_exhibition >= 40:
+	if exhibitionist_lvl > 1:
 		act 'Flash your pussy':
 			inhib_exp += 2
-			if pcs_exhibition >= 50 and exhibitionQW = 0: gt 'kseniyaQW', 'event1'
+			if pcs_exhib = 100 and exhibitionQW = 0: gt 'kseniyaQW', 'event1'
 			cls
-			exhibition_exp += rand(2,6)
-			gs 'events', 'flash_pussy', 'outdoors', 5
+			gs 'exhibitionism', 3
+			gs 'flash', 'pussy', 'outdoors', 5
 			gs 'stat'
 
 			act 'Continue': gt 'park', 'start'
@@ -495,9 +495,9 @@ if $ARGS[0] = 'whore':
 		act 'Flash breasts':
 			cla
 			*clr
-			exhibition_exp += 2
+			gs 'exhibitionism', 1
 			inhib_exp += 2
-			gs 'events', 'flash_tits', 'outdoors', 5
+			gs 'flash', 'tits', 'outdoors', 5
 			gs 'stat'
 			act 'Go back to the park':gt 'park', 'start'
 		end

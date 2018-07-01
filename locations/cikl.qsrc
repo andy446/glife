@@ -142,8 +142,6 @@ if coatH[defaultcoat] <= 0: defaultcoat = 0
 !!------------------------------------------------------------------------------------------------------------
 !!	Bimbo
 !!------------------------------------------------------------------------------------------------------------
-!!A Succubus cannot be a Bimbo
-if succubusflag = 1 and bimbo > 0: bimbo -= succublvl * 2
 
 !!Bonus from clothing and shoes
 if succubusflag = 0 and $cheatBimbo ! '<b>ON</b>':
@@ -180,14 +178,88 @@ if bimbolevel = 1: supnatvnesh = 2 & bimbostupidity = (pcs_intel / 6)
 if bimbolevel = 2: supnatvnesh = 4 & bimbostupidity = (pcs_intel / 4)
 if bimbolevel = 3: supnatvnesh = 8 & bimbostupidity = (pcs_intel / 3)
 
+!!A Succubus cannot be a Bimbo
+if succubusflag = 1:
+	if bimbolevel > 0 and bimbo > 0: bimbowithdrawal = 40
+elseif bimbolevel >= 1:
+!!Checks how often sex has occured in the last 24 hours and for drops in bimbo score, for calculating withdrawal
+	bimbo += ((stat['vaginal'] + stat['bj'] + stat['anal']) - snapshotX) - 3
+	if bimbo > snapshotY:
+		bimbowithdrawal = 0
+	else
+		bimbowithdrawal += 1
+	end
+end
+
+if bimbo < 0: bimbo = 0
+snapshotX = (stat['vaginal'] + stat['bj'] + stat['anal'])
+snapshotY = bimbo
+
+!!------------------------------------------------------------------------------------------------------------
+!!	Exhibitionism
+!!------------------------------------------------------------------------------------------------------------
+
+if pcs_exhib > 0 or exhibitionist_lvl > 0:
+    if pcs_exhib < 10:
+        pcs_exhib -= 1
+    elseif pcs_exhib < 20:
+    	exhibitionist_lvl = 1
+    elseif pcs_exhib < 30:
+    	exhibitionist_lvl = 2
+    else
+        exhibitionist_lvl = 3
+    end
+end
+
+!!Inhibition increases from wearing revealing clothing
+
+if exhibition_outdoors > 0:
+	if pcs_inhib > 90:
+		exhibition_outdoors = exhibition_outdoors * 3
+	elseif pcs_inhib > 75:
+		exhibition_outdoors = exhibition_outdoors * 5 / 2
+	elseif pcs_inhib > 60:
+		exhibition_outdoors = exhibition_outdoors * 2
+	elseif pcs_inhib > 30:
+		exhibition_outdoors = exhibition_outdoors * 3 / 2
+	end
+
+	if exhibition_outdoors <= 5:
+		inhib_exp += rand(3,6)
+	elseif exhibition_outdoors <= 10:
+		inhib_exp += rand(5,9)
+	elseif exhibition_outdoors <= 15:
+		inhib_exp += rand(7,12)
+	elseif exhibition_outdoors <= 20:
+		inhib_exp += rand(9,15)
+	elseif exhibition_outdoors <= 25:
+		inhib_exp += rand(12,20)
+	elseif exhibition_outdoors <= 30:
+		inhib_exp += rand(16,25)
+	elseif exhibition_outdoors <= 35:
+		inhib_exp += rand(20,30)
+	elseif exhibition_outdoors <= 40:
+		inhib_exp += rand(25,40)
+	elseif exhibition_outdoors <= 50:
+		inhib_exp += rand(35,50)
+	elseif exhibition_outdoors <= 65:
+		inhib_exp += rand(50,75)
+	else
+		inhib_exp += rand(70,100)
+	end
+end
+
+exhibition_outdoors = 0
+
+!!------------------------------------------------------------------------------------------------------------
+!!	Succubus
+!!------------------------------------------------------------------------------------------------------------
+
 !!Succubus Level & hunger calcs
 if succubusflag = 1:
 
 	cheatHealth = 1
 	dynamic $cheatmenu['std_cure']
-
-!!	A Succubus cannot be a Bimbo
-	if bimbolevel > 0 and bimbo > 0: bimbowithdrawal = 40
 
 !!	Hunger handling
 	if sucxpsnapshot >= succubxp: succhungry += 1
@@ -273,21 +345,6 @@ if succubusflag = 1:
 		end
 	end
 end
-
-!!Bimbo second half, after Succubus so changes there can be reflected here if still bimbo and Succubus
-!!Checks how often sex has occured in the last 24 hours and for drops in bimbo score, for calculating withdrawal
-if bimbolevel >= 1:
-	bimbo += ((stat['vaginal'] + stat['bj'] + stat['anal']) - snapshotX) - 3
-	if bimbo > snapshotY:
-		bimbowithdrawal = 0
-	else
-		bimbowithdrawal += 1
-	end
-end
-
-if bimbo < 0: bimbo = 0
-snapshotX = (stat['vaginal'] + stat['bj'] + stat['anal'])
-snapshotY = bimbo
 
 !!------------------------------------------------------------------------------------------------------------
 
@@ -656,46 +713,6 @@ if pcs_horny < 0:pcs_horny = 0
 
 !!------------------------------------------------------------------------------------------------------------
 
-!!Exhibitionism
-
-if exhibition_outdoors > 0:
-	if pcs_inhib > 90:
-		exhibition_outdoors = exhibition_outdoors * 3
-	elseif pcs_inhib > 75:
-		exhibition_outdoors = exhibition_outdoors * 5 / 2
-	elseif pcs_inhib > 60:
-		exhibition_outdoors = exhibition_outdoors * 2
-	elseif pcs_inhib > 30:
-		exhibition_outdoors = exhibition_outdoors * 3 / 2
-	end
-
-	if exhibition_outdoors <= 5:
-		inhib_exp += rand(3,6)
-	elseif exhibition_outdoors <= 10:
-		inhib_exp += rand(5,9)
-	elseif exhibition_outdoors <= 15:
-		inhib_exp += rand(7,12)
-	elseif exhibition_outdoors <= 20:
-		inhib_exp += rand(9,15)
-	elseif exhibition_outdoors <= 25:
-		inhib_exp += rand(12,20)
-	elseif exhibition_outdoors <= 30:
-		inhib_exp += rand(16,25)
-	elseif exhibition_outdoors <= 35:
-		inhib_exp += rand(20,30)
-	elseif exhibition_outdoors <= 40:
-		inhib_exp += rand(25,40)
-	elseif exhibition_outdoors <= 50:
-		inhib_exp += rand(35,50)
-	elseif exhibition_outdoors <= 65:
-		inhib_exp += rand(50,75)
-	else
-		inhib_exp += rand(70,100)
-	end
-end
-
-exhibition_outdoors = 0
-
 !counter for Dimka avoidance
 if dimaFilm = 1 and dimaRudeBlock = 0:
 	nodimkaK += 1
@@ -875,6 +892,9 @@ if Gspravka <= 0 and GspravkaT = 1:GspravkaT = 0 & Gspravka = 0
 if GspravkaT = 1:Gspravka -= 1
 if IvanPodstavaQW = 2 and PodpiskaNeviezd = 30:IvanPodstavaQW = 3
 if IvanPodstavaQW = 2 and PodpiskaNeviezd > 0 and PodpiskaNeviezd < 30:PodpiskaNeviezd += 1
+
+!!remove degradation for inhibition
+inhib_flr = inhib_lvl
 
 gs 'stat_sklattrib', 'daycall'
 
@@ -1367,8 +1387,6 @@ elseif mentats_dose > 1:
     pain['head'] += 20 * mentats_dose
     mentats_dose = 0
 end
-if breastpumped = 0 and breastcount > 0: breastcount -= 1
-if breastpumped = 1: breastpumped = 0
 
 !!Appearance base calculation call
 gs 'body_shape', 'basebeautycalc'

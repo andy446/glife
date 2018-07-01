@@ -18,36 +18,36 @@ if $ARGS[0] = 'start':
 			gt 'kiosk', 'counter'
 		end
 
-		if pcs_exhibition >= 45 or pcs_inhib >= 55:
+		if exhibitionist_lvl > 1:
 			act 'Flash both your tits and your pussy to jump the queue':
 				cls
 				minut += 1
-				exhibition_exp += rand(12,15)
-				gs 'events', 'flash_full', 'outdoors', 5
+				gs 'exhibitionism', 3
+				gs 'flash', 'full', 'outdoors', 5
 				gs 'stat'
 				
 				act 'Go to the counter': gt 'kiosk', 'counter'
 			end
 		end
 
-		if pcs_exhibition >= 40 or pcs_inhib >= 55:
+		if exhibitionist_lvl > 0:
 			act 'Flash your pussy to jump the queue':
 				cls
 				minut += 1
-				exhibition_exp += rand(9,12)
-				gs 'events', 'flash_pussy', 'outdoors', 5
+				gs 'exhibitionism', 3
+				gs 'flash', 'pussy', 'outdoors', 5
 				gs 'stat'
 				
 				act 'Go to the counter': gt 'kiosk', 'counter'
 			end
 		end
 
-		if pcs_exhibition >= 35 or pcs_inhib >= 40:
+		if pcs_inhib >= 40:
 			act 'Flash your tits to jump the queue':
 				cls
 				minut += 1
-				exhibition_exp += rand(5,8)
-				gs 'events', 'flash_tits', 'outdoors', 5
+				gs 'exhibitionism', 1
+				gs 'flash', 'tits', 'outdoors', 5
 				gs 'stat'
 				
 				act 'Go to the counter': gt 'kiosk', 'counter'
@@ -62,7 +62,7 @@ if $ARGS[0] = 'start':
 					gs 'npcgeneratec', 0, 'stranger from the post office', rand(19,45)
 					gs 'boyStat', $npclastgenerated
 
-					exhibition_exp += rand(5,8)
+					inhib_exp += rand(3,5)
 					'<center><img <<$set_imgh>> src="images/shared/sex/blowjob/kiosk_blowjob.jpg"></center>'
 					'A man agrees to your suggestion and lets you move in front of him.'
 

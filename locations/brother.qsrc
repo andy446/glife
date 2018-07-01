@@ -59,10 +59,13 @@ if $ARGS[0] = 'start':
 	elseif npc_rel['A34'] >= 60 and npc_rel['A34'] < 80:
 		'You have a good relationship with your brother.'
 	elseif npc_rel['A34'] >= 80:
-		'You have a great relationship with your brother.'
+		'Your brother is practically one of your closest friends.'
 	end
+	
+	act 'Move away':gt $loc, $metka
+	
 	*nl
-	if hour >= 7 and hour < 21:
+	if hour >= 7 and hour < 23:
 		! WD: Fix old nude variable
 		if (cumloc[1] > 0 or cumloc[4] > 0 or cumloc[8] > 0 or cumloc[9] > 0 or cumloc[10] > 0 or cumloc[14] > 0 or cumloc[15] > 0) and $clothingworntype = 'nude':
 			if $pantyworntype = 'none' and cumloc[1] = 1:
@@ -274,6 +277,9 @@ if $ARGS[0] = 'start':
 
 					act 'Move away':gt $loc, $metka
 				end
+				!if brotherSex >= 5:
+				!	act'Ask him if he wants to sneak off to fool around':
+				!end
 			end
 		end
 	end
@@ -282,8 +288,16 @@ if $ARGS[0] = 'start':
 
 		gs 'brother', 'pregreact'
 		gs 'brother', 'brotherSexCount'
+		
+		if hour >= 7 and hour < 23:
+			act'Chat with him':gt'brother2','chat'
+		end
+		
+		!if father_go = 1 and hour >= 7:
+		!	act'Play video games with him':gt'video_games','brother'
+		!end
 
-		if indorf = 0 and $clothingworntype ! 'nude' and brothersawpirsF=0 and father_go = 1 and npc_rel['A34'] > 85 and hour >= 18 and hour < 21 and pirsF > 0:
+		if indorf = 0 and $clothingworntype ! 'nude' and brothersawpirsF=0 and father_go = 1 and npc_rel['A34'] > 85 and hour >= 18 and hour < 23 and pirsF > 0:
 			act 'Show off your nipple piercings ':
 				cls
 				gs 'stat'
@@ -322,14 +336,14 @@ if $ARGS[0] = 'start':
 					exit
 				end
 			else
-				if father_go = 1 and hour >= 18 and hour < 21:
+				if father_go = 1 and hour >= 18 and hour < 23:
 					'"How lovely." Kolka plays with your pierced nipples'
 					npc_rel['A34'] += 3
 					brothersawpirsF = 1
 					pcs_horny += 10
 					act '<B>Move away</B>':gt 'sitrPar'
 					exit
-				elseif father_go = 0 and hour >= 18 and hour < 21:
+				elseif father_go = 0 and hour >= 18 and hour < 23:
 					'"Beautiful." Kolka gently cups your breasts and strokes your pierced nipples.'
 					npc_rel['A34'] += 3
 					brothersawpirsF=1
@@ -348,12 +362,22 @@ if $ARGS[0] = 'start':
 				if brotherRand < 5:'As you look, you can also clearly see the outline of his morning wood pitching a tent under the blanket.'
 				if week < 6 and kanikuli = 0:
 					act'Wake him up for breakfast':gt'brother2','wakeup'
+					if brotherwakeup >= 10:
+						if brotherSex >= 5:
+							act'Wake him up with a handjob':gt'brother2','morninghj'
+						end
+						if brotherSex >= 6:
+							act'Wake him up with a blowjob':gt'brother2','morningbj'
+						end
+					end
 				end
 			elseif hour < 7 and brotherMorningSex = daystart:
-				'Your brother is busying himself getting ready for school.'
+				'Your brother is busy getting ready for school.'
+			elseif hour < 23 and father_go = 1:
+				'Your brother is playing video games.'
 			end
 
-			if hour >= 21 and hour < 24 and brotherSex > 4 and brotherNightSex ! daystart:
+			if hour >= 23 and hour < 24 and brotherSex > 4 and brotherNightSex ! daystart:
 				'When you get close, he suddenly opens his eyes and says,:'
 				if sub > 0 or (evgenQW >= 4 and pav_slut >= 75):
 					'"<<$pcs_nickname>>, help me sleep." Then he throws back the blanket, revealing his erection.'
@@ -374,7 +398,7 @@ if $ARGS[0] = 'start':
 						gs 'brother', 'brotherSexStart'
 					end
 					act 'He''s on his own there':
-						'"You''ve got 2 perfectly good hands, I mean eww...", You turn around and leave.'
+						'"You''ve got 2 perfectly good hands to do that yourself. I mean, <i>eww...</i>", You turn around and leave.'
 						cla
 						act '<B>Move away</B>':gt 'sitrPar'
 						exit
@@ -382,7 +406,7 @@ if $ARGS[0] = 'start':
 				end
 			end
 
-			if father_go = 1 and hour >= 18 and hour < 21 and brotherSex > 0 and brotherEvSex ! daystart:
+			if father_go = 1 and hour >= 18 and hour < 23 and brotherSex > 0 and brotherEvSex ! daystart:
 				'When you get close, He turns to you and says,:'
 				if sub > 0 or (evgenQW >= 4 and pav_slut >= 75):
 					gs 'boyStat', 'A34'
@@ -434,8 +458,6 @@ if $ARGS[0] = 'start':
 			act'Offer help with homework': gt 'brother_lessons', 'homework'
 		end
 	end
-
-	act 'Move away':gt $loc, $metka
 end
 
 if $ARGS[0] = 'sleepsexcum':
@@ -580,6 +602,7 @@ if $ARGS[0] = 'brotherSexStart':
 		cls
 		minut += 5
 		stat['hj'] += 1
+		npc_rel['A34'] += 2
 		if brotherSex < 5:brotherSex = 5
 		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/shared/sex/handjob/hj1.jpg"></center>'
@@ -594,7 +617,8 @@ if $ARGS[0] = 'brotherSexStart':
 			cls
 			minut += 5
 			pcs_horny += 10
-			brotherfuck += 1
+			brotherbj += 1
+			npc_rel['A34'] += 5
 			stat['bj'] += 1
 			if brotherSex < 6:brotherSex = 6
 			gs 'stat'
@@ -629,6 +653,7 @@ if $ARGS[0] = 'brotherSexStart':
 				minut += 5
 				pcs_horny += 10
 				brotherfuck += 1
+				npc_rel['A34'] += 5
 				gs 'boyStat', 'A34'
 				spafinloc = 11
 				sexpartkno = 1
@@ -648,6 +673,7 @@ if $ARGS[0] = 'brotherSexStart':
 					minut += 5
 					pcs_horny += 10
 					brotherfuck += 1
+					npc_rel['A34'] += 5
 					gs 'boyStat', 'A34'
 
 					gs 'stat'
@@ -668,6 +694,7 @@ if $ARGS[0] = 'brotherSexStart':
 					cls
 					minut += 5
 					pcs_horny += 10
+					npc_rel['A34'] += 5
 					brotherfuck += 1
 					if brotherSex < 8:brotherSex = 8
 					gs 'boyStat', 'A34'
@@ -688,6 +715,7 @@ if $ARGS[0] = 'brotherSexStart':
 	if brotherSex >= 6:
 		act 'Give yourself to your brother':
 			brotherfuck += 1
+			npc_rel['A34'] += 5
 			if brotherSex < 7:brotherSex = 7
 			cls
 			minut += 5
@@ -710,6 +738,7 @@ if $ARGS[0] = 'brotherSexStart':
 	if brotherSex >= 7:
 		act 'Offer your ass to your brother':
 			brotherfuck += 1
+			npc_rel['A34'] += 5
 			cls
 			minut += 5
 			pcs_horny += 10
@@ -730,12 +759,17 @@ end
 
 if $ARGS[0] = 'brotherSexEnd':
 	if sub > 0 or (evgenQW >= 4 and pav_slut >= 75):
-		if $loc = 'sitrPar' and father_go = 1 and hour >= 18 and hour < 21:
+		if $loc = 'sitrPar' and father_go = 1 and hour >= 18 and hour < 23:
 			minut += 15
 
 			gs 'stat'
 
 			'Kolka catches his breath, then says, "Nice one <<$pcs_nickname>>, good job. Just remember this is our little secret!" He continues to go about his business.'
+			act 'Leave': gt 'sitrPar'
+		elseif $loc = 'sitrPar' and npc_rel['A34'] >= 80:
+			minut += 15
+			gs 'stat'
+			'"Thanks <<$pcs_nickname>>," he yawns, tucking his member back into his pants. Mumbling, "You''re the best..." he curls back up underneath his blanket and begins to doze off.'
 			act 'Leave': gt 'sitrPar'
 		elseif $loc = 'sitrPar':
 			minut += 15
@@ -748,10 +782,15 @@ if $ARGS[0] = 'brotherSexEnd':
 			act 'Continue':gt $loc, $metka
 		end
 	else
-		if $loc = 'sitrPar' and father_go = 1 and hour >= 18 and hour < 21:
+		if $loc = 'sitrPar' and father_go = 1 and hour >= 18 and hour < 23:
 			minut += 15
 			gs 'stat'
 			'Kolka catches his breath, then says, "Many thanks, <<$pcs_nickname>>, you helped me a lot." He continues to go about his business.'
+			act 'Leave': gt 'sitrPar'
+		elseif $loc = 'sitrPar' and npc_rel['A34'] >= 80:
+			minut += 15
+			gs 'stat'
+			'"Thanks <<$pcs_nickname>>," he yawns, tucking his member back into his pants. Mumbling, "You''re the best..." he curls back up underneath his blanket and begins to doze off.'
 			act 'Leave': gt 'sitrPar'
 		elseif $loc = 'sitrPar':
 			minut += 15

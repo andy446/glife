@@ -19,20 +19,9 @@ if $ARGS[0] = 'start':
 	
 	if hour = 2:
 		'The strip club is closing and security guard ushers everyone out.'
-	elseif hour > 2 and hour < 15:
+	elseif hour > 2 and hour < 11:
 		'The strip club is closed. You notice a sign on the door: The business hours are between 15 - 02.'
 	else
-
-		if rand(1, 100) <= 30 and stripday ! daystart:
-			stripday = daystart
-			cfnm = 1
-		elseif stripday ! daystart:
-			stripday = daystart
-			cfnm = 0
-		end
-
-		if cfnm = 1:'Tonight''s performance will only feature male strippers. The entrance fee is 500 <b>₽</b>.'
-		if cfnm = 0:'Tonight''s performance will only feature female strippers. The entrance fee is 300 <b>₽</b>.'
 		
 		if stripdolg > 0:
 			if money >= 50000:
@@ -144,13 +133,7 @@ if $ARGS[0] = 'start':
 					end
 				end
 			end
-
-			if cfnm = 0 and stripwork > 0:
-				act 'Walk into the dressing room':frost = 0 & gt 'stwork', 'start'
-			
-			elseif cfnm > 0 and stripwork > 0:
-				'The strip club is closed off to female employees today, male strippers only.'
-			end
+			act 'Walk into the dressing room':frost = 0 & gt 'stwork', 'start'
 		end
 	end
 

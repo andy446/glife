@@ -441,6 +441,12 @@ if $ARGS[0] = 'interview':
 			'	"I''m 18."'
 			'	"I see. Alright, undress. Let me take a look at you."'
 			gs 'foto', 'interview_undress'
+		else
+			fakepassport = 2
+			'	"You look a little young, do you have any ID?"'
+			'	Not having any you feign surprise and tell hime you didn''t realise you needed one.'
+			'	Now how are you going to find a way around this?'
+			gt 'foto', 'start'
 		end
 	end
 end

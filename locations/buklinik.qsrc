@@ -1,4 +1,5 @@
 # buklinik
+
 if $ARGS[0] = 'start':
 	cla
 	clr
@@ -388,5 +389,6 @@ if $ARGS[0] = 'olga2':
 
 	act 'In the corridor':gt 'buklinik', 'holl'
 end
+
 --- buklinik ---------------------------------
 

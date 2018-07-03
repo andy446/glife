@@ -1,4 +1,4 @@
-﻿# buklinik_event
+# buklinik_event
 
 if $ARGS[0] = 'pos1':
 	cla

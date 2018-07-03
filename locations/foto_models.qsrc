@@ -419,6 +419,11 @@ if $ARGS[0] = 'mari_chat':
 			'<center><img src="images/locations/city/citycenter/photo/portraits/mari_e/talking/reading2.jpg"></center>'
 			'	"Hey Mari, how come you don''t shave your bush?"'
 			'	"The photographers actually ask me not to shave. They say it helps sell my ''farm girl'' look," she says, causing you both to giggle a little. "Besides, I tried shaving once when I still lived in Gadyukino and I hated that prickly feeling when it would start to grow back as stubble. It''s too much of a hassle to keep it smooth down there so since then I just decided to keep it trimmed."'
+			if pubestyle = 2:
+				'	"I know what you mean! Keeping it clean-shaven is too much work. What''s wrong with having a bit of bush?"'
+				'	"Right???"'
+				'	The two of you laugh together over your agreement in pubic hair fashion.'
+			end
 			act 'Keep chatting':gt 'foto_models','mari_chat'
 		end
 
@@ -458,62 +463,52 @@ if $ARGS[0] = 'mari_chat':
 					'	"Ugh! Everything! He''s an annoying little brat! He just spends all his time playing football with his friends and if I''m around he''ll scream at me until I go away. He''s always asking me to do his homework for him and worst of all he''s always trying to spy on me in the shower!"'
 					'	"What? You don''t have a latch or something to stop him?"'
 					'	You blush. "Uh, yeah I do, but I, uh, forget to lock it sometimes..."'
-					act 'Keep chatting':gt 'foto_models','mari_chat'
 
 				elseif npc_rel['A34'] < 40:
 					'	"Yeah, I''ve got two. My sister who''s about the same age as you are and my annoying little brother."'
 					'	Mari sits up a bit. "Really? What''s so irritating about him?"'
 					'	"Oh, nothing much. Just sibling squabbles. He''s not all that bad, just gets on my nerves sometimes."'
-					act 'Keep chatting':gt 'foto_models','mari_chat'
 
 				elseif npc_rel['A34'] < 60:
 					'	"Yeah, I''ve got two. My sister who''s about the same age as you are and my little brother."'
 					'	"That sounds nice. What are they like?"'
 					'	"Well to be honest, my sister can be a bit of a slut, but she''s still the best one I could ask for. My brother loves playing football so sometimes I join him and his friends at the field."'
 					'	"Maybe I''ll get to meet them one day!"'
-					act 'Keep chatting':gt 'foto_models','mari_chat'
 
 				elseif npc_rel['A34'] < 80:
 					'	"Yeah, I''ve got two. My sister who''s about the same age as you are and my silly little brother."'
 					'	Mari smiles at you. "That''s sounds nice."'
 					'	You think of your siblings and smile. "Yeah. It is."'
-					act 'Keep chatting':gt 'foto_models','mari_chat'
-
+					
 				elseif sisterLesb >= 5:
-					'	"Yeah, I''ve got two. My sister who''s about the same age as you are and my adorable little brother. I love them both so much!"'
-					'	Mari smiles at you. "You sound close."'
-					'	Your mind wanders back to your sister and how you sometimes wake her up in the middle of the night to fool around with her. "You could say that..."'
+                    '    "Yeah, I''ve got two. My sister who''s about the same age as you are and my adorable little brother. I love them both so much!"'
+                    '    Mari smiles at you. "You sound close."'
+                    '    Your mind wanders back to your sister and how you sometimes wake her up in the middle of the night to fool around with her. "You could say that..."'
 
-					act 'Keep chatting':gt 'foto_models','mari_chat'
-
-				elseif brothersex < 1:
-					'	"Yeah, I''ve got two. My sister who''s about the same age as you are and my adorable little brother. I love them both so much!"'
-					'	Mari smiles at you. "You sound close."'
-					'	You think of your siblings and smile, "Yeah. We are."'
-					act 'Keep chatting':gt 'foto_models','mari_chat'
+                elseif brothersex < 1:
+					'    "Yeah, I''ve got two. My sister who''s about the same age as you are and my adorable little brother. I love them both so much!"'
+                    '    Mari smiles at you. "You sound close."'
+                    '    You think of your siblings and smile, "Yeah. We are."'
 
 				elseif sisterLesb >= 5 and brotherSex < 7:
 					'	"Yeah, I''ve got two. My sister who''s about the same age as you are and my adorable little brother. I love them both so much!"'
 					'	Mari smiles at you. "You sound close."'
 					'	Your mind wanders back to your siblings and how you''ve fooled around with both of them separately.'
 					'	"You could say that..."'
-					act 'Keep chatting':gt 'foto_models','mari_chat'
 
 				elseif sisterLesb >= 5:
 					'	"Yeah, I''ve got two. My sister who''s about the same age as you are and my adorable little brother. I love them both so much!"'
 					'	Mari smiles at you. "You sound close."'
 					'	Your mind wanders back to your siblings and how you''ve fooled around with your sister and even had full fledged intercourse with your brother. Your thoughts wander to the memory of the last time his cock was inside you and it causes you to blush.'
 					'	"You could say that..."'
-					act 'Keep chatting':gt 'foto_models','mari_chat'
-
-				else
-					'	"Yeah, I''ve got two. My sister who''s about the same age as you are and my silly little brother."'
-					'	Mari smiles at you. "That''s sounds nice."'
-					'	You think of your siblings and smile. "Yeah. It is."'
-					act 'Keep chatting':gt 'foto_models','mari_chat'
+                else
+                    '    "Yeah, I''ve got two. My sister who''s about the same age as you are and my silly little brother."'
+                    '    Mari smiles at you. "That''s sounds nice."'
+                    '    You think of your siblings and smile. "Yeah. It is."'
 				end
+					act 'Keep chatting':gt 'foto_models','mari_chat'
 			else
-				'	"No, there''s just me.'
+				'	"No, there''s just me."'
 				act 'Keep chatting':gt 'foto_models','mari_chat'
 			end
 		end
@@ -687,7 +682,11 @@ if $ARGS[0] = 'mari_modelling_chat':
 		act'"What''s that?"':
 			*clr & cla
 			'<center><img src="images/locations/city/citycenter/photo/portraits/mari_e/talking/reading6.jpg"></center>'
-			'	She stands up and gives you a tight hug. Once again you feel her soft breasts molding into yours and her hot skin rubbing against you. Her hug is so tight that your hips are being pressed together and you can feel her bush between your legs.'
+			if pcs_pubes < 11:
+				'	She stands up and gives you a tight hug. Once again you feel her soft breasts molding into yours and her hot skin rubbing against you. Her hug is so tight that your hips are being pressed together and you can feel her bush between your legs.'
+			else
+				'	She stands up and gives you a tight hug. Once again you feel her soft breasts molding into yours and her hot skin rubbing against you. Her hug is so tight that your hips are being pressed together and you can feel her bush brushing against your own.'
+			end
 			'	Pulling back with a smile she says, "Always make friends with your co-workers. Especially girls. We have to stick together you know!"'
 			'	You can''t help but smile back, saying, "We sure do Mari!"'
 			act'Continue':gt 'foto_models','mari_modelling_chat'
@@ -718,7 +717,7 @@ if $ARGS[0] = 'mari_modelling_chat':
 					'	"So then how <i>did</i> you get hired here?"'
 					'	Mari looks down at her book smiling in a way that looks like she''s slightly embarrassed. "I just... kind of... walked in... I saw some of the albums they have by the entrance, thought, ''Hey, maybe I can do this?'' and asked if I could get hired here."'
 					'	"And they hired you just like that?" you ask.'
-					'	"Well... There were a couple hoops I had to jump through. I wasn''t exactly legal yet, so I had to buy a fake passport that said I was just to get started. But as you can see, it was well worth it!"'
+					'	"Well... There were a couple hoops I had to jump through. Don''t tell anyone but I was 17 at the time so I had to buy a fake passport just to get started. But as you can see, it was well worth it!"'
 					mari_fakepassport = 1
 					act'Keep chatting':gt 'foto_models','mari_modelling_chat'
 				end
@@ -731,11 +730,16 @@ if $ARGS[0] = 'mari_modelling_chat':
 			*clr & cla
 			mari_modelling_ask = 1
 			'<center><img src="images/locations/city/citycenter/photo/portraits/mari_e/talking/reading2.jpg"></center>'
-			'	"Wait, so how old were you when you started working here?"'
-			if year = 2016:'	"I was 17. I actually only just turned 18 this year."'
-			if year > 2016:'	"I was 17."'
-			'	"And you said you bought a fake passport to work here?"'
-			'	"Yup!"'
+			'	"Wait, you used a fake passport to start working here?"'
+			'	"Yeah."'
+			'	"So how old are you now?'
+			if year = 2016:
+				'	"I''m 18 now, thankfully. My birthday was actually just this last May."'
+			elseif year > 2016 and month > 5:
+				'	"I''m <<2016 - 1998>>. I turned 18 back in 2016."'
+			else
+				'	"I''m <<2016 - 1999>>. I turned 18 back in 2016."'
+			end
 			if age < 18 and fakepassport = 1:
 				act '"Did you buy it from that suspicious guy at the train station?"':
 					*clr & cla
@@ -743,18 +747,34 @@ if $ARGS[0] = 'mari_modelling_chat':
 					'	"Hey, did you buy it from that suspicious guy at the train station?" you ask her.'
 					'	She perks up as you say this.'
 					'	"I did! How did you know? Are you using one now? How old are you?"'
-					act'"I''m <<age>>."':
+					act'Tell her shyly':
 						cla
+						*nl
 						'	"I''m <<age>>... You''re not going to tell anyone are you?"'
-						'	"How could I? You basically did the same thing I did. Besides, girls like us have to stick together you know!"'
+						'	"Are you kidding? How could I? You basically did the same thing I did. We''d both get in trouble!" she laughs.'
 						act '"Hey..."':
 							*clr & cla
 							'<center><img src="images/locations/city/citycenter/photo/portraits/mari_e/talking/reading6.jpg"></center>'
-							'	"Hey... this reminds me for some reason... The guy who auditioned you... Did he also make you strip down before telling you how old you needed to be to work here?"'
+							'	"Hey... this reminds me for some reason... The guy who interviewed you... Did he also make you strip down before telling you how old you needed to be to work here?"'
 							'	Mari jumps up out of her seat to finish your sentence, "And then told you that he liked your naked body so you should go to the train station and buy a fake passport??"'
 							'	"Yeah he did!" you cry out. "What a perv! Going out of his way to make excuses to take pictures of underage girls like us!"'
 							'	You laugh about it together and then try to quiet down a bit, remembering you should probably not spread it around that you''re only <<age>>...'
 							act'Keep chatting':gt 'foto_models','mari_modelling_chat'
+						end
+					end
+					act'Tell her excitedly':
+						*clr & cla
+						'<center><img src="images/locations/city/citycenter/photo/portraits/mari_e/talking/reading6.jpg"></center>'
+						'	"I''m <<age>>!"'
+						'	"What??" she cries, jumping up excitedly. "That''s crazy!"'
+						'	"I know right? What are the odds that two girls like us from outside the city would both buy fake passports to end up here?"'
+						'	"You said you visit your grandparents in Gadyukino sometimes right? Maybe it''s something in the water!" she laughs.'
+						'	You laugh with her for a moment before the both of you calm down again.'
+						'	"Hey... this reminds me for some reason... The guy who auditioned you... Did he also make you strip down before telling you how old you needed to be to work here?"'
+						'	"And then told you that he liked your naked body so you should go to the train station and buy a fake passport??"'
+						'	"Yeah he did! What a perv! Going out of his way to make excuses to take pictures of underage girls like us!"'
+						'	You both burst into fits of laughter before clapping your hands over your mouths and trying to stifle your hysterics. You probably shouldn''t spread it around that you''re only <<age>>...'
+						act'Keep chatting':gt 'foto_models','mari_modelling_chat'
 						end
 					end
 				end
@@ -788,7 +808,7 @@ if $ARGS[0] = 'mari_modelling_chat':
 					act '"I''m <<age>>, I never used a fake passport."':
 						*clr & cla
 						'<center><img src="images/locations/city/citycenter/photo/portraits/mari_e/talking/reading3.jpg"></center>'
-						'	"Oh no, I''ve never bought a fake passport. I''m <<age>> and I''ve always been legal to work here, I just know about the guy. It was where the Gopniks in my school would go to get their fakes so they could buy booze," you say with a laugh.'
+						'	"Oh no, I''ve never bought a fake passport. I''m <<age>> and I''ve always been working here legally, I just know about the guy. It was where the Gopniks in my school would go to get their fakes so they could buy booze," you say with a laugh.'
 						'	"Oh! I didn''t realize he was that well known."'
 						act'Continue':
 							*clr & cla
@@ -1483,7 +1503,7 @@ if $ARGS[0] = 'krystal_chat':
 						'	Suddenly you realize Krystal is giving you a weird look.'
 						'	"W-What...?" you stammer. "Is there something on my face?"'
 						'	"No..." she says while eyeing you up. "I just wanted you to know that if you ever want to do some uhh... ''fat burning exercises'' with me and Ben... you''re more than welcome to join us." She gives you another smirk as she bites her lip.'
-						if exhibitionist_lvl < 2:
+						if pcs_inhib < 50:
 							'	You break eye contact with her and look away, blushing furiously and try to mumble some kind of response. "I... uhh... ummm... yeah..."'
 							'	<i>What the hell am I even supposed to say to that?</i> you think to yourself.'
 							act'Keep chatting':gt'foto_models','krystal_chat'

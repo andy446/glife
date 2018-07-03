@@ -119,7 +119,7 @@ if $ARGS[0] = 'redlight':
 	gs 'stat'
 	'<center><h2>St. Petersburg</h2></center>'
 	'<center><b>Red Light District</b></center>'
-	if hour >= 15 or hour <= 2:'The <a href="exec:gt ''stripclub'', ''start''">Strip Clubs</a> red lights, attracting men from all over the city.'
+	'The <a href="exec:gt ''stripclub'', ''start''">Strip Clubs</a> red lights, attracting men from all over the city.'
 	if pornstudio >= 1 and hour >= 10 and hour < 22:'At the <a href="exec:gt ''pornstudio'', ''start''">Porn Studio</a>, where a variety of naughty movies are created'
 	'A shop for <a href="exec:gt ''sexshop'', ''start''">sex toys</a> is open for perverts from all around the city.'
 	if bordel > 0 and hour >= 20 or bordel > 0 and hour <= 3:'Inside the courtyard is the entrance to the <a href="exec:gt ''bordel''">brothel</a>.'

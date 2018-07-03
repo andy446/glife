@@ -69,10 +69,8 @@ if $ARGS[0] = 'showertalk1':
 				bro_ass_compliment = rand(1,3)
 				if bro_ass_compliment = 1:
 					act'Continue':gt'brother_voyeur','ass_compliment'
-				elseif pcs_pubes >= 4 or pcs_leghair >= 4:
-					act'Continue':gt'brother_voyeur','shave'
 				else
-					act'Continue':gt'brother_voyeur','dryoff'
+					act'Continue':gt'brother_voyeur','shave'
 				end
 			end
 		end
@@ -82,7 +80,7 @@ if $ARGS[0] = 'showertalk1':
 			'<center><video src="images/shared/home/bathroom/brothershowertalk.mp4"></center>'
 			'	You casually talk to him about his day while you shower. He sits on the toilet seat and faces away from you, awkwardly answering all your questions and queries, but you still see him occasionally stealing glances at your naked body. Not that it bothers you any, as you simply smile to yourself, amused that he thinks he''s still being sneaky.'
 			if pcs_pubes >= 4 or pcs_leghair >= 4:
-				act'Look at your legs':gt'brother_voyeur','shave'
+				act'Continue':gt'brother_voyeur','shave'
 			else
 				act'Finish showering':gt'brother_voyeur','dryoff'
 			end
@@ -93,7 +91,7 @@ if $ARGS[0] = 'showertalk1':
 			'<center><video src="images/shared/home/bathroom/brothershowertalk.mp4"></center>'
 			'	You casually chat with him about how he''s doing in school while you shower. He sits on the toilet seat and faces away from you, awkwardly answering all your questions and queries, but you still see him occasionally stealing glances at your naked body. Not that it bothers you any, as you simply smile to yourself, amused that he thinks he''s still being sneaky.'
 			if pcs_pubes >= 4 or pcs_leghair >= 4:
-				act'Look at your legs':gt'brother_voyeur','shave'
+				act'Continue':gt'brother_voyeur','shave'
 			else
 				act'Finish showering':gt'brother_voyeur','dryoff'
 			end
@@ -104,7 +102,7 @@ if $ARGS[0] = 'showertalk1':
 			'<center><video src="images/shared/home/bathroom/brothershowertalk.mp4"></center>'
 			'	You chat with him about his friends and what he does for fun with them while you shower. He sits on the toilet seat and faces away from you, awkwardly answering all your questions and queries, but you still see him occasionally stealing glances at your naked body. Not that it bothers you any, as you simply smile to yourself, amused that he thinks he''s still being sneaky.'
 			if pcs_pubes >= 4 or pcs_leghair >= 4:
-				act'Look at your legs':gt'brother_voyeur','shave'
+				act'Continue':gt'brother_voyeur','shave'
 			else
 				act'Finish showering':gt'brother_voyeur','dryoff'
 			end
@@ -156,10 +154,8 @@ if $ARGS[0] = 'showertalk2':
 			'	<i>Boys will be boys after all...</i> you muse to yourself, a smile subconsciously turning the corners of your own lips.'
 			if bro_ass_compliment = 1:
 				act'Continue':gt'brother_voyeur','ass_compliment'
-			elseif pcs_pubes >= 4 or pcs_leghair >= 4:
-				act'Continue':gt'brother_voyeur','shave'
 			else
-				act'Continue':gt'brother_voyeur','dryoff'
+				act'Continue':gt'brother_voyeur','shave'
 			end
 		end
 
@@ -168,11 +164,7 @@ if $ARGS[0] = 'showertalk2':
 			'<center><video src="images/shared/home/bathroom/brothershowertalk.mp4"></center>'
 			if brothershowertalk <= 5:
 				'	You casually talk to him about his day while you shower. He sits on the toilet seat and faces away from you, awkwardly answering all your questions and queries, but you still see him occasionally stealing glances at your naked body. Not that it bothers you any, as you simply smile to yourself, amused that he thinks he''s still being sneaky.'
-				if pcs_pubes >= 4 or pcs_leghair >= 4:
-					act'Continue':gt'brother_voyeur','shave'
-				else
-					act'Continue':gt'brother_voyeur','dryoff'
-				end
+				act'Continue':gt'brother_voyeur','shave'
 
 			elseif brothershowertalk > 5:
 				'	He happily talks to you about his day, though he still sits on the toilet facing away. He also still takes a few looks at you now and again but they aren''t as sneaky and they mostly seem to be glances to see your face. <i>Not that his eyes don''t wander downward anyways...</i> you notice with a smile.'
@@ -182,11 +174,7 @@ if $ARGS[0] = 'showertalk2':
 					'	"... but, yeah. It was a pretty good day overall," he finishes, snapping you out of your idle thoughts and bringing you back to the room.'
 					*nl
 					'	"That''s always good to hear!" you reply.'
-					if pcs_pubes >= 4 or pcs_leghair >= 4:
-						act'Continue':gt'brother_voyeur','shave'
-					else
-						act'Continue':gt'brother_voyeur','dryoff'
-					end
+					act'Continue':gt'brother_voyeur','shave'
 
 				elseif brothershowerdaytalk = 2:
 					'	"... so, yeah. Mom wants me to clean up my stuff on the couch, but if I''m going to sleep there anyways, why does it matter?" he asks, snapping you out of your idle thoughts and bringing you back to the room.'
@@ -196,21 +184,13 @@ if $ARGS[0] = 'showertalk2':
 					elseif npc_rel['A29'] < 40:
 						'	"Ugh, I know! Mom is always nagging me about everything! She can be such a pain in the ass sometimes!" you '
 					end
-					if pcs_pubes >= 4 or pcs_leghair >= 4:
-						act'Continue':gt'brother_voyeur','shave'
-					else
-						act'Continue':gt'brother_voyeur','dryoff'
-					end
+					act'Continue':gt'brother_voyeur','shave'
 
 				elseif brothershowerdaytalk = 3:
 					'	"... and dad asked me if I want to help him work on the Gazelle but I don''t know. I''d rather go play football with Zhendos and Mishan," he finishes, snapping you out of your idle thoughts and bringing you back to the room.'
 					*nl
 					'	"It''s good to have fun with your friends but it might also be good to work with dad. It''s a good life skill. Besides, girls love nothing more than a man who knows how to work a car!" you wink at him.'
-					if pcs_pubes >= 4 or pcs_leghair >= 4:
-						act'Continue':gt'brother_voyeur','shave'
-					else
-						act'Continue':gt'brother_voyeur','dryoff'
-					end
+					act'Continue':gt'brother_voyeur','shave'
 				end
 			end
 		end
@@ -220,12 +200,8 @@ if $ARGS[0] = 'showertalk2':
 			'<center><video src="images/shared/home/bathroom/brothershowertalk.mp4"></center>'
 			if brothershowertalk <= 5:
 				'	You casually chat with him about how he''s doing in school while you shower. He sits on the toilet seat and faces away from you, awkwardly answering all your questions and queries, but you still see him occasionally stealing glances at your naked body. Not that it bothers you any, as you simply smile to yourself, amused that he thinks he''s still being sneaky.'
-				if pcs_pubes >= 4 or pcs_leghair >= 4:
-					act'Continue':gt'brother_voyeur','shave'
-				else
-					act'Continue':gt'brother_voyeur','dryoff'
-				end
-
+				act'Continue':gt'brother_voyeur','shave'
+				
 			elseif brothershowertalk > 5:
 				'	He energetically talks to you about school and how it''s going for him, though he still sits on the toilet facing away. He also still takes a few looks at you now and again but they aren''t as sneaky and they mostly seem to be glances to see your face. <i>Not that his eyes don''t wander downward anyways...</i> you notice with a smile.'
 				brothershowerschooltalk = rand(1,3)
@@ -238,42 +214,27 @@ if $ARGS[0] = 'showertalk2':
 					elseif pcs_grades < 50:
 						'	"Blegh! Yeah, you''re right. Math sucks!" you grumble in agreement.'
 					end
-					if pcs_pubes >= 4 or pcs_leghair >= 4:
-						act'Continue':gt'brother_voyeur','shave'
-					else
-						act'Continue':gt'brother_voyeur','dryoff'
-					end
+					
+					act'Continue':gt'brother_voyeur','shave'
 
 				elseif brothershowerschooltalk = 2:
 					'	"... and then he ripped his pants!" he giggles, snapping you out of your idle thoughts and bringing you back to the room. "Isn''t that hilarious?"'
 					*nl
 					'	"Uhh, yeah! That''s pretty funny!" you fake laugh as best you can.'
-					if pcs_pubes >= 4 or pcs_leghair >= 4:
-						act'Continue':gt'brother_voyeur','shave'
-					else
-						act'Continue':gt'brother_voyeur','dryoff'
-					end
+					act'Continue':gt'brother_voyeur','shave'
 
 				elseif brothershowerschooltalk = 3 and brothersexed < 1:
 					'	"... so science class is alright," he says, snapping you out of your idle thoughts and bringing you back to the room. "I''m really having trouble with my anatomy homework though. The diagrams in the book aren''t very good, I don''t understand it."'
 					*nl
 					'	"Hmm. Well maybe I could help you with it sometime? Do something to help you understand it better?"'
 					anatomyhomeworkhelp = 1
-					if pcs_pubes >= 4 or pcs_leghair >= 4:
-						act'Continue':gt'brother_voyeur','shave'
-					else
-						act'Continue':gt'brother_voyeur','dryoff'
-					end
+					act'Continue':gt'brother_voyeur','shave'
 
 				elseif brothershowerschooltalk = 3 and brothersexed >= 1:
 					'	"... so I''m enjoying science a lot more," he says, snapping you out of your idle thoughts and bringing you back to the room. "My grades have gotten better since you started helping me with my homework but I''m still not sure I completely get it..." He hesitates. "Could you maybe... give me another anatomy lesson? Like you did before?" he says, looking at you meaningfully.'
 					*nl
 					'	"I''ll think about it..." you say slyly.'
-					if pcs_pubes >= 4 or pcs_leghair >= 4:
-						act'Continue':gt'brother_voyeur','shave'
-					else
-						act'Continue':gt'brother_voyeur','dryoff'
-					end
+					act'Continue':gt'brother_voyeur','shave'
 				end
 			end
 		end
@@ -283,11 +244,7 @@ if $ARGS[0] = 'showertalk2':
 			'<center><video src="images/shared/home/bathroom/brothershowertalk.mp4"></center>'
 			if brothershowertalk <= 5:
 				'	You chat with him about his friends and what he does for fun with them while you shower. He sits on the toilet seat and faces away from you, awkwardly answering all your questions and queries, but you still see him occasionally stealing glances at your naked body. Not that it bothers you any, as you simply smile to yourself, amused that he thinks he''s still being sneaky.'
-				if pcs_pubes >= 4 or pcs_leghair >= 4:
-					act'Continue':gt'brother_voyeur','shave'
-				else
-					act'Continue':gt'brother_voyeur','dryoff'
-				end
+				act'Continue':gt'brother_voyeur','shave'
 
 			elseif brothershowertalk > 5:
 				'	He cheerfully talks to you about him and his friends and what they get up to together, though he still sits on the toilet facing away. He also still takes a few looks at you now and again but they aren''t as sneaky and they mostly seem to be glances to see your face. <i>Not that his eyes don''t wander downward anyways...</i> you notice with a smile.'
@@ -297,41 +254,25 @@ if $ARGS[0] = 'showertalk2':
 					'	... and then he sprayed milk all over his locker!" he says with a burst of laughter, snapping you out of your idle thoughts and bringing you back to the room. "It was <i>so</i> funny! Hey, are you listening?"'
 					*nl
 					'	"Uhmm, yeah! Of course!" you say, trying to maintain your poker face as best you can while he frowns at you suspiciously.'
-					if pcs_pubes >= 4 or pcs_leghair >= 4:
-						act'Continue':gt'brother_voyeur','shave'
-					else
-						act'Continue':gt'brother_voyeur','dryoff'
-					end
+					act'Continue':gt'brother_voyeur','shave'
 
 				elseif brothershowerfriendtalk = 2:
 					'	"... so the plan is while he''s showering to take his underwear and replace them with girls panties," he says, snapping you out of your idle thoughts and bringing you back into the room. "Zhendos says that I should just steal some of yours out of your drawer but-" he stops dead with wide eyes and the realization of what he just said.'
 					*nl
 					'	"<i>Excuse me?</i> You were planning to do <i>what</i> with my underwear??" you say, sternly staring at him while he twiddles his thumbs and tries to pretend he didn''t say anything.'
-					if pcs_pubes >= 4 or pcs_leghair >= 4:
-						act'Continue':gt'brother_voyeur','shave'
-					else
-						act'Continue':gt'brother_voyeur','dryoff'
-					end
+					act'Continue':gt'brother_voyeur','shave'
 
 				elseif brothershowerfriendtalk = 3:
 					'	"... I wish I had more time to play football with Zhendos and Mishan though," he says, snapping you out of your idle thoughts and bringing you back to the room. "I can''t do anything with them when mom is dragging us to Gadyukino every other weekend."'
 					*nl
 					if seepornofut = 0:
 						'	"It''s okay Kolka," you console him. "Just enjoy the time you have with them. In a couple years mom might not force you to go anymore but you all might end up too busy to hang out."'
-						if pcs_pubes >= 4 or pcs_leghair >= 4:
-							act'Continue':gt'brother_voyeur','shave'
-						else
-							act'Continue':gt'brother_voyeur','dryoff'
-						end
+						act'Continue':gt'brother_voyeur','shave'
 					elseif seepornofut >= 1:
 						'	"Pfft! More like you want more time to watch porn with them!" you laugh scoffingly.'
 						*nl
 						'	"We play football too!" Kolka turns to cry out in protest while you tease him with a silly face and fake jerk off motions. He blushes deeply and quickly turns back to face the wall.'
-						if pcs_pubes >= 4 or pcs_leghair >= 4:
-							act'Continue':gt'brother_voyeur','shave'
-						else
-							act'Continue':gt'brother_voyeur','dryoff'
-						end
+						act'Continue':gt'brother_voyeur','shave'
 					end
 				end
 			end
@@ -374,9 +315,11 @@ if $ARGS[0] = 'brothershowerlook':
 			'	"That''s always good to hear!" you reply.'
 			act'Continue':
 				bro_ass_compliment = rand(1,3)
-				if bro_ass_compliment = 1:gt'brother_voyeur','ass_compliment'
-				if pcs_pubes >= 4 or pcs_leghair >= 4:gt'brother_voyeur','shave'
-				if pcs_pubes < 4 and pcs_leghair < 4:gt'brother_voyeur','dryoff'
+				if bro_ass_compliment = 1:
+					gt'brother_voyeur','ass_compliment'
+				else
+					gt'brother_voyeur','shave'
+				end
 			end
 
 		elseif brothershowerdaytalk = 2:
@@ -386,9 +329,11 @@ if $ARGS[0] = 'brothershowerlook':
 			if npc_rel['A29'] < 40:'	"Ugh, I know! Mom is always nagging me about everything! She can be such a pain in the ass sometimes!" you grumble in agreement.'
 			act'Continue':
 				bro_ass_compliment = rand(1,3)
-				if bro_ass_compliment = 1:gt'brother_voyeur','ass_compliment'
-				if pcs_pubes >= 4 or pcs_leghair >= 4:gt'brother_voyeur','shave'
-				if pcs_pubes < 4 and pcs_leghair < 4:gt'brother_voyeur','dryoff'
+				if bro_ass_compliment = 1:
+					gt'brother_voyeur','ass_compliment'
+				else
+					gt'brother_voyeur','shave'
+				end
 			end
 
 		elseif brothershowerdaytalk = 3:
@@ -397,9 +342,11 @@ if $ARGS[0] = 'brothershowerlook':
 			'	"It''s good to have fun with your friends but it might also be good to work with dad. It''s a good life skill. Besides, girls love nothing more than a man who knows how to work a car!" you wink at him. "It just makes them want to..." you trail off, grabbing your breast with one hand and putting the other between your legs with an open mouth in a silent moan, pretending to masturbate. After a couple seconds of gyrating your hips in the motion, you spread your hands out over your hips and say, "Sploosh." He laughs at your act and gives you a golf clap while you bow in appreciation.'
 			act'Continue':
 				bro_ass_compliment = rand(1,3)
-				if bro_ass_compliment = 1:gt'brother_voyeur','ass_compliment'
-				if pcs_pubes >= 4 or pcs_leghair >= 4:gt'brother_voyeur','shave'
-				if pcs_pubes < 4 and pcs_leghair < 4:gt'brother_voyeur','dryoff'
+				if bro_ass_compliment = 1:
+					gt'brother_voyeur','ass_compliment'
+				else
+					gt'brother_voyeur','shave'
+				end
 			end
 		end
 	end
@@ -421,9 +368,11 @@ if $ARGS[0] = 'brothershowerlook':
 			if pcs_grades < 50:'	"Blegh! Yeah, you''re right. Math sucks!" you grumble in agreement.'
 			act'Continue':
 				bro_ass_compliment = rand(1,3)
-				if bro_ass_compliment = 1:gt'brother_voyeur','ass_compliment'
-				if pcs_pubes >= 4 or pcs_leghair >= 4:gt'brother_voyeur','shave'
-				if pcs_pubes < 4 and pcs_leghair < 4:gt'brother_voyeur','dryoff'
+				if bro_ass_compliment = 1:
+					gt'brother_voyeur','ass_compliment'
+				else
+					gt'brother_voyeur','shave'
+				end
 			end
 
 		elseif brothershowerschooltalk = 2:
@@ -432,9 +381,11 @@ if $ARGS[0] = 'brothershowerlook':
 			'	"Uhh, yeah! That''s pretty funny!" you fake laugh as best you can.'
 			act'Continue':
 				bro_ass_compliment = rand(1,3)
-				if bro_ass_compliment = 1:gt'brother_voyeur','ass_compliment'
-				if pcs_pubes >= 4 or pcs_leghair >= 4:gt'brother_voyeur','shave'
-				if pcs_pubes < 4 and pcs_leghair < 4:gt'brother_voyeur','dryoff'
+				if bro_ass_compliment = 1:
+					gt'brother_voyeur','ass_compliment'
+				else
+					gt'brother_voyeur','shave'
+				end
 			end
 
 		elseif brothershowerschooltalk = 3 and brothersexed = 0:
@@ -444,9 +395,11 @@ if $ARGS[0] = 'brothershowerlook':
 			anatomyhomeworkhelp = 1
 			act'Continue':
 				bro_ass_compliment = rand(1,3)
-				if bro_ass_compliment = 1:gt'brother_voyeur','ass_compliment'
-				if pcs_pubes >= 4 or pcs_leghair >= 4:gt'brother_voyeur','shave'
-				if pcs_pubes < 4 and pcs_leghair < 4:gt'brother_voyeur','dryoff'
+				if bro_ass_compliment = 1:
+					gt'brother_voyeur','ass_compliment'
+				else
+					gt'brother_voyeur','shave'
+				end
 			end
 
 		elseif brothershowerschooltalk = 3 and brothersexed >= 1:
@@ -455,9 +408,11 @@ if $ARGS[0] = 'brothershowerlook':
 			'	"I''ll think about it..." you say slyly.'
 			act'Continue':
 				bro_ass_compliment = rand(1,3)
-				if bro_ass_compliment = 1:gt'brother_voyeur','ass_compliment'
-				if pcs_pubes >= 4 or pcs_leghair >= 4:gt'brother_voyeur','shave'
-				if pcs_pubes < 4 and pcs_leghair < 4:gt'brother_voyeur','dryoff'
+				if bro_ass_compliment = 1:
+					gt'brother_voyeur','ass_compliment'
+				else
+					gt'brother_voyeur','shave'
+				end
 			end
 		end
 	end
@@ -478,9 +433,11 @@ if $ARGS[0] = 'brothershowerlook':
 			'	"Uhmm, yeah! Of course!" you say, trying to maintain your poker face as best you can while he frowns at you suspiciously.'
 			act'Continue':
 				bro_ass_compliment = rand(1,3)
-				if bro_ass_compliment = 1:gt'brother_voyeur','ass_compliment'
-				if pcs_pubes >= 4 or pcs_leghair >= 4:gt'brother_voyeur','shave'
-				if pcs_pubes < 4 and pcs_leghair < 4:gt'brother_voyeur','dryoff'
+				if bro_ass_compliment = 1:
+					gt'brother_voyeur','ass_compliment'
+				else
+					gt'brother_voyeur','shave'
+				end
 			end
 
 		elseif brothershowerfriendtalk = 2:
@@ -489,9 +446,11 @@ if $ARGS[0] = 'brothershowerlook':
 			'	"<i>Excuse me?</i> You were planning to do <i>what</i> with my underwear??" you say, staring at him sternly while he twiddles his thumbs and tries to pretend he didn''t say anything.'
 			act'Continue':
 				bro_ass_compliment = rand(1,3)
-				if bro_ass_compliment = 1:gt'brother_voyeur','ass_compliment'
-				if pcs_pubes >= 4 or pcs_leghair >= 4:gt'brother_voyeur','shave'
-				if pcs_pubes < 4 and pcs_leghair < 4:gt'brother_voyeur','dryoff'
+				if bro_ass_compliment = 1:
+					gt'brother_voyeur','ass_compliment'
+				else
+					gt'brother_voyeur','shave'
+				end
 			end
 
 		elseif brothershowerfriendtalk = 3:
@@ -501,9 +460,11 @@ if $ARGS[0] = 'brothershowerlook':
 				'	"It''s okay Kolka," you console him. "Just enjoy the time you have with them. In a couple years mom might not force you to go anymore but you all might end up too busy to hang out."'
 				act'Continue':
 					bro_ass_compliment = rand(1,3)
-					if bro_ass_compliment = 1:gt'brother_voyeur','ass_compliment'
-					if pcs_pubes >= 4 or pcs_leghair >= 4:gt'brother_voyeur','shave'
-					if pcs_pubes < 4 and pcs_leghair < 4:gt'brother_voyeur','dryoff'
+					if bro_ass_compliment = 1:
+						gt'brother_voyeur','ass_compliment'
+					else
+						gt'brother_voyeur','shave'
+					end
 				end
 
 			elseif seepornofut >= 1:
@@ -513,9 +474,11 @@ if $ARGS[0] = 'brothershowerlook':
 					'	"We play football too!" Kolka protests while you tease him with a silly face and fake jerk off motions.'
 					act'Continue':
 						bro_ass_compliment = rand(1,3)
-						if bro_ass_compliment = 1:gt'brother_voyeur','ass_compliment'
-						if pcs_pubes >= 4 or pcs_leghair >= 4:gt'brother_voyeur','shave'
-						if pcs_pubes < 4 and pcs_leghair < 4:gt'brother_voyeur','dryoff'
+						if bro_ass_compliment = 1:
+							gt'brother_voyeur','ass_compliment'
+						else
+							gt'brother_voyeur','shave'
+						end
 					end
 				elseif pornMagazine > 0:
 					'	"We play football too!" Kolka protests while you tease him with silly face and fake jerk off motions. "Hrmph! You''re one to talk anyways," he grumbles. "I know about that magazine you hide under your bed."'
@@ -527,9 +490,11 @@ if $ARGS[0] = 'brothershowerlook':
 					'	The two of you continue to playfully sling accusations and lewd gestures at each other for the rest of your shower, giggling the whole time.'
 					act'Continue':
 						bro_ass_compliment = rand(1,3)
-						if bro_ass_compliment = 1:gt'brother_voyeur','ass_compliment'
-						if pcs_pubes >= 4 or pcs_leghair >= 4:gt'brother_voyeur','shave'
-						if pcs_pubes < 4 and pcs_leghair < 4:gt'brother_voyeur','dryoff'
+						if bro_ass_compliment = 1:
+							gt'brother_voyeur','ass_compliment'
+						else
+							gt'brother_voyeur','shave'
+						end
 					end
 				end
 			end
@@ -621,6 +586,7 @@ end
 if $ARGS[0] = 'brother_shower_together':
 	brothergrope = rand(0,1)
 	inhib_exp += rand(1,3)
+	brother_shower_times += 1
 	*clr & cla
 	'<center><img <<$set_imgh>> src="images/shared/home/bathroom/brothershower.jpg"></center>'
 	'	Kolka clambers into the shower with you, doing his best to get under the water. The bath tub isn''t very big and it''s a tight squeeze for both of you to be in there.'
@@ -734,7 +700,7 @@ if $ARGS[0] = 'brother_shower_together':
 				if brotherbj < 1 and brotherfuck < 1:
 					'	"Hey Kolka, want to see something cool?"'
 					'	"Huh?" He asks, confused. "What is it?"'
-					'	His eyes go wide when you grab him by the cock. Slightly panicked, he looks back at you when you start to kneel.'
+					'	His eyes go wide when as your hand slips up his leg and grips his member. Slightly panicked, he looks back at you when you start to kneel.'
 					'	"It''s my mouth around your cock!"'
 					act'Blow him':gt'brother_voyeur','brother_shower_bj'
 				else
@@ -804,7 +770,7 @@ if $ARGS[0] = 'brother_wash':
 				if brothersex > 0 or brotherfuck > 0 or brotherbj > 0 or brotherwash > 5:
 					act'Have some fun':
 						cla & *clr
-						'<center><img <<$set_imgh>> src="images/shared/home/bathroom/broshowersex2.jpg"></center>'
+						'<center><img <<$set_imgh>> src="images/shared/home/bathroom/brothershowersex2.jpg"></center>'
 						'	Clean from your shower together, you can''t help yourself as you start to get frisky with your brother. His hands slide up your body to caress your breasts. In response, you reach back and start jerking his cock feeling him harden under your touch.'
 						act'Blow him':gt'brother_voyeur','brother_shower_bj'
 						act'Fuck him':gt'brother_voyeur','brother_shower_fuck'
@@ -823,7 +789,7 @@ if $ARGS[0] = 'brother_wash':
 				if brothersex > 0 or brotherfuck > 0 or brotherbj > 0 or brotherwash > 5:
 					act'Have some fun':
 						cla & *clr
-						'<center><img <<$set_imgh>> src="images/shared/home/bathroom/broshowersex2.jpg"></center>'
+						'<center><img <<$set_imgh>> src="images/shared/home/bathroom/brothershowersex2.jpg"></center>'
 						'	Clean from your shower together, you can''t help yourself as you start to get frisky with your brother. His hands slide up your body to caress your breasts. In response, you reach back and start jerking his cock feeling him harden under your touch.'
 						act'Blow him':gt'brother_voyeur','brother_shower_bj'
 						act'Fuck him':gt'brother_voyeur','brother_shower_fuck'
@@ -842,7 +808,7 @@ if $ARGS[0] = 'brother_wash':
 				if brothersex > 0 or brotherfuck > 0 or brotherbj > 0 or brotherwash > 5:
 					act'Have some fun':
 						cla & *clr
-						'<center><img <<$set_imgh>> src="images/shared/home/bathroom/broshowersex2.jpg"></center>'
+						'<center><img <<$set_imgh>> src="images/shared/home/bathroom/brothershowersex2.jpg"></center>'
 						'	Clean from your shower together, you can''t help yourself as you start to get frisky with your brother. His hands slide up your body to caress your breasts. In response, you reach back and start jerking his cock feeling him harden under your touch.'
 						act'Blow him':gt'brother_voyeur','brother_shower_bj'
 						act'Fuck him':gt'brother_voyeur','brother_shower_fuck'
@@ -1926,23 +1892,7 @@ if $ARGS[0] = 'brother_shower_fuck_first':
 			'	"It''s okay Kolka. I''m not mad. Let''s get you into the club. Why don''t I show you the <b>member only</b> entrance?"'
 			'	"Don''t you mean member<b>s</b> only entrance sis?" he asks, confused.'
 			'	"That''s not what I said," you whisper, pushing your hips back and swallowing him straight to the hilt.'
-			act'Continue':
-				guy += 1
-				gs 'arousal', 'vaginal', rand(5,10)
-				gs 'stat'
-				eff_contra = iif(argc > 1,ARGS[1],sexcontra)
-				tmp = func('pregriskeval',eff_contra)
-				cla & *clr
-				'<center><video src="images/characters/pavlovsk/resident/kolka/event/shower/broshower.mp4"></center>'
-				'	Barely giving him any time at all to recover from your sudden start, you immediately break into a hard rhythm, thrusting your hips back and giving it your all. He''s your little brother after all. You should try to make his first time special. Soon enough, you start giving him tips.'
-				'	"Hold my hips so you have more control."'
-				'	"Grab my boobs if you like. Boobs are meant to be grabbed during sex.'
-				'	"Don''t worry if you feel like you''re going to cum. It''s your first time so just let me kn-OW-OW-WOAH!"'
-				'	Kolka''s really getting into it. He pumps in and out you, member slick with your juices. His hands come up to grab your breasts and you gasp when they''re used as leverage to fuck you harder, his cock reaching even deeper inside you. His cock! Oh god! It''s driving you insane! Even though it''s his first time, he''s actually pretty good! Fuck! You should have jumped on his dick ages ago!'
-				'	Several minutes go by with you unable to think about anything except how good fucking your brother feels.'
-				'	Suddenly, you feel him urgently tapping you on the shoulder.'
-				act'Continue':gt'brother_voyeur','brother_fuck_cum'
-			end
+			act'Continue':gt'brother_voyeur','brother_shower_fuck_first3'
 		end
 		act'This doesn''t make you''re special':
 			cla
@@ -1951,24 +1901,8 @@ if $ARGS[0] = 'brother_shower_fuck_first':
 			'	"What do you mean?" he asks, grin disappearing.'
 			'	"There''s been a lot of members in that club." You position his tip at your entrance, lining him up for what you''re about to do next.'
 			'	"A <b>lot.</b> Of <b>members.</b>" On your emphasized words, you thrust your hips backward to take his entire cock inside you in one go, causing your brother to gasp and grab you by the hips to steady himself.'
-			'	"Inside. <b>my ''club.''</b>" you whisper into his ear.'
-			act'Continue':
-				guy += 1
-				gs 'arousal', 'vaginal', rand(5,10)
-				gs 'stat'
-				eff_contra = iif(argc > 1,ARGS[1],sexcontra)
-				tmp = func('pregriskeval',eff_contra)
-				cla & *clr
-				'<center><video src="images/characters/pavlovsk/resident/kolka/event/shower/broshower.mp4"></center>'
-				'	Barely giving him any time at all to recover from your sudden start, you immediately break into a hard rhythm, thrusting your hips back and giving it your all. He''s your little brother after all. You should try to make his first time special. Soon enough, you start giving him tips.'
-				'	"Hold my hips so you have more control."'
-				'	"Grab my boobs if you like. Boobs are meant to be grabbed during sex.'
-				'	"Don''t worry if you feel like you''re going to cum. It''s your first time so just let me kn-OW-OW-WOAH!"'
-				'	Kolka''s really getting into it. He pumps in and out you, member slick with your juices. His hands come up to grab your breasts and you gasp when they''re used as leverage to fuck you harder, his cock reaching even deeper inside you. His cock! Oh god! It''s driving you insane! Even though it''s his first time, he''s actually pretty good! Fuck! You should have jumped on his dick ages ago!'
-				'	Several minutes go by with you unable to think about anything except how good fucking your brother feels.'
-				'	Suddenly, you feel him urgently tapping you on the shoulder.'
-				act'Continue':gt'brother_voyeur','brother_fuck_cum'
-			end
+			'	"Inside. <i>My. <b>''Club.''</i></b>" you whisper into his ear.'
+			act'Continue':gt'brother_voyeur','brother_shower_fuck_first3'
 		end
 	else
 		brotherfuck += 1
@@ -2010,9 +1944,10 @@ if $ARGS[0] = 'brother_shower_fuck_first':
 
 			act'No, I''m a slut':
 				cla
+				brother_knows_not_virgin = 1
 				'	"Nope!" You smile at him. "Sorry to disappoint, but yours is just going to be one more of many different dicks that have been inside my pussy little brother."'
-				'	You''re not really sure why you''re telling him about this, especially with the implication that you''re a huge slut, but there''s no time to think about that as you push your ass towards him and swallow his cock with your pussy.'
-				act'Continue':gt'brother_voyeur','brother_shower_fuck_first2'
+				'	You''re not really sure why you''re telling him about this, especially with the implication that you''re a huge slut, but there''s no time to think about that as you thrust your hips backward to take his entire length inside you in one go. Your brother gasps at the rush of having his cock entirely swallowed by your pussy, grabbing you by the hips to steady himself.'
+				act'Continue':gt'brother_voyeur','brother_shower_fuck_first3'
 			end
 
 			act'Yes, you''re my first time (lie)':
@@ -2079,7 +2014,23 @@ if $ARGS[0] = 'brother_shower_fuck_first2':
 		end
 	end
 end
-
+if $ARGS[0] = 'brother_shower_fuck_first3':
+	guy += 1
+	gs 'arousal', 'vaginal', rand(5,10)
+	gs 'stat'
+	eff_contra = iif(argc > 1,ARGS[1],sexcontra)
+	tmp = func('pregriskeval',eff_contra)
+	cla & *clr
+	'<center><video src="images/characters/pavlovsk/resident/kolka/event/shower/broshower.mp4"></center>'
+	'	Barely giving him any time at all to recover from your sudden start, you immediately break into a hard rhythm, thrusting your hips back and giving it your all. He''s your little brother after all. You should try to make his first time special. Soon enough, you start giving him tips.'
+	'	"Hold my hips so you have more control."'
+	'	"Grab my boobs if you like. Boobs are meant to be grabbed during sex.'
+	'	"Don''t worry if you feel like you''re going to cum. It''s your first time so just let me kn-OW-OW-WOAH!"'
+	'	Kolka''s really getting into it. He pumps in and out you, member slick with your juices. His hands come up to grab your breasts and you gasp when they''re used as leverage to fuck you harder, his cock reaching even deeper inside you. His cock! Oh god! It''s driving you insane! Even though it''s his first time, he''s actually pretty good! Fuck! You should have jumped on his dick ages ago!'
+	'	Several minutes go by with you unable to think about anything except how good fucking your brother feels.'
+	'	Suddenly, you feel him urgently tapping you on the shoulder.'
+	act'Continue':gt'brother_voyeur','brother_fuck_cum'
+end
 
 if $ARGS[0] = 'brother_shower_fuck':
 	broshowerfuck = daystart
@@ -2375,6 +2326,7 @@ end
 if $ARGS[0] = 'brother_shower_fuck_end':
 	cla & *clr
 	dynamic $showerdin
+	brother_shower_times += 1
 	minut += 2
 	gs 'arousal','end'
 	if brotherfuck = 1 and brother_knows_not_virgin >= 1:
@@ -2495,7 +2447,6 @@ if $ARGS[0] = 'brother_shower_fuck_end':
 						'	A sly smile on your face, you step forward to grab him by the cock.'
 						'	"Until next time little brother," you murmur into his ear, giving his dick a hard squeeze. Then, you slap his ass and push him towards the door. "Now, shoo! Before someone catches us in here together."'
 						'	Startled, he does as you say, picking up his clothes and peeking into the hallway to make sure no one is there before slipping out the door.'
-						brotherSex += 1
 						brothervirginlie = 0
 						act'Finish drying off':mirror_steam = hour & gt $loc
 					end
@@ -2531,6 +2482,7 @@ if $ARGS[0] = 'brother_shower_fuck_end':
 				'	"Pfft~! It''s not like I''m gonna marry you or anything like that. You''re still my sister. And I''m still gonna fuck lots of other girls once they start looking my way! But..." he trails off again.'
 				'	"... now we have a bond that other siblings don''t have," you finish. "And no matter what else happens, we''ll carry each other''s virginities for the rest of our lives." He nods.'
 				act'Continue':
+					brotherSex = 9
 					minut += 5
 					gs 'stat'
 					cla & *clr
@@ -2588,7 +2540,6 @@ if $ARGS[0] = 'brother_shower_fuck_end':
 
 				act'Until next time (grab his cock)':
 					cla
-					brotherSex += 1
 					brothervirginlie = 0
 					'	A sly smile on your face, you step forward to grab him by the cock.'
 					'	"Until next time little brother," you murmur into his ear, giving his dick a hard squeeze. Then, you slap his ass and push him towards the door. "Now, shoo! Before someone catches us in here together."'
@@ -2628,16 +2579,11 @@ if $ARGS[0] = 'ass_compliment':
 	'	"Hmm? Sure, what is it Kolka?"'
 	'	"You have a great ass!"'
 	'	Feeling his smile radiating from behind you, you look over your shoulder and give him a grin and a little shake of your ass to show your appreciation for his compliment.'
-	act'Continue':
-		if pcs_pubes >= 4 or pcs_leghair >= 4:
-			gt'brother_voyeur','shave'
-		else
-			gt'brother_voyeur','dryoff'
-		end
-	end
+	act'Continue':gt'brother_voyeur','shave'
 end
 
 if $ARGS[0] = 'shave':
+	if pcs_pubes < 4 or pcs_leghair < 4:gt'brother_voyeur','dryoff'
 	cla & *clr
 	if brothershowerlook = 1:
 		if pcs_leghair > 0 or pcs_pubes > 0:
@@ -2645,7 +2591,7 @@ if $ARGS[0] = 'shave':
 		'	You''re rinsing off when you notice Kolka staring at your legs and what''s between them.'
 		'	"Excuse me?" you ask him pointedly. "Can I help you with something?"'
 		elseif pcs_pubes < 11 and pcs_leghair > 3:
-			'	His lips twisted in thought, he says, "You''re looking kind of stubbly down there." You follow his gaze to look at your legs and pussy. "Aren''t you going to shave?"'
+			'	His lips twisted in thought, he says, "You''re looking kind of stubbly down there." You follow his gaze to Continue and pussy. "Aren''t you going to shave?"'
 		elseif pcs_pubes >= 11 and pcs_pubes < 21 and pcs_leghair > 3:
 			'	His lips twisted in thought, he says, "You''re growing a bit of a bush down there." You follow his gaze to look at your <<$pcdesc_legs>> legs and your trimmed pussy hair. "Looks like your legs are growing grass to match. Aren''t you going to shave?"'
 		elseif pcs_pubes >= 21 and pcs_leghair > 3:
@@ -2811,10 +2757,10 @@ if $ARGS[0] = 'shave':
 					inhib_exp += 1
 					gs 'stat'
 					'<center><video src="images/shared/home/bathroom/shave.mp4"></center>'
-					if pcs_pubes < 11:
+					if pcs_pubes =< 10:
 						'<br>	"Hmm." You think to yourself for a moment. "Maybe you''re right after all," you say and start lathering up your crotch.'
 						'<br>	Kolka stares at you intensely as you carefully remove the bits of stubble from around your pussy.'
-					elseif pcs_pubes > 10:
+					elseif pcs_pubes >= 11:
 						'<br>	"Hmm." You think to yourself for a moment. "Yeah, you''re right. Maybe it''s time to get rid of this bush," you say and start lathering up your crotch.'
 						'<br>	Kolka stares at you intensely as you carefully remove the hair from around your pussy.'
 						'<br>	"Enjoying the show?" you say teasingly. He doesn''t say anything except nod, not looking away for a second. You have to admit, it''s a little bit exciting having someone watch you do this. You might be enjoying this almost as much as your brother is.'

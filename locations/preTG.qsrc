@@ -436,15 +436,15 @@ if $ARGS[0] = 'sleepPRE':
 		*nl
 		'"Well, yes. I won''t argue about that." Tatiana agrees. "It''s your life and you decide what you do with it, but for the time being, you cannot go back to your old life, so deal with it. On a side note, I already took care of an alibi. Today Michael crashed his car into the pit and died, it''s on the news." With these words, Tatiana picked up the remote and turned on the TV.'
 
-		$pcs_firstname = input("What is your first name? (Leave blank for default)")
+		$pcs_firstname = input("What is your first name? (Leave blank for Svetlana)")
 
 		if $pcs_firstname = '': $pcs_firstname = 'Svetlana'
 
-		$pcs_lastname = input("What is your last name? (Leave blank for default)")
+		$pcs_lastname = input("What is your last name? (Leave blank for Lebedev)")
 
 		if $pcs_lastname = '': $pcs_lastname = 'Lebedev'
 
-		$pcs_nickname = input("What is your nickname? (Note: If you chose a custom name, you have to enter something here!)")
+		$pcs_nickname = input("What is your alternative first name? (Leave blank for Sveta - this is your familiar name so re-enter first name if you do not want one)")
 
 		if $pcs_nickname = '': $pcs_nickname = 'Sveta'
 

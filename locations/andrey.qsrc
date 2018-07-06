@@ -8,7 +8,9 @@ if $ARGS[0] = '':
 		'You knock on Mr. Sobulyagin''s office door and when he sees you enter, his expression hardens. "What do you want?" he asks with a scowl.'
 	end
 
-	if (hour >= 18 and (week ! 5 or young_shop_salary = 0)) or hour > 18:
+	if (young_shop_work = 1 and week = 5 and hour = 20) or (young_shop_work1 = 1 and week = 7 and hour = 15) or (young_shop_work2 = 1 and week = 5 and hour = 15):
+		gs 'andrey', 'regular'
+	elseif hour >= 20 or (week > 4 and hour >= 16):
 		msg '<center>Andrew M. Sobulyagin says goodbye and leaves. His workday has ended.</center>'
 		gt 'young_shop', 'start'
 	end

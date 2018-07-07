@@ -124,27 +124,27 @@ end
 if $ARGS[0] = 'events':
 	random = rand(1, 80)
 
-	if random < 75:
+	if random > 75:
 		gs 'young_shop', '0'
-	elseif random < 70:
+	elseif random > 70:
 		gs 'young_shop', '1'
-	elseif random < 65:
+	elseif random > 65:
 		gs 'young_shop', '2'
-	elseif random < 60:
+	elseif random > 60:
 		gs 'young_shop', '3'
-	elseif random < 55:
+	elseif random > 55:
 		gs 'young_shop', '4'
-	elseif random < 55:
+	elseif random > 55:
 		gs 'young_shop', '5'
-	elseif random < 45:
+	elseif random > 45 and week ! 5 and work ! 7:
 		gs 'young_shop', '6'
-	elseif random < 40:
+	elseif random > 40:
 		gs 'young_shop', '7'
-	elseif random < 35:
+	elseif random > 35:
 		gs 'young_shop', '8'
-	elseif random < 30:
+	elseif random > 30:
 		gs 'young_shop', '9'
-	elseif random < 27:
+	elseif random > 27:
 		gs 'young_shop', '10'
 	elseif random = 27:
 		gs 'young_shop', '11'
@@ -351,7 +351,7 @@ if $ARGS[0] = '6':
 
 	act 'Stay for another hour':
 		cla
-		minut+= 70
+		minut += 70
 		young_shop_bonus += 3
 		gs 'stat'
 		'It seems that you have no choice. You can''t let down your co-workers.'

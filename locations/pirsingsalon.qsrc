@@ -650,7 +650,7 @@ if $ARGS[0] = 'ass':
 		:looptatass
 		*p '<a href="exec:n = <<n>> & gt ''pirsingsalon'', ''ass_get''"><img src="images/pc/body/tattoos/ass/tatass<<n>>.jpg" height="250" /></a>'
 		n += 1
-		if n <= 24:jump 'looptatass'
+		if n <= 25:jump 'looptatass'
 		*nl
 
 	else
@@ -692,7 +692,7 @@ if $ARGS[0] = 'back':
 		:looptatback
 		*p '<a href="exec:n = <<n>> & gt ''pirsingsalon'', ''back_get''"><img src="images/pc/body/tattoos/back/tatback<<n>>.jpg" height="250" /></a>'
 		n += 1
-		if n <= 56:jump 'looptatback'
+		if n <= 61:jump 'looptatback'
 		*nl
 
 	else
@@ -776,7 +776,7 @@ if $ARGS[0] = 'breast':
 		:looptatbreast
 		*p '<a href="exec:n = <<n>> & gt ''pirsingsalon'', ''breast_get''"><img src="images/pc/body/tattoos/breasts/tatbrst<<n>>.jpg" height="250" /></a>'
 		n += 1
-		if n <= 10:jump 'looptatbreast'
+		if n <= 11:jump 'looptatbreast'
 		*nl
 
 	else
@@ -944,7 +944,7 @@ if $ARGS[0] = 'leg':
 		:looptatleg
 		*p '<a href="exec:n = <<n>> & gt ''pirsingsalon'', ''leg_get''"><img src="images/pc/body/tattoos/legs/tatleg<<n>>.jpg" height="250" /></a>'
 		n += 1
-		if n <= 37:jump 'looptatleg'
+		if n <= 47:jump 'looptatleg'
 		*nl
 
 	else
@@ -1070,7 +1070,7 @@ if $ARGS[0] = 'pubic':
 		:looptatvag
 		*p '<a href="exec:n = <<n>> & gt ''pirsingsalon'', ''vag_get''"><img src="images/pc/body/tattoos/pubic/tatvag<<n>>.jpg" height="250" /></a>'
 		n += 1
-		if n <= 47:jump 'looptatvag'
+		if n <= 53:jump 'looptatvag'
 		*nl
 
 	else

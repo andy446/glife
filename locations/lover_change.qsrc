@@ -473,7 +473,7 @@ if $ARGS[0] = 'Tatt':
 							'<center><img <<$set_imgh>> src="images/pc/body/tattoos/arms/tatarm<<tatarm>>.jpg"></center>'
 						end
 					elseif randchan = 1 and tatass = 0:
-						randchan = rand(1, 24)
+						randchan = rand(1, 25)
 						!!randchan = 21
 						if tatass = 0 and tattCount < tattPrefTmpMin:
 							tatass = randchan
@@ -482,7 +482,7 @@ if $ARGS[0] = 'Tatt':
 							'<center><img <<$set_imgh>> src="images/pc/body/tattoos/ass/tatass<<tatass>>.jpg"></center>'
 						end
 					elseif randchan = 2 and tatback = 0:
-						randchan = rand(1, 56)
+						randchan = rand(1, 61)
 						!!randchan = 2
 						if tatback = 0 and tattCount < tattPrefTmpMin:
 							tatback = randchan
@@ -502,7 +502,7 @@ if $ARGS[0] = 'Tatt':
 							'<center><img <<$set_imgh>> src="images/pc/body/tattoos/belly/tatblly<<tatblly>>.jpg"></center>'
 						end
 					elseif randchan = 4 and tatbrst = 0:
-						randchan = rand(1, 10)
+						randchan = rand(1, 11)
 						!!randchan = 8
 						if tatbrst = 0 and tattCount < tattPrefTmpMin:
 							tatbrst = randchan
@@ -538,7 +538,7 @@ if $ARGS[0] = 'Tatt':
 							'<center><img <<$set_imgh>> src="images/pc/body/tattoos/foot/tatankle<<tatankle>>.jpg"></center>'
 						end
 					elseif randchan = 8 and tatleg = 0:
-						randchan = rand(1, 37)
+						randchan = rand(1, 47)
 						!!randchan = 2
 						if tatleg = 0 and tattCount < tattPrefTmpMin:
 							tatleg = randchan
@@ -565,7 +565,7 @@ if $ARGS[0] = 'Tatt':
 							'<center><img <<$set_imgh>> src="images/pc/body/tattoos/neck/tatnck<<tatneck>>.jpg"></center>'
 						end
 					elseif randchan = 11 and tatvag = 0:
-						randchan = rand(1, 47)
+						randchan = rand(1, 53)
 						!!randchan = 6
 						if tatvag = 0 and tattCount < tattPrefTmpMin:
 							tatvag = randchan

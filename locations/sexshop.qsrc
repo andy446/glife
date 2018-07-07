@@ -192,7 +192,7 @@ if $ARGS[0] = 'start':
 				lubri += portion * 5
 				money -= portion * 300
 				minut += 5
-				'<center><img <<$set_imgh>> src="images/locations/city/citycenter/sexshop.jpg"></center>'
+				'<center><img <<$set_imgh>> src="images/locations/city/citycenter/sexshop/sexshop.jpg"></center>'
 				'You bought some lubricant and paid the cashier.'
 			end
 
@@ -224,7 +224,7 @@ if $ARGS[0] = 'start':
 			minut += 5
 			dildo = 1
 			money -= 800
-			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/sexshop.jpg"></center>'
+			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/sexshop/sexshop.jpg"></center>'
 			'You bought a dildo and paid the cashier.'
 
 			act 'Move away from the counter':gt 'sexshop', 'start'
@@ -240,7 +240,7 @@ if $ARGS[0] = 'start':
 			minut += 5
 			middildo = 1
 			money -= 850
-			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/sexshop.jpg"></center>'
+			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/sexshop/sexshop.jpg"></center>'
 			'You bought a 15cm long dildo and paid the cashier.'
 
 			act 'Move away from the counter':gt 'sexshop','start'
@@ -256,7 +256,7 @@ if $ARGS[0] = 'start':
 			minut += 5
 			largedildo = 1
 			money -= 900
-			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/sexshop.jpg"></center>'
+			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/sexshop/sexshop.jpg"></center>'
 			'You bought a 20cm long dildo and paid the cashier.'
 
 			act 'Move away from the counter':gt 'sexshop','start'
@@ -272,7 +272,7 @@ if $ARGS[0] = 'start':
 			minut += 15
 			bigdildo = 1
 			money -= 950
-			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/sexshop.jpg"></center>'
+			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/sexshop/sexshop.jpg"></center>'
 			'You bought a 25cm long dildo and paid the cashier.'
 
 			act 'Move away from the counter':gt 'sexshop','start'
@@ -288,7 +288,7 @@ if $ARGS[0] = 'start':
 			minut += 5
 			extradildo = 1
 			money -= 1000
-			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/sexshop.jpg"></center>'
+			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/sexshop/sexshop.jpg"></center>'
 			'You bought a 30cm long dildo and paid the cashier.'
 
 			act 'Move away from the counter':gt 'sexshop','start'
@@ -304,7 +304,7 @@ if $ARGS[0] = 'start':
 			minut += 5
 			superdildo = 1
 			money -= 1100
-			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/sexshop.jpg"></center>'
+			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/sexshop/sexshop.jpg"></center>'
 			'You bought a 35cm long dildo and paid the cashier.'
 
 			act 'Move away from the counter':gt 'sexshop','start'
@@ -320,7 +320,7 @@ if $ARGS[0] = 'start':
 			minut += 5
 			maddildo = 1
 			money -= 1200
-			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/sexshop.jpg"></center>'
+			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/sexshop/sexshop.jpg"></center>'
 			'You bought a 40cm long dildo and paid the cashier.'
 
 			act 'Move away from the counter':gt 'sexshop','start'
@@ -336,7 +336,7 @@ if $ARGS[0] = 'start':
 			minut += 5
 			vibrator = 1
 			money -= 800
-			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/sexshop.jpg"></center>'
+			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/sexshop/sexshop.jpg"></center>'
 			'You bought a vibrator and paid the cashier.'
 
 			act 'Move away from the counter':gt 'sexshop', 'start'
@@ -352,19 +352,19 @@ if $ARGS[0] = 'start':
 			minut += 5
 			strapon = 1
 			money -= 1200
-			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/sexshop.jpg"></center>'
+			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/sexshop/sexshop.jpg"></center>'
 			'You bought a strapon and paid the cashier.'
 
 			act 'Move away from the counter':gt 'sexshop', 'start'
 		end
-	elseif money >= 500 and strapon = 0:
+	elseif money >= 500 and strapon = 0 and dildo = 1:
 		act 'Buy a strapon harness (500 <b>₽</b>)':
 			cla
 			*clr
 			minut += 5
 			strapon = 1
 			money -= 500
-			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/sexshop.jpg"></center>'
+			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/sexshop/sexshop.jpg"></center>'
 			'You bought a strapon and paid the cashier.'
 
 			act 'Move away from the counter':gt 'sexshop', 'start'
@@ -380,7 +380,7 @@ if $ARGS[0] = 'start':
 			minut += 5
 			analplug = 1
 			money -= 800
-			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/sexshop.jpg"></center>'
+			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/sexshop/sexshop.jpg"></center>'
 			'You bought a butt plug and paid the cashier.'
 
 			act 'Move away from the counter':gt 'sexshop', 'start'

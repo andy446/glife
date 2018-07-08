@@ -644,8 +644,33 @@ $cheatmenu['tatoo'] = {
 }
 
 $cheatmenu['stats'] = {
-	gs'stat'
+	gs 'stat'
 	clr
+	
+	!Set a floor and ceiling for all attributes and skills
+	loop_index = 0
+	:attr_trim_loop
+		dynamic "
+			if <<$att_name[loop_index]>>_lvl < 0: <<$att_name[loop_index]>>_lvl = 0
+			if <<$att_name[loop_index]>>_lvlst < 0: <<$att_name[loop_index]>>_lvlst = 0
+			if <<$att_name[loop_index]>>_lvl > 100: <<$att_name[loop_index]>>_lvl = 100
+			if <<$att_name[loop_index]>>_lvlst > 100: <<$att_name[loop_index]>>_lvlst = 100
+		"
+		loop_index += 1
+		if loop_index < arrsize('$att_name'): jump 'attr_trim_loop'
+	
+	loop_index = 0
+	:skill_trim_loop
+		dynamic "
+			if <<$skl_name[loop_index]>>_lvl < 0: <<$skl_name[loop_index]>>_lvl = 0
+			if <<$skl_name[loop_index]>>_lvlst < 0: <<$skl_name[loop_index]>>_lvlst = 0
+			if <<$skl_name[loop_index]>>_lvl > 100: <<$skl_name[loop_index]>>_lvl = 100
+			if <<$skl_name[loop_index]>>_lvlst > 100: <<$skl_name[loop_index]>>_lvlst = 100
+		"
+		loop_index += 1
+		if loop_index < arrsize('$skl_name'): jump 'skill_trim_loop'
+	killvar 'loop_index'
+
 	pl'<center><a href="exec:dynamic $cheatmenu"><b>Cheat menu</b></a></center>'
 	nl
 	pl 'Strength (<<stren_lvl>>): <a href="exec:stren_lvl += 1 & stren_lvlst = stren_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:stren_lvl += 5 & stren_lvlst = stren_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:stren_lvl += 10 & stren_lvlst = stren_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:stren_lvl -= 1 & stren_lvlst = stren_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:stren_lvl -= 5 & stren_lvlst = stren_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:stren_lvl -= 10 & stren_lvlst = stren_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'

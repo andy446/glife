@@ -665,6 +665,21 @@ $cheatmenu['setAttrs'] = {
 		if MagikDostup = 0 and loop_index < arrsize('$att_name'): jump 'set_attrs_loop'
 		elseif loop_index < arrsize('$att_name') - 1: jump 'set_attrs_loop'
 		end
+	killvar 'loop_index'
+	dynamic $cheatmenu['stats']
+}
+
+$cheatmenu['setSkills'] = {
+	loop_index = 0
+	:set_skills_loop
+		dynamic "
+			<<$skl_name[loop_index]>>_lvl = <<ARGS[0]>>
+			<<$skl_name[loop_index]>>_lvlst = <<ARGS[0]>>
+		"
+		loop_index += 1
+		! Inhibition is the last in the array, but it's not really a skill so we'll skip it by ending the loop one iteration early
+		if loop_index < arrsize('$skl_name') - 1: jump 'set_skills_loop'
+	killvar 'loop_index'
 	dynamic $cheatmenu['stats']
 }
 
@@ -698,7 +713,8 @@ $cheatmenu['stats'] = {
 
 	pl'<center><a href="exec:dynamic $cheatmenu"><b>Cheat menu</b></a></center>'
 	nl
-	pl '<a href="exec:dynamic $cheatmenu[''setAttrs''], 0" >Min Stats</a>    <a href="exec:dynamic $cheatmenu[''setAttrs''], 100" >Max Stats</a>'
+	pl'<b>Attributes</b> (values 0 - 100):'
+	pl '<a href="exec:dynamic $cheatmenu[''setAttrs''], 100" >Max Attributes</a>    <a href="exec:dynamic $cheatmenu[''setAttrs''], 0" >Min Attributes</a>'
 	pl 'Strength (<<stren_lvl>>): <a href="exec:stren_lvl = 100 & stren_lvlst = 100 & dynamic $cheatmenu[''stats'']" >Max</a>  <a href="exec:stren_lvl += 1 & stren_lvlst = stren_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:stren_lvl += 10 & stren_lvlst = stren_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:stren_lvl -= 1 & stren_lvlst = stren_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:stren_lvl -= 10 & stren_lvlst = stren_lvl & dynamic $cheatmenu[''stats'']" >-10</a>  <a href="exec:stren_lvl = 0 & stren_lvlst = 0 & dynamic $cheatmenu[''stats'']" >Min</a>  <a href="exec:dynamic $cheatmenu[''setStat''], ''stren'', ''Strength''" >Set</a>'
 	pl 'Agility (<<agil_lvl>>): <a href="exec:agil_lvl = 100 & agil_lvlst = 100 & dynamic $cheatmenu[''stats'']" >Max</a>  <a href="exec:agil_lvl += 1 & agil_lvlst = agil_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:agil_lvl += 10 & agil_lvlst = agil_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:agil_lvl -= 1 & agil_lvlst = agil_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:agil_lvl -= 10 & agil_lvlst = agil_lvl & dynamic $cheatmenu[''stats'']" >-10</a>  <a href="exec:agil_lvl = 0 & agil_lvlst = 0 & dynamic $cheatmenu[''stats'']" >Min</a>  <a href="exec:dynamic $cheatmenu[''setStat''], ''agil'', ''Agility''" >Set</a>'
 	pl 'Endurance (<<vital_lvl>>): <a href="exec:vital_lvl = 100 & vital_lvlst = 100 & dynamic $cheatmenu[''stats'']" >Max</a>  <a href="exec:vital_lvl += 1 & vital_lvlst = vital_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:vital_lvl += 10 & vital_lvlst = vital_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:vital_lvl -= 1 & vital_lvlst = vital_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:vital_lvl -= 10 & vital_lvlst = vital_lvl & dynamic $cheatmenu[''stats'']" >-10</a>  <a href="exec:vital_lvl = 0 & vital_lvlst = 0 & dynamic $cheatmenu[''stats'']" >Min</a>  <a href="exec:dynamic $cheatmenu[''setStat''], ''vital'', ''Endurance''" >Set</a>'
@@ -719,6 +735,9 @@ $cheatmenu['stats'] = {
 	else
 		pl 'Submissiveness (<<sub>>): <a href="exec:sub = 100 & dynamic $cheatmenu[''stats'']" >Max</a>  <a href="exec:sub += 1 & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:sub += 10 & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:sub -= 1 & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:sub -= 10 & dynamic $cheatmenu[''stats'']" >-10</a>  <a href="exec:sub = 0 & dynamic $cheatmenu[''stats'']" >Min</a>'
 	end
+	nl
+	pl'<b>Skills</b> (values 0 - 100, also dependent on attributes):'
+	pl '<a href="exec:dynamic $cheatmenu[''setSkills''], 100" >Max Skills</a>    <a href="exec:dynamic $cheatmenu[''setSkills''], 0" >Min Skills</a>'
 	nl
 	pl'<b>Combat:</b>'
 	pl 'Jabs - Adjusted total (<<pcs_jab>>) - Skill level (<<jab_lvl>>): <a href="exec:jab_lvl += 1 & jab_lvlst = jab_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:jab_lvl += 5 & jab_lvlst = jab_lvl & dynamic $cheatmenu[''stats'']" >+5</a> <a href="exec:jab_lvl += 10 & jab_lvlst = jab_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:jab_lvl -= 1 & jab_lvlst = jab_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:jab_lvl -= 5 & jab_lvlst = jab_lvl & dynamic $cheatmenu[''stats'']" >-5</a> <a href="exec:jab_lvl -= 10 & jab_lvlst = jab_lvl & dynamic $cheatmenu[''stats'']" >-10</a>'

@@ -389,62 +389,66 @@ if $ARGS[0] = 'holodil':
 			sup_day = daystart
 			sup_count -= 1
 			pcs_health += 10
-			water += 40
 			cumspclnt = 2
-			pcs_breath = 0
 			gs 'cum_cleanup'
-			gs 'stat'
+			pcs_breath = 0
 			'<center><b><font color = maroon>Rolan''s soup</font></b></center>'
 			if rolancooklesson = 2:
-				pcs_mood -= 45
-				fat += 35
-				pcs_energy += 50
+				pcs_mood -= 40
+				fat += 1
+				pcs_energy += 5
+				pcs_hydra += 4
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/aptrolan/rolansoup0.jpg"></center>'
 				'<i>G''uuuuh,</i> you are unable to stomach this... <i><b>whatever</b> this</i> is supposed to be. "<i>This is going to take some work</i>," you think.'
 				'Rolan''s cooking is beyond terrible. How Rolan has kept himself alive eating this "soup," you''ll never know.'
 			elseif rolancooklesson = 3:
-				pcs_mood -= 40
-				fat += 30
+				pcs_mood -= 30
+				fat += 5
 				pcs_energy += 50
+				pcs_hydra += 40
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/aptrolan/rolansoup1.jpg"></center>'
 				'Well, at least this batch might stay down. <i>Your stomach grumbles softly, as though in disagreement.</i>'
 				'Rolan has to get better at cooking soon, right?'
 			elseif rolancooklesson = 4:
-				pcs_mood -= 30
-				fat += 25
+				pcs_mood -= 20
+				fat += 4
 				pcs_energy += 50
+				pcs_hydra += 40
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/aptrolan/rolansoup2.jpg"></center>'
 				'"At least it was cooked this time," you ponder aloud. You just need to teach Rolan to peel the potatoes next time.'
 				'There''s some improvement, but Rolan''s soup is far from being good...'
 			elseif rolancooklesson = 5:
-				pcs_mood -= 20
-				fat += 20
+				fat += 3
 				pcs_energy += 50
+				pcs_hydra += 40
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/aptrolan/rolansoup3.jpg"></center>'
 				'"<i>That was much better, but probably hell on my cholesterol</i>," you think. Next time, teach him to use milk instead of cream.'
 				'Rolan''s soup needs to be lighter.'
 			elseif rolancooklesson = 6:
-				pcs_mood -= 10
-				fat += 15
+				fat += 2
 				pcs_energy += 50
+				pcs_hydra += 40
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/aptrolan/rolansoup4.jpg"></center>'
 				'It''s almost there. Almost. "Next time, for sure!"'
 				'You can try something else to improve Rolan''s abilities. But you feel like there isn''t much room for improvement.'
 			elseif rolancooklesson > 6:
-				pcs_mood += 1
-				fat += 10
+				pcs_mood += 10
+				fat += 2
 				pcs_energy += 50
+				pcs_hydra += 40
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/aptrolan/rolansoup5.jpg"></center>'
 				'You think you have done all you were capable of... and probably saved Rolan''s life.'
 				'Rolan''s soup is... well, it''s Rolan''s soup.'
 			else
-				pcs_mood -= 50
-				fat += 50
-				pcs_energy += 50
+				pcs_mood -= 40
+				fat += 1
+				pcs_energy += 5
+				pcs_hydra += 4
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/aptrolan/rolansoup0.jpg"></center>'
 				'You only managed a couple of bites before you rush to bathroom to spit it up. "Fuck! He''s trying to kill somebody! I gotta do something..."'
 				'Rolan is really bad in kitchen. It''s a fatty, terrible soup. You wonder how he''s still alive...'
 			end
+			gs 'stat'
 			if rolancooklesson >= 3:
 				act 'Further': gt 'rolanapt', 'holodil'
 			else

@@ -1,10 +1,10 @@
 # food
-! Snacks: +20 pcs_energy, +6 fat (most cases has water available separately)
-! Fast Food: +70 pcs_energy +70 pcs_hydra, +12 fat (hamburgers, fried food, like the downtown diner)
-! Small Meal: +40 pcs_energy +40 pcs_hydra, +3 fat (soup and sandwiches, cafe light lunches, etc)
-! Medium Meal and Hotel Food: +60 pcs_energy +60 pcs_hydra, +6 fat (home cooked dinners and room service equivalent)
-! Large Meal: +100 pcs_energy +100 pcs_hydra, +50 fat (steak dinners, new years party dinner, etc)
-! Bagged Lunch: +30 pcs_energy +30 pcs_hydra, +3 fat (sandwich, cold leftovers, etc)
+! Snacks: +20 pcs_energy, +7 fat (most cases has water available separately)
+! Fast Food: +70 pcs_energy +70 pcs_hydra, +14 fat (hamburgers, fried food, like the downtown diner)
+! Small Meal: +40 pcs_energy +40 pcs_hydra, +4 fat (soup and sandwiches, cafe light lunches, etc)
+! Medium Meal and Hotel Food: +60 pcs_energy +60 pcs_hydra, +7 fat (home cooked dinners and room service equivalent)
+! Large Meal: +100 pcs_energy +100 pcs_hydra, +14 fat (steak dinners, new years party dinner, etc)
+! Bagged Lunch: +40 pcs_energy +40 pcs_hydra, +5 fat (sandwich, cold leftovers, etc)
 ! Health Meal: +50 pcs_energy +50 pcs_hydra, +1 fat (Diet food, Salads, rice cakes with peanut butter)
 
 if $ARGS[0] = 'pirosh':
@@ -351,7 +351,7 @@ if $ARGS[0] = 'vegburg':
 	money -= val($_eat['<<args[1]>>,price'])
 	pcs_health += 20
 	mood += 10
-	fat += 6
+	fat += 8
 	pcs_energy += 60
 	if pcs_hydra >= 100:
 		pcs_hydra -= 5
@@ -429,7 +429,7 @@ if $ARGS[0] = 'cheburg':
 	money -= val($_eat['<<args[1]>>,price'])
 	pcs_health += 20
 	mood += 20
-	fat += 12
+	fat += 14
 	pcs_energy += 120
 	if pcs_hydra >= 100:
 		pcs_hydra -= 5
@@ -474,7 +474,7 @@ if $ARGS[0] = 'f_food':
 	minut += 20
 	money -= val($_eat['<<args[1]>>,price'])
 	pcs_health += 10
-	fat += 12
+	fat += 14
 	pcs_energy += 70
 	if pcs_hydra >= 100:
 		pcs_hydra += 35
@@ -499,7 +499,7 @@ if $ARGS[0] = 's_meal':
 	minut += 25
 	money -= val($_eat['<<args[1]>>,price'])
 	pcs_health += 10
-	fat += 3
+	fat += 4
 	pcs_energy += 40
 	if pcs_hydra >= 100:
 		pcs_hydra += 20
@@ -524,7 +524,7 @@ if $ARGS[0] = 'm_meal':
 	minut += 30
 	money -= val($_eat['<<args[1]>>,price'])
 	pcs_health += 10
-	fat += 6
+	fat += 8
 	pcs_energy += 60
 	if pcs_hydra >= 100:
 		pcs_hydra += 30
@@ -550,7 +550,7 @@ if $ARGS[0] = 'l_meal':
 	minut += 35
 	money -= val($_eat['<<args[1]>>,price'])
 	pcs_health += 10
-	fat += 12
+	fat += 14
 	pcs_energy += 100
 	if pcs_hydra >= 100:
 		pcs_hydra += 50
@@ -576,12 +576,12 @@ if $ARGS[0] = 'bag_lunch':
 	minut += 15
 	money -= val($_eat['<<args[1]>>,price'])
 	pcs_health += 10
-	fat += 3
-	pcs_energy += 30
+	fat += 5
+	pcs_energy += 40
 	if pcs_hydra >= 100:
 		pcs_hydra += 15
 	else
-		pcs_hydra += 30
+		pcs_hydra += 40
 	end
 	cumspclnt = 2
 	gs 'cum_cleanup'
@@ -601,7 +601,7 @@ if $ARGS[0] = 'h_food':
 	minut += 25
 	money -= val($_eat['<<args[1]>>,price'])
 	pcs_health += 10
-	fat += 6
+	fat += 7
 	money -= 100
 	pcs_energy += 60
 	if pcs_hydra >= 100:
@@ -640,7 +640,7 @@ if $ARGS[0] = 'h_meal':
 	pcs_breath = 0
 	gs 'food', 'aftermeal'
 	'<center><img <<$set_imgh>> src="images/shared/food/eating-salad.jpg"></center>'
-	'You enjoy a crisp salad of fresh green and<<$mtxt>>'
+	'You enjoy a crisp salad of fresh greens and<<$mtxt>>'
 	gs 'stat'
 	killvar '$_eat'
 

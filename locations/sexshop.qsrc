@@ -156,27 +156,27 @@ if $ARGS[0] = 'start':
 	end
 
 	act 'Look through the fetish clothing':
-		minut += 1
+		minut += 5
 		gt 'sexshop', 'clo'
 	end
 
 	act 'Look through the burlesque clothing':
-		minut += 1
+		minut += 5
 		gt 'sexshop', 'clo2'
 	end
 
 	act 'Look through the panties':
-		minut += 1
+		minut += 5
 		gt 'sexshop', 'panties'
 	end
 
 	act 'Look through the bras':
-		minut += 1
+		minut += 5
 		gt 'sexshop', 'bras'
 	end
 
 	act 'Look through the fetish shoes':
-		minut += 1
+		minut += 5
 		gt 'sexshop', 'shoes'
 	end
 	
@@ -269,7 +269,7 @@ if $ARGS[0] = 'start':
 		act 'Buy 25cm long dildo (950 <b>₽</b>)':
 			cla
 			*clr
-			minut += 15
+			minut += 5
 			bigdildo = 1
 			money -= 950
 			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/sexshop/sexshop.jpg"></center>'
@@ -402,7 +402,7 @@ if $ARGS[0] = 'clo':
 
 	act 'Return':
 		cla
-		minut += 5
+		minut += 1
 		gt 'sexshop', 'start'
 	end
 
@@ -489,7 +489,7 @@ if $ARGS[0] = 'clo2':
 
 	act 'Return':
 		cla
-		minut += 5
+		minut += 1
 		gt 'sexshop', 'start'
 	end
 
@@ -533,7 +533,7 @@ if $ARGS[0] = 'shoes':
 
 	act 'Return':
 		cla
-		minut += 5
+		minut += 1
 		gt 'sexshop', 'start'
 	end
 
@@ -559,7 +559,7 @@ if $ARGS[0] = 'panties':
 
 	act 'Return':
 		cla
-		minut += 5
+		minut += 1
 		gt 'sexshop', 'start'
 	end
 
@@ -591,7 +591,7 @@ if $ARGS[0] = 'bras':
 
 	act 'Return':
 		cla
-		minut += 5
+		minut += 1
 		gt 'sexshop', 'start'
 	end
 

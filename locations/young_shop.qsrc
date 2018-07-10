@@ -82,27 +82,27 @@ if $ARGS[0] = 'start':
 	end
 
 	act 'Look through the clothes on sale':
-		minut += 1
+		minut += 5
 		gt 'sell_young_clothes', 'start'
 	end
 
 	act 'Look through the panties on sale':
-		minut += 1
+		minut += 5
 		gt 'sell_young_clothes', 'panties'
 	end
 
 	act 'Look through the bras on sale':
-		minut += 1
+		minut += 5
 		gt 'sell_young_clothes', 'bras'
 	end
 
 	act 'Look through the shoes on sale':
-		minut += 1
+		minut += 5
 		gt 'sell_young_clothes', 'shoes'
 	end
 
 	act 'Look through the purses on sale':
-		minut += 1
+		minut += 5
 		gt 'sell_young_clothes', 'purses'
 	end
 

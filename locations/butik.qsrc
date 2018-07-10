@@ -57,15 +57,15 @@ if $ARGS[0] = 'start':
 		gt 'torgcentr'
 	end
 	
-	act 'Browse the clothing': minut += 1 & gt 'butik', 'clothes'
+	act 'Browse the clothing': minut += 5 & gt 'butik', 'clothes'
 
-	act 'Browse the panties': minut += 1 & gt 'butik', 'panties'
+	act 'Browse the panties': minut += 5 & gt 'butik', 'panties'
 
-	act 'Browse the bras': minut += 1 & gt 'butik', 'bras'
+	act 'Browse the bras': minut += 5 & gt 'butik', 'bras'
 
-	act 'Browse the shoes': minut += 1 & gt 'butik', 'shoes'
+	act 'Browse the shoes': minut += 5 & gt 'butik', 'shoes'
 
-	act 'Browse the handbags': minut += 1 & gt 'butik', 'purses'
+	act 'Browse the handbags': minut += 5 & gt 'butik', 'purses'
 
 	if money >= 50000:
 		if coat[9] < 1:
@@ -90,7 +90,7 @@ if $ARGS[0] = 'clothes':
 
 	act 'Return':
 		cla
-		minut += 5
+		minut += 1
 		gt 'butik', 'start'
 	end
 
@@ -131,7 +131,7 @@ if $ARGS[0] = 'panties':
 
 	act 'Return':
 		cla
-		minut += 5
+		minut += 1
 		gt 'butik', 'start'
 	end
 
@@ -163,7 +163,7 @@ if $ARGS[0] = 'bras':
 
 	act 'Return':
 		cla
-		minut += 5
+		minut += 1
 		gt 'butik', 'start'
 	end
 
@@ -195,7 +195,7 @@ if $ARGS[0] = 'shoes':
 
 	act 'Return':
 		cla
-		minut += 5
+		minut += 1
 		gt 'butik', 'start'
 	end
 
@@ -221,7 +221,7 @@ if $ARGS[0] = 'purses':
 
 	act 'Return':
 		cla
-		minut += 5
+		minut += 1
 		gt 'butik', 'start'
 	end
 

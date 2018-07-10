@@ -36,22 +36,22 @@ if $ARGS[0] = 'start':
 		act 'Return':gt 'budgetclothes', 'start'
 		
 		act 'View cheap clothing':
-			minut += 1
+			minut += 5
 			gt 'budgetclothes', 'clothes'
 		end
 		
 		act 'View office wear':
-			minut += 1
+			minut += 5
 			gt 'budgetclothes', 'office'
 		end
 
 		act 'View uniforms':
-			minut += 1
+			minut += 5
 			gt 'budgetclothes', 'uniform'
 		end
 
 		act 'View school uniforms':
-			minut += 1
+			minut += 5
 			gt 'budgetclothes', 'school'
 		end
 	end
@@ -62,33 +62,33 @@ if $ARGS[0] = 'start':
 		act 'Return':gt 'budgetclothes', 'start'
 		
 		act 'Look at regular shoes':
-			minut += 1
+			minut += 5
 			gt 'budgetclothes', 'shoes'
 		end
 
 		act 'Look at exercise shoes':
-			minut += 1
+			minut += 5
 			gt 'budgetclothes', 'trainers'
 		end
 	end
 
 	act 'View coats':
-		minut += 1
+		minut += 5
 		gt 'budgetclothes', 'coats'
 	end
 
 	act 'View purses':
-		minut += 1
+		minut += 5
 		gt 'budgetclothes', 'purses'
 	end
 
 	act 'View panties':
-		minut += 1
+		minut += 5
 		gt 'budgetclothes', 'panties'
 	end
 
 	act 'View bras':
-		minut += 1
+		minut += 5
 		gt 'budgetclothes', 'bras'
 	end
 end
@@ -105,7 +105,7 @@ if $ARGS[0] = 'clothes':
 
 	act 'Return':
 		cla
-		minut += 5
+		minut += 1
 		gt 'budgetclothes', 'start'
 	end
 
@@ -157,7 +157,7 @@ if $ARGS[0] = 'office':
 
 	act 'Return':
 		cla
-		minut += 5
+		minut += 1
 		gt 'budgetclothes', 'start'
 	end
 
@@ -203,7 +203,7 @@ if $ARGS[0] = 'uniform':
 
 	act 'Return':
 		cla
-		minut += 5
+		minut += 1
 		gt 'budgetclothes', 'start'
 	end
 
@@ -249,7 +249,7 @@ if $ARGS[0] = 'school':
 
 	act 'Return':
 		cla
-		minut += 5
+		minut += 1
 		gt 'budgetclothes', 'start'
 	end
 
@@ -292,7 +292,7 @@ if $ARGS[0] = 'shoes':
 
 	act 'Return':
 		cla
-		minut += 5
+		minut += 1
 		gt 'budgetclothes', 'start'
 	end
 
@@ -321,7 +321,7 @@ if $ARGS[0] = 'trainers':
 
 	act 'Return':
 		cla
-		minut += 5
+		minut += 1
 		gt 'budgetclothes', 'start'
 	end
 
@@ -348,7 +348,7 @@ if $ARGS[0] = 'coats':
 
 	act 'Return':
 		cla
-		minut += 5
+		minut += 1
 		gt 'budgetclothes', 'start'
 	end
 
@@ -381,7 +381,7 @@ if $ARGS[0] = 'purses':
 
 	act 'Return':
 		cla
-		minut += 5
+		minut += 1
 		gt 'budgetclothes', 'start'
 	end
 
@@ -402,7 +402,7 @@ if $ARGS[0] = 'panties':
 
 	act 'Return':
 		cla
-		minut += 5
+		minut += 1
 		gt 'budgetclothes', 'start'
 	end
 
@@ -425,7 +425,7 @@ if $ARGS[0] = 'bras':
 
 	act 'Return':
 		cla
-		minut += 5
+		minut += 1
 		gt 'budgetclothes', 'start'
 	end
 

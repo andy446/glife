@@ -6,7 +6,6 @@ if $ARGS[0] = 'start':
 	$metka = 'start'
     $location_type = 'public_indoors'
 	cls
-	minut += 5
 	if exhibitionQW = 3: exhibitionQW = 4
 	gs 'stat'
 
@@ -29,17 +28,17 @@ if $ARGS[0] = 'start':
 	end
 
 	act 'View clothing':
-		minut += 1
+		minut += 5
 		gt 'exhibitionistshop', 'clo'
 	end
 
 	act 'View panties':
-		minut += 1
+		minut += 5
 		gt 'exhibitionistshop', 'panties'
 	end
 
 	act 'View bras':
-		minut += 1
+		minut += 5
 		gt 'exhibitionistshop', 'bras'
 	end
 end
@@ -56,7 +55,7 @@ if $ARGS[0] = 'clo':
 
 	act 'Return':
 		cla
-		minut += 5
+		minut += 1
 		gt 'exhibitionistshop', 'start'
 	end
 
@@ -100,7 +99,7 @@ if $ARGS[0] = 'panties':
 
 	act 'Return':
 		cla
-		minut += 5
+		minut += 1
 		gt 'exhibitionistshop', 'start'
 	end
 
@@ -132,7 +131,7 @@ if $ARGS[0] = 'bras':
 
 	act 'Return':
 		cla
-		minut += 5
+		minut += 1
 		gt 'exhibitionistshop', 'start'
 	end
 

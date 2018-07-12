@@ -255,6 +255,13 @@ if $ARGS[0] = 'abdBrokenGiveTools':
 	'"Aren''t you glad, whore? These dildos are here for you to train on, so you can perform better later in a "live" situation."'
 	'"Uhmm... thank you, Master."'
 	'He puts the stuff down next to your bed and leaves without saying another word.'
+	if lactate > 0:
+		if breastpump = 0:breastpump = 1
+		'In the bottom of the box, under the various dildos, you also found a working breast pump.'
+		if lact_engorgement > 3:
+		 'You are relieved, that you can now empty your painfully full breasts'
+		end
+	end
 	act 'Continue':gt 'abduction', 'abdRoom'
 end
 
@@ -568,6 +575,9 @@ if $ARGS[0] = 'abdFood':
 
 	if abdTools = 1:
 		act 'Train with dildos':gt 'abduction', 'abdTrainDildos'
+		if breastpump > 0:
+			act 'Use breast pump':gt 'lact_lib', 'bp_milking'
+		end
 	end
 
 	if vitamin > 0:
@@ -600,11 +610,6 @@ if $ARGS[0] = 'abdFood':
 
 	act 'Look in the mirror': gt 'mirror', 'start'
 	if pcs_hairbsh = 0: act 'Brush your hair': gt 'mirror', 'brush'
-	if breastpump > 0:
-		act 'Use breast pump':
-			gt 'lact_lib', 'bp_milking'
-		end
-	end
 	act 'Take a cold shower (0:15)':
 		cumspclnt = 1
 		gs 'cum_cleanup'
@@ -1654,10 +1659,10 @@ if $ARGS[0] = 'abdTrainDildosMouthBigUse':
 end
 
 if $ARGS[0] = 'abdTrainDildosMouthHorse':
-	if pcs_throat >= dildoHorse:
+	if pcs_throat >= 35:
 		'You feel that your throat can accomodate this dildo easily.'
 		act 'Use it':gt 'abduction', 'abdTrainDildosMouthHorseUse'
-	elseif pcs_throat <= dildoHorse and pcs_throat > dildoBig:
+	elseif pcs_throat <= 35 and pcs_throat > dildoBig:
 		'You feel that this dildo will stretch your throat, making it a bit deeper.'
 		act 'Use it':gt 'abduction', 'abdTrainDildosMouthHorseUse'
 	else
@@ -1668,10 +1673,11 @@ if $ARGS[0] = 'abdTrainDildosMouthHorse':
 end
 
 if $ARGS[0] = 'abdTrainDildosMouthHorseUse':
-	dick = 40
+	dick = 35
 	if pcs_throat > 35:
 		'<center><video autoplay loop src="images/locations/shared/abduction/sex/slavewhoredildosmouthhorse.mp4"></video></center>'
 		'You start sucking the dildo with ease, your throat swallows it whole without any problem.'
+		gs 'stat'
 		gs 'arousal', 'deepthroat', 60
 	else
 		'<center><video autoplay loop src="images/locations/shared/abduction/sex/slavewhoredildosmouthhorsehurt.mp4"></video></center>'

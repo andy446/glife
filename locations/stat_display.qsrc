@@ -666,14 +666,14 @@ if dirtyclothes = 1 and swamp_clothes = 0:
 	end
 end
 
-if lactate = 1 and night_mode = 0:
+if lactate = 1:
 	if lactatemv >= lactatemm-1:
-		if lact_engorgement > 3 and lact_engorgement <= 6:
+		if lact_engorgement > 0 and lact_engorgement < 3:
+			$stat_msg += '<BR><font color = orange>Your breasts are so full they hurt.</font><BR>'
+		elseif lact_engorgement > 3 and lact_engorgement <= 6:
 			$stat_msg += '<BR><font color = red>Your breasts are so full they hurt and you can feel milk seeping out.</font><BR>'
 		elseif lact_engorgement > 6:
 			$stat_msg += '<BR><font color = red>Your breasts are so full they hurt and you can feel your milk spraying out.</font><BR>'
-		else
-			$stat_msg += '<BR><font color = orange>Your breasts are so full they hurt.</font><BR>'
 		end
 		if $clothingworntype = 'nude' and lactatemess > 0:
 			if lactatemess < 3:

@@ -293,7 +293,8 @@ if $ARGS[0] = 'bp_milking':
 	else
 		*clr
 		cla
-		pumptime = input ("How long do you plan to pump your breasts? (Not more than 60 minutes)")
+		pumptime = input ("How long do you plan to pump your breasts? <br>(no input defaults to 15 minutes, maximum 60 minutes)")
+		if pumptime = '':pumptime = 15
 		if pumptime <= 0 or pumptime > 60:
 			minut += 2
 			act 'Don''t pump':gt $loc, $metka
@@ -314,7 +315,8 @@ if $ARGS[0] = 'man_milking':
 	else
 		*clr
 		cla
-		pumptime = input ("How long would you like to milk your breasts? (Not more than 60 minutes)")
+		pumptime = input ("How long would you like to milk your breasts? <br>(no input defaults to 15 minutes, maximum 60 minutes)")
+		if pumptime = '':pumptime = 15
 		if pumptime <= 0 or pumptime > 60:
 			minut += 2
 			act 'Don''t milk':gt $loc, $metka

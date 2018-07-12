@@ -945,7 +945,7 @@ if $ARGS[0] = 'MartinTalkApartment':
 		*nl
 		$OpenInnerThought+'He wouldn''t be Martin if he didn''t tell me to "watch out" at least once a day,'+$CloseInnerThought+' you think and roll your eyes, but still smile and say "I always do" before he has to get back to work.'
 	
-	elseif StoryLine = 1 and ParHomeBlock = 0:
+	elseif StoryLine = 1 and home_owned[2] = 1:
 		'"I still live with my parents, in Pavlovsk," you admit.'
 		*nl
 		'"Oh, well, that can''t be easy at your age."'

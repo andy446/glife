@@ -188,9 +188,9 @@ if $ARGS[0] = 'dishes':
 						swallow += 1
 						spafinloc = 12
 						gs 'cum_manage'
-						dress[24] = 1
-						dressH[24] = 160
-						dressB[24] = pcs_hips
+						average[23] = 1
+						averageH[23] = 160
+						averageB[23] = pcs_hips
 						gs 'stat'
 						'<center><img <<$set_imgh>> src="images/locations/city/citycenter/diner/sex/bj.jpg"></center>'
 						'You squat down in front of Anatoly, he unbuttons his pants and pulls out his penis. You lean over his hard cock and kiss it, feeling its warmth. You run your tongue along his cock finally putting it in your big wet mouth and start to suck his dick.'

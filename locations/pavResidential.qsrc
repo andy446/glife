@@ -147,7 +147,7 @@ else
 	'.'
 end
 
-'The town surrounds the old palace grounds which are now a large <a href="exec:minut += 5 & gt ''gskver'', ''park''">public park</a>, close to the residential area is the <a href="exec:gt ''glake''">lake</a>.'
+'The town surrounds the old palace grounds which are now a large <a href="exec:minut += 5 & gt ''gskver'', ''start''">public park</a>, close to the residential area is the <a href="exec:gt ''glake''">lake</a>.'
 
 'The town square features a <a href="exec: minut += 2 & gt ''gdk''">community center</a><<$schoolname>>'
 
@@ -185,18 +185,7 @@ act 'Go to the high street':minut += 5 & gt 'pavCommercial'
 if home_owned[2] = 1: act '<b>GO HOME</b> (Parents'' Apartment)': minut += 4 & GT 'korrPar'
 if pavSharedAptEnabled = 1:act '<b>GO HOME</b> (Shared Apartment)': minut += 5 & GT 'pavSharedApt', 'start'
 
-act 'Wait':
-	cla
-	waiting = input ("How long would you like to wait? (Not more than 120 minutes)")
-
-	if waiting <= 0 or waiting > 120:
-		minut += 15
-	elseif waiting > 0 and waiting <= 120:
-		minut += waiting
-	end
-
-	act 'Check the time':gt 'pavResidential'
-end
+act 'Wait':gs 'obj_din', 'wait'
 
 if (hour > 20 or hour < 4) and succubusQW = 5 and suchuntday ! daystart:
 	act 'Go hunting near the community center (this can take a lot of time)':

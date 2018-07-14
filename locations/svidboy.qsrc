@@ -52,6 +52,7 @@ end
 if $ARGS[0] = 'parksvid':
 	if $home_town = 'pavlovsk':
 		$svidboy_home = 'gskver'
+		$svidboy_home_arg = 'start'
 	else
 		$svidboy_home = 'park'
 		$svidboy_home_arg = 'start'
@@ -201,6 +202,7 @@ end
 if $ARGS[0] = 'parksvid21':
 	if $home_town = 'pavlovsk':
 		$svidboy_home = 'gskver'
+		$svidboy_home_arg = 'start'
 	else
 		$svidboy_home = 'park'
 		$svidboy_home_arg = 'start'
@@ -243,6 +245,7 @@ end
 if $ARGS[0] = 'parksvid22':
 	if $home_town = 'pavlovsk':
 		$svidboy_home = 'gskver'
+		$svidboy_home_arg = 'start'
 	else
 		$svidboy_home = 'park'
 		$svidboy_home_arg = 'start'

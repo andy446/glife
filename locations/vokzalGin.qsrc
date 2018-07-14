@@ -99,18 +99,7 @@ if $ARGS[0] = '':
 		end
 	end
 	
-	act 'Wait':
-		cla
-		waiting = input ("How long would you like to wait? (Not more than 120 minutes)")
-
-		if waiting <= 0 or waiting > 120:
-			minut += 15
-		elseif waiting > 0 and waiting <= 120:
-			minut += waiting
-		end
-
-		act 'Take a look at the clock':gt 'vokzalGin'
-	end
+	act 'Wait':gs 'obj_din', 'wait'
 end
 
 if $ARGS[0] = 'work':

@@ -20,7 +20,7 @@ $kinoevent = {
 		'<center><img src="images/locations/pavlovsk/park/theater/sex/kino.mp4"></center>'
 		'You see on the back row a girl sucking a guy, nobody reacts to the loud smacking sound that can be heard by the whole cinema.'
 		'You turn back and watch the rest of the film.'
-		act 'Leave the cinema':gt'gskver'		
+		act 'Leave the cinema':gt 'gskver', 'start'		
 	end
 }
 
@@ -39,7 +39,7 @@ if money >= 100:
 			act 'Reject':
 				cla
 				'You tell him you''d rather watch the film, he mutters something that sounded like bitch and leaves you to watch the rest of the movie in peace.'
-				act 'Leave the cinema':gt 'gskver'
+				act 'Leave the cinema':gt 'gskver', 'start'
 			end
 			
 			exit
@@ -50,11 +50,11 @@ if money >= 100:
 			'You quietly watch the movie, but suddenly behind you there is a strange sound.' & dynamic $kinoevent
 		end
 
-		act 'Leave the cinema':gt 'gskver'
+		act 'Leave the cinema':gt 'gskver', 'start'
 	end
 end
 
-act 'Leave the cinema':minut += 5 & gt 'gskver'
+act 'Leave the cinema':minut += 5 & gt 'gskver', 'start'
 
 --- gskino ---------------------------------
 

@@ -162,7 +162,7 @@ gs 'cum_manage'
 	gs 'stat'
 	act 'Leave':
 		if curr_home = 1:
-			gt 'gskver'
+			gt 'gskver', 'start'
 		else
 			gt 'park', 'start'
 		end
@@ -182,7 +182,7 @@ if $ARGS[0] = 'sexrand4':
 	gs 'stat'
 	act 'Leave':
 		if curr_home = 1:
-			gt 'gskver'
+			gt 'gskver', 'start'
 		else
 			gt 'park', 'start'
 		end

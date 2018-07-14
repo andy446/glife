@@ -265,7 +265,7 @@ $d_fbd_drunk = {
 			end
 			kol_man = rand(5, 16)
 			$kol_man_text = 'guys'
-			gt 'placer_sex'
+			gt 'placer_sex', 'meet'
 		end
 	end
 }

@@ -1994,5 +1994,40 @@ if $ARGS[0] = 'autosave':
 	end
 	gs'stat'
 end
+
+if $ARGS[0] = 'wait':
+	cla
+	waiting = input ("How long would you like to wait?<br>(Default 15 minutes, maximum 120 minutes)")
+
+	if waiting = '':
+		minut += 15
+	elseif waiting > 0 and waiting <= 120:
+		minut += waiting
+	elseif waiting <= 0 or waiting > 120:
+		'Invalid time.'
+	end
+	gs 'stat'
+	gt $loc, $metka
+end
+
+if $ARGS[0] = 'rest':
+	cla
+	waiting = input ("How long would you like to rest?<br>(Default 15 minutes, maximum 120 minutes)")
+
+	if waiting = '':
+		minut += 15
+	elseif waiting > 0 and waiting <= 120:
+		minut += waiting
+		pcs_mood += 10
+		pcs_willpwr += 10
+		if pcs_sleep < 90 and waiting >= 60:
+			pcs_sleep += 10
+		end
+	elseif waiting <= 0 or waiting > 120:
+		'Invalid time.'
+	end
+	gs 'stat'
+	gt $loc, $metka
+end
 --- obj_din ---------------------------------
 

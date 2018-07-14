@@ -44,18 +44,8 @@ if $ARGS[0] = '':
 
 	act 'Walk to the main road to Pavlovsk (0:15)': minut += 15 & nroad = 0 & gt'road'
 	act 'Visit the Red Light District (0:05)': minut += 5 & gt 'Nord', 'redlight'
-	act 'Wait':
-		cla
-		waiting = input ("How long would you like to wait? (Not more than 120 minutes)")
 
-		if waiting <= 0 or waiting > 120:
-			minut += 15
-		elseif waiting > 0 and waiting <= 120:
-			minut += waiting
-		end
-
-		act 'Take a look at the clock':gt curloc
-	end
+	act 'Wait':gs 'obj_din', 'wait'
 
 	gs 'taxi'
 
@@ -69,7 +59,7 @@ if $ARGS[0] = '':
 
 	'<a href="exec:minut += 15 & gt ''vokzal''">Train Station</a> to get to the small Town.'
 
-	if week = 3 or hour < 16: 
+	if week = 3 or hour < 16:
 		'The Bar "Rabotnik" is here, but it seems to be closed. A sign by the door tells you that it''s open every day (except Wednesday) between 16:00 and 24:00.'
 	else
 		'The <a href="exec: minut += 5 & gt ''qwBarPolet''">Bar "Rabotnik"</a> seems to be open.'
@@ -125,19 +115,8 @@ if $ARGS[0] = 'redlight':
 	if bordel > 0 and hour >= 20 or bordel > 0 and hour <= 3:'Inside the courtyard is the entrance to the <a href="exec:gt ''bordel''">brothel</a>.'
 
 	act 'Return to the Industrial Region (0:05)': minut += 5 & gt 'Nord'
-	
-		act 'Wait':
-		cla
-		waiting = input ("How long would you like to wait? (Not more than 120 minutes)")
 
-		if waiting <= 0 or waiting > 120:
-			minut += 15
-		elseif waiting > 0 and waiting <= 120:
-			minut += waiting
-		end
-
-		act 'Take a look at the clock': gt 'Nord', 'redlight'
-	end
+	act 'Wait':gs 'obj_din', 'wait'
 end
 
 

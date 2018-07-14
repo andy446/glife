@@ -775,7 +775,7 @@ if $args[0] = 'sucwalkinggo':
 		elseif sucslpzone = 2:
 			if sctemp = 1: $sucgoloc = 'pavCommercial' & $sucgometka = ''
 			if sctemp = 2: $sucgoloc = 'pavResidential' & $sucgometka = ''
-			if sctemp = 3: $sucgoloc = 'gskver' & $sucgometka = ''
+			if sctemp = 3: $sucgoloc = 'gskver' & $sucgometka = 'start'
 			if sctemp = 4: $sucgoloc = 'vokzalG' & $sucgometka = ''
 			if sctemp = 5: $sucgoloc = 'gLake' & $sucgometka = ''
 		elseif sucslpzone = 3:

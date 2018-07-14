@@ -1,5 +1,5 @@
 # pavCommercial
- 
+
 !{Change log
 25 March 2016
 Fixed diplaced period after church link
@@ -100,7 +100,7 @@ else
 end
 
 'You are on the high street, at one end is the <a href="exec:minut += 15 & gt ''vokzalG''">train station</a> and access to the highway. Near the highway you can also find a <a href="exec:minut += 5 & gt ''zaprF'', ''start''">gas station</a>.'
-'The nearby residential area is next to the lake and the town surrounds the old palace grounds which are now a large <a href="exec:minut += 5 & gt ''gskver'', ''park''">public park</a>.'
+'The nearby residential area is next to the lake and the town surrounds the old palace grounds which are now a large <a href="exec:minut += 5 & gt ''gskver'', ''start''">public park</a>.'
 'There is a small <a href="exec:minut += 5 & gt ''gpoli''">clinic</a><<$Pharmname>>'
 
 if leonidSlave = 1:
@@ -124,18 +124,7 @@ act 'Go to the residential area':minut += 5 & gt 'pavResidential'
 
 act 'Walk to the city highway':minut += 15 & nroad = 20 & gt 'road'
 
-act 'Wait':
-	cla
-	waiting = input ("How long would you like to wait? (Not more than 120 minutes)")
-
-	if waiting <= 0 or waiting > 120:
-		minut += 15
-	elseif waiting > 0 and waiting <= 120:
-		minut += waiting
-	end
-
-	act 'Check the time':gt $curloc
-end
+act 'Wait':gs 'obj_din', 'wait'
 
 if rand (0,2) ! 0:gs 'din_bad' & dynamic $mobile_check
 
@@ -143,20 +132,20 @@ if npc_QW['A113'] = 1 and daybelisex ! daystart and hour >= 9 and hour <= 23 and
 	cla & *clr
 	daybelisex = daystart
 	minut += 5
-	
+
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/vadim/belyjeep.jpg"></center>'
 	'As you walk through Pavlovsk, Vadim Belys Mitsubishi Pajero stops near you.'
 
-	act 'Go to the jeep': gt 'belgang', 'payday', 'commercial' 	
+	act 'Go to the jeep': gt 'belgang', 'payday', 'commercial'
 elseif npc_QW['A113'] = 1 and daybelisex ! daystart and hour >= 9 and hour <= 23 and week ! 7 and belgangPayWeek >= 300 and belgangProstitute = 1 and rand (0,2) = 0:
 	cla & *clr
 	daybelisex = daystart
 	minut += 5
-	
+
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/vadim/belyjeep.jpg"></center>'
 	'You see the by now familiar old Mitsubishi Pajero driving through the streets with Vadim Bely and his gang. Your heart skips a beat as you notice one of them pointing at you, and soon they pull over.'
-		
-	act 'Go to the jeep': gt 'belgang', 'workofdebt', 'commercial' 	
+
+	act 'Go to the jeep': gt 'belgang', 'workofdebt', 'commercial'
 end
 
 --- pavCommercial ---------------------------------

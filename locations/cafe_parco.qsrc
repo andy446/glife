@@ -10,7 +10,7 @@ if $args[0]= 'start':
 	if hour >= 14 and hour < 21:
 		act 'Enter': gt 'cafe_parco', 'inner'
 	end
-	act 'Go back to the square': gt 'gskver'
+	act 'Go back to the square': gt 'gskver', 'start'
 end
 
 if $args[0]= 'inner':
@@ -21,7 +21,7 @@ if $args[0]= 'inner':
 	act 'Order food':gs 'food_menu', 'cafe'
 	act 'Order drinks':gs 'beverage_menu', 'cafe'
 	
-	act 'Go back outside': gt 'gskver'
+	act 'Go back outside': gt 'gskver', 'start'
 	
 	gs 'family'
 

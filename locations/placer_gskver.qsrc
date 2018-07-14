@@ -158,7 +158,7 @@ if soniaPS=5 and rand(1,10)=>9 and hour>14 and hour<20:
 			'After a while, the guy tells Sonia that he wants more. Sonia obediently gets up and asks him: "Would you like to fuck me from behind, sir?"'
 			'The stranger happily accepts the invitation, and watches in amazement when he notices Sonia eagerly grinding her hips back against him once he''s inside her. He had no idea she would be such a lusty slut for him, willing to do all the work!'
 			'You watch Sonia give herself to the man for just a moment longer, before you decide you really have to get going. You''re quite turned on from her little show. Sonia looks like she''s having a lot of fun, and for just a second you think about what it would feel like to be in her place.'
-			act'Leave them be':gt'gskver'
+			act'Leave them be':gt 'gskver', 'start'
 		end
 	end
 end
@@ -214,7 +214,7 @@ elseif Frend_num = 0:
 		'You give the <<$kol_man_text>> a cute smile as you walk past.' & '<<$kol_man_text_no>>'
 	end
 	:parkaway
-	act 'Finish your walk':gt 'gskver'
+	act 'Finish your walk':gt 'gskver', 'start'
 end
 
 gs 'stat'

@@ -216,7 +216,7 @@ $d_pp_goend = {
 
 		act 'Leave':
 			gs 'arousal', 'end'
-			gt 'gskver'
+			gt 'gskver', 'start'
 		end
 	end
 }

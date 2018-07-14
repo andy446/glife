@@ -32,30 +32,17 @@ if $ARGS[0] = 'start':
 
 	gs 'parkivent', 'run'
 
-	if month = 5 or month = 6 or month = 7 or month = 8 or month = 9:
-		if hour > 6 and hour < 23:
-			act 'Rest on the bench':
-				cla
-				*clr
-				'<center><img <<$set_imgh>> src="images/locations/shared/park/bench_6.jpg"></center>'
-
-				waiting = input ("How many minutes of sitting? (Not more 120 minutes)")
-
-				if waiting > 120:
-					minut = minut + 15
-				elseif waiting > 0:
-					minut = minut + waiting
-					pcs_mood += 10
-					pcs_willpwr = pcs_willpwr + 10
-					if pcs_sleep < 90:pcs_sleep += 10
-				else
-					'Invalid time.'
-				end
-
-				act 'Consult a watch': gt 'parks', 'start'
-			end
-		end	
+	if hour >= 20 or hour < 6 :
+		if home_owned[4] = 0:
+			!nowhere to live in town
+			'It''s quite dark now, and you have no where to stay nearby. Maybe you should try to sleep on a bench?'
+		else
+			'It''s quite dark now, and you don''t feel like walking. Maybe you should try sleeping on a bench?'
+		end
+		act 'Sleep on a bench': gt'placer_sex','sleeping_park_bench'
 	end
+
+	act 'Sit down on the bench':gs 'placer_sex', 'sitting_park_bench'
 
 	if pcs_inhib >= 35:
 		act 'Flash your tits':

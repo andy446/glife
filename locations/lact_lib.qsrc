@@ -293,13 +293,13 @@ if $ARGS[0] = 'bp_milking':
 	else
 		*clr
 		cla
-		pumptime = input ("How long do you plan to pump your breasts? <br>(no input defaults to 15 minutes, maximum 60 minutes)")
+		pumptime = input ("How long do you plan to pump your breasts?<br>(Defaults 15 minutes, maximum 60 minutes)")
 		if pumptime = '':pumptime = 15
-		if pumptime <= 0 or pumptime > 60:
+		if pumptime > 0 and pumptime <= 60:
+			gt 'lact_lib', 'milking'
+		elseif pumptime <= 0 or pumptime > 60:
 			minut += 2
 			act 'Don''t pump':gt $loc, $metka
-		elseif pumptime > 0 and pumptime <= 60:
-			gt 'lact_lib', 'milking'
 		end
 	end
 end
@@ -315,13 +315,13 @@ if $ARGS[0] = 'man_milking':
 	else
 		*clr
 		cla
-		pumptime = input ("How long would you like to milk your breasts? <br>(no input defaults to 15 minutes, maximum 60 minutes)")
+		pumptime = input ("How long would you like to milk your breasts?<br>(Default 15 minutes, maximum 60 minutes)")
 		if pumptime = '':pumptime = 15
-		if pumptime <= 0 or pumptime > 60:
-			minut += 2
-			act 'Don''t milk':gt $loc, $metka
-		elseif pumptime > 0 and pumptime <= 60:
+		if pumptime > 0 and pumptime <= 60:
 			gt 'lact_lib', 'milking'
+		elseif pumptime <= 0 or pumptime > 60:
+			minut += 2
+			act 'Don''t pump':gt $loc, $metka
 		end
 	end
 end
@@ -409,11 +409,7 @@ if $ARGS[0] = 'milking':
 				'<center><img <<$set_imgh>> src="images/pc/body/tits/milk_drink.jpg"></center>'
 				'<center>You drink your own breast milk and clean up your breastpump.</center>'
 				'<center>The milk is still warm from your breasts.</center>'
-				if pcs_hydra < 90:
-					pcs_hydra += 10
-				else
-					pcs_hydra = 100
-				end
+				pcs_hydra += 10
 				minute += 7
 				act 'Finish':
 					milkedvolume = 0

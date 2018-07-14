@@ -777,60 +777,48 @@ if $ARGS[0] = 'Phone_pictures':
 	pl'<center><img src="<<FUNC(''$phone_theme'')>>icon_pictures.png" height="80" width="80"><br></center>'
 	if phone_selfie[1] = 1:pl'<a href="exec:view''images/system/phone/selfie/phone_selfie1.jpg''"><b>Selfie number1</b></a>'
 	if phone_selfie[2] = 1:pl'<a href="exec:view''images/system/phone/selfie/phone_selfie2.jpg''"><b>Selfie number2</b></a>'
-	if vanr_selfie[0] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (0).jpg''"><b>After shower selfie number1</b></a>'
-	if vanr_selfie[1] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (1).jpg''"><b>After shower selfie number2</b></a>'
-	if vanr_selfie[2] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (2).jpg''"><b>After shower selfie number3</b></a>'
-	if vanr_selfie[3] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (3).jpg''"><b>After shower selfie number4</b></a>'
-	if vanr_selfie[4] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (4).jpg''"><b>After shower selfie number5</b></a>'
-	if vanr_selfie[5] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (5).jpg''"><b>After shower selfie number6</b></a>'
-	if vanr_selfie[6] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (6).jpg''"><b>After shower selfie number7</b></a>'
-	if vanr_selfie[7] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (7).jpg''"><b>After shower selfie number8</b></a>'
-	if vanr_selfie[8] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (8).jpg''"><b>After shower selfie number9</b></a>'
-	if vanr_selfie[9] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (9).jpg''"><b>After shower selfie number10</b></a>'
-	if vanr_selfie[10] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (10).jpg''"><b>After shower selfie number11</b></a>'
-	if vanr_selfie[11] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (11).jpg''"><b>After shower selfie number12</b></a>'
-	if vanr_selfie[12] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (12).jpg''"><b>After shower selfie number13</b></a>'
-	if vanr_selfie[13] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (13).jpg''"><b>After shower selfie number14</b></a>'
-	if vanr_selfie[14] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (14).jpg''"><b>After shower selfie number15</b></a>'
-	if vanr_selfie[15] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (15).jpg''"><b>After shower selfie number16</b></a>'
-	if vanr_selfie[16] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (16).jpg''"><b>After shower selfie number17</b></a>'
-	if vanr_selfie[17] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (17).jpg''"><b>After shower selfie number18</b></a>'
-	if vanr_selfie[18] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (18).jpg''"><b>After shower selfie number19</b></a>'
-	if vanr_selfie[19] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (19).jpg''"><b>After shower selfie number20</b></a>'
-	!if vanr_selfie[20] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (20).jpg''"><b>After shower selfie number21</b></a>'
-	if vanr_selfie[21] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (21).jpg''"><b>After shower selfie number22</b></a>'
-	if vanr_selfie[22] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (22).jpg''"><b>After shower selfie number23</b></a>'
-	if vanr_selfie[23] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (23).jpg''"><b>After shower selfie number24</b></a>'
-	if vanr_selfie[24] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (24).jpg''"><b>After shower selfie number25</b></a>'
-	if vanr_selfie[25] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (25).jpg''"><b>After shower selfie number26</b></a>'
-	if vanr_selfie[26] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (26).jpg''"><b>After shower selfie number27</b></a>'
-	if vanr_selfie[27] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (27).jpg''"><b>After shower selfie number28</b></a>'
-	if vanr_selfie[28] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (28).jpg''"><b>After shower selfie number29</b></a>'
-	if vanr_selfie[29] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (29).jpg''"><b>After shower selfie number30</b></a>'
-	if vanr_selfie[30] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (30).jpg''"><b>After shower selfie number31</b></a>'
-	if vanr_selfie[31] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (31).jpg''"><b>After shower selfie number32</b></a>'
-	if vanr_selfie[32] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (32).jpg''"><b>After shower selfie number33</b></a>'
-	if vanr_selfie[33] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (33).jpg''"><b>After shower selfie number34</b></a>'
-	if vanr_selfie[34] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (34).jpg''"><b>After shower selfie number35</b></a>'
-	if vanr_selfie[35] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (35).jpg''"><b>After shower selfie number36</b></a>'
-	if vanr_selfie[36] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (36).jpg''"><b>After shower selfie number37</b></a>'
-	if vanr_selfie[37] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (37).jpg''"><b>After shower selfie number38</b></a>'
-	if vanr_selfie[38] = 1:pl'<a href="exec:view''images/system/phone/selfie/bathroom/s (38).jpg''"><b>After shower selfie number39</b></a>'
-	!if phone_selfie[m] = 1:pl'<a href="exec:view''images/system/phone/phone_selfiem.jpg''"><b>Photo in sperm number1</b></a>'
-	!if phone_selfie[n] = 1:pl'<a href="exec:view''images/system/phone/phone_selfien.jpg''"><b>Photo in sperm number2</b></a>'
-	!if phone_selfie[x] = 1:pl'<a href="exec:view''images/system/phone/phone_selfiex.jpg''"><b>Photo Event number1</b></a>'
-	!if phone_selfie[y] = 1:pl'<a href="exec:view''images/system/phone/phone_selfiey.jpg''"><b>Photo Event number2</b></a>'
+	bathroom_clotot = 20
+	bathroom_clocnt = 0
+	:bathroom_cloloop
+		if bathroom_closelfie[bathroom_clocnt] = 1:pl'<a href="exec:view''images/pc/selfie/bathroom/clothed/<<bathroom_clocnt>>.jpg''"><b>Clothed bathroom selfie #<<bathroom_clocnt>></b></a>'
+		bathroom_clocnt += 1
+	if bathroom_clocnt < bathroom_clotot: loop'bathroom_cloloop'
+
+	bathroom_undtot = 20
+	bathroom_undcnt = 0
+	:bathroom_undloop
+		if bathroom_undselfie[bathroom_undcnt] = 1:pl'<a href="exec:view''images/pc/selfie/bathroom/underwear/<<bathroom_undcnt>>.jpg''"><b>Underwear bathroom selfie #<<bathroom_undcnt>></b></a>'
+		bathroom_undcnt += 1
+	if bathroom_undcnt < bathroom_undtot: loop'bathroom_undloop'
+
+	bathroom_nudtot = 20
+	bathroom_nudcnt = 0
+	:bathroom_nudloop
+		if bathroom_nudselfie[bathroom_nudcnt] = 1:pl'<a href="exec:view''images/pc/selfie/bathroom/nude/<<bathroom_nudcnt>>.jpg''"><b>Nude bathroom selfie #<<bathroom_nudcnt>></b></a>'
+		bathroom_nudcnt += 1
+	if bathroom_nudcnt < bathroom_nudtot: loop'bathroom_nudloop'
+
+	*nl
 	pl'<center><a href="exec:gs ''telefon'', ''Phone_menu'' "><img src="images/system/icon/back.png"></a></center>'
 end &! --- Phone_pictures ---
 
 if $ARGS[0] = 'Phone_camera_selfie':
-	if ($loc = 'vanrPar' or $loc = 'vanr' or $loc = 'yvan') and mirror_steam = hour:
+	if $location_type = 'bathroom':
 		minut += RAND(5,7)
-		phone_rand = RAND(0,38)
-		vanr_selfie[phone_rand] = 1
+		if $clothingworntype ! 'nude':
+			phone_rand = rand(0,bathroom_clotot)
+			bathroom_closelfie[phone_rand] = 1
+			view 'images/pc/selfie/bathroom/clothed/<<phone_rand>>.jpg'
+		if $pantyworntype ! 'none':
+			phone_rand = rand(0,bathroom_undtot)
+			bathroom_closelfie[phone_rand] = 1
+			view 'images/pc/selfie/bathroom/underwear/<<phone_rand>>.jpg'
+		else
+			phone_rand = rand(0,bathroom_nudtot)
+			bathroom_closelfie[phone_rand] = 1
+			view 'images/pc/selfie/bathroom/nude/<<phone_rand>>.jpg'
 		gs 'stat'
 		gs 'telefon', 'Phone_pictures'
-		view 'images/system/phone/selfie/bathroom/s (<<phone_rand>>).jpg'
 	else
 		minut += RAND(5,7)
 		phone_rand = RAND(1,2)

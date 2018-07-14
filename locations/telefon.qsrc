@@ -782,21 +782,21 @@ if $ARGS[0] = 'Phone_pictures':
 	:bathroom_cloloop
 		if bathroom_closelfie[bathroom_clocnt] = 1:pl'<a href="exec:view''images/pc/selfie/bathroom/clothed/<<bathroom_clocnt>>.jpg''"><b>Clothed bathroom selfie #<<bathroom_clocnt>></b></a>'
 		bathroom_clocnt += 1
-	if bathroom_clocnt < bathroom_clotot: loop'bathroom_cloloop'
+	if bathroom_clocnt < bathroom_clotot: jump'bathroom_cloloop'
 
 	bathroom_undtot = 20
 	bathroom_undcnt = 0
 	:bathroom_undloop
 		if bathroom_undselfie[bathroom_undcnt] = 1:pl'<a href="exec:view''images/pc/selfie/bathroom/underwear/<<bathroom_undcnt>>.jpg''"><b>Underwear bathroom selfie #<<bathroom_undcnt>></b></a>'
 		bathroom_undcnt += 1
-	if bathroom_undcnt < bathroom_undtot: loop'bathroom_undloop'
+	if bathroom_undcnt < bathroom_undtot: jump'bathroom_undloop'
 
 	bathroom_nudtot = 20
 	bathroom_nudcnt = 0
 	:bathroom_nudloop
 		if bathroom_nudselfie[bathroom_nudcnt] = 1:pl'<a href="exec:view''images/pc/selfie/bathroom/nude/<<bathroom_nudcnt>>.jpg''"><b>Nude bathroom selfie #<<bathroom_nudcnt>></b></a>'
 		bathroom_nudcnt += 1
-	if bathroom_nudcnt < bathroom_nudtot: loop'bathroom_nudloop'
+	if bathroom_nudcnt < bathroom_nudtot: jump'bathroom_nudloop'
 
 	*nl
 	pl'<center><a href="exec:gs ''telefon'', ''Phone_menu'' "><img src="images/system/icon/back.png"></a></center>'
@@ -809,7 +809,7 @@ if $ARGS[0] = 'Phone_camera_selfie':
 			phone_rand = rand(0,bathroom_clotot)
 			bathroom_closelfie[phone_rand] = 1
 			view 'images/pc/selfie/bathroom/clothed/<<phone_rand>>.jpg'
-		if $pantyworntype ! 'none':
+		elseif $pantyworntype ! 'none':
 			phone_rand = rand(0,bathroom_undtot)
 			bathroom_closelfie[phone_rand] = 1
 			view 'images/pc/selfie/bathroom/underwear/<<phone_rand>>.jpg'
@@ -817,6 +817,7 @@ if $ARGS[0] = 'Phone_camera_selfie':
 			phone_rand = rand(0,bathroom_nudtot)
 			bathroom_closelfie[phone_rand] = 1
 			view 'images/pc/selfie/bathroom/nude/<<phone_rand>>.jpg'
+		end
 		gs 'stat'
 		gs 'telefon', 'Phone_pictures'
 	else

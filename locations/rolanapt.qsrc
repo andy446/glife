@@ -1054,7 +1054,7 @@ if $ARGS[0] = 'chef':
 							*clr
 							'<center><b><font color = maroon>Borscht</font></b></center>'
 							'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/aptrolan/kitch/lesson/borsh/Borscht4.jpg"></center>'
-							if npc_rel[''A11''] > 40:
+							if npc_rel['A11'] > 40:
 								'Your phone buzzes. "Oh, it''s Vasily. He wants to know what I''m doing right now."'
 							else
 								'Your phone buzzes. It''s your mother wondering where you are...'
@@ -1064,7 +1064,7 @@ if $ARGS[0] = 'chef':
 								*clr
 								'<center><b><font color = maroon>Borscht</font></b></center>'
 								'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/aptrolan/kitch/lesson/borsh/Borscht5.jpg"></center>'
-								if npc_rel[''A11''] > 40:
+								if npc_rel['A11'] > 40:
 									'You snap a photo of yourself and text: "hey loser im cooking lol"'
 								else
 									'You snap a photo of yourself and text: "I''m at a friend''s house helping them cook. Be home soon."'

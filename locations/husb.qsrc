@@ -1,23 +1,7 @@
 # husb
 
-CLOSE ALL
-!! {location do not delete!}
-	if $loc = 'korr':$husb_action = ''
-	if $loc = 'bedr':
-		if hour > 22 or hour < 7: $husb_loc = 'Your husband <<$husName>> is lying in bed eyes open. "What do you want? It is late, go to sleep."'
-	end
-	if $loc = 'sitr':
-		if hour > 7 and hour < 17 and week >= 6: $husb_loc = 'Sitting on the couch is <a href="exec: gt''husb'',''start'' "><<$husName[1]>></a> watching TV.'
-		if hour > 17 and hour <= 22: $husb_loc = 'Sitting on the couch is <a href="exec: gt''husb'',''start'' "><<$husName[1]>></a> watching TV.'
-	end
-	if $loc = 'vanr':$husb_loc = ''
-	if $loc = 'kuhr':
-		if hour = 17 or hour = 7: $husb_loc = '<<$husName>> is sitting at the kitchen table.'
-	end
-	'<<$husb_loc>>'
-!! {end}
-
 if $ARGS[0] = 'start':
+	CLOSE ALL
 	cls
 	cla
 	gs'stat'

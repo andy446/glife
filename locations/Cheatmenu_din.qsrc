@@ -662,8 +662,10 @@ $cheatmenu['setAttrs'] = {
 		"
 		loop_index += 1
 		! Magic is the last attribute, so if it's a non-magic game we'll end the loop one iteration early
-		if MagikDostup = 0 and loop_index < arrsize('$att_name'): jump 'set_attrs_loop'
-		elseif loop_index < arrsize('$att_name') - 1: jump 'set_attrs_loop'
+		if MagikDostup = 0 and loop_index < arrsize('$att_name'):
+			jump 'set_attrs_loop'
+		elseif loop_index < arrsize('$att_name') - 1:
+			jump 'set_attrs_loop'
 		end
 	killvar 'loop_index'
 	dynamic $cheatmenu['stats']

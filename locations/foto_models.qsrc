@@ -775,7 +775,6 @@ if $ARGS[0] = 'mari_modelling_chat':
 						'	"Yeah he did! What a perv! Going out of his way to make excuses to take pictures of underage girls like us!"'
 						'	You both burst into fits of laughter before clapping your hands over your mouths and trying to stifle your hysterics. You probably shouldn''t spread it around that you''re only <<age>>...'
 						act'Keep chatting':gt 'foto_models','mari_modelling_chat'
-						end
 					end
 				end
 			end

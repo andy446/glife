@@ -822,11 +822,11 @@ if $ARGS[0] = 'Phone_camera_selfie':
 			view 'images/pc/selfie/bathroom/clothed/<<phone_rand>>.jpg'
 		elseif $pantyworntype ! 'none':
 			phone_rand = rand(1,bathroom_undtot)
-			bathroom_closelfie[phone_rand] = 1
+			bathroom_undselfie[phone_rand] = 1
 			view 'images/pc/selfie/bathroom/underwear/<<phone_rand>>.jpg'
 		else
 			phone_rand = rand(1,bathroom_nudtot)
-			bathroom_closelfie[phone_rand] = 1
+			bathroom_nudselfie[phone_rand] = 1
 			view 'images/pc/selfie/bathroom/nude/<<phone_rand>>.jpg'
 		end
 		gs 'stat'

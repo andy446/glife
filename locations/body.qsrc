@@ -1111,6 +1111,7 @@ else
 	$pcdesc_lipglossinsertive = ''
 	$pcdesc_lipglossed = 'softened'
 	$pcdesc_lipglosswordy = 'soft'
+	$lip = 'You have <<$pcdesc_lipswordy>> lips. <<$pirsB>> <<$pirsA>>'
 end
 
 !! A pair of ready-made lip strings for writers to use if they are unsure how to construct them themselves. Again, these are not great and should preferably not be relied on, but they are here.

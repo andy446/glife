@@ -219,6 +219,20 @@ if (hour > 20 or hour < 4) and succubusQW = 5 and suchuntday ! daystart:
 	end
 end
 
+act 'Go to the Southern apartment building':minut += 3 & gt 'pod_ezd', 'etaj_1'
+act 'Go to the Eastern apartment building':
+	minut += 3
+	if anushkaFirstvisit = 0 and npc_rel['A144'] > 50:
+		gt 'pavComplexb2', 'anushkaFirst'
+	else
+		gt 'pavComplexb2', 'etaj_1'
+	end
+end
+act 'Go to the Western apartment building':minut += 3 & gt 'pavComplexb3', 'etaj_1'
+act 'Go to the apartment courtyard':minut += 3 & gt 'pavComplex', 'courtyard'
+act 'Go to the apartment garages':minut += 3 & gt 'pavComplex', 'garages'
+
+
 if StoryLine ! 0 and (hour >= 8 or hour < 23) and cumloc[11] = 1 and rand(0, 3) = 0 and sosedday ! daystart:
 	cls
 	sosedday = daystart

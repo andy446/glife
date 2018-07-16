@@ -392,7 +392,6 @@ if $ARGS[0] = 'modatt':
 	gs 'preSYS2', 'modrel_setup2', 'pcs_heels', 'Heels'
 	'</table></center>'
 	nl
-	'Note: Exhibitionism will reset to 50 maximum if set high once the game starts.'
 
 	act 'Return': gt'preSYS2','start'
 end

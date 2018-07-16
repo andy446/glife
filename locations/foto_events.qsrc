@@ -202,6 +202,7 @@ if $ARGS[0] = 'underwear_steal2':
 				'	"I promise that from now I will always be completely naked in the studio unless it''s for a shoot."'
 				'	"Good. Feel free to go home now. Hope to see you again soon."'
 				'	With your underwear returned and safely covering your hips, you awkwardly make your exit.'
+				studio_underwear_steal = 0
 				act'Leave':gt 'down'
 			end
 		end
@@ -233,6 +234,7 @@ if $ARGS[0] = 're-dress':
 	gs 'underwear', 'wear'
 	gs 'stat'
 	'	Unable to do it in front of the manager, you go all the way back to the back room to completely undress and re-dress to get your underwear in place before leaving again. It takes a lot more time than you''d like but it''s at least less shameful than doing it in front of the manager...'
+	studio_underwear_steal = 0
 	act'Leave':gt 'down'
 end
 !!------------------------------------------------------------------- Special Modelling Jobs ------------------------------------------------------------------

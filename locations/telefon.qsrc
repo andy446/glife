@@ -769,7 +769,19 @@ if $ARGS[0] = 'Phone_notebook':
 	pl'<center><a href="exec:gs ''telefon'', ''Phone_menu'' "><img src="images/system/icon/back.png"></a></center>'
 end &! --- Phone_notebook ---
 
+!!----------------------------------------Camera-------------------------------------------------
+
+!!For setting the total numbers of selfies
+if $ARGS[0] = 'Phone_selfie_totals':
+	bathroom_clotot = 20
+	bathroom_undtot = 20
+	bathroom_nudtot = 20
+end
+
+
+!!for viewing photos on your phone
 if $ARGS[0] = 'Phone_pictures':
+	gs 'telefon', 'Phone_selfie_totals'
 	clr
 	pl '<center><b><<$mid(100+hour,2,2)>>:<<$mid(100+minut,2,2)>></b></center>'
 	pl '<center><TABLE cellspacing="0" width="80%"><TR><TD><img src="images/system/icon/icon_statusbar_left.png"></TD><TD></TD><TD align="right"><img src="images/system/icon/icon_statusbar_right.png"></TD></TR></TABLE></center>'
@@ -777,32 +789,31 @@ if $ARGS[0] = 'Phone_pictures':
 	pl'<center><img src="<<FUNC(''$phone_theme'')>>icon_pictures.png" height="80" width="80"><br></center>'
 	if phone_selfie[1] = 1:pl'<a href="exec:view''images/system/phone/selfie/phone_selfie1.jpg''"><b>Selfie number1</b></a>'
 	if phone_selfie[2] = 1:pl'<a href="exec:view''images/system/phone/selfie/phone_selfie2.jpg''"><b>Selfie number2</b></a>'
-	bathroom_clotot = 20
 	bathroom_clocnt = 0
 	:bathroom_cloloop
-		if bathroom_closelfie[bathroom_clocnt] = 1:pl'<a href="exec:view''images/pc/selfie/bathroom/clothed/<<bathroom_clocnt>>.jpg''"><b>Clothed bathroom selfie #<<bathroom_clocnt>></b></a>'
+		if bathroom_closelfie[bathroom_clocnt] = 1:pl'<a href="exec:view''images/pc/selfies/bathroom/clothed/<<bathroom_clocnt>>.jpg''"><b>Clothed bathroom selfie #<<bathroom_clocnt>></b></a>'
 		bathroom_clocnt += 1
 	if bathroom_clocnt < bathroom_clotot: jump'bathroom_cloloop'
 
-	bathroom_undtot = 20
 	bathroom_undcnt = 0
 	:bathroom_undloop
-		if bathroom_undselfie[bathroom_undcnt] = 1:pl'<a href="exec:view''images/pc/selfie/bathroom/underwear/<<bathroom_undcnt>>.jpg''"><b>Underwear bathroom selfie #<<bathroom_undcnt>></b></a>'
+		if bathroom_undselfie[bathroom_undcnt] = 1:pl'<a href="exec:view''images/pc/selfies/bathroom/underwear/<<bathroom_undcnt>>.jpg''"><b>Underwear bathroom selfie #<<bathroom_undcnt>></b></a>'
 		bathroom_undcnt += 1
 	if bathroom_undcnt < bathroom_undtot: jump'bathroom_undloop'
 
-	bathroom_nudtot = 20
 	bathroom_nudcnt = 0
 	:bathroom_nudloop
-		if bathroom_nudselfie[bathroom_nudcnt] = 1:pl'<a href="exec:view''images/pc/selfie/bathroom/nude/<<bathroom_nudcnt>>.jpg''"><b>Nude bathroom selfie #<<bathroom_nudcnt>></b></a>'
+		if bathroom_nudselfie[bathroom_nudcnt] = 1:pl'<a href="exec:view''images/pc/selfies/bathroom/nude/<<bathroom_nudcnt>>.jpg''"><b>Nude bathroom selfie #<<bathroom_nudcnt>></b></a>'
 		bathroom_nudcnt += 1
 	if bathroom_nudcnt < bathroom_nudtot: jump'bathroom_nudloop'
 
 	*nl
 	pl'<center><a href="exec:gs ''telefon'', ''Phone_menu'' "><img src="images/system/icon/back.png"></a></center>'
-end &! --- Phone_pictures ---
+end
 
+!!picking the selfie image when taking photos
 if $ARGS[0] = 'Phone_camera_selfie':
+	gs 'telefon', 'Phone_selfie_totals'
 	if $location_type = 'bathroom':
 		minut += RAND(5,7)
 		if $clothingworntype ! 'nude':
@@ -831,8 +842,9 @@ if $ARGS[0] = 'Phone_camera_selfie':
 	!if spdirtyf > 0: phone_rand = RAND (m,n) - for SELF in the semen
 	!if photo_event_pic = x: phone_rand = RAND (x,y) - for photos during the events (by heart)
 	!view 'images/system/phone/phone_selfie<<phone_rand>>.jpg'
-end &! --- Phone_camera_selfie ---
+end
 
+!!for taking photos - only selfies for now
 if $ARGS[0] = 'Phone_camera':
 	clr
 	pl '<center><b><<$mid(100+hour,2,2)>>:<<$mid(100+minut,2,2)>></b></center>'
@@ -841,9 +853,9 @@ if $ARGS[0] = 'Phone_camera':
 	pl'<center><img src="<<FUNC(''$phone_theme'')>>icon_camera.png" height="80" width="80"><br></center>'
 	pl'<a href="exec:photoskl_exp += 1 & gs ''telefon'', ''Phone_camera_selfie'' "><b>Take a selfie</b></a>'
 	pl'<center><a href="exec:gs ''telefon'', ''Phone_menu'' "><img src="images/system/icon/back.png"></a></center>'
-end &! --- Phone_camera ---
+end
 
-
+!!-----------------------------------end of Camera------------------------------------------
 
 if $ARGS[0] = 'Phone_wheather':
 	clr

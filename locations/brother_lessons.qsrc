@@ -370,8 +370,24 @@ if $ARGS[0] = 'anatomylesson3':
 
 			elseif pcs_vag > 0 and guy > 0:
 				if pcs_vag <= 25:
-					'<center><img <<$set_imgh>> src="images/pc/body/pussy/vag3.jpg"></center>'
+					'<center><img <<$set_imgh>> src="images/pc/body/pussy/vag1.jpg"></center>'
+					'	"The next part I can''t actually show you, but I might as well show you where it should be," you say. You spread your pussy lips apart and let him look inside. "Normally, there''s something called a ''hymen'' here. You can see a diagram of it in your textbook. Every girl is born with one and will have it until it gets torn."'
+					'	"How does it get torn?" Kolka quickly asks while continuing to stare at yours in wonder.'
+					'	"Well, it can get torn in a number of ways but the most common is when a girl loses her virginity. We''ll talk about this more next time, but when a boy and a girl have sex, the boy sticks his penis inside the girl''s vagina. The only way to get the penis all the way inside is to push through the hymen and break it. It usually causes a small amount of bleeding. That''s why they call it ''popping a cherry,''" you smile.'
+					'	He takes note of your clear lack of a hymen and asks, "So... does this mean you''ve... you know...?"'
+					'	"That I''ve had sex? Yeah. Someone already took my v-card," You say somewhat proudly. "But don''t tell mom!"'
+					'	He nods in acknowledgement while writing down some more notes.'
+					'	After a couple more questions, you continue on with the lesson.'
+					act'Continue':gt'brother_lessons', 'anatomylesson4'
+					
 				elseif pcs_vag > 25 and pcs_vag <= 35:
+					'<center><img <<$set_imgh>> src="images/pc/body/pussy/vag2.jpg"></center>'
+					'	"The next part I can''t actually show you, but I might as well show you where it should be," you say. You spread your pussy lips apart and let him look inside. "Normally, there''s something called a ''hymen'' here. You can see a diagram of it in your textbook. Every girl is born with one and will have it until it gets torn."'
+					'	"How does it get torn?" Kolka quickly asks while continuing to stare at yours in wonder.'
+					'	"Well, it can get torn in a number of ways but the most common is when a girl loses her virginity. We''ll talk about this more next time, but when a boy and a girl have sex, the boy sticks his penis inside the girl''s vagina. The only way to get the penis all the way inside is to push through the hymen and break it. It usually causes a small amount of bleeding. That''s why they call it ''popping a cherry,''" you smile.'
+					'	He takes note of your clear lack of a hymen and asks, "So... does this mean you''ve... you know...?"'
+					'	"That I''ve had sex? Yeah. Someone already took my v-card," You say somewhat proudly. "But don''t tell mom!"'
+					'	He nods in acknowledgement while writing down some more notes.'
 					'	"Is it supposed to look this loose?" he asks, causing you to blush hard.'
 					act'"I''ve had a lot of sex"':
 						cla
@@ -388,9 +404,8 @@ if $ARGS[0] = 'anatomylesson3':
 						'	After a couple more questions, you continue on with the lesson.'
 						act'Continue':gt'brother_lessons', 'anatomylesson4'
 					end
-					'<center><img <<$set_imgh>> src="images/pc/body/pussy/vag4.jpg"></center>'
 				elseif pcs_vag > 35:
-					'<center><img <<$set_imgh>> src="images/pc/body/pussy/vag5.jpg"></center>'
+					'<center><img <<$set_imgh>> src="images/pc/body/pussy/vag3.jpg"></center>'
 					'	"The next part I can''t actually show you, but I might as well show you where it should be," you say. You spread your pussy lips apart and let him look inside. "Normally, there''s something called a ''hymen'' here. You can see a diagram of it in your textbook. Every girl is born with one and will have it until it gets torn."'
 					'	"How does it get torn?" Kolka quickly asks while continuing to stare at yours in wonder.'
 					'	"Well, it can get torn in a number of ways but the most common is when a girl loses her virginity. We''ll talk about this more next time, but when a boy and a girl have sex, the boy sticks his penis inside the girl''s vagina. The only way to get the penis all the way inside is to push through the hymen and break it. It usually causes a small amount of bleeding. That''s why they call it ''popping a cherry,''" you smile.'

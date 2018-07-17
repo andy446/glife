@@ -521,8 +521,8 @@ $cheatmenu['looks3'] = {
 	if hairgrowcht = 1:pl'<a href="exec:hairgrowcht = 0 & dynamic $cheatmenu[''looks3'']">Allow hair growth</a>'
 	nl
 	pl'<<$glaza>>'
-	if pcs_lashes < 2:pl'<a href="exec:pcs_lashes += 1 & dynamic $cheatmenu[''looks3'']">Enlarge lashes</a>'
-	if pcs_lashes > 0:pl'<a href="exec:pcs_lashes -= 1 & dynamic $cheatmenu[''looks3'']">Shrink lashes</a>'
+	if pcs_naturallashes < 2:pl'<a href="exec:pcs_naturallashes += 1 & dynamic $cheatmenu[''looks3'']">Enlarge lashes</a>'
+	if pcs_naturallashes > 0:pl'<a href="exec:pcs_naturallashes -= 1 & dynamic $cheatmenu[''looks3'']">Shrink lashes</a>'
 	if pcs_eyesize < 3:pl'<a href="exec:pcs_eyesize += 1 & dynamic $cheatmenu[''looks3'']">Increase the size of the eye</a>'
 	if pcs_eyesize > 0:pl'<a href="exec:pcs_eyesize -= 1 & dynamic $cheatmenu[''looks3'']">Reduce the size of the eye</a>'
 	if pcs_eyecol <= 0:
@@ -580,7 +580,7 @@ $cheatmenu['vneshpara'] = {
 	nl
 	pl 'Appearance Parameters'
 	pl 'vidage = <<vidage>>'
-	pl 'pcs_lashes = <<pcs_lashes>>'
+	pl 'pcs_naturallashes = <<pcs_naturallashes>>'
 	pl 'pcs_eyesize = <<pcs_eyesize>>'
 	pl 'pcs_lip = <<pcs_lip>>'
 	pl 'pcs_apprncbase = <<pcs_apprncbase>>'

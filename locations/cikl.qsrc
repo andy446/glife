@@ -1115,7 +1115,7 @@ if day = 25:
 					'<b><font color="red">You currently do not have a bank account setup for automatic rent deduction of <<home_rent[1]>> <b>₽</b> for your city apartment.To avoid eviction, please make manual payment as soon as possible.</font></b>'
 				else
 					nl
-					'<b><b><font color="red">You''re card was declined during automatic rent deduction of <<home_rent[1]>> <b>₽</b> for your city apartment. To avoid eviction, please rectify as soon as possible.</font></b>'
+					'<b><b><font color="red">Your card was declined during automatic rent deduction of <<home_rent[1]>> <b>₽</b> for your city apartment. To avoid eviction, please rectify as soon as possible.</font></b>'
 				end
 			elseif home_owned[1] = 1 and ArendHouseSL >= 31:
 				'<b><font color="yellow">Your rent for your city apartment is already paid in full for this month.</font></b>'
@@ -1141,7 +1141,7 @@ if day = 25:
 					'<b><font color="red">You currently do not have a bank account setup for automatic rent deduction of <<home_rent[4]>> <b>₽</b> for your Pushkin apartment.To avoid eviction, please make manual payment as soon as possible.</font></b>'
 				else
 					nl
-					'<b><b><font color="red">You''re card was declined during automatic rent deduction of <<home_rent[4]>> <b>₽</b> for your Pushkin apartment. To avoid eviction, please rectify as soon as possible.</font></b>'
+					'<b><b><font color="red">Your card was declined during automatic rent deduction of <<home_rent[4]>> <b>₽</b> for your Pushkin apartment. To avoid eviction, please rectify as soon as possible.</font></b>'
 				end
 			elseif home_owned[4] > 0 and ArendHouseSL4 >= 31:
 				'<b><font color="yellow">Your rent for your Pushkin apartment is already paid in full this month.</font></b>'
@@ -1175,7 +1175,7 @@ if day = 25:
 				money -= elektro * hcount_util
 			end
 		else
-			'<b><font color="red">You''re card was declined during automatic debit of <<elektro>> <b>₽</b>, for automatic utilities payment.</font></b>'
+			'<b><font color="red">Your card was declined during automatic debit of <<elektro>> <b>₽</b>, for automatic utilities payment.</font></b>'
 		end
 	end
 
@@ -1186,7 +1186,7 @@ if day = 25:
 			'<b><font color="yellow">300 <b>₽</b> has been deducted from your bank account, for you cable TV subscription.</font></b>'
 			kabelday = 1
 			karta -= 300 * hcount_cable
-			'<b><font color="red">You''re card was declined during automatic debit of 300 <b>₽</b> for cable TV subscription.</font></b>'
+			'<b><font color="red">Your card was declined during automatic debit of 300 <b>₽</b> for cable TV subscription.</font></b>'
 		elseif bankAccount = 1 and karta + bankDebtLimit >= (300 * hcount_cable):
 			'<b><font color="yellow">300 <b>₽</b> has been deducted from your bank account and overdraw facility, for you cable TV subscription.</font></b>'
 			kabelday = 1
@@ -1196,7 +1196,7 @@ if day = 25:
 			kabelday = 1
 			money -= 300 * hcount_cable
 		else
-			'<b><font color="red">You''re card was declined during automatic debit of 300 <b>₽</b> for cable TV subscription.</font></b>'
+			'<b><font color="red">Your card was declined during automatic debit of 300 <b>₽</b> for cable TV subscription.</font></b>'
 		end
 	end
 end

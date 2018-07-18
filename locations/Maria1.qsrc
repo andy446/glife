@@ -33,7 +33,7 @@ if nom_1 = 0:
 			tobiQW = 2001
 			minut += 1
 			'"Why so the hotel so crowded today?" you ask.'
-			'"There''s an conference on indigenous languages, they meet every year and complain about their disappearing languages." he says laughing.'
+			'"There''s an conference on indigenous languages, they meet every year and complain about their disappearing languages." she says laughing.'
 
 			act 'Move away':gt 'Maria1'
 		end

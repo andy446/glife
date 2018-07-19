@@ -133,6 +133,7 @@ if $ARGS[0] = 'sex_ev1_anal1':
 	gs 'arousal', 'bj', 3,'dick[1]','sub'
 	npc_sex[$boy[1]] += 1
 	npc_sex[$boy[2]] += 1
+	pav_sex += 4	
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/event/sex/sex_ev1_6.jpg"></center>'
 	'<<$boydesc[2]>> begins to reach a frenzied pace, you can tell he is about to cum.'
@@ -154,6 +155,7 @@ if $ARGS[0] = 'sex_ev1_bj':
 	npc_sex[$boy[1]] += 1
 	npc_sex[$boy[2]] += 1
 	gs 'arousal', 'end'
+	pav_sex += 4
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/event/sex/sex_ev1_5.jpg"></center>'
 	'The boys think on it a moment before they happily agree. The one behind you pulls his cock out of your ass, as <<$boydesc[2]>> walks over and pulls out his <<dick[2]>>cm <<$dick_girth[2]>> dick. You quickly get down on your knee''s grabbing their cocks in your hands and start sucking them off in turns. Stroking the one you don''t currently have in your mouth with your hands, as you switch back and forth between sucking their cocks. You try to ignore the taste of your own ass when you suck off the guy who was just fucking your ass.'
@@ -234,6 +236,7 @@ if $ARGS[0] = 'sex_ev2':
 								gs 'arousal', 'end'
 								'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/event/sex/sex_ev2_8.jpg"></center>'
 								'Mere moments later, <<$boydesc[1]>> moans and suddenly pulls out of you. He puts his free hand on your shoulder and forces you to kneel down, just in time to take both of their loads on your face. The guys now done with you, pull up their pants and ignore you. Their cum is still slowly running down your face, as they start talking like your not even there.'
+								pav_sex += 4
 								gs 'stat'
 								act 'Leave': gt 'pod_ezd', 'etaj_2'
 							end
@@ -333,6 +336,7 @@ if $ARGS[0] = 'sex_ev3':
 						gs 'arousal', 'bj', 2,'dick[1]'
 						gs 'cum_call','mouth',$boy[1],1 
 						gs 'arousal', 'end'
+						pav_sex += 4
 						gs 'stat'
 						npc_sex[$boy[1]] += 1
 						npc_sex[$boy[2]] += 1
@@ -411,6 +415,8 @@ if $ARGS[0] = 'smoke_misha':
 			act 'Suck him off':
 				*clr & cla
 				money +=50
+				slutty += 1
+				pav_prostitute += 1
 				gs 'boyStat', 'A54'
 				gs 'arousal', 'bj', 5
 				gs 'cum_call','mouth',$boy,1 

@@ -31,7 +31,7 @@ elseif ARGS[0] = 4:
 	if exhibitionist_lvl = 3: arousal += 80
 end
 
-if pcs_exhib > 100: pcs_exib = 100
+if pcs_exhib > 100: pcs_exhib = 100
 
 --- exhibitionism ---------------------------------
 

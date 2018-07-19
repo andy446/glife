@@ -705,6 +705,19 @@ if $ARGS[0] = 'brothel:section1:session:play':
 	if rageMeter = 100:
 		gt 'brothel', '<<$base>>:ragefinish'
 	end
+	
+	!too much pain - Sveta pushes out the anal plug by accident
+	if (pain['total'] > 50 and analplugIN = 1):
+		chPlug = rand(0, 100)
+		if chPlug < prob_chPlug:
+			gt 'brothel', '<<$base>>:pushplugout'
+		end
+	end
+
+	prob = rand (0, 100)
+	if analplugIN = 0 and prob < 30 and analplay = 1:
+		gt 'brothel', '<<$base>>:buttplug'
+	end
 
 	if $actType = 'boundPlay':
 		analplay = 0
@@ -896,18 +909,6 @@ if $ARGS[0] = 'brothel:section1:session:play':
 		end
 	end
 
-	!too much pain - Sveta pushes out the anal plug by accident
-	if (pain['total'] > 50 and analplugIN = 1):
-		chPlug = rand(0, 100)
-		if chPlug < prob_chPlug:
-			gt 'brothel', '<<$base>>:pushplugout'
-		end
-	end
-
-	prob = rand (0, 100)
-	if analplugIN = 0 and prob < 30 and analplay = 1:
-		gt 'brothel', '<<$base>>:buttplug'
-	end
 end
 
 if $ARGS[0] = 'brothel:section1:session:play:finish':

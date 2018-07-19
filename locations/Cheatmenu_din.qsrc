@@ -1468,6 +1468,7 @@ $cheatmenu['display'] = {
 	nl
 
 	pl '<center><B>Difficulty Setting</B></center>'
+	pl 'At the moment it only improves rate of skill gain'
 
 	pl 'Difficulty: Currenty at <<func(''_difficulty'',''getdifficulty'')>>'
 	pl '<ul><li>set to <a href="exec:FUNC(''_difficulty'',''setdifficulty'',''easy peasy'') & dynamic $cheatmenu[''display'']">easy peasy</a></li>'

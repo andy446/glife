@@ -739,6 +739,7 @@ elseif pav_slut > 150:
 
 		bmHJ[Tboynum] += 1
 		money += 50
+		slutty += 1
 		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/sex/boybj.jpg"></center>'
 		'You squat before him as you wrap your fingers around his shaft, and slowly begin to jerk him off.'
@@ -799,7 +800,8 @@ if pav_slut >= 25:
 				cls
 				pcs_dom += 1
 				minut += 3
-				pav_prostitute += 30
+				pav_prostitute += 12
+				slutty += 1
 				money += 300
 				gs 'stat'
 				'You take a deep breath. You don''t really want to touch him, but maybe if you can get something out of it? "I don''t do favours like that for just anyone! If you''d pay me, however..." you shrug.'

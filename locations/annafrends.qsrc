@@ -278,7 +278,7 @@ if $ARGS[0] = 'scene1':
 				gs 'stat'
 				'<center><video autoplay loop src="images/characters/pavlovsk/resident/reks/event/community/rexda.mp4"></video></center>'
 				*nl
-				'Laughing, you wait until Rex finishes wiping your foot.  While you are giggling, Rex becomes more bold, gradually replacing his sleeve with his palm and working up your thigh towards your panties. Just as Rex''s finger is about to touch your panties, you realize what is going on and hurriedly remove his hand, saying: "Hey..."'
+				'Laughing, you wait until Rex finishes wiping your foot. While you are giggling, Rex becomes more bold, gradually replacing his sleeve with his palm and working up your thigh towards your panties. Just as Rex''s finger is about to touch your panties, you realize what is going on and hurriedly remove his hand, saying: "Hey..."'
 				act 'Continue to drink beer':gt 'annafrends', 'scene2'
 			end
 		elseif rexPark = 1 and rexParkDay < daystart and rexSisTalk = 2:

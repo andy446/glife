@@ -3370,7 +3370,7 @@ if $ARGS[0] = 'npc_data':
 !!Rolan Matveev
 	$school_static_num[57] = 'A133'
 	npcPol[57] = 0
-	grupTipe[57] = 0
+	grupTipe[57] = 6
 	$npcGo[57] = '<a href="exec:numnpc = 57 & GT ''Snpc''"><<$npc_firstname[''A133'']>> <<$npc_lastname[''A133'']>></a>'
 end
 

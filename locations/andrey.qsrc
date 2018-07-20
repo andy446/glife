@@ -41,7 +41,7 @@ if $ARGS[0] = 'apply':
 		*nl
 		'He barely glances your way as he shuffles some papers around. "Oh yeah, I forgot about that...well, the job is still open. I need an extra worker around the store and it needs to be a girl, a young girl," he says before suddenly dropping the papers and looking at you accusingly. "And before you start with that gender equality crap, I had a guy working here and all he cared about was getting into the pants of female customers rather than their wallets. I''m saving myself from another headache...<i>hopefully</i>."'
 		*nl
-		'You''re at a loss for words, this wasn''t how you imagined the interview to go, but your silence goes unnoticed as the store manager continues to talk. "The salary is 205 ₽ a hour, alright? Trust me, no one is fighting you for the chance to work here but don''t think that means you can slack off. Miss work three times and you''re fired, no questions. I have two part-time positions, those are from 16:00 until 20:00, Monday through Friday.  Or the weekend shift between 09:00 to 15:00."'
+		'You''re at a loss for words, this wasn''t how you imagined the interview to go, but your silence goes unnoticed as the store manager continues to talk. "The salary is 205 ₽ a hour, alright? Trust me, no one is fighting you for the chance to work here but don''t think that means you can slack off. Miss work three times and you''re fired, no questions. I have two part-time positions, those are from 16:00 until 20:00, Monday through Friday. Or the weekend shift between 09:00 to 15:00."'
 		*nl
 		'He seems to have found what he was looking for, which is the employment documents "You''ll need to sign these to start work here." He holds them out to you, "So, are you interested?"'
 
@@ -49,28 +49,33 @@ if $ARGS[0] = 'apply':
 
 		if ((work = 0 and young_shop_work = 0 and cheatWork = 0) or (young_shop_work = 0 and cheatWork = 1)):
 			*nl
-			'You find the conditions suiting, and without batting and eye you sign the documents.'
-
+			
 			act 'Take the evening job':
+				cla
 				work = 1
 				young_shop_work = 100
 				minut += 5
 				*nl
+				'You find the conditions suiting, and without batting and eye you sign the documents.'
 				'You got a job in the youth clothing store ''Pussy-Cats''. Your first workday is on Monday at 15:00.'
 				act 'Continue': gt 'young_shop', 'start'
 			end
 			act 'Take the weekend job':
+				cla
 				young_shop_work1 = 100
 				minut += 5
 				*nl
+				'You find the conditions suiting, and without batting and eye you sign the documents.'
 				'You got a job in the youth clothing store ''Pussy-Cats''. Your first workday is on Saturday at 09:00.'
 				act 'Continue': gt 'young_shop', 'start'
 			end
 !!			act 'Take the full time job':
+!!				cla
 !!				work = 1
 !!				young_shop_work2 = 100
 !!				minut += 5
 !!				*nl
+!!				'You find the conditions suiting, and without batting and eye you sign the documents.'
 !!				'You got a job in the youth clothing store ''Pussy-Cats''. Your first workday is on Monday at 09:00.'
 !!				act 'Continue': gt 'young_shop', 'start'
 !!			end

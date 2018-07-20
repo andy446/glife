@@ -807,7 +807,7 @@ if $ARGS[0] = 'bjs':
 		if pav_slut >= 150:'He then adds, "I''ll give you 50 <b>₽</b>?"'
 
 		act 'Go to the men''s restroom with him':
-			if pav_slut >= 150: money += 50
+			if pav_slut >= 150: money += 50 & slutty += 1
 			gt 'gschool_sex', 'lunch_bj'
 		end
 

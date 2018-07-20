@@ -528,7 +528,7 @@ if $ARGS[0] = 'hide':
 		if rnd_clint_torg = 5:$rnd_clint_torg = 'The man thinks for a second, and then says: "<<$rnd_client_text>>"'
 
 		*pl $rnd_clint_torg
-		act 'Go with him': slutty += 1 & dynamic $rnd_client_event
+		act 'Go with him': dynamic $rnd_client_event
 		if rnd_clint_torg >= 2 and rnd_clint_torg <= 4:
 			act '"Come back when you have the money"': gt 'pod_whore','hide','pod_whore_noprice'
 		end

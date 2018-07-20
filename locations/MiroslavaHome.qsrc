@@ -27,14 +27,14 @@ if $ARGS[0] = 'start':
 			*clr & cla
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mirafather.jpg"></center>'
 			'You are passing Mira''s house when you see Mira''s father headed in your direction.'
-			'"<<$pcs_firstname>>, wait.  I need to speak with you," he says coming closer to you.'
+			'"<<$pcs_firstname>>, wait. I need to speak with you," he says coming closer to you.'
 			'You stop and look at him frightfully. "Did Mira tell him what I made her do?" you think as panicked thoughts race through your head.'
 			'"<<$pcs_nickname>>, do you know what happened to Mira?" Afanasiy asks, looking you in the eye.'
-			'"N-no, what happened to her?"  you ask in a confused voice, expecting him to start shouting any second.'
-			'"I don''t know.  She is just sitting at home all the time.  She doesn''t leave the yard, I''m concerned." Mira''s father answers.'
-			'"Oh, ah...I don''t know," you say, trying to make it sound believable and make your eyes look innocent.  "Maybe she was by hurt some local boy, or had a fight with someone..."'
-			'"Okay, I think it will pass...soon I hope.  But, I want you come and visit us, I think your company would do Mira a lot of good. It might bring her out of this funk faster." Mira''s father says good-bye, and leaves to resume working around his house.'
-			'"Close call,"  you think as you watch his retreating back and exhale with relief.'
+			'"N-no, what happened to her?" you ask in a confused voice, expecting him to start shouting any second.'
+			'"I don''t know. She is just sitting at home all the time. She doesn''t leave the yard, I''m concerned." Mira''s father answers.'
+			'"Oh, ah...I don''t know," you say, trying to make it sound believable and make your eyes look innocent. "Maybe she was by hurt some local boy, or had a fight with someone..."'
+			'"Okay, I think it will pass...soon I hope. But, I want you come and visit us, I think your company would do Mira a lot of good. It might bring her out of this funk faster." Mira''s father says good-bye, and leaves to resume working around his house.'
+			'"Close call," you think as you watch his retreating back and exhale with relief.'
 			MiraLoc = 0
 			minut += 10
 			mirafathertalk = 1
@@ -44,7 +44,7 @@ if $ARGS[0] = 'start':
 		elseif temper >= 15 and sunWeather = 1 and npc_QW['A60'] = 7 and hour >= 8 and hour <= 18:
 			*clr & cla
 			'<center><img <<$set_imgh>> src="images/characters/village/mira/miraqw7.jpg"></center>'
-			'Entering the courtyard, you notice Miroslav, working in the garden.  She is bent over and, to your amazement, you see her bare naked crotch...'
+			'Entering the courtyard, you notice Miroslav, working in the garden. She is bent over and, to your amazement, you see her bare naked crotch...'
 			MiraLoc = 0
 
 			act 'Approach it':
@@ -94,7 +94,7 @@ if $ARGS[0] = 'start':
 			else
 				'Near the house <a href="exec: gt ''mirafather'' ">Afanasiy</a> is working.'
 			end
-			if month >= 5 and month <= 9 and hour >= 18 and hour <= 21 and RAND(0,30) >= 30:'You hear a motorcycle in the village.  <a href="exec: gt ''miroslavahome'', ''mirabrother''">Miras brother</a> has come in from the city to visit his siblings and father.'
+			if month >= 5 and month <= 9 and hour >= 18 and hour <= 21 and RAND(0,30) >= 30:'You hear a motorcycle in the village. <a href="exec: gt ''miroslavahome'', ''mirabrother''">Miras brother</a> has come in from the city to visit his siblings and father.'
 			if MiraLoc > 0 and npc_QW['A60'] > 30:
 				act 'Check on Mira':
 					*clr & cla
@@ -175,7 +175,7 @@ if $ARGS[0] = 'mirabrother':
 				act 'You look shocked and walk away.': gt 'gadukino'
 			else
 
-				'"No problem", he says to you, and then adds with a mischievous smile.  "But first, sit down on him, he''ll check to make sure he likes you.  He is fussy sombitch."'
+				'"No problem", he says to you, and then adds with a mischievous smile. "But first, sit down on him, he''ll check to make sure he likes you. He is fussy sombitch."'
 				act 'Get on the bike':
 					*clr & cla
 					pcs_horny += 10
@@ -183,9 +183,9 @@ if $ARGS[0] = 'mirabrother':
 					gs 'stat'
 
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mira/mirabromoto.jpg"></center>'
-					'You quickly swing your leg up and over the iron horse, you plop your ass down on the motorcycles padded seat and grab the handlebars.  Mira''s brother, with a satisfied smile, never takes his eyes off your crotch.  You wiggle your ass on the seat a little giving him a great view of your naked pussy.'
+					'You quickly swing your leg up and over the iron horse, you plop your ass down on the motorcycles padded seat and grab the handlebars. Mira''s brother, with a satisfied smile, never takes his eyes off your crotch. You wiggle your ass on the seat a little giving him a great view of your naked pussy.'
 
-					'"Fine", he say still smiling, "Just fine!  You have an awesome pussy, and I''m sure my friend," and he slaps the gas tank,"is looking forward to having you ride on him. You know what I mean, yes?"  You give him a wicked grin and nod.  "We''ll give you a ride to remember, and then you can give me a ride to remember..."  You just continue to nod.'
+					'"Fine", he say still smiling, "Just fine! You have an awesome pussy, and I''m sure my friend," and he slaps the gas tank,"is looking forward to having you ride on him. You know what I mean, yes?" You give him a wicked grin and nod. "We''ll give you a ride to remember, and then you can give me a ride to remember..." You just continue to nod.'
 
 
 					act 'Hell yes, you agree...':
@@ -208,7 +208,7 @@ if $ARGS[0] = 'mirabrother':
 
 							'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mira/mirabromoto1.jpg"></center>'
 
-							'You slide your as back to allow him room to mount the motorcycle.  He grabs his helmet from the handlebars and slams it down on his head.'
+							'You slide your as back to allow him room to mount the motorcycle. He grabs his helmet from the handlebars and slams it down on his head.'
 
 
 							act 'Wrap your arms around his waist...':
@@ -219,7 +219,7 @@ if $ARGS[0] = 'mirabrother':
 
 								'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mira/mirabromoto2.jpg"></center>'
 
-								'He guns the engine, which roars and then sets out at furious pace.  The rear wheel burns rubber and smokes a little as he rides you down the highway, after a few miles he does a U-turn and heads back towards Gadyukino and does not stop in the village.'
+								'He guns the engine, which roars and then sets out at furious pace. The rear wheel burns rubber and smokes a little as he rides you down the highway, after a few miles he does a U-turn and heads back towards Gadyukino and does not stop in the village.'
 
 
 								act 'One ride ends and another begins...':
@@ -229,7 +229,7 @@ if $ARGS[0] = 'mirabrother':
 									gs 'stat'
 
 									'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mira/mirabromoto3.jpg"></center>'
-									'He rolls down a higway another mile he pulls the motorcycle off the main road onto a little side track and parks a couple hundred meters off the road. He jumps off the bike, pulling off his helmet, and turns to you with a "devil may care" attitude.	He pulls the helmet of your head and drops it to the ground.  He turns you around and begins to paw your crotch and tits...'
+									'He rolls down a higway another mile he pulls the motorcycle off the main road onto a little side track and parks a couple hundred meters off the road. He jumps off the bike, pulling off his helmet, and turns to you with a "devil may care" attitude. He pulls the helmet of your head and drops it to the ground. He turns you around and begins to paw your crotch and tits...'
 
 									act 'Stand':
 										*clr & cla

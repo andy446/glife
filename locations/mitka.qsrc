@@ -3,7 +3,7 @@ gs 'stat'
 '<center><b><font color="maroon">Mitka Kingpin</font></b></center>'
 '<center><img <<$set_imgh>> src="images/locations/gadukino/village/mitka.jpg"></center>'
 *nl
-'He is barely older than you, you remember him from your childhood.  You both used to swim in the local river together.'
+'He is barely older than you, you remember him from your childhood. You both used to swim in the local river together.'
 if npc_QW['A63'] = 0 and rand(0,3) = 0:
 	'You blush as you recall that you used to swim naked when you were little.'
 	if pcs_horny >= 40: 'You bite your lip and glance down at his crotch and can''t help but wonder how much he has grown since then.'
@@ -29,17 +29,17 @@ else
 			*nl
 			'Mitka scratches his balls and adds with a grin: "Hey <<$pcs_nickname>>, do you want to have some fun?"'
 
-			act 'I don''t know.  My mother is obsessed with me staying a virgin.':
+			act 'I don''t know. My mother is obsessed with me staying a virgin.':
 				cla
-				'You turn away and slowly walk away from Mitka.  You know you want him, but you promised your mother...'
+				'You turn away and slowly walk away from Mitka. You know you want him, but you promised your mother...'
 				act 'Continue': gt 'gadukino'
 			end
 			if pcs_horny >= 50:
-				act 'Hmm. No sex, Mitka.  I will give you a blowjob only.':
+				act 'Hmm. No sex, Mitka. I will give you a blowjob only.':
 					*clr & cla
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkabjhome.jpg"></center>'
 					*nl
-					'Mitka takes you to his house and onto the veranda.  You kneel down on your knees and smiling up at him take his cock out of his pants and start to suck...'
+					'Mitka takes you to his house and onto the veranda. You kneel down on your knees and smiling up at him take his cock out of his pants and start to suck...'
 					gs 'boyStat', 'A63'
 					npc_sex[$boy] += 1
 					npc_QW['A63'] += 1

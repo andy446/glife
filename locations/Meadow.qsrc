@@ -45,13 +45,13 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 		elseif npc_QW['A60'] >= 11 and temper >= 25 and temp_md = 5:
 			'In the clearing you notice <a href="exec: gt ''Meadow'', ''5''">Mira with Vasya</a>.'
 		elseif npc_QW['A60'] >= 11 and temper >= 12 and temp_md = 6:
-			'In the clearing you notice  <a href="exec: gt ''Meadow'', ''6''">Mira with Mitka, By Vasya and Kalambay</a>.'
+			'In the clearing you notice <a href="exec: gt ''Meadow'', ''6''">Mira with Mitka, By Vasya and Kalambay</a>.'
 		elseif npc_QW['A60'] >= 20 and temper >= 12 and temp_md = 7:
-			'In the clearing you notice  <a href="exec: gt ''Meadow'', ''7''">Mira with Vasya and Kalambay</a>.'
+			'In the clearing you notice <a href="exec: gt ''Meadow'', ''7''">Mira with Vasya and Kalambay</a>.'
 		elseif npc_QW['A60'] >= 30 and temper >= 20 and temp_md = 8:
-			'In the clearing you notice  <a href="exec: gt ''Meadow'', ''8''">A bunch of half-naked hillbilly men</a>.'
+			'In the clearing you notice <a href="exec: gt ''Meadow'', ''8''">A bunch of half-naked hillbilly men</a>.'
 		elseif npc_QW['A60'] >= 20 and temper >= 25 and temp_md = 9:
-			'In a clearing you see  <a href="exec: gt ''Meadow'', ''9''">Mira</a>.'
+			'In a clearing you see <a href="exec: gt ''Meadow'', ''9''">Mira</a>.'
 		end
 	end
 	if sunWeather = 1:
@@ -59,7 +59,7 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 			if $clothingworntype ! 'exercise' and pcs_inhib < 35:
 				'You could do some exercises here if you were wearing workout clothes.'
 			elseif $clothingworntype ! 'exercise' and $clothingworntype ! 'nude' and pcs_inhib >= 35 and Miraloc ! 2 and temper >= 10:
-				'Your meadow is a perfect place to do some exercises. There is no one around, so you could do it <a href="exec: gs ''clothing'', ''strip'', ''Meadow''& gs ''underwear'', ''remove'' & gt ''exercise'', ''workout'', ''nude'', ''Meadow''"> in the nude</a>.'
+				'Your meadow is a perfect place to do some exercises. There is no one around, so you could do it <a href="exec: gs ''clothing'', ''strip'', ''Meadow''& gs ''underwear'', ''remove'' & gt ''exercise'', ''workout'', ''nude'', ''Meadow''">in the nude</a>.'
 			elseif $clothingworntype ! 'exercise' and $clothingworntype = 'nude' and pcs_inhib >= 35 and Miraloc ! 2 and temper >= 10:
 				'Your meadow is a perfect place to do some exercises. There is no one around, so you could do it <a href="exec: gs ''underwear'', ''remove'' & gt ''exercise'', ''workout'', ''nude'', ''Meadow''"> in the nude</a>.'
 			else
@@ -85,15 +85,15 @@ if $ARGS[0] = 'Mira':
 	gs 'stat'
 	if meadow = 2:
 	gs 'Miroslava', 'miraclothes'
-		'"Wow!  This place is awesome.  My family and I have only been in the village a few months, but I have never heard anyone ever speaking about this place." Mira tells you.  "Now I know where I can come to, when I want to be alone.  You don''t mind, do you?"'
+		'"Wow! This place is awesome. My family and I have only been in the village a few months, but I have never heard anyone ever speaking about this place." Mira tells you. "Now I know where I can come to, when I want to be alone. You don''t mind, do you?"'
 		act 'You allow her to come here on her own':
 			*clr & cla
 			meadow = 3
 			minut += 2
 			gs 'stat'
 			gs 'Miroslava', 'miraclothes'
-			'"I think you are a responsible person, Mira, you can come to the meadow whenever it pleases you.  BUT, I want this place to remain a secret so you can never tell anyone about this place."'
-			'Mira, readily agrees and is as happy as a lark.  Mira energetically nodding her head and says, "I''ll take this secret to the grave, I swear.  If I don''t, then I''ll grant you three wishes, that I promise I will perform no matter what..."'
+			'"I think you are a responsible person, Mira, you can come to the meadow whenever it pleases you. BUT, I want this place to remain a secret so you can never tell anyone about this place."'
+			'Mira, readily agrees and is as happy as a lark. Mira energetically nodding her head and says, "I''ll take this secret to the grave, I swear. If I don''t, then I''ll grant you three wishes, that I promise I will perform no matter what..."'
 			act 'Finish': gt 'Meadow', 'start'
 		end
 		act 'Sorry, I want to keep this meadow private':
@@ -102,9 +102,9 @@ if $ARGS[0] = 'Mira':
 			minut += 2
 			gs 'stat'
 			gs 'Miroslava', 'miraclothes'
-			'You tell her that this is your haven, you would prefer if she wants to come to the meadow that she can only do so with you.  Mira looks crestfallen, tears start to well up in her eyes, though she tries not to let you know.  She tell you, sure she will abide by your wishes.'
-			'You and Mira speak for awhile.  Her mood is a little down, but as you chat a smile slowly creeps onto her face.'
-			'Mira then asks you if you could help cheer up her father?  He has been depressed ever sinse her mother''s death nearly two years before'
+			'You tell her that this is your haven, you would prefer if she wants to come to the meadow that she can only do so with you. Mira looks crestfallen, tears start to well up in her eyes, though she tries not to let you know. She tell you, sure she will abide by your wishes.'
+			'You and Mira speak for awhile. Her mood is a little down, but as you chat a smile slowly creeps onto her face.'
+			'Mira then asks you if you could help cheer up her father? He has been depressed ever sinse her mother''s death nearly two years before'
 			act 'Maybe':
 				*clr & cla
 				meadow = 5
@@ -117,8 +117,8 @@ if $ARGS[0] = 'Mira':
 				else
 					'<center><img <<$set_imgh>> src="images/characters/village/mira/mira3.jpg"></center>'
 				end
-				'You agree, intrigued.  You ask Mira what see has in mind?  After a few seconds, she tells you she saw her father masturbateing that morning.  She doesn''t think her father has been with a woman since her mother passed away.  Mira is sorry for her father''s lose, hers too for that matter, but she has an overwhelming desire to help him.  She can''t just do nothing.'
-				'You know Mira loves her father very much, you don''t know what you can do to help.  You don''t want or need this drama in your life.  First, you find out about migic being real.  School is rapid approaching.  You tell her that there is nothing you can do to help with her father''s depression.  Mira''s pouts and stands with her arms crossed. Her whole demeaner is one of injured innocence.'
+				'You agree, intrigued. You ask Mira what see has in mind? After a few seconds, she tells you she saw her father masturbateing that morning. She doesn''t think her father has been with a woman since her mother passed away. Mira is sorry for her father''s lose, hers too for that matter, but she has an overwhelming desire to help him. She can''t just do nothing.'
+				'You know Mira loves her father very much, you don''t know what you can do to help. You don''t want or need this drama in your life. First, you find out about migic being real. School is rapid approaching. You tell her that there is nothing you can do to help with her father''s depression. Mira''s pouts and stands with her arms crossed. Her whole demeaner is one of injured innocence.'
 				'A few minutes later, to your surprise, you feel an unexpectedly nice itch and a wicked heat rises up in your crotch of thoughts of his sucking Mira''s father.'
 				act 'Maybe a little followup wont hurt': gt 'Meadow', 'start'
 			end
@@ -135,14 +135,14 @@ if $ARGS[0] = 'Mira':
 				gs 'stat'
 				if $pantyworntype ! 'none':
 					'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/miralick.jpg"></center>'
-					'Mira immediately sits on the grass and waits until you get undress.  Holding out your hand, you throw caution to the winds and push your panties aside, revealing your already dripping snatch...'
+					'Mira immediately sits on the grass and waits until you get undress. Holding out your hand, you throw caution to the winds and push your panties aside, revealing your already dripping snatch...'
 					gs 'arousal', 'foreplay', 5, 'lesbian'
 					gs 'stat'
 					act 'Further':
 						*clr & cla
 						gs 'stat'
 						'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/miralick1.jpg"></center>'
-						'You enjoy, Mira''s gentle touch between your legs.  She teases you by gently touching your clit...'
+						'You enjoy, Mira''s gentle touch between your legs. She teases you by gently touching your clit...'
 						gs 'arousal', 'vaginal_finger', 5, 'lesbian'
 						gs 'stat'
 						act 'Further':
@@ -162,7 +162,7 @@ if $ARGS[0] = 'Mira':
 						*clr & cla
 						gs 'stat'
 						'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/miralick2.jpg"></center>'
-						'Mira obediently kneels at your feet and pulls starts licking your clit and starts to finger your pussy.  After a few minutes of this treatment, Mira brings you to blazing orgasm.'
+						'Mira obediently kneels at your feet and pulls starts licking your clit and starts to finger your pussy. After a few minutes of this treatment, Mira brings you to blazing orgasm.'
 						$orgasm_or = 'yes'
 						gs 'arousal', 'cuni', 5, 'lesbian'
 						gs 'arousal', 'vaginal_finger', 5, 'lesbian'
@@ -182,11 +182,11 @@ if $ARGS[0] = '0':
 	if temper < 20:
 		minut += 2
 		'<center><img <<$set_imgh>> src="images/characters/village/mira/mirameadowmastr.jpg"></center>'
-		'You were about to approach her, but stop as she undoes her pants.  You decide to watch it to what she does...'
+		'You were about to approach her, but stop as she undoes her pants. You decide to watch it to what she does...'
 		act 'Watch':
 			*clr & cla
 			'<center><img <<$set_imgh>> src="images/characters/village/mira/mirameadowmastr1.jpg"></center>'
-			'Mira, pulls harshly on her panties so that they bite deeply between her labia.  Mira looks around again, but you are concealed in the dense thicket thus she fails to spot you watching...'
+			'Mira, pulls harshly on her panties so that they bite deeply between her labia. Mira looks around again, but you are concealed in the dense thicket thus she fails to spot you watching...'
 			gs 'arousal', 'voyeur', 2, 'lesbian'
 			gs 'stat'
 			act 'Watch':
@@ -389,7 +389,7 @@ if $ARGS[0] = '4' or $ARGS[0] = '5':
 		gs 'arousal', 'end'
 		gs 'stat'
 		act 'Leave':minut += 30 & gt 'gadukino'
-	elseif temper >= 15 and  temper < 20:
+	elseif temper >= 15 and temper < 20:
 		'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/mirameadowbj4.jpg"></center>'
 		'They are both completely naked and lustful Mira with squeals, like crazy, galloping on Vaskerom member. The long such rate does not stand up and unceremoniously throwing off his rider, cums on her buttocks...'
 		gs 'arousal', 'voyeur', 5
@@ -517,9 +517,9 @@ if $ARGS[0] = 'miraperversion11':
 	pcs_horny += 10
 	npc_QW['A60'] = 12
 	gs 'stat'
-	'You don''t know where to begin, so you stay silent just staring at Mira.  Mira at the same time is looking at her feet and blushing hard.'
-	'Finally you gather your wits and ask what happened last night?  Mira, still no looking you in the eye, stammers out that she doesn''t know why she did it.  She says that she was out of control.'
-	'But you were also drunk, and did not do what she did.  Her face sinks with shame and she continues to look at the ground.'
+	'You don''t know where to begin, so you stay silent just staring at Mira. Mira at the same time is looking at her feet and blushing hard.'
+	'Finally you gather your wits and ask what happened last night? Mira, still no looking you in the eye, stammers out that she doesn''t know why she did it. She says that she was out of control.'
+	'But you were also drunk, and did not do what she did. Her face sinks with shame and she continues to look at the ground.'
 	'You speak with her awhile and somehow manage to soothe her and tell her that, she should just bite the bullet and move on.'
 	'Mira thanks you most sincerely for your support, but her eyes still look down....'
 	act 'Leave': gt $loc, $metka
@@ -781,7 +781,7 @@ if $ARGS[0] = 'mirameadow':
 				end
 			end
 		end
-	elseif meadow = 3 and MiraLoc = 0 and mirasextimes < 15 and temper >= 20  and temper < 25 and sunWeather = 1 and temp_md = 0:
+	elseif meadow = 3 and MiraLoc = 0 and mirasextimes < 15 and temper >= 20 and temper < 25 and sunWeather = 1 and temp_md = 0:
 		*clr & cla
 		'<center><img <<$set_imgh>> src="images/characters/village/mira/mirameadowmastr7.jpg"></center>'
 		'Mira is standing, leaning against a tree and starts to caress herself.'
@@ -947,7 +947,7 @@ if $ARGS[0] = 'mirameadow':
 		else
 			mirasextimes += 1
 			'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/mirameadowbj6.jpg"></center>'
-			'Mira fully naked, bends over, standing in front of Vasya and intensively exposes her ass to him, Vasya drives his cock deep into your ass.  Judging by her lustful moans, she likes having her ass violated and after a couple of minutes Vasya pulls out of her ass and cums on her backside.'
+			'Mira fully naked, bends over, standing in front of Vasya and intensively exposes her ass to him, Vasya drives his cock deep into your ass. Judging by her lustful moans, she likes having her ass violated and after a couple of minutes Vasya pulls out of her ass and cums on her backside.'
 			gs 'arousal', 'voyeur', 5
 			gs 'arousal', 'end'
 			gs 'stat'

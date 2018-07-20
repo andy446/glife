@@ -620,7 +620,7 @@ if $ARGS[0] = 'solo_12':
 				act 'Swallow':
 					*clr & cla
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkabjpubliccum.jpg"></center>'
-					'Mitka, suddenly stops fucking your mouth for a few seconds. You tighten your grip around his cock without taking it out of his mouth. Mitka yells fiercely, as he begins to erupt into your mouth. Cum...you love the taste of the warm sticky liquid of life. As soon as you finish licking his dick clean, he puts his dick back into his pants. You look around and see Kolyamba and Vasya walking over to you. You search for Mitka and you find him looking at you with a burning excitement in his eyes. He indifferently waves, and immediately Kolyamba steps up to you and unbuttons his pants. You suck him dry after a few minutes, swallowing all of his tangy spunk, once he was done his place was taken by Vasya, who got sloopy thirds.'
+					'Mitka, suddenly stops fucking your mouth for a few seconds. You tighten your grip around his cock without taking it out of his mouth. Mitka yells fiercely, as he begins to erupt into your mouth. Cum...you love the taste of the warm sticky liquid of life. As soon as you finish licking his dick clean, he puts his dick back into his pants. You look around and see Kolyamba and Vasya walking over to you. You search for Mitka and you find him looking at you with a burning excitement in his eyes. He indifferently waves, and immediately Kolyamba steps up to you and unbuttons his pants. You suck him dry after a few minutes, swallowing all of his tangy spunk, once he was done his place was taken by Vasya, who got sloppy thirds.'
 					minut += 10
 					pcs_horny += 10
 					swallow += 1
@@ -628,10 +628,10 @@ if $ARGS[0] = 'solo_12':
 					gs 'stat'
 
 					act 'Suck':
+						*clr & cla
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkabjpublicguys2.jpg"></center>'
 						'You, drunkenly and messily start sucking and kissing Kolyamba''s cock.'
 						'You feel that soon they will cum all over your face and then lose interest in you...'
-						*clr & cla
 						gs 'boyStat', 'A61'
 						npc_sex[$boy] += 1
 						gs 'arousal', 'bj', 10, 'sub','gangbang'

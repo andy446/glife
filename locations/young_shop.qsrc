@@ -221,6 +221,7 @@ if $ARGS[0] = '2':
 	act 'Agree':
 		guy += 1
 		money += 2000
+		slutty += 1
 		picrand = 35
 		gt 'sex', 'minet'
 	end
@@ -239,7 +240,7 @@ if $ARGS[0] = '3':
 		picrand = 15
 		'You ask what else you will get for this and the guys laugh and say a threesome you''ll never forget.'
 
-		act 'Send them':gt 'young_shop', 'endwork'
+		act 'Send them away':gt 'young_shop', 'endwork'
 
 		act 'Take them to the back room':
 			cla
@@ -627,8 +628,6 @@ if $ARGS[0] = '13':
 				end
 			end
 		end
-
-		act 'Finish your shift':gt 'young_shop', 'endwork'
 	end
 end
 

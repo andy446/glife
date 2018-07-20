@@ -71,7 +71,7 @@ if $ARGS[0]='':
 		!removed from 1.2.5
 		if hour >= 17 and hour < 20:
 			if mitkaday!daystart:'<a href="exec:gt ''mitka''">Mitka</a> is hanging out near the barn in your grandparents'' backyard, he is following you while taking a smoke.'
-		elseif hour >= 20 and mitkadaybuh ! daystart:
+		elseif hour >= 20 and sunWeather = 1:
 			'Several <a href="exec:gt ''mitkabuh''">young men</a> are sitting near your grandparents'' backyard, drinking moonshine and talking loudly.'
 		end
 		!125s

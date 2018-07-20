@@ -1104,7 +1104,7 @@ if $ARGS[0] = 'hide':
 
 		rnd_viewgg_text = rand(1,7)
 		if rnd_viewgg_text = 1:$rnd_viewgg_text = 'notices you'
-		if rnd_viewgg_text = 2:$rnd_viewgg_text = 'spots you '
+		if rnd_viewgg_text = 2:$rnd_viewgg_text = 'spots you'
 		if rnd_viewgg_text = 3:$rnd_viewgg_text = 'spies you'
 		if rnd_viewgg_text = 4:$rnd_viewgg_text = 'catches a sight of you'
 		if rnd_viewgg_text = 5:$rnd_viewgg_text = 'throws a look at you'

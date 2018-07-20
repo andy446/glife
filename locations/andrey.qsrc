@@ -86,11 +86,14 @@ if $ARGS[0] = 'apply':
 end
 
 if $ARGS[0] = 'regular':
+	cla
+	*clr
+	'<b><center><font size="4">Manager Andrew M. Sobulyagin</font></center></b>'
 	'<center><img <<$set_imgh>> src="images\locations\city\citycenter\mall\cats\manager_andrew.jpg"></center>'
 	*nl
 	'You knock on the door and Mr. Sobulyagin calls you in. Normally he would be reading the paper, but instead he''s just sitting there with a weird look on his face, almost like you scared him or something.'
 
-	if week = 5 and young_shop_salary > 0:
+	if (week = 5 or week = 7) and young_shop_salary > 0:
 		if young_shop_miss = 0:
 			'"Came to get your pay?" he asks quickly and you nod. He beckons you closer and you oblige. He digs around in his desk drawer for your money and as you wait, you catch a glimpse of his computer screen and see an image of a naked woman. He must think you can''t see the screen from where you are. "Here you go," Mr. Sobulyagin says as he holds out a white envelope with the money inside.'
 		elseif young_shop_miss < 3:

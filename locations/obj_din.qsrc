@@ -209,7 +209,7 @@ if $ARGS[0] = 'sex_skills':
 	nl
 	pl '<b>Sexual characteristics</b>'
 	nl
-	pl 'Inhibition <<pcs_inhib>>'
+	pl 'Inhibition <<100-pcs_inhib>>'
 	pl 'Exhibitionist sex preference: <<exhibitionism[''pref'']>>'
 	pl 'Exhibitionist sex: <<exhibitionism[''exp'']>>'
 	if SUB > 0:pl 'Submissiveness <<SUB>>'

@@ -20,6 +20,66 @@
 		<Location name="mod_setting"/>
 		<Location name="$difficulty"/>
 	</Folder>
+	<Folder name="Stats">
+		<Location name="DNA"/>
+		<Location name="cikl"/>
+		<Location name="daystart"/>
+		<Location name="dina"/>
+		<Location name="dinBoroda"/>
+		<Location name="MenuLoc"/>
+		<Location name="MenuMainLoc"/>
+		<Location name="starenie"/>
+		<Location name="stat"/>
+		<Location name="stat_display"/>
+		<Location name="stat_sklattrib"/>
+		<Location name="stat_sklattrib_lvlset"/>
+		<Location name="fame"/>
+		<Location name="traits"/>
+		<Location name="din_bad"/>
+		<Location name="din_van"/>
+		<Location name="statBat"/>
+		<Location name="kid"/>
+		<Location name="pattest"/>
+		<Location name="subkid"/>
+		<Location name="_statcheck"/>
+		<Location name="set_home"/>
+	</Folder>
+	<Folder name="Functions">
+		<Location name="indik"/>
+		<Location name="indiktab"/>
+		<Location name="location_settings"/>
+		<Location name="shortgs"/>
+		<Location name="show_table"/>
+		<Location name="femcyc"/>
+		<Location name="exercise"/>
+		<Location name="food"/>
+		<Location name="food_menu"/>
+	</Folder>
+	<Folder name="Body">
+		<Location name="body"/>
+		<Location name="body_shape"/>
+		<Location name="lact_lib"/>
+	</Folder>
+	<Folder name="Stimulus">
+		<Location name="boyStat"/>
+		<Location name="pain"/>
+		<Location name="arousal"/>
+		<Location name="orgasm"/>
+		<Location name="exhibitionism"/>
+		<Location name="dinSex"/>
+		<Location name="dinSex2"/>
+		<Location name="dinsexFX"/>
+		<Location name="oral"/>
+		<Location name="orgazm"/>
+	</Folder>
+	<Folder name="CumManage">
+		<Location name="Cum_Manage"/>
+		<Location name="cum_arrcheat"/>
+		<Location name="cum_cleanup"/>
+		<Location name="cum_call"/>
+		<Location name="pregriskeval"/>
+		<Location name="cuminsidereact"/>
+	</Folder>
 	<Folder name="clothing">
 		<Location name="wardrobe"/>
 		<Location name="clothing"/>
@@ -46,6 +106,8 @@
 		<Location name="$attributes_burlesque"/>
 		<Location name="$attributes_alternative"/>
 		<Location name="lost_clothes_here"/>
+		<Location name="portnoi"/>
+		<Location name="portnoi2"/>
 	</Folder>
 	<Folder name="shoes">
 		<Location name="shoes"/>
@@ -72,44 +134,6 @@
 		<Location name="$purse_image"/>
 		<Location name="sewing"/>
 	</Folder>
-	<Folder name="Stats">
-		<Location name="DNA"/>
-		<Location name="body"/>
-		<Location name="body_shape"/>
-		<Location name="cikl"/>
-		<Location name="daystart"/>
-		<Location name="dina"/>
-		<Location name="dinBoroda"/>
-		<Location name="MenuLoc"/>
-		<Location name="MenuMainLoc"/>
-		<Location name="starenie"/>
-		<Location name="stat"/>
-		<Location name="stat_display"/>
-		<Location name="stat_sklattrib"/>
-		<Location name="stat_sklattrib_lvlset"/>
-		<Location name="fame"/>
-		<Location name="traits"/>
-		<Location name="din_bad"/>
-		<Location name="din_van"/>
-		<Location name="statBat"/>
-		<Location name="kid"/>
-		<Location name="pattest"/>
-		<Location name="subkid"/>
-		<Location name="_statcheck"/>
-		<Location name="set_home"/>
-	</Folder>
-	<Folder name="Stimulus">
-		<Location name="boyStat"/>
-		<Location name="pain"/>
-		<Location name="arousal"/>
-		<Location name="orgasm"/>
-		<Location name="exhibitionism"/>
-		<Location name="dinSex"/>
-		<Location name="dinSex2"/>
-		<Location name="dinsexFX"/>
-		<Location name="oral"/>
-		<Location name="orgazm"/>
-	</Folder>
 	<Folder name="Prostitution">
 		<Location name="Prostitute"/>
 		<Location name="NormPR"/>
@@ -119,15 +143,17 @@
 	<Folder name="Quests">
 		<Location name="event"/>
 		<Location name="frot"/>
-		<Location name="kisameQW"/>
 		<Location name="lesbidomhouse"/>
 		<Location name="lesbimistress"/>
 		<Location name="lesbisubhouse"/>
-		<Location name="mainQW"/>
-		<Location name="tobiQW"/>
 		<Location name="cafe2"/>
 		<Location name="cafe3"/>
 		<Location name="ParkKafe"/>
+	</Folder>
+	<Folder name="Magic Quests">
+		<Location name="mainQW"/>
+		<Location name="tobiQW"/>
+		<Location name="kisameQW"/>
 		<Location name="succubus"/>
 		<Location name="serpent"/>
 	</Folder>
@@ -181,6 +207,27 @@
 		<Location name="Kikatak"/>
 		<Location name="enderKik"/>
 		<Location name="razrKik"/>
+	</Folder>
+	<Folder name="Furniture">
+		<Location name="bed"/>
+		<Location name="bed1"/>
+		<Location name="bed2"/>
+		<Location name="beverage"/>
+		<Location name="beverage_menu"/>
+		<Location name="dreams"/>
+		<Location name="budilnik"/>
+		<Location name="divan"/>
+		<Location name="Komp"/>
+		<Location name="kompMFC"/>
+		<Location name="kompMFCtwo"/>
+		<Location name="webcam_site"/>
+		<Location name="mirror"/>
+		<Location name="stol"/>
+		<Location name="telefon"/>
+		<Location name="$phone_theme"/>
+		<Location name="kit_din"/>
+		<Location name="TV"/>
+		<Location name="vann"/>
 	</Folder>
 	<Folder name="Shared locations">
 		<Location name="outdoors"/>
@@ -503,14 +550,6 @@
 		<Location name="garfather"/>
 		<Location name="Gshveyfab"/>
 		<Location name="gaptek"/>
-		<Location name="DanceWhore1"/>
-		<Location name="DanceWhore2"/>
-		<Location name="DanceWhore3"/>
-		<Location name="DanceWhore4"/>
-		<Location name="DanceWhore5"/>
-		<Location name="DanceWhore6"/>
-		<Location name="DanceWhore7"/>
-		<Location name="DanceWhore8"/>
 		<Location name="soniaDisco"/>
 		<Location name="gkafe"/>
 		<Location name="motherkafeboss"/>
@@ -546,6 +585,16 @@
 		<Location name="ParChurch"/>
 		<Location name="ParChurch2"/>
 		<Location name="brothel"/>
+	</Folder>
+	<Folder name="Starlets">
+		<Location name="DanceWhore1"/>
+		<Location name="DanceWhore2"/>
+		<Location name="DanceWhore3"/>
+		<Location name="DanceWhore4"/>
+		<Location name="DanceWhore5"/>
+		<Location name="DanceWhore6"/>
+		<Location name="DanceWhore7"/>
+		<Location name="DanceWhore8"/>
 	</Folder>
 	<Folder name="School">
 		<Location name="gschool_grounds"/>
@@ -666,29 +715,6 @@
 		<Location name="qwlocdog"/>
 		<Location name="RimmaSexQW"/>
 	</Folder>
-	<Folder name="Furniture">
-		<Location name="bed"/>
-		<Location name="bed1"/>
-		<Location name="bed2"/>
-		<Location name="beverage"/>
-		<Location name="beverage_menu"/>
-		<Location name="dreams"/>
-		<Location name="budilnik"/>
-		<Location name="divan"/>
-		<Location name="Komp"/>
-		<Location name="kompMFC"/>
-		<Location name="kompMFCtwo"/>
-		<Location name="webcam_site"/>
-		<Location name="mirror"/>
-		<Location name="stol"/>
-		<Location name="telefon"/>
-		<Location name="$phone_theme"/>
-		<Location name="kit_din"/>
-		<Location name="food"/>
-		<Location name="food_menu"/>
-		<Location name="TV"/>
-		<Location name="vann"/>
-	</Folder>
 	<Folder name="Encounter Generator">
 		<Location name="din_npc"/>
 		<Location name="podezdM"/>
@@ -730,12 +756,8 @@
 		<Location name="restoran"/>
 		<Location name="salon"/>
 		<Location name="hairsalon"/>
-		<Location name="sexshop"/>
 		<Location name="shopdacha"/>
 		<Location name="sportShop"/>
-		<Location name="stripclub"/>
-		<Location name="stwork"/>
-		<Location name="stwork2"/>
 		<Location name="torgcentr"/>
 		<Location name="univer"/>
 		<Location name="yarik"/>
@@ -769,6 +791,12 @@
 		<Location name="obekt"/>
 		<Location name="obekt2"/>
 		<Location name="dangeon"/>
+	</Folder>
+	<Folder name="Red Light">
+		<Location name="sexshop"/>
+		<Location name="stripclub"/>
+		<Location name="stwork"/>
+		<Location name="stwork2"/>
 	</Folder>
 	<Folder name="Bar Rabotnik">
 		<Location name="qwBarPolet"/>
@@ -987,13 +1015,8 @@
 		<Location name="housing"/>
 		<Location name="husb"/>
 		<Location name="husbSex"/>
-		<Location name="indik"/>
-		<Location name="indiktab"/>
 		<Location name="Peterroom"/>
-		<Location name="portnoi"/>
-		<Location name="portnoi2"/>
 		<Location name="sexorg"/>
-		<Location name="shortgs"/>
 		<Location name="$stock_item_info"/>
 		<Location name="$stock_item"/>
 		<Location name="$single_stock_item"/>
@@ -1085,14 +1108,6 @@
 		<Location name="koncepod"/>
 		<Location name="koncepod1"/>
 	</Folder>
-	<Folder name="CumManage">
-		<Location name="Cum_Manage"/>
-		<Location name="cum_arrcheat"/>
-		<Location name="cum_cleanup"/>
-		<Location name="cum_call"/>
-		<Location name="pregriskeval"/>
-		<Location name="cuminsidereact"/>
-	</Folder>
 	<Folder name="Ibiza">
 		<Location name="IbizaStart"/>
 		<Location name="IbizaDay2"/>
@@ -1106,17 +1121,13 @@
 		<Location name="IbizaBar"/>
 		<Location name="IbizaGuard"/>
 	</Folder>
-	<Location name="LBZhouse"/>
-	<Location name="femcyc"/>
-	<Location name="lact_lib"/>
-	<Location name="show_table"/>
-	<Location name="exercise"/>
-	<Location name="BanSexType"/>
 	<Folder name="crossfit_north">
 		<Location name="crossfit_north_box"/>
 		<Location name="crossfit_north_wod"/>
 		<Location name="crossfit_north_record"/>
 		<Location name="crossfit_north_girlmeet"/>
 	</Folder>
+	<Location name="LBZhouse"/>
+	<Location name="BanSexType"/>
 	</Structure>
 </QGen-project>

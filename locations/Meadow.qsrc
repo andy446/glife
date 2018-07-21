@@ -45,7 +45,7 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 		elseif npc_QW['A60'] >= 11 and temper >= 25 and temp_md = 5:
 			'In the clearing you notice <a href="exec: gt ''Meadow'', ''5''">Mira with Vasya</a>.'
 		elseif npc_QW['A60'] >= 11 and temper >= 12 and temp_md = 6:
-			'In the clearing you notice <a href="exec: gt ''Meadow'', ''6''">Mira with Mitka, By Vasya and Kalambay</a>.'
+			'In the clearing you notice <a href="exec: gt ''Meadow'', ''6''">Mira with Mitka, Vasya and Kalambay</a>.'
 		elseif npc_QW['A60'] >= 20 and temper >= 12 and temp_md = 7:
 			'In the clearing you notice <a href="exec: gt ''Meadow'', ''7''">Mira with Vasya and Kalambay</a>.'
 		elseif npc_QW['A60'] >= 30 and temper >= 20 and temp_md = 8:

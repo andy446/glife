@@ -620,6 +620,7 @@ if $ARGS[0] = 'dishes':
 				spafinloc = 12
 				gs 'cum_manage'
 				money += 300
+				slutty += 1
 				soplakTimes1 += 1
 				if soplaktimes1=10:set soplaktimes=3
 				'<center><img <<$set_imgh>> src="images/shared/sex/cum/mouth/cum19.jpg"></center>'

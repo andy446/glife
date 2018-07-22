@@ -223,9 +223,10 @@ if $ARGS[0] = '1':
 	act 'Out of the woods':
 		dirtyclothes = 0 & swamp_clothes = 0
 		if $clothingworntype = 'nude':
-			if $CloLosTyp[$CURLOC] = '':
-				inhib_exp += rand(0,2)
+			if $CloLosTyp[$CURLOC] = '' or gadforest_clothestorn = 1:
 				!no cloth here, it must be broken. There may be a good exhibi or rape event entry point.
+				inhib_exp += rand(0,2)
+				gadforest_clothestorn = 0
 				'You sneak out the woods, hiding your naked body in shadow and moving toward grandparents house.'
 				'You Successfully reach home without witness.'
 				cla
@@ -555,6 +556,7 @@ if $ARGS[0] = 'torncloth':
 			!add remove cloth if worn out, need better texting by illume.
 			if dyneval('RESULT = <<$clothingworntype>>H[<<clothingwornnumber>>]') <= 0:
 				'Your raggedy clothes have finally had enough and fall apart. You are naked now.'
+				gadforest_clothestorn = 1
 				gs 'clothing', 'strip', 'gadforest', 2
 			end
 		end

@@ -24,6 +24,13 @@ if $ARGS[0] = 'start':
 end
 
 if $ARGS[0] = 'wash':
+	
+	if litltown = 0:
+		slut_compare = city_slut
+	elseif litltown = 1:
+		slut_compare = pav_slut
+	end
+	
 	! only wearing bimbo or prostitute clothing and looking good can get propositioned by a customer
 	if PCloBimbo = 1 or PCloStyle = 4:
 		i = rand(1, 4)
@@ -38,22 +45,21 @@ if $ARGS[0] = 'wash':
 			'You washed the windows of several cars and earned 100 <b>₽</b>.'
 			money += 100
 			
-			! min chance of 20 percent; max chance of 80 percent; percent chance scales with pav_prostitute and/or pav_sex
+			! min chance of 20 percent; max chance of 80 percent; percent chance scales with city_slut or pav_slut
 			! as your repuation increases you will be asked more often
-			! reputation effects are delayed by 30 because thats the delay in fame as well
 			skimpyCustomerChance = rand(1, 100)
-			if skimpyCustomerChance <= min(max(20,pav_prostitute-30,pav_sex-30,pav_prostitute+pav_sex-60),80):
+			if skimpyCustomerChance <= min(max(20,slut_compare),80):
 				'As you finish washing another car, the driver walks up to you to give you a tip. From the way he''s looking at you, it''s obvious he''s interested in something more as well.'
 				! starts off with always doing titsQ when rep is low, as rep increases they may skip a question since they know you will do it anyway
 				! also different people have different tastes so you wont be asked the same thing in the same order every time by every customer that walks up to you
 				carwashscene = rand(1, 100)
-				if carwashscene <= min(max(25,pav_prostitute-30,pav_sex-30,pav_prostitute+pav_sex-60),50) and carwashscene >= 25:
+				if carwashscene <= min(max(25,slut_compare),50) and carwashscene >= 25:
 					gt 'zaprFWash', 'assQ'
-				elseif carwashscene <= min(max(50,pav_prostitute-30,pav_sex-30,pav_prostitute+pav_sex-60),65) and carwashscene >= 50:
+				elseif carwashscene <= min(max(50,slut_compare),65) and carwashscene >= 50:
 					gt 'zaprFWash', 'pussyQ'	
-				elseif carwashscene <= min(max(65,pav_prostitute-30,pav_sex-30,pav_prostitute+pav_sex-60),85) and carwashscene >= 65:	
+				elseif carwashscene <= min(max(65,slut_compare),85) and carwashscene >= 65:	
 					gt 'zaprFWash', 'handQ'
-				elseif carwashscene <= min(max(85,pav_prostitute-30,pav_sex-30,pav_prostitute+pav_sex-60),100) and carwashscene >= 85:	
+				elseif carwashscene <= min(max(85,slut_compare),100) and carwashscene >= 85:	
 					gt 'zaprFWash', 'blowQ'
 				else
 					gt 'zaprFWash', 'titsQ'
@@ -132,7 +138,7 @@ if $ARGS[0] = 'handQ':
 	'Could you help me out girl? It''s getting tight down here in my pants just looking at you. How about you touch it a bit? I''ll pay you 200 <b>₽</b>.'
 	
 	! slut or horny requirements needed to accept the offer or just have fun with him
-	if pav_slut >= 25 or pcs_horny >= 25: act 'Agree and give him a handjob':gt 'zaprFWash', 'handjob', 'Paid'
+	if slut_compare >= 25 or pcs_horny >= 25: act 'Agree and give him a handjob':gt 'zaprFWash', 'handjob', 'Paid'
 	act 'Refuse':gt 'zaprFWash', 'refuse'
 end
 
@@ -143,7 +149,7 @@ if $ARGS[0] = 'blowQ':
 	'Looking hot today girl! How about you put your mouth to good use? I''ll pay you 200 <b>₽</b>.'
 	
 	! slut or horny requirements needed to accept the offer or just have fun with him
-	if pav_slut >= 30 or pcs_horny >= 30: act 'Agree and give him a blowjob':gt 'zaprFWash', 'blowjob', 'Paid', 'Question'
+	if slut_compare >= 30 or pcs_horny >= 30: act 'Agree and give him a blowjob':gt 'zaprFWash', 'blowjob', 'Paid', 'Question'
 	act 'Refuse':gt 'zaprFWash', 'refuse'
 end
 
@@ -167,7 +173,11 @@ if $ARGS[0] = 'titsFlash':
 	! reputation and money will depend on whether you were paid
 	if $ARGS[1] = 'Paid':
 		money += 50
-		pav_prostitute += rand(0,1)
+		if litltown = 0:
+			city_prostitute += rand(0,1)
+		elseif litltown = 1:
+			pav_prostitute += rand(0,1)
+		end
 	elseif $ARGS[1] = 'Free':
 		gs 'exhibitionism', 1
 	end
@@ -246,11 +256,11 @@ if $ARGS[0] = 'titsFlash':
 	if (sub >= 10 or pcs_dom >= 10 or bimbolevel >= 1 or pcs_horny >= 5) and (PCloBimbo = 1 or PCloStyle = 4) and $ARGS[2] = 'Question':
 		! once again dynamically choosing the next scene to play based on reputation
 		carwashscene = rand(1, 100)
-		if carwashscene <= min(max(30,pav_prostitute-30,pav_sex-30,pav_prostitute+pav_sex-60),60) and carwashscene >= 50:
+		if carwashscene <= min(max(30,slut_compare),60) and carwashscene >= 50:
 			act 'Continue':gt 'zaprFWash', 'pussyQ'	
-		elseif carwashscene <= min(max(60,pav_prostitute-30,pav_sex-30,pav_prostitute+pav_sex-60),80) and carwashscene >= 60:	
+		elseif carwashscene <= min(max(60,slut_compare),80) and carwashscene >= 60:	
 			act 'Continue':gt 'zaprFWash', 'handQ'
-		elseif carwashscene <= min(max(80,pav_prostitute-30,pav_sex-30,pav_prostitute+pav_sex-60),100) and carwashscene >= 80:	
+		elseif carwashscene <= min(max(80,slut_compare),100) and carwashscene >= 80:	
 			act 'Continue':gt 'zaprFWash', 'blowQ'
 		else
 			act 'Continue':gt 'zaprFWash', 'assQ'
@@ -266,7 +276,11 @@ end
 if $ARGS[0] = 'assFlash':
 	if $ARGS[1] = 'Paid':
 		money += 50
-		pav_prostitute += rand(0,1)
+		if litltown = 0:
+			city_prostitute += rand(0,1)
+		elseif litltown = 1:
+			pav_prostitute += rand(0,1)
+		end
 	elseif $ARGS[1] = 'Free':
 		gs 'exhibitionism', 2
 	end
@@ -329,9 +343,9 @@ if $ARGS[0] = 'assFlash':
 	
 	if (sub >= 10 or pcs_dom >= 10 or bimbolevel >= 1 or pcs_horny >= 10) and (PCloBimbo = 1 or PCloStyle = 4) and $ARGS[2] = 'Question':
 		carwashscene = rand(1, 100)
-		if carwashscene <= min(max(50,pav_prostitute-30,pav_sex-30,pav_prostitute+pav_sex-60),75) and carwashscene >= 50:	
+		if carwashscene <= min(max(50,slut_compare),75) and carwashscene >= 50:	
 			act 'Continue':gt 'zaprFWash', 'handQ'
-		elseif carwashscene <= min(max(75,pav_prostitute-30,pav_sex-30,pav_prostitute+pav_sex-60),100) and carwashscene >= 75:	
+		elseif carwashscene <= min(max(75,slut_compare),100) and carwashscene >= 75:	
 			act 'Continue':gt 'zaprFWash', 'blowQ'
 		else
 			act 'Continue':gt 'zaprFWash', 'pussyQ'
@@ -346,7 +360,11 @@ end
 if $ARGS[0] = 'pussyFlash':
 	if $ARGS[1] = 'Paid':
 		money += 50
-		pav_prostitute += 1
+		if litltown = 0:
+			city_prostitute += 1
+		elseif litltown = 1:
+			pav_prostitute += 1
+		end
 	elseif $ARGS[1] = 'Free':
 		gs 'exhibitionism', 3
 	end
@@ -379,7 +397,7 @@ if $ARGS[0] = 'pussyFlash':
 	
 	if (sub >= 10 or pcs_dom >= 10 or bimbolevel >= 1 or pcs_horny >= 15) and (PCloBimbo = 1 or PCloStyle = 4) and $ARGS[2] = 'Question':
 		carwashscene = rand(1, 100)
-		if carwashscene <= min(max(60,pav_prostitute-30,pav_sex-30,pav_prostitute+pav_sex-60),100) and carwashscene >= 60:	
+		if carwashscene <= min(max(60,slut_compare),100) and carwashscene >= 60:	
 			act 'Continue':gt 'zaprFWash', 'blowQ'
 		else
 			act 'Continue':gt 'zaprFWash', 'handQ'
@@ -397,7 +415,11 @@ if $ARGS[0] = 'handjob':
 	
 	if $ARGS[1] = 'Paid':
 		money += 200
-		pav_prostitute += 2
+		if litltown = 0:
+			city_prostitute += 2
+		elseif litltown = 1:
+			pav_prostitute += 2
+		end
 	elseif $ARGS[1] = 'Free':
 		pav_sex += 2
 	end
@@ -424,7 +446,7 @@ if $ARGS[0] = 'handjob':
 	
 	if $ARGS[1] = 'Paid':
 		'You follow him behind the gas station, where you get the promised money, kneel down, unzip his pants and start working his shaft with your hands.'
-		gs 'arousal', 'hj', 15, 'sub', 'prostitute', 'unknown'
+		gs 'arousal', 'hj', 15, 'sub', 'prostitution', 'unknown'
 	elseif $ARGS[1] = 'Free':
 		'You lead him behind the gas station, kneel down, unzip his pants and start working his shaft with your hands.'
 		gs 'arousal', 'hj', 15, 'dom', 'unknown'
@@ -451,7 +473,11 @@ if $ARGS[0] = 'blowjob':
 	
 	if $ARGS[1] = 'Paid':
 		money += 200
-		pav_prostitute += 2
+		if litltown = 0:
+			city_prostitute += 2
+		elseif litltown = 1:
+			pav_prostitute += 2
+		end
 	elseif $ARGS[1] = 'Free':
 		pav_sex = 2
 	end
@@ -471,7 +497,7 @@ if $ARGS[0] = 'blowjob':
 	if $ARGS[2] = 'Question': 
 		if $ARGS[1] = 'Paid':
 			'You follow him behind the gas station, where you get the promised money, kneel down, unzip his pants and start working his shaft with your mouth.'
-			gs 'arousal', 'bj', 15, 'sub', 'prostitute', 'unknown'
+			gs 'arousal', 'bj', 15, 'sub', 'prostitution', 'unknown'
 		elseif $ARGS[1] = 'Free':
 			'You lead him behind the gas station, kneel down, unzip his pants and start working his shaft with your mouth.'
 			gs 'arousal', 'bj', 15, 'dom', 'unknown'
@@ -479,7 +505,7 @@ if $ARGS[0] = 'blowjob':
 	elseif $ARGS[2] = 'handjob':
 		if $ARGS[1] = 'Paid':
 			'You grab the money he tosses at you and switch to working his shaft with your mouth.'
-			gs 'arousal', 'bj', 15, 'sub', 'prostitute', 'unknown'
+			gs 'arousal', 'bj', 15, 'sub', 'prostitution', 'unknown'
 		elseif $ARGS[1] = 'Free':
 			'You switch to working his shaft with your mouth.'
 			gs 'arousal', 'bj', 15, 'dom', 'unknown'
@@ -506,7 +532,11 @@ end
 if $ARGS[0] = 'fuckPussy':
 	if $ARGS[1] = 'Paid':
 		money += 400
-		pav_prostitute += 4
+		if litltown = 0:
+			city_prostitute += 4
+		elseif litltown = 1:
+			pav_prostitute += 4
+		end
 	elseif $ARGS[1] = 'Free':
 		pav_sex += 4
 	end
@@ -525,7 +555,7 @@ if $ARGS[0] = 'fuckPussy':
 	
 	if $ARGS[1] = 'Paid':
 		'You bend over and let the man start fucking your pussy after collecting your money.'
-		gs 'arousal', 'vaginal', 30, 'sub', 'prostitute', 'unknown'
+		gs 'arousal', 'vaginal', 30, 'sub', 'prostitution', 'unknown'
 	elseif $ARGS[1] = 'Free':
 		'You bend over and let the man start fucking your pussy.'
 		gs 'arousal', 'vaginal', 30, 'dom', 'unknown'
@@ -539,7 +569,11 @@ end
 if $ARGS[0] = 'fuckAnal':
 	if $ARGS[1] = 'Paid':
 		money += 400
-		pav_prostitute += 4
+		if litltown = 0:
+			city_prostitute += 4
+		elseif litltown = 1:
+			pav_prostitute += 4
+		end
 	elseif $ARGS[1] = 'Free':
 		pav_sex += 4
 	end
@@ -558,7 +592,7 @@ if $ARGS[0] = 'fuckAnal':
 	
 	if $ARGS[1] = 'Paid':
 		'You bend over and let the man start fucking your ass after you collect your money. His cock is still wet with your saliva as it slides inside you.'
-		gs 'arousal', 'vaginal', 30, 'sub', 'prostitute', 'unknown'
+		gs 'arousal', 'vaginal', 30, 'sub', 'prostitution', 'unknown'
 	elseif $ARGS[1] = 'Free':
 		'You bend over and let the man start fucking your ass. His cock is still wet with your saliva as it slides inside you.'
 		gs 'arousal', 'vaginal', 30, 'dom', 'unknown'
@@ -566,7 +600,7 @@ if $ARGS[0] = 'fuckAnal':
 	gs 'stat'
 	
 	rapePussyChance = rand(1, 100)
-	if rapePussyChance <= min(max(1,pav_prostitute-60,pav_sex-60,pav_prostitute+pav_sex-120),20):
+	if rapePussyChance <= min(max(1,slut_compare),20):
 		act 'Continue':gt 'zaprFWash', 'rapePussy'
 	else
 		act 'Continue':gt 'zaprFWash', 'analEndQ'
@@ -584,7 +618,7 @@ if $ARGS[0] = 'rapePussy':
 		'He gropes your ass, lifts it up and suddenly spots your hymen.'
 		'"What, you are a virgin? Such a tease and still a virgin, really?"'
 		rapeAnyway = rand(1, 100)
-		if rapeAnyway <= min(max(1,pav_prostitute-30,pav_sex-30,pav_prostitute+pav_sex-60),50):
+		if rapeAnyway <= min(max(1,slut_compare),50):
 			'"It would have happened sooner or later anyway, virgin slut. Now enjoy and remember this moment; I know I will!"'
 			act 'Continue':gt 'zaprFWash', 'rapePussyYes', 'virgin'
 		else
@@ -612,7 +646,7 @@ if $ARGS[0] = 'rapePussyYes':
 		mood -= 20
 		'He gropes your ass, lifts it up and pushes his dick inside your pussy in one thrust, all the way to the hilt!'
 	end
-	gs 'arousal', 'vaginal', 30, 'sub', 'prostitute', 'rough', 'rape', 'unknown'
+	gs 'arousal', 'vaginal', 30, 'sub', 'prostitution', 'rough', 'rape', 'unknown'
 	gs 'stat'
 	
 	act 'Continue':gt 'zaprFWash', 'vaginaCum', 'rape'
@@ -872,9 +906,9 @@ end
 if $ARGS[0] = 'punish':
 	! once again punishType uses the same logic as carwashscene for dynamic choices
 	punishType = rand(1, 100)
-	if punishType <= min(max(50,pav_prostitute-30,pav_sex-30,pav_prostitute+pav_sex-60),75) and punishType >= 50:	
+	if punishType <= min(max(50,slut_compare),75) and punishType >= 50:	
 		gt 'zaprFWash', 'punishAnal'
-	elseif punishType <= min(max(75,pav_prostitute-30,pav_sex-30,pav_prostitute+pav_sex-60),100) and punishType >= 75:	
+	elseif punishType <= min(max(75,slut_compare),100) and punishType >= 75:	
 		gt 'zaprFWash', 'punishPussyQ'
 	else
 		gt 'zaprFWash', 'punishSpank'
@@ -899,7 +933,7 @@ if $ARGS[0] = 'punishSpank':
 	gs 'stat'
 	
 	! reputationScalar has a min of 1 and a max of 180; the more well known you are the higher the chance of being abducted
-	reputationScalar = min(max(1,pav_prostitute-30,pav_sex-30,pav_prostitute+pav_sex-60),180)
+	reputationScalar = min(max(1,slut_compare),180)
 	! fitnessScalar has a min of 1 and a max of 90; the more fit you are the lower the chance of being abducted
 	fitnessScalar = min(max(1,pcs_stren,pcs_agil),90)
 	! abductionChance is calculated using a combination of these 2 values
@@ -941,7 +975,7 @@ if $ARGS[0] = 'punishAnal':
 	gs 'arousal', 'end'
 	gs 'stat'
 	
-	reputationScalar = min(max(1,pav_prostitute-30,pav_sex-30,pav_prostitute+pav_sex-60),180)
+	reputationScalar = min(max(1,slut_compare),180)
 	fitnessScalar = min(max(1,pcs_stren,pcs_agil),90)
 	abductionChance = reputationScalar-fitnessScalar
 	if (abductionChance > 0 and abductionChance <= rand(1,100)) or sub > 99:
@@ -965,11 +999,11 @@ if $ARGS[0] = 'punishPussyQ':
 		'Suddenly he remarks: "What? You''re a virgin? Such slutty tease and still a virgin?'
 		
 		penetrate = rand (1, 100)
-		if penetrate <= min(max(50,pav_prostitute-30,pav_sex-30),75) and penetrate >= 50:	
+		if penetrate <= min(max(50,slut_compare),75) and penetrate >= 50:	
 			'I''ll spare your virginity but you''ll get fucked anyway. Sluts have more than one hole for a reason, right?'
 			
 			act 'Endure':gt 'zaprFWash', 'punishAnal'
-		elseif penetrate <= min(max(75,pav_prostitute-30,pav_sex-30),100) and penetrate >= 75:	
+		elseif penetrate <= min(max(75,slut_compare),100) and penetrate >= 75:	
 			'This makes it even better! I''ll enjoy your tears even more! I haven''t had a virgin in forever!'
 			
 			act 'Endure':gt 'zaprFWash', 'punishPussy', 'virgin'
@@ -1010,7 +1044,7 @@ if $ARGS[0] = 'punishPussy':
 	gs 'arousal', 'end'
 	gs 'stat'
 	
-	reputationScalar = min(max(1,pav_prostitute-30,pav_sex-30,pav_prostitute+pav_sex-60),180)
+	reputationScalar = min(max(1,slut_compare),180)
 	fitnessScalar = min(max(1,pcs_stren,pcs_agil),90)
 	abductionChance = reputationScalar-fitnessScalar
 	if (abductionChance > 0 and rand(1,100) <= abductionChance) or sub > 99:

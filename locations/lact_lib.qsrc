@@ -1,5 +1,82 @@
 # lact_lib
 
+if $ARGS[0] = '$get_bfat_tissue':
+	!! func('lac_lib', 'get_bfattissue', npc_nbsize, npc_lactatemm)
+	!! function to get breast fat tissue amount. Can be used for NPC as well as PC.
+	!! ARGS[1] = npc_nbsize - the natural bust size of the NPC/PC.
+	!! ARGS[2] = npc_lactatemm - he lactatemm of the NPC/PC.
+	!! RESULT = Fat amount in ccm * 10.
+	!! function for cup size volume in ccm y = 0,0002023*x^3 + 0,029199*x^2 + 4,3791*x + 70
+	!! x = ((ARGS[1]/5) + 1)*10
+	!! this function is based on the x figures for pcs_bust size (moving in steps of 5) and the actual cup sizes from a wikipedia table, which can be found here: https://en.wikipedia.org/wiki/Bra_size
+	!! The function was estimated with excel using a trend line estimation for polynoms of third grade and a y = 0 at 70ccm
+	!! https://www.ncbi.nlm.nih.gov/pubmed/11936199
+	!! The percentage of fat volume in the total breast volume varied from 7 to 56% and the percentage of fat weight in the total breast weight varied from 3.6 to 37.6%. This great variability in the respective proportions of fat and glands in the evaluated specimens was not significantly correlated to age and body mass index.
+	if ARGS[1] > 0:
+		temp_var = ((ARGS[1]/5) + 1)*10
+		temp_var2 = (((2023*temp_var*temp_var*temp_var)/10000000)+((29199*temp_var*temp_var)/1000000)+((43791*temp_var)/10000)+70)*10
+		if temp_var2 > ARGS[2]:
+			RESULT = temp_var2 - (ARGS[2] + ARGS[2]/50)
+		elseif temp_var2 = ARGS[2]:
+			RESULT = 0
+		else
+			cls & '<b><font color="red">BAD ARGUMENT CHECK IN <i>$get_bfat_tissue</i>!</font> - Node ARGS[1] - more mammary gland tissue available then total breast tissue.</b>'
+		end		
+	else
+		if ARGS[2] > 700:
+			cls & '<b><font color="red">BAD ARGUMENT CHECK IN <i>$get_bfat_tissue</i>!</font> - Node ARGS[2] - more mammary gland tissue available then total breast tissue.</b>'
+		else
+			RESULT = 700
+		end
+	end
+end
+
+if $ARGS[0] = '$calc_npc_lactatemm_0':
+	!! func('lact_lib', 'calc_npc_lactatemm_0', npc_glandamount, npc_prodstate, npc_breastage, npc_breastcount)
+	!! New calc lactatemm function usuable for NPCs. Test function number one.
+	!! ARGS[1] = npc_glandamount - The glandamount of the npc per breast. Glandamount here is actually the alveoli amount per breast. The value is 4500 to 150000 per breast depending on the genetics or if the npc went through pregnancy already.
+	!! ARGS[2] = npc_prodstate - The breast production state of the npc. State can be "none", "induced" or "natural".
+	!! ARGS[3] = npc_breastage - State can be "virgin" or "mature". Virgin in this case means that the breasts did not go through pregnancy changes yet, while mature is a fully developed breast that had all the changes during pregnancy.
+	!! To determine the breastage, just check if the NPC has gone through pregnancy or not.
+	!! ARGS[4] = npc_breastcount - The breast count of the NPC. If 0 the result will always be 0. Could be used for amputation events or multiple breasts events.
+	!! The function will return something even if there is no lactation currently happening. this could be used for special events where sudden lactation is induced with the help of drugs. For example a lactation pill that will cause the NPC to lactate immediately without classical induction or natural growth during pregnancy.
+	!! RESULT = lactatemm in ml*10
+
+	if ARGS[2] = 'none':
+		if ARGS[3] = 'virgin':
+			temp_var = 2
+		elseif ARGS[3] = 'mature':
+			temp_var = 2
+		else
+			cls & '<b><font color="red">BAD ARGUMENT CHECK IN <i>$calc_npc_lactatemm_0</i>!</font> - Node ARGS[2] "none".</b>'
+		end
+	elseif ARGS[2] = 'induced':
+		if ARGS[3] = 'virgin':
+			temp_var = 20
+		elseif ARGS[3] = 'mature':
+			temp_var = 80
+		else
+			cls & '<b><font color="red">BAD ARGUMENT CHECK IN <i>$calc_npc_lactatemm_0</i>!</font> - Node ARGS[2] "induced".</b>'
+		end
+	elseif ARGS[2] = 'natural':
+		if ARGS[3] = 'virgin':
+			temp_var = 20
+		elseif ARGS[3] = 'mature':
+			temp_var = 80
+		else
+			cls & '<b><font color="red">BAD ARGUMENT CHECK IN <i>$calc_npc_lactatemm_0</i>!</font> - Node ARGS[2] "natural".</b>'
+		end
+	else
+		cls & '<b><font color="red">BAD ARGUMENT CHECK IN <i>$calc_npc_lactatemm_0</i>!</font> - Root Node ARGS[2].</b>'
+	end
+	
+	if ARGS[1] <= 0:
+		RESULT = 0
+	else
+		RESULT = (ARGS[1]*temp_var*ARGS[4])/1000
+	end
+end
+
 if $ARGS[0] = '$calc_lactatemm':
 
 	!! func('lact_lib', 'calc_lactatemm')
@@ -86,7 +163,7 @@ if $ARGS[0] = '$get_breastmilk':
 		soreness_mod += temp_var
 		if soreness_mod > 20: soreness_mod = 20
 		if nipple_cream = 1:
-			soreness_mod += 10
+			soreness_mod += 20
 			nipple_cream = 0
 		end
 	end
@@ -288,18 +365,17 @@ end
 if $ARGS[0] = 'bp_milking':
 	pumptime = 0
 	pumptype = 0
-	if $location_type ! 'bathroom' and exhibitionist_lvl < 1:
+	if $location_type ! 'bathroom' and pcs_exhibition < 60:
 		'You can''t use it here.'
 	else
 		*clr
 		cla
-		pumptime = input ("How long do you plan to pump your breasts?<br>(Defaults 15 minutes, maximum 60 minutes)")
-		if pumptime = '':pumptime = 15
-		if pumptime > 0 and pumptime <= 60:
-			gt 'lact_lib', 'milking'
-		elseif pumptime <= 0 or pumptime > 60:
+		pumptime = input ("How long do you plan to pump your breasts? (Not more than 60 minutes)")
+		if pumptime <= 0 or pumptime > 60:
 			minut += 2
 			act 'Don''t pump':gt $loc, $metka
+		elseif pumptime > 0 and pumptime <= 60:
+			gt 'lact_lib', 'milking'
 		end
 	end
 end
@@ -310,18 +386,17 @@ end
 if $ARGS[0] = 'man_milking':
 	pumptime = 0
 	pumptype = 1
-	if $location_type ! 'bathroom' and exhibitionist_lvl < 1:
+	if $location_type ! 'bathroom' and pcs_exhibition < 60:
 		'You can''t do this here.'
 	else
 		*clr
 		cla
-		pumptime = input ("How long would you like to milk your breasts?<br>(Default 15 minutes, maximum 60 minutes)")
-		if pumptime = '':pumptime = 15
-		if pumptime > 0 and pumptime <= 60:
-			gt 'lact_lib', 'milking'
-		elseif pumptime <= 0 or pumptime > 60:
+		pumptime = input ("How long would you like to milk your breasts? (Not more than 60 minutes)")
+		if pumptime <= 0 or pumptime > 60:
 			minut += 2
-			act 'Don''t pump':gt $loc, $metka
+			act 'Don''t milk':gt $loc, $metka
+		elseif pumptime > 0 and pumptime <= 60:
+			gt 'lact_lib', 'milking'
 		end
 	end
 end
@@ -409,7 +484,11 @@ if $ARGS[0] = 'milking':
 				'<center><img <<$set_imgh>> src="images/pc/body/tits/milk_drink.jpg"></center>'
 				'<center>You drink your own breast milk and clean up your breastpump.</center>'
 				'<center>The milk is still warm from your breasts.</center>'
-				pcs_hydra += 10
+				if pcs_hydra < 90:
+					pcs_hydra += 10
+				else
+					pcs_hydra = 100
+				end
 				minute += 7
 				act 'Finish':
 					milkedvolume = 0
@@ -433,3 +512,4 @@ if $ARGS[0] = 'engorged_morning':
 end
 
 --- lac_lib ---------------------------------
+

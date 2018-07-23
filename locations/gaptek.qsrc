@@ -56,7 +56,7 @@ if $ARGS[0] = 'start' or gaptek_loc = 1 or $message ! '':
 	*P FUNC ('$stock_item', 20, 'Tampons', 200, 'tampon', $CURLOC, $ARGS[0])
 	*P FUNC ('$stock_item', 20, 'Sanitary napkins', 100, 'sanpad', $CURLOC, $ARGS[0])
 	*P FUNC ('$single_stock_item', 1, 'enema kit', 1250, 'klisma', $CURLOC, $ARGS[0], StoryLine, 'You should be stealthy')
-	*P FUNC ('$single_stock_item', 1, 'breast pump', 800, 'breastpump', $CURLOC, $ARGS[0])
+	*P FUNC ('$single_stock_item', 1, 'breast pump', 2200, 'breastpump', $CURLOC, $ARGS[0])
 	*P '</table></center>'
 	!! for original start we can just use stockitem, for alt start there are other plot elements involved
 	!strip polt-related item, other use new system

@@ -62,7 +62,7 @@ if $ARGS[0] = 'shop' or $ARGS[0] = '':
 	*P FUNC ('$stock_item', 20, 'Tampons', 200, 'tampon', $CURLOC, $ARGS[0])
 	*P FUNC ('$stock_item', 20, 'Sanitary napkins', 100, 'sanpad', $CURLOC, $ARGS[0])
 	*P FUNC ('$single_stock_item', 1, 'enema kit', 1250, 'klisma', $CURLOC, $ARGS[0])
-	*P FUNC ('$single_stock_item', 1, 'breast pump', 800, 'breastpump', $CURLOC, $ARGS[0])
+	*P FUNC ('$single_stock_item', 1, 'breast pump', 2200, 'breastpump', $CURLOC, $ARGS[0])
 !!added this from the pav pharmacy as it makes sense they sell this as well, but not sure the code is right, as it was not done the same way.
 	*P '</table></center>'
 	if KandidNapr = 1:'Cure for yeast infection - 1,050 <b>₽</b>'

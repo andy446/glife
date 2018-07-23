@@ -301,7 +301,7 @@ if $ARGS[0] = '':
 						if total_preg_growth > total_milkinduce_growth: nbsize += 1
 					end
 				end
-				if lactatemm > lactatemv:
+				if lactatemm > lactatemv and salo > 11:
 					lactatemv += lactaterate
 					temp_var = lactaterate/100
 					if temp_var <= 0: temp_var = 1
@@ -350,7 +350,7 @@ if $ARGS[0] = '':
 				breastpumped = 0
 			else
 				milkgrowday = daystart
-				if lactatemm >= lactatemv:
+				if lactatemm >= lactatemv and salo > 11:
 					lactatemv += lactaterate
 					if lactatemv > lactatemm:
 						lactatemv = lactatemm
@@ -362,7 +362,7 @@ if $ARGS[0] = '':
 			milkgrowday = daystart
 		else
 			if milkgrowday < daystart:
-				if lactatemm > lactatemv:
+				if lactatemm > lactatemv and salo > 11:
 					lactatemv += lactaterate
 					temp_var = lactaterate/100
 					if temp_var <= 0: temp_var = 1
@@ -418,7 +418,7 @@ if $ARGS[0] = '':
 				breastpumped = 0
 			else
 				milkgrowday = daystart
-				if lactatemm >= lactatemv:
+				if lactatemm >= lactatemv and salo > 11:
 					lactatemv += lactaterate
 					if lactatemv > lactatemm:
 						lactatemv = lactatemm

@@ -1295,14 +1295,14 @@ if $ARGS[0] = 'maternity_ward':
 				cla
 				milkedvolume = 0
 				pcs_gpoli_donationsessioncount = 0
-				if rand(0,100) = 95 and orphanfeed = 0:
-					orphanfeed = 1
-				end
+				!!if rand(0,100) = 95 and orphanfeed = 0:
+				!!	orphanfeed = 1
+				!!end
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/pump_room.jpg"></center>'
 				'You talk to the old nurse and she leads you into the quiet room.'
-				if orphanfeed = 1:
-					'It seems like there is a crib with a baby inside in this room, too.'
-				end
+				!!if orphanfeed = 1:
+				!!	'It seems like there is a crib with a baby inside in this room, too.'
+				!!end
 				act 'have your breasts pumped':
 					*clr
 					cla
@@ -1605,7 +1605,7 @@ if $ARGS[0] = 'maternity_ward_donation':
 		'After 15 minutes, the nurse detaches the pumps from your breasts.'
 		if milkedvolume > 500:
 			temp_var = milkedvolume/500
-			'milkedvolume: <<milkedvolume>> - temp var test: <<temp_var>>'
+			!!'milkedvolume: <<milkedvolume>> - temp var test: <<temp_var>>'
 			pcs_gpoli_donationsessioncount += temp_var
 			pcs_gpoli_totalmilkdonation_count += 1
 			pcs_gpoli_totalmilkdonation += temp_var*50

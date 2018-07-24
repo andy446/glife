@@ -64,7 +64,7 @@ elseif encounter = 6:
 		'Suddenly you are approached by a couple. They come sit next to you.'
 		'You think you recognise the man but you can''t quite put your finger on it.'
 		'Then the man starts speaking : " hi girl, I don''t know if you remember but we have met once in the hotel "'
-		'Now you remember where you know the man from, you watched his children so he and his wife could have some ''alone time'''
+		'Now you remember where you know the man from, you watched his children so he and his wife could have some ''alone time''.'
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/couple_park_meet.jpg"></center>'
 		'" You really helped us out that time.  Usually we are able to drop the children off with my parents but they were out that day."'
 		'" My name is Motya and this is my wife Uliana."'

@@ -53,11 +53,6 @@ $d_fbd_regular = {
 		cls
 		boy += 1
 		parkfuckboy += 1
-		$ppBoyName[parkfuckboy] = $boy
-		ppBoyTipe[parkfuckboy] = 1
-		ppBoyPlace[parkfuckboy] = 3
-		!!masturbate 2 blow_job 3 gangbang
-		ppdick[parkfuckboy] = dick
 		fbdormtimes += 1
 		pphj = 0
 		ppbj = 0
@@ -122,7 +117,6 @@ $d_fbd_miss = {
 		cls
 		ppsex += 1
 		pose = 0
-		gs 'boyStat', $bname
 		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/park/sex/fbdmiss.jpg"></center>'
 		gs 'dinsex', 'boy_puts_condom'
@@ -150,7 +144,6 @@ $d_fbd_dog = {
 		cls
 		pose = 1
 		ppsex += 1
-		gs 'boyStat', $bname
 		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/park/sex/fbhdog.jpg"></center>'
 		gs 'dinsex', 'boy_puts_condom'
@@ -276,11 +269,6 @@ $d_fbd_mass = {
 		boy += 2
 		gang += 1
 		parkfuckboy += 1
-		$ppBoyName[parkfuckboy] = $boy
-		ppBoyTipe[parkfuckboy] = 1
-		ppBoyPlace[parkfuckboy] = 4
-		!!masturbate 2 blow_job 3 gangbang
-		ppdick[parkfuckboy] = dick
 		fbdormtimes += 1
 		pphj = 0
 		ppbj = 0
@@ -402,7 +390,6 @@ $d_fbd_threesome = {
 			cls
 			ppsex += 1
 			pose = 1
-			gs 'boyStat', $bname
 			gs 'stat'
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/park/sex/fbdrsex.jpg"></center>'
 			'You keep sucking on the cock in front of you, as you figure the guys want you to do. You focus for a moment and realize that <<$boydesc>> is behind you. The dick that''s rubbing against your pussy lips is probably his... right? It must be.'

@@ -1,7 +1,7 @@
 # fbHouse
+
 cls
 gs 'stat'
-gs 'boyStat', $bname
 '<center><img <<$set_imgh>> src="images/locations/pavlovsk/park/sex/fbhouse.jpg"></center>'
 '<<$boydesc>> leads you to his house, and gallantly opens the door for you. He invites you to take a seat on the couch and then sits down next to you, putting his arm around you. After you cuddle for a while, he puts his hand on your chin as he guides your face towards his.'
 
@@ -9,12 +9,6 @@ act 'Kiss him':
 	cls
 	boy += 1
 	parkfuckboy += 1
-	$ppBoyName[parkfuckboy] = $boy
-	ppBoyTipe[parkfuckboy] = 1
-	ppBoyPlace[parkfuckboy] = 2
-	!!masturbate 2 blow_job 3 gangbang
-	ppdick[parkfuckboy] = dick
-	gs 'boyStat', $bname
 	fbhousetimes += 1
 	pphj = 0
 	ppbj = 0

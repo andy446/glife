@@ -314,7 +314,6 @@ if $ARGS[0] = 'negros':
 		act 'Leave': minut += 5 & gt 'park', 'start'
 	else
 		afra = 1
-		obs = 1
 		'A few of the Africans come over to your table, they are quite unrestrained, talking a lot in English, grabbing your back and chest. One of them introducing himself as DeMarcus, he tells you that they are all students from Africa and live in the dorm, he gives you directions on how to get to the hostel and find them.'
 
 		act 'Leave': minut += 5 & gt 'park', 'start'
@@ -335,7 +334,6 @@ if $ARGS[0] = 'the_boy':
 			act 'Leave': minut += 5 & gt 'park', 'start'
 		else
 			gosh = 1
-			obs = 1
 			'A young man comes to your table and introduces himself as Gosha, you become acquainted with him, you learn that he is a student and that he lives in the hostel. Gosha tells you how to get to the hostel and how to find his dorm.'
 
 			act 'Leave': minut += 5 & gt 'park', 'start'

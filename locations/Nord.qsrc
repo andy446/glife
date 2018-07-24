@@ -114,6 +114,7 @@ if $ARGS[0] = 'redlight':
 	'A shop for <a href="exec:gt ''sexshop'', ''start''">sex toys</a> is open for perverts from all around the city.'
 	if bordel > 0 and hour >= 20 or bordel > 0 and hour <= 3:'Inside the courtyard is the entrance to the <a href="exec:gt ''bordel''">brothel</a>.'
 
+	gs 'taxi'
 	act 'Return to the Industrial Region (0:05)': minut += 5 & gt 'Nord'
 
 	act 'Wait':gs 'obj_din', 'wait'

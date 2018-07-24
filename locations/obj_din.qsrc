@@ -17,7 +17,11 @@ if $ARGS[0] = 'descrip':
 	end
 	!!!
 
-	pl 'Your current home is <a href="exec:gs ''obj_din'', ''cur_home''"><<$home_name>></a>.'
+	if ARRSIZE('home_owned') = 0:
+		pl 'You have nowhere to live, if this is an error set your current home <a href="exec:gs ''obj_din'', ''cur_home''">here</a>.'
+	else
+		pl 'Your current home is <a href="exec:gs ''obj_din'', ''cur_home''"><<$home_name>></a>.'
+	end
 
 	if succubusflag = 1 and sucpcinfo >= 4: pl 'You are a Succubus.'
 	if age = vidage:

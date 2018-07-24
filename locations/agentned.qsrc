@@ -254,6 +254,7 @@ if $ARGS[0] = 'rent_cityres':
 			minut += 30
 			money -= home_rent[1]
 			home_owned[1] = 1
+			if ARRSIZE('home_owned') = 0: gs 'set_home', 1
 			ArendHouseSL += ArendHouseSL_due
 			gs'stat'
 			'<center><b><font color = maroon>Real Estate Agency</font></b></center>'
@@ -299,6 +300,7 @@ if $ARGS[0] = 'rent_pushkin':
 			minut += 30
 			money -= home_rent[4]
 			home_owned[4] = 1
+			if ARRSIZE('home_owned') = 0: gs 'set_home', 4
 			ArendHouseSL4 += ArendHouseSL_due
 			gs'stat'
 			'<center><b><font color = maroon>Real Estate Agency</font></b></center>'
@@ -335,6 +337,7 @@ if $ARGS[0] = 'buy_cityres':
 	minut += 30
 	karta -= home_value[1]
 	home_owned[1] = 2
+	if ARRSIZE('home_owned') = 0: gs 'set_home', 1
 	gs'stat'
 	'<center><b><font color = maroon>Real Estate Agency</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/realestate/agenstvo_paperwork.jpg"></center>'
@@ -351,6 +354,7 @@ if $ARGS[0] = 'buy_dacha':
 	minut += 30
 	karta -= home_value[3]
 	home_owned[3] = 1
+	if ARRSIZE('home_owned') = 0: gs 'set_home', 3
 	etoexhib = 0
 	gs'stat'
 	'<center><b><font color = maroon>Real Estate Agency</font></b></center>'
@@ -368,6 +372,7 @@ if $ARGS[0] = 'buy_Mansion':
 	minut += 30
 	karta -= home_value[5]
 	home_owned[5] = 1
+	if ARRSIZE('home_owned') = 0: gs 'set_home', 5
 	gs'stat'
 	'<center><b><font color = maroon>Real Estate Agency</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/realestate/agenstvo_paperwork.jpg"></center>'

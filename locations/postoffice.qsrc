@@ -60,12 +60,18 @@ if $ARGS[0] = 'start':
 					gs 'arousal', 'bj', 10, 'sub'
 					gs 'stat'
 				
-					!!Blatte:IMAGE NEEDED
-					$ImageNeededPlacholder
-					!! '<center><img src="images/system/image_needed.png"></center>'
-				
 					act 'Cum on your face':
 						cls
+						if pcs_haircol = 0:
+							$cum_face_image = 'black/' + rand(1,23)
+						elseif pcs_haircol = 1:
+							$cum_face_image = 'brown/' + rand(1,31)
+						elseif pcs_haircol = 2:
+							$cum_face_image = 'red/' + rand(1,19)
+						elseif pcs_haircol = 3:
+							$cum_face_image = 'blonde/' + rand(1,25)
+						else
+							$cum_face_image = 'custom/' + rand(1,20)
 						'<center><img <<$set_imgh>> src="images/pc/body/cum/cumface/<<$cum_face_image>>.jpg"></center>'
 						'The man cums on your face.'
 						spafinloc = 11

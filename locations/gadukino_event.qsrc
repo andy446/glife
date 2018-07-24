@@ -792,6 +792,8 @@ if $ARGS[0] = 'go_home':
 			family_trip_month = month
 			if month >= 6 or month <= 8:
 				*clr & cla
+				'<center><b><font color="maroon">Your mother, Natasha <<$pcs_lastname>></font></b></center>'
+				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/mother.jpg"></center>'
 				'Mom asks you "Well, <<$pcs_nickname>>, are you coming home with us or are you going to stay in the village with your grandparents?"'
 				act 'Stay':
 					staygad = daystart
@@ -814,6 +816,8 @@ if $ARGS[0] = 'go_home_ender':
 	*clr & cla
 	minut += rand(15,25)
 	if grandmahelp > 0:
+		'<center><b><font color="maroon">Your grandmother</font></b></center>'
+		'<center><img <<$set_imgh>> src="images/locations/gadukino/village/grandmahelp.jpg"></center>'
 		'Before leaving grandma gives you <<grandmahelp*50>> rubles.'
 		money += grandmahelp*50
 		grandmahelp = 0

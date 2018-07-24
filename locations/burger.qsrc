@@ -476,7 +476,7 @@ if $ARGS[0] = 'dishes':
 							spafinloc = 12
 							gs 'cum_manage'
 							money += 500
-							slutty + = 1
+							slutty += 1
 							gs 'stat'
 							'<center><img <<$set_imgh>> src="images/locations/city/citycenter/diner/sex/bj4.jpg"></center>'
 							'You squat in front of the manager and swallow his sperm as you began to lick the remnants of his semen off of the still standing, but quickly lowering penis.'

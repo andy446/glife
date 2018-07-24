@@ -1089,7 +1089,7 @@ if $ARGS[0] = 'negr':
 		gs 'arousal', 'kiss', 5, 'lesbian'
 		gs 'stat'
 		
-		act 'Otolknut her':
+		act 'Reject her':
 			cla
 			'You pushed her, with the words "Not mad?". Seeing that the situation is heating Kas rather quickly leave the room. "Well, startled chocolate, vredina" said <<$pcs_nickname>> and pouting defiantly returned to his desk.'
 

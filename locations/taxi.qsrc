@@ -40,9 +40,18 @@ if $ARGS[0] = 'locations':
 		end
 	end
 
-	if $loc ! 'Nord':
+	if $loc ! 'Nord' or $metka ! 'redlight':
+		act 'Go to the city''s red light district':
+			$loc = 'Nord'
+			$metka = 'redlight'
+			gt 'taxi', 'trip'
+		end
+	end
+
+	if $loc ! 'Nord' or $metka = 'redlight':
 		act 'Go to the city''s industrial region':
 			$loc = 'Nord'
+			$metka = ''
 			gt 'taxi', 'trip'
 		end
 	end

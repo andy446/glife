@@ -738,6 +738,7 @@ if $ARGS[0] = 'showers':
 				if hypnoAddict > 0:
 					minut += 10
 					'You unconsciously avoid spraying water into your vagina.'
+					act 'Dry off':gt 'foto', 'showers'
 				else
 					if pcs_horny >= 70:
 						if exhibitionist_lvl > 0:

@@ -5,6 +5,8 @@ if $ARGS[0] = 'Niko Bedroom':
 	$metka = 'Niko Bedroom'
 	$loc = 'VolkovHome'
 	minut += 5
+	$location_type = 'private'
+	$locclass = 'bedr'
 	gs'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/volkovhome/rooms/niko/bedroom.jpg"></center>'
 	'Niko''s room is very messy with two lamps, a bed, and various electronics scattered around.'
@@ -17,6 +19,8 @@ if $ARGS[0] = 'Hallway 2':
 	$metka = 'Niko Bedroom'
 	$loc = 'VolkovHome'
 	minut += 5
+	$location_type = 'private'
+	killvar '$locclass'
 	gs'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/volkovhome/rooms/hallway2.jpg"></center>'
 	if NikoEv = 18:

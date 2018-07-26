@@ -67,9 +67,10 @@ if $ARGS[0] = 'vann':
 end
 
 if $ARGS[0] = 'kor':
-	$metkaM = $ARGS[0]
-	$locM = $CURLOC
+	$metkaM = 'kor'
+	$locM = 'kotovdom'
 	$location_type = 'private'
+	killvar '$locclass'
 	*clr & cla
 	minut += 1
 	gs 'stat'
@@ -81,8 +82,9 @@ if $ARGS[0] = 'kor':
 end
 
 if $ARGS[0] = 'kotovkom':
-	$metkaM = $ARGS[0]
-	$locM = $CURLOC
+	$metkaM = 'kotovkom'
+	$locM = 'kotovdom'
+	$locclass = 'bedr'
 	*clr & cla
 	minut += 1
 	gs 'stat'
@@ -95,8 +97,8 @@ if $ARGS[0] = 'kotovkom':
 end
 
 if $ARGS[0] = 'kuh':
-	$metkaM = $ARGS[0]
-	$locM = $CURLOC
+	$metkaM = 'kuh'
+	$locM = 'kotovdom'
 	*clr & cla
 	minut += 1
 	gs 'stat'

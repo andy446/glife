@@ -125,6 +125,7 @@ end
 
 if $ARGS[0] = 'hallway2':
 	$location_type = 'indoors'
+	killvar '$locclass'
 	cls
 	minut += 1
 	gs 'stat'
@@ -219,6 +220,7 @@ end
 if $ARGS[0] = 'dimkaparents':
 	*clr & cla
 	minut += 1
+	$locclass = 'bedr'
 	gs 'stat'
 	'<center><b><font color = maroon>Dimka''s parent''s room</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/dimkahome/parentsroom.jpg"></center>'
@@ -238,6 +240,7 @@ if $ARGS[0] = 'dimkaparents':
 		$loc = 'dimaHome'
 		$metkaM = 'bathroom'
 		$locM = 'dimaHome'
+		killvar '$locclass'
 		gs 'stat'
 		$location_type = 'bathroom'
 		'<center><h4><font color="maroon">Master bathroom</font></h4></center>'
@@ -284,6 +287,8 @@ end
 if $ARGS[0] = 'guest':
 	cls
 	minut += 1
+	$locclass = 'bedr'
+	gs 'stat'
 	'<center><h4><font color="maroon">Guest Room</font></h4></center>'
 	'<center><img  src="images/locations/pavlovsk/resident/dimkahome/guestroom.jpg"></center>'
 	'You enter the guest bedroom and it just as clean and neat as the rest of the home. The furniture is all highly polished wood. You feel almost overwhelmed by how beautifully the room is decorated.'

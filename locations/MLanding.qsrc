@@ -1,5 +1,6 @@
 # MLanding
 $location_type = 'private'
+killvar '$locclass'
 
 if $ARGS[0] = 'west':
 	cls

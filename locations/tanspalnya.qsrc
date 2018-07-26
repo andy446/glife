@@ -1,10 +1,12 @@
 # tanspalnya
 CLOSE ALL
 
-$metka = $ARGS[0]
-$loc = $CURLOC
-$metkaM = $ARGS[0]
-$locM = $CURLOC
+$metka = ''
+$loc = 'tanspalnya'
+$metkaM = ''
+$locM = 'tanspalnya'
+$location_type = 'private'
+$locclass = 'bedr'
 
 minut += 5
 tanhouse1 = 1

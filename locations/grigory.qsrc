@@ -1101,26 +1101,29 @@ if $ARGS[0] = 'drunk_late':
 				'After a  few seconds consideration, you pull remove your own shoes, then pull back the covers on the other side of the bed before crawling in beside him.'
 				'Snuggling up against the warmth of his big body, you feel him roll onto his side, one of his arms slipping around your middle.  "Love you Kiska,"  He mumbles in his drunken sleep.'
 				'Smiling to yourself, you close your eyes and drift off to sleep.'
+				act 'Wake up':
+					*clr
+					cla
+					minut += ((33 - hour) * 60) - minut
+					pcs_energy += 100
+					pcs_hydra += 100
+					gs 'stat'
+					'You''re woken by the early morning sun peeking past the drapes of the bedroom.  You start to shy away from the light, but then realize that you''re alone in the bed.'
+					'Looking around the room, you see that Grigory is nowhere to be seen.  '
+					'"Grigory?"  You call softly when you finally motivate yourself to crawl out of bed, "Grigory?  Where''d you get off to?"'
+					'With no response, you exit the bedroom and start to look around.  The first thing you notice is that all of Grigory''s clothes have been picked up, and that the end table has been moved back to where it belongs.  The second is when you look out the living room window and notice that his truck is gone.'
+					'You sigh, then start back toward the bedroom to grab your shoes and tidy up before leaving.  You''re almost to the front door when you notice a note stuck to the door.  '
+					*nl
+					'<b>Sorry about last night.  I had a bit too much to drink.  Please forgive me.'  
+					'I was going to wake you this morning, but you looked like a sleeping angel and I couldn''t bring myself to wake you up.  I hope you slept well.'
+					'Help yourself to the fridge for breakfast, maybe I''ll see you a little later.'
+					'Love you Kiska,'
+					'Grigory</b>'
+					*nl
+					'Smiling to yourself, you take down the note.'
 
-!!				--------------------------------------------
-!!				Scene break
-!!				--------------------------------------------
-
-				'You''re woken by the early morning sun peeking past the drapes of the bedroom.  You start to shy away from the light, but then realize that you''re alone in the bed.'
-				'Looking around the room, you see that Grigory is nowhere to be seen.  '
-				'"Grigory?"  You call softly when you finally motivate yourself to crawl out of bed, "Grigory?  Where''d you get off to?"'
-				'With no response, you exit the bedroom and start to look around.  The first thing you notice is that all of Grigory''s clothes have been picked up, and that the end table has been moved back to where it belongs.  The second is when you look out the living room window and notice that his truck is gone.'
-				'You sigh, then start back toward the bedroom to grab your shoes and tidy up before leaving.  You''re almost to the front door when you notice a note stuck to the door.  '
-				*nl
-				'<b>Sorry about last night.  I had a bit too much to drink.  Please forgive me.'  
-				'I was going to wake you this morning, but you looked like a sleeping angel and I couldn''t bring myself to wake you up.  I hope you slept well.'
-				'Help yourself to the fridge for breakfast, maybe I''ll see you a little later.'
-				'Love you Kiska,'
-				'Grigory</b>'
-				*nl
-				'Smiling to yourself, you take down the note.'
-
-				act 'Continue':gt 'grigory','dummy'
+					act 'Continue':gt 'grigory','dummy'
+				end
 			end
 		end
 	end

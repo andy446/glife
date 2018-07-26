@@ -199,6 +199,8 @@ if $ARGS[0] = 'start':
 	$metkaM = 'start'
 	$locM = 'pavSharedApt'
 	$loc = 'pavSharedApt'
+	$location_type = 'private'
+	killvar '$locclass'
 	gs 'pavSharedApt', 'update'
 	if introDone = 0:gt 'pavSharedApt', 'intro'
 	minut += 2

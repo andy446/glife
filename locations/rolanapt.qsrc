@@ -47,6 +47,8 @@ if $ARGS[0] = 'hallway':
 	cla
 	*clr
 	minut += 1
+	$location_type = 'private'
+	killvar '$locclass'
 	gs 'stat'
 	!gs 'rolanapt' , 'rolanroute'
 	'<center><h4><font color="maroon">Entrance hall</font></h4></center>'
@@ -116,6 +118,8 @@ if $ARGS[0] = 'room':
 	cla
 	*clr
 	minut += 1
+	$location_type = 'private'
+	$locclass = 'bedr'
 	gs 'stat'
 	'<center><h4><font color="maroon">Rolan''s bedroom</font></h4></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/aptrolan/bedroom.jpg"></center>'
@@ -135,6 +139,8 @@ if $ARGS[0] = 'guestroom':
 	cla
 	*clr
 	minut += 1
+	$location_type = 'private'
+	$locclass = 'bedr'
 	gs 'stat'
 	'<center><h4><font color="maroon">Guest Room</font></h4></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/aptrolan/guestroom.jpg"></center>'

@@ -776,6 +776,9 @@ if $ARGS[0] = 'Phone_selfie_totals':
 	bathroom_clotot = 20
 	bathroom_undtot = 20
 	bathroom_nudtot = 20
+	bedroom_clotot = 27
+	bedroom_undtot = 20
+	bedroom_nudtot = 20
 end
 
 
@@ -807,6 +810,24 @@ if $ARGS[0] = 'Phone_pictures':
 		bathroom_nudcnt += 1
 	if bathroom_nudcnt <= bathroom_nudtot: jump'bathroom_nudloop'
 
+	bedroom_clocnt = 1
+	:bedroom_cloloop
+		if bedroom_closelfie[bedroom_clocnt] = 1:pl'<a href="exec:view''images/pc/selfies/bedroom/clothed/<<bedroom_clocnt>>.jpg''"><b>Clothed bedroom selfie #<<bedroom_clocnt>></b></a>'
+		bedroom_clocnt += 1
+	if bedroom_clocnt <= bedroom_clotot: jump'bedroom_cloloop'
+
+	bedroom_undcnt = 1
+	:bedroom_undloop
+		if bedroom_undselfie[bedroom_undcnt] = 1:pl'<a href="exec:view''images/pc/selfies/bedroom/underwear/<<bedroom_undcnt>>.jpg''"><b>Underwear bedroom selfie #<<bedroom_undcnt>></b></a>'
+		bedroom_undcnt += 1
+	if bedroom_undcnt <= bedroom_undtot: jump'bedroom_undloop'
+
+	bedroom_nudcnt = 1
+	:bedroom_nudloop
+		if bedroom_nudselfie[bedroom_nudcnt] = 1:pl'<a href="exec:view''images/pc/selfies/bedroom/nude/<<bedroom_nudcnt>>.jpg''"><b>Nude bedroom selfie #<<bedroom_nudcnt>></b></a>'
+		bedroom_nudcnt += 1
+	if bedroom_nudcnt <= bedroom_nudtot: jump'bedroom_nudloop'
+
 	*nl
 	pl'<center><a href="exec:gs ''telefon'', ''Phone_menu'' "><img src="images/system/icon/back.png"></a></center>'
 end
@@ -814,8 +835,8 @@ end
 !!picking the selfie image when taking photos
 if $ARGS[0] = 'Phone_camera_selfie':
 	gs 'telefon', 'Phone_selfie_totals'
+	minut += RAND(5,7)
 	if $location_type = 'bathroom':
-		minut += RAND(5,7)
 		if $clothingworntype ! 'nude':
 			phone_rand = rand(1,bathroom_clotot)
 			bathroom_closelfie[phone_rand] = 1
@@ -831,8 +852,23 @@ if $ARGS[0] = 'Phone_camera_selfie':
 		end
 		gs 'stat'
 		gs 'telefon', 'Phone_pictures'
+	elseif $locclass = 'bedr':
+		if $clothingworntype ! 'nude':
+			phone_rand = rand(1,bedroom_clotot)
+			bedroom_closelfie[phone_rand] = 1
+			view 'images/pc/selfies/bedroom/clothed/<<phone_rand>>.jpg'
+		elseif $pantyworntype ! 'none':
+			phone_rand = rand(1,bedroom_undtot)
+			bedroom_undselfie[phone_rand] = 1
+			view 'images/pc/selfies/bedroom/underwear/<<phone_rand>>.jpg'
+		else
+			phone_rand = rand(1,bedroom_nudtot)
+			bedroom_nudselfie[phone_rand] = 1
+			view 'images/pc/selfies/bedroom/nude/<<phone_rand>>.jpg'
+		end
+		gs 'stat'
+		gs 'telefon', 'Phone_pictures'
 	else
-		minut += RAND(5,7)
 		phone_rand = RAND(1,2)
 		phone_selfie[phone_rand] = 1
 		gs 'stat'

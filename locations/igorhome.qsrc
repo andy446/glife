@@ -58,6 +58,7 @@ if $ARGS[0] = 'hallway':
 	$location_type = 'indoors'
 	cls
 	minut += 1
+	killvar '$locclass'
 	gs 'stat'
 	'<center><h4><font color="maroon">Entrance hall</font></h4></center>'
 	'<center><img <<$set_imgh>>  src="images/locations/pavlovsk/resident/igorhome/kor.jpg"></center>'
@@ -111,6 +112,7 @@ end
 if $ARGS[0] = 'igorroom':
 	cls
 	minut += 1
+	$locclass = 'bedr'
 	gs 'stat'
 	'<center><h4><font color="maroon">Igor''s Room</font></h4></center>'
 	'<center><img <<$set_imgh>>  src="images/locations/pavlovsk/resident/igorhome/kom.jpg"></center>'
@@ -1106,6 +1108,7 @@ end
 if $ARGS[0] = 'igorparents':
 	*clr & cla
 	minut += 1
+	$locclass = 'bedr'
 	gs 'stat'
 	'<center><b><font color = maroon>Igor''s parent''s room</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/igorhome/bedroom.jpg"></center>'

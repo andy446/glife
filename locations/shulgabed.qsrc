@@ -3,6 +3,8 @@ CLOSE ALL
 $metka = ''
 $loc = 'shulgabed'
 $location_type = 'private'
+$locclass = 'bedr'
+
 if $ARGS[0] = '' or $ARGS[0] = 'wakeup':
 	*clr & cla
 	minut = minut + 1
@@ -21,6 +23,7 @@ if $ARGS[0] = '' or $ARGS[0] = 'wakeup':
 	if RAND(0,100) <= 5 and soniaPS >= 1 and sexev_sonya_count > 0 and hour >= 15 and hour <= 23 and $ARGS[0] = '': gt 'shulgabed', 'sonya'
 	act 'Return to the hallway': gt'shulgahall'
 end
+
 if $ARGS[0] = 'sonya':
 	sexev_sonya_day = daystart
 	sexev_sonya_count -= 1

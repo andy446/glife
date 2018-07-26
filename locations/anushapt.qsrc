@@ -132,6 +132,7 @@ if $ARGS[0] = 'home':
 end
 
 if $ARGS[0] = 'hallway':
+	killvar '$locclass'
 	CLOSE ALL
 	if sound = 0:PLAY 'sound/korr.mp3',30
 	$location_type = 'indoors'
@@ -254,6 +255,7 @@ if $ARGS[0] = 'bathroom':
 end
 
 if $ARGS[0] = 'anushroom':
+	$locclass = 'bedr'
 	CLOSE ALL
 	$track_loop = ''
 	music_loop = 1
@@ -593,6 +595,7 @@ end
 if $ARGS[0] = 'bed':
 	cla
 	*clr
+	gs 'stat'
 	if AnushkaLoc = 2:
 		'<center><img src="images/locations/pavlovsk/resident/apartment/anushapt/nushbed.jpg"></center>'
 		'Anushka sits on her bed and waves you over to sit next to her. You quickly jump up on the bed next to her.'

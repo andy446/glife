@@ -1,9 +1,10 @@
 # ymans
-$metkaM = $ARGS[0]
-$locM = $CURLOC
-$metka = $ARGS[0]
-$loc = $CURLOC
+$metkaM = ''
+$locM = 'ymans'
+$metka = ''
+$loc = 'ymans'
 $location_type = 'private'
+killvar '$locclass'
 clr
 gs 'stat'
 if night_mode = 1:

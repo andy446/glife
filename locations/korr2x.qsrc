@@ -4,6 +4,7 @@ if sound = 0:PLAY 'sound/korr.mp3',30
 $metka = ''
 $loc = 'korr2x'
 $location_type = 'private'
+killvar '$locclass'
 clr
 popolaini = 0
 saunaYouRoom = 0

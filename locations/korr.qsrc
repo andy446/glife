@@ -7,6 +7,7 @@ $locM = $CURLOC
 $metka = $ARGS[0]
 $loc = $CURLOC
 $location_type = 'private'
+killvar '$locclass'
 if sound = 0:PLAY 'sound/korr.mp3',30
 
 if lesbiday + 14 <= daystart and lesbiQW >= 11 and hour >= 19 and santehnikDolg = 0:

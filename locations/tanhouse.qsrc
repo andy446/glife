@@ -10,6 +10,8 @@ if $ARGS[0] = '' or $ARGS[0] = 'start':
 	*clr
 	tanhouse1 = 1
 	minut += 5
+	$location_type = 'private'
+	killvar '$locclass'
 	gs 'stat'
 	'<center><b>Nicholas'' Apartment</b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/shared/house.jpg"></center>'

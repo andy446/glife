@@ -9,6 +9,7 @@ $locM = $CURLOC
 $metka = $ARGS[0]
 $loc = $CURLOC
 $location_type = 'private'
+killvar '$locclass'
 clr
 popolaini = 0
 saunaYouRoom = 0

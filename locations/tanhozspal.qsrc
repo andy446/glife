@@ -5,6 +5,8 @@ $metka = ''
 $loc = 'tanhozspal'
 
 $sexloc = 'tanhozspal'
+$location_type = 'private'
+$locclass = 'bedr'
 minut += 5
 gs 'stat'
 sexpartkno = 1

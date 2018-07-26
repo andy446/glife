@@ -448,9 +448,9 @@ if $ARGS[0] = 'solo_10':
 		*clr & cla
 		minut += 5
 		'<center><img <<$set_imgh>> src="images/locations/gadukino/village/drunkgirl.jpg"></center>'
-		'You stumble and fall to the ground, and giggle drunkenly. You just pissed yourself. Mitka watches you and laughs when he sees you fall and piss. Mitka walks over to you, barely able to stand himself and pulls you to your feet. "Listen, <<$pcs_nickname>>, come with me," Mitka says loudly. You want to hide from the hungary eyes of the village boys in bushes, anyway the guys already know what happened. "I''m going have you fucked like the whore you are. You pcs_dom''t not mind, do you?" Mitka grinned evilly.'
-		'He turns to his drunken friends, "Here," pointing to a drunken Kolyamba. "Get your ass over here and have some fun with this cunt," Kolyamba stumbles forward pulling his pants down as we approached. "We may be drunk, but we can still service this cunt''s pussy..."'
-		'"Well, that''s... Hic... a beautifully sight," Mitka stammered smugly. "So let''s get this party started... Hic!"'
+		'You stumble and fall to the ground, and giggle drunkenly. You just pissed yourself. Mitka watches you and laughs when he sees you fall and piss. Mitka stumbles over to you, barely able to stand himself and pulls you to your feet. "Listen, <<$pcs_nickname>>, come with me," Mitka says loudly. You want to hide from the hungry eyes of the village boys in the bushes, but the guys already know what happened. "I''m going have you fucked like the whore you are. You don''t mind, do you?" Mitka grins evilly.'
+		'He turns to his drunken friends, "Here," pointing to a drunken Kolyamba. "Get your ass over here and have some fun with this cunt," Kolyamba stumbles forward pulling his pants down as he approaches. "We may be drunk, but we can still service this cunt''s pussy..."'
+		'"Well, that''s... Hic... a beautifully sight," Mitka stammers smugly. "So let''s get this party started... Hic!"'
 
 		if sub > 0:
 			act 'Bend over and get fucked':

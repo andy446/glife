@@ -2915,7 +2915,7 @@ end &! --- din_hanters_sex_dog_bonus1 ---
 if $ARGS[0] = 'din_hanters_sex_dog_bonus2':
 	'<center><H4>Hut</H4></center>'
 	'<center><video autoplay loop src="images/shared/sex/sequence/kotovsexbonus21.mp4"></video></center>'
-	'The two of you hold eachother tightly, <<$boydesc>> supports you as he continues to violently batter away at your hole.'
+	'The two of you hold each other tightly, <<$boydesc>> supports you as he continues to violently batter away at your hole.'
 	*pl
 	gs 'arousal', 'vaginal', 5, 'sub'
 	gs 'stat'
@@ -2947,7 +2947,7 @@ if $ARGS[0] = 'din_hanters_sex_dog':
 	sexa += 1
 	'<center><H4>Hut</H4></center>'
 	'<center><video autoplay loop src="images/shared/sex/vag/doggy/kotovsex1'+rand(0,3)+'.mp4"></video></center>'
-	'<<$boydesc>> pulls you and you are a sexy ass in front of him.'
+	'<<$boydesc>> pulls you closer and you shake your sexy ass in front of him.'
 	*pl
 	gs 'arousal', 'vaginal', 5, 'sub'
 	gs 'stat'

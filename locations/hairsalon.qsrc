@@ -981,7 +981,7 @@ if $ARGS[0] = 'dyehair':
 			gs 'stat'
 			'"I want to try something really different." you tell her.'
 			'"And what would that be?" The hairdresser asks cheerfully.'
-			'"IA nice dark purple, like a dark wine." you announce.'
+			'"I want it nice dark purple, like a dark wine." you announce.'
 			'"No problem, this''ll be fun. Please have a seat.", she says and turns around one of the chairs for you.'
 
 			act 'Sit down':

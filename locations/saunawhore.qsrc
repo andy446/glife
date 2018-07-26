@@ -1005,62 +1005,15 @@ if $ARGS[0] = 'bathroom':
 		''
 		'After taking off all of your clothes, you gather up your towel, washcloth and soap, then head to the shower. You wash yourself thoroughly to be as clean as possible for potential customers.'
 		if workDolg > 0:
-			dynamic $saunabrit
+			gs 'saunawhore', 'saunabrit'
 		else
 			dynamic $brit
 		end
 		act 'Get out and dry off':gt $locM, $metkaM
 	end
-	$saunabrit = {
-		'There are a handful of cheap razors you can use. At least they don''t make you pay for them, but only because they don''t know who has used which blades.'
-		if pcs_pubes > 3 or pcs_leghair > 3:
-			if pcs_pubes > 3 and pcs_leghair > 3:
-				act 'Shave legs and pussy (0:15)':
-					cla
-					*clr
-					minut += 15
-					pcs_leghair = 0
-					pcs_pubes = 0
-					pcs_horny += 10
-					'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shave3.jpg"></center>'
-					'You lathered up and shaved your legs and pussy. Afterwards, you run your hands over your lower body to make sure its nice and smooth which makes you feel a bit horny.'
-	
-					act 'Get out and dry off':gt $locM, $metkaM
-				end
-			end
-	
-			if pcs_leghair > 3:
-				act 'Shave your legs (0:10)':
-					cla
-					*clr
-					minut += 10
-					pcs_leghair = 0
-					'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shave.jpg"></center>'
-					'You lathered up and shaved your legs.'
-	
-					aact 'Get out and dry off':gt $locM, $metkaM
-				end
-			end
 
-			if pcs_pubes > 3:
-				act 'Shave your pussy (0:10)':
-					cla
-					*clr
-					minut += 10
-					pcs_pubes = 0
-					pcs_horny += 10
-					'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shave3.jpg"></center>'
-					'You lathered up and shaved your pussy. Afterwards, you run your hands over your lower body to make sure its nice and smooth which makes you feel a bit horny.'
-	
-					act 'Get out and dry off':gt $locM, $metkaM
-				end
-			end
-	
-			act 'Get out and dry off':gt $locM, $metkaM
-		end
-	}
 	if workDolg > 0:
-		dynamic $saunabrit
+		gs 'saunawhore', 'saunabrit'
 	elseif workDolg = 0 and stanok > 0:
 		dynamic $brit
 	elseif workDolg = 0 and stanok = 0:
@@ -1108,6 +1061,55 @@ if $ARGS[0] = 'bathroom':
 	dynamic $quickwash
 	dynamic $bteeth
 	dynamic $basin
+end
+
+if $ARGS[0] = 'saunabrit':
+	'There are a handful of cheap razors you can use. At least they don''t make you pay for them, but only because they don''t know who has used which blades.'
+	if pcs_pubes > 3 or pcs_leghair > 3:
+		if pcs_pubes > 3 and pcs_leghair > 3:
+			act 'Shave legs and pussy (0:15)':
+				cla
+				*clr
+				minut += 15
+				pcs_leghair = 0
+				pcs_pubes = 0
+				pcs_horny += 10
+				'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shave3.jpg"></center>'
+				'You lathered up and shaved your legs and pussy. Afterwards, you run your hands over your lower body to make sure its nice and smooth which makes you feel a bit horny.'
+
+				act 'Get out and dry off':gt $locM, $metkaM
+			end
+		end
+
+		if pcs_leghair > 3:
+			act 'Shave your legs (0:10)':
+				cla
+				*clr
+				minut += 10
+				pcs_leghair = 0
+				'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shave.jpg"></center>'
+				'You lathered up and shaved your legs.'
+
+				act 'Get out and dry off':gt $locM, $metkaM
+			end
+		end
+
+		if pcs_pubes > 3:
+			act 'Shave your pussy (0:10)':
+				cla
+				*clr
+				minut += 10
+				pcs_pubes = 0
+				pcs_horny += 10
+				'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shave3.jpg"></center>'
+				'You lathered up and shaved your pussy. Afterwards, you run your hands over your lower body to make sure its nice and smooth which makes you feel a bit horny.'
+
+				act 'Get out and dry off':gt $locM, $metkaM
+			end
+		end
+
+		act 'Get out and dry off':gt $locM, $metkaM
+	end
 end
 
 --- saunaWhore ---------------------------------

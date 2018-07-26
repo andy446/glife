@@ -112,9 +112,9 @@ elseif hour = 8 or hour = 14 or hour = 19:
 			gs 'stat'
 		else
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hanters1.jpg"></center>'
-			'You enthusiasticly listen to the their hunting stories and even share some of your stories.'
+			'You enthusiastically listen to the their hunting stories and even share some of your stories.'
 			gs 'hanters', 'hanters_talk'
-			'You get caught up in the conversation, you don''t even notice how fast the time flies by.'
+			'You get so caught up in the conversation, you don''t even notice how fast the time flies by.'
 		end
 		act 'Move away': gt 'swamp_yard'
 	end
@@ -176,14 +176,14 @@ elseif hour = 8 or hour = 14 or hour = 19:
 						shootingday = daystart
 						gs 'stat'
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/claps_eyes.jpg"></center>'
-						'You approach the hunters sitting in a clearing "Guys, could you give me the rifle I want to try it out again?" you ask the hunters.'
+						'You approach the hunters sitting in a clearing. "Guys, could you give me the rifle? I want to try it out again." You ask the hunters.'
 						if shooting = 1:
 							shooting = 2
 							'"Okay, <<$pcs_nickname>>, just don''t end up like the first time," Andrei said jokingly.'
 						elseif pcs_shoot <= 10:
 							'"Sure, <<$pcs_nickname>>, just be careful." Andrei said smiling.'
 						else
-							'"Here, <<$pcs_nickname>>, just don''t shoot too much, the bullets are expansive." Andrei said smiling.'
+							'"Here, <<$pcs_nickname>>, just don''t shoot too much, the bullets are expensive." Andrei said smiling.'
 						end
 						if pcs_shoot >= 1 and pcs_shoot <= 10:
 
@@ -237,8 +237,8 @@ elseif hour = 8 or hour = 14 or hour = 19:
 						shootingday = daystart
 						gs 'stat'
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/claps_eyes.jpg"></center>'
-						'You approach the hunters sitting in a clearing "Guys, could you give me the rifle I want to try it out again?" you ask the hunters.'
-						'"You need to heal your forehead first." Andrei said smiling. "You''re like an amazon, you need to relax."'
+						'You approach the hunters sitting in a clearing. "Guys, could you give me the rifle? I want to try it out again." You ask the hunters.'
+						'"You need to heal your forehead first." Andrei says smiling. "You have the spirit of an Amazon, you need to relax."'
 
 						act'Further':gt 'swamp_yard'
 					end
@@ -3367,7 +3367,7 @@ if $ARGS[0]='hanterslutLEG2':
 	if pcs_health <= 50:act 'Lose consciousness':gt 'hanters', 'hantersgroupfaint'
 end
 
-if $ARGS[0]='hanters_talk':
+if $ARGS[0] = 'hanters_talk':
 	temp = rand(1,35)
 	if temp = 1:
 		'"What''s the difference between a dog and a fox?"'
@@ -3389,7 +3389,7 @@ if $ARGS[0]='hanters_talk':
 		'Not wanting to spook the little fella into spraying him, my dad slowly retreated toward the fence line, walking backwards and keeping the light trained on the skunk.'
 		'Suddenly, he felt something brush across his shoulders and back and quickly swung the flashlight around and shone it directly into the face of a scarecrow!'
 	elseif temp = 6:
-		'There once was politican that was going hunting. He drove out in his fancy jeep, dressed in camouflage and had a super fancy rifle with optical sight night vision... He walks into the forest, and met a man in sandals, a simple hat and a torn jacket, he looked like a typical village guy.'
+		'There once was politician that was going hunting. He drove out in his fancy jeep, dressed in camouflage and had a super fancy rifle with optical sight night vision... He walks into the forest, and met a man in sandals, a simple hat and a torn jacket, he looked like a typical village guy.'
 		'Man: "Where are you heading?"'
 		'Politician: "I''m gonna shoot a bear!"'
 		'Man: "Yes, you seem well prepared..."'
@@ -3408,9 +3408,9 @@ if $ARGS[0]='hanters_talk':
 	elseif temp = 9:
 		'The three hunters are talking:'
 		'"I once killed a whale with one shot."'
-		'"I strangled a bear with my bear hands."'
-		'"Have you ever heard of the Dead sea?"'
-		'"Who hasn??????t heard?"'
+		'"I strangled a bear with my bare hands."'
+		'"Have you ever heard of the Dead Sea?"'
+		'"Who hasn''t heard of it?"'
 		'"So I..."'
 	elseif temp = 10:
 		'"As I''m getting out of the house I see something resembling a eagle standing on the telephone pole."'

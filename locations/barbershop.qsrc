@@ -1078,7 +1078,7 @@ if $ARGS[0] = 'dyehair':
 			gs 'stat'
 			'"I want to try something really different." you tell him.'
 			'"And what would that be?" Mr. Syomin asks cheerfully.'
-			'"IA nice dark purple, like a dark wine." you announce.'
+			'"I want it nice dark purple, like a dark wine." you announce.'
 			'"As you wish, although I''ve not done too many like that. Please have a seat.", he says and turns around one of the chairs for you.'
 
 			act 'Sit down':

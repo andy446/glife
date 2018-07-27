@@ -17,7 +17,6 @@ gs 'stat'
 if mira = 0:
 	if $clothingworntype = 'nude':
 		act 'Get dressed':
-			minut += 2
 			gs 'clothing', 'wear_last_worn'
 			gs 'underwear', 'wear'
 			gt 'Gadbana'
@@ -64,13 +63,11 @@ if mira = 0:
 					'You strip, sit down and relax. After a proper banya session, you pick up a bucket filled with cold water and pour it over yourself and head over to the shower. You feel like a completely new person.'
 
 					act 'Get dressed':
-						minut += 2
 						gs 'clothing', 'wear_last_worn'
 						gs 'underwear', 'wear'
 						gt 'Gadbana'
 					end
-					
-					act 'Go outside nude': minut += 1 & gt 'Gaddvor'
+					act 'Go outside': minut += 1 & gt 'Gaddvor'
 				end
 			end
 		else
@@ -279,16 +276,7 @@ else
 				gs 'arousal', 'voyeur', 120
 				gs 'arousal', 'end'
 				gs 'stat'
-				
-				act 'Get dressed':
-					mira = 0
-					minut += 2
-					gs 'clothing', 'wear_last_worn'
-					gs 'underwear', 'wear'
-					gt 'Gadbana'
-				end
-				
-				act 'Go outside nude': mira = 0 & minut += 1 & gt 'Gaddvor'
+				act 'Finish': mira = 0 & gt 'gaddvor'
 			end
 		end
 	end

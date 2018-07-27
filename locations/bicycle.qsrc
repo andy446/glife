@@ -11,9 +11,12 @@ if $ARGS[0] = 'sarai':
 	!gs'time'
 
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/village/findvel.jpg"></center>'
-	'You notice an old bike. But it looks like being in a good condition, you can probably ride it without any trouble.'
-	if sunWeather = 0:'You notice an old bike. You would love to take a ride with it but you decide not to while it''s raining.'
-
+	if sunWeather = 0:
+		'You notice an old bike. You would love to take a ride with it but you decide not to while it''s raining.'
+	else
+		'You notice an old bike. It looks like it''s still in a good condition, you can probably ride it without any trouble.'
+	end
+		
 	if hour >= 6 and hour <= 20 and sunWeather = 1 and month >= 4 and month <= 10:
 		if findvelday ! daystart:
 			act 'Ride the bike (1:00)':

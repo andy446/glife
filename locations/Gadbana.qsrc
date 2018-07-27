@@ -74,10 +74,10 @@ if mira = 0:
 				end
 			end
 		else
-			'The banya is not in use at this time, it is available between 19:00 and 22:00 during the week.'
+			'The banya is not in use at this time, it is available between 19:00 and 22:00 during the weekend.'
 		end
-	elseif week ! 6:
-		'The banya is not used at the weekend, it is usually ready to use from 19:00 during the week.'
+	elseif week < 6:
+		'The banya is not used during the week, it is usually ready to use from 19:00 during the weekend.'
 	end
 
 	act 'Wash your body (0:25)':
@@ -89,7 +89,7 @@ if mira = 0:
 
 		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mit.jpg"></center>'
-		'You lather your body washcloth and start scrubbing your body. You rinse off the soap and start to lather your hair with the shampoo. After rinsing off the shampoo you are completely clean.'
+		'You lather your body washcloth and start scrubbing your body. You rinse off the soap and start to lather the hair with the shampoo. After rising off the shampoo you are completely clean.'
 
 		act 'Leave':gt $loc, $metka
 	end

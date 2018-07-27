@@ -344,7 +344,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 			end
 		end
 
-		if npc_rel['A60'] >= 20 and week = 6 and hour > 18 and hour < 22:
+		if npc_rel['A60'] >= 20 and week >= 6 and hour > 18 and hour < 22:
 
 			act 'Suggest taking a steam bath in your grandparents sauna':
 				if Mira_no = 0:

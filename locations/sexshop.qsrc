@@ -298,7 +298,7 @@ if $ARGS[0] = 'start':
 	end
 
 	if money >= 1100 and superdildo = 0:
-		act 'Buy 35cm long dildo (8,500 <b>₽</b>)':
+		act 'Buy 35cm long dildo (1,100 <b>₽</b>)':
 			cla
 			*clr
 			minut += 5

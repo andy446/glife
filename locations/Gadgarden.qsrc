@@ -82,7 +82,7 @@ if $ARGS[0] = 'garden':
 			act 'Finish':gt'Gadgarden','garden'
 	    end    
 	end
-    act 'Go outside':minut += 1 & gt'Gaddvor'
+    act 'Leave':minut += 1 & gt'Gaddvor'
 end	
 
 if $ARGS[0] = 'strawberry':
@@ -151,7 +151,7 @@ if $ARGS[0] = 'strawberry':
 		end
 	end	
 
-	act 'Go':minut += 5 & gt'Gadgarden','garden'
+	act 'Leave':minut += 1 & gt'Gadgarden','garden'
 end	
 
 
@@ -212,7 +212,7 @@ if $ARGS[0] = 'fruit_garden':
 			act 'Finish':gt 'Gadgarden','fruit_garden'   
 		end
 	end	
-	act 'Go':minut += 5 & gt'Gadgarden','garden'
+	act 'Leave':minut += 1 & gt'Gadgarden','garden'
 end	
 
 --- Gadgarden ---------------------------------

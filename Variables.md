@@ -2,7 +2,7 @@
 
 The variables can be divided into several categories:
 *  PC's variables - describe player character and her activity
- * [Some of the PS's variables related to skills](skills)
+ * [Some of the PS's variables related to skills](https://git.catrenelle.com/Kevin_Smarts/glife/wiki/skills)
 *  NPC's variables - describe np characters, their relations to pc and their activity
 *  Environment varaiables
 

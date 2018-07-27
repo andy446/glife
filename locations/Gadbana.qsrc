@@ -89,7 +89,7 @@ if mira = 0:
 
 		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mit.jpg"></center>'
-		'You lather your body washcloth and start scrubbing your body. You rinse off the soap and start to lather the hair with the shampoo. After rising off the shampoo you are completely clean.'
+		'You lather your body washcloth and start scrubbing your body. You rinse off the soap and start to lather your hair with the shampoo. After rinsing off the shampoo you are completely clean.'
 
 		act 'Leave':gt $loc, $metka
 	end

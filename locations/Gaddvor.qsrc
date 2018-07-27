@@ -44,9 +44,9 @@ if $ARGS[0]='':
 		end
 	end
 	if StoryLine = 1:
-		'A fenced yard behind your grandparents'' house. The yard is surrounded by a small barn packed with junk and a separate building that is used as a banya where you can take a bath. On the back porch there are a few chairs to sit in.'
+		'A fenced yard behind your grandparents'' house. The yard is surrounded by a small barn packed with junk and a separate building that is used as a banya where you can take a bath. On the back porch are a few chairs to sit in.'
 	else
-		'A fenced yard behind the house. The yard is surrounded by a small barn packed with junk and a separate building that is used as a banya where people take a bath. On the back porch there are a few chairs to sit in.'
+		'A fenced yard behind the house. The yard is surrounded by a small barn packed with junk and a separate building that is used as a banya where people take a bath. On the back porch are a few chairs to sit in.'
 	end
 
 
@@ -63,8 +63,8 @@ if $ARGS[0]='':
 
 		if mira_guest = 1: Miraloc = 7 & 'Your friend <a href="exec: gt ''Miroslava'', ''Start''">Mira</a> stands next to you.'
 
-		act 'Enter the barn':minut += 1 & gt 'Gadsarai'
-		act 'Enter garden':minut += 1 & gt'Gadgarden','garden'
+		act 'Go to the barn':minut += 1 & gt 'Gadsarai'
+		act 'Go to the garden':minut += 1 & gt'Gadgarden','garden'
 		if meadow > 0 and hour >= 6 and hour < 20 and month >= 4 and month <= 10:act 'Go to the meadow':minut += 20 & gt 'Meadow', 'start'
 		act '<b>Go to Gadukino</b>':minut += 5 & gt 'gadukino'
 
@@ -95,7 +95,7 @@ if $ARGS[0]='chickens':
 	*clr & cla
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/village/chickens1.jpg"></center>'
 	'Ordinary chickens clucking about their pen.'
-	minut += 5
+	minut += 1
 	gs 'stat'
 
 	!job Granny
@@ -113,7 +113,7 @@ if $ARGS[0]='chickens':
 			act 'Finish':gt'Gaddvor'
 		end
 	end
-	act 'Go': gt'Gaddvor'
+	act 'Leave': gt'Gaddvor'
 end
 !!125e
 

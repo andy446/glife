@@ -121,7 +121,8 @@ if $ARGS[0] = 'start':
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mirafather.jpg"></center>'
 					'Mira''s father tells you that she''s not home, she is over at the river.'
 
-					act 'Go to river':gt 'gadriver','start'
+					act 'Go to the river':gt 'gadriver','start'
+					act 'Leave':gt 'Gadukino'
 				elseif mira_temp >= 10 and sunWeather = 0 and hour < 20 and MiraLoc ! 0 and Mira_no = 0:
 					*clr & cla
 					minut += 2

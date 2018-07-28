@@ -154,7 +154,7 @@ else
 					elseif pcs_ass >= 25:
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkaanalhome2.jpg"></center>'
 					end
-					'Mitka takes you to his house and onto the veranda.  He has you sit on the couch and begins pawing at your cloths pulling them off you.'
+					'Mitka takes you to his house and onto the veranda. He has you sit on the couch and begins pawing at your cloths pulling them off you.'
 					gs 'boyStat', 'A63'
 					npc_sex[$boy] += 1
 					npc_QW['A63'] += 1

@@ -59,7 +59,7 @@ if $ARGS[0]='':
 		*nl
 		'You are naked and can only go to your grandparents to get dressed or go to the banya.'
 	else
-		if hour >= 6 and hour < 20 and month >= 4 and month <= 10:'In the yard there are <a href="exec:gt ''Gaddvor'',''chickens''">chickens</a> running around.'
+		if feed_chickens = 1 or (hour >= 6 and hour < 20 and month >= 4 and month <= 10):'In the yard there are <a href="exec:gt ''Gaddvor'',''chickens''">chickens</a> running around.'
 
 		if mira_guest = 1: Miraloc = 7 & 'Your friend <a href="exec: gt ''Miroslava'', ''Start''">Mira</a> stands next to you.'
 

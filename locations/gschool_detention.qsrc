@@ -269,12 +269,14 @@ if $ARGS[0] = 'incidental_events':
 	end
 end
 
+!!can be any of the girls from school but a nerd, Veronika, Ekaterina, or Anushka.
 if $ARGS[0] = 'upskirt1':
 	*clr
 	cla
 	minut += 60
-	gs 'gschool_events', 'rand_teacher_arg'
-!!can be any of the girls from school but a nerd, Veronika, Ekaterina, or Anushka.
+	:newupskirtgirl1
+	gs 'gschool_events', 'rand_girl_arg', 1, 1, 0, 1, 1, 0
+	if $rand_girl = 'Veronika' or $rand_girl = 'Ekaterina' or $rand_girl = 'Anushka': jump'newupskirtgirl1'
 	'<center><b><font color="maroon">Detention</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/detention/spreadg.jpg"></center>'
 	'As you are sitting at a table bored out of your mind waiting for detention to end. You start looking around and you notice <<$rand_girl>> sitting at a table across from you, after a few minutes she leans back in her chair and relaxes. Spreading her legs slightly as she does, the movement draws your eyes and you are given a eye full. Apparently she forgot her panties today because her pussy is now on full display for any to see, well any from the right vantage point, like yourself.'
@@ -302,12 +304,14 @@ if $ARGS[0] = 'upskirt1':
 	end
 end
 
+!!can be any of the girls from school but a nerd, Veronika, or Anushka.
 if $ARGS[0] = 'upskirt2':
 	*clr
 	cla
 	minut += 60
-	gs 'gschool_events', 'rand_teacher_arg'
-!!can be any of the girls from school but a nerd, Veronika, or Anushka.
+	:newupskirtgirl2
+	gs 'gschool_events', 'rand_girl_arg', 1, 1, 0, 1, 1, 0
+	if $rand_girl = 'Veronika' or $rand_girl = 'Anushka': jump'newupskirtgirl2'
 	'<center><b><font color="maroon">Detention</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/detention/upskirt.jpg"></center>'
 	'As you are sitting at a table bored out of your mind waiting for detention to end. You start looking around and you notice <<$rand_girl>> climbing up the small ladder uses to get to the top shelves of the books. As you watch her climb you quickly realize she is not wearing any panties and is giving everyone watching a clear view of her pussy. Before you can say anything someone whistles, which causes the teacher to start demanding who did it. During the distraction she quickly climbs back down and returns to her seat, blushing slightly but also smiling.'
@@ -317,14 +321,16 @@ if $ARGS[0] = 'upskirt2':
 	act 'Go home': gt 'gschool_detention', 'end'
 end
 
+!!can be any of the girls from school but a nerd, Veronika, or Ekaterina
 if $ARGS[0] = 'flashing girl':
 	*clr
 	cla
 	minut += 60
-	gs 'gschool_events', 'rand_teacher_arg'
+	:newflashinggirl
+	gs 'gschool_events', 'rand_girl_arg', 1, 1, 0, 1, 1, 0
+	if $rand_girl = 'Veronika' or $rand_girl = 'Ekaterina': jump'newflashinggirl'
 	'<center><b><font color="maroon">Detention</font></b></center>'
 	'<center><video autoplay loop src="images/locations/pavlovsk/school/detention/detflash1.mp4"></video></center>'
-!!can be any of the girls from school but a nerd, Veronika, or Ekaterina
 	'As you are sitting at a table bored out of your mind waiting for detention to end. You start looking around and you notice <<$rand_girl>> sitting in a spot that blocks almost everyones view of her, but yours. She has her phone held in front of her, obviously having a video conversation with someone, then you see her lift her shirt and flash who ever it is on the phone. She laughs a bit apparently at their reaction, the teacher clears his throat at her outburst. She quickly ends the call and spends the rest of the time playing on her phone. After watching her a bit more, you realize she is not going to do anything more so you play on your phone as well, at least there was a little excitement today.'
 	gs 'arousal', 'voyeur', 5
 	gs 'arousal', 'end'
@@ -332,14 +338,16 @@ if $ARGS[0] = 'flashing girl':
 	act 'Go home': gt 'gschool_detention', 'end'
 end
 
+!!can be any of the girls from school but a nerd, Veronika, or Ekaterina
 if $ARGS[0] = 'teasing girl':
 	*clr
 	cla
 	minut += 60
-	gs 'gschool_events', 'rand_teacher_arg'
+	:newteasinggirl
+	gs 'gschool_events', 'rand_girl_arg', 1, 1, 0, 1, 1, 0
+	if $rand_girl = 'Veronika' or $rand_girl = 'Ekaterina': jump'newteasinggirl'
 	'<center><b><font color="maroon">Detention</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/detention/tease.jpg"></center>'
-!!can be any of the girls from school but a nerd, Veronika, or Ekaterina
 	'As you are sitting at a table bored out of your mind waiting for detention to end. You start looking around and you notice <<$rand_girl>> has snuck off into the book stacks, she is watching some boys watch her, she pulls down her pants and starts to pull down her panties but she stops just before she shows anything, grins as she pulls her clothes back up. After  doing this a few times, each time the boys look hopefully this might be the time, but it never is. Finally she gets bored teasing them and wanders off. After that you start playing on your phone again, at least there was a little excitement today.'
 	gs 'arousal', 'voyeur', 5
 	gs 'arousal', 'end'
@@ -347,14 +355,18 @@ if $ARGS[0] = 'teasing girl':
 	act 'Go home': gt 'gschool_detention', 'end'
 end
 
+!!boy can be Dimka, Andrey, Ivan, Lazar, Svyatoslav, or any of the gopnik boys but Niko. If Sveta is dating any of the boys then they should not be called either.
 if $ARGS[0] = 'handjob':
 	*clr
 	cla
 	minut += 60
-	gs 'gschool_events', 'rand_teacher_arg'
+	gs 'gschool_events', 'rand_boy_arg', 0, 0, 0, 1, 0, 0
+	
+!!fixed the gs, but the other boys must still be included and niko and lovers excluded, if somebody fixes that, remove this comment and the next line (julzor)
+	$rand_boy = 'a boy you don''t know'
+	
 	'<center><b><font color="maroon">Detention</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/detention/sex/handjob.jpg"></center>'
-!!boy can be Dimka, Andrey, Ivan, Lazar, Svyatoslav, or any of the gopnik boys but Niko. If Sveta is dating any of the boys then they should not be called either.
 	'As you are sitting at a table bored out of your mind waiting for detention to end. You start looking around and you notice a girl, you have seen her around but she is from another grade and you can''t recall her name. She is sitting next to <<$rand_boy>> she has his shorts pulled down in front and is jerking him off under the desk. Both of them do a fairly good job of acting like nothing is going on, but from your seat, you have a perfect view of the action.'
 	*nl
 	'Some time later, she has to switch hands one than once, but he finally leans back and closes his eyes. Sensing he is close she tilts his dick down as she keeps jerking him off and cups her other hand under the head of his dick. Moment later he is shooting his load into her hand, a bit of it shoots out onto the floor as well. Once he finishes she lets go of him and brings her hands up to her face, where she starts to lick all his cum off them, as he tucks his dick away. Not long after they sit side by side playing on their phones, pretending like nothing happened. Soon you start playing on your phone as well, at least there was a little excitement today.'
@@ -374,6 +386,7 @@ end
 !!If outcast social group random girl is Sonia or any girl Sveta has a friendship of 50+
 if $ARGS[0] = 'Chat with <<$rand_girl>>':
 	*clr & cla
+	gs 'gschool_events', 'rand_girl_arg', 1, 1, 1, 1, 1, 0
 	!!npc_rel['A?'] += 3
 	gs 'stat'
 	'<center><b><font color="maroon">Detention</font></b></center>'
@@ -391,6 +404,7 @@ end
 !!If outcast social group random boy is Lesco Tsarev, Petia Alkaev or any boy Sveta has a friendship of 50+
 if $ARGS[0] = 'Chat with <<$rand_boy>>':
 	*clr & cla
+	gs 'gschool_events', 'rand_boy_arg', 1, 1, 1, 1, 1, 0
 	!!npc_rel['A?'] += 3
 	gs 'stat'
 	'<center><b><font color="maroon">Detention</font></b></center>'
@@ -440,6 +454,7 @@ if $ARGS[0] = 'Help Friends in need':
 	'They have a whispered argument or discussion - you are not sure which - but when they are done, they both look around and you can tell they are up to something. <<$rand_girl>> leans over to you and whispers: "Can you distract Mr <<$rand_teacher>> for us, so we can slip away?" Both of them give you pleading looks.'
 !!I changed this to give the player a choice if they want to help the couple or not.
 	act 'No':
+		cla & *clr
 		'<center><b><font color="maroon">Detention</font></b></center>'
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/detention/detflirt.jpg"></center>'
 !!not sure if you can code it to give a friend boost to which ever NPC it is, but if so I put in the code but blank number.
@@ -449,6 +464,7 @@ if $ARGS[0] = 'Help Friends in need':
 		act 'Go home': gt 'gschool_detention', 'end'
 	end
 	act 'Yes':
+		cla & *clr
 		'<center><b><font color="maroon">Detention</font></b></center>'
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/detention/detflirt.jpg"></center>'
 !!not sure if you can code it to give a friend boost to which ever NPC it is, but if so I put in the code but blank number.

@@ -41,32 +41,26 @@ if $args[0] = 'meet':
 		'After the guys show you around their apartment, they begin to prepare a table in the kitchen. You offer to help them and they gladly accept, and the three of you have the table ready in no time. Then one of them produces a bottle of vodka and asks: "Thanks for the help, <<$pcs_nickname>>... would you like a drink?"'
 		Act 'Drink with the guys': gt 'placer_sex', 'vodka'
 		Act 'Decline the drink':gt 'placer_sex', 'game'
-
 	else
-		if dormrape = 0:
+		cls
+		alko += 10
+		cumspclnt = 2
+		gs 'cum_cleanup'
+		pcs_breath = 0
+		minut += 30
+		gs'stat'
+		'<center><img <<$set_imgh>> src="images/shared/sex/sleep/drunk.jpg"></center>'
+		'They can stomach their alcohol a lot better than you, and before you know it you''re absolutely hammered. The guys look like they''re still feeling fine.'
+		'Once they realize you''re drunk enough for them to make their move, they begin tugging at your clothes and undress you on one of their beds. You''re too drunk to fight them off, and just let it happen.'
+		'Once they have you naked, you hear the <<$kol_man_text>> discussing among one another: "Alright, we got her here... that was easy! Whose turn is it to go first?"'
+		act 'Continue':
 			cls
-			alko += 10
-			cumspclnt = 2
-			gs 'cum_cleanup'
-			pcs_breath = 0
-			minut += 30
-			gs'stat'
-			'<center><img <<$set_imgh>> src="images/shared/sex/sleep/drunk.jpg"></center>'
-			'They can stomach their alcohol a lot better than you, and before you know it you''re absolutely hammered. The guys look like they''re still feeling fine.'
-			'Once they realize you''re drunk enough for them to make their move, they begin tugging at your clothes and undress you on one of their beds. You''re too drunk to fight them off, and just let it happen.'
-			'Once they have you naked, you hear the <<$kol_man_text>> discussing among one another: "Alright, we got her here... that was easy! Whose turn is it to go first?"'
-			act 'Continue':
-				cls
-				rape += 1
-				gang += 1
-				dormrape += 1
-				minut += 5
-				guy += kol_man
-				ciklkm = kol_man
-				if dormrapeQW = 0:dormrapeQW = 1
-				gt $curloc
-			end
-		elseif dormrape = 1:
+			rape += 1
+			gang += 1
+			minut += 5
+			guy += kol_man
+			ciklkm = kol_man
+			if dormrapeQW = 0:dormrapeQW = 1
 			rand1=rand(0,100)
 			if rand1<10:'<center><img <<$set_imgh>> src="images/locations/pavlovsk/park/gop/sex/gop/gopgang2.jpg"></center>'
 			if rand1>=10:'<center><video autoplay loop src="images/locations/pavlovsk/park/sex/orgy1,'+rand(0,4)+'.mp4"></video></center>'
@@ -98,10 +92,10 @@ if $args[0] = 'meet':
 			gs'stat'
 			endrandom = RAND (0,1)
 			if endrandom = 0:
-			'Finally the last guy spills his seed over your exhausted body, and they all leave the room except for <<$boydesc2>>. He sits down on a different bed, chuckling while he watches you sluggishly brush up. Your legs are shaky from the exhaustion, and the alcohol is also still in your system. Both of those factors make you feel rather disoriented, and you try to ignore <<$boydesc2>>''s smug grin. When you''re ready to leave, he waves you goodbye with a smirk on his face: "You were a nice fuck, <<$pcs_nickname>>. I see why Pavlovsk girls are so popular... we''ll definitely be visiting again."'
+				'Finally the last guy spills his seed over your exhausted body, and they all leave the room except for <<$boydesc2>>. He sits down on a different bed, chuckling while he watches you sluggishly brush up. Your legs are shaky from the exhaustion, and the alcohol is also still in your system. Both of those factors make you feel rather disoriented, and you try to ignore <<$boydesc2>>''s smug grin. When you''re ready to leave, he waves you goodbye with a smirk on his face: "You were a nice fuck, <<$pcs_nickname>>. I see why Pavlovsk girls are so popular... we''ll definitely be visiting again."'
 				gs 'arousal', 'end'
 				gs 'stat'
-				act 'Leave the hostel':podvalrape = 0 & dormrape = 0 & gt'pavResidential'
+				act 'Leave the hostel':podvalrape = 0 & gt'pavResidential'
 
 			elseif endrandom = 1:
 				act 'Open your eyes':
@@ -118,7 +112,7 @@ if $args[0] = 'meet':
 					'Those bastards! You quickly get dressed and try to cover up the writings as much as you can before leaving the room. Hopefully you can clean that up before anyone sees it on you!'
 					gs 'arousal', 'end'
 					gs 'stat'
-					act 'Leave the hostel':podvalrape = 0 & dormrape = 0 & gt'pavResidential'
+					act 'Leave the hostel':podvalrape = 0 & gt'pavResidential'
 				end
 			end
 		end

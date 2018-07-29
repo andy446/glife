@@ -102,10 +102,10 @@ if $ARGS[0] = 'start':
 		if home_owned[2] = 0 and workPTU <= 2 and HotelRoom < 1:
 			!nowhere to live in town
 			'It''s quite dark now, and you have no where to stay nearby. Maybe you should try to sleep on a bench?'
+			if StoryLine = 1:*P ' Or try your luck, go Uncle Shulgin''s Apartment?'
 		else
 			'It''s quite dark now, and you don''t feel like walking. Maybe you Should try sleeping on a bench?'
 		end
-		if StoryLine = 1:*P ' Or try your luck, go Uncle Shulgin''s Apartment?'
 		act 'Sleep on a bench': gt'placer_sex','sleeping_park_bench'
 	end
 

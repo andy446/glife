@@ -1099,8 +1099,8 @@ elseif mosol >= 30:
 	$stat_msg += '<BR><b><font color="red">Your pussy feels a little itchy, it seems to be from rubbing against your clothing.</font></b>'
 end
 
-if analplugIN = 1:$stat_msg += '<BR><b><font color="red">You have a butt plug inserted in your ass.</font></b>'
-if vibratorin = 1:$stat_msg += '<BR><b><font color="red">You have a vibrator inserted in your vagina.</font></b>'
+if analplugIN = 1:$stat_msg += '<BR><b><font color = #FF1493>You have a butt plug inserted in your ass.</font></b>'
+if vibratorin = 1:$stat_msg += '<BR><b><font color = #FF1493>You have a vibrator inserted in your vagina.</font></b>'
 !$stat_msg += '<BR>'
 if young_shop_work = 1:
 	if hour = 16 and minut <= 5 and week < 6 and inWorkYoungShop = 0:

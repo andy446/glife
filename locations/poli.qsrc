@@ -44,8 +44,6 @@ if $ARGS[0] = 'start':
 		act 'Ask the doctor for a health treatment (1:00)':
 			cla
 			minut += 60
-			pcs_health = pcs_vital * 10 + pcs_stren * 5 + 1000
-			if pillcon > 0 and rand(0,4) = 0:pillcon -= 2500
 			if hosprand = 0:gt 'poli', '0'
 			if hosprand = 1:gt 'poli', '1'
 			if hosprand = 2:gt 'poli', '2'
@@ -56,8 +54,8 @@ if $ARGS[0] = 'start':
 		end
 	end
 
-	if pain['total'] > 10:
-		act 'Ask the doctor to treat your pains (1:00)':
+	if pcs_health < (pcs_vital * 10 + pcs_stren * 5) or pain['total'] > 10:
+		act 'See a Doctor about your health (1:00)':
 			cla
 			minut += 60
 			if pain['head'] > 0:pain['head'] -= rand(7,13)
@@ -97,12 +95,15 @@ if $ARGS[0] = 'start':
 			if pain['clitoris'] > 0:pain['clitoris'] -= rand(7,13)
 			if pain['urethra'] > 0:pain['urethra'] -= rand(7,13)
 			if pain['cervix'] > 0:pain['cervix'] -= rand(7,13)
-			'The doctor guides you to a bed and tells you to lie down, after which he gives you a combined painkiller, steroid and vitamin shot.'
-			'You feel drowsy for a little while, but afterwards you feel a lot better. The shot sped up your aching body''s recovery by a lot, meaning the pain probably won''t come back nearly as strongly when the shot wears off.'
+			pcs_health = pcs_vital * 10 + pcs_stren * 5 + 1000
+			if pillcon > 0 and rand(0,4) = 0:pillcon -= 2500
+			gs 'stat'
 
 			if hosprand = 0:gt 'poli', '0'
 			if hosprand = 1:gt 'poli', '1'
 			if hosprand = 2:gt 'poli', '2'
+			'The doctor guides you to a bed and tells you to lie down, after which he gives you a combined painkiller, steroid and vitamin shot.'
+			'You feel drowsy for a little while, but afterwards you feel a lot better. The shot sped up your aching body''s recovery by a lot, meaning the pain probably won''t come back nearly as strongly when the shot wears off, and should aid your health recovery over the coming days.'
 
 			act 'Return to the entrance':gt 'poli', 'start'
 		end

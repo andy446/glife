@@ -1273,7 +1273,7 @@ if $ARGS[0] = 'abdTrainDildos':
 	dildoSmall = 10
 	dildoRegular = 20
 	dildoBig = 30
-	dildoHorse = 40
+	dildoHorse = 35
 	'<center><img <<$set_imgh>> src="images/locations/shared/abduction/sex/slavewhoredildos1.jpg"></center>'
 	'You take the dildos from the ground and clean them up a bit in the shower.'
 	'There are four of them: small, regular, big and one that''s horse sized.'
@@ -1422,7 +1422,7 @@ if $ARGS[0] = 'abdTrainDildosHorse':
 end
 
 if $ARGS[0] = 'abdTrainDildosHorseUse':
-	dick = 40
+	dick = 35
 	if pcs_vag > dildoHorse:
 		'<center><video autoplay loop src="images/locations/shared/abduction/sex/slavewhoredildoshorse.mp4"></video></center>'
 		'You start fucking the dildo with ease, your pussy swallows it whole without any problem.'
@@ -1548,7 +1548,7 @@ if $ARGS[0] = 'abdTrainDildosAnalHorse':
 end
 
 if $ARGS[0] = 'abdTrainDildosAnalHorseUse':
-	dick = 40
+	dick = 35
 	if pcs_ass > dildoBig:
 		'<center><video autoplay loop src="images/locations/shared/abduction/sex/slavewhoredildosanalhorse.mp4"></video></center>'
 		'You start fucking the dildo with ease, your anus swallows it whole without any problem.'
@@ -1659,10 +1659,10 @@ if $ARGS[0] = 'abdTrainDildosMouthBigUse':
 end
 
 if $ARGS[0] = 'abdTrainDildosMouthHorse':
-	if pcs_throat >= 35:
+	if pcs_throat >= dildoHorse:
 		'You feel that your throat can accomodate this dildo easily.'
 		act 'Use it':gt 'abduction', 'abdTrainDildosMouthHorseUse'
-	elseif pcs_throat <= 35 and pcs_throat > dildoBig:
+	elseif pcs_throat <= dildoHorse and pcs_throat > dildoBig:
 		'You feel that this dildo will stretch your throat, making it a bit deeper.'
 		act 'Use it':gt 'abduction', 'abdTrainDildosMouthHorseUse'
 	else
@@ -1673,8 +1673,8 @@ if $ARGS[0] = 'abdTrainDildosMouthHorse':
 end
 
 if $ARGS[0] = 'abdTrainDildosMouthHorseUse':
-	dick = 35
-	if pcs_throat > 35:
+	dick = dildoHorse
+	if pcs_throat > dildoHorse:
 		'<center><video autoplay loop src="images/locations/shared/abduction/sex/slavewhoredildosmouthhorse.mp4"></video></center>'
 		'You start sucking the dildo with ease, your throat swallows it whole without any problem.'
 		gs 'stat'

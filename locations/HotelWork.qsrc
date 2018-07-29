@@ -61,13 +61,13 @@ if $ARGS[0] = 'hotcouple':
 					'" no problem honey , this evening is all about what you want." '
 					'"Do you want him to come all over your face? " '
 					'-"Yeah sure, that is fine"'
-					‘You lay down on your back'
+					'You lay down on your back'
 					act 'finish':gt 'HotelWork', 'hotcoupfin'
 				end
 				act 'yes' :
 					*clr & cla
 					gs'stat'
-					‘You lie down on the bed and spread your legs. Uliana takes Motya''s cock in her hand and guides it towards your pussy.'
+					'You lie down on the bed and spread your legs. Uliana takes Motya''s cock in her hand and guides it towards your pussy.'
 					'" Just relax Honey, he will be very gentle." she said while giving you a little smile.'
 					'<left><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/sex/hotcouple6.jpg"></left>'
 					'Motya began pressing his dick into your pussy. he was slow and careful not to push too hard.'

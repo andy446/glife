@@ -340,7 +340,7 @@ if $ARGS[0] = 'sex':
 					gs 'cum_manage'
 					bmANAL[Tboynum] += 1
 					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/event/hotel/anal2.jpg"></center>'
-					'Since you are on your back, you are a bit lower than what would be ideal and <<$boydesc>> is having trouble getting enough leverage to fuck your ass with as much force as he''d like, so he pulls his cock out of your hole and flips you over. You get yourself up on your hands and knees, he pulls your hips back towards him and within a second you feel him thrust his cock balls deep back up your ass. He grabs a hold of your hips and starts pounding your asshole as hard as he can, his balls slapping against your clit with every thrust, the sound of slapping flesh getting louder as his hips join in, smacking against your butt.'
+					'Since you are on your back, you are a bit lower than what would be ideal and <<$boydesc>> is having trouble getting enough leverage to fuck your ass with as much force as he''d like, so he pulls his cock out of your hole and flips you over. You get yourself up on your hands and knees, he pulls your hips back towards him and within a second you feel him thrust his cock balls deep back up your ass. He grabs a hold of your hips and starts pounding your asshole as hard as he can, his balls slapping against your clit with every thrust, the sound of slapping flesh getting louder as his hips join in, smacking against your butt. You feel him begin to cum in your ass but he''s not done with you yet.'
 					gs 'arousal', 'anal', 10, 'prostitution'
 					gs 'stat'
 					act 'Finish him off':
@@ -532,9 +532,11 @@ if $ARGS[0] = 'sex':
 						act 'Continue':
 							*clr
 							cla
+							spafinloc = 3
+							gs 'cum_manage'
 							bmANAL[Tboynum] += 1
 							'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/event/hotel/anal2.jpg"></center>'
-							'Since you are on your back, you are a bit lower than what would be ideal and <<$boydesc>> is having trouble getting enough leverage to fuck your ass with as much force as he''d like, so he pulls his cock out of your hole and flips you over. You get yourself up on your hands and knees, he pulls your hips back towards him and within a second you feel him thrust his cock balls deep back up your ass. He grabs a hold of your hips and starts pounding your asshole as hard as he can, his balls slapping against your clit with every thrust, the sound of slapping flesh getting louder as his hips join in, smacking against your butt.'
+							'Since you are on your back, you are a bit lower than what would be ideal and <<$boydesc>> is having trouble getting enough leverage to fuck your ass with as much force as he''d like, so he pulls his cock out of your hole and flips you over. You get yourself up on your hands and knees, he pulls your hips back towards him and within a second you feel him thrust his cock balls deep back up your ass. He grabs a hold of your hips and starts pounding your asshole as hard as he can, his balls slapping against your clit with every thrust, the sound of slapping flesh getting louder as his hips join in, smacking against your butt. You feel him begin to cum in your ass but he''s not done with you yet.'
 							gs 'arousal', 'anal', 10, 'prostitution'
 							gs 'stat'
 							act 'Finish him off':
@@ -564,7 +566,7 @@ if $ARGS[0] = 'End':
 	'<center><video autoplay loop src="images/pc/activities/otel1.mp4"></video></center>'
 	'After the two of you relax for a while longer, you smile at <<$boydesc>> and say: "That was fun! But I should really get going..."'
 	'<<$boydesc>> stretches lazily on the bed, not bothering to get up. "You were great, <<$pcs_nickname>>! I hope I''ll run into you again, next time I''m in Pavlovsk!"'
-	if sparrloc[temp] = 11 and sparrvol > 0:cumspclnt = 12 & gs 'cum_cleanup' & 'When you look around the room, you find a packet of sanitary napkins. You take one and quickly wipe the sperm off your face, in an attempt to make yourself presentable enough to go outside.'
+	if arrpos('sparrloc', 11) ! -1 and sparrvol > 0:cumspclnt = 12 & gs 'cum_cleanup' & 'When you look around the room, you find a packet of sanitary napkins. You take one and quickly wipe the sperm off your face, in an attempt to make yourself presentable enough to go outside.'
 	gs 'arousal', 'end'
 	gs 'stat'
 	act 'Leave the hotel':gt 'vokzalG'

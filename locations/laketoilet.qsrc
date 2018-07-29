@@ -11,9 +11,9 @@ if $ARGS[0] = 'main':
 
 	cla
 	*clr
-	LCtoiletiventrand = rand(1, 100)
+	LCtoiletiventrand = rand(1,100)
 
-	if hour < 4 and LCtoiletiventrand >= 83:
+	if (hour >= 22 or hour <= 4) and LCtoiletiventrand >= 75:
 		'<center><img <<$set_imgh>> src="images/locations/city/industrial/bbq/sex/toiletsexstart.jpg"></center>'
 		'When you enter the restroom, you see a naked man slowly jerking himself off. He hasn''t noticed you yet.'
 

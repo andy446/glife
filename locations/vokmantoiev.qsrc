@@ -28,8 +28,7 @@ if $ARGS[0] = 'female':
 	act 'Leave':minut += 1 & gt 'vokmantoiev', 'start'
 	
 	act 'Look in the mirror': gt 'mirror', 'start'
-	if pcs_hairbsh = 0: act 'Brush your hair': gt 'mirror', 'brush'
-
+	
 	dynamic $tampon
 	dynamic $quickwash
 	dynamic $basin
@@ -40,7 +39,7 @@ if $ARGS[0] = 'male':
 	$locM = $CURLOC
 	$metka = $ARGS[0]
 	$loc = $CURLOC
-    $location_type = 'public_indoors'
+    $location_type = 'bathroom'
 	cls
 	vokzalToilet = 2
 	gs 'stat'
@@ -48,28 +47,15 @@ if $ARGS[0] = 'male':
 	'<center><img <<$set_imgh>> src="images/locations/shared/bathroom/publictoilet.jpg"></center>'
 	'You open the door to the men''s room and go in.'
 
+	act 'Leave':minut += 1 & gt 'vokmantoiev', 'start'
+	
 	if bimbolevel >= 1:
 		act 'Wait and see if someone finds you':gt 'vokBimbo', 'pos1'
 		act 'Quickly enter a stall':gt 'vokBimbo', 'pos5'
 	end
-	act 'Leave':minut += 1 & gt 'vokmantoiev', 'start'
-
+	
 	act 'Look in the mirror':gt 'mirror', 'start'
-
-	if (cumloc[6] = 1 or cumloc[7] = 1):
-		act 'Wipe the cum off your clothes (0:10)':
-			cla
-			*clr
-			cumspclnt = 6
-			gs 'cum_cleanup'
-			minut += 10
-
-			'You wipe the cum off your clothes and thoroughly rinse out the stains with water.'
-
-			act 'Finish':gt 'vokmantoiev', 'female'
-		end
-	end
-
+	
 	dynamic $tampon
 	dynamic $quickwash
 	dynamic $basin

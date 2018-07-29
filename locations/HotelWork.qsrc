@@ -483,8 +483,8 @@ if $ARGS[0] = 'maid':
 				if maidstat >= 70:'You''re a very experienced maid by now. You know how to clean up all sorts of spots and stains with ease; you easily remove all traces of liquor from the desk.'
 				if resepseen = 0:
 					'Just when you were about to leave the room you notice a folder lying on the ground beneath the desk. '
-					‘You go and pick it up but when you place it back with the other folders on the desk you notice there are some pictures sticking out.'
-					‘It looks like security footage from the lobby.'
+					'You go and pick it up but when you place it back with the other folders on the desk you notice there are some pictures sticking out.'
+					'It looks like security footage from the lobby.'
 					
 					'Should you take a look?' 
 					act 'No, this is none of my business':

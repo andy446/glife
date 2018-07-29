@@ -171,7 +171,7 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 				swamp_clothes = 1
 				!gs 'clothing', 'wear', $lastwornclothingtype, lastwornclothingnumber
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/swamphouse_tkancloth.jpg"></center>'
-				'You find a piece of burlap... "Well, at least it''s something." you say to yourself.'
+				'You find a piece of hessian... "Well, at least it''s something." you say to yourself.'
 				act 'Back.': gt 'swamphouse', 'start'
 			end
 		end
@@ -426,7 +426,7 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 					minut+=5
 					swamp_clothes = 1
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/tkan_cloth.jpg"></center>'
-					'You look around searching for your clothes but can''t seem to find them, instead you hide behind a piece of burlap... It''s better than nothing.'
+					'You look around searching for your clothes but can''t seem to find them, instead you hide behind a piece of hessian... It''s better than nothing.'
 					act 'Further': gt 'swamphouse', 'start'
 				end
 			end

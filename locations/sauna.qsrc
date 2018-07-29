@@ -97,7 +97,13 @@ if $ARGS[0] = 'saunaroom':
 		'<br>Your <a href="exec:gt ''budilnik'', ''start''">alarm clock</a> is set for <<timer>> hours <<timerM>> minutes and currently turned <a href="exec: budilnikOn = 0 & GT ''<<$loc>>''">on</a>.'
 	end
 
-	if money > 0 and workDolg > 0:workDolg -= money & money = 0
+	if SaunaWhore > 0 and money > 0 and workDolg > 0:
+		workDolg = dolg_temp
+		workDolg -= money
+		money -= dolg_temp
+		if money < 0: money = 0
+		if workDolg < 0: workDolg = 0
+	end
 	if workDolg > 0:'Your debt is <<workDolg>> <b>₽</b>'
 
 	act '<b>Exit to the sauna</b>':gt 'saunawhore', 'saunawork'
@@ -105,7 +111,7 @@ if $ARGS[0] = 'saunaroom':
 	if workDolg > 0:
 
 		act 'Have some food (0:15)':
-			gs 'food', 'snack'
+			gs 'food', 'm_meal'
 			workDolg += 100
 		end
 		act 'Drink some water (0:05)':
@@ -122,7 +128,7 @@ if $ARGS[0] = 'saunaroom':
 
 		if money >= 100:
 			act 'Buy some food (0:15) (100 <b>₽</b>)':
-				gs 'food', 'snack'
+				gs 'food', 'm_meal'
 				money -= 100
 			end
 		end
@@ -157,7 +163,11 @@ if $ARGS[0] = 'saunaroom':
 			end
 		else
 			act '<<$sleep_txt>>':
-				workDolg += 850
+				if SaunaWhore > 0:
+					workDolg += 850
+				elseif SaunaWhore = 0:
+					money -= 850
+				end
 				if disable_autosave = 0:
 					if StoryLine = 0:
 						savegame 'autosave.sav'

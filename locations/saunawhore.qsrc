@@ -140,9 +140,15 @@ if $ARGS[0] = 'clientGate':
 	'He seems to be in a <<$moodType>> mood.'
 
 	gs 'stat'
-
-	act 'Take off your clothes':gt 'saunawhore', 'simplystrip'
-	if pcs_dancero >= 10:act 'Do a little striptease':gt 'saunawhore', 'striptease'
+	if $clothingworntype = 'nude':
+		moodTypeRand += 1
+		act 'Get straight to business':gt 'saunawhore', 'strippedGate'
+		gs 'arousal', 'foreplay', 3, 'prostitution'
+		gs 'stat'
+	else
+		act 'Take off your clothes':gt 'saunawhore', 'simplystrip'
+		if pcs_dancero >= 10:act 'Do a little striptease':gt 'saunawhore', 'striptease'
+	end
 end
 
 if $ARGS[0] = 'striptease':
@@ -168,7 +174,7 @@ end
 if $ARGS[0] = 'strippedGate':
 	minut += 2
 	'<center><img <<$set_imgh>> src="images/locations/city/residential/sauna/sex/nakedstand.jpg"></center>'
-	'You are now fully naked in front of the client, his eyes devouring every inch of your young body.'
+	'You are fully naked in front of the client, his eyes devouring every inch of your young body.'
 
 	if pcs_dancero >= 20:act 'Dance naked':gt 'saunawhore', 'nakeddance'
 	act 'Kneel and open your mouth':gt 'saunawhore', 'blowjob'
@@ -1061,6 +1067,9 @@ if $ARGS[0] = 'bathroom':
 	dynamic $quickwash
 	dynamic $bteeth
 	dynamic $basin
+	if breastpump > 0:
+		act 'Use breast pump':gt 'lact_lib', 'bp_milking'
+	end
 end
 
 if $ARGS[0] = 'saunabrit':

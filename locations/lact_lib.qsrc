@@ -365,17 +365,19 @@ end
 if $ARGS[0] = 'bp_milking':
 	pumptime = 0
 	pumptype = 0
-	if $location_type ! 'bathroom' and pcs_exhibition < 60:
+	if $location_type ! 'bathroom' and pcs_inhib < 50:
 		'You can''t use it here.'
+		act 'Don''t pump':gt $loc, $metka
 	else
 		*clr
 		cla
-		pumptime = input ("How long do you plan to pump your breasts? (Not more than 60 minutes)")
-		if pumptime <= 0 or pumptime > 60:
+		pumptime = input ("How long do you plan to pump your breasts?<br>(Defaults 15 minutes, maximum 60 minutes)")
+		if pumptime = '':pumptime = 15
+		if pumptime > 0 and pumptime <= 60:
+			gt 'lact_lib', 'milking'
+		elseif pumptime <= 0 or pumptime > 60:
 			minut += 2
 			act 'Don''t pump':gt $loc, $metka
-		elseif pumptime > 0 and pumptime <= 60:
-			gt 'lact_lib', 'milking'
 		end
 	end
 end
@@ -386,17 +388,19 @@ end
 if $ARGS[0] = 'man_milking':
 	pumptime = 0
 	pumptype = 1
-	if $location_type ! 'bathroom' and pcs_exhibition < 60:
+	if $location_type ! 'bathroom' and pcs_inhib < 50:
 		'You can''t do this here.'
+		act 'Don''t pump':gt $loc, $metka
 	else
 		*clr
 		cla
-		pumptime = input ("How long would you like to milk your breasts? (Not more than 60 minutes)")
-		if pumptime <= 0 or pumptime > 60:
-			minut += 2
-			act 'Don''t milk':gt $loc, $metka
-		elseif pumptime > 0 and pumptime <= 60:
+		pumptime = input ("How long would you like to milk your breasts?<br>(Default 15 minutes, maximum 60 minutes)")
+		if pumptime = '':pumptime = 15
+		if pumptime > 0 and pumptime <= 60:
 			gt 'lact_lib', 'milking'
+		elseif pumptime <= 0 or pumptime > 60:
+			minut += 2
+			act 'Don''t pump':gt $loc, $metka
 		end
 	end
 end

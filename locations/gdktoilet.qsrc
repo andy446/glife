@@ -21,7 +21,7 @@ if $ARGS[0] = 'start':
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/bathroom/bathroom_entrance.jpg"></center>'
 
 	if hour >= 8 and hour <= 23:
-		act 'Go in the Men''s toilet': gt 'gdktoilet', 'mens'
+		act 'Go in the Men''s toilet': gt 'gdktoilet', 'mens_entrance_events'
 		act 'Go in the Women''s toilet': gt 'gdktoilet', 'womens'
 	end
 
@@ -66,24 +66,8 @@ if $ARGS[0] = 'start':
 	end
 end
 
-if $ARGS[0] = 'mens':
-	$metka = 'mens'
-	$loc = 'gdktoilet'
-	cls
+if $ARGS[0] = 'mens_entrance_events':
 	temp = RAND(1,100)
-	gs 'stat'
-	if hour >=20 and hour <=23:
-		if music_on = 1:
-			$track_loop = 'sound/komb.mp3'
-			volume = 50
-			music_loop = 1
-			pl '<a href="exec: music_on = 0 & gt $loc">Turn off the music</a>'
-		else
-			music_loop = 0
-			close all
-			pl '<a href="exec: music_on = 1 & gt $loc">Play music</a>'
-		end
-	end
 !!Gloryhole1
 	if temp >= 80:
 		'<center><b><font color="maroon">Men''s Room</font></b></center>'
@@ -161,7 +145,7 @@ if $ARGS[0] = 'mens':
 								act 'Leave': gt'gdktoilet', 'start'
 							end
 						else
-							act 'leave': gt'gdktoilet', 'start'
+							act 'Leave': gt'gdktoilet', 'start'
 						end
 					end
 				else
@@ -169,13 +153,13 @@ if $ARGS[0] = 'mens':
 					'You look at his naked body and you wonder who''s on the other side. You feel a little turned on by the man''s naked body. You decide to leave.'
 					gs 'arousal', 'voyeur', 10
 					gs 'stat'
-					act 'leave': gt'gdktoilet', 'start'
+					act 'Leave': gt'gdktoilet', 'start'
 				end
 			else
 				pcs_horny += 5
 				gs 'stat'
 				'You look at his naked body and you''re not sure what''s going on. You decide to leave before things get too awkward.'
-				act 'leave': gt'gdktoilet', 'start'
+				act 'Leave': gt'gdktoilet', 'start'
 			end
 		end
 !!Sonia
@@ -293,39 +277,67 @@ if $ARGS[0] = 'mens':
 		minut += 1
 		temp = RAND(1,2)
 		gs 'stat'
+		gt 'gdktoilet', 'mens'
+	end
+end
+
+if $ARGS[0] = 'mens':
+	$metka = 'mens'
+	$loc = 'gdktoilet'
+	$metkaM = 'mens'
+	$locM = 'gdktoilet'
+	$location_type = 'bathroom'
+	cls
+	gs 'stat'
+	
+	if hour >=20 and hour <=23:
+		if music_on = 1:
+			$track_loop = 'sound/komb.mp3'
+			volume = 50
+			music_loop = 1
+			pl '<a href="exec: music_on = 0 & gt $loc">Turn off the music</a>'
+		else
+			music_loop = 0
+			close all
+			pl '<a href="exec: music_on = 1 & gt $loc">Play music</a>'
+		end
+	end
+	
+	'<center><b><font color="maroon">Men''s Room</font></b></center>'
+	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/bathroom/mens/bathroom_mens.jpg"></center>'
+	'You peek around the corner. Inside this room, stalls line the right side, with urinals on the far wall and rows of sinks and <a href="exec:gt ''mirror'', ''start''">mirrors</a> to the left. The room has a smell of disinfectant and stale piss. As you look around you notice a hole in the wall.'
+	
+	act 'Leave': gt 'gdktoilet', 'start'
+	
+	act 'Look at the hole':
+		cls
+		gs 'stat'
 		'<center><b><font color="maroon">Men''s Room</font></b></center>'
-		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/bathroom/mens/bathroom_mens.jpg"></center>'
-		'You peek around the corner. Inside this room, stalls line the right side, with urinals on the far wall and rows of sinks and <a href="exec:gt ''mirror'', ''start''">mirrors</a> to the left. The room has a smell of disinfectant and stale piss. As you look around you notice a hole in the wall.'
-		act 'Look at the hole':
-			cls
-			gs 'stat'
-			'<center><b><font color="maroon">Men''s Room</font></b></center>'
-			'<center><video autoplay loop src="images/locations/pavlovsk/community/bathroom/mens/sex/menghpeek.mp4"></video></center>'
-			'You look at the hole and see a girl fingering her pussy. You feel your pussy moisten and start to itch.'
-			gs 'arousal', 'voyeur', 5
-			gs 'stat'
-			if pcs_horny >=50:
-				act 'Masturbate':
-					cla
-					gs 'stat'
-					'You walk into one of the men''s stalls.'
-					gs 'arousal', 'masturbate', 5
-					gs 'stat'
-					act 'start': gt 'gdktoilet', 'mensmast'
-				end
-			end
-			act 'Move away':
-				cls
-				minut += 1
+		'<center><video autoplay loop src="images/locations/pavlovsk/community/bathroom/mens/sex/menghpeek.mp4"></video></center>'
+		'You look at the hole and see a girl fingering her pussy. You feel your pussy moisten and start to itch.'
+		gs 'arousal', 'voyeur', 5
+		gs 'stat'
+		if pcs_horny >=50:
+			act 'Masturbate':
+				cla
 				gs 'stat'
-				'<center><b><font color="maroon">Men''s Room</font></b></center>'
-				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/bathroom/mens/bathroom_mens.jpg"></center>'
-				'You decide to leave before things get too crazy.'
-				act 'Leave': gt'gdktoilet', 'start'
+				'You walk into one of the men''s stalls.'
+				gs 'arousal', 'masturbate', 5
+				gs 'stat'
+				act 'start': gt 'gdktoilet', 'mensmast'
 			end
 		end
-		act 'Leave': gt'gdktoilet', 'start'
+		act 'Move away':
+			cls
+			minut += 1
+			gs 'stat'
+			gt'gdktoilet', 'mens'
+		end
 	end
+	
+	dynamic $tampon
+	dynamic $quickwash
+	dynamic $basin
 end
 
 if $ARGS[0] = 'mensmast':
@@ -384,13 +396,13 @@ if $ARGS[0] = 'mensmast':
 								gs 'underwear', 'dispose'
 								minut += 2
 								gs 'stat'
-								'You run out of the stall and in doing so quickly you leave your underwear behind.'
-								act 'Leave': gt 'gdk'
+								'You slip past the man and run out of the bathroom so quickly you leave your underwear behind.'
+								act 'Leave': gt 'gdktoilet', 'start'
 							else
 								minut += 2
 								gs 'stat'
-								'You run out of the stall.'
-								act 'Leave': gt 'gdk'
+								'You slip past the man and run out of the bathroom.'
+								act 'Leave': gt 'gdktoilet', 'start'
 							end
 						end
 					else
@@ -422,14 +434,14 @@ if $ARGS[0] = 'mensmast':
 									minut += 5
 									gs 'stat'
 									'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/bathroom/mens/sex/mensmast5.jpg"></center>'
-									'The man leaves the stall, he mumbles something but you are too far gone and woozy. You stay crouched on the floor with cum all over your mouth as you try to recover. You get up and leave.'
-									act 'Leave':gt 'gdktoilet', 'start'
+									'The man leaves the stall, he mumbles something but you are too far gone and woozy. You stay crouched on the floor with cum all over your mouth as you try to recover.'
+									act 'Leave the stall':gt 'gdktoilet', 'mens'
 								end
 							end
 						end
 					end
 				end
-				act 'Leave Stall':gt 'gdktoilet', 'start'
+				act 'Leave Stall':gt 'gdktoilet', 'mens'
 			end
 		end
 	else
@@ -440,7 +452,7 @@ if $ARGS[0] = 'mensmast':
 		minut += 1
 		gs 'stat'
 		'You decide that you shouldn''t continue in fear of being discovered.'
-		act 'Leave Stall':gt 'gdktoilet', 'start'
+		act 'Leave Stall':gt 'gdktoilet', 'mens'
 	end
 end
 

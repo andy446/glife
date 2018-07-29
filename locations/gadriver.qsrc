@@ -183,52 +183,44 @@ if $ARGS[0] = 'Gadbitch':
 	if MiraLoc ! 1 and npc_QW['A63'] >= 13 and RAND(0,10) = 0 and hour >= 8 and hour < 20 and month >= 5 and month <= 9 and temper >= 15 and sunWeather = 1:'<a href="exec: gt ''Gadriver'', ''GuysRiver'' ">Bob Colby</a> is resting on the riverbank.'
 
 	if temper >= 15 and month >= 5 and month <= 9:
-		if $clothingworntype = 'swimwear' or $clothingworntype = 'nude':
+		temp_gr = RAND(0,9)
+		if $clothingworntype ! 'nude':
+			act 'Strip naked':
+				cla
+				minut += 5
+				gs 'underwear', 'remove'
+				gs 'clothing', 'strip', 'VillageRiver'
+				'Without hesitation, you take off all your clothes and neatly fold them before putting them down on a pile. Without your clothes holding you back, you can go for a nice swim in the river or just lie down in the sand and do some sunbathing.'
+				act 'Continue': gt 'Gadriver', 'Gadbitch'
+			end
+		end
+		if $clothingworntype = 'swimwear':
 			act 'Go for a swim':
 				cla
 				*clr
 				cumspclnt = 4
 				gs 'cum_cleanup'
 				minut += 30
-				if $clothingworntype = 'nude':
-					gs 'exercise', 'tier1', 1, 'stren_exp'
-					inhib_exp += rand(1,3)
-				else
-					gs 'exercise', 'tier1', 1, 'stren_exp'
-					if pcs_inhib < 50:inhib_exp += rand(1,3)
-				end
+				gs 'exercise', 'tier1', 1, 'stren_exp'
+				if pcs_inhib < 50:inhib_exp += rand(1,3)
 				pcs_sweat = 10 + rand(0,4)
-				if $clothingworntype = 'swimwear':
-					if hour >= 22 or hour <= 6:
-						if RAND(0,10) < 5 and MiraLoc = 1:
-							'<center><img <<$set_imgh>> src="images/characters/village/mira/rivertwogirls.jpg"></center>'
-							'You and Mira take a nighttime swim in the river, splashing water at each other and having fun.'
-						else
-							'<center><img <<$set_imgh>> src="images/locations/gadukino/river/gadriverswim.jpg"></center>'
-							'You take a nighttime swim in the river, feeling the refreshing and invigorating water flowing across your body.'
-						end
+				if hour >= 22 or hour <= 6:
+					if RAND(0,10) < 5 and MiraLoc = 1:
+						'<center><img <<$set_imgh>> src="images/characters/village/mira/rivertwogirls.jpg"></center>'
+						'You and Mira take a nighttime swim in the river, splashing water at each other and having fun.'
 					else
-						if RAND(0,10) < 5 and MiraLoc = 1:
-							'<center><img <<$set_imgh>> src="images/characters/village/mira/rivertwogirls.jpg"></center>'
-							'You and Mira take a swim in the river, splashing water at each other and having fun.'
-						else
-							'<center><img <<$set_imgh>> src="images/locations/gadukino/river/gadriverswim.jpg"></center>'
-							'You take a swim in the river, feeling the refreshing and invigorating water flowing across your body.'
-						end
+						'<center><img <<$set_imgh>> src="images/locations/gadukino/river/gadriverswim.jpg"></center>'
+						'You take a nighttime swim in the river, feeling the refreshing and invigorating water flowing across your body.'
 					end
 				else
-					temp_gr = RAND(0,15)
-					if temp_gr >= 10 and MiraLoc = 1:
-						pcs_horny += RAND(5,15)
-						gs 'stat'
-						'<center><img <<$set_imgh>> src="images/characters/village/mira/rivertwogirlsnude'+rand(0,5)+'.jpg"></center>'
-						'You step in to the river, you and Mira have a good old fashioned water fight, splashing each other until one of you finally surrenders.'
+					if RAND(0,10) < 5 and MiraLoc = 1:
+						'<center><img <<$set_imgh>> src="images/characters/village/mira/rivertwogirls.jpg"></center>'
+						'You and Mira take a swim in the river, splashing water at each other and having fun.'
 					else
-						'<center><img <<$set_imgh>> src="images/locations/gadukino/river/watergirls.jpg"></center>'
-						'You take your clothes off and swiftly step into the river, you sigh, feeling the cold refreshing and invigorating water.'
+						'<center><img <<$set_imgh>> src="images/locations/gadukino/river/gadriverswim.jpg"></center>'
+						'You take a swim in the river, feeling the refreshing and invigorating water flowing across your body.'
 					end
 				end
-				temp_gr = RAND(0,9)
 
 				act 'Get out of the water':
 					if MiraLoc ! 1 and npc_QW['A63'] >= 13 and temp_gr = 0 and hour >= 8 and hour < 20:
@@ -286,80 +278,71 @@ if $ARGS[0] = 'Gadbitch':
 					end
 				end
 			end
-
 		else
-
-			act 'Go skinny dipping':
-				cla
-				*clr
-				temp_gr = RAND(0,15)
-				cumspclnt = 4
-				gs 'cum_cleanup'
-				minut = minut + 20
-				pcs_sweat = 10 + rand(0,4)
-				pcs_mood += 5
-				pcs_willpwr = pcs_willpwr + 5
-				inhib_exp += rand(1,3)
-				if pcs_stren < 30: stren_exp += 1
-				if hour >= 22 and hour <= 6:
-					'<center><img <<$set_imgh>> src="images/locations/gadukino/river/watergirls1.jpg"></center>'
-					'You strip your clothes off and slowly step in to the cold river, knowing that the darkness hides your nudity. You swim around feeling the refreshing and invigorating water caressing your body.'
-				else
-					if temp_gr >= 10 and MiraLoc = 1:
-						pcs_horny += RAND(5,15)
-						gs 'stat'
-						'<center><img <<$set_imgh>> src="images/characters/village/mira/rivertwogirlsnude'+rand(0,5)+'.jpg"></center>'
-						'You step in to the river, you and Mira have a good old fashioned water fight, splashing each other until one of you finally surrenders.'
+			if $clothingworntype = 'nude':
+				act 'Go skinny dipping':
+					cla
+					*clr
+					temp_gr = RAND(0,15)
+					cumspclnt = 4
+					gs 'cum_cleanup'
+					minut = minut + 20
+					pcs_sweat = 10 + rand(0,4)
+					pcs_mood += 5
+					pcs_willpwr = pcs_willpwr + 5
+					inhib_exp += rand(1,3)
+					if pcs_stren < 30: stren_exp += 1
+					if hour >= 22 and hour <= 6:
+						'<center><img <<$set_imgh>> src="images/locations/gadukino/river/watergirls1.jpg"></center>'
+						'You strip your clothes off and slowly step in to the cold river, knowing that the darkness hides your nudity. You swim around feeling the refreshing and invigorating water caressing your body.'
 					else
-						'<center><img <<$set_imgh>> src="images/locations/gadukino/river/watergirls.jpg"></center>'
-						'You take your clothes off and swiftly step into the river, you sigh, feeling the cold refreshing and invigorating water.'
+						if temp_gr >= 10 and MiraLoc = 1:
+							pcs_horny += RAND(5,15)
+							gs 'stat'
+							'<center><img <<$set_imgh>> src="images/characters/village/mira/rivertwogirlsnude'+rand(0,5)+'.jpg"></center>'
+							'You step in to the river, you and Mira have a good old fashioned water fight, splashing each other until one of you finally surrenders.'
+						else
+							'<center><img <<$set_imgh>> src="images/locations/gadukino/river/watergirls.jpg"></center>'
+							'You take your clothes off and swiftly step into the river, you sigh, feeling the cold refreshing and invigorating water.'
+						end
+					end
+					act 'Get out of the water':
+						if MiraLoc ! 1 and npc_QW['A63'] >= 13 and temp_gr = 0 and hour >= 8 and hour < 20:
+							*clr & cla
+							'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkaguysriversex12.jpg"></center>'
+							'As soon as you step out of the water, you find yourself standing naked in front of a couple of the village boys, judging from the fishing poles they are carrying, you know they were coming to the river to do some fishing.'
+							'But, seeing you skinny dipping, they instead start talking amongst themselves about how much of a slut you are and the only good thing you are for is sucking cock. You tell them to fuck off, but they are too worked up and not listening to you at all.'
+							gs 'boyStat', 'A63'
+							npc_sex[$boy] += 1
+							gs 'arousal', 'vaginal', 10, 'gangbang', 'sub', 'rough'
+							gs 'arousal', 'hj', 5, 'gangbang', 'sub', 'rough'
+							gs 'cum_call','butt',$boy, 1
+							gs 'boyStat', 'A61'
+							npc_sex[$boy] += 1
+							gs 'arousal', 'bj', 5, 'gangbang', 'sub', 'rough'
+							minut -= 10
+							gs 'arousal', 'anal', 10, 'gangbang', 'sub', 'rough'
+							gs 'arousal', 'hj', 5, 'gangbang', 'sub', 'rough'
+							gs 'cum_call','anus',$boy, 1,'','',20
+							gs 'boyStat', 'A62'
+							npc_sex[$boy] += 1
+							gs 'arousal', 'bj', 10, 'gangbang', 'sub', 'rough'
+							gs 'arousal', 'hj', 5, 'gangbang', 'sub', 'rough'
+							gs 'arousal', 'hj', 5, 'gangbang', 'sub', 'rough'
+							minut -= 10
+							gs 'cum_call','mouth',$boy
+							swallow += RAND(0,1)
+							gs 'stat'
+							gs 'arousal', 'end'
+							gs 'stat'
+							gang +=1
+
+							act 'Finish':minut += 5 & gt'Gadriver', 'Gadbitch'
+						else
+							minut += 5 & gt'Gadriver', 'Gadbitch'
+						end
 					end
 				end
-				act 'Get out of the water':
-					if MiraLoc ! 1 and npc_QW['A63'] >= 13 and temp_gr = 0 and hour >= 8 and hour < 20:
-						*clr & cla
-						'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkaguysriversex12.jpg"></center>'
-						'As soon as you step out of the water, you find yourself standing naked in front of a couple of the village boys, judging from the fishing poles they are carrying, you know they were coming to the river to do some fishing.'
-						'But, seeing you skinny dipping, they instead start talking amongst themselves about how much of a slut you are and the only good thing you are for is sucking cock. You tell them to fuck off, but they are too worked up and not listening to you at all.'
-						gs 'boyStat', 'A63'
-						npc_sex[$boy] += 1
-						gs 'arousal', 'vaginal', 10, 'gangbang', 'sub', 'rough'
-						gs 'arousal', 'hj', 5, 'gangbang', 'sub', 'rough'
-						gs 'cum_call','butt',$boy, 1
-						gs 'boyStat', 'A61'
-						npc_sex[$boy] += 1
-						gs 'arousal', 'bj', 5, 'gangbang', 'sub', 'rough'
-						minut -= 10
-						gs 'arousal', 'anal', 10, 'gangbang', 'sub', 'rough'
-						gs 'arousal', 'hj', 5, 'gangbang', 'sub', 'rough'
-						gs 'cum_call','anus',$boy, 1,'','',20
-						gs 'boyStat', 'A62'
-						npc_sex[$boy] += 1
-						gs 'arousal', 'bj', 10, 'gangbang', 'sub', 'rough'
-						gs 'arousal', 'hj', 5, 'gangbang', 'sub', 'rough'
-						gs 'arousal', 'hj', 5, 'gangbang', 'sub', 'rough'
-						minut -= 10
-						gs 'cum_call','mouth',$boy
-						swallow += RAND(0,1)
-						gs 'stat'
-						gs 'arousal', 'end'
-						gs 'stat'
-						gang +=1
-
-						act 'Finish':minut += 5 & gt'Gadriver', 'Gadbitch'
-					else
-						minut += 5 & gt'Gadriver', 'Gadbitch'
-					end
-				end
-				
-			end
-			act 'Strip naked':
-				cla
-				minut += 5
-				gs 'underwear', 'remove'
-				 gs 'clothing', 'strip', 'VillageRiver'
-				'Without hesitation, you take off all your clothes and neatly fold them before putting them down on a pile. Without your clothes holding you back, you can go for a nice swim in the river or just lie down in the sand and do some sunbathing.'
-				act 'Continue': gt 'Gadriver', 'Gadbitch'
 			end
 		end
 		if hour >= 8 and hour < 20 and sunWeather = 1:
@@ -505,13 +488,13 @@ if $ARGS[0] = 'Gadbitch':
 								gt'Gadriver', 'Gadbitch'
 							end
 						end
-					end 
+					end
 				end
 			end
 		end
 	end
 	if $clothingworntype ! 'nude': act 'Get changed':gt 'changingroom', 'view_swim_list'
-	if $clothingworntype = 'nude': 
+	if $clothingworntype = 'nude':
 		act 'Get dressed':
 			clothesAtLocation = FUNC('lost_clothes_here','VillageRiver')
 			cla

@@ -63,8 +63,10 @@ if $ARGS[0] = '':
 		if car > 0 and cardrive = 23: '<a href="exec:GS ''carF'',''start''">Your <<$car>></a> is close by.'
 		if StoryLine = 1 :
 			'Nearby are a series of small farms, on one of which <a href="exec:minut += 5 & gt ''Gaddvor''">your grandparents</a> live.'
+			act 'Grandparent''s house': gt 'Gaddvor'
 		else
 			'Nearby are a series of small farms, on one of which <a href="exec:minut += 5 & gt ''Gaddvor''">old couple</a> live.'
+			act 'Old couple''s house': gt 'Gaddvor'
 		end
 		if npc_rel['A60'] > 0: 'Just down the road from your grandparents house is <a href="exec:minut += 5 & gt ''MiroslavaHome'', ''start''">Mira''s</a> house.'
 		*nl

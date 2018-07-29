@@ -10,7 +10,7 @@ new_bilberry = 0
 gs'stat'
 !gs'time'
 goswamp = 1
-	
+
 '<center><H4>Swamp</H4></center>'
 if month >= 4 and month <= 10:
 	if hour >= 6 and hour < 22:
@@ -32,20 +32,20 @@ end
 if hour >= 6 and hour <= 21 and month >= 6 and month <= 9:
 	act 'Walk into the forest':swamp_clothes = 0 & minut += 30 & gt 'gadforest','4'
 end
-if hour >= 6 and hour < 21:	
-    act 'Return to the edge of the forest':swamp_clothes = 0 & hanters = 0 & minut += 150 & gt 'gadforest','1'
+if hour >= 6 and hour < 21:
+	act 'Return to the edge of the forest':swamp_clothes = 0 & hanters = 0 & minut += 150 & gt 'gadforest','1'
 else
-    act 'Return to the edge of the forest':swamp_clothes = 0 & hanters = 0 & gt 'gadforest_event', 'forest_road'
+	act 'Return to the edge of the forest':swamp_clothes = 0 & hanters = 0 & gt 'gadforest_event', 'forest_road'
 end
 
 if hour >= 6 and hour <= 20 and month >= 6 and month <= 9 and boletus + bilberry < 10 and swamp_day ! daystart:
-   	act 'Look for berries (0:30)':
-   	    cla
-        *clr
+	act 'Look for berries (0:30)':
+		cla
+		*clr
 		minut += 30
 		temp = RAND(1,2)
 		swamp_day = daystart
-		if goforest < 20:goforest += rand(0,1)		
+		if goforest < 20:goforest += rand(0,1)
 		new_bilberry += rand(4,5)
 		bilberry += new_bilberry
 		pcs_mood += 5
@@ -54,7 +54,7 @@ if hour >= 6 and hour <= 20 and month >= 6 and month <= 9 and boletus + bilberry
 		gs 'gadforest', 'clothes1'
 		'You spend half an hour wandering through the woods in search of mushrooms or berries and manage to found <<new_bilberry>> kg of berries.'
 		act 'Further': gt'swamp'
- 	end
+	end
 end
 
 --- swamp ---------------------------------

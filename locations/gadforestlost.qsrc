@@ -23,8 +23,12 @@ if $ARGS[0] = 'forestrescue':
 			'Staying in one place is a good idea when you are lost.'
 		end
 	end
-	'You get ready quickly and you follow the forest ranger home.'
-	act 'Further':gt'Gadhouse'
+	'You get ready quickly and you follow the forest ranger out of the woods.'
+	if $clothingworntype ! 'nude':
+		act 'Further':gt'Gadhouse'
+	elseif $clothingworntype = 'nude':
+		act 'Further':gt'gadforest', '1'
+	end
 end
 if $ARGS[0] = '1':
 	if StoryLine = 1 and forest_lostday > 0 and daystart > forest_lostday and rand(1,10)> 7: gt 'gadforestlost', 'forestrescue' & !add rescue by illume
@@ -53,9 +57,9 @@ if $ARGS[0] = '1':
 
 		gs 'gadforestlost', 'lostclothes'
 		if goforest > lostrand:
-			act 'Look for the road on':gs 'gadforestlost', 'gadforestlostfinish1'
+			act 'Look for the road':gs 'gadforestlost', 'gadforestlostfinish1'
 		else
-			act 'Look for the road on':gt 'gadforestlost','1'
+			act 'Look for the road':gt 'gadforestlost','1'
 		end
 		act 'To take a break':gt 'gadforestrelax'
 	end
@@ -88,9 +92,9 @@ if $ARGS[0] = '2':
 
 		gs 'gadforestlost', 'lostclothes'
 		if goforest > lostrand:
-			act 'Look for the road on ':gs 'gadforestlost', 'gadforestlostfinish2'
+			act 'Look for the road ':gs 'gadforestlost', 'gadforestlostfinish2'
 		else
-			act 'Look for the road on':gt 'gadforestlost','2'
+			act 'Look for the road':gt 'gadforestlost','2'
 		end
 		act 'To take a break':gt 'gadforestrelax'
 	end
@@ -122,9 +126,9 @@ if $ARGS[0] = '3':
 
 		gs 'gadforestlost', 'lostclothes'
 		if goforest > lostrand:
-			act 'Look for the road on ':gs 'gadforestlost', 'gadforestlostfinish3'
+			act 'Look for the road ':gs 'gadforestlost', 'gadforestlostfinish3'
 		else
-			act 'Look for the road on':gt 'gadforestlost','3'
+			act 'Look for the road':gt 'gadforestlost','3'
 		end
 		act 'To take a break':gt 'gadforestrelax'
 	end
@@ -157,7 +161,7 @@ if $ARGS[0] = '4':
 		gs 'stat'
 
 		gs 'gadforestlost', 'lostclothes'
-		act 'Look for the road on ':
+		act 'Look for the road ':
 			if goforest > lostrand: gs 'gadforestlost', 'gadforestlostfinish4'
 			if goforest < lostrand and temp > 7:gt 'gadforestswamp','1'
 			if goforest < lostrand and temp <= 7:gt 'gadforestlost','4'
@@ -196,7 +200,7 @@ end
 if $ARGS[0] = 'gadforestlostfinish':
 	'<center><H4>Somewhere in the woods</H4></center>'
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gadjoy.jpg"></center>'
-	'You look over and realize that you finally see houses, glad to get out of this alive you rush forward.'
+	'You look over and realize that you finally see lights shining from distnat houses, glad to get out of this alive you rush forward.'
 	!clear lost flags by illume, clear dirtyclothes flag by rachels
 	lost_girl = 0
 	dirtyclothes = 0 & swamp_clothes = 0
@@ -205,10 +209,9 @@ if $ARGS[0] = 'gadforestlostfinish':
 	if $clothingworntype = 'nude':
 		act 'Out of the woods':
 			minut += 25
-			'You sneak out the woods, hiding your naked body in shadow and moving toward grandparents house.'
-			'You Successfully reach home without witness.'
+			'You find your way out of the woods, hiding your naked body in shadow and moving toward the edge of the forest, where you left your clothes.'
 			cla
-			act 'Further':gt'Gadhouse'
+			act 'Continue':gt'gadforest', '1'
 		end
 		temp=0
 		!disable further act add.

@@ -283,19 +283,22 @@ if $ARGS[0] = 'start':
 			end
 		end
 	end
-
-	if $loc = 'sitrPar':
-
-		gs 'brother', 'pregreact'
-		gs 'brother', 'brotherSexCount'
+	
+	 if $loc = 'sitrPar' or ($loc = 'family' and $metka = 'sofa'):
 		
 		if hour >= 7 and hour < 23:
-			act'Chat with him':gt'brother2','chat'
+			act'Chat with Kolka':gt'brother2','chat'
 		end
 		
 		!if father_go = 1 and hour >= 7:
 		!	act'Play video games with him':gt'video_games','brother'
 		!end
+	end
+
+	if $loc = 'sitrPar':
+
+		gs 'brother', 'pregreact'
+		gs 'brother', 'brotherSexCount'
 
 		if indorf = 0 and $clothingworntype ! 'nude' and brothersawpirsF=0 and father_go = 1 and npc_rel['A34'] > 85 and hour >= 18 and hour < 23 and pirsF > 0:
 			act 'Show off your nipple piercings ':

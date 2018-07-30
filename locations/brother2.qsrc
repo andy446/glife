@@ -1,6 +1,8 @@
 # brother2
 
 if $ARGS[0] = 'chat':
+	minut += 15
+	gs 'stat'
 	'<center><b><font color="maroon">Kolka</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/kolka/brother.jpg"></center>'
 	'You casually talk to him about whatever topics come up.'

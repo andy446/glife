@@ -356,7 +356,7 @@ if $ARGS[0] = '':
 					observ_exp += 3
 					gs 'stat'
 					'<center><img <<$set_imgh>> src="images/pc/purses/cheap/5.jpg"></center>'
-					'In a far corner of the barn you find a burlap sack filled with mostly junk, but at the bottom you find a good quality messenger bag.'
+					'In a far corner of the barn you find a hessian sack filled with mostly junk, but at the bottom you find a good quality messenger bag.'
 					cheap_purses[5] = 1
 					$currentpursetype = 'cheap'
 					currentpursenumber = 5

@@ -639,7 +639,6 @@ if $ARGS[0] = 'options':
 										$pornofday += '<font color="grey"><<$porndesc[pornplan[''<<counter>>,<<porns>>'']]>></font><br>'
 									elseif pfilmday[counter - 5] > 0 and porntaken['<<counter>>,<<porns>>'] = 0:
 										$pornofday += '<font color="grey"><<$porndesc[pornplan[''<<counter>>,<<porns>>'']]>></font><br>'
-										$pornofday += '<font color="grey"><<$porndesc[pornplan[''<<counter>>,<<porns>>'']]>></font><br>'
 									elseif pfilmday[counter + 1] > 0 and porntaken['<<counter>>,<<porns>>'] = 0:
 										$pornofday += '<font color="grey"><<$porndesc[pornplan[''<<counter>>,<<porns>>'']]>></font><br>'
 									elseif pfilmday[counter + 2] > 0 and porntaken['<<counter>>,<<porns>>'] = 0:

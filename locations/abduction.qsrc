@@ -537,7 +537,8 @@ if $ARGS[0] = 'abdFood':
 		cla
 		*clr
 		minut += 15
-		pcs_health += 30
+		frost = 0
+		pcs_health += 10
 		pcs_mood += 10
 		pcs_energy += 25
 		if pcs_hydra >= 100:
@@ -547,6 +548,8 @@ if $ARGS[0] = 'abdFood':
 		end
 		pcs_breath = 0
 		fat += 4
+		cumspclnt = 2
+		gs 'cum_cleanup'
 		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/locations/shared/abduction/driedbread1.jpg"></center>'
 		'You ate the dried meat and bread. Your throat is dry and some water could come in handy.'
@@ -558,7 +561,8 @@ if $ARGS[0] = 'abdFood':
 		cla
 		*clr
 		minut += 5
-		pcs_health += 30
+		frost = 1
+		pcs_health += 10
 		pcs_mood += 10
 		if pcs_hydra >= 100:
 			pcs_hydra += 50
@@ -592,15 +596,17 @@ if $ARGS[0] = 'abdFood':
 				vitaminday = daystart
 				vitamin -= 1
 				frost = 0
-				if pcs_hydra < 50 : pcs_hydra += 30 else pcs_hydra +=15
-				if pcs_hydra > 100: pcs_hydra = 100
-
+				if pcs_hydra >= 100:
+					pcs_hydra += 25
+				else
+					pcs_hydra += 50
+				end
 				if KandidozOnce = 1:Kandidoz -= 2
 				if GerpesOnce = 1:Gerpes -= 2
 				if SifacOnce = 1 and Sifilis >= 10:Sifilis -= rand(0, 1)
 
 				pcs_skin += 1
-
+				gs 'stat'
 				'You take some vitamins to stay healthy.'
 
 				act 'Continue':gt 'abduction', 'abdFood'

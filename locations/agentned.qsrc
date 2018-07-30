@@ -16,7 +16,7 @@ if $ARGS[0] = 'start':
 	'At the reception you notice a banner, which is written in large print:'
 	'"Please note, that all transactions of purchases and sales are made exclusively through your bank account. Rent payments excluded."'
 
-	if home_owned[1] > 1 and ArendHouseSL > 0:
+	if home_owned[1] = 1 and ArendHouseSL > 0:
 		*nl
 		'You have <B><<ArendHouseSL>> days</B> rental on your St. Petersburg apartment remaining. '+iif(money >= home_rent[1],'You can make a rent <a href="exec:money -= home_rent[1] & home_owned[1] = 1 & ArendHouseSL += ArendHouseSL_due & gs ''$menu_obnovit''">payment</a> in cash.','You can''t afford to pay rent at the moment')+''
 	end

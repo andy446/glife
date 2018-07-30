@@ -115,14 +115,14 @@ if proshotelopen = 1 and proshotelday ! daystart:
 			gs'stat'
 			if hour >= 12 and hour < 20:
 				'You enter the room with Pavlin.'
-				'"You just sit down on the bed, the client will be here in a few minutes."'
+				'"You just sit down on the bed; the client will be here in a few minutes."'
 			else
 				'You go to the room and knock on the door. Pavlin opens the door.'
 				'He lets you enter the room and offers you to sit down on the couch.'
 				'"When the girl at the desk called me I informed the customer straight away, they will be here shortly."'
 			end
 			'Indeed not one minute later there was a knock on the door, Pavlin opened up and had a short conversation with the customer. The customer handed him a wad of cash and entered the room.'
-			'"I''ll be waiting in the hotelbar, meet me there when you are done girl," said Pavlin while he left the room.'
+			'"I''ll be waiting in the hotel bar, meet me there when you are done girl," said Pavlin while he left the room.'
 			act 'Perform your duty':gt 'hotel_resep', 'pavgenpros'
 		end
 	end
@@ -210,7 +210,7 @@ if $ARGS[0] = 'pavlbar':
 	if npc_rel['A217'] = 6 and pavlevent = 0:
 		'You are sure the money he received from the customer was more than double this amount'
 		'You bring up the issue: "Actually Pavlin I believe I should get more money, I am doing all the work here and I know these guys pay you much more than this."'
-		' Where Pavlin was still sitting there with a big smile a moment before, the moment you mentioned the money a gloom came over his face. this only lasted a few moments and then his smile reappeared.'
+		' Where Pavlin was still sitting there with a big smile a moment before, the moment you mentioned the money a gloom came over his face. This only lasted a few moments and then his smile reappeared.'
 		'"You are right <<$pcs_firstname>>, come with me to my car I''ll give you a bonus today."'
 		'You are excited at the prospect of finally getting the money you earned but you are unsure if you can trust Pavlin.'
 		minut += 5
@@ -293,7 +293,7 @@ if $ARGS[0] = 'pavgenpros':
 
 	'You move the dick out of your mouth and tell him to put on a condom and fuck you.'
 	if pcs_dom >= 25:
-		'The man wanted to start arguing but he could see you would not be pursuaded.'
+		'The man wanted to start arguing but he could see you would not be persuaded.'
 		gs 'dinsex', 'boy_puts_his_condom'
 	elseif rand(0,2) = 1 and pcs_dom < 25:
 
@@ -323,7 +323,7 @@ if $ARGS[0] = 'pavgenpros':
 			'"I don''t care bitch <<$npc_firstname[''A217'']>> still owes me a favor, so you are going to lie there and take it."'
 			'You try to get away but <<$boydesc>> pins you down and guides his cock towards your ass'
 			'<center><video autoplay loop src="images/shared/sex/anal/doggy/anal1.mp4"></video></center>'
-			'"at least use some lub..."'
+			'"at least use some lube..."'
 			'Before you can finish your sentence <<$boydesc>> has already penetrated your anus and is thrusting with all his might.'
 			'You were not ready for it and start screaming your longs out.'
 			'Luckily he did not last long and after 30 seconds he blew his load in your ass'

@@ -121,10 +121,10 @@ if $ARGS[0] = 'start' or $metka = 'start':
 		minut += 15
 		gs'stat'
 
-		'On the counter is a very entertaining fantasy book, that is all 150 <b>₽</b> and women''s novels are in paperback standing 300 <b>₽</b>.'
+		'On the counter is a very entertaining fantasy book, a science fiction book and women''s romance novels. They all cost 350 <b>₽</b>.'
 
 		if money >= 350:
-			act 'Buy a book of fantasy 350r':
+			act 'Buy a book of fantasy 350 <b>₽</b>':
 				cls
 				minut += 15
 				money -= 350
@@ -138,7 +138,7 @@ if $ARGS[0] = 'start' or $metka = 'start':
 		end
 
 		if money >= 350:
-			act 'Buy a book of science fiction 350r':
+			act 'Buy a book of science fiction 350 <b>₽</b>':
 				cls
 				minut += 15
 				money -= 350
@@ -152,7 +152,7 @@ if $ARGS[0] = 'start' or $metka = 'start':
 		end
 
 		if money >= 350:
-			act 'Buy ladies for romance 350r':
+			act 'Buy ladies for romance 350 <b>₽</b>':
 				cls
 				minut += 15
 				money -= 350

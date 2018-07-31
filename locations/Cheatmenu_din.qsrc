@@ -1986,7 +1986,7 @@ $cheatmenu = {
 	nl
 	pl'<a href="exec:gt''pavResidential''">Teleport to Pavlovsk</a>'
 	pl'<a href="exec:gt''street''">Teleport to City</a>'
-	pl'<a href="exec:gt''gadukino''">Teleport to Gadyukino</a>'
+	pl'<a href="exec:gt''gadukino''">Teleport to Gadukino</a>'
 	pl'<a href="exec:gt''dachi''">Teleport to Suburban Cooperative</a>'
 	pl'<b>Warning!</b> Teleporting while in event is likely to break your game!'
 	nl

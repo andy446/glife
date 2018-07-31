@@ -2302,11 +2302,11 @@ if $ARGS[0] = 'forest_hanters':
 					if gadriver_gang = 0:
 						'"I''m Andrei," replied the older man, "And these are my friends, from the village, Igor and Sergei."'
 						'"By any chance is your surname <<$pcs_lastname>>?" he asked. You looked at him and nodded.'
-						'"Don`t be surprised <<$pcs_nickname>>, you look a lot like your mother when she was younger. I ... Hmmm... very good to know, I''m also from Gadyukino." said Andrei.'
+						'"Don`t be surprised <<$pcs_nickname>>, you look a lot like your mother when she was younger. I ... Hmmm... very good to know, I''m also from Gadukino." said Andrei.'
 					else
 						'"Bah, look what the cat dragged in." said in surprise the older man, looking at you closely, "It''s <<$pcs_nickname>> <<$pcs_lastname>>, the local slut.'
 						'You look at him in surprise.'
-						'"Don''t be surprised, I`m also from Gadyukino, and you look just like your mother when she was younger, and apparently you are a whore like her too." he said.'
+						'"Don''t be surprised, I`m also from Gadukino, and you look just like your mother when she was younger, and apparently you are a whore like her too." he said.'
 						'"I`m Andrei, " he added further, "And these are my friends, from the village, Igor and Sergei."'
 						'"Don`t run away, we are good, we don''t bite." said Sergei, seeing your attempt to jump to your feet.'
 						hantersKnowSlut = 1
@@ -2412,11 +2412,11 @@ if $ARGS[0] = 'forest_hanters':
 					if gadriver_gang = 0:
 						'"I''m Andrei," replied the older man, "And these are my friends, from the village, Igor and Sergei."'
 						'"By any chance is your surname <<$pcs_lastname>>?" he asked. You looked at him and nodded.'
-						'"Don`t be surprised <<$pcs_nickname>>, you look a lot like your mother when she was younger. I ... Hmmm... very good to know, I''m also from Gadyukino." said Andrei.'
+						'"Don`t be surprised <<$pcs_nickname>>, you look a lot like your mother when she was younger. I ... Hmmm... very good to know, I''m also from Gadukino." said Andrei.'
 					else
 						'"Bah, look what the cat dragged in." said in surprise the older man, looking at you closely, "It''s <<$pcs_nickname>> <<$pcs_lastname>>, the local slut.'
 						'You stare at him in surprise.'
-						'"Don''t be surprised, I`m also from Gadyukino, and you look just like your mother when she was younger, and apparently you are a whore like her too." he said.'
+						'"Don''t be surprised, I`m also from Gadukino, and you look just like your mother when she was younger, and apparently you are a whore like her too." he said.'
 						'"I`m Andrei, " he added further, "And these are my friends, from the village, Igor and Sergei."'
 						'"Don`t run away, we are good, we don''t bite." said Sergei, seeing your attempt to jump to your feet.'
 						hantersKnowSlut = 1

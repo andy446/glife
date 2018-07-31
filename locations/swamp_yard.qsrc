@@ -148,7 +148,7 @@ if hanterhelp = 2 and hantersKnow = 0:
 		if hanters > 0:
 			'"I''m Andrei," replied the older man, "and these are my friends, from the city, Igor and Sergei."'
 			'"Is your lastname possibly <<$pcs_lastname>>?" he asked. You look at him and nodded approvingly.'
-			'"Don''t be afraid <<$pcs_nickname>>, you look a lot like your mother when she was younger. I... Hmmm... that''s good to know, I''m also from Gadyukino." said Andrei.'
+			'"Don''t be afraid <<$pcs_nickname>>, you look a lot like your mother when she was younger. I... Hmmm... that''s good to know, I''m also from Gadukino." said Andrei.'
 			if pcs_sweat > 0 or dirtyclothes = 1:
 				'"Go on, take a bath and wash your clothes, they''re quite dirty," Andrei continued.'
 				'"Where?"'
@@ -160,7 +160,7 @@ if hanterhelp = 2 and hantersKnow = 0:
 		else
 			'"Look what the cat dragged in, if it isn''t <<$pcs_nickname>> <<$pcs_lastname>>, the local slut.'
 			'You look at him feeling a bit uncomfortable.'
-			'"Don''t be afraid, I''m also from Gadyukino, you look just like your mother when she was younger, and I see you''re also been blessed with good looks." he said.'
+			'"Don''t be afraid, I''m also from Gadukino, you look just like your mother when she was younger, and I see you''re also been blessed with good looks." he said.'
 			'"I''m Andrei," he says, adding "and these are my friends, from the city, Igor and Sergei.'
 			if pcs_sweat > 3 or dirtyclothes = 1:
 				hantersKnowSlut = 1
@@ -184,7 +184,7 @@ if hanterhelp = 2 and hantersKnow = 0:
 		if hanters > 0:
 			'"I''m Andrei," replied the older man, "and these are my friends from the city, Igor and Sergei."'
 			'"Is your lastname possibly <<$pcs_lastname>>?" he asked. You look at him and nodded approvingly.'
-			'"Don''t be afraid <<$pcs_nickname>>, you look a lot like your mother when she was younger. I... Hmmm... that''s good to know, I''m also from Gadyukino." said Andrei.'
+			'"Don''t be afraid <<$pcs_nickname>>, you look a lot like your mother when she was younger. I... Hmmm... that''s good to know, I''m also from Gadukino." said Andrei.'
 			if pcs_sweat > 0:
 				'"You can go and get cleaned up, we''ll try to find some fitting clothes." said Andrei.'
 				'"Where can I clean myself?"'
@@ -195,7 +195,7 @@ if hanterhelp = 2 and hantersKnow = 0:
 		else
 			'"Look what the cat dragged in, if it isn''t <<$pcs_nickname>> <<$pcs_lastname>>, the local slut.'
 			'You look at him feeling a bit uncomfortable.'
-			'"Don''t be afraid, I''m also from Gadyukino, you look just like your mother when she was younger, and I see you''re also been blessed with good looks." he said.'
+			'"Don''t be afraid, I''m also from Gadukino, you look just like your mother when she was younger, and I see you''re also been blessed with good looks." he said.'
 			'"I''m Andrei," he says, adding "and these are my friends, from the city, Igor and Sergei.'
 			if pcs_sweat > 0:
 				*clr & cla
@@ -318,7 +318,7 @@ if hour >= 8 and hour < 20:
 		end
 	end
 
-	!the conversation of the hunters, if he did porn, in the Studio, dancing strip tease or a slut in Gadyukino
+	!the conversation of the hunters, if he did porn, in the Studio, dancing strip tease or a slut in Gadukino
 	if hanters > 0 and hantersKnowSlut = 0 and hantersKnow = 1 and hanters_check = 0:
 		if fame_sexind > 10 and city_modelling > 30 and hantersknowfoto = 0 and hantersIgorLove = 0:
 			*clr & cla
@@ -368,7 +368,7 @@ if hour >= 8 and hour < 20:
 
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hanterstalk.jpg"></center>'
 			'While walking around the swamp you hear the hunters discussing something very lively.'
-			'"I''m telling you, everyone in Gadyukino has had the pleasure to "test out" the goods." you overhear Andrei. As soon as they noticed you the men stop talking and changed the subject to another topic.'
+			'"I''m telling you, everyone in Gadukino has had the pleasure to "test out" the goods." you overhear Andrei. As soon as they noticed you the men stop talking and changed the subject to another topic.'
 
 			act 'Further':gt 'swamp_yard'
 		end

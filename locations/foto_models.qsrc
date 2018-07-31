@@ -137,17 +137,17 @@ if $ARGS[0] = 'mari_1':
 			'	"How long have you been a model?" you ask.'
 			'	"I''ve been working for this agency for about a year. Ever since I moved to the city really."'
 			'	Something piques an interest in you as Mari mentions she''s from out of town, "If you don''t mind me asking where do you come from?"'
-			'	"Oh, just some place called Gadyukino. You''ve probably never heard of it. It''s a small village outside the city. Too small too be honest, same boring ins and outs every day. I wanted more excitement in my life! More than a simple farm girl would ever have. So I moved here."'
+			'	"Oh, just some place called Gadukino. You''ve probably never heard of it. It''s a small village outside the city. Too small too be honest, same boring ins and outs every day. I wanted more excitement in my life! More than a simple farm girl would ever have. So I moved here."'
 
 			if storyline = 1:
-				act '"You''re from Gadyukino?"':
+				act '"You''re from Gadukino?"':
 					cla
 					*clr
 					'<center><img src="images/locations/city/citycenter/photo/portraits/mari_e/meeting/4a.jpg"></center>'
-					'	"You''re from Gadyukino?" you exclaim. "My grandparents live in Gadyukino! I''m from Pavlovsky right down the road!"'
+					'	"You''re from Gadukino?" you exclaim. "My grandparents live in Gadukino! I''m from Pavlovsky right down the road!"'
 					'	Her face breaks out into a smile as you say that.'
 					'	"Well fancy that! Maybe we''re long lost cousins or something!"'
-					act 'Talk about Gadyukino':
+					act 'Talk about Gadukino':
 						cla
 						*clr
 						'<center><img src="images/locations/city/citycenter/photo/portraits/mari_e/meeting/1.jpg"></center>'
@@ -280,7 +280,7 @@ if $ARGS[0] = 'mari_2':
 									'	"Sure, ask away," she says, giving you all the attention.'
 									act 'Ask about her parents':
 										cla
-										'	All of a sudden you start to feel nervous. It''s such a personal question you don''t know if you should be asking, but you''re committed now. There''s no turning back. "It''s kind of personal, but I was wondering... what do your parents think of all this? I''m mostly asking since we kind of come from similar backgrounds and you know, your parents are from Gadyukino and I''m from Pavlovsky and we''re in sort of similar situations and... you know..."'
+										'	All of a sudden you start to feel nervous. It''s such a personal question you don''t know if you should be asking, but you''re committed now. There''s no turning back. "It''s kind of personal, but I was wondering... what do your parents think of all this? I''m mostly asking since we kind of come from similar backgrounds and you know, your parents are from Gadukino and I''m from Pavlovsky and we''re in sort of similar situations and... you know..."'
 										'	You trail off at the end of your sentence, unsure of how to end such a personal request.'
 										act '...':
 											*clr & cla
@@ -367,7 +367,7 @@ if $ARGS[0] = 'mari_4':
 		*nl
 		if mari_farm_shoot = 0:
 			mari_farm_shoot = 1
-			'	<i>Huh, I didn''t know we had a dedicated set just for shooting farm stuff. I thought they went out to Gadyukino every time. Oh well, looks Mari''s busy. I guess I''ll have to find her some other time.</i> Eyeing her quivering toes one last time you think, <i>Hang in there girl!</i>'
+			'	<i>Huh, I didn''t know we had a dedicated set just for shooting farm stuff. I thought they went out to Gadukino every time. Oh well, looks Mari''s busy. I guess I''ll have to find her some other time.</i> Eyeing her quivering toes one last time you think, <i>Hang in there girl!</i>'
 			act 'Leave':gt'foto','studio'
 		elseif mari_farm_shoot = 1:
 			'	<i>Stuck playing the farm girl again, huh Mari? They really are slave drivers for this kind of thing aren''t they? I guess I''ll find you some other time.</i>'
@@ -418,7 +418,7 @@ if $ARGS[0] = 'mari_chat':
 			*clr & cla
 			'<center><img src="images/locations/city/citycenter/photo/portraits/mari_e/talking/reading2.jpg"></center>'
 			'	"Hey Mari, how come you don''t shave your bush?"'
-			'	"The photographers actually ask me not to shave. They say it helps sell my ''farm girl'' look," she says, causing you both to giggle a little. "Besides, I tried shaving once when I still lived in Gadyukino and I hated that prickly feeling when it would start to grow back as stubble. It''s too much of a hassle to keep it smooth down there so since then I just decided to keep it trimmed."'
+			'	"The photographers actually ask me not to shave. They say it helps sell my ''farm girl'' look," she says, causing you both to giggle a little. "Besides, I tried shaving once when I still lived in Gadukino and I hated that prickly feeling when it would start to grow back as stubble. It''s too much of a hassle to keep it smooth down there so since then I just decided to keep it trimmed."'
 			if pubestyle = 2:
 				'	"I know what you mean! Keeping it clean-shaven is too much work. What''s wrong with having a bit of bush?"'
 				'	"Right???"'
@@ -551,7 +551,7 @@ if $ARGS[0] = 'mari_chat':
 		*clr & cla
 		'<center><img src="images/locations/city/citycenter/photo/portraits/mari_e/talking/reading16.jpg"></center>'
 		'	"How come you''re always reading the same book Mari?"'
-		'	"Oh this old thing? I don''t know, it''s just one of my favorite stories. I fell in love with it back when I still lived in Gadyukino. It''s about a girl who moves away from her home and experiences all kinds of stuff. Love, and adventure, and new things she never even dreamed existed... I guess it''s comforting to me because I feel like the girl in this story. And I suppose it also reminds me a bit of home and how it''s never far away..."'
+		'	"Oh this old thing? I don''t know, it''s just one of my favorite stories. I fell in love with it back when I still lived in Gadukino. It''s about a girl who moves away from her home and experiences all kinds of stuff. Love, and adventure, and new things she never even dreamed existed... I guess it''s comforting to me because I feel like the girl in this story. And I suppose it also reminds me a bit of home and how it''s never far away..."'
 		act'Continue':
 			*clr & cla
 			'<center><img src="images/locations/city/citycenter/photo/portraits/mari_e/talking/reading7.jpg"></center>'
@@ -611,7 +611,7 @@ if $ARGS[0] = 'mari_chat':
 							*clr & cla
 							'<center><img src="images/locations/city/citycenter/photo/portraits/mari_e/talking/reading6.jpg"></center>'
 							'	"But ho-"  you start to say before she jumps up and cuts you off.'
-							'	"And who was I supposed to lose it to??" she says with a laugh. "You know Gadyukino. Mitka or one of his friends? There isn''t much selection there is there?"'
+							'	"And who was I supposed to lose it to??" she says with a laugh. "You know Gadukino. Mitka or one of his friends? There isn''t much selection there is there?"'
 							act 'Nod':
 								*clr & cla
 								'<center><img src="images/locations/city/citycenter/photo/portraits/mari_e/talking/reading14.jpg"></center>'
@@ -696,7 +696,7 @@ if $ARGS[0] = 'mari_modelling_chat':
 	act 'Ask her how she became a model':
 		*clr & cla
 		'<center><img src="images/locations/city/citycenter/photo/portraits/mari_e/talking/reading2.jpg"></center>'
-		'	"How did you become a model here Mari? Did you get hired here right after moving from Gadyukino?"'
+		'	"How did you become a model here Mari? Did you get hired here right after moving from Gadukino?"'
 		'	"Well, no, not immediately. I tried a few other jobs out first. I tried being a clerk for a clothing store in the mall before I found this job."'
 		'	"Jobs weren''t exciting enough for you?"'
 		'	"Oh no, it''s not that. If I could do anything for work and still get paid enough to live comfortably, I don''t think I''d mind working at a clothing store."'
@@ -768,7 +768,7 @@ if $ARGS[0] = 'mari_modelling_chat':
 						'	"I''m <<age>>!"'
 						'	"What??" she cries, jumping up excitedly. "That''s crazy!"'
 						'	"I know right? What are the odds that two girls like us from outside the city would both buy fake passports to end up here?"'
-						'	"You said you visit your grandparents in Gadyukino sometimes right? Maybe it''s something in the water!" she laughs.'
+						'	"You said you visit your grandparents in Gadukino sometimes right? Maybe it''s something in the water!" she laughs.'
 						'	You laugh with her for a moment before the both of you calm down again.'
 						'	"Hey... this reminds me for some reason... The guy who auditioned you... Did he also make you strip down before telling you how old you needed to be to work here?"'
 						'	"And then told you that he liked your naked body so you should go to the train station and buy a fake passport??"'

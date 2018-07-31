@@ -15,7 +15,7 @@ if $ARGS[0] = '':
 		'<center><img <<$set_imgh>> src="images/locations/highway/road.jpg"></center>'
 	end
 	'<center><<nroad>> km</center>'
-	'Calling it a highway would be too much credit, but this road is the main way to get from St. Petersburg to the town of Pavlovsk, 20km away. Smaller villages named Gadyukino and Pushkin can be found along the way. Cars are driving by you at a high speed.'
+	'Calling it a highway would be too much credit, but this road is the main way to get from St. Petersburg to the town of Pavlovsk, 20km away. Smaller villages named Gadukino and Pushkin can be found along the way. Cars are driving by you at a high speed.'
 
 	if car > 0 and cardrive = 22 and ncarroad = nroad:'You parked <a href="exec:gs ''carF'', ''start''">your <<$car>></a> next to the road.'
 	if nroad = 0:act 'Go to the City Industrial Region (0:15)':minut += 15 & gt 'nord'
@@ -41,8 +41,8 @@ if $ARGS[0] = '':
 			elseif gorand>60:
 				gs 'road', 'autostop_d'
 				if nroad<15:
-					act 'Ask the driver to take you to Gadyukino':
-						$road_textrand0 = 'Gadyukino'
+					act 'Ask the driver to take you to Gadukino':
+						$road_textrand0 = 'Gadukino'
 						gt 'road', 'autostpo_money'
 					end
 				end
@@ -66,8 +66,8 @@ if $ARGS[0] = '':
 			elseif gorand>60:
 				gs 'road', 'autostop_d'
 				if nroad>15:
-					act 'Ask the driver to take you to Gadyukino':
-						$road_textrand0 = 'Gadyukino'
+					act 'Ask the driver to take you to Gadukino':
+						$road_textrand0 = 'Gadukino'
 						gt 'road', 'autostpo_money'
 					end
 				end
@@ -101,7 +101,7 @@ if $ARGS[0] = '':
 	elseif nroad = 9:
 		''
 	elseif nroad = 10:
-		'You see a <a href="exec:gt ''train'', ''village''">railway platform</a> not far from the road. In the same direction, a dirt road leads to the village of <a href="exec:minut += 30 & gt ''gadukino''">Gadyukino</a>.'
+		'You see a <a href="exec:gt ''train'', ''village''">railway platform</a> not far from the road. In the same direction, a dirt road leads to the village of <a href="exec:minut += 30 & gt ''gadukino''">Gadukino</a>.'
 	elseif nroad = 11:
 		''
 	elseif nroad = 12:
@@ -141,7 +141,7 @@ if $ARGS[0] = 'drive_sex1':
 	swallow += 1
 	spafinloc = 12
 	gs 'cum_manage'
-	if $road_textrand0 = 'Gadyukino':
+	if $road_textrand0 = 'Gadukino':
         minut+=15
         nroad=15
 	elseif $road_textrand0 = 'Pavlovsk':
@@ -179,7 +179,7 @@ if $ARGS[0] = 'drive_sex2':
 	hja += 1
 	spafinloc = 7
 	gs 'cum_manage'
-	if $road_textrand0 = 'Gadyukino':
+	if $road_textrand0 = 'Gadukino':
         minut+=15
         nroad=10
 	elseif $road_textrand0 = 'Pavlovsk':
@@ -206,7 +206,7 @@ if $ARGS[0] = 'autospot_drive':
 	cls
 	gs'stat'
 	money -= autostop_price * 100
-	if $road_textrand0 = 'Gadyukino':
+	if $road_textrand0 = 'Gadukino':
         minut += 15
         nroad = 10
 	elseif $road_textrand0 = 'Pavlovsk':

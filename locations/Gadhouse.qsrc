@@ -128,7 +128,7 @@ if $ARGS[0] = 'Main':
 	gs 'stat'
 	'<center><H4>Your Grandparents'' Cottage</H4></center>'
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/village/izba.jpg"></center>'
-	'A fairly simple cottage in the village of Gadyukino which your grandparents call home. In the main room there is a huge <a href="exec:gt ''wardrobe'', ''start''">wardrobe</a> (where you can choose outfits and organize your clothing), and a <a href="exec:gad = 1 & gt ''bed2''">bed</a> where you can rest. The bed is more comfortable than it looks.'
+	'A fairly simple cottage in the village of Gadukino which your grandparents call home. In the main room there is a huge <a href="exec:gt ''wardrobe'', ''start''">wardrobe</a> (where you can choose outfits and organize your clothing), and a <a href="exec:gad = 1 & gt ''bed2''">bed</a> where you can rest. The bed is more comfortable than it looks.'
 	'There is an old <a href="exec:gt ''TV'',''gad''">television</a> in the living room. It''s positioned next to a body length <a href="exec:gt ''mirror'', ''start''">mirror</a>.'
 	'You can check your weight on your grandma''s old mechanical <a href="exec:msg ''Your body fat is = (<<salo>>)''">scales</a>.'
 
@@ -477,7 +477,7 @@ if $ARGS[0]='grandma':
 					'"One day she came home from work, and the floor boards all of a sudden started creaking! And through the glass panes in the door in the hallway, she could see the silhouette of a man. It looked remarkably like her late husband!"'
 					'"She was terrified! She quickly left her house, and only went back when I promised to go with her... but of course, we found nothing. Do you believe in ghosts, <<$pcs_nickname>>? Because ever since then, I do..."'
 				elseif temp = 2:
-					'"I wasn''t born in Gadyukino, I grew up in a different village", your grandmother begins. "This is a true story, by the way!"'
+					'"I wasn''t born in Gadukino, I grew up in a different village", your grandmother begins. "This is a true story, by the way!"'
 					'"When I was still a little girl, one of our neighbors died. Then, less than two weeks later, one of his brothers died too! And as the legend goes, death comes in threes..."'
 					'"His one surviving sister was terrified. She was a friend of mine, but her parents wouldn''t let her leave the house."'
 					'"It was well into the winter season then, and people could only go to other towns by sleigh. For forty days, they waited... just when they were about to accept that the legend might not be true, they found one of her relatives. Dead. Muzhik I believe his name was, he was found frozen solid, basically a block of ice! He''d tried to attend his cousin''s funeral, but it cost him his life!"'

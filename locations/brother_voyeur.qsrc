@@ -263,7 +263,7 @@ if $ARGS[0] = 'showertalk2':
 					act'Continue':gt'brother_voyeur','shave'
 
 				elseif brothershowerfriendtalk = 3:
-					'	"... I wish I had more time to play football with Zhendos and Mishan though," he says, snapping you out of your idle thoughts and bringing you back to the room. "I can''t do anything with them when mom is dragging us to Gadyukino every other weekend."'
+					'	"... I wish I had more time to play football with Zhendos and Mishan though," he says, snapping you out of your idle thoughts and bringing you back to the room. "I can''t do anything with them when mom is dragging us to Gadukino every other weekend."'
 					*nl
 					if seepornofut = 0:
 						'	"It''s okay Kolka," you console him. "Just enjoy the time you have with them. In a couple years mom might not force you to go anymore but you all might end up too busy to hang out."'
@@ -454,7 +454,7 @@ if $ARGS[0] = 'brothershowerlook':
 			end
 
 		elseif brothershowerfriendtalk = 3:
-			'	"... I wish I had more time to play football with Zhendos and Mishan though," he says, snapping you out of your idle thoughts and bringing you back to the room. "I can''t do anything with them when mom is dragging us to Gadyukino every other weekend."'
+			'	"... I wish I had more time to play football with Zhendos and Mishan though," he says, snapping you out of your idle thoughts and bringing you back to the room. "I can''t do anything with them when mom is dragging us to Gadukino every other weekend."'
 			*nl
 			if seepornofut = 0:
 				'	"It''s okay Kolka," you console him. "Just enjoy the time you have with them. In a couple years mom might not force you to go anymore but you all might end up too busy to hang out."'

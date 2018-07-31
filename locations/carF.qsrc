@@ -95,7 +95,7 @@ if $ARGS[0] = 'salon':
 	if cardrive = 14:'Through the windshield, you see the old town.'
 	if cardrive = 5:'Through the windshield, you can see the park.'
 	if cardrive = 19:'Through the windshield, you see the Station.'
-	if cardrive = 23:'Through the windshield, you see the huts of the village of Gadyukino.'
+	if cardrive = 23:'Through the windshield, you see the huts of the village of Gadukino.'
 	if cardrive = 24:'Through the windshield, you can see the Old Town.'
 	if cardrive = 25:'You cross one of the bridges that leads to the island.'
 
@@ -424,7 +424,7 @@ if $ARGS[0] = 'salon':
 			end
 
 			if cardrive ! 23:
-				act 'To go to the village of Gadyukino':
+				act 'To go to the village of Gadukino':
 					cla
 					benz = benz - 1
 					teh = teh - RAND(3,6)
@@ -432,7 +432,7 @@ if $ARGS[0] = 'salon':
 
 					if cardrive < 20:
 						minut += 75
-						'You spend more than an hour on the highway going to Gadyukino.'
+						'You spend more than an hour on the highway going to Gadukino.'
 					else
 						minut += 15
 						'15 minutes later, you reach your destination.'

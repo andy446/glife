@@ -833,7 +833,7 @@ if $ARGS[0] = 'to_gadukino':
 	!family_trip_month = 1
 	minut += rand(15,25)
 	gs 'stat'
-	'You get into the Volga with the rest of your family and before you know, you''ve arrived in Gadyukino. Your grandparents have lived here for forty years.'
+	'You get into the Volga with the rest of your family and before you know, you''ve arrived in Gadukino. Your grandparents have lived here for forty years.'
 	act 'Go into the house': gt 'gadhouse'
 end
 

@@ -277,7 +277,7 @@ else
 	act'Talk to Igor':gt'IgorHanter'
 end
 
-!actions if the SG slut in Gadyukino
+!actions if the SG slut in Gadukino
 if hantersRape = 3:
 	cla
 	*clr

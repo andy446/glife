@@ -34,7 +34,7 @@ if $ARGS[0] = 'communal_tickets':
 			'You don''t have enough money for this ticket.'
 		end
 	end
-	act 'Buy a ticket to the village of Gadyukino (50 <b>₽</b>)':
+	act 'Buy a ticket to the village of Gadukino (50 <b>₽</b>)':
 		if money >= 50:
 			money -= 50
 			gt 'train', 'communal_village'
@@ -68,7 +68,7 @@ if $ARGS[0] = 'communal_trains':
 
 	act 'Take a train to St. Petersburg city industrial area': gt 'train', 'communal_ind'
 
-	act 'Take a train to the village of Gadyukino': gt 'train', 'communal_village'
+	act 'Take a train to the village of Gadukino': gt 'train', 'communal_village'
 
 	act 'Take a train to the old platform by the old town': gt 'train', 'communal_oldtown'
 
@@ -111,7 +111,7 @@ if $ARGS[0] = 'communal_village':
 	if rand(1, 100) < 20: gt 'train', 'events'
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/shared/train/gadplat.jpg" ></center>'
-	'After 10 minutes, the train stops at the small station near the village of Gadyukino.'
+	'After 10 minutes, the train stops at the small station near the village of Gadukino.'
 	act 'Get off the train':
 		if train_event = 0 and rand(1, 100) <= 5: gt 'train_incidental', 'end'
 		gt 'train', 'village'
@@ -151,9 +151,9 @@ if $ARGS[0] = 'village':
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/shared/train/gadplat.jpg" ></center>'
 	if storyline = 1:
-		'A fairly non-descript railway platform. The small village of Gadyukino where your grandparents reside is not far from here.'
+		'A fairly non-descript railway platform. The small village of Gadukino where your grandparents reside is not far from here.'
 	else
-		'A fairly non-descript railway platform. The small village of Gadyukino where some farmers reside is not far from here.'
+		'A fairly non-descript railway platform. The small village of Gadukino where some farmers reside is not far from here.'
 	end
 
 	act 'Return to the road':minut += 15 & nroad = 10 & gt 'road'
@@ -350,7 +350,7 @@ if $ARGS[0] = 'oldtown_tickets':
 			'You don''t have enough money for this ticket.'
 		end
 	end
-	act 'Buy a ticket to the village of Gadyukino (50 <b>₽</b>)':
+	act 'Buy a ticket to the village of Gadukino (50 <b>₽</b>)':
 		if money >= 50:
 			money -= 50
 			gt 'train', 'oldtown_village'
@@ -378,7 +378,7 @@ if $ARGS[0] = 'oldtown_trains':
 
 	act 'Take a train to the old platform by the communal village': gt 'train', 'oldtown_communal'
 
-	act 'Take a train to the village of Gadyukino': gt 'train', 'oldtown_village'
+	act 'Take a train to the village of Gadukino': gt 'train', 'oldtown_village'
 
 	act 'Take a train to Pavlovsk': gt 'train', 'oldtown_pavlovsk'
 end
@@ -437,7 +437,7 @@ if $ARGS[0] = 'oldtown_village':
 	if rand(1, 100) < 20: gt 'train', 'events'
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/shared/train/gadplat.jpg" ></center>'
-	'After 10 minutes, the train stops at the small station near the village of Gadyukino.'
+	'After 10 minutes, the train stops at the small station near the village of Gadukino.'
 	act 'Get off the train':
 		if train_event = 0 and rand(1, 100) <= 5: gt 'train_incidental', 'end'
 		gt 'train', 'village'

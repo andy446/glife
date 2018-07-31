@@ -71,7 +71,7 @@ if $ARGS[0] = 'buy_ticket':
 	end
 
 	if money >= 75:
-		act 'Buy a ticket to the village of Gadyukino (75 <b>₽</b>)':
+		act 'Buy a ticket to the village of Gadukino (75 <b>₽</b>)':
 			money -= 75
 			gt 'vokzalholle', 'village'
 		end
@@ -132,7 +132,7 @@ if $ARGS[0] = 'village':
 	if rand(1, 100) < 20: gt 'train', 'events'
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/shared/train/gadplat.jpg" ></center>'
-	'After 20 minutes, the train stops at the small station near the village of Gadyukino.'
+	'After 20 minutes, the train stops at the small station near the village of Gadukino.'
 	act 'Get off the train':
 		if train_event = 0 and rand(1, 100) <= 5: gt 'train_incidental', 'end'
 		gt 'train', 'village'

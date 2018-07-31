@@ -8,7 +8,7 @@ boyage = year - boyage
 
 '<center><b><font color = maroon>Andrew</font></b></center>'
 '<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/andreihanter.jpg"></center>'
-'Andrew is the leader of a group of hunters. He''s <<boyage>> years old. He is divorced and lives near Gadyukino.'
+'Andrew is the leader of a group of hunters. He''s <<boyage>> years old. He is divorced and lives near Gadukino.'
 if hantersAndreiQw < 0:'You and him have a bad relationship, because you offended him in the past.'
 if hantersAndreiQw >= 0 and hantersAndreiQw < 10:'You have a normal relationship with him.'
 if hantersAndreiQw >= 10 and hantersAndreiQw < 15:'You have friendly relations with him.'

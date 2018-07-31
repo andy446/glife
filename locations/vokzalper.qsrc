@@ -11,7 +11,7 @@ if Trainpass_day > daystart:
 
 	act 'Take a train to the old platform by the communal village': gt 'vokzalholle', 'communal'
 
-	act 'Take a train to the village of Gadyukino': gt 'vokzalholle', 'village'
+	act 'Take a train to the village of Gadukino': gt 'vokzalholle', 'village'
 
 	act 'Take a train to the old town': gt 'vokzalholle', 'oldtown'
 

@@ -220,7 +220,7 @@ if $ARGS[0] = 'mirabrother':
 
 								'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mira/mirabromoto2.jpg"></center>'
 
-								'He guns the engine, which roars and then sets out at furious pace. The rear wheel burns rubber and smokes a little as he rides you down the highway, after a few miles he does a U-turn and heads back towards Gadyukino and does not stop in the village.'
+								'He guns the engine, which roars and then sets out at furious pace. The rear wheel burns rubber and smokes a little as he rides you down the highway, after a few miles he does a U-turn and heads back towards Gadukino and does not stop in the village.'
 
 
 								act 'One ride ends and another begins...':

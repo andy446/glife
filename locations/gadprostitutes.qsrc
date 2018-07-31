@@ -18,7 +18,7 @@ if $ARGS[0] = 'start':
 	end
 	clr
 	gs 'stat'
-	'<center><h4>Highway near Gadyukino Village</h4></center>'
+	'<center><h4>Highway near Gadukino Village</h4></center>'
 	'You walk out to the highway '
 	
 	! commented out to make it more likely and similiar to the choices in miroslavaHome

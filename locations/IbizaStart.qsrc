@@ -4,7 +4,7 @@
 !!1/6 	Skills: Dance, Pole Dance and Erotic dancer  85+
 !!1/6	Skills: Exhibitionism 85+
 !!2/6 	Nightclub job. +10 times
-!!3/5 	Fame of slut in Pavlovsk, Gadyukino or city. Enough one of them
+!!3/5 	Fame of slut in Pavlovsk, Gadukino or city. Enough one of them
 !!4/5 	18 years old or fake identity
 !!5/5 	College diploma
 
@@ -19,7 +19,7 @@ if $ARGS[0] = 'start':
 	elseif oldtown_slut = IbizaTemp:
 		$IbizaTemp='Pushkino'
 	else
-		$IbizaTemp='Gadyukino'
+		$IbizaTemp='Gadukino'
 	end
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/nightclub/club11.jpg"></center>'
 	*nl 
@@ -29,7 +29,7 @@ if $ARGS[0] = 'start':
 	'<<$OpenMaleVoice>>"Hi <<$pcs_nickname>>! How are you doing? You look like you''re having fun. So listen, I''ve got something to tell you. You see... '
 	'I''ve been keeping an eye on you. You are a very good dancer and I''ve noticed that whenever you are working in the cage, many of our customers tend to have a few more drinks while looking at you dance.'
 	'I''ve also asked around a bit, and I hear you have quite the reputation in <<$IbizaTemp>>"<<$CloseMaleVoice>>'
-	!!PAVLOVSK, GADYUKINO OR CITY FAME SLUT PUT IN TEXT THE MORE HIGH -ONLY ONE
+	!!PAVLOVSK, GADUKINO OR CITY FAME SLUT PUT IN TEXT THE MORE HIGH -ONLY ONE
 	act '"Wrong girl Eric, I have no reputation."':
 		gt 'club', 'inside'
 	end

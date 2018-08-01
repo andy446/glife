@@ -52,10 +52,10 @@ act 'Drink some water (0:05)':gs 'beverage', 'bev_wat'
 
 act 'Have a cup of tea (0:05)':
 	cls
-	minut += 5
 	if pcs_hydra >= 100:
 		'You don''t need any more tea.'
 	else
+		minut += 5
 		pcs_hydra += 80
 		cumspclnt = 2
 		gs 'cum_cleanup'

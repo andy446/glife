@@ -1099,8 +1099,8 @@ $housemates = {
 	gs 'stat'
 	 '<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/housemates.jpg"></center>'
 	'Floor 1 - Apartment number 2: Artem Chebotarev'
-	'Floor 2 - Apartment number 7: your parents								Apartment number 9: Uncle Misha'
-	'Floor 3 - Apartment number 13: Sergey and Vasily Shulgin	 	Apartment number 14: Julia Milova'
+	'Floor 2 - Apartment number 7: your parents							Apartment number 9: Uncle Misha'
+	'Floor 3 - Apartment number 13: Sergey and Vasily Shulgin	 		Apartment number 15: Julia Milova'
 	'Floor 4 - Apartment number 19: Natasha Belova						Apartment number 21: Aunt Luda'
 	'Floor 5'
 	act 'Leave': gt 'pod_ezd', 'etaj_1'
@@ -1178,7 +1178,7 @@ if $ARGS[0] = 'etaj_2':
 	if home_owned[2] = 1:
 		act '<font color = maroon>Your apartment</font>':gt 'korrPar'
 	end
-	act 'Apartment 7: Uncle Misha':
+	act 'Apartment 9: Uncle Misha':
 		cla
 		if hour >= 0 and hour < 5:
 			'It''s too late to visit uncle Misha, he''s probably sleeping now.'
@@ -1218,9 +1218,9 @@ if $ARGS[0] = 'etaj_3':
 	'<<$etaj3_smoke_rnd>>'
 	'<<$pod_ev_rnd>>'
 
-	act 'Apartment number 11: Vasily and Sergei Shulgin':gt 'shulgahome'
+	act 'Apartment number 13: Vasily and Sergei Shulgin':gt 'shulgahome'
 	if BeInJulMilHome = 1: 
-		act 'Apartment number 12: Julia Milova': gt 'JuliaMilVhod'
+		act 'Apartment number 15: Julia Milova': gt 'JuliaMilVhod'
 	end
 	act 'Go down to the second floor': gt 'pod_ezd','etaj_2'
 	act 'Go up to the fourth floor': gt 'pod_ezd','etaj_4'
@@ -1238,10 +1238,10 @@ if $ARGS[0] = 'etaj_4':
 	'<<$pod_ev_rnd2>>'
 	
 	if BeInNatBelHome = 1: 
-		act 'Apartment number 14: Natasha Belova': gt 'NatBelVhod'
+		act 'Apartment number 19: Natasha Belova': gt 'NatBelVhod'
 	end
 
-	act 'Apartment number 16: Aunt Luda': 
+	act 'Apartment number 21: Aunt Luda': 
 		*clr & cla
 		minut +=1
 		gs 'stat'

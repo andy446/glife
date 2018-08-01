@@ -73,7 +73,7 @@ if $ARGS[0] = 'start':
 	act 'Use staff toilet':gt 'stwork', 'toilet'
 	act 'Look in the mirror': gt 'mirror', 'start'
 	act 'Change your clothes':gt 'wardrobe', 'start'
-	act 'Have a cup of water (0:05)':gs 'beverage', 'bev_wat'
+	act 'Have a cup of water (0:10)':gs 'beverage', 'bev_wat'
 	if money >= 100:
 		act 'Have a snack (0:05) (100 <b>₽</b>)': money -= 100 & gs 'food', 'snack'
 	end

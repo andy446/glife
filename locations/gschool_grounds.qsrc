@@ -317,13 +317,13 @@ if $ARGS[0] = 'sports':
 		'With the school open you can go to the <a href="exec:gt ''gschool_grounds'',''change_room''">changing rooms</a> by the gym and change your outfit.'
 	end
 
-	if week = 6 and schoolSorev = 2 and hour = 10:
+	if week = 6 and schoolSorev = 2 and hour = 10 and SchoolBlock = 0:
 		'Athletic students of your school and other schools in the area have gathered at the athletics track near your school. Everyone is getting ready for the running competition.'
 
 		act 'Participate in the 400m sprint event':gt 'gschool_grounds', 'SchoolRun2'
 	end
 
-	if week = 6 and schoolSorev = 1 and hour = 10:
+	if week = 6 and schoolSorev = 1 and hour = 10 and SchoolBlock = 0:
 		'Athletic students of your school and other schools in the area have gathered at the athletics track near your school. Everyone is getting ready for the running competition.'
 
 		act 'Participate in the 400m sprint race':gt 'gschool_grounds', 'SchoolRun'

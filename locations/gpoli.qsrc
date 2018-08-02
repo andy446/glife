@@ -1278,7 +1278,7 @@ if $ARGS[0] = 'maternity_ward':
 			gs 'stat'
 			*clr
 			cla
-			minute += 5
+			minut += 5
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/old_nurse.jpg"></center>'
 			'Nurse: Hello <<$pcs_firstname>>, how can I help you?'
 			act 'Donate your breast milk (0:15)':

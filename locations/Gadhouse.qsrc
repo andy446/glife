@@ -610,7 +610,7 @@ if $ARGS[0]='villagecat':
 		act 'Feed Boniface':
 			cla
 			*clr
-			minute +=5
+			minut +=5
 			gs 'stat'
 			feedcat = 2
 			'<center><video autoplay loop src="images/locations/gadukino/grandparents/feedboniface.mp4"></video></center>'
@@ -624,14 +624,14 @@ if $ARGS[0]='villagecat':
 			if sunWeather = 0:
 				cla
 				*clr
-				minute += 10
+				minut += 10
 				gs 'stat'
 				'You open the door for Boniface who saunters around you only to stop in the doorway as he becomes aware that it is raining out. He glares up at you as if the rain was your fault. He stares out into the wet for another moment then sedately turns around and goes back to his box.'
 				act 'Continue': gt 'Gadhouse', 'Start'
 			else
 				cla
 				*clr
-				minute +=10
+				minut +=10
 				gs 'stat'
 				catout = 2
 				'You open the door for Boniface who saunters around you only to stop in the doorway as he stops to consider if he really wants to go outside. After considering all the pros and cons, he finally decides to go out.'

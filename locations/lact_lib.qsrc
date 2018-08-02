@@ -475,7 +475,7 @@ if $ARGS[0] = 'milking':
 			cla
 			'<center><img <<$set_imgh>> src="images/pc/body/tits/milk_sink.jpg"></center>'
 			'<center>You pour <<milkedvolume/10>>ml of your breast milk into the sink and clean up your breastpump.</center>'
-			minute += 5
+			minut += 5
 			act 'Finish':
 				milkedvolume = 0
 				gt $loc, $metka
@@ -493,7 +493,7 @@ if $ARGS[0] = 'milking':
 				else
 					pcs_hydra = 100
 				end
-				minute += 7
+				minut += 7
 				act 'Finish':
 					milkedvolume = 0
 					gt $loc, $metka

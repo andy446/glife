@@ -55,7 +55,14 @@ if $ARGS[0] = 'Three':
 			cla
 			'<center><img <<$set_imgh>> src="images/system/schoolgirl.jpg"></center>'
 			'Welcome to the Schoolgirl version! You will need to carry on with your school life, manage your relationships and deal with whatever else comes up along the way!'
-			act 'Begin': close all & gt 'bedrPar'
+			act 'Begin':
+				close all
+				if $month = 'June':
+					gt'Gaddvor'
+				else
+					gt'pavComplex','start'
+				end
+			end
 		end
 	else
 		act 'Continue': close all & gt 'preALT', 'Cursed Schoolgirl Start'
@@ -71,7 +78,7 @@ end
 
 if $ARGS[0] = 'Cursed Schoolgirl Start':
 	'<center><img <<$set_imgh>> src="images/pre/alt/gadukino.jpg"></center>'
-	'You are on summer holiday with your parents and have been stuck here weeks. Good thing this evening you are finally going home, there is nothing to do here but watch animals graze.'
+	'You are on summer holiday with your parents and have been stuck here weeks. Good thing this evening you''re finally able to go home, there is nothing to do here but watch animals graze.'
 
 	act 'Take a walk':
 		*clr
@@ -135,7 +142,14 @@ if $ARGS[0] = 'Cursed Schoolgirl Start':
 		end
 		'<center><img <<$set_imgh>> src="images/system/magicschoolgirl.jpg"></center>'
 		'Welcome to the Cursed Schoolgirl version! Guide <<$pcs_nickname>> through her school life, relationships and myriad other issues that might pop up and all with the added spice of magic to keep things interesting!'
-		act 'Begin!': gt'pavResidential'
+		act 'Begin':
+			close all
+			if $month = 'June':
+				gt'Gaddvor'
+			else
+				gt'pavComplex','start'
+			end
+		end
 	end
 end
 
@@ -201,14 +215,19 @@ if $ARGS[0] = 'Cursed Schoolgirl Start 2':
 							cla
 							*clr
 							'<center><img <<$set_imgh>> src="images/pre/alt/karinpre.jpg"></center>'
-							'"Lay low for now. Go on with your life. We will contact you if anything comes up. Gustav here will drop you off at your home."'
+							'"Lay low for now. Go on with your life. We will contact you if anything comes up. Gustav here will drop you off at your '+iif($month = 'June','grandparent''s','parent''s')+'."'
 
 							act 'Follow Gustav':
 								hour = 18
 								cla
 								*clr
-								'<center><img <<$set_imgh>> src="images/pre/alt/gorodok.jpg"></center>'
-								'You give Gustav directions to your house and half an hour later he drops you off in front of your home.'
+								if $month = 'June':
+									'<center><img <<$set_imgh>> src="images/pre/alt/gadukino.jpg"></center>'
+									'You give Gustav directions to your grandparent''s house, half an hour later he drops you off at your grandparent''s yard in Gadukino.'
+								else
+									'<center><img <<$set_imgh>> src="images/pre/alt/gorodok.jpg"></center>'
+									'You give Gustav directions to your family''s apartment building, half an hour later he drops you off in front of your apartment complex in Pavlovsk.'
+								end
 								act 'Continue':
 									showstat 1
 									showobjs 1
@@ -221,7 +240,13 @@ if $ARGS[0] = 'Cursed Schoolgirl Start 2':
 									*clr
 									'<center><img <<$set_imgh>> src="images/system/magicschoolgirl.jpg"></center>'
 									'Welcome to the Cursed Schoolgirl version! Guide <<$pcs_nickname>> through her school life, relationships and myriad other issues that might pop up and all with the added spice of magic to keep things interesting!'
-									act 'Begin!': gt'pavResidential'
+									act 'Begin!':
+										if $month = 'June':
+											gt'Gaddvor'
+										else
+											gt'pavComplex','start'
+										end
+									end
 								end
 							end
 						end

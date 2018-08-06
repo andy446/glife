@@ -100,6 +100,26 @@ if mira = 0:
 	dynamic $wearpan
 	dynamic $basin
 
+	if painkiller > 0:
+		$pluralS = 's'
+		if painkiller = 1:$pluralS = ''
+		'You have <b><<painkiller>></b> painkiller<<$pluralS>>.'
+		if pain['total'] > 0 and pain['killer'] = 0:
+			act 'Take a painkiller':
+				cla
+				pain['killer'] += 1
+				painkiller -= 1
+				pcs_hydra += 20
+				gs 'stat'
+
+				*nl
+				'You take a painkiller and gulp it down with a glass of water.'
+
+				act 'Finish':gt $loc, $metka
+			end
+		end
+	end
+
 	if (cumloc[6] = 1 or cumloc[7] = 1):
 		act 'Rinse the cum stains off your clothes in luke warm water(0:10)':
 			cla

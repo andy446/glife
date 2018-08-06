@@ -585,7 +585,7 @@ if $ARGS[0] = 'kitchen':
 	gs 'kit_din'
 	'<center><h3>Kitchen</h3></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/home/kuhrpar.jpg"></center>'
-	'It is a modest kitchen but has all that is needed.'
+	'It''s a modest kitchen, but has all that is needed.'
 
 	! dishes
 	if cltarelka > 0:
@@ -593,11 +593,11 @@ if $ARGS[0] = 'kitchen':
 	else
 		'<b><font color = red>You have no clean dishes left.</font></b>'
 	end
-	if dirttarelka > 0:'The sink has <b><<dirttarelka>></b> pieces of dirty dishes. <a href="exec: dynamic $dirtarm">That can be washed and</a>.'
+	if dirttarelka > 0:'The sink has <b><<dirttarelka>></b> dirty dishes. <a href="exec: dynamic $dirtarm">that need to be washed</a>.'
 	if fairy > 0:
-		'above the sink is a detergent to wash the dishes with, there is enough for <b><<fairy>></b> time.'
+		'Above the sink is some detergent to wash the dishes with. There is enough for <b><<fairy>></b> uses.'
 	else
-		'<b><font color = red>you do not have any detergent to wash the dishes, You need to buy detergent.</font></b>'
+		'<b><font color = red>You do not have enough detergent, you should buy some from the supermarket.</font></b>'
 	end
 
 	! food
@@ -607,7 +607,7 @@ if $ARGS[0] = 'kitchen':
 		'In the refrigerator there''s enough (your own) food for <b><<eda>></b> servings. <<$edagot>>'
 	end
 	if edahot > 0:'<a href="exec: dynamic $edahotd ">On the table is ready meal (0:30).</a>'
-	if edaD = 0 and eda = 0:'<b><font color="red">Yyou have nothing to eat, the refrigerator is empty!</font></b>'
+	if edaD = 0 and eda = 0:'<b><font color="red">You have nothing to eat, the refrigerator is empty!</font></b>'
 
 	if eda >= 3:
 		'<a href="exec: gt ''pavSharedApt'', ''cookForGuys''">Cook meal (1:30) for the guys</a>'

@@ -40,20 +40,6 @@ if $ARGS[0] = 'start':
 	act 'Leave the clinic': minut += 5 & gt 'street'
 	act 'Go see a cosmetic surgeon':gt 'poli','cosmetic1'
 
-	if pcs_health < (pcs_vital * 10 + pcs_stren * 5):
-		act 'Ask the doctor for a health treatment (1:00)':
-			cla
-			minut += 60
-			if hosprand = 0:gt 'poli', '0'
-			if hosprand = 1:gt 'poli', '1'
-			if hosprand = 2:gt 'poli', '2'
-
-			'The doctor guides you to a bed and tells you to lie down, after which he gives you a shot. You feel drowsy for a little while, but afterwards you feel a lot better and healthier.'
-
-			act 'Return to the entrance':gt 'poli', 'start'
-		end
-	end
-
 	if pcs_health < (pcs_vital * 10 + pcs_stren * 5) or pain['total'] > 10:
 		act 'See a Doctor about your health (1:00)':
 			cla

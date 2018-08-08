@@ -15,8 +15,6 @@ if plact = 0:
 
 	$npc_usedname[$boy] = $npc_nickname[$boy]
 	$boydesc = $npc_nickname[$boy]
-	'You stop and look at the guy who approached you. You don''t think you''ve ever seen him before. He introduces himself: "My name is <<$boydesc>>."'
-	'You smile as you reply: "I''m <<$pcs_nickname>>."'+$text_mod
 
 	if know_status = 2:
 		!!random Gopniks
@@ -25,6 +23,8 @@ if plact = 0:
 		else
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/park/gop/skver_znacom_3.jpg"></center>'
 		end
+		'You stop and look at the guy who approached you. You don''t think you''ve ever seen him before. He introduces himself: "My name is <<$boydesc>>."'
+		'You smile as you reply: "I''m <<$pcs_nickname>>."'+$text_mod
 		'<<$boydesc>> invites you: "Pleased to meet you, <<$pcs_nickname>>! Would you like to have a beer with me?"'
 
 		!!if Frend_num = 0:end
@@ -36,6 +36,8 @@ if plact = 0:
 		else
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/park/gop/skver_znacom_3.jpg"></center>'
 		end
+		'You stop and look at the guy who approached you. You don''t think you''ve ever seen him before. He introduces himself: "My name is <<$boydesc>>."'
+		'You smile as you reply: "I''m <<$pcs_nickname>>."'+$text_mod
 		'<<$boydesc>> invites you: "Pleased to meet you, <<$pcs_nickname>>! Would you like to have a beer with me?"'
 
 		if kol_man = 1 and Frend_num > 0:

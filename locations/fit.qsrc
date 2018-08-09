@@ -108,6 +108,7 @@ if $ARGS[0] = 'dressing room':
 		gt 'mirror', 'start'
 	end
 
+	gs 'wardrobe', 'sports_outfit_option'
 	act 'Change outfit':
 		cla
 		gt 'wardrobe', 'start'

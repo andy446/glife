@@ -111,9 +111,9 @@ end
 
 if $ARGS[0] = 'default':
 	gs 'stat'
-	if ARRSIZE('defclothingnumber') = 0:
-		'You have no default outfits set.'
-	else
+	'Default sports outfit <a href="exec:gs ''wardrobe'', ''sports_entry_wear''">Wear this default outfit</a>'
+		
+	if ARRSIZE('defclothingnumber') > 0:
 		i = 0
 		:loopdefclothing
 		'<<$def_clothing_name[i]>> <a href="exec:gs ''wardrobe'', ''default_entry_wear'', <<i>>">Wear this default outfit</a> <a href="exec:gs ''wardrobe'', ''default_entry_delete'', <<i>>">Delete this default outfit</a>'
@@ -237,6 +237,7 @@ end
 
 if $ARGS[0] = 'default_set':
 	gs 'stat'
+	'sports outfit <a href="exec:gs ''wardrobe'', ''sports_entry_set'', <<i>>">Overwrite this</a>'
 	if ARRSIZE('defclothingnumber') ! 0:
 		i = 0
 		:loopdefclothing_set
@@ -286,5 +287,149 @@ if $ARGS[0] = 'default_entry_delete':
 	gt 'wardrobe', 'default_set'
 end
 
+!!-- sports outfit stuff
+
+if $ARGS[0] = 'sports_entry_wear':
+
+	gs 'wardrobe', 'prev_entry_set'
+
+	gs 'clothing_attributes', 'exercise', sportsclothingnumber
+	gs 'clothing', 'wear', 'exercise', sportsclothingnumber
+
+	if dyneval('RESULT = <<$sportsbratype>>_bras[<<sportsbranumber>>]') = 0: $sportsbratype = 'none' & sportsbranumber = 0
+	gs 'bras', 'wear', $sportsbratype, sportsbranumber
+
+	if dyneval('RESULT = <<$sportspantytype>>_panties[<<sportspantynumber>>]') = 0: $sportspantytype = 'none' & sportspantynumber = 0
+	gs 'panties', 'wear', $sportspantytype, sportspantynumber
+
+	gs 'shoes', 'wear', 'trainers', sportsshoenumber
+
+
+	if $sportspursetype = '' AND sportspursenumber = 0:
+		$sportspursetype = 'none' & sportspursenumber = 0
+	elseif dyneval('RESULT = <<$sportspursetype>>_purses[<<sportspursenumber>>]') = 0:
+		$sportspursetype = 'none' & sportspursenumber = 0
+	end
+	$currentpursetype = $sportspursetype
+	currentpursenumber = sportspursenumber
+	if $currentpursetype = 'none':
+		bag = 0
+	else
+		bag = 1
+	end
+
+	if dyneval('RESULT = coat[<<sportscoat>>]') = 0: sportscoat = 0
+	defaultcoat = sportscoat
+	gs 'stat'
+
+	!! do not own this clothing anymore
+	if dyneval('RESULT = exercise[<<sportsclothingnumber>>]') = 0:
+		cls
+		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/niko/nikoev/school/strip/strip2.jpg"></center>'
+		'As you go to pull your sports outfit out of your wardrobe you remember you don''t own that piece of clothing anymore. Maybe you should buy it again? Guess you will have to find something else to wear.'
+		gs 'wardrobe', 'prev_entry_set'
+	!! strength of clothing is less than or equal to 0
+	elseif dyneval('RESULT = exerciseH[<<sportsclothingnumber>>]') <= 0:
+		cls
+		'<center><video autoplay loop src="images/characters/pavlovsk/school/girl/vicky/event/vika_game_strip16.mp4"></video></center>'
+		'Your sports outfit has worn out and can''t be used anymore. Guess you will have to find something else to wear.'
+		gs 'wardrobe', 'prev_entry_set'
+	!! clothing exhibition is greater than player exhibition
+	elseif CloInhibit > pcs_inhib:
+		cls
+		'<center><video autoplay loop src="images/locations/pavlovsk/trainstation/bimbo.strip6.mp4"></video></center>'
+		'You don''t feel daring enough to wear your sports outfit. Maybe you will be confident enough in the future? Guess you will have to find something else to wear.'
+		gs 'wardrobe', 'prev_entry_set'
+	!! clothing ok to wear without needing hip check and passing all other checks
+	else
+		cls
+		'<center><video autoplay loop src="images/locations/city/citycenter/photo/dress.mp4"></video></center>'
+		'You put on your sports outfit without any problems.'
+	end
+	act 'Return': 
+		if $wloc = 'wardrobe':
+			gt 'wardrobe', 'start'
+		elseif $wloc = 'workout':
+			gt 'exercise', 'workout'
+		else 
+			gt $loc, $metka
+		end
+	end
+end
+
+if $ARGS[0] = 'sports_entry_set':
+	if $clothingworntype ! 'exercise' OR $shoeworntype ! 'trainers':
+		MSG 'The sports outfit needs to include exercise clothes and training shoes'
+		act 'Return to wardrobe': gt 'wardrobe', 'start'
+	else 
+		gs 'stat'
+		sportsclothingnumber = clothingwornnumber
+		$sportsbratype = $braworntype
+		sportsbranumber = brawornnumber
+		$sportspantytype = $pantyworntype
+		sportspantynumber = pantywornnumber
+		sportsshoenumber = shoewornnumber
+		$sportspursetype = $currentpursetype
+		sportspursenumber = currentpursenumber
+		sportscoat = defaultcoat
+
+		gt 'wardrobe', 'default_set'
+	end
+end
+
+if $ARGS[0] = 'prev_entry_set':
+	$prevsportsclothingtype = $clothingworntype
+	prevsportsclothingnumber = clothingwornnumber
+	$prevsportsbratype = $braworntype
+	prevsportsbranumber = brawornnumber
+	$prevsportspantytype = $pantyworntype
+	prevsportspantynumber = pantywornnumber
+	$prevsportsshoetype = $shoeworntype
+	prevsportsshoenumber = shoewornnumber
+	$prevsportspursetype = $currentpursetype
+	prevsportspursenumber = currentpursenumber
+	prevsportscoat = defaultcoat
+end
+
+if $ARGS[0] = 'prev_entry_wear':
+	cls
+	'<center><video autoplay loop src="images/locations/city/citycenter/photo/dress.mp4"></video></center>'
+	'You take off your sports outfit and put on the previous clothes'
+	$clothingworntype = $prevsportsclothingtype 
+	clothingwornnumber = prevsportsclothingnumber 
+	$braworntype = $prevsportsbratype 
+	brawornnumber = prevsportsbranumber 
+	$pantyworntype = $prevsportspantytype 
+	pantywornnumber = prevsportspantynumber 
+	$shoeworntype = $prevsportsshoetype 
+	shoewornnumber = prevsportsshoenumber 
+	$currentpursetype = $prevsportspursetype 
+	currentpursenumber = prevsportspursenumber 
+	defaultcoat = prevsportscoat 
+	gs 'stat'
+	act 'Return': 
+		if $wloc = 'wardrobe':
+			gt 'wardrobe', 'start'
+		elseif $wloc = 'workout':
+			gt 'exercise', 'workout'
+		else 
+			gt $loc, $metka
+		end
+	end
+end
+
+if $ARGS[0] = 'sports_outfit_option':
+	if $ARGS[1] = 'workout': 
+		$wloc = 'workout'
+	else
+		killvar '$wloc'
+	end
+
+	if $clothingworntype = 'exercise' AND $shoeworntype = 'trainers' AND sportsclothingnumber = clothingwornnumber AND $sportsbratype = $braworntype AND sportsbranumber = brawornnumber AND $sportspantytype = $pantyworntype AND sportspantynumber = pantywornnumber AND sportsshoenumber = shoewornnumber:
+		act 'Wear previous outfit': gs 'wardrobe', 'prev_entry_wear'
+	else
+		act 'Wear sports outfit': gs 'wardrobe', 'sports_entry_wear'
+	end
+end
 --- wardrobe ---------------------------------
 

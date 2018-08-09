@@ -693,7 +693,6 @@ if $ARGS[0] = 'maid':
 						act'Continue':gt'hotelwork','maid'
 					end
 				else
-
 					act'Keep walking':gt'hotelwork','maid'
 				end
 			end
@@ -703,6 +702,8 @@ if $ARGS[0] = 'maid':
 				gs 'arousal', 'voyeur', 10
 				gs 'stat'
 
+				act'Get back to work':gt'hotelwork','maid'
+				
 				act'Watch them for a while':
 					cla
 					'Making sure you don''t make a sound, you put your things away and watch them for a while, softly fondling yourself through your clothes. It feels great, and the couple on the bed look like they''re having a great time as well. Even though you want to keep watching them, you realize you have to get back to work before you''re missed.'
@@ -712,8 +713,6 @@ if $ARGS[0] = 'maid':
 					gs 'stat'
 					act'Get back to work':gt'hotelwork','maid'
 				end
-
-				act'Get back to work':gt'hotelwork','maid'
 			end
 			if maidrand>85 and maidrand<=95:
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/sex/maid.event3,'+rand(0,7)+'.jpg"></center>'
@@ -721,6 +720,8 @@ if $ARGS[0] = 'maid':
 				gs 'arousal', 'voyeur', 10
 				gs 'stat'
 
+				act'Get back to work':gt'hotelwork','maid'
+				
 				act'Watch them for a while':
 					cla
 					'You decide to watch them for a while longer, and idly begin to fondle yourself through your clothes. The men are quite demanding, commanding the girl around like she''s their plaything. They continuously talk her down, using degrading language. She obediently does everything they order her to do, but gets spanked once when she''s not quick enough. In the corner of the room, you see some coils of rope and several cuffs sticking out of an opened bag. It looks like she''s in for a long night...'
@@ -731,8 +732,6 @@ if $ARGS[0] = 'maid':
 					gs 'stat'
 					act'Get back to work':gt'hotelwork','maid'
 				end
-
-				act'Get back to work':gt'hotelwork','maid'
 			end
 			if maidrand>95 and maidrand<=100:
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/sex/maid.event4,'+rand(0,6)+'.jpg"></center>'
@@ -740,6 +739,8 @@ if $ARGS[0] = 'maid':
 				gs 'arousal', 'voyeur', 10
 				gs 'stat'
 
+				act'Get back to work':gt'hotelwork','maid'
+				
 				act'Watch them for a while':
 					cla
 					'You decide to watch them for a while longer, and idly begin to fondle yourself through your clothes. You notice they''re quite rough with the girl, and sometimes she''s struggling a bit. Should you say something to the manager? Then again... how would you explain watching them? You decide against it, figuring the girl will probably be okay.'
@@ -749,14 +750,15 @@ if $ARGS[0] = 'maid':
 
 					act'Get back to work':gt'hotelwork','maid'
 				end
-
-				act'Get back to work':gt'hotelwork','maid'
 			end
 			if maidrand >100 and maidrand<=110:
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/sonia/sex/hotel/sonia.hotel.boy0,'+rand(0,4)+'.jpg"></center>'
 				'You open the door to the next room, and immediately freeze in place when you hear gagging sounds coming from inside. Curious as you are, you decide to sneak a peek and see what''s happening in the room. When you look around the corner, you see a girl giving a guy an enthusiastic blowjob, happily gagging on his cock while she tries to take it down her throat over and over. Wait a minute... that''s Sonia, from your class!'
 				gs 'arousal', 'voyeur', 5
 				gs 'stat'
+				
+				act'Get back to work':gt'hotelwork','maid'
+				
 				if rand1<=60:
 
 					act'Keep watching':
@@ -791,8 +793,6 @@ if $ARGS[0] = 'maid':
 						end
 					end
 				end
-
-				act'Get back to work':gt'hotelwork','maid'
 			end
 
 			if maidrand >110 and maidrand<=120:
@@ -801,6 +801,9 @@ if $ARGS[0] = 'maid':
 				'She adjusts her strategy, diligently sucking the head of his cock and licking his balls instead.'
 				gs 'arousal', 'voyeur', 10
 				gs 'stat'
+				
+				act'Get back to work':gt'hotelwork','maid'
+				
 				if rand1<=60:
 
 					act'Keep watching':
@@ -835,8 +838,6 @@ if $ARGS[0] = 'maid':
 						end
 					end
 				end
-
-				act'Get back to work':gt'hotelwork','maid'
 			end
 
 			if maidrand >120 and maidrand<=130:
@@ -844,6 +845,9 @@ if $ARGS[0] = 'maid':
 				'You open the door to the next room, and immediately freeze in place when you hear gagging sounds coming from inside. Curious as you are, you decide to sneak a peek and see what''s happening in the room. When you look around the corner, you see Sonia with not one, but two huge black guys. She''s happily sucking their enormous dicks in turn, massaging the one she doesn''t currently have in her mouth with her delicate fingers.'
 				gs 'arousal', 'voyeur', 10
 				gs 'stat'
+				
+				act'Get back to work':gt'hotelwork','maid'
+				
 				if rand1<=60:
 
 					act'Keep watching':
@@ -877,8 +881,6 @@ if $ARGS[0] = 'maid':
 						end
 					end
 				end
-
-				act'Get back to work':gt'hotelwork','maid'
 			end
 		end
 	end

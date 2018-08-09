@@ -101,7 +101,7 @@ end
 if car > 0 and cardrive = 2:'In the parking stands your <a href="exec:GS ''carF'', ''start''"><<$car>></a>.'
 
 
-act 'wait':gs 'obj_din', 'wait'
+act 'Wait':gs 'obj_din', 'wait'
 
 gs 'taxi'
 

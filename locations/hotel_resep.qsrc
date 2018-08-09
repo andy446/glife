@@ -5,12 +5,7 @@ gs'stat'
 '<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/resep.girl0,'+rand(0,10)+'.jpg"></center>'
 'The same cute brunette as always is manning the reception desk. You wonder if she ever takes a break at all.'
 
-if hotelcollect > 0:
-	hotelcollect = 0
-	money+=maidtime*250
-	'The brunette quickly checks the computer and then gives you <<maidtime*250>> <b>₽</b> for all the shifts you worked in the hotel.'
-	maidtime=0
-end
+act 'Step away from the reception desk':gt'HotelHole','skip_resepevent'
 
 act'Rent a room':
 	cls
@@ -86,6 +81,27 @@ act'Rent a room':
 		act'No, thank you':gt'HotelHole'
 	end
 end
+
+if hotelcollect > 0:
+	hotelcollect = 0
+	money+=maidtime*250
+	'The brunette quickly checks the computer and then gives you <<maidtime*250>> <b>₽</b> for all the shifts you worked in the hotel.'
+	maidtime=0
+end
+
+If GermanQW<1:
+	act 'Ask about the maid job':
+		cls
+		if GermanQW = 0:GermanQW = 1
+		gs'stat'
+		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/resep.girl0,'+rand(0,10)+'.jpg"></center>'
+		'You approach the reception desk, and ask the girl: "Excuse me... I hear you are often looking for maids? I would like to come work as a maid here."'
+		'She nods understandingly, and takes a quick look at your figure: "We do often need maids, that''s true. I''d hire you in an instant, but unfortunately it''s not up to me. You should go see Herman Leonidovich, the hotel manager. He''s usually in his office between 12:00 and 14:00. I bet he will hire you! Good luck when you go see him!"'
+
+		act 'Step away from the reception desk':gt'HotelHole','skip_resepevent'
+	end
+end
+
 if proshotelopen = 1 and proshotelday ! daystart:
 	act'Ask for "The Peacock"':
 		if pavhotprosQW = 6:
@@ -262,20 +278,6 @@ if $ARGS[0] = 'pavlbar':
 	end
 	exit
 end
-
-If GermanQW<1:
-	act 'Ask about the maid job':
-		cls
-		if GermanQW = 0:GermanQW = 1
-		gs'stat'
-		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/resep.girl0,'+rand(0,10)+'.jpg"></center>'
-		'You approach the reception desk, and ask the girl: "Excuse me... I hear you are often looking for maids? I would like to come work as a maid here."'
-		'She nods understandingly, and takes a quick look at your figure: "We do often need maids, that''s true. I''d hire you in an instant, but unfortunately it''s not up to me. You should go see Herman Leonidovich, the hotel manager. He''s usually in his office between 12:00 and 14:00. I bet he will hire you! Good luck when you go see him!"'
-
-		act 'Step away from the reception desk':gt'HotelHole','skip_resepevent'
-	end
-end
-act 'Step away from the reception desk':gt'HotelHole','skip_resepevent'
 
 if $ARGS[0] = 'pavgenpros':
 	cla

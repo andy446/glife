@@ -115,26 +115,17 @@ end
 'As you enter the Pavlovsk hotel you''re always surprised by how fancy it looks on the inside, given the shabby exterior. You can approach the <a href="exec:minut += 1 & GT ''hotel_resep''">reception desk</a> of the hotel where a cute brunette is currently manning the desk, she gives you a friendly nod when you get into her sight range.'
 if hour >= 12 and hour < 20 and proshotelopen = 1: '<a href="exec:gt ''HotelHole'',''Pavlin''">Pavlin</a> is sitting in the lobby looking around for fresh prey.'
 
-
-
 if hour >= 12 and hour <= 13 and GermanQW > 0:
 	'Next to the reception desk, you see a door labeled <a href="exec:minut += 1 & GT ''hoteladmin''">"Administration"</a>. That must be where the hotel manager works. The door is currently open.'
 end
+
 if hotwait = 1:
 'You go sit in one of the comfortable chairs in the lobby and watch the guests checking in an out.'
 hotwait = 0
 end
-if maidqw >= 1 and hour >= 15 and hour < 16:
-	act'Wait in the lobby until you can start your maid job':
-		hour = 16
-		minut = 0
-		cls
-		gs'stat'
-		gt 'HotelHole'
-	end
-end
+
 if maidqw >= 1 and hour >= 16 and hour < 17:
-	act'Work as a maid':
+	act'<b>Work as a maid</b>':
 		cls
 		gs'stat'
 		'You report in for work at the front desk. The brunette manning the desk quickly makes sure no customers will need her for a minute, and then guides you to the locker room and gives you a maid uniform. She gives you a friendly smile: "You need to wear this, company policy. You can put your own clothes in a locker for safekeeping while you work. I have to get back to the desk now before I''m missed, good luck today!"'
@@ -149,14 +140,28 @@ if maidqw >= 1 and hour >= 16 and hour < 17:
 		end
 	end
 end
-if hotelcouple = 2 and week=4 and hour >=20 and hour <23 and hcday ! daystart:
-	act 'Go visit the couple in room 207':gt 'HotelWork','hotcouple'
+
+if maidqw >= 1 and hour >= 15 and hour < 16:
+	act'Wait in the lobby until you can start your maid job':
+		hour = 16
+		minut = 0
+		cls
+		gs'stat'
+		gt 'HotelHole'
+	end
 end
+
+act 'Leave the hotel':minut += 3 & gt'vokzalG'
+
 if maidtime > 0:
 	act'Collect your salary':
 		hotelcollect = 1
 		gt'hotel_resep'
 	end
+end
+
+if hotelcouple = 2 and week=4 and hour >=20 and hour <23 and hcday ! daystart:
+	act 'Go visit the couple in room 207':gt 'HotelWork','hotcouple'
 end
 
 if HotelRoom > 0:
@@ -167,13 +172,11 @@ if HotelRoom > 0:
 	end
 end
 
-act 'Kill some time in the hotel lobby ':
+act 'Kill some time in the hotel lobby':
 	gs 'obj_din', 'rest'
 	hotwait = 1
 	gt 'hotelhole'
 end
-
-act 'Leave the hotel':minut += 3 & gt'vokzalG'
 
 if $ARGS[0] = 'Pavlin' :
 	cls

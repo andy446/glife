@@ -379,6 +379,30 @@ $cheatmenu['status'] = {
 	pl'<a href="exec:dynamic $cheatmenu[''remove_preg'']">Remove pregnancy</a>'
 	pl'<a href="exec:dynamic $cheatmenu[''cycle'']"><b>Set stage of menstrual cycle</b></a>'
 	pl '<a href="exec:gs''cum_cleanup'',''reset''">Remove all cum</a>'
+	nl
+	if lactate <= 0:
+		pl 'You are not lactating'
+		pl '<a href="exec:lactate = 1 & lactateinduced = 1 & total_milkinduce_growth = 8 & nbsize += 8 & prolactinlvl = 200 & lactaterate = 100 & lactatemv = 0 & lactatemm = func(''lact_lib'',''$calc_lactatemm'') & dynamic $cheatmenu[''status'']">Switch ON</a>'
+	else
+		pl 'You are lactating'
+		pl '<a href="exec:lactate = 0 & lactateinduced = 0 & total_milkinduce_growth = 0 & nbsize -= 8 & prolactinlvl = 0 & lactaterate = 0 & lactatemv = 0 & lactatemm = 0 & dynamic $cheatmenu[''status'']">Switch OFF</a>'
+		if lactaterate <= 0:
+			pl 'Lactate Rate: <<lactaterate/10>>ml/h <a href="exec:lactaterate += 100 & dynamic $cheatmenu[''status'']">+10</a>'
+		elseif lactaterate >= 6000:
+			pl 'Lactate Rate: <a href="exec:lactaterate -= 100 & dynamic $cheatmenu[''status'']">-10</a> <<lactaterate/10>>ml/h'
+		else
+			pl 'Lactate Rate: <a href="exec:lactaterate -= 100 & dynamic $cheatmenu[''status'']">-10</a> <<lactaterate/10>>ml/h <a href="exec:lactaterate += 100 & dynamic $cheatmenu[''status'']">+10</a>'
+		end
+		pl 'Milk in Breasts: <<lactatemv/10>>ml'
+		pl 'Max Milk Storage: <<lactatemm/10>>ml'
+		pl 'Maximum Milk Storage changes with breast size and if <<$pcs_firstname>> when through pregnancy'
+		if lactateinduced <= 0:
+			pl 'Lactation <<$pcs_firstname>> Induced?: <a href="exec:lactateinduced = 1 & dynamic $cheatmenu[''status'']">no</a>'
+		else
+			pl 'Lactation <<$pcs_firstname>> Induced?: <a href="exec:lactateinduced = 0 & dynamic $cheatmenu[''status'']">yes</a>'
+		end
+		pl 'This is only used for some events. <<$pcs_firstname>> knows that she induced the lactation to herself or not.'
+	end
 }
 
 $cheatmenu['avatar_hair_set'] = {

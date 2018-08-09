@@ -26,7 +26,7 @@ if $ARGS[0] = 'hotcouple':
 		pcs_mood +=10
 		gs 'arousal', 'massage', 10
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/sex/hotcouple2.jpg"></center>'
-		'" You can just relax. We will take good care of you" he says.'
+		'"You can just relax. We will take good care of you" he says.'
 		'He pushes you on the bed and Uliana places her head between your legs. She starts licking your clit. '
 		'You can feel this is not her first rodeo so you close your eyes and start enjoying the feeling.'
 		gs 'arousal', 'cuni', 10, 'lesbian'
@@ -53,26 +53,26 @@ if $ARGS[0] = 'hotcouple':
 			gs 'npcgeneratec', 0, 'Motya', rand(30,40)
 			gs 'stat'
 			if pcs_vag = 0:
-				'When she reached your hymen she yelled out : " Oh My God, she is still a virgin!"'
+				'When she reached your hymen she yelled out: "Oh my god, she is still a virgin!"'
 				'"How about it honey, do you want my husband to be your first?"'
 				act 'No, I want to save myself.':
 					*clr & cla
 					gs'stat'
-					'" no problem honey , this evening is all about what you want." '
-					'"Do you want him to come all over your face? " '
-					'-"Yeah sure, that is fine"'
-					'You lay down on your back'
-					act 'finish':gt 'HotelWork', 'hotcoupfin'
+					'"No problem honey, this evening is all about what you want."'
+					'"Do you want him to come all over your face?"'
+					'"Yeah sure, that is fine."'
+					'You lay down on your back.'
+					act 'Finish':gt 'HotelWork', 'hotcoupfin'
 				end
-				act 'yes' :
+				act 'Yes' :
 					*clr & cla
 					gs'stat'
 					'You lie down on the bed and spread your legs. Uliana takes Motya''s cock in her hand and guides it towards your pussy.'
-					'" Just relax Honey, he will be very gentle." she said while giving you a little smile.'
+					'"Just relax Honey, he will be very gentle." she said while giving you a little smile.'
 					'<left><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/sex/hotcouple6.jpg"></left>'
 					'Motya began pressing his dick into your pussy. he was slow and careful not to push too hard.'
 					'You let out a little moan as the dick had slowly but surely invaded your pussy.'
-					'His shaft sank in deeper and suddenly you let out a little grunt and twitch. You looked into Motya''s eyes and you both knew that your virginity was no more. '
+					'His shaft sank in deeper and suddenly you let out a little grunt and twitch. You looked into Motya''s eyes and you both knew that your virginity was no more.'
 					'You could feel every inch of his <<dick>> cm dick inside you now. He gave you a little wink and then started moving again.'
 					'While he was fucking you Uliana gently rubbed against your clit while kissing her husband.'
 					'After a few minutes you all changed positions.'
@@ -138,7 +138,7 @@ if $ARGS[0] = 'firsthotelprosevent':
 	gs 'arousal', 'bj', 10, 'prostitution'
 	gs 'arousal', 'end'
 	gs 'stat'
-	act 'On to the main event.':
+	act 'On to the main event':
 		*clr & cla
 		gs 'npcgeneratec', 0, 'Black guy', rand(18,40)
 		gs 'boyStat', $npclastgenerated
@@ -466,7 +466,7 @@ if $ARGS[0] = 'maid':
 				if maidstat >= 50 and maidstat<70:'You are pretty good at cleaning rooms, and the room looks quite clean when you''re done with it. There are still some small wrinkles in the bed sheets, but it''s nothing a guest would complain about.'
 				if maidstat >= 70:'You''re a very experienced maid by now. You know how to clean up all sorts of spots and stains with ease, and the bed sheets look perfect when you do them.'
 				
-				if chai > 0:money += chai & 'While you''re cleaning the room, you find some money underneath a pillow. Looks like someone left you a <<chai>> ruble tip!' & chai=0
+				if chai > 0:money += chai & 'While you''re cleaning the room, you find some money underneath a pillow. Looks like someone left you a <<chai>> <b>₽</b> tip!' & chai=0
 
 				act'Continue':gt 'hotelwork', 'maid'
 			end
@@ -555,7 +555,7 @@ if $ARGS[0] = 'maid':
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/work/maid.work1,0.jpg"></center>'
 				'You work in the hotel restaurant, moving dirty dishes to the kitchen and preparing tables for the next guests.'
 				
-				if chai > 0:money += chai &'While you move to pick up a tray, you find some money tucked under a plate. Looks like someone left you a <<chai>> ruble tip!'&chai=0
+				if chai > 0:money += chai &'While you move to pick up a tray, you find some money tucked under a plate. Looks like someone left you a <<chai>> <b>₽</b> tip!'&chai=0
 
 				act'Continue':gt 'hotelwork', 'maid'
 			end

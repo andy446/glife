@@ -115,8 +115,6 @@ end
 'As you enter the Pavlovsk hotel you''re always surprised by how fancy it looks on the inside, given the shabby exterior. You can approach the <a href="exec:minut += 1 & GT ''hotel_resep''">reception desk</a> of the hotel where a cute brunette is currently manning the desk, she gives you a friendly nod when you get into her sight range.'
 if hour >= 12 and hour < 20 and proshotelopen = 1: '<a href="exec:gt ''HotelHole'',''Pavlin''">Pavlin</a> is sitting in the lobby looking around for fresh prey.'
 
-
-
 if hour >= 12 and hour <= 13 and GermanQW > 0:
 	'Next to the reception desk, you see a door labeled <a href="exec:minut += 1 & GT ''hoteladmin''">"Administration"</a>. That must be where the hotel manager works. The door is currently open.'
 end
@@ -143,8 +141,6 @@ if maidqw >= 1 and hour >= 16 and hour < 17:
 	end
 end
 
-act 'Leave the hotel':minut += 3 & gt'vokzalG'
-
 if maidqw >= 1 and hour >= 15 and hour < 16:
 	act'Wait in the lobby until you can start your maid job':
 		hour = 16
@@ -154,6 +150,8 @@ if maidqw >= 1 and hour >= 15 and hour < 16:
 		gt 'HotelHole'
 	end
 end
+
+act 'Leave the hotel':minut += 3 & gt'vokzalG'
 
 if maidtime > 0:
 	act'Collect your salary':

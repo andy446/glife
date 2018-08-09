@@ -220,7 +220,7 @@ if $ARGS[0] = 'start':
 
 	gs 'kseniyaQW', 'events'
 
-	if pcs_inhib >= 35:
+	if pcs_inhib >= 35 or exhibitionist_lvl > 0:
 		act 'Flash your tits':
 			inhib_exp += 2
 			if pcs_exhib = 100 and exhibitionQW = 0: gt 'kseniyaQW', 'event1'

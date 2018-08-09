@@ -235,6 +235,7 @@ if $ARGS[0] = 'modpur':
 		if nbag < 1 or nbag > 22: 
 			gt 'preSYS2','modpur'
 		else
+			bag = 1
 			$currentpursetype = 'dolls'
 			currentpursenumber = nbag
 			gt 'preSYS2','modpur'

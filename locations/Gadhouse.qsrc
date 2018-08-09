@@ -122,7 +122,7 @@ end
 if $ARGS[0] = 'Main':
 	$metkaM = 'Main'
 	$locM = 'Gadhouse'
-
+	$locclass = 'livingr'
 	*clr
 	cla
 	gs 'stat'

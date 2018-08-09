@@ -1,6 +1,7 @@
 # Serge_kuh
 
 if $ARGS[0] = '':
+	$locclass = 'kitr'
 	*P ' '
 	!Chat with Sergey in the kitchen (5 times per day)
 	if sergebazarkuh_day ! daystart: sergebazarkuh_count = 5

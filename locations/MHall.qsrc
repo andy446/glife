@@ -43,6 +43,7 @@ end
 
 if $ARGS[0] = 'east':
     $location_type = 'private'
+	killvar '$locclass'
 	cls
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/city/suburb/bdsm_club/hall.jpg"></center>'

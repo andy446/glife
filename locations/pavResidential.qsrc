@@ -7,6 +7,7 @@ $loc = 'pavResidential'
 $metkaStreet = ''
 $locStreet = 'pavResidential'
 $location_type = 'public_outdoors'
+killvar '$locclass'
 
 if sound = 0:
 	if month >=11 and month <= 12 or month >=1 and month <=3:

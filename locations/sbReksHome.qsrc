@@ -81,6 +81,7 @@ end
 if $ARGS[0] = 'party_home':
 	$metka = 'party_home'
 	$loc = 'sbReksHome'
+	killvar '$locclass'
 	cls
 	minut += 5
 	gs'stat'
@@ -129,6 +130,7 @@ end
 if $ARGS[0] = 'party_gost':
 	$metka = 'party_gost'
 	$loc = 'sbReksHome'
+	$locclass = 'livingr'
 	cls
 	minut += 5
 	gs'stat'
@@ -154,6 +156,7 @@ end
 if $ARGS[0] = 'party_kuh':
 	$metka = 'party_kuh'
 	$loc = 'sbReksHome'
+	$locclass = 'kitr'
 	cls
 	minut += 5
 	gs'stat'
@@ -171,6 +174,7 @@ if $ARGS[0] = 'party_toilet':
 	$loc = 'sbReksHome'
 	$metkaM = 'party_toilet'
 	$locM = 'sbReksHome'
+	killvar '$locclass'
 	cls
 	minut += 5
 	gs'stat'

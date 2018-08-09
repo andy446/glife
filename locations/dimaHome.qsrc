@@ -34,6 +34,7 @@ end
 
 if $ARGS[0] = 'hallway':
 	$location_type = 'indoors'
+	killvar '$locclass'
 	cls
 	minut += 1
 	gs 'stat'
@@ -68,6 +69,7 @@ end
 
 if $ARGS[0] = 'livingroom':
 	*clr & cla
+	$locclass = 'livingr'
 	minut += 1
 	gs 'stat'
 	'<center><b><font color = maroon>Living room</font></b></center>'
@@ -79,6 +81,7 @@ end
 if $ARGS[0] = 'kitchen':
     *clr & cla
     minut += 1
+	$locclass = 'kitr'
     gs 'stat'
     '<center><b><font color = maroon>Kitchen</font></b></center>'
     '<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/dimkahome/kitchen.jpg"></center>'

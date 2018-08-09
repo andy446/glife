@@ -192,6 +192,7 @@ if $ARGS[0] = 'hall':
 	$metka = $ARGS[0]
 	$loc = $CURLOC
     $location_type = 'public_indoors'
+	killvar '$locclass'
 	minut += 5
 	gs 'stat'
 	'<center><b><font color = maroon>Entrance hall</font></b></center>'
@@ -234,8 +235,9 @@ end
 
 if $ARGS[0] = 'kitchen':
 	cls
-	$metka = $ARGS[0]
-	$loc = $CURLOC
+	$metka = 'kitchen'
+	$loc = 'buklinik_event'
+	$locclass = 'kitr'
 	minut += 5
 	gs 'stat'
 	'<center><b><font color = maroon>Kitchen</font></b></center>'

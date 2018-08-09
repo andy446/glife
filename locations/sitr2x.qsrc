@@ -2,7 +2,7 @@
 
 CLOSE ALL
 $location_type = 'private'
-$locclass = 'sitroom'
+$locclass = 'livingr'
 act 'Go to the corridor':
 	gt'korr2x'
 end

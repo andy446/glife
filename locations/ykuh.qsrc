@@ -1,7 +1,8 @@
 # ykuh
 
-$metka = $ARGS[0]
-$loc = $CURLOC
+$metka = ''
+$loc = 'ykuh'
+$locclass = 'kitr'
 clr
 gs 'stat'
 '<center><b><font color="maroon">Kitchen</font></b></center>'

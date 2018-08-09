@@ -198,13 +198,15 @@ if $ARGS[0] = 'QW2':
 		gs 'arousal', 'end'
 		gs 'stat'
 		
-		if analplugin = 1:'Seeing your ass plug, she suddenly starts laughing and gives it a little poke and twist. While she plays with it, she tells you: "Looks like you are on the right track, girl..."'
+		if analplugin = 1:
+			'Seeing your ass plug, she suddenly starts laughing and gives it a little poke and twist. While she plays with it, she tells you: "Looks like you are on the right track, girl..."'
+			gs 'arousal', 'anal_dildo', 30, 'sub', 'lesbian'
+			gs 'arousal', 'end'
+		end
 		'During her lecture, Mistress feels you up from time to time, idly running her hands over your thighs, boobs and butt. She also spends some time on telling you how you should behave in the presence of a domme. Immediate obedience is very important.'
 		'Suddenly she gives you a hard slap on the ass, and tells you: "Time''s up. You need to go."'
 		'You barely have any time to put your clothes back on, but Mistress waits impatiently by the door until you are dressed. When you gather your things and get ready to leave, you try to think back of what you have learned from her demeanour and lessons today. Not much, to be honest... but it was fascinating to see her work with you.'
 		
-		gs 'arousal', 'anal_dildo', 30, 'sub', 'lesbian'
-		gs 'arousal', 'end'
 		gs 'stat'
 		
 		act 'Leave her apartment':gt'street'

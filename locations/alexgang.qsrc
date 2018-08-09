@@ -1,4 +1,6 @@
 # alexgang
+
+$locclass = 'livingr'
 frost = 0
 minut += 30
 gs 'stat'

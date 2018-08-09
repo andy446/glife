@@ -42,6 +42,7 @@ if $args[0] = 'first_meet':
 		cls
 		minut += 60
 		mey_vika['mey_vika_qw'] = 25
+		$locclass = 'kitr'
 		gs 'stat'
 		'<center><h4><font color="maroon">Tamara Mikhailovna</font></h4></center>'
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/meynolds/tamara_first_meet_tea.jpg"></center>'

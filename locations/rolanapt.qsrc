@@ -154,6 +154,7 @@ if $ARGS[0] = 'livingroom':
 	cla
 	*clr
 	minut += 1
+	$locclass = 'livingr'
 	gs 'stat'
 	'<center><b><font color = maroon>Living Room</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/aptrolan/livingroom.jpg"></center>'
@@ -185,6 +186,7 @@ if $ARGS[0] = 'kitchen':
 	cla
 	*clr
 	minut += 1
+	$locclass = 'kitr'
 	gs 'stat'
     '<center><b><font color = maroon>Kitchen</font></b></center>'
     '<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/aptrolan/kitchen.jpg"></center>'

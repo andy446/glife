@@ -5,7 +5,7 @@ act 'Leave the room':gt 'korrPar'
 $metka = ''
 $loc = 'sitrPar'
 $location_type = 'private'
-$locclass = 'sitroom'
+$locclass = 'livingr'
 clr
 minut += 1
 gs 'stat'

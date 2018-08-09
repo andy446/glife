@@ -779,6 +779,12 @@ if $ARGS[0] = 'Phone_selfie_totals':
 	bedroom_clotot = 27
 	bedroom_undtot = 20
 	bedroom_nudtot = 20
+	kitchen_clotot = 16
+	kitchen_undtot = 11
+	kitchen_nudtot = 20
+	livingr_clotot = 17
+	livingr_undtot = 21
+	livingr_nudtot = 21
 end
 
 
@@ -828,6 +834,42 @@ if $ARGS[0] = 'Phone_pictures':
 		bedroom_nudcnt += 1
 	if bedroom_nudcnt <= bedroom_nudtot: jump'bedroom_nudloop'
 
+	kitchen_clocnt = 1
+	:kitchen_cloloop
+		if kitchen_closelfie[kitchen_clocnt] = 1:pl'<a href="exec:view''images/pc/selfies/kitchen/clothed/<<kitchen_clocnt>>.jpg''"><b>Clothed kitchen selfie #<<kitchen_clocnt>></b></a>'
+		kitchen_clocnt += 1
+	if kitchen_clocnt <= kitchen_clotot: jump'kitchen_cloloop'
+
+	kitchen_undcnt = 1
+	:kitchen_undloop
+		if kitchen_undselfie[kitchen_undcnt] = 1:pl'<a href="exec:view''images/pc/selfies/kitchen/underwear/<<kitchen_undcnt>>.jpg''"><b>Underwear kitchen selfie #<<kitchen_undcnt>></b></a>'
+		kitchen_undcnt += 1
+	if kitchen_undcnt <= kitchen_undtot: jump'kitchen_undloop'
+
+	kitchen_nudcnt = 1
+	:kitchen_nudloop
+		if kitchen_nudselfie[kitchen_nudcnt] = 1:pl'<a href="exec:view''images/pc/selfies/kitchen/nude/<<kitchen_nudcnt>>.jpg''"><b>Nude kitchen selfie #<<kitchen_nudcnt>></b></a>'
+		kitchen_nudcnt += 1
+	if kitchen_nudcnt <= kitchen_nudtot: jump'kitchen_nudloop'
+
+	livingr_clocnt = 1
+	:livingr_cloloop
+		if livingr_closelfie[livingr_clocnt] = 1:pl'<a href="exec:view''images/pc/selfies/livingroom/clothed/<<livingr_clocnt>>.jpg''"><b>Clothed livingroom selfie #<<livingr_clocnt>></b></a>'
+		livingr_clocnt += 1
+	if livingr_clocnt <= livingr_clotot: jump'livingr_cloloop'
+
+	livingr_undcnt = 1
+	:livingr_undloop
+		if livingr_undselfie[livingr_undcnt] = 1:pl'<a href="exec:view''images/pc/selfies/livingroom/underwear/<<livingr_undcnt>>.jpg''"><b>Underwear livingroom selfie #<<livingr_undcnt>></b></a>'
+		livingr_undcnt += 1
+	if livingr_undcnt <= livingr_undtot: jump'livingr_undloop'
+
+	livingr_nudcnt = 1
+	:livingr_nudloop
+		if livingr_nudselfie[livingr_nudcnt] = 1:pl'<a href="exec:view''images/pc/selfies/livingroom/nude/<<livingr_nudcnt>>.jpg''"><b>Nude livingroom selfie #<<livingr_nudcnt>></b></a>'
+		livingr_nudcnt += 1
+	if livingr_nudcnt <= livingr_nudtot: jump'livingr_nudloop'
+
 	*nl
 	pl'<center><a href="exec:gs ''telefon'', ''Phone_menu'' "><img src="images/system/icon/back.png"></a></center>'
 end
@@ -840,39 +882,74 @@ if $ARGS[0] = 'Phone_camera_selfie':
 		if $clothingworntype ! 'nude':
 			phone_rand = rand(1,bathroom_clotot)
 			bathroom_closelfie[phone_rand] = 1
+			gs 'stat'
 			view 'images/pc/selfies/bathroom/clothed/<<phone_rand>>.jpg'
 		elseif $pantyworntype ! 'none':
 			phone_rand = rand(1,bathroom_undtot)
 			bathroom_undselfie[phone_rand] = 1
+			gs 'stat'
 			view 'images/pc/selfies/bathroom/underwear/<<phone_rand>>.jpg'
 		else
 			phone_rand = rand(1,bathroom_nudtot)
 			bathroom_nudselfie[phone_rand] = 1
+			gs 'stat'
 			view 'images/pc/selfies/bathroom/nude/<<phone_rand>>.jpg'
 		end
-		gs 'stat'
-		gs 'telefon', 'Phone_pictures'
 	elseif $locclass = 'bedr':
 		if $clothingworntype ! 'nude':
 			phone_rand = rand(1,bedroom_clotot)
 			bedroom_closelfie[phone_rand] = 1
+			gs 'stat'
 			view 'images/pc/selfies/bedroom/clothed/<<phone_rand>>.jpg'
 		elseif $pantyworntype ! 'none':
 			phone_rand = rand(1,bedroom_undtot)
 			bedroom_undselfie[phone_rand] = 1
+			gs 'stat'
 			view 'images/pc/selfies/bedroom/underwear/<<phone_rand>>.jpg'
 		else
 			phone_rand = rand(1,bedroom_nudtot)
 			bedroom_nudselfie[phone_rand] = 1
+			gs 'stat'
 			view 'images/pc/selfies/bedroom/nude/<<phone_rand>>.jpg'
 		end
-		gs 'stat'
-		gs 'telefon', 'Phone_pictures'
+	elseif $locclass = 'kitr':
+		if $clothingworntype ! 'nude':
+			phone_rand = rand(1,kitchen_clotot)
+			kitchen_closelfie[phone_rand] = 1
+			gs 'stat'
+			view 'images/pc/selfies/kitchen/clothed/<<phone_rand>>.jpg'
+		elseif $pantyworntype ! 'none':
+			phone_rand = rand(1,kitchen_undtot)
+			kitchen_undselfie[phone_rand] = 1
+			gs 'stat'
+			view 'images/pc/selfies/kitchen/underwear/<<phone_rand>>.jpg'
+		else
+			phone_rand = rand(1,kitchen_nudtot)
+			kitchen_nudselfie[phone_rand] = 1
+			gs 'stat'
+			view 'images/pc/selfies/kitchen/nude/<<phone_rand>>.jpg'
+		end
+	elseif $locclass = 'livingr':
+		if $clothingworntype ! 'nude':
+			phone_rand = rand(1,livingr_clotot)
+			livingr_closelfie[phone_rand] = 1
+			gs 'stat'
+			view 'images/pc/selfies/livingroom/clothed/<<phone_rand>>.jpg'
+		elseif $pantyworntype ! 'none':
+			phone_rand = rand(1,livingr_undtot)
+			livingr_undselfie[phone_rand] = 1
+			gs 'stat'
+			view 'images/pc/selfies/livingroom/underwear/<<phone_rand>>.jpg'
+		else
+			phone_rand = rand(1,livingr_nudtot)
+			livingr_nudselfie[phone_rand] = 1
+			gs 'stat'
+			view 'images/pc/selfies/livingroom/nude/<<phone_rand>>.jpg'
+		end
 	else
 		phone_rand = RAND(1,2)
 		phone_selfie[phone_rand] = 1
 		gs 'stat'
-		gs 'telefon', 'Phone_pictures'
 		view 'images/system/phone/selfie/phone_selfie<<phone_rand>>.jpg'
 	end
 	!if spdirtyf > 0: phone_rand = RAND (m,n) - for SELF in the semen

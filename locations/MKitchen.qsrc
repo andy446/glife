@@ -2,6 +2,8 @@
 $location_type = 'private'
 
 if $ARGS[0] = 'kitchen':
+	$locclass = 'kitr'
+	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/city/suburb/bdsm_club/kitchen.jpg"></center>'
 	act 'Go to the east hall': gt 'MHall', 'east'
 	act 'look in the pantry': gt 'MKitchen', 'pantry'

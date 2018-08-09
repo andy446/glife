@@ -5,6 +5,7 @@ if $ARGS[0]='':
 	$metka = ''
 	$loc = 'Gaddvor'
 	$location_type = 'public_outdoors'
+	killvar '$locclass'
 	gs 'stat'
 	CLOSE ALL
 	gs 'gadukino_event', 'sound'

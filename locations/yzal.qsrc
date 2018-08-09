@@ -2,7 +2,7 @@
 $metka = $ARGS[0]
 $loc = $CURLOC
 $location_type = 'private'
-$locclass = 'sitroom'
+$locclass = 'livingr'
 clr
 gs 'stat'
 '<center><b><font color="maroon">House</font></b></center>'

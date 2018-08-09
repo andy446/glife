@@ -44,7 +44,7 @@ if $ARGS[0] = 'start':
 
 	act 'Sit down on the bench':gs 'placer_sex', 'sitting_park_bench'
 
-	if pcs_inhib >= 35:
+	if pcs_inhib >= 35 or exhibitionist_lvl > 0:
 		act 'Flash your tits':
 			if pcs_exhib = 100 and exhibitionQW = 0: gt 'kseniyaQW', 'event1'
 			cls

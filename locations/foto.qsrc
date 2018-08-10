@@ -1844,16 +1844,10 @@ if $ARGS[0] = 'model':
 					end
 					*nl
 					'	Two hours later, you''re all done. The photographer thanks you for your time, pays you <<modelpayfin>> <b>₽</b> for the job.'
-					act'Continue':
-						cla & *clr
-						*nl
-						'<center><video autoplay loop src="images/locations/city/citycenter/photo/modelbts2.mp4"></video></center>'
-						'	The practice shoot ends and he calls you over to his computer to show you what you need to work on.'
-						if pcs_mdlng >= 40 and commercial = 0:
-							act 'Leave':gt'foto','commercial'
-						else
-							act 'Leave':gt 'foto', 'end'
-						end
+					if pcs_mdlng >= 40 and commercial = 0:
+						act 'Leave':gt'foto','commercial'
+					else
+						act 'Leave':gt 'foto', 'end'
 					end
 				end
 			end

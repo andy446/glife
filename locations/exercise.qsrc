@@ -49,6 +49,7 @@ if $ARGS[0] = 'workout':
 		if $sportloc = 'Meadow': gs 'underwear', 'wear'
 		act 'Leave': gt $loc, $metka
 	end
+	gs 'wardrobe', 'sports_outfit_option', 'workout'
 	act 'Manual': gt 'exercise', 'manual'
 	if exer_stam[1] ! 0 and pcs_stam > exer_stam[1]: act '<<$excer_name[1]>> - (<<exer_stam[1]>> stamina)': exercisex = 1 & gt 'exercise', 'auto'
 	if exer_stam[2] ! 0 and pcs_stam > exer_stam[2]: act '<<$excer_name[2]>> - (<<exer_stam[2]>> stamina)': exercisex = 2 & gt 'exercise', 'auto'

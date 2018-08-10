@@ -210,20 +210,33 @@ if $ARGS[0] = '':
 	!! Not lactating yet, but there was milkdemand, meaning someone worked your nipples and breasts.
 	if lactate = 0 and milkoverdemand >= 0 and prolactinlvl >= 0:
 		if milkgrowday < daystart:
-			prolactinlvl += milkoverdemand/200
+			temp_var = milkoverdemand/200
+			if temp_var <= 0 and milkoverdemand >0:
+				prolactinlvl += 1
+			else
+				prolactinlvl += milkoverdemand/200
+			end
 			!! as long as your tits are not over 11 growth will happen to them. If you do not pump or no pregnancy happens, no growth will happen.
 			if milkoverdemand = 0 and pregchem = 0 and tits < 11:
 				temp_var = prolactinlvl - 10
-				if temp_var < 0:
+				if temp_var <= 0:
 					prolactinlvl = 0
 				end
 				!! if prolactinlvl is sinking too much, the aveoli will deflate and thus the breasts growth is reverted. This only counts for induced lactation. If natural lactation occurs breasts will shrink a bit too, but stay bigger in total.
 				if prolactinlvl < 75 and total_milkinduce_growth > 0:
 					nbsize -= total_milkinduce_growth
-					prolactinlvl -= 10
 					total_milkinduce_growth = 0
+					if prolactinlvl > 10:
+						prolactinlvl -= 10
+					else
+						prolactinlvl = 0
+					end
 				else
-					prolactinlvl -= 10
+					if prolactinlvl > 10:
+						prolactinlvl -= 10
+					else
+						prolactinlvl = 0
+					end
 				end
 				milkoverdemand = 0
 				milkgrowday = daystart

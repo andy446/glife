@@ -79,6 +79,8 @@ if $ARGS[0] = 'start':
 		gt 'wardrobe', 'start'
 	end
 
+	gs 'wardrobe', 'sports_outfit_option'
+
 	if albinaQWdance > 0 or gsAboDance > 0 or gsAboBeg > 0 or gsAboVolley > 0:
 		if $clothingworntype ! 'exercise':'You are not dressed in sports clothes.'
 		if $shoeworntype ! 'trainers':'You are not wearing training shoes.'

@@ -80,16 +80,16 @@ if $ARGS[0] = 'start':
 	end
 
 	'There are two sofas next to a <a href="exec: gt ''shulga_room'', ''shultv''">TV</a>, and a <a href="exec:GT ''Komp'',''start''">laptop</a> sitting on a table covered in empty beer bottles.'
-	if hour >= 3 and hour < 7: '<a href="exec: gt ''shulga_room'', ''shulga_bazar_sleep''">Vasily</a> is sleeping on the big couch'
+	if hour >= 0 and hour < 7: '<a href="exec: gt ''shulga_room'', ''shulga_bazar_sleep''">Vasily</a> is sleeping on the big couch'
 	shulga_room_rnd = RAND(0,2)
 	if shulga_room_rnd = 0:$shulga_room_rnd = 'The boys are sitting on the couch talking and drinking beer.'
 	if shulga_room_rnd = 1:$shulga_room_rnd = 'The boys are drinking beer and playing cards.'
 	if shulga_room_rnd = 2:$shulga_room_rnd = 'The boys are drinking beer while watching TV.'
 
-	if week < 6 and hour >= 0 and hour < 3: '<<$shulga_room_rnd>> <a href="exec: gt ''shulga_room'', ''shulga_bazar_night''">Vasily</a>, <a href="exec: gt ''shulga_room'', ''den_bazar''">Dan</a> and <a href="exec: gt ''shulga_room'', ''vitek_bazar''">Vitek</a>, invites you to <a href="exec: gt ''shulga_room'', ''shulga_beer''">have a drink with them</a>.'
+	if week < 6 and hour >= 20: '<<$shulga_room_rnd>> <a href="exec: gt ''shulga_room'', ''shulga_bazar_night''">Vasily</a>, <a href="exec: gt ''shulga_room'', ''den_bazar''">Dan</a> and <a href="exec: gt ''shulga_room'', ''vitek_bazar''">Vitek</a>, invites you to <a href="exec: gt ''shulga_room'', ''shulga_beer''">have a drink with them</a>.'
 	if week >= 6 and hour >= 10 and hour < 17 or week >= 6 and hour >= 0 and hour < 3: 'Sergey''s son <a href="exec: gt ''shulga_room'', ''shulga_bazar_day''">Vasily</a> is sitting on the big sofa.'
 
-	if week < 6 and hour >= 0 and hour < 3:
+	if week < 6 and hour >= 20:
 		act 'Drink beer with the guys': gt 'shulga_room', 'shulga_beer'
 		act 'Play cards': gt 'cardgame_durak', 'start'
 	end

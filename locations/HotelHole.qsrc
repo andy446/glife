@@ -124,6 +124,8 @@ if hotwait = 1:
 hotwait = 0
 end
 
+act 'Leave the hotel':minut += 3 & gt'vokzalG'
+
 if maidqw >= 1 and hour >= 16 and hour < 17:
 	act'<b>Work as a maid</b>':
 		cls
@@ -150,8 +152,6 @@ if maidqw >= 1 and hour >= 15 and hour < 16:
 		gt 'HotelHole'
 	end
 end
-
-act 'Leave the hotel':minut += 3 & gt'vokzalG'
 
 if maidtime > 0:
 	act'Collect your salary':

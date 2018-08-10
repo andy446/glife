@@ -141,6 +141,9 @@ if $ARGS[0] = 'hj':
 		act'Let him cum in your hand':
 			cla & *clr
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/hj_cum.jpg"></center>'
+			
+			!!made an exit, but the event is also missing a description
+			act 'Finish': gt 'sitrPar'
 		end
 		act'Put your lips over the tip':
 			cla & *clr

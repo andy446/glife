@@ -4,6 +4,7 @@ if $args[0] = '':
 	$metka = ''
 	$loc = 'obkitchen'
     $location_type = 'private'
+	$locclass = 'kitr'
 	gs 'stat'
 	'<center><b>in the dorm kitchen</b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/island/university/dorm/obkitchen.jpg"></center>'

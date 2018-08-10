@@ -3,6 +3,7 @@ CLOSE ALL
 $metka = ''
 $loc = 'shulgakuh'
 $location_type = 'private'
+$locclass = 'kitr'
 
 if $ARGS[0] = '':
 	minut += 1

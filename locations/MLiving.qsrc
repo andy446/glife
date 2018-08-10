@@ -1,6 +1,7 @@
 # MLiving
 
 $location_type = 'private'
+$locclass = 'livingr'
 '<center><img <<$set_imgh>> src="images/locations/city/suburb/bdsm_club/living.jpg"></center>'
 'Living room'
 act 'Go to the east wing landing':gt 'MLanding', 'east'

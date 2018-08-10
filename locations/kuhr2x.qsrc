@@ -2,6 +2,7 @@
 CLOSE ALL
 $metka = ''
 $loc = 'kuhr2x'
+$locclass = 'kitr'
 
 clr
 minut = minut + 1

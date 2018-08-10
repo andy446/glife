@@ -64,6 +64,7 @@ end
 if $ARGS[0] = 'start':
 	$metka = 'start'
 	$loc = 'mey_home'
+	killvar '$locclass'
 	cls
 	gs'stat'
 	'<center><h4><font color="maroon">Hall</font></h4></center>'
@@ -138,6 +139,7 @@ if $ARGS[0] = '1':
 	cls
 	$loc = 'mey_home'
 	$metka = '1'
+	$locclass = 'kitr'
 	gs 'stat'
 	'<center><h4><font color="maroon">Kitchen</font></h4></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/meynolds/kitchen.jpg"></center>'
@@ -398,6 +400,7 @@ if $ARGS[0] = '5':
 	$loc = 'mey_home'
 	$metka = '5'
 	minut += 1
+	$locclass = 'livingr'
 	gs 'stat'
 	'<center><h4><font color="maroon">Katja''s room</font></h4></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/meynolds/katya_room.jpg"></center>'

@@ -823,7 +823,7 @@ if $ARGS[0] = 'field3':
 		'That dissappointment is short lived however as he sweeps you up in his arms suddenly, pressing his lips against yours in a rough but affectionate kiss before sitting you back down.'
 		'The two of you say your goodbyes and finally part ways.  You can''t help but think about how good it felt to be so close to him.'
 
-!!		act 'Continue':
+!!		act 'Continue':gt 'grigory','dummy'
 !!	end
 
 	act 'Be Friendly':

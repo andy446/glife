@@ -3,7 +3,7 @@ CLOSE ALL
 
 $metka = ''
 $loc = 'tanhousezal'
-
+$locclass = 'livingr'
 minut += 5
 gs 'stat'
 sexpartkno = 1

@@ -28,6 +28,7 @@ end
 
 if $ARGS[0] = 'east':
 	cls
+	killvar '$locclass'
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/city/suburb/bdsm_club/elanding.jpg"></center>'
 	act 'Go to the west wing landing':gt 'MLanding', 'west'

@@ -105,6 +105,7 @@ if $ARGS[0] = 'Hallway':
 	act 'Bedroom':gt 'SoniaHome', 'Bedroom'
 
 	act 'Kitchen':
+		$locclass = 'kitr'
 		if SoniaCupcake = 0 and NikoAftermath = 1:
 			gt 'SoniaHome', 'Sonia Cooking'
 		elseif SoniaCupcake = 1 and NikoAftermath = 1:
@@ -173,6 +174,7 @@ if $ARGS[0] = 'Cupcake Time':
 	pcs_hydra += 40
 	fat += 2
 	cumspclnt = 2
+	$locclass = 'kitr'
 	gs'stat'
 	'<center><b><h4><font color=#FF00FF><<"Sonia Ivanko">></font></h4></b></center>'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/niko/nikomisc/soniahome/kitchen/soniacupcake2.jpg"></center>'
@@ -207,6 +209,7 @@ end
 
 if $ARGS[0] = 'Livingroom':
 	cls
+	$locclass = 'livingr'
 	gs'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/soniahome/livingroom/livingroom.jpg"></center>'
 	'Sonia''s living room look quite elegant, and refined. It almost looks like it had an interior decorator design it.'

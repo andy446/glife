@@ -67,6 +67,7 @@ if $ARGS[0] = 'first1':
 	else
 		pcs_hydra -= 10
 	end
+	$locclass = 'kitr'
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/characters/city/ira/irinaqw.jpg"></center>'
 	'You and Ira settle in the kitchen with a bottle of wine and some fruits, you talk and chat merrily.'

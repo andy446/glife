@@ -3,7 +3,7 @@ CLOSE ALL
 
 $metka = ''
 $loc = 'tankitchen'
-
+$locclass = 'kitr'
 minut += 5
 gs 'stat'
 gs 'kit_din'

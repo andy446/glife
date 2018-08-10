@@ -3,6 +3,7 @@ CLOSE ALL
 
 $metka = ''
 $loc = 'kuhr'
+$locclass = 'kitr'
 clr
 minut += 1
 elektro += 1

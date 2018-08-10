@@ -14,6 +14,7 @@ if $ARGS[0] = '': gt 'shulga_room', 'start'
 if $ARGS[0] = 'start':
 	$metka = 'start'
 	$loc = 'shulga_room'
+	$locclass = 'livingr'
 	!Daily discussions:
 	!Vasily
 	if bazar_day ! daystart: bazar_count = 10

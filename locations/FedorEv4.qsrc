@@ -593,6 +593,7 @@ end
 if $ARGS[0] =  'Home 2':
 	cls
 	minut += 5
+	$locclass = 'livingr'
 	gs'stat'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/fedor/fedorev2/home/sitting.jpg"></center>'
 	'You walk into the living room then take a seat on the couch. Fedor walks into the kitchen and returns with a bowl of <a href="exec:gt ''FedorEv4'', ''Popcorn''">popcorn</a>, some <a href="exec:gt ''FedorEv4'', ''Snacks''">snacks</a> and a few cans of soda then lays them down on the table. Fedor grabs the remote then sits down next to you as he begins flipping through channels.'
@@ -772,6 +773,7 @@ if $ARGS[0] =  'Home 3':
 		end
 
 		act 'I have a treat for you in the kitchen':
+			$locclass = 'kitr'
 			VK = rand(1,2)
 			if VK <= 1:
 				gt 'FedorEv4', 'Kitchen 1'
@@ -2367,6 +2369,7 @@ if $ARGS[0] = 'Bathroom':
 	$loc = 'FedorEv4'
 	$metkaM = 'Bathroom'
 	$locM = 'FedorEv4'
+	killvar '$locclass'
 	$location_type = 'bathroom'
 	minut += 5
 	gs'stat'
@@ -2501,6 +2504,7 @@ end
 if $ARGS[0] =  'Kitchen':
 	$loc = 'FedorEv4'
 	$metka = 'Kitchen'
+	$locclass = 'kitr'
 	cls
 	if hour >= 20 and hour <= 22 and ReginaIntro = 0:gt 'FedorEv4', 'Regina Intro'
 	minut += 5
@@ -2531,6 +2535,7 @@ end
 if $ARGS[0] =  'Livingroom':
 	cls
 	minut += 5
+	$locclass = 'livingr'
 	gs'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/fedorhome/livingroom.jpg"></center>'
 	'The living room looks very neat and has a couch, a blu-ray player and a <a href="exec:gt ''FedorEv4'', ''TV''">TV</a>.'

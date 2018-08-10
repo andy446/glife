@@ -85,6 +85,7 @@ if $ARGS[0] = 'korr':
 	$metka = 'korr'
 	$loc = 'dorm'
     $location_type = 'public_indoors'
+	killvar '$locclass'
 	cla
 	clr
 	*clr

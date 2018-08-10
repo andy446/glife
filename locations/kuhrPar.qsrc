@@ -20,6 +20,7 @@ end
 
 $metka = $ARGS[0]
 $loc = $CURLOC
+$locclass = 'kitr'
 clr
 minut += 1
 gs 'stat'

@@ -45,7 +45,7 @@ if $ARGS[0]='krr2x':
     if psiho = 3 and psi1day = 0:dynamic $pavser7
     if psi1day = 1:'Continue'
 
-    act 'Go to the Hall':gt'koncepod1','str2x'
+    act 'Go to the living room':gt'koncepod1','str2x'
     act 'Go to the kitchen':gt'koncepod1','khr2x'
     act 'Go to the bathroom':gt'koncepod1','vnr2x'
     
@@ -67,9 +67,10 @@ if $ARGS[0]='str2x':
     cla
     *clr
     minut += 5
+	$locclass = 'livingr'
     gs'stat'
 
-    '<center><B><font color=maroon>Hall</font></B></center>'
+    '<center><B><font color=maroon>Living Room</font></B></center>'
     '<center><img <<$set_imgh>> src="images/locations/oldtown/vacanthouse/hall.jpg" ></center>'
 
     if psiho = 0 and psi1day = 0:dynamic $pavser
@@ -77,7 +78,7 @@ if $ARGS[0]='str2x':
     if psiho >= 1:
         act 'Go to the kitchen':gt'koncepod1','khr2x'
         act 'Go to the bedroom':gt'koncepod1','bdr2x'
-        act 'Corridor':gt'koncepod1','krr2x'
+        act 'Go to the hall':gt'koncepod1','krr2x'
     end
 
 end
@@ -86,6 +87,7 @@ if $ARGS[0]='khr2x':
     cla
     *clr
     minut += 5
+	$locclass = 'kitr'
     gs'stat'
     '<center><B><font color=maroon>Kitchen</font></B></center>'
     '<center><img <<$set_imgh>> src="images/locations/oldtown/vacanthouse/kitchen.jpg" ></center>'
@@ -93,8 +95,8 @@ if $ARGS[0]='khr2x':
     if psiho = 2 and psihb = 1 and psihc = 1 and psi1day = 0:dynamic $pavser6
 
 
-    act 'Go to the Hall':gt'koncepod1','str2x'
-    act 'Corridor':gt'koncepod1','krr2x'
+    act 'Go to the living room':gt'koncepod1','str2x'
+    act 'Go to the hall':gt'koncepod1','krr2x'
 end
 
 
@@ -111,7 +113,7 @@ if $ARGS[0] = 'vnr2x':
     'Above the washbasin hangs an <a href="exec:GT ''mirror'',''start''">oval mirror</a>.'
     if psiho = 2 and psihb = 1 and psihc = 0 and psi1day = 0:dynamic $pavser4
 
-	act 'Corridor':gt'koncepod1','krr2x'
+	act 'Go to the hall':gt'koncepod1','krr2x'
 	
 	dynamic $tampon
 	dynamic $quickwash
@@ -128,7 +130,7 @@ if $ARGS[0]='bdr2x':
     '<center><B><font color=maroon>Bedroom</font></B></center>'
     '<center><img <<$set_imgh>> src="images/locations/oldtown/vacanthouse/bedroom.jpg" ></center>'
     if psiho = 1 and psi1day = 0:dynamic $pavser3
-    act 'Corridor':gt'koncepod1','krr2x'
+    act 'Go to the hall':gt'koncepod1','krr2x'
 end
 
 --- koncepod1 ---------------------------------

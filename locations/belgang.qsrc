@@ -34,9 +34,9 @@ if $ARGS[0] = 'workofdebt':
 			end
 			'He signals his crew to get back in the jeep. You barely manage to dodge the spray of pebbles and dirt the spinning tires spew your way, as they drive off as fast as they can, probably on their way to another ''business appointment''.'
 			
-			if $ARGS[1] = 'commercial': 
+			if return_residential = 0: 
 				act 'Move on': gt 'pavCommercial'
-			elseif $ARGS[1] = 'residential':
+			else
 				act 'Move on': gt 'pavResidential'
 			end
 		end
@@ -57,11 +57,11 @@ if $ARGS[0] = 'workofdebt':
 			'You owe him: <<belgangPay>> <b>₽</b>'
 			'This week you need to pay him: <<belgangPayWeek>> <b>₽</b>'
 			
-			if $ARGS[1] = 'commercial': 
+			if return_residential = 0: 
 				act 'Move on': gt 'pavCommercial'
-			elseif $ARGS[1] = 'residential':
+			else
 				act 'Move on': gt 'pavResidential'
-			end				
+			end			
 		end
 	end
 	
@@ -123,9 +123,9 @@ elseif $ARGS[0] = 'payday':
 			end
 			'He signals his crew to get back in the jeep. You barely manage to dodge the spray of pebbles and dirt the spinning tires spew your way, as they drive off as fast as they can, probably on their way to another ''business appointment''.'
 			
-			if $ARGS[1] = 'commercial': 
+			if return_residential = 0: 
 				act 'Move on': gt 'pavCommercial'
-			elseif $ARGS[1] = 'residential':
+			else
 				act 'Move on': gt 'pavResidential'
 			end
 		end
@@ -154,9 +154,9 @@ elseif $ARGS[0] = 'payday':
 				'You owe him: <<belgangPay>> <b>₽</b>'
 				'Next week you need to pay him: <<belgangPayWeek>> <b>₽</b>'
 				
-				if $ARGS[1] = 'commercial': 
+				if return_residential = 0: 
 					act 'Move on': gt 'pavCommercial'
-				elseif $ARGS[1] = 'residential':
+				else
 					act 'Move on': gt 'pavResidential'
 				end	
 			end
@@ -184,9 +184,9 @@ elseif $ARGS[0] = 'payday':
 			'You owe him: <<belgangPay>> <b>₽</b>'
 			'Next week you need to pay him: <<belgangPayWeek>> <b>₽</b>'
 			
-			if $ARGS[1] = 'commercial': 
+			if return_residential = 0: 
 				act 'Move on': gt 'pavCommercial'
-			elseif $ARGS[1] = 'residential':
+			else
 				act 'Move on': gt 'pavResidential'
 			end	
 		end
@@ -216,11 +216,11 @@ elseif $ARGS[0] = 'payday':
 				'You owe him: <<belgangPay>> <b>₽</b>'
 				'Next week you need to pay him: <<belgangPayWeek>> <b>₽</b>'
 				
-				if $ARGS[1] = 'commercial': 
+				if return_residential = 0: 
 					act 'Thank him and leave': gt 'pavCommercial'
-				elseif $ARGS[1] = 'residential':
+				else
 					act 'Thank him and leave': gt 'pavResidential'
-				end	
+				end
 			elseif belgangPayextension = 1:	
 				belgangPayextension += 1
 				belgangPay += 5000
@@ -237,11 +237,11 @@ elseif $ARGS[0] = 'payday':
 				'You owe him: <<belgangPay>> <b>₽</b>'
 				'Next week you need to pay him: <<belgangPayWeek>> <b>₽</b>'
 								
-				if $ARGS[1] = 'commercial': 
+				if return_residential = 0: 
 					act 'Thank him and leave': gt 'pavCommercial'
-				elseif $ARGS[1] = 'residential':
+				else
 					act 'Thank him and leave': gt 'pavResidential'
-				end	
+				end
 			else 
 				'He frowns, abruptly cutting you off. You can see the disapproval in his eyes when you glance up. "That is very unfortunate <<$pcs_nickname>>. I had such high hopes for you," he says. "I guess we will have to find an alternative way for you to pay off your debts."'
 				'He then directs his attention to two of his henchmen: "She''s coming with us."'

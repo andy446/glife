@@ -1573,7 +1573,7 @@ if $ARGS[0] = 'maternity_ward':
 			act 'Leave':gt 'gpoli'
 		end
 	end
-	act 'leave':gt 'gpoli'
+	act 'Leave':gt 'gpoli'
 end
 
 if $ARGS[0] = 'maternity_ward_donation':	
@@ -1636,7 +1636,7 @@ if $ARGS[0] = 'maternity_ward_donation':
 				else
 					'You put on your top'
 				end
-				act 'leave':
+				act 'Leave':
 					milkedvolume = 0
 					gt 'gpoli', 'maternity_ward'
 				end
@@ -1652,7 +1652,7 @@ if $ARGS[0] = 'maternity_ward_donation':
 				else
 					'You put on your top'
 				end
-				act 'leave':
+				act 'Leave':
 					milkedvolume = 0
 					gt 'gpoli', 'maternity_ward'
 				end

@@ -290,7 +290,8 @@ if $ARGS[0] = 'start':
 		
 		if hour >= 7 and hour < 23:
 			act'Chat with Kolka':gt'brother2','chat'
-			if father_go = 1
+			!!act'Banter with Kolka':gt'brother2','banter'
+			if father_go = 1:
 				if brotherSex < 5 and brotherkiss >= 1 and brotherkisstalk < 1:
 					act'Talk about the kiss':gt'brother','kiss_talk'
 				elseif brotherkisstalk = 1 or brotherSex > 4:

@@ -419,7 +419,7 @@ if $ARGS[0] = 'start':
 				end
 			end
 
-			if father_go = 1 and hour >= 18 and hour < 23 and brotherSex > 0 and brotherEvSex ! daystart:
+			if father_go = 1 and hour >= 18 and hour < 23 and brotherSex > 4 and brotherEvSex ! daystart:
 				'When you get close, He turns to you and says,:'
 				if sub > 0 or (evgenQW >= 4 and pav_slut >= 75):
 					gs 'boyStat', 'A34'

@@ -126,11 +126,13 @@ if $ARGS[0] = 'start':
 			end
 		elseif $clothingworntype = 'nude' and pcs_pubes > 10 and $pantyworntype = 'none':
 			'"You should have shaved," your brother comments, "it looks like you''re growing a forest."'
-		elseif $clothingworntype = 'nude':
-			if brotherSex >= 1:
-				'"<<$pcs_nickname>>, you have an amazing body"'
+			if brotherSex < 3:brotherSex = 3
+		elseif $clothingworntype = 'nude' and $braworntype = 'none':
+			if brotherSex >= 7:
+				'"<<$pcs_nickname>>, you have an amazing body."'
 			else
 				'"What a view! Have you decided to be a nudist?"'
+				if brotherSex < 3:brotherSex = 3
 				if npc_rel['A34'] <50:npc_rel['A34'] += 1
 			end
 		end
@@ -288,6 +290,13 @@ if $ARGS[0] = 'start':
 		
 		if hour >= 7 and hour < 23:
 			act'Chat with Kolka':gt'brother2','chat'
+			if father_go = 1
+				if brotherSex < 5 and brotherkiss >= 1 and brotherkisstalk < 1:
+					act'Talk about the kiss':gt'brother','kiss_talk'
+				elseif brotherkisstalk = 1 or brotherSex > 4:
+					act'Make out with your brother':gt 'brother2','kiss'
+				end
+			end
 		end
 		
 		!if father_go = 1 and hour >= 7:
@@ -459,6 +468,109 @@ if $ARGS[0] = 'start':
 			end
 		else
 			act'Offer help with homework': gt 'brother_lessons', 'homework'
+		end
+	end
+end
+
+if $ARGS[0] = 'kiss_talk':
+	brotherkisstalk = 1
+	'<center><b><font color = maroon>Kolka</font></b></center>'
+	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/kolka/brother.jpg"></center>'
+	'"Hey..." you say awkwardly. "Can we talk? About... you know..." you blush and look away awkwardly, the memory of your brother''s lips pressing at your mind. Kolka immediately blushes back and swallows.'
+	'"Uhh... yeah. We can talk... about... you know..."'
+	act'Sit down':
+		minut += 5
+		cla & *clr
+		'<center><b><font color = maroon>Kolka</font></b></center>'
+		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/kolka/brother.jpg"></center>'
+		'You sit down next to him and continue to sit there awkwardly not saying anything for several minutes, trying to think of what you''re going to say.'
+		act'It was just a kiss':
+			cla & *clr
+			'<center><b><font color = maroon>Kolka</font></b></center>'
+			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/kolka/brother.jpg"></center>'
+			'Preparing what you think is the best thing to say, you take a deep breath before finally speaking.'
+			'"Look Kolka, it was just a kiss. There wasn''t any more meaning behind it than wanting to give you one. There''s nothing wrong with a sister wanting to show her brother some affection, right?" you rationalize, almost more to yourself than to your brother.'
+			'"Uhh... R-right. Nothing wrong with that, I guess..."'
+			'"I just don''t want you getting any ideas," you say, looking away. "It''s not like we''re going to start dating or do... other stuff... It''s not like we could anyways. We''re blood family. Your my brother and that''s it."'
+			'"R-right..." he says. You look back towards him and find yourself shocked by his expression. Even though all this is wrong and taboo, you can''t help but feel bad about the wounded look on his face. His hurt hurts you too.'
+			'You look away again, mulling over what you should say next...'
+			act'Continue':
+				cla & *clr
+				'<center><b><font color = maroon>Kolka</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/kolka/brother.jpg"></center>'
+				'"You''re my brother," you finally say again. "You''re my brother and I love you and nothing will change that."'
+				'"Right... I love you too..." he mumbles back.'
+				'"So..." With a fast beating heart and feeling the heat flush to your face, you force out your next words. "So... if I want to show you how much I love you in the future, there''s nothing wrong with that."'
+				'You turn back towards your brother to see him looking at you with wide eyes.'
+				'"If I want to kiss my brother to show him that I love him, then I''m allowed to do that," you say firmly. Before you can convince yourself to change your mind, you lean forward towards him.'
+				act'Kiss him':
+					cla & *clr
+					brotherkiss += 1
+					'<center><video autoplay loop src="images/shared/sex/kiss/kiss.mp4"></video></center>'
+					'You gently press your lips against his and can''t help but melt into the kiss. The hot flush of your face is unbearably pleasant when combined with the soft massaging of his lips against yours. After a long moment you pull back to meet his eyes.'
+					'"I love you... brother..." you whisper, purposefully reminding yourself to add the last word after a beat of silence.'
+					'"I love you too sis..." he murmurs back.'
+					'Looking into his eyes one more time, you quickly pull back and stand up to walk out of the room. You pause at the door to look back at him.'
+					'"I''ll, uhh... see you later," you say awkwardly before hurrying out into the hallway.'
+					pcs_horny += 5
+					npc_rel['A34'] += 10
+					act'Leave':gt 'korrPar'
+				end
+			end
+		end
+		act'I don''t know what came over me':
+			cla & *clr
+			'<center><b><font color = maroon>Kolka</font></b></center>'
+			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/kolka/brother.jpg"></center>'
+			'"I don''t know what came over me!" you suddenly blurt out, startling Kolka from your previous silence. "I''m sorry Kolka! I didn''t mean to! It''s just, your hand was on my leg and everything felt so warm and I just saw that look in your eyes and the next thing I knew..."'
+			'You trail off, looking down at your knees in shame, not knowing what else to say. Everything sounds like an excuse to your own ears. You know what you did was wrong and you''re afraid of how it might have hurt your brother.'
+			'"It''s okay <<$pcs_nickname>>."'
+			'You turn back towards him with wide eyes. "Really?"'
+			'"Yeah," he mumbles, blushing and looking away bashfully. "It was... kind of nice. I''ve never kissed a girl before."'
+			'"But I''m your sister!" you say, tears held back behind your eyes. "It wasn''t right of me to do that. I shouldn''t have..."'
+			'"It''s okay, <<$pcs_nickname>>," he repeats as he turns back towards you. "Really, it is. You''re a beautiful girl," he says, causing you to blush even harder. "Anyone would be made happy if you kissed them like that. Even your brother. And if that''s wrong..."'
+			'He starts to lean forward towards you. Your breath hitches because you know what he''s about to do but you''re frozen in place, unable bring yourself to move away.'
+			'"If that''s wrong, then I don''t want to be right..."'
+			act'"Mmmph-!"':
+				cla & *clr
+				brotherkiss += 1
+				'<center><video autoplay loop src="images/shared/sex/kiss/kiss.mp4"></video></center>'
+				'Any protest you might have had died in your throat when he presses his lips against yours. Your whole body melts into it, letting him mash his soft mouth against you. You subconsciously notice your hand grabbing his shirt and pulling him closer, but other than that you can''t think about anything except this kiss.'
+				'When he finally pulls away, you find yourself breathless. He smiles back at you.'
+				'"See? No harm done."'
+				'Chewing on your lip to suppress a larger smile, you sheepishly simper back at him.'
+				'"I guess you''re right..." you say. "No harm done."'
+				'You get up to leave, looking back at him before you do.'
+				'"Thanks Kolka. For... you know," you say, before escaping into the hallway.'
+				npc_rel['A34'] += 5
+				pcs_horny += 10
+				act'Leave':gt 'korrPar'
+			end
+		end
+
+		act'It felt good':
+			cla & *clr
+			'<center><b><font color = maroon>Kolka</font></b></center>'
+			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/kolka/brother.jpg"></center>'
+			'"It felt pretty good didn''t it?" you sheepishly smile at him.'
+			'Kolka perks up at the words and mumbles back, "Yeah, it did didn''t it?"'
+			'"Maybe, it''s not so bad to have a little fun now and then..." you say, casually inching towards him. "I mean, it''s not like we''re doing anything that wrong are we?"'
+			'"No..." he says, mimicking your casual posture and motion. "We''re teenagers with raging hormones or something right? We need to enjoy ourselves now and then or we''ll go crazy, right?"'
+			'"Right..." you say, leaning in towards his face.'
+			act'Kiss him':
+				cla & *clr
+				minut += 5
+				brotherkiss += 1
+				npc_rel['A34'] += 5
+				'<center><video autoplay loop src="images/shared/sex/kiss/kiss_lips.mp4"></video></center>'
+				'You press your lips hard against his, letting yourself be consumed by the kiss for a moment. Just as eager, he presses back and you suddenly find yourself surprised by the intrusion of his tongue in your mouth. You find yourself particularly surprised by how welcome it is.  You pull back briefly for gasps of breath and single words between kisses.'
+				'"Maybe-! It isn''t-! So-! Mmmrph! Bad-! If we-! Cut-! Loose-! Now and-! Mmmmmmm! Again-!"'
+				'"Mmm mmm!"'
+				'Your brother doesn''t say anything back except to hum in agreement and keep kissing you. The two of you continue making out for several more minutes before you finally break apart and you get up to leave. As you stand by the door, you look back towards your brother.'
+				'"I''m glad we had this talk," you say, licking your lips and departing.'
+				pcs_horny += 15
+				act'Leave':gt 'korrPar'
+			end
 		end
 	end
 end

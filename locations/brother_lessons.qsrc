@@ -14,7 +14,7 @@ if $ARGS[0] = 'homework':
 		if npc_QW['A34'] >= 3 and father_go = 1:
 			cla
 			pcs_horny += RAND(5,10)
-			'As soon as you begin to explain the material, Kolka begins again to stroke your leg his hand.'
+			'Partway through your sibling study session, you suddenly feel Kolka''s hand stroking your leg.'
 			act'Ignore and continue':
 				cla
 				if npc_rel['A34'] <50:npc_rel['A34'] += 2
@@ -52,14 +52,120 @@ if $ARGS[0] = 'homework':
 				cls
 				cla
 				pcs_horny += RAND(1,5)
-				npc_rel['A34'] -= 5
+				npc_rel['A34'] -= 1
 				'<center><b><font color = maroon>Kolka</font></b></center>'
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/homework1.jpg"></center>'
 				'You whisper:'
-				'"Don''t, Our parents will see us." You remove his hand from your leg.'
+				'"Don''t, our parents will see us." You remove his hand from your leg.'
 				'Kolka mutters something under his breath with grim resentment on his face.'
 
 				act 'Finish': gt 'sitrPar'
+			end
+			if brotherkisstalk = 1 or brotherSex > 5:
+				act'Turn and kiss':
+					cla & *clr
+					'<center><video autoplay loop src="images/shared/sex/kiss/kiss.mp4"></video></center>'
+					'You chew on your lip for a moment, enjoying the feeling of your brother''s caresses. Turning towards him, you lean in slowly and give him a delicate kiss while he continues to stroke your leg.'
+					pcs_horny += 5
+					brotherkiss += 1
+					npc_rel['A34'] += 3
+					act'End the kiss':
+						cla & *clr
+						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/home/sitrpar.jpg"></center>'
+						'Breaking away from the kiss with a smile, you gently move his hand away from your leg.'
+						'"Sorry Kolka, not today. Maybe some other time. Let''s keep studying for now, alright?"'
+						'"Alright..." He''s clearly disappointed but seems to pay attention to your help for the rest of the hour anyways.'
+						act 'Finish': gt 'sitrPar'
+					end
+					act'Make out with your brother':
+						cla & *clr
+						'<center><video autoplay loop src="images/shared/sex/kiss/kiss_lips.mp4"></video></center>'
+						'You hungrily continue to kiss your brother, pressing your face hard against his. It becomes impossible for you to focus on anything except your lips and the dance of tongues happening between them.'
+						npc_rel['A34'] += 2
+						motherhw = rand(1,5)
+						if motherhw = 5:
+							'"<<$pcs_firstname>>!"'
+							act'"Eek-!"':
+								cla & *clr
+								'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/home/sitrpar.jpg"></center>'
+								'You squeak loudly in response to hearing your mother shouting your name from the kitchen. You and Kolka swiftly pull back from each other, stiff as boards as you purposely look opposite directions from each other.'
+								'"<<$pcs_firstname>>!" your mother calls again. "What are you doing right now? I need your help in the kitchen! Are you busy?"'
+								'"I-I''m, uhh, helping Kolka with his homework right now!" you stammer, trying to force down the adrenaline in your body and keep your voice from shaking.'
+								'"Oh, that''s alright then. You can help me later. Make sure your brother gets his grades up!"'
+								*nl
+								'Sighing with relief, you and your brother share a a panicked look before turning back to the table with his homework on it. For the rest of the hour, the two of you don''t make eye contact, let alone even <i>think</i> about doing something that might get you caught again.'
+								act 'Finish': gt 'sitrPar'
+							end
+						else
+							*nl
+							'Not a lot of homework gets done after that, but you don''t think your brother minds too much.'
+							act 'Finish': gt 'sitrPar'
+						end
+					end
+					act'Slip your hand down his pants':
+						cla & *clr
+						'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/hj.jpg"></center>'
+						'Lust takes control of your mind as you force your tongue down your brother''s throat, slipping your hand into his pants to grab hold of his already hardened cock. You yank it out to begin vigorously jerking him off, never stopping your kiss for a moment. He groans into your mouth but you just keep working your hand on his cock.'
+						brotherhj += 1
+						if brotherSex < 5: brotherSex = 5
+						npc_rel['A34'] += 3
+						if motherhw = 5:
+							'"<<$pcs_firstname>>!"'
+							act'"Eek-!"':
+								cla & *clr
+								'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/home/sitrpar.jpg"></center>'
+								'You squeak loudly in response to hearing your mother shouting your name from the kitchen and leap back from Kolka as he hurriedly pulls his shirt over his cock to hide it.'
+								'"<<$pcs_firstname>>!" your mother calls again. "What are you doing right now? I need your help in the kitchen! Are you busy?"'
+								'"I-I''m, uhh, helping Kolka with his homework right now!" you stammer, trying to force down the adrenaline in your body and keep your voice from shaking.'
+								'"Oh, that''s alright then. You can help me later. Make sure your brother gets his grades up!"'
+								*nl
+								'Sighing with relief, you and your brother share a panicked look before turning back to the table with his homework on it. For the rest of the hour, the two of you don''t make eye contact, let alone even <i>think</i> about doing something that might get you caught again.'
+								act 'Finish': gt 'sitrPar'
+							end
+						else
+							*nl
+							'After a few minutes, you feel him start to stiffen under you.'
+							'"Sis," he mumbles through the kiss. "I''m... I''m gonna..."'
+							act'Continue jerking him off':
+								cla & *clr
+								gs 'cum_call', 'hands', 'A34', 1
+								'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/hj_cum.jpg"></center>'
+								'Picking up the pace for a quick burst of speed, you feel his hot cum burst all over your hand. Pulling back, you smile at the look of bliss on his face before leaning in for one more loving kiss.'
+								'"I think we''ll have to call the session early if that''s alright with you," you say, purposefully looking down at the sticky cum covering your hands. "I''m gonna go get cleaned up. You should soon too unless you want mom to catch you with your dick out like that."'
+								'"Y-yeah..." he mumbles back, still dazed from his orgasm.'
+								act'Finish and get up':gt 'sitrPar'
+							end
+							act'Put your mouth over his tip':
+								cla & *clr
+								gs 'cum_call', 'mouth', 'A34', 1
+								npc_rel['A34'] += 3
+								swallow += 1
+								if brotherSex < 6: brotherSex = 6
+								'<center><video autoplay loop src="images/characters/pavlovsk/resident/kolka/event/homework/swallow.mp4"></video></center>'
+								'You jerk him off a little faster, waiting for him to stiffen up and the signs that he''s about to cum. Right at the last moment, you break away from the kiss and wrap your lips around the tip of his cock. You immediately feel him explode inside your mouth, the hot salty taste of his cum pouring out over your tongue.'
+								'He spurts several times and you wait a several seconds more until nothing more comes out. After spending a moment to make sure he''s finished, you suck hard to gather up all the cum in your mouth while pulling your lips back from his tip and leaving his cock completely clean and cum free. As your lips leave his cock, you tilt back your head to look at him, swallowing in the same motion. Kolka stares at you in disbelief of what you just did.'
+								'"I didn''t want to leave a mess," you smile bashfully.'
+								act'Go back to homework':
+									cla & *clr
+									'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/home/sitrpar.jpg"></center>'
+									'After making sure his trousers are back in order and his freshly milked cock has been put back in place, you and your brother go back to his homework for the rest of the hour. Though it feels like he''s sitting a lot closer to you than he was before...'
+									act 'Finish': gt 'sitrPar'
+								end
+							end
+						end
+					end
+				end
+			else
+				act'Turn and kiss':
+					cla & *clr
+					'<center><video autoplay loop src="images/shared/sex/kiss/kiss.mp4"></video></center>'
+					'Turning slowly, you meet Kolka''s eyes. The feeling of his hand on your leg makes you blush and your heart quicken. Before you know what you''re doing, you lean forward and feel your brother''s lips pressing against your own. You close your eyes and melt into the kiss, an endless moment of bliss passing by as you do.'
+					*nl
+					'As your eyes flicker open and see the shocked expression on your brother''s face, the realization of what you''ve done suddenly hits you all at once. You pull back immediately, blushing even harder than before and swiftly avert your gaze back to the table with loose pieces of homework scattered about it. Not knowing what else to do, you frantically try to go back to the last thing you were helping him with. For the rest of the hour, your brother seems be stuttering and making a lot more mistakes than before. Eventually, you call your study session with him quits and awkwardly get up to leave, neither of you acknowledging what happened.'
+					brotherkiss += 1
+					npc_rel['A34'] += 5
+					act 'Finish': gt 'sitrPar'
+				end
 			end
 		else
 			cla

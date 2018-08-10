@@ -415,21 +415,13 @@ if $ARGS[0] = 'interview':
 		act'I''m 18':gt'foto','interview2'
 	else
 		howoldareyou = 2
-		if age_truth = 1 or age >= 18:
-			'	"I''m <<age>>."'
-			'	"I see. Alright, undress. Let me take a look at you."'
-			gs 'foto', 'interview_undress'
-		elseif fakepassport = 1:
-			'	"I''m 18."'
-			'	"I see. Alright, undress. Let me take a look at you."'
-			gs 'foto', 'interview_undress'
-		else
-			fakepassport = 2
-			'	"You look a little young, do you have any ID?"'
-			'	Not having any, you feign surprise and tell him you didn''t realise you needed it.'
-			'	"Sorry love, no ID no modelling. If it turned out you were underage I''d end up in jail."'
-			'	Now how are you going to find a way around this?'
-			act 'Continue': gt 'foto', 'start'
+		act 'Tell the truth':
+			age_truth = 1
+			gt'foto','interview2' 
+		end
+		act 'Lie': 
+			age_lie = 1
+			gt'foto','interview2'
 		end
 	end
 end

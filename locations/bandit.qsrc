@@ -35,26 +35,10 @@ if $args[0] = '':
 			end
 		end
 	end
-	act 'Pat Bandit':
+	act 'Play with Bandit (0:15)':
 		cls
-		minut += 5
-		npc_horny['A66'] += rand(1,3)
-		gs'stat'
-		'<center><img <<$set_imgh>> src="images/locations/gadukino/village/dog.jpg"></center>'
-		'You pat Bandit on the back. "Good boy."'
-
-		act 'Leave':
-			if npc_horny['A66'] >= 30: 
-				gt 'bandit', 'horny'
-			else	
-				gt 'Gadsarai'
-			end
-		end
-	end
-	act 'Stroke Bandit for 30 min':
-		cls
-		minut += 30
-		npc_horny['A66'] += rand(8,20)
+		minut += 15
+		npc_horny['A66'] += rand(3,15)
 		gs'stat'
 		'<center><img <<$set_imgh>> src="images/locations/gadukino/village/dog.jpg"></center>'
 		'You spend some time stroking Bandit''s back and playing with him.'
@@ -66,6 +50,7 @@ if $args[0] = '':
 				gt 'Gadsarai'
 			end
 		end
+	end
 	end
 	gs 'stat'
 	act 'Leave':gt 'Gadsarai'

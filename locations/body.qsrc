@@ -1556,16 +1556,7 @@ if lashair = 1:
 end
 
 if lashair = 0:
-	if pcs_pubes <= 3 and pcs_bush = 1:
-		lobkoef = 3 
-		$pcs_pubes = 'You have a small neat bush of hair at the top of your <a href="exec:view''images/pc/body/pussy/bpussy.jpg''">pussy</a>. <<$pirspiz>><br><<$clitsize>>'
-		rand_pubes = rand(0,2)
-		if rand_pubes = 0:$pcdesc_pubesrandom = 'neatly-trimmed'
-		if rand_pubes = 1:$pcdesc_pubesrandom = 'lightly-furred'
-		if rand_pubes = 3:$pcdesc_pubesrandom = 'well-kept'
-		$pcdesc_pubes = 'neatly-trimmed'
-		$pcdesc_pubeswordy = 'trimmed, well-kept'
-	elseif pcs_pubes <= 3:
+	if pcs_pubes <= 3:
 		lobkoef = 3 
 		$pcs_pubes = 'You have a smoothly <a href="exec:view''images/pc/body/pussy/pussy.jpg''">shaved pussy</a>. <<$pirspiz>><br><<$clitsize>>'
 		rand_pubes = rand(0,3)
@@ -1575,15 +1566,6 @@ if lashair = 0:
 		if rand_pubes = 3:$pcdesc_pubesrandom = 'freshly-shaven'
 		$pcdesc_pubes = 'smooth-shaven'
 		$pcdesc_pubeswordy = 'silky, freshly-shaven'
-	elseif pcs_pubes <= 10 and pcs_bush = 1:
-		lobkoef = 0
-		$pcs_pubes = 'You have stubble growing at the edges of your <a href="exec:view''images/pc/body/pussy/bpussy.jpg''">trimmed pussy</a>. <<$pirspiz>><br><<$clitsize>>'
-		rand_pubes = rand(0,2)
-		if rand_pubes = 0:$pcdesc_pubesrandom = 'trimmed-back'
-		if rand_pubes = 1:$pcdesc_pubesrandom = 'lightly-furred'
-		if rand_pubes = 3:$pcdesc_pubesrandom = 'mostly well-kept'
-		$pcdesc_pubes = 'stubbly'
-		$pcdesc_pubeswordy = 'scratchy, roughly-stubbled'
 	elseif pcs_pubes <= 10:
 		lobkoef = 0
 		$pcs_pubes = 'You have stubble growing around your <a href="exec:view''images/pc/body/pussy/stpussy.jpg''">pussy</a>. <<$pirspiz>><br><<$clitsize>>'
@@ -1593,8 +1575,25 @@ if lashair = 0:
 		if rand_pubes = 2:$pcdesc_pubesrandom = 'roughly-stubbled'
 		$pcdesc_pubes = 'stubbly'
 		$pcdesc_pubeswordy = 'scratchy, roughly-stubbled'
+	elseif pcs_pubes <= 15 and pcs_bush = 1:
+		lobkoef = 0
+		$pcs_pubes = 'You have stubble growing at the edges of your <a href="exec:view''images/pc/body/pussy/bpussy.jpg''">trimmed pussy</a>. <<$pirspiz>><br><<$clitsize>>'
+		rand_pubes = rand(0,2)
+		if rand_pubes = 0:$pcdesc_pubesrandom = 'trimmed-back'
+		if rand_pubes = 1:$pcdesc_pubesrandom = 'lightly-furred'
+		if rand_pubes = 3:$pcdesc_pubesrandom = 'mostly well-kept'
+		$pcdesc_pubes = 'stubbly'
+		$pcdesc_pubeswordy = 'scratchy, roughly-stubbled'
+	elseif pcs_pubes <= 20 and pcs_bush = 1:
+		lobkoef = 3 
+		$pcs_pubes = 'You have a small neat bush of hair at the top of your <a href="exec:view''images/pc/body/pussy/bpussy.jpg''">pussy</a>. <<$pirspiz>><br><<$clitsize>>'
+		rand_pubes = rand(0,2)
+		if rand_pubes = 0:$pcdesc_pubesrandom = 'neatly-trimmed'
+		if rand_pubes = 1:$pcdesc_pubesrandom = 'lightly-furred'
+		if rand_pubes = 3:$pcdesc_pubesrandom = 'well-kept'
+		$pcdesc_pubes = 'neatly-trimmed'
+		$pcdesc_pubeswordy = 'trimmed, well-kept'
 	elseif pcs_pubes <= 20:
-		pcs_bush = 0
 		lobkoef = 0
 		$pcs_pubes = 'You have neatly trimmed triangle of hair around your <a href="exec:view''images/pc/body/pussy/spussy.jpg''">pussy</a>. <<$pirspiz>><br><<$clitsize>>'
 		rand_pubes = rand(0,3)
@@ -1604,10 +1603,20 @@ if lashair = 0:
 		if rand_pubes = 3:$pcdesc_pubesrandom = 'well-kept'
 		$pcdesc_pubes = 'neatly-trimmed'
 		$pcdesc_pubeswordy = 'trimmed, well-kept'
+	elseif pcs_pubes <= 30:
+		pcs_bush = 0
+		lobkoef = 0
+		$pcs_pubes = 'You have a bushy but well-maintained mat of <a href="exec:view''images/pc/body/pussy/hpussy.jpg''">pubic hair</a>. <<$pirspiz>><br><<$clitsize>>'
+		rand_pubes = rand(0,2)
+		if rand_pubes = 0:$pcdesc_pubesrandom = 'furred'
+		if rand_pubes = 1:$pcdesc_pubesrandom = 'bushy'
+		if rand_pubes = 2:$pcdesc_pubesrandom = 'well-maintained'
+		$pcdesc_pubes = 'bushy'
+		$pcdesc_pubeswordy = 'bushy, thick'
 	else
 		pcs_bush = 0
 		lobkoef = 0
-		$pcs_pubes = 'You have a thick bush of <a href="exec:view''images/pc/body/pussy/hpussy.jpg''">pubic hair</a>. <<$pirspiz>><br><<$clitsize>>'
+		$pcs_pubes = 'You have a wild and unkempt jungle of <a href="exec:view''images/pc/body/pussy/hrypussy.jpg''">pubic hair</a>. <<$pirspiz>><br><<$clitsize>>'
 		rand_pubes = rand(0,2)
 		if rand_pubes = 0:$pcdesc_pubesrandom = 'thickly-furred'
 		if rand_pubes = 1:$pcdesc_pubesrandom = 'hairy'

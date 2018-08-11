@@ -38,7 +38,7 @@ if $args[0] = '':
 	act 'Play with Bandit (0:15)':
 		cls
 		minut += 15
-		npc_horny['A66'] += rand(1,3)
+		npc_horny['A66'] += rand(3,15)
 		gs'stat'
 		'<center><img <<$set_imgh>> src="images/locations/gadukino/village/dog.jpg"></center>'
 		'You spend some time stroking Bandit''s back and playing with him.'

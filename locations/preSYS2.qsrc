@@ -474,6 +474,7 @@ if $ARGS[0] = 'modskl_art':
 	gs 'preSYS2', 'modrel_setup2', 'pcs_instrmusic', 'Instrumental Music'
 	gs 'preSYS2', 'modrel_setup2', 'pcs_photoskl', 'Photography'
 	gs 'preSYS2', 'modrel_setup2', 'pcs_artskl', 'Artistic Skills'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_perform', 'Performance'
 	'</table></center>'
 	nl
 

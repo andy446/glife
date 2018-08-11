@@ -748,13 +748,17 @@ if $ARGS[0] = 'brother_wash':
 	gs 'arousal', 'end'
 	gs 'stat'
 
-	if pcs_leghair > 3 or pcs_pubes > 3:
+	if pcs_leghair > 3 or pcs_pubes > 3 or pcs_bush > 0:
 		*nl
 		if pcs_leghair > 3 and pcs_pubes > 3:
 			'	As you rinse off, your brother gives a meaningful look at your lower body and you follow his gaze to your <<$pcdesc_legs>> legs and <<$pcdesc_pubes>> pussy.'
+		elseif pcs_leghair > 3 and pcs_bush > 0:
+			'	As you rinse off, your brother gives a meaningful look at your lower body and you follow his gaze to your <<$pcdesc_legs>> legs and the stubble growing around the patch of hair above your pussy.'
 		elseif pcs_leghair > 3 and pcs_pubes < 3:
 			'	As you rinse off, your brother gives a meaningful look at your lower body and you follow his gaze to your <<$pcdesc_legs>> legs.'
 		elseif pcs_leghair < 3 and pcs_pubes > 3:
+			'	As you rinse off, your brother gives a meaningful look at your lower body and you follow his gaze to your <<$pcdesc_pubes>> pussy.'
+		elseif pcs_leghair < 3 and pcs_bush > 0:
 			'	As you rinse off, your brother gives a meaningful look at your lower body and you follow his gaze to your <<$pcdesc_pubes>> pussy.'
 		end
 		'	"Aren''t you going to shave?"'
@@ -783,7 +787,7 @@ if $ARGS[0] = 'brother_wash':
 				'<center><img <<$set_imgh>> src="images/shared/home/bathroom/brotherwash.jpg"></center>'
 				'	"Nah," you say dismissively. "Don''t feel like doing it right now."'
 				'	Kolka''s mouth twists in disappointment. "You know, you really should. Nobody likes girls with hairy legs and a bush between them. You''ll get bullied by other girls and never get a boyfriend if you don''t shave."'
-				'	You roll your eyes at his suggestions, recognizing that they''re obviously motivated by to his preference for clean-shaven girls.'
+				'	You roll your eyes at his suggestions, recognizing that they''re obviously motivated by to his preference for completely clean-shaven girls.'
 				act'Finish showering together':gt'brother_voyeur','brother_shower_end'
 
 				if brothersex > 0 or brotherfuck > 0 or brotherbj > 0 or brotherwash > 5:
@@ -802,7 +806,7 @@ if $ARGS[0] = 'brother_wash':
 				'<center><img <<$set_imgh>> src="images/shared/home/bathroom/brotherwash.jpg"></center>'
 				'	"No?" you say questioningly. "I like it this way!"'
 				'	Kolka''s mouth twists in disappointment. "You know, you really should reconsider. Nobody likes girls with hairy legs and a bush between them. You''ll get bullied by other girls and never get a boyfriend if you don''t shave."'
-				'	You roll your eyes at his suggestions, recognizing that they''re obviously motivated by to his preference for clean-shaven girls.'
+				'	You roll your eyes at his suggestions, recognizing that they''re obviously motivated by to his preference for completely clean-shaven girls.'
 				act'Finish showering together':gt'brother_voyeur','brother_shower_end'
 
 				if brothersex > 0 or brotherfuck > 0 or brotherbj > 0 or brotherwash > 5:
@@ -982,7 +986,7 @@ if $ARGS[0] = 'brother_shower_shave':
 			*nl
 			if pcs_pubes > 3:
 				if pcs_pubes <= 20:'	Kolka frowns. "You''re not going to shave your pussy?"'
-				if pcs_pubes >= 21:'	Kolka frowns. "You''re not going to shave that bush?"'
+				if pcs_pubes >= 21 or pcs_bush > 0:'	Kolka frowns. "You''re not going to shave that bush?"'
 				if stanok = 0:
 					act'"I can''t. Razor''s gone dull"':
 						cla
@@ -1099,7 +1103,7 @@ if $ARGS[0] = 'brother_shower_shave':
 								*nl
 								act'Not going to change my mind':
 									cla
-									'	"Sorry little brother, you''re not going to change my mind that easily. I said I''d shave just because you asked. I didn''t say that I''d do everything you asked."'
+									'	"Sorry little brother, you''re not going to change my mind that easily. I said I''d shave just because you asked. I didn''t say that I''d shave everything you wanted."'
 									'	"Hmph. I still think you''d look better if you just kept it smooth..." he mutters while you gently glide your hands over your smooth legs, making sure you didn''t miss a spot.'
 									act'Finish showering together':gt'brother_voyeur','brother_shower_end'
 									act'Cheer him up':

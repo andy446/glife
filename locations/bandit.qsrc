@@ -51,7 +51,6 @@ if $args[0] = '':
 			end
 		end
 	end
-	end
 	gs 'stat'
 	act 'Leave':gt 'Gadsarai'
 end

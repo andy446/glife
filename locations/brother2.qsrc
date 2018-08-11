@@ -141,7 +141,6 @@ if $ARGS[0] = 'hj':
 		act'Let him cum in your hand':
 			cla & *clr
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/hj_cum.jpg"></center>'
-		end
 		act'Put your lips over the tip':
 			cla & *clr
 			gs 'arousal', 'bj', 1

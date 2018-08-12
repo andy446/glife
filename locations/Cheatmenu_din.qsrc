@@ -2019,27 +2019,6 @@ $cheatmenu = {
 	pl'<a href="exec:dynamic $cheatmenu[''vartracker'']"><b>Variable tracker</b></a>'
 	nl
 
-		nl
-	pl'<a href="exec: gt ''IbizaStart'',''cfonts''"><b>Set color fonts</b></a>'
-	pl'<a href="exec: gt ''IbizaStart'',''bwfonts''"><b>Set black fonts</b></a>'
-	nl
-	pl'<a href="exec: gt ''IbizaStart'',''start''"><b>Ibiza start</b></a>'
-	nl
-	pl'<a href="exec: gt ''IbizaStart'',''First Day''"><b>Saturday - go to Ibiza</b></a>'
-	nl
-	pl'<a href="exec: gt ''IbizaDay2'',''day two''"><b>Sunday</b></a>'
-	nl
-	pl'<a href="exec: gt ''IbizaDay3'',''day three''"><b>Monday</b></a>'
-	nl
-	pl'<a href="exec: gt ''IbizaDay4'',''day four''"><b>Tuesday</b></a>'
-	nl
-	pl'<a href="exec: gt ''IbizaDay5'',''day five''"><b>Wednesday</b></a>'
-	nl
-	pl'<a href="exec: gt ''IbizaDay6'',''day six''"><b>Thursday</b></a>'
-	nl
-	pl'<a href="exec: gt ''IbizaDay7'',''day seven''"><b>Friday</b></a>'
-	nl
-
 }
 
 $cheatmenu['vartracker'] = {

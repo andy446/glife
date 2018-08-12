@@ -49,7 +49,7 @@ if $ARGS[0] = 'hearing':
 	*clr & cla
 	minut += 10
 	gs 'stat'
-	!'<center><img <<$set_imgh>> src="images/locations/shared/police/interrogationpro.jpg"></center>' 'don't remove, filename is entrance'
+	!'<center><img <<$set_imgh>> src="images/locations/shared/police/interrogationpro.jpg"></center>' 'don''t remove, filename is entrance'
 	'You walk inside the courthouse dragging your legs and as you enter you notice a line has formed while people are walking through a body scanner. You patiently await your turn and head straight to the reception area.'
 	'"Hello, my name is <<$pcs_firstname>> <<$pcs_lastname>> and I got this summon in the mail," you tell the woman sitting there.'
 	'She tells you to hand it over and looks through it and nonchalantly says, "Okay, head to courtroom number 5 and they''ll call out your name when it''s your turn."'
@@ -59,7 +59,7 @@ if $ARGS[0] = 'hearing':
 		*clr & cla
 		minut += 10
 		gs 'stat'
-		!'<center><img <<$set_imgh>> src="images/locations/shared/police/interrogationpro.jpg"></center> 'don't remove, filename is Courtroom'
+		!'<center><img <<$set_imgh>> src="images/locations/shared/police/interrogationpro.jpg"></center>' 'don''t remove, filename is Courtroom'
 		'You spend some time searching for the correct courtroom and you stop and ask several people where the room is located. Thankfully, they''re really helpful and point you in the right direction.'
 		'Before opening the door you take a deep breath as you try to shake off the nervousness and after a few seconds you grab the handle and push the door to let yourself in.'
 		'Hardly anyone pays attention to you as you walk in as there''s already a sentencing in process.'
@@ -68,7 +68,7 @@ if $ARGS[0] = 'hearing':
 			*clr & cla
 			minut += 120
 			gs 'stat'
-			!'<center><img <<$set_imgh>> src="images/locations/shared/police/interrogationpro.jpg"></center>' 'don't remove, filename is wait'
+			!'<center><img <<$set_imgh>> src="images/locations/shared/police/interrogationpro.jpg"></center>' 'don''t remove, filename is wait'
 			'For what feels like an eternity you sit there there and listen to a court-case after another. The process seems to be quite streamlined, the judge starts out by telling the accused what they''re accused of and then lets the defendant state their case.'
 			'You try your best to listen to some of the defenses maybe you can pick up something useful before seeing the judge but it doesn''t take long before you lose focus and dream yourself away not really focusing on what''s happening around you.'
 			'All of a sudden you''re interrupted as you hear your name being called out. Startled, you quickly let the whole room know that you''re here as you hear some people quietly let out a laugh.'
@@ -90,7 +90,7 @@ if $ARGS[0] = 'hearing':
 					'"Yes your honor." you respectfully answer.'
 
 					!do a check if the player missed any earlier sentencing
-					!if there's a missed sentencing
+					!if there''s a missed sentencing
 						'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>," and just as he''s about to close it, he stops at the last page, "Wait! What is this? Have you missed a sentencing?" he inquirers.'
 						'You begin to look around, trying to come up with an excuse. But in the end you decide it''s best to admit, "Yes..." you meekly answer.'
 						'With the judges eyes piercing through you, they clear their throat, "Well then this will affect your punishment. This is a serious thing Miss <<$pcs_lastname>>. The court can''t turn a blind eye to this. We''ll have to take this into the consideration when deciding your punishment."'
@@ -114,7 +114,7 @@ if $ARGS[0] = 'hearing':
 					'"Yes your honor." you respectfully answer.'
 
 					!do a check if the player missed any earlier sentencing
-					!if there's a missed sentencing
+					!if there''s a missed sentencing
 						'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>," and just as he''s about to close it, he stops at the last page, "Wait! What is this? Have you missed a sentencing?" he inquirers.'
 						'You begin to look around, trying to come up with an excuse. But in the end you decide it''s best to admit, "Yes..." you meekly answer.'
 						'With the judges eyes piercing through you, they clear their throat, "Well then this will affect your punishment. This is a serious thing Miss <<$pcs_lastname>>. The court can''t turn a blind eye to this. We''ll have to take this into the consideration when deciding your punishment."'
@@ -138,7 +138,7 @@ if $ARGS[0] = 'hearing':
 					'"Whatever." you shrug your shoulders.'
 
 					!do a check if the player missed any earlier sentencing
-					!if there's a missed sentencing
+					!if there''s a missed sentencing
 						'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>," and just as he''s about to close it, he stops at the last page, "Wait! What is this? Have you missed a sentencing?" he inquirers.'
 						'You begin to look around, trying to come up with an excuse. But in the end you decide it''s best to admit, "Yes..." you meekly answer.'
 						'With the judges eyes piercing through you, they clear their throat, "Well then this will affect your punishment. This is a serious thing Miss <<$pcs_lastname>>. The court can''t turn a blind eye to this. We''ll have to take this into the consideration when deciding your punishment."'
@@ -171,7 +171,7 @@ if $ARGS[0] = 'hearing':
 					'"Yes your honor." you respectfully answer.'
 
 					!do a check if the player missed any earlier sentencing
-					!if there's a missed sentencing
+					!if there''s a missed sentencing
 						'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>," and just as he''s about to close it, he stops at the last page, "Wait! What is this? Have you missed a sentencing?" he inquirers.'
 						'You begin to look around, trying to come up with an excuse. But in the end you decide it''s best to admit, "Yes..." you meekly answer.'
 						'With the judges eyes piercing through you, they clear their throat, "Well then this will affect your punishment. This is a serious thing Miss <<$pcs_lastname>>. The court can''t turn a blind eye to this. We''ll have to take this into the consideration when deciding your punishment."'
@@ -195,7 +195,7 @@ if $ARGS[0] = 'hearing':
 					'"Yes your honor." you respectfully answer.'
 
 					!do a check if the player missed any earlier sentencing
-					!if there's a missed sentencing
+					!if there''s a missed sentencing
 						'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>," and just as he''s about to close it, he stops at the last page, "Wait! What is this? Have you missed a sentencing?" he inquirers.'
 						'You begin to look around, trying to come up with an excuse. But in the end you decide it''s best to admit, "Yes..." you meekly answer.'
 						'With the judges eyes piercing through you, they clear their throat, "Well then this will affect your punishment. This is a serious thing Miss <<$pcs_lastname>>. The court can''t turn a blind eye to this. We''ll have to take this into the consideration when deciding your punishment."'
@@ -219,7 +219,7 @@ if $ARGS[0] = 'hearing':
 					'"Whatever." you shrug your shoulders.'
 
 					!do a check if the player missed any earlier sentencing
-					!if there's a missed sentencing
+					!if there''s a missed sentencing
 						'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>," and just as he''s about to close it, he stops at the last page, "Wait! What is this? Have you missed a sentencing?" he inquirers.'
 						'You begin to look around, trying to come up with an excuse. But in the end you decide it''s best to admit, "Yes..." you meekly answer.'
 						'With the judges eyes piercing through you, they clear their throat, "Well then this will affect your punishment. This is a serious thing Miss <<$pcs_lastname>>. The court can''t turn a blind eye to this. We''ll have to take this into the consideration when deciding your punishment."'
@@ -242,7 +242,7 @@ end
 
 
 if $ARGS[0] = 'punishment':
-! I'm thinking that the punishment will be incremental if possible
+! I''m thinking that the punishment will be incremental if possible
 !if Sveta skipped a sentencing, one up her level so if she was supposed to have the easy going detective route, the player gets the normal detective punishment instead. When the last stage is reached always go to the biggest punishment possible if the player failed to appear in front of the court.
 	*clr & cla
 	minut += 20

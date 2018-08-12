@@ -126,12 +126,24 @@ if $ARGS[0] = 'auto_end':
 		gt $loc, $metka
 	else
 		if $sportloc = 'Meadow': gs 'underwear', 'wear'
-		gt $loc, $metka
+		gt 'exercise', 'workout'
 	end
 end
 
 if $ARGS[0] = 'manual':
 	cla
+	if clothesAtLocation = 1:
+		act 'End workout and get dressed':
+			cla
+			minut += 5
+			gs 'underwear', 'wear'
+			gs 'clothing', 'recover_lost_clothes', $sportloc, 1
+			gt $loc, $metka
+		end
+	else
+		if $sportloc = 'Meadow': gs 'underwear', 'wear'
+		act 'Return': gt 'exercise', 'workout'
+	end
 	if pcs_stam >= 15:
 		Act 'Do pushups for 15 minutes': timemult = 1 & gs 'exercise', 'timestring' & gt 'exercise', 'push', 'manual'
 		Act 'Do crunches for 15 minutes': timemult = 1 & gs 'exercise', 'timestring' & gt 'exercise', 'press', 'manual'
@@ -194,18 +206,6 @@ if $ARGS[0] = 'manual':
 	end
 	if pcs_stam < 10 or pcs_stam < 15 and bookYog + obruch = 0:
 		'You don''t have the energy to work out anymore now.'
-	end
-	if clothesAtLocation = 1:
-		act 'End workout and get dressed':
-			cla
-			minut += 5
-			gs 'underwear', 'wear'
-			gs 'clothing', 'recover_lost_clothes', $sportloc, 1
-			gt $loc, $metka
-		end
-	else
-		if $sportloc = 'Meadow': gs 'underwear', 'wear'
-		act 'Leave': gt $loc, $metka
 	end
 end
 

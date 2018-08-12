@@ -83,6 +83,7 @@ $skl_name[30] = 'medcn'
 $skl_name[31] = 'heels'
 $skl_name[32] = 'pool'
 $skl_name[33] = 'inhib'
+$skl_name[34] = 'perform'
 
 !!Trait Section
 !!This is where Traits that will affect attribute or skill advancement or degradation have those aspects defined.

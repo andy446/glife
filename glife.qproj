@@ -771,6 +771,11 @@
 		<Location name="foto_models"/>
 		<Location name="anastasia_escort"/>
 	</Folder>
+	<Folder name="Crime and Punishment">
+		<Location name="police_station"/>
+		<Location name="sentence"/>
+		<Location name="shoplifting"/>
+	</Folder>
 	<Folder name="North Side">
 		<Location name="Nord"/>
 		<Location name="Terminal"/>

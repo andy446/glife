@@ -1,7 +1,7 @@
 #sentence
 
 !if Sveta has a home, receives an envelope home from the court to appear. If possible make it trigger as Sveta enters the home
-if $ARGS[0] = 'letter'
+if $ARGS[0] = 'letter':
 	if sentencing_letter < 10:
 		sentencing_letter += 1
 		*clr & cla

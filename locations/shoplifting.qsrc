@@ -73,8 +73,6 @@ if $ARGS[0] = 'city':
 						act 'Get lead to the security room':gt 'shpoplifting', 'securityroom'
 					end
 				end
-			end
-
 			else
 				'You feel your hands trembling in your pockets, getting worse with every step. No matter what you do, you can''t shake the feeling that someone must''ve spotted you... surely they''ve spotted you!'
 				'You desperately try to calm yourself down with every step you get closer to the exit. No one seems to be stopping you, so far... maybe you got lucky?'

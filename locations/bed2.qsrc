@@ -16,8 +16,6 @@ if $ARGS[0] = 'options':
 		end
 	end
 
-
-
 	if vibrator = 1 and cheatVib = 1:
 		if bedvibrator = 0:
 			act 'If worn, you will remove your vibrator at night, click to always leave it in':bedvibrator = 1 & gt 'bed2', 'options'
@@ -30,8 +28,8 @@ if $ARGS[0] = 'options':
 end
 
 if $ARGS[0] = '':
+	cla & *clr
 	gs 'stat'
-	cla
 	if $clothingworntype ! 'nude':
 		'<center><img <<$set_imgh>> src="images/shared/home/bed.jpg"></center>'
 	else
@@ -191,7 +189,7 @@ if $ARGS[0] = 'sleep':
 		gs 'bed2', 'extra'
 		gs 'bed2', 'wake'
 	elseif pcs_sleep >= 100 and budilnikOn = 1 and alarm_now >= alarm_set:
-		$waketext = 'You wake up just before your alarm goes off, after having plenty of sleep'
+		$waketext = 'You wake up just before your alarm goes off, after having plenty of sleep.'
 		gs 'bed2', 'wake'
 	elseif pcs_sleep >= 100 and budilnikOn = 0:
 		$waketext = 'You wake up no longer tired, ready to start the day with plenty of sleep.'
@@ -283,7 +281,7 @@ if $ARGS[0] = 'wake':
 				pcs_mood -= 10
 				msg '<center>Damn, you''ve slept too long!, you''re going to be late for school!</center>'
 			end
-			act ' Full morning routine for School (01:00)':
+			act 'Full morning routine for School (01:00)':
 				fullmorrout = 1
 				slept_in = 0
 				minut += 15

@@ -968,7 +968,7 @@ if $ARGS[0] = 'waitclients':
 		'<center><img <<$set_imgh>> src="images/shared/accessories/computer/camwhore6.jpg"></center>'
 	end
 
-	tokenpay = tokens / 2
+	tokenpay = tokens * 2
 	'You take a moment of rest, and just chat casually with your <<camclients>> visitors.'
 	'You have earned <<tokens>> tokens so far this session, which amounts to <<tokenpay>> <b>₽</b>.'
 

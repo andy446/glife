@@ -1,6 +1,6 @@
 # bed2
 
-if $args[0] = 'options':
+if $ARGS[0] = 'options':
 	cla
 	act 'Set Alarm Clock':gt 'budilnik', 'start'
 	if bedPanty = 0:
@@ -29,10 +29,9 @@ if $args[0] = 'options':
 	act 'Return':gt 'bed2'
 end
 
-if $args[0] = '':
+if $ARGS[0] = '':
 	gs 'stat'
 	cla
-
 	if $clothingworntype ! 'nude':
 		'<center><img <<$set_imgh>> src="images/shared/home/bed.jpg"></center>'
 	else
@@ -105,10 +104,10 @@ if $args[0] = '':
 	act 'Get out of bed':killvar '$sleep_txt' & gt $loc, $metka
 end
 
-if $args[0] = 'sleep':
+if $ARGS[0] = 'sleep':
 	cls
 	'<center><img <<$set_imgh>> src="images/shared/home/bedroom/son.jpg"></center>'
-
+	gs 'stat'
 	pcs_hairbsh = 0
 	InSleep = 1
 	cloth_vid = 0
@@ -186,16 +185,19 @@ if $args[0] = 'sleep':
 		alarm_set -= 1440
 	end
 
-
 	if budilnikOn = 1 and alarm_now = alarm_time:
 		pcs_mood -= 10
-		$waketext = 'Your alarm goes off.'
+		$waketext = 'Your alarm goes off, '+iif(pcs_sleep < 90, 'but you could do with some extra sleep.', 'and you''ve had plenty of sleep.')+''
+		gs 'bed2', 'extra'
 		gs 'bed2', 'wake'
 	elseif pcs_sleep >= 100 and budilnikOn = 1 and alarm_now >= alarm_set:
-		$waketext = 'You wake up just before your alarm goes off.'
+		$waketext = 'You wake up just before your alarm goes off, after having plenty of sleep'
 		gs 'bed2', 'wake'
-	elseif pcs_sleep > 100 and budilnikOn = 0:
-		$waketext = 'You wake up, no longer tired.'
+	elseif pcs_sleep >= 100 and budilnikOn = 0:
+		$waketext = 'You wake up no longer tired, ready to start the day with plenty of sleep.'
+		gs 'bed2', 'wake'
+	elseif slept_in = 1:
+		$waketext = 'You wake up after sleeping-in a little longer than planned, but at least you''ve had plenty of sleep.'
 		gs 'bed2', 'wake'
 	else
 		jump 'loopson'
@@ -203,7 +205,7 @@ if $args[0] = 'sleep':
 end
 
 if $ARGS[0] = 'wake_horny':
-	InSleep = 0
+	InSleep = 1
 	gs 'stat'
 	'Your wet dream and overall horniness rouse you from your sleep. From one moment to the next, you are wide awake and very much aware that your pussy is hot and wet.'
 	'You glance at your alarm clock. It reads <<$mid(100+hour,2,2)>>:<<$mid(100+minut,2,2)>>.'
@@ -239,42 +241,55 @@ if $ARGS[0] = 'wake_horny':
 	end
 end
 
-if $args[0] = 'wake':
+if $ARGS[0] = 'wake':
 	'<<$waketext>>'
+	InSleep = 1
 	gs 'stat'
 
 	if daystart < 10 and StoryLine = 0 and ntstart = 0:'The first thing you think as you wake up is, "Damn! It''s is not a dream, I really am a woman now."'
 	if daystart >= 10 and daystart < 30 and StoryLine = 0 and ntstart = 0:'Looking at your female body, you are still a little surprised it''s actually you.'
 
 	if kanikuli = 0 and StoryLine = 1 and SchoolAtestat = 0 and SchoolBlock = 0 and week < 6 and hour >= 4 and hour < 9:
+		if slept_in = 1: 
+			pcs_mood -= 10
+			msg '<center>Damn, you''ve slept too long!, you''re going to be late for school!</center>'
+		end
 		act 'Get up out of bed and get dressed for school (0:15)':
+			slept_in = 0
+			minut += 15
 			if schtype = 0:schtype = 6
 			if schoolH[schtype] = 0:schtype = 6
 			gs 'clothing', 'wear', 'school', schtype
-			minut += 15
 			gs 'bed2', 'end'
 		end
 	end
 
 	act 'Get out of bed and get dressed (0:15)':
 		gs 'clothing', 'wear_last_worn'
+		slept_in = 0
 		minut += 15
 		gs 'bed2', 'end'
 	end
 	if enfullmorrout = 1 and hour >= 4 and hour < 12:
 		act 'Full morning routine (01:00)':
 			gs 'clothing', 'wear_last_worn'
+			slept_in = 0
 			minut += 15
 			fullmorrout = 1
 			gs 'bed2', 'end'
 		end
 		if kanikuli = 0 and StoryLine = 1 and SchoolAtestat = 0 and SchoolBlock = 0 and week < 6 and hour >= 4 and hour < 9:
+			if slept_in = 1: 
+				pcs_mood -= 10
+				msg '<center>Damn, you''ve slept too long!, you''re going to be late for school!</center>'
+			end
 			act ' Full morning routine for School (01:00)':
 				fullmorrout = 1
+				slept_in = 0
+				minut += 15
 				if schtype = 0:schtype = 6
 				if schoolH[schtype] = 0:schtype = 6
 				gs 'clothing', 'wear', 'school', schtype
-				minut += 15
 				gs 'bed2', 'end'
 			end
 		end
@@ -282,11 +297,23 @@ if $args[0] = 'wake':
 
 	act 'Get out of bed (0:10)':
 		minut += 10
+		slept_in = 0
 		gs 'bed2', 'end'
 	end
 end
 
-if $args[0] = 'end':
+if $ARGS[0] = 'extra':
+	act '"Snooze" a few minutes more...':
+		slept_in = 1
+		stime = 0
+		minut = (100-pcs_sleep)*6
+		pcs_sleep += 100
+		gs 'stat'
+		gt 'bed2', 'sleep'
+	end
+end
+
+if $ARGS[0] = 'end':
 	InSleep = 0
 	if bedpanty = 1: gs 'underwear', 'remove'
 

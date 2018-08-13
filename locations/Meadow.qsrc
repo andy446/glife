@@ -55,9 +55,9 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 		end
 	end
 	if sunWeather = 1:
-		if pcs_stam >=15 or pcs_stam >= 10 and bookYog + obruch > 0:
+		if pcs_stam >=15 or (pcs_stam >= 10 and bookYog + obruch > 0):
 			if $clothingworntype ! 'exercise' and pcs_inhib < 35:
-				'You could do some exercises here if you were wearing workout clothes.'
+				'You could do some exercises here if you were wearing <a href="exec: gt ''exercise'', ''workout''">workout clothes</a>.'
 			elseif $clothingworntype ! 'exercise' and $clothingworntype ! 'nude' and pcs_inhib >= 35 and Miraloc ! 2 and temper >= 10:
 				'Your meadow is a perfect place to do some exercises. There is no one around, so you could do it <a href="exec: gs ''clothing'', ''strip'', ''Meadow''& gs ''underwear'', ''remove'' & gt ''exercise'', ''workout'', ''nude'', ''Meadow''">in the nude</a>.'
 			elseif $clothingworntype ! 'exercise' and $clothingworntype = 'nude' and pcs_inhib >= 35 and Miraloc ! 2 and temper >= 10:
@@ -68,6 +68,8 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 		else
 			'Your meadow is a perfect place to do some exercises, but you don''t have the energy right now.'
 		end
+	else
+		'It''s currently raining. You could do some exercises here if the weather improves..'
 	end
 
 	act 'Leave':minut += 20 & MiraLoc = 0 & gt 'Gaddvor'

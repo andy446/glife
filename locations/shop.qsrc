@@ -309,7 +309,7 @@ if $shoplocation= 'cosmetics':
 	end
 
 	act 'Leave the cosmetics department':
-		if menu_option = 1:dynamic $menu_addoldmenu
+		if menu_option = 1:gs 'obj_din', 'old'
 		if menu_option = 0:gs 'obj_din', 'new'
 		gt 'shop', 'start'
 	end

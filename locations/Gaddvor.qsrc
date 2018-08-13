@@ -58,7 +58,7 @@ if $ARGS[0]='':
 	
 	if $clothingworntype = 'nude':
 		*nl
-		'You are naked and can only go to your grandparents to get dressed or go to the banya.'
+		'You are naked and can only go into your grandparent''s house to get dressed or go to the banya.'
 	else
 		if feed_chickens = 1 or (hour >= 6 and hour < 20 and month >= 4 and month <= 10):'In the yard there are <a href="exec:gt ''Gaddvor'',''chickens''">chickens</a> running around.'
 

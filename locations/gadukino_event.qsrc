@@ -815,6 +815,7 @@ end
 if $ARGS[0] = 'go_home_ender':
 	*clr & cla
 	minut += rand(15,25)
+	dirtyclothes = 0
 	if grandmahelp > 0:
 		'<center><b><font color="maroon">Your grandmother</font></b></center>'
 		'<center><img <<$set_imgh>> src="images/locations/gadukino/village/grandmahelp.jpg"></center>'

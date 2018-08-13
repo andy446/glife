@@ -1,4 +1,4 @@
-#sentence
+# sentence
 
 !if Sveta has a home, receives an envelope home from the court to appear. If possible make it trigger as Sveta enters the home
 if $ARGS[0] = 'letter':
@@ -15,10 +15,11 @@ if $ARGS[0] = 'letter':
 		'<i>The court is located in the city center. You should arrive at 9:00 as there are a lot of cases and we can''t say when your turn might come up.</i>'
 		'You put the letter back in the envelope and let out a loud sigh...'
 
-		act 'Continue into the apartment': gt '...'
+		act 'Continue into the apartment': gt 'korr'
+		! or 'etoexhib', 'pos51'
 	else
 
-!after ten times Sveta gets an envelope home
+		!after ten times Sveta gets an envelope home
 		*clr & cla
 		minut += 5
 		gs 'stat'
@@ -26,7 +27,8 @@ if $ARGS[0] = 'letter':
 		'As you come home you see the familiar envelope from the court. You already know the gist of it, <i>failure to show up will have dire consequences,</i> yadda yadda...'
 		'You glance through the letter seeing the same information once again and as you finish you throw it to the side and continue further on inside your apartment...'
 
-		act 'Continue into the apartment': gt '...'
+		act 'Continue into the apartment': gt 'korr'
+		! or 'etoexhib', 'pos51'
 	end
 end
 
@@ -42,7 +44,7 @@ if $ARGS[0] = 'start':
 	!img - courthouse
 	'You are standing in the middle of the Greco-Roman inspired main courthouse for the whole St Petersburg region.'
 	'There are many statues of political and legal figures in the region going right back to a bust of Catherine the Great.'
-	act 'Leave': gt 'Down'
+	act 'Leave': gt 'down'
 end
 
 if $ARGS[0] = 'hearing':
@@ -74,176 +76,168 @@ if $ARGS[0] = 'hearing':
 			'All of a sudden you''re interrupted as you hear your name being called out. Startled, you quickly let the whole room know that you''re here as you hear some people quietly let out a laugh.'
 
 			!if shoplifted
-			act 'Stand in front of the judge':
-				*clr & cla
-				minut += 20
-				gs 'stat'
-				!IMG = judge.jpg
-				'The judge speaks up with a stern voice, "So I see that you''re here because of you''ve gotten caught stealing."'
-				'You sink your glance in shame and nod meekly.'
-				'The judge continues on, "Let''s see what the detectives concluded during their investigation."'
+				act 'Stand in front of the judge':
+					*clr & cla
+					minut += 20
+					gs 'stat'
+					!IMG = judge.jpg
+					'The judge speaks up with a stern voice, "So I see that you''re here because of you''ve gotten caught stealing."'
+					'You sink your glance in shame and nod meekly.'
+					'The judge continues on, "Let''s see what the detectives concluded during their investigation."'
 
-				!if easy-going detective
-					'The judge sits and quietly glances through the report, looking towards you from time to time, "Miss <<$pcs_lastname>>, the detective seem to be quite positive in the report."'
-					'Suddenly, you feel a bit emboldened as the detective seems to have come through for you. You even manage to let out a little smirk.'
-					'"Well as you''ve already admitted being guilty I guess we don''t need to listen to your pleading," he sternly looks at you.'
-					'"Yes your honor." you respectfully answer.'
+					!if easy-going detective
+						'The judge sits and quietly glances through the report, looking towards you from time to time, "Miss <<$pcs_lastname>>, the detective seem to be quite positive in the report."'
+						'Suddenly, you feel a bit emboldened as the detective seems to have come through for you. You even manage to let out a little smirk.'
+						'"Well as you''ve already admitted being guilty I guess we don''t need to listen to your pleading," he sternly looks at you.'
+						'"Yes your honor." you respectfully answer.'
 
-					!do a check if the player missed any earlier sentencing
-					!if there''s a missed sentencing
-						'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>," and just as he''s about to close it, he stops at the last page, "Wait! What is this? Have you missed a sentencing?" he inquirers.'
-						'You begin to look around, trying to come up with an excuse. But in the end you decide it''s best to admit, "Yes..." you meekly answer.'
-						'With the judges eyes piercing through you, they clear their throat, "Well then this will affect your punishment. This is a serious thing Miss <<$pcs_lastname>>. The court can''t turn a blind eye to this. We''ll have to take this into the consideration when deciding your punishment."'
-						'You try your best to hold back the tears as you nod that you understand.'
+						!do a check if the player missed any earlier sentencing
+						!if there''s a missed sentencing
+							'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>," and just as he''s about to close it, he stops at the last page, "Wait! What is this? Have you missed a sentencing?" he inquirers.'
+							'You begin to look around, trying to come up with an excuse. But in the end you decide it''s best to admit, "Yes..." you meekly answer.'
+							'With the judges eyes piercing through you, they clear their throat, "Well then this will affect your punishment. This is a serious thing Miss <<$pcs_lastname>>. The court can''t turn a blind eye to this. We''ll have to take this into the consideration when deciding your punishment."'
+							'You try your best to hold back the tears as you nod that you understand.'
 
-						act 'Await punishment': gt 'punishment'
-					end
+							act 'Await punishment': gt 'sentence', 'punishment'
 
-					!else
-						'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>, shall we proceed to the punishment?" the judge asks.'
-						'You nod and take a deep breath as you await your punishment.'
+						!else
+							'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>, shall we proceed to the punishment?" the judge asks.'
+							'You nod and take a deep breath as you await your punishment.'
 
-						act 'Await punishment': gt 'punishment'
-					end
-				end
+							act 'Await punishment': gt 'sentence', 'punishment'
+						!end
 
-				!else if normal detective
-					'The judge sits and quietly glances through the report, looking towards you from time to time, "Miss <<$pcs_lastname>>, the detective has only written neutral comments in the report."'
-					'Suddenly, you feel a bit looser as you can probably expect a lighter sentencing than usual. You let out a relieving sigh.'
-					'"Well as you''ve already admitted being guilty I guess we don''t need to listen to your pleading," he sternly looks at you.'
-					'"Yes your honor." you respectfully answer.'
+					!else if normal detective
+						'The judge sits and quietly glances through the report, looking towards you from time to time, "Miss <<$pcs_lastname>>, the detective has only written neutral comments in the report."'
+						'Suddenly, you feel a bit looser as you can probably expect a lighter sentencing than usual. You let out a relieving sigh.'
+						'"Well as you''ve already admitted being guilty I guess we don''t need to listen to your pleading," he sternly looks at you.'
+						'"Yes your honor." you respectfully answer.'
 
-					!do a check if the player missed any earlier sentencing
-					!if there''s a missed sentencing
-						'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>," and just as he''s about to close it, he stops at the last page, "Wait! What is this? Have you missed a sentencing?" he inquirers.'
-						'You begin to look around, trying to come up with an excuse. But in the end you decide it''s best to admit, "Yes..." you meekly answer.'
-						'With the judges eyes piercing through you, they clear their throat, "Well then this will affect your punishment. This is a serious thing Miss <<$pcs_lastname>>. The court can''t turn a blind eye to this. We''ll have to take this into the consideration when deciding your punishment."'
-						'You try your best to hold back the tears as you nod that you understand.'
+						!do a check if the player missed any earlier sentencing
+						!if there''s a missed sentencing
+							'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>," and just as he''s about to close it, he stops at the last page, "Wait! What is this? Have you missed a sentencing?" he inquirers.'
+							'You begin to look around, trying to come up with an excuse. But in the end you decide it''s best to admit, "Yes..." you meekly answer.'
+							'With the judges eyes piercing through you, they clear their throat, "Well then this will affect your punishment. This is a serious thing Miss <<$pcs_lastname>>. The court can''t turn a blind eye to this. We''ll have to take this into the consideration when deciding your punishment."'
+							'You try your best to hold back the tears as you nod that you understand.'
 
-						act 'Await punishment': gt 'punishment'
-					end
+							act 'Await punishment': gt 'sentence', 'punishment'
 
-					!else
-						'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>, shall we proceed to the punishment?" the judge asks.'
-						'You nod and take a deep breath as you await your punishment.'
+						!else
+							'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>, shall we proceed to the punishment?" the judge asks.'
+							'You nod and take a deep breath as you await your punishment.'
 
-						act 'Await punishment': gt 'punishment'
-					end
-				end
-
-				!else
-					'The judge sits and quietly glances through the report, looking towards you from time to time, "Miss <<$pcs_lastname>>, what is wrong with you? The report written by the detective is quite damaging and you will be getting a harsher sentencing."'
-					'You look nonchalantly at the judge, almost ignoring what he has to say.'
-					'"Well as you''ve already admitted being guilty, no need listening to your pleading," he sternly looks at you.'
-					'"Whatever." you shrug your shoulders.'
-
-					!do a check if the player missed any earlier sentencing
-					!if there''s a missed sentencing
-						'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>," and just as he''s about to close it, he stops at the last page, "Wait! What is this? Have you missed a sentencing?" he inquirers.'
-						'You begin to look around, trying to come up with an excuse. But in the end you decide it''s best to admit, "Yes..." you meekly answer.'
-						'With the judges eyes piercing through you, they clear their throat, "Well then this will affect your punishment. This is a serious thing Miss <<$pcs_lastname>>. The court can''t turn a blind eye to this. We''ll have to take this into the consideration when deciding your punishment."'
-						'You try your best to hold back the tears as you nod that you understand.'
-
-						act 'Await punishment': gt 'punishment'
-					end
+							act 'Await punishment': gt 'sentence', 'punishment'
+						!end
 
 					!else
-						'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>, shall we proceed to the punishment?" the judge asks.'
-						'You nod and take a deep breath as you await your punishment.'
+						'The judge sits and quietly glances through the report, looking towards you from time to time, "Miss <<$pcs_lastname>>, what is wrong with you? The report written by the detective is quite damaging and you will be getting a harsher sentencing."'
+						'You look nonchalantly at the judge, almost ignoring what he has to say.'
+						'"Well as you''ve already admitted being guilty, no need listening to your pleading," he sternly looks at you.'
+						'"Whatever." you shrug your shoulders.'
 
-						act 'Await punishment': gt 'punishment'
-					end
+						!do a check if the player missed any earlier sentencing
+						!if there''s a missed sentencing
+							'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>," and just as he''s about to close it, he stops at the last page, "Wait! What is this? Have you missed a sentencing?" he inquirers.'
+							'You begin to look around, trying to come up with an excuse. But in the end you decide it''s best to admit, "Yes..." you meekly answer.'
+							'With the judges eyes piercing through you, they clear their throat, "Well then this will affect your punishment. This is a serious thing Miss <<$pcs_lastname>>. The court can''t turn a blind eye to this. We''ll have to take this into the consideration when deciding your punishment."'
+							'You try your best to hold back the tears as you nod that you understand.'
+
+							act 'Await punishment': gt 'sentence', 'punishment'
+
+						!else
+							'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>, shall we proceed to the punishment?" the judge asks.'
+							'You nod and take a deep breath as you await your punishment.'
+
+							act 'Await punishment': gt 'sentence', 'punishment'
+						!end
+					!end
 				end
 
-			!else if prostitution
-			act 'Stand in front of the judge':
-				*clr & cla
-				minut += 20
-				gs 'stat'
-				!IMG = judge.jpg
-				'The judge speaks up with a stern voice, "So I see that you''re here because of you''ve gotten caught prostituting."'
-				'You sink your glance in shame and nod meekly.'
-				'The judge continues on, "Let''s see what the detectives concluded during their investigation."'
+			!elseif prostitution
+				act 'Stand in front of the judge':
+					*clr & cla
+					minut += 20
+					gs 'stat'
+					!IMG = judge.jpg
+					'The judge speaks up with a stern voice, "So I see that you''re here because of you''ve gotten caught prostituting."'
+					'You sink your glance in shame and nod meekly.'
+					'The judge continues on, "Let''s see what the detectives concluded during their investigation."'
 
-				!if easy-going detective
-					'Suddenly, you feel a bit emboldened as the detective seems to have come through for you. You even manage to let out a little smirk.'
-					'"Well as you''ve already admitted being guilty I guess we don''t need to listen to your pleading," he sternly looks at you.'
-					'"Yes your honor." you respectfully answer.'
+					!if easy-going detective
+						'Suddenly, you feel a bit emboldened as the detective seems to have come through for you. You even manage to let out a little smirk.'
+						'"Well as you''ve already admitted being guilty I guess we don''t need to listen to your pleading," he sternly looks at you.'
+						'"Yes your honor." you respectfully answer.'
 
-					!do a check if the player missed any earlier sentencing
-					!if there''s a missed sentencing
-						'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>," and just as he''s about to close it, he stops at the last page, "Wait! What is this? Have you missed a sentencing?" he inquirers.'
-						'You begin to look around, trying to come up with an excuse. But in the end you decide it''s best to admit, "Yes..." you meekly answer.'
-						'With the judges eyes piercing through you, they clear their throat, "Well then this will affect your punishment. This is a serious thing Miss <<$pcs_lastname>>. The court can''t turn a blind eye to this. We''ll have to take this into the consideration when deciding your punishment."'
-						'You try your best to hold back the tears as you nod that you understand.'
+						!do a check if the player missed any earlier sentencing
+						!if there''s a missed sentencing
+							'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>," and just as he''s about to close it, he stops at the last page, "Wait! What is this? Have you missed a sentencing?" he inquirers.'
+							'You begin to look around, trying to come up with an excuse. But in the end you decide it''s best to admit, "Yes..." you meekly answer.'
+							'With the judges eyes piercing through you, they clear their throat, "Well then this will affect your punishment. This is a serious thing Miss <<$pcs_lastname>>. The court can''t turn a blind eye to this. We''ll have to take this into the consideration when deciding your punishment."'
+							'You try your best to hold back the tears as you nod that you understand.'
 
-						act 'Await punishment': gt 'punishment'
-					end
+							act 'Await punishment': gt 'sentence', 'punishment'
+
+						!else
+							'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>, shall we proceed to the punishment?" the judge asks.'
+							'You nod and take a deep breath as you await your punishment.'
+
+							act 'Await punishment': gt 'sentence', 'punishment'
+						!end
+
+					!else if normal detective
+						'The judge sits and quietly glances through the report, looking towards you from time to time, "Miss <<$pcs_lastname>>, the detective has only written neutral comments in the report."'
+						'Suddenly, you feel a bit looser as you can probably expect a lighter sentencing than usual. You let out a relieving sigh.'
+						'"Well as you''ve already admitted being guilty I guess we don''t need to listen to your pleading," he sternly looks at you.'
+						'"Yes your honor." you respectfully answer.'
+
+						!do a check if the player missed any earlier sentencing
+						!if there''s a missed sentencing
+							'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>," and just as he''s about to close it, he stops at the last page, "Wait! What is this? Have you missed a sentencing?" he inquirers.'
+							'You begin to look around, trying to come up with an excuse. But in the end you decide it''s best to admit, "Yes..." you meekly answer.'
+							'With the judges eyes piercing through you, they clear their throat, "Well then this will affect your punishment. This is a serious thing Miss <<$pcs_lastname>>. The court can''t turn a blind eye to this. We''ll have to take this into the consideration when deciding your punishment."'
+							'You try your best to hold back the tears as you nod that you understand.'
+
+							act 'Await punishment': gt 'sentence', 'punishment'
+
+						!else
+							'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>, shall we proceed to the punishment?" the judge asks.'
+							'You nod and take a deep breath as you await your punishment.'
+
+							act 'Await punishment': gt 'sentence', 'punishment'
+						!end
 
 					!else
-						'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>, shall we proceed to the punishment?" the judge asks.'
-						'You nod and take a deep breath as you await your punishment.'
+						'The judge sits and quietly glances through the report, looking towards you from time to time, "Miss <<$pcs_lastname>>, what is wrong with you? The report written by the detective is quite damaging and you will be getting a harsher sentencing."'
+						'You look nonchalantly at the judge, almost ignoring what he has to say.'
+						'"Well as you''ve already admitted being guilty, no need listening to your pleading," he sternly looks at you.'
+						'"Whatever." you shrug your shoulders.'
 
-						act 'Await punishment': gt 'punishment'
-					end
+						!do a check if the player missed any earlier sentencing
+						!if there''s a missed sentencing
+							'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>," and just as he''s about to close it, he stops at the last page, "Wait! What is this? Have you missed a sentencing?" he inquirers.'
+							'You begin to look around, trying to come up with an excuse. But in the end you decide it''s best to admit, "Yes..." you meekly answer.'
+							'With the judges eyes piercing through you, they clear their throat, "Well then this will affect your punishment. This is a serious thing Miss <<$pcs_lastname>>. The court can''t turn a blind eye to this. We''ll have to take this into the consideration when deciding your punishment."'
+							'You try your best to hold back the tears as you nod that you understand.'
+
+							act 'Await punishment': gt 'sentence', 'punishment'
+
+						!else
+							'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>, shall we proceed to the punishment?" the judge asks.'
+							'You nod and take a deep breath as you await your punishment.'
+
+							act 'Await punishment': gt 'sentence', 'punishment'
+						!end
+					!end
 				end
-
-				!else if normal detective
-					'The judge sits and quietly glances through the report, looking towards you from time to time, "Miss <<$pcs_lastname>>, the detective has only written neutral comments in the report."'
-					'Suddenly, you feel a bit looser as you can probably expect a lighter sentencing than usual. You let out a relieving sigh.'
-					'"Well as you''ve already admitted being guilty I guess we don''t need to listen to your pleading," he sternly looks at you.'
-					'"Yes your honor." you respectfully answer.'
-
-					!do a check if the player missed any earlier sentencing
-					!if there''s a missed sentencing
-						'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>," and just as he''s about to close it, he stops at the last page, "Wait! What is this? Have you missed a sentencing?" he inquirers.'
-						'You begin to look around, trying to come up with an excuse. But in the end you decide it''s best to admit, "Yes..." you meekly answer.'
-						'With the judges eyes piercing through you, they clear their throat, "Well then this will affect your punishment. This is a serious thing Miss <<$pcs_lastname>>. The court can''t turn a blind eye to this. We''ll have to take this into the consideration when deciding your punishment."'
-						'You try your best to hold back the tears as you nod that you understand.'
-
-						act 'Await punishment': gt 'punishment'
-					end
-
-					!else
-						'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>, shall we proceed to the punishment?" the judge asks.'
-						'You nod and take a deep breath as you await your punishment.'
-
-						act 'Await punishment': gt 'punishment'
-					end
-				end
-
-				!else
-					'The judge sits and quietly glances through the report, looking towards you from time to time, "Miss <<$pcs_lastname>>, what is wrong with you? The report written by the detective is quite damaging and you will be getting a harsher sentencing."'
-					'You look nonchalantly at the judge, almost ignoring what he has to say.'
-					'"Well as you''ve already admitted being guilty, no need listening to your pleading," he sternly looks at you.'
-					'"Whatever." you shrug your shoulders.'
-
-					!do a check if the player missed any earlier sentencing
-					!if there''s a missed sentencing
-						'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>," and just as he''s about to close it, he stops at the last page, "Wait! What is this? Have you missed a sentencing?" he inquirers.'
-						'You begin to look around, trying to come up with an excuse. But in the end you decide it''s best to admit, "Yes..." you meekly answer.'
-						'With the judges eyes piercing through you, they clear their throat, "Well then this will affect your punishment. This is a serious thing Miss <<$pcs_lastname>>. The court can''t turn a blind eye to this. We''ll have to take this into the consideration when deciding your punishment."'
-						'You try your best to hold back the tears as you nod that you understand.'
-
-						act 'Await punishment': gt 'punishment'
-					end
-
-					!else
-						'The judge continues on flipping throughout the report, "Well everything seems to check out <<$pcs_lastname>>, shall we proceed to the punishment?" the judge asks.'
-						'You nod and take a deep breath as you await your punishment.'
-
-						act 'Await punishment': gt 'punishment'
-					end
-				end
-			end
+			!end
 		end
 	end
 end
 
 
 if $ARGS[0] = 'punishment':
-! I''m thinking that the punishment will be incremental if possible
-!if Sveta skipped a sentencing, one up her level so if she was supposed to have the easy going detective route, the player gets the normal detective punishment instead. When the last stage is reached always go to the biggest punishment possible if the player failed to appear in front of the court.
+	! I''m thinking that the punishment will be incremental if possible
+	!if Sveta skipped a sentencing, one up her level so if she was supposed to have the easy going detective route, the player gets the normal detective punishment instead. When the last stage is reached always go to the biggest punishment possible if the player failed to appear in front of the court.
 	*clr & cla
 	minut += 20
 	gs 'stat'
@@ -252,13 +246,13 @@ if $ARGS[0] = 'punishment':
 	'You tremble a bit in fear as he keeps on talking, "With that said, I believe in a more soft approach and that you can improve yourself by learning from your mistakes."'
 	'You meekly nod and feel a bit relieved as you hear that.'
 
-!Shoplifting
-! Stage 1 / 1-5 sentences / Punishment level = 50% of the amount Sveta stole if easy going detective, 100% normal detective, 150% bad detective - fixed based sum for the trial 5000 rubles
-! Stage 2 / 6-10 sentences / Punishment level = 75% of the amount Sveta stole if easy going detective, 150% normal detective, 200% bad detective and 20 hours at the Mercy Clinic - fixed based sum for the trial 7500 rubles
-! Stage 3 / 11-15 sentences / Punishment level = 100% of the amount Sveta stole if easy going detective, 200% normal detective and 20 hours at the Mercy Clinic, 250% bad detective and 40 hours at the Mercy Clinic - fixed based sum for the trial 10000 rubles
-! Stage 4 / 16-20 sentences / Punishment level = 125% of the amount Sveta stole if easy going detective and 20 hours at the Mercy Clinic, 250% normal detective and 40 hours at the Mercy Clinic, 300% bad detective and 80 hours at the Mercy Clinic - fixed based sum for the trial 15000 rubles
-! Stage 5 / 21-25 sentences / Punishment level = 150% of the amount Sveta stole if easy going detective and 40 hours at the Mercy Clinic, 300% normal detective and 80 hours at the Mercy Clinic, 400% bad detective and 120 hours at the Mercy Clinic - fixed based sum for the trial 25000 rubles
-! Stage 6 / 26+ sentences / Punishment level = 200% of the amount Sveta stole if easy going detective and 80 hours at the Mercy Clinic, 400% normal detective and 120 hours at the Mercy Clinic, 500% bad detective and 160 hours at the Mercy Clinic - fixed based sum for the trial 50000 rubles
+	!Shoplifting
+	! Stage 1 / 1-5 sentences / Punishment level = 50% of the amount Sveta stole if easy going detective, 100% normal detective, 150% bad detective - fixed based sum for the trial 5000 rubles
+	! Stage 2 / 6-10 sentences / Punishment level = 75% of the amount Sveta stole if easy going detective, 150% normal detective, 200% bad detective and 20 hours at the Mercy Clinic - fixed based sum for the trial 7500 rubles
+	! Stage 3 / 11-15 sentences / Punishment level = 100% of the amount Sveta stole if easy going detective, 200% normal detective and 20 hours at the Mercy Clinic, 250% bad detective and 40 hours at the Mercy Clinic - fixed based sum for the trial 10000 rubles
+	! Stage 4 / 16-20 sentences / Punishment level = 125% of the amount Sveta stole if easy going detective and 20 hours at the Mercy Clinic, 250% normal detective and 40 hours at the Mercy Clinic, 300% bad detective and 80 hours at the Mercy Clinic - fixed based sum for the trial 15000 rubles
+	! Stage 5 / 21-25 sentences / Punishment level = 150% of the amount Sveta stole if easy going detective and 40 hours at the Mercy Clinic, 300% normal detective and 80 hours at the Mercy Clinic, 400% bad detective and 120 hours at the Mercy Clinic - fixed based sum for the trial 25000 rubles
+	! Stage 6 / 26+ sentences / Punishment level = 200% of the amount Sveta stole if easy going detective and 80 hours at the Mercy Clinic, 400% normal detective and 120 hours at the Mercy Clinic, 500% bad detective and 160 hours at the Mercy Clinic - fixed based sum for the trial 50000 rubles
 
 	!Stage 1
 		!present how much the player needs to pay
@@ -268,7 +262,6 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
 
 		!else if normal detective
 			'"I hereby sentence you to a fine of <<sum>> <b>₽</b>." the judge reads out your sentence.'
@@ -276,7 +269,6 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
 
 		!else
 			'"I hereby sentence you to a fine of <<sum>> <b>₽</b>." the judge reads out your sentence.'
@@ -284,8 +276,8 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
-	end
+		!end
+	!end
 
 	!Stage 2
 	!present how much the player needs to pay
@@ -295,7 +287,6 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
 
 		!else if normal detective
 			'"Seems that I need to increase the fine for you to pay back to a sum of <<sum>> <b>₽</b>. Hopefully, this will teach you a lesson." the judge reads out your sentence.'
@@ -303,7 +294,6 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
 
 		!else
 			'"I sentence you hereby to pay back a sum of <<sum>> <b>₽</b> and I''ll also sentence you to some community service at the Mercy Clinic to 20 hours, hopefully this will help." the judge reads out your sentence.'
@@ -311,8 +301,8 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
-	end
+		!end
+	!end
 
 	!Stage 3
 		!if easy going detective
@@ -321,7 +311,6 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
 
 		!else if normal detective
 			'"<<$pcs_lastname>> I see that name come up quite often here. Seems like I need to increase the fine even further to a sum of <<sum>> <b>₽</b> and sentence you to community service at the Mercy Clinic to 20 hours." the judge reads out your sentence.'
@@ -329,7 +318,6 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
 
 		!else
 			'"<<$pcs_lastname>> I see that name come up quite often here.  Seems like I need to increase the fine even further to a sum of <<sum>> <b>₽</b> and increase the community service at the Mercy Clinic to 40 hours." the judge reads out your sentence.'
@@ -337,8 +325,8 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
-	end
+		!end
+	!end
 
 	!Stage 4
 		!if easy going detective
@@ -347,7 +335,6 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
 
 		!else if normal detective
 			'"This is starting to get out of hand, <<$pcs_lastname>>!  Seems like I need to increase the fine even further to a sum of <<sum>> <b>₽</b> and increase the community service at the Mercy Clinic to 40 hours." the judge reads out your sentence.'
@@ -355,7 +342,6 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
 
 		!else
 			'"This is starting to get out of hand, <<$pcs_lastname>>!  Seems like I need to increase the fine even further to a sum of <<sum>> <b>₽</b> and increase the community service at the Mercy Clinic to 80 hours." the judge reads out your sentence.'
@@ -363,8 +349,8 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
-	end
+		!end
+	!end
 
 	!Stage 5
 		!if easy going detective
@@ -373,7 +359,6 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
 
 		!else if normal detective
 			'"Well well, what a surprise, <<$pcs_lastname>> stands in front of me again. You''re starting to annoy me! Are you doing this on purpose? Don''t answer and instead pay the fine of <<sum>> <b>₽</b> and enjoy your community service at the Mercy Clinic for 80 hours." the judge reads out your sentence.'
@@ -381,7 +366,6 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
 
 		!else
 			'"Well well, what a surprise, <<$pcs_lastname>> stands in front of me again. You''re starting to annoy me! Are you doing this on purpose? Don''t answer and instead pay the fine of <<sum>> <b>₽</b> and enjoy your community service at the Mercy Clinic for 120 hours." the judge reads out your sentence.'
@@ -389,8 +373,8 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
-	end
+		!end
+	!end
 
 	!Stage 6
 		!if easy going detective
@@ -399,7 +383,6 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
 
 		!else if normal detective
 			'The judge sighs, "Here we are again <<$pcs_lastname>>! I''m getting tired of being lenient so you''re getting the maximum sentence. The fine will be set to <<sum>> <b>₽</b> and the community service at the Mercy Clinic for 120 hours." the judge reads out your sentence.'
@@ -407,7 +390,6 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
 
 		!else
 			'The judge sighs, "Here we are again <<$pcs_lastname>>! I''m getting tired of being lenient so you''re getting the maximum sentence. The fine will be set to <<sum>> <b>₽</b> and the community service at the Mercy Clinic for 160 hours." the judge reads out your sentence.'
@@ -415,16 +397,16 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
-	end
+		!end
+	!end
 
-!Prostitution
-! Stage 1 / 1-5 sentences / Punishment level = 1000 rubles if easy going detective, 2000 rubles normal detective, 3000 rubles bad detective - fixed based sum for the trial 5000 rubles
-! Stage 2 / 6-10 sentences / Punishment level = 1500 rubles if easy going detective, 3000 rubles normal detective, 4000 rubles bad detective and 20 hours at the Mercy Clinic - fixed based sum for the trial 7500 rubles
-! Stage 3 / 11-15 sentences / Punishment level = 2000 rubles if easy going detective, 4000 rubles normal detective and 20 hours at the Mercy Clinic, 5000 rubles bad detective and 40 hours at the Mercy Clinic - fixed based sum for the trial 10000 rubles
-! Stage 4 / 16-20 sentences / Punishment level = 2500 rubles if easy going detective and 20 hours at the Mercy Clinic, 5000 rubles normal detective and 40 hours at the Mercy Clinic, 6000 rubles bad detective and 80 hours at the Mercy Clinic - fixed based sum for the trial 15000 rubles
-! Stage 5 / 21-25 sentences / Punishment level = 3000 rubles if easy going detective and 40 hours at the Mercy Clinic, 6000 rubles normal detective and 80 hours at the Mercy Clinic, 7000 rubles bad detective and 140 hours at the Mercy Clinic - fixed based sum for the trial 25000 rubles
-! Stage 6 / 26+ sentences / Punishment level = 5000 rubles if easy going detective and 80 hours at the Mercy Clinic, 7500 rubles normal detective and 140 hours at the Mercy Clinic, 10000 rubles bad detective and 200 hours at the Mercy Clinic - fixed based sum for the trial 50000 rubles
+	!Prostitution
+	! Stage 1 / 1-5 sentences / Punishment level = 1000 rubles if easy going detective, 2000 rubles normal detective, 3000 rubles bad detective - fixed based sum for the trial 5000 rubles
+	! Stage 2 / 6-10 sentences / Punishment level = 1500 rubles if easy going detective, 3000 rubles normal detective, 4000 rubles bad detective and 20 hours at the Mercy Clinic - fixed based sum for the trial 7500 rubles
+	! Stage 3 / 11-15 sentences / Punishment level = 2000 rubles if easy going detective, 4000 rubles normal detective and 20 hours at the Mercy Clinic, 5000 rubles bad detective and 40 hours at the Mercy Clinic - fixed based sum for the trial 10000 rubles
+	! Stage 4 / 16-20 sentences / Punishment level = 2500 rubles if easy going detective and 20 hours at the Mercy Clinic, 5000 rubles normal detective and 40 hours at the Mercy Clinic, 6000 rubles bad detective and 80 hours at the Mercy Clinic - fixed based sum for the trial 15000 rubles
+	! Stage 5 / 21-25 sentences / Punishment level = 3000 rubles if easy going detective and 40 hours at the Mercy Clinic, 6000 rubles normal detective and 80 hours at the Mercy Clinic, 7000 rubles bad detective and 140 hours at the Mercy Clinic - fixed based sum for the trial 25000 rubles
+	! Stage 6 / 26+ sentences / Punishment level = 5000 rubles if easy going detective and 80 hours at the Mercy Clinic, 7500 rubles normal detective and 140 hours at the Mercy Clinic, 10000 rubles bad detective and 200 hours at the Mercy Clinic - fixed based sum for the trial 50000 rubles
 
 	!Stage 1
 		!present how much the player needs to pay
@@ -434,7 +416,6 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
 
 		!else if normal detective
 			'"I hereby sentence you to a fine of 7000 <b>₽</b>." the judge reads out your sentence.'
@@ -442,7 +423,6 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
 
 		!else
 			'"I hereby sentence you to a fine of 8000 <b>₽</b>." the judge reads out your sentence.'
@@ -450,8 +430,8 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
-	end
+		!end
+	!end
 
 	!Stage 2
 	!present how much the player needs to pay
@@ -461,7 +441,6 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
 
 		!else if normal detective
 			'"I need to increase the fine to 10500 <b>₽</b>. Hopefully, this will get you to reconsider your actions." the judge reads out your sentence.'
@@ -469,7 +448,6 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
 
 		!else
 			'"I sentence you hereby to pay back 11500 <b>₽</b> you''ve stolen and I''ll also add some community service at the Mercy Clinic to 20 hours, hopefully this will help you reconsider your actions." the judge reads out your sentence.'
@@ -477,8 +455,8 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
-	end
+		!end
+	!end
 
 	!Stage 3
 		!if easy going detective
@@ -487,7 +465,6 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
 
 		!else if normal detective
 			'"<<$pcs_lastname>> I see that name come up quite often here. Seems like I need to increase the fine even further to 14000 <b>₽</b> and sentence you to community service at the Mercy Clinic for 20 hours." the judge reads out your sentence.'
@@ -495,7 +472,6 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
 
 		!else
 			'"<<$pcs_lastname>> I see that name come up quite often here.  Seems like I need to increase the fine even further to 15000 <b>₽</b> and increase the community service at the Mercy Clinic to 40 hours." the judge reads out your sentence.'
@@ -503,8 +479,8 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
-	end
+		!end
+	!end
 
 	!Stage 4
 	!if easy going detective
@@ -513,7 +489,6 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
 
 		!else if normal detective
 			'"This is starting to get out of hand, <<$pcs_lastname>>!  Seems like I need to increase the fine even further to 20000 <b>₽</b> and increase the community service at the Mercy Clinic to 40 hours." the judge reads out your sentence.'
@@ -521,7 +496,6 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
 
 		!else
 			'"This is starting to get out of hand, <<$pcs_lastname>>!  Seems like I need to increase the fine even further to 21000 <b>₽</b> and increase the community service at the Mercy Clinic to 80 hours." the judge reads out your sentence.'
@@ -529,8 +503,8 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
-	end
+		!end
+	!end
 
 	!Stage 5
 		!if easy going detective
@@ -539,7 +513,6 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
 
 		!else if normal detective
 			'"Well well, what a surprise, <<$pcs_lastname>> stands in front of me again. You''re starting to annoy me! Are you doing this on purpose? Don''t answer and instead pay the fine of 31000 <b>₽</b> and enjoy your community service at the Mercy Clinic for 80 hours." the judge reads out your sentence.'
@@ -547,7 +520,6 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
 
 		!else
 			'"Well well, what a surprise, <<$pcs_lastname>> stands in front of me again. You''re starting to annoy me! Are you doing this on purpose? Don''t answer and instead pay the fine of 32000 <b>₽</b> and enjoy your community service at the Mercy Clinic for 120 hours." the judge reads out your sentence.'
@@ -555,8 +527,8 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
-	end
+		!end
+	!end
 
 	!Stage 6
 		!if easy going detective
@@ -565,7 +537,6 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
 
 		!else if normal detective
 			'The judge sighs, "Here we are again <<$pcs_lastname>>! I''m getting tired of being lenient so you''re getting the maximum sentence. The fine will be set to 57500 <b>₽</b> and the community service at the Mercy Clinic for 120 hours." the judge reads out your sentence.'
@@ -573,7 +544,6 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
 
 		!else
 			'The judge sighs, "Here we are again <<$pcs_lastname>>! I''m getting tired of being lenient so you''re getting the maximum sentence. The fine will be set to 60000 <b>₽</b> and the community service at the Mercy Clinic for 160 hours." the judge reads out your sentence.'
@@ -581,8 +551,8 @@ if $ARGS[0] = 'punishment':
 			'You nod and quickly make your way out of courtroom.'
 
 			act 'Leave the court':gt 'down'
-		end
-	end
+		!end
+	!end
 end
 
 

@@ -313,7 +313,7 @@ if $shoplocation= 'cosmetics':
 		if menu_option = 0:gs 'obj_din', 'new'
 		gt 'shop', 'start'
 	end
-	gs 'shoplifting', 'city'
+	if $loc = 'torgcentr': gs 'shoplifting', 'city'
 end
 
 !! Hardware

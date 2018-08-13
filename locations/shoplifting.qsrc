@@ -1,8 +1,8 @@
-#shoplifting
+# shoplifting
 !City shoplifting - small chance Sveta gets caught say 20-25% maybe base it on a skill/stat.
 !If not caught free stuff, if caught shop owner/manager threatens to call security.
 !Sveta can try and get out of it, or deal with security/police. Since finding security or police images are possible I have a few sets already.
-!Another option, pay for what you've stolen.
+!Another option, pay for what you''ve stolen.
 
 !the if $ARGS[0] = 'shopliftingcity': needs to be added to the supermarket file
 !images/locations/city/citycenter/mall/security
@@ -11,7 +11,7 @@ if $ARGS[0] = 'city':
 
 	act 'Attempt to steal':
 		*clr & cla
-		picrand = (0,7)
+		picrand = rand(0,7)
 		gs 'stat'
 		!IMG = steal<<picrand>>.jpg
 		'Standing in front make-up section of the supermarket. You nervously look over your shoulder to make sure none of the employees are able to spot you.'
@@ -23,11 +23,17 @@ if $ARGS[0] = 'city':
 			gs 'stat'
 			!IMG = leave.jpg
 			'"Okay <<$pcs_nickname>>, just act normal..." you sigh quietly as you step towards the exit, trying to not draw any attention towards you.'
-			wait 5000
+			wait 2000
+			'Don''t panic.....'
+			wait 2000
+			'Walk casually...'
+			wait 2000
+			'Almost there..'
+			wait 2000
 			'The exit of the supermarket comes closer and closer with every step, and you try to do whatever you can to control your nerves.'
 
-			if ((pcs_observ + pcs_persuas > 50) and (hour = 12 or hour = 17)) or pcs_observ + pcs_persuas > 150 or rand(0,4) > 0:
-			!if observation and persuasion = sufficient: and certain time of the day (when the store is full with people)
+			if ((pcs_observ+pcs_persuas > 50) and (hour = 12 or hour = 17)) or pcs_observ+pcs_persuas > 150 or rand(0,4) > 0:
+				!if observation and persuasion = sufficient: and certain time of the day (when the store is full with people)
 				kosmetica += 50
 				'As you walk by the counters and leave the supermarket you feel a rush of excitement. You''re almost there now, feeling relieved as well as triumphant. You''re going to make it, for sure!'
 				'You feel your hands trembling in your pockets, getting worse with every step. No matter what you do, you can''t shake the feeling that someone must''ve spotted you... surely they''ve spotted you!'
@@ -35,10 +41,9 @@ if $ARGS[0] = 'city':
 				'Before you know it you''re standing outside, having managed to get away with all kinds of loot. You turn back one last time to make sure that no one is following you.'
 
 				act 'Keep on walking':gt 'torgcentr'
-			end
 
-			elseif pcs_observ + pcs_persuas + pcs_run > 200:
-			!else if observation, persuasion and running level = sufficient and certain time of day (less people around):
+			elseif pcs_observ+pcs_persuas+pcs_run > 200:
+				!elseif observation, persuasion and running level = sufficient and certain time of day (less people around):
 				!ADD COOLDOWN ON ATTEMPT TO STEAL, TWO WEEKS
 				'You feel your hands trembling in your pockets, getting worse with every step. No matter what you do, you can''t shake the feeling that someone must''ve spotted you... surely they''ve spotted you!'
 				'You desperately try to calm yourself down with every step you get closer to the exit. No one seems to be stopping you, so far... maybe you got lucky?'
@@ -52,7 +57,7 @@ if $ARGS[0] = 'city':
 					'Realizing he''s out after you, and not wanting to get caught you make a dash for it. You can''t get caught for a small thing like this.'
 
 					if pcs_run > 70:
-					!if running skills are over a certain level, higher than the first check
+						!if running skills are over a certain level, higher than the first check
 						observ_exp += 5
 						run_exp += 5
 						!Boost the stats observation and running by 1
@@ -61,7 +66,6 @@ if $ARGS[0] = 'city':
 						'The guard is not easily giving up but after a few minutes you''ve managed to outrun him as you make your escape from the supermarket. You can hear the guard screaming behind you...'
 
 						act 'Catch your breath':gt 'down'
-					end
 
 					else
 						shlif_caught += 1
@@ -70,7 +74,7 @@ if $ARGS[0] = 'city':
 						'But the guard is not easily giving up and as you turn the corner you reach a dead-end. You quickly try to turn around and run another way but it''s too late as you''re tackled.'
 						'Laying on the ground the security guard quickly lifts you up and leads you toward the security room.'
 
-						act 'Get lead to the security room':gt 'shpoplifting', 'securityroom'
+						act 'Get lead to the security room':gt 'shoplifting', 'securityroom'
 					end
 				end
 			else
@@ -79,19 +83,19 @@ if $ARGS[0] = 'city':
 				'You pass by the counter and seeing no one reacting you relax for a bit and let down your guard. Just as you''re about to leave through the entrance you feel a hand grab you by the shoulder.'
 				'You instantly turn around seeing a security guard is holding you and drags you back inside. Before you''re even able to speak up he is forcefully leading back to his office.'
 
-				act 'Get dragged into the back room':gt 'shpoplifting', 'securityroom'
+				act 'Get dragged into the back room':gt 'shoplifting', 'securityroom'
 			end
 		end
 	end
 end
 
 if $ARGS[0] = 'securityroom':
-	if toldonguard = 1: gt 'shpoplifting', 'punish'
-!option one, have the guard tell you what to do while he jerks off.
-!option two, offer the guard a blow job, lower risk to get the cops get called on you but it can still happen
-!option three, offer to pay for what you've stolen, takes extra money and if you don't have enough he calls the cops
-!option four, keep quiet, have the cops called on you straight away
-!if you've snitched on the security guard to the easy-going or normal cop, he fucks the shit out of you and calls the cops again, one-off event
+	if toldonguard = 1: gt 'shoplifting', 'punish'
+	!option one, have the guard tell you what to do while he jerks off.
+	!option two, offer the guard a blow job, lower risk to get the cops get called on you but it can still happen
+	!option three, offer to pay for what you''ve stolen, takes extra money and if you don''t have enough he calls the cops
+	!option four, keep quiet, have the cops called on you straight away
+	!if you''ve snitched on the security guard to the easy-going or normal cop, he fucks the shit out of you and calls the cops again, one-off event
 	*clr & cla
 	minut += 5
 	gs 'stat'
@@ -114,7 +118,6 @@ if $ARGS[0] = 'securityroom':
 		act 'Offer him relief': gt 'shoplifting', 'bj'
 		if pcs_money >= 5000: act 'Offer a bribe (5000<b>₽</b>)': gt 'shoplifting', 'bribe'
 		act 'Keep quiet': gt 'shoplifting', 'quiet'
-
 	end
 
 	act 'Deny':
@@ -132,11 +135,10 @@ if $ARGS[0] = 'securityroom':
 		act 'Offer him relief': gt 'shoplifting', 'bj'
 		if pcs_money >= 5000: act 'Offer a bribe (5000<b>₽</b>)': gt 'shoplifting', 'bribe'
 		act 'Keep quiet': gt 'shoplifting', 'quiet'
-
 	end
 end
 
-!add a trigger so that you know that you've had sex with security guard, sexguard = 1 or something, will be used later in the police file
+	!add a trigger so that you know that you''ve had sex with security guard, sexguard = 1 or something, will be used later in the police file
 if $ARGS[0] = 'show':
 	*clr & cla
 	gs 'stat'
@@ -248,7 +250,6 @@ if $ARGS[0] = 'show':
 										'You obediently turn around and the police officer tightens his cuffs so they sit real tight. As he finishes he grabs you by the arm and leads you away...'
 
 										act 'Go to the police station':gt 'police_station', 'entrance', 'shplft'
-									end
 
 									else
 										'The door opens and to your surprise there''s the only the security guard standing there holding a video cassette in his hand, "Sorry for the wait, it took me a while to get hold of the cassette."'
@@ -268,7 +269,7 @@ if $ARGS[0] = 'show':
 	end
 end
 
-!add a trigger so that you know that you've had sex with security guard, sexguard = 1 or something, will be used later in the police file
+!add a trigger so that you know that you''ve had sex with security guard, sexguard = 1 or something, will be used later in the police file
 if $ARGS[0] = 'bj':
 	*clr & cla
 	minut += 5
@@ -385,7 +386,6 @@ if $ARGS[0] = 'bj':
 										gs 'stat'
 
 										act 'Go to the police station': gt 'police_station', 'entrance', 'shplft'
-									end
 
 									else
 										'The door opens and to your surprise there''s the only the security guard standing there holding a video cassette in his hand, "Sorry for the wait, it took me a while to get hold of the cassette."'
@@ -490,7 +490,7 @@ if $ARGS[0] = 'quiet':
 	end
 end
 
-!One-off event, happens as you've squealed on the security guard to the police, add toldonguard = 1 so that the event triggers
+!One-off event, happens as you''ve squealed on the security guard to the police, add toldonguard = 1 so that the event triggers
 if $ARGS[0] = 'punish':
 	toldonguard = 0
 	*clr & cla
@@ -571,7 +571,7 @@ if $ARGS[0] = 'punish':
 							gs 'cum_cleanup'
 							gs 'stat'
 							!IMG = revenge7.jpg
-							!Clean yourself up as he watches, can't believe what you've just done, he calls the cops and threatens Sveta not to say anything cause next time he won't be this gentle
+							!Clean yourself up as he watches, can''t believe what you''ve just done, he calls the cops and threatens Sveta not to say anything cause next time he won''t be this gentle
 							'"Here, get cleaned up and dress yourself!" he hands you over a towel. The security guard remains observing you while you clean yourself up, making sure you''ve cleaned yourself properly not leaving a trace behind.'
 							'While you''re putting on your clothes you can''t let go of feeling ashamed to what you''ve experienced and try your best to avoid eye contact.'
 							'"Sit down on that chair and wait for me to return whore!" he commands as you barely manage to even give him a subtle nod. As you sit down he walks up to you, "Listen here. Don''t you dare telling anyone about this...I know who you are and where you live and the next time I won''t be as gentle as this time." With that he turns and walks out of the office, locking it, leaving you to ponder on what''s about to happen next.'

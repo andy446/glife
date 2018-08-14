@@ -117,6 +117,7 @@ if $ARGS[0] = 'kiss2':
 end
 
 if $ARGS[0] = 'kiss_end':
+	gs 'arousal', 'end'
 	cla & *clr
 	'<center><b><font color = maroon>Kolka</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/kolka/brother.jpg"></center>'
@@ -143,12 +144,14 @@ if $ARGS[0] = 'hj':
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/hj_cum.jpg"></center>'
 			'Not stopping, you quicken your pace until you feel ropes of his thick cum spattering against your hand.'
 			'Moving your head back, you survey your handiwork before smiling back at him and leaning in for a peck on the lips before getting up to find some tissues for your brother and to wash off your hand.'
+			gs 'arousal', 'end'
 			act 'Finish': gt 'sitrPar'
 		end
 		act'Put your lips over the tip':
 			cla & *clr
 			gs 'arousal', 'bj', 1
 			gs 'cum_call', 'mouth', 'A34', 1
+			gs 'arousal', 'end'
 			npc_rel['A34'] += 3
 			swallow += 1
 			if brotherSex < 6: brotherSex = 6
@@ -186,6 +189,7 @@ if $ARGS[0] = 'bj':
 		cla & *clr
 		swallow += 1
 		gs 'cum_call', 'mouth', 'A34', 1
+		gs 'arousal', 'end'
 		'<center><video autoplay loop src="images/characters/pavlovsk/resident/kolka/event/homework/swallow.mp4"></video></center>'
 		'You diligently continue to blow him until you feel his hot cum spurting into your mouth. Gathering it all up, your remove your lips from Kolka''s cock, tilting your head back and swallowing at the same time.'
 		'"I can''t believe you just swallowed like that," he says, breathless.'
@@ -198,6 +202,7 @@ if $ARGS[0] = 'bj':
 		cla & *clr
 		'<center><video src="images/shared/sex/cum/facial0,3.mp4"></center>'
 		gs 'cum_call', 'face', 'A34', 1
+		gs 'arousal', 'end'
 		'You quickly pull back and kneel in front of Kolka as he furiously jerks off in front of you. You close your eyes just as you feel his hot cum spatter against your face, flinching as it does. When he''s finally done, you feel a few droplets drip down your cheeks onto the carpeted floor.'
 		'Peeking through cum-slathered eyes, you look at your brother, saying, "Maybe we shouldn''t have done it like this. Now we need to clean up before someone spots us."'
 		'Leaving Kolka to clean his semen out of the carpet, you slink towards the bathroom to wash off your face.'
@@ -208,12 +213,12 @@ if $ARGS[0] = 'bj':
 		cla & *clr
 		gs 'cum_call', 'face', 'A34', 1
 		gs 'cum_call', 'mouth', 'A34', 1
-		'<center><video autoplay loop src="images/shared/sex/cum/facial0,9.mp4"></video></center>'
+		'<center><video autoplay loop src="images/shared/sex/cum/facial25.mp4"></video></center>'
 		'You pull back from your brother and close your eyes, sticking out your tongue. You briefly hear his cock fapping in front of you before you feel a jet of hot sticky cum fly into your mouth. The next spurt takes you on the cheek and you immediately feel it dripping down your neck.'
 		act'Swallow':
 			swallow += 1
 			cla & *clr
-			'<center><video src="images/shared/sex/cum/facial0,10.mp4"></center>'
+			'<center><video src="images/shared/sex/cum/facial26.mp4"></center>'
 			'Waiting patiently, you take a moment to swallow what''s already in your mouth. You stick your tongue back out and continue to wait, but you realize that he''s probably spent at this point.'
 			if $clothingworntype ! 'nude':
 				gs 'cum_call', 'clothes', 'A34', 1
@@ -224,6 +229,7 @@ if $ARGS[0] = 'bj':
 			end
 			'"Maybe we shouldn''t have finished like that..." you say, smiling wistfully at your brother.'
 			'Leaving Kolka to clean his semen out of the carpet, you slink towards the bathroom to wipe off .'
+			gs 'arousal', 'end'
 			act'Finish':gt'vanrPar'
 		end
 	end
@@ -458,6 +464,7 @@ if $ARGS[0] = 'wakeup':
 				'Within just a few minutes he groans, ejaculating as his warm cum coats your fingers.'
 				'Your duty done, you pull your now sticky hand back, saying, "Alright Kolka. A deal''s a deal. Now clean up and get dressed before mom comes out here and sees you like this."'
 				'"Alright!" he says cheerfully, waddling away with his pants around his ankles to find some tissues to clean himself up.'
+				gs 'arousal', 'end'
 				act'Move away':gt $loc, $metka
 			end
 		end
@@ -489,6 +496,7 @@ if $ARGS[0] = 'wakeup':
 				'"Thanks sis," he says. "That was pretty refreshing. Actually makes me want to get up in the morning if you''re gonna give me great head like that!"'
 				'"Glad I could help I guess," you reply, giving his cock a few more licks to make sure it''s clean. "Now go get dressed for school. Before mom comes out and yells at you for having your dick hanging out."'
 				'"Okay, okay," he says, getting up and tidying up the couch from where he was sleeping.'
+				gs 'arousal', 'end'
 				act'Move away':gt $loc, $metka
 			end
 		end
@@ -509,6 +517,7 @@ if $ARGS[0] = 'morninghj':
 	'Your brother sighs in satisfaction, your hand continuing to work his cock. After several minutes he orgasms, his sticky cum spilling all over your hand.'
 	'As you think about what you should do to clean it off, you hear him saying, "Handjobs are great and everything, but do you think you could try a blowjob next time instead?"'
 	'"I''ll think about it," you say, rolling your eyes in amusement as you walk away, your brother automatically beginning to get ready for school.'
+	gs 'arousal', 'end'
 	act'Move away':gt $loc, $metka
 end
 
@@ -534,6 +543,7 @@ if $ARGS[0] = 'morningbj':
 	'"You''re the best sister ever..."'
 	'Swallowing his cum, you flash him a toothy grin. "I know. Now up an at''em kiddo! I don''t do this just so you can go back to sleep."'
 	'Having been given sufficient positive reinforcement, he obediently gets up and starts going about tidying the sofa and getting ready to go to school.'
+	gs 'arousal', 'end'
 	act'Move away':gt $loc, $metka
 end
 --- brother2 ---------------------------------

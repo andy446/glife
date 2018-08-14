@@ -89,7 +89,7 @@ if $ARGS[0] = 'stolPar':
 	end
 
 	if lernHome > 0:
-		act 'Learning lessons':
+		act 'Do your homework':
 			cls
 
 			if lernHome <= 2:

@@ -257,7 +257,6 @@ $brit = {
 		end
 	end
 	
-	
 	if pcs_leghair > 3 and stanok > 0:
 		act 'Shave your legs (0:10)':
 			cla
@@ -289,6 +288,7 @@ $brit = {
 				*clr
 				minut += 10
 				pcs_pubes = 0
+				pcs_bush = 0
 				pcs_horny += 5
 				stanok -= 1
 				if obdysh = 1 and rand(0, 5) = 5:gt 'vann', 'brit1'
@@ -321,6 +321,7 @@ $brit = {
 			end
 		end
 	end
+	
 	if pcs_leghair > 3 and stanok > 1:
 		if pubestyle > 1 or pubestyle = 0:
 			if pcs_pubes > 3 or pcs_bush > 0:
@@ -389,6 +390,7 @@ $brit = {
 					*clr
 					minut += 10
 					pcs_pubes = 0
+					pcs_bush = 0
 					pcs_horny += 5
 					stanok -= 1
 					if obdysh = 1 and rand(0, 5) = 5:gt 'vann', 'brit1'
@@ -941,6 +943,7 @@ if $ARGS[0] = 'private':
 					*clr
 					minut += 10
 					pcs_pubes = 0
+					pcs_bush = 0
 					pcs_horny += 5
 					stanok -= 1
 					if obdysh = 1 and rand(0, 5) = 5:gt 'vann', 'brit1'

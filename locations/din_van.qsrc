@@ -128,8 +128,8 @@ $shower = {
 			end
 		end
 
-		dynamic $brit
 		dynamic $dryOff
+		dynamic $brit
 	end
 }
 
@@ -200,8 +200,8 @@ $bath = {
 			dynamic $dryOff
 		end
 
-		dynamic $brit
 		dynamic $dryOff
+		dynamic $brit
 	end
 }
 

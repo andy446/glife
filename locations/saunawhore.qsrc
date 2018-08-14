@@ -144,7 +144,7 @@ if $ARGS[0] = 'clientGate':
 		if pcs_inhib < 40:
 			inhib_exp += rand(2,4)
 		elseif pcs_inhib >= 40 and pcs_inhib < 60:
-			inhib_ exp += 1
+			inhib_exp += 1
 		end
 		moodTypeRand += 1
 		act 'Get straight to business':gt 'saunawhore', 'strippedGate'
@@ -161,7 +161,7 @@ if $ARGS[0] = 'striptease':
 	if pcs_inhib < 40:
 		inhib_exp += rand(2,4)
 	elseif pcs_inhib >= 40 and pcs_inhib < 60:
-		inhib_ exp += 1
+		inhib_exp += 1
 	end
 	'<center><video autoplay loop src="images/locations/city/residential/sauna/sex/striptease'+rand(1, 5)+'.mp4"></video></center>'
 	'Hoping to please the customer, you decide to give him a little show. You count a beat in your head and begin dancing, slowly stripping away your clothes, one piece at a time. It would probably be better if you had actual music, but the client smirks and seems to enjoy it nonetheless.'
@@ -176,7 +176,7 @@ if $ARGS[0] = 'simplystrip':
 	if pcs_inhib < 40:
 		inhib_exp += rand(1,2)
 	elseif pcs_inhib >= 40 and pcs_inhib < 60:
-		inhib_ exp += rand(0,1)
+		inhib_exp += rand(0,1)
 	end
 	'<center><video autoplay loop src="images/locations/city/residential/sauna/sex/simplystrip'+rand(1, 2)+'.mp4"></video></center>'
 	'You remove your clothes and toss them aside, mentally preparing for the task ahead. The client looks vaguely irritated - perhaps he expected something a bit more provacative?'
@@ -200,7 +200,7 @@ if $ARGS[0] = 'nakeddance':
 	if pcs_inhib < 40:
 		inhib_exp += rand(3,6)
 	elseif pcs_inhib >= 40 and pcs_inhib < 60:
-		inhib_ exp += rand(1,2)
+		inhib_exp += rand(1,2)
 	end
 	'<center><video autoplay loop src="images/locations/city/residential/sauna/sex/nakeddance'+rand(1, 4)+'.mp4"></video></center>'
 	'You walk towards the client, straddle his legs, and begin to dance. He leans back and you proceed to give him the best lapdance you can muster. You alternate between rubbing your breasts in his face and turning around to grind your ass on his crotch. Judging from the hardness in his pants, it seems that he is pleased with your efforts.'
@@ -214,7 +214,7 @@ if $ARGS[0] = 'holeshow':
 	if pcs_inhib < 40:
 		inhib_exp += rand(3,6)
 	elseif pcs_inhib >= 40 and pcs_inhib < 60:
-		inhib_ exp += rand(1,2)
+		inhib_exp += rand(1,2)
 	end
 	'<center><video autoplay loop src="images/locations/city/residential/sauna/sex/holeshow'+rand(1, 5)+'.mp4"></video></center>'
 	'You decide to tease him further, so you lean closer to him and open your mouth, sticking your tongue out as far as possible and then sucking your fingers.'

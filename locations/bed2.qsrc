@@ -183,19 +183,19 @@ if $ARGS[0] = 'sleep':
 		alarm_set -= 1440
 	end
 
-	if budilnikOn = 1 and alarm_now = alarm_time:
-		pcs_mood -= 10
-		$waketext = 'Your alarm goes off, '+iif(pcs_sleep < 90, 'but you could do with some extra sleep.', 'and you''ve had plenty of sleep.')+''
-		gs 'bed2', 'extra'
-		gs 'bed2', 'wake'
-	elseif pcs_sleep >= 100 and budilnikOn = 1 and alarm_now >= alarm_set:
-		$waketext = 'You wake up just before your alarm goes off, after having plenty of sleep.'
+	if slept_in = 1:
+		$waketext = 'You wake up at <<$mid(100+hour,2,2)>>:<<$mid(100+minut,2,2)>>, after sleeping-in a little longer than planned, but at least you''ve had plenty of sleep.'
 		gs 'bed2', 'wake'
 	elseif pcs_sleep >= 100 and budilnikOn = 0:
-		$waketext = 'You wake up no longer tired, ready to start the day with plenty of sleep.'
+		$waketext = 'You wake up at <<$mid(100+hour,2,2)>>:<<$mid(100+minut,2,2)>>, no longer tired and ready to start the day with plenty of sleep.'
 		gs 'bed2', 'wake'
-	elseif slept_in = 1:
-		$waketext = 'You wake up after sleeping-in a little longer than planned, but at least you''ve had plenty of sleep.'
+	elseif pcs_sleep >= 100 and budilnikOn = 1 and alarm_now >= alarm_set:
+		$waketext = 'You wake up at <<$mid(100+hour,2,2)>>:<<$mid(100+minut,2,2)>>, just before your alarm goes off. You''ve had plenty of sleep.'
+		gs 'bed2', 'wake'
+	elseif budilnikOn = 1 and alarm_now = alarm_time:
+		pcs_mood -= 10
+		$waketext = 'Your alarm goes off at <<$mid(100+hour,2,2)>>:<<$mid(100+minut,2,2)>>, '+iif(pcs_sleep < 90, 'but you could do with some extra sleep.', 'and you''ve had plenty of sleep.')+''
+		gs 'bed2', 'extra'
 		gs 'bed2', 'wake'
 	else
 		jump 'loopson'
@@ -206,9 +206,11 @@ if $ARGS[0] = 'wake_horny':
 	InSleep = 1
 	gs 'stat'
 	'Your wet dream and overall horniness rouse you from your sleep. From one moment to the next, you are wide awake and very much aware that your pussy is hot and wet.'
+	''
 	'You glance at your alarm clock. It reads <<$mid(100+hour,2,2)>>:<<$mid(100+minut,2,2)>>.'
-	'You could try and go back to sleep, of course, but it''s doubtful that you would find this kind of sleep very restful; not to mention the frustration that comes with ignoring your needs.'
-	'But masturbating is an option, too, and not the worst one in this situation. It might take some time, but you''d be able to sleep like a baby after.'
+	''
+	'You could try and go back to sleep, of course, but it''s doubtful that you would find this kind of sleep very restful; not to mention the frustration that comes with ignoring your needs, but masturbating is an option, too, and not the worst one in this situation. It might take some time, but you''d be able to sleep like a baby after.'
+	''
 	'Of course, you could always just give up on trying to sleep and just get up.'
 	if $loc = 'bedrPar' and SisterLesb = 5 and hour < 6:
 		'Or... you could wake up Anya and see if your dearest sister would be willing to help you with that.'
@@ -226,15 +228,25 @@ if $ARGS[0] = 'wake_horny':
 
 	act 'Masturbate': gt 'selfplay', 'start'
 
-	act 'Get up': gt $loc, $metka
+	act 'Get out of bed (0:10)':
+		minut += 10
+		slept_in = 0
+		gs 'bed2', 'end'
+	end
+	act 'Get out of bed and get dressed (0:15)':
+		gs 'clothing', 'wear_last_worn'
+		slept_in = 0
+		minut += 15
+		gs 'bed2', 'end'
+	end
 
 	if $loc = 'bedrPar' and SisterLesb = 5 and hour < 6:
-		act 'Wake Anya and see if she''s in the mood': gt 'sistersleep'
+		act 'Wake Anya and see if she''s in the mood': InSleep = 0 & gt 'sistersleep'
 	elseif $loc = 'FedorEv4':
-		act 'Wake Fedor and see if he''s in the mood': gt 'FedorEv4', 'Bedroom 1'
+		act 'Wake Fedor and see if he''s in the mood': InSleep = 0 & gt 'FedorEv4', 'Bedroom 1'
 		!!Intro text doesn''t quite fit event (but doesn''t quite fit - try for baby - scenario either) - custom scene from VK?
 	elseif ($loc = 'bedr' or $loc = bedr2x) and husband > 0:
-		act 'Wake your husband and see if he''s in the mood': gt 'husbSex', 'variant'
+		act 'Wake your husband and see if he''s in the mood': InSleep = 0 & gt 'husbSex', 'variant'
 		!!Should be custom scene - maybe boyfriend/husband overhaul can cover this?
 	end
 end
@@ -248,7 +260,7 @@ if $ARGS[0] = 'wake':
 	if daystart >= 10 and daystart < 30 and StoryLine = 0 and ntstart = 0:'Looking at your female body, you are still a little surprised it''s actually you.'
 
 	if kanikuli = 0 and StoryLine = 1 and SchoolAtestat = 0 and SchoolBlock = 0 and week < 6 and hour >= 4 and hour < 9:
-		if slept_in = 1: 
+		if slept_in = 1:
 			pcs_mood -= 10
 			msg '<center>Damn, you''ve slept too long!, you''re going to be late for school!</center>'
 		end
@@ -277,7 +289,7 @@ if $ARGS[0] = 'wake':
 			gs 'bed2', 'end'
 		end
 		if kanikuli = 0 and StoryLine = 1 and SchoolAtestat = 0 and SchoolBlock = 0 and week < 6 and hour >= 4 and hour < 9:
-			if slept_in = 1: 
+			if slept_in = 1:
 				pcs_mood -= 10
 				msg '<center>Damn, you''ve slept too long!, you''re going to be late for school!</center>'
 			end

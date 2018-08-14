@@ -85,16 +85,13 @@ if $ARGS[0] = 'start':
 	act 'Organise stored clothing': gt 'clothing', 'view_clothing_list', 'store'
 
 	act 'Set image height for this view':
-		cla
-		*clr
-		'The default is 250px'
-		ward_img_hgt = input("Enter height in pixels you want for images on this page (min 100, max 500)")
+		ward_img_hgt = input("Enter height in pixels you want for images on this page <br>(Default 250, min 100, max 500)")
 		if ward_img_hgt < 100:
-			ward_img_hgt = 100
+			ward_img_hgt = 250
 		elseif ward_img_hgt > 500:
 			ward_img_hgt = 500
 		end
-		act 'Return': gt 'wardrobe', 'start'
+		gt 'wardrobe', 'start'
 	end
 end
 

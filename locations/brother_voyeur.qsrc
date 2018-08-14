@@ -1385,7 +1385,6 @@ if $ARGS[0] = 'brother_shower_bj':
 	'<center><video src="images/shared/home/bathroom/showerbj.mp4"></center>'
 	'	Kneeling down, you take Kolka''s freshly washed cock and push it between your lips, sucking gently. Several minutes go by while you to continue blowing your brother, going slowly up and down his length, the sound of water raining down from the showerhead muting the soft slurping sounds coming from your mouth.'
 	gs 'arousal', 'bj', rand(3,5)
-	gs 'arousal', 'end'
 	gs 'stat'
 	act'Keep sucking':
 		cla
@@ -1403,6 +1402,7 @@ if $ARGS[0] = 'brother_shower_bj':
 			act'Ignore him and keep sucking':
 				cla
 				gs 'cum_call', 'mouth', $boy
+				gs 'arousal', 'end'
 				gs 'stat'
 				*nl
 				'	Despite his pleas to let him blow his load on your face, you keep sucking until you taste hot liquid spilling into your mouth.'

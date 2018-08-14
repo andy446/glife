@@ -55,7 +55,7 @@ if $ARGS[0] = 'start':
 				end
 			end
 
-			if pcs_dancero > 0 and stripwork = 0 and pcs_inhib > 60:	
+			if pcs_dancero > 0 and stripwork = 0 and pcs_inhib >= 60:	
 				act 'Talk to the manager about performing in the strip club':
 					cla
 					*clr

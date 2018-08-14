@@ -213,12 +213,12 @@ if $ARGS[0] = 'bj':
 		cla & *clr
 		gs 'cum_call', 'face', 'A34', 1
 		gs 'cum_call', 'mouth', 'A34', 1
-		'<center><video autoplay loop src="images/shared/sex/cum/facial0,9.mp4"></video></center>'
+		'<center><video autoplay loop src="images/shared/sex/cum/facial25.mp4"></video></center>'
 		'You pull back from your brother and close your eyes, sticking out your tongue. You briefly hear his cock fapping in front of you before you feel a jet of hot sticky cum fly into your mouth. The next spurt takes you on the cheek and you immediately feel it dripping down your neck.'
 		act'Swallow':
 			swallow += 1
 			cla & *clr
-			'<center><video src="images/shared/sex/cum/facial0,10.mp4"></center>'
+			'<center><video src="images/shared/sex/cum/facial26.mp4"></center>'
 			'Waiting patiently, you take a moment to swallow what''s already in your mouth. You stick your tongue back out and continue to wait, but you realize that he''s probably spent at this point.'
 			if $clothingworntype ! 'nude':
 				gs 'cum_call', 'clothes', 'A34', 1

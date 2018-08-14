@@ -448,6 +448,7 @@ $brit = {
 				end
 			end
 		end
+		act 'Shave options': gt 'din_van', 'shave_options'
 	end
 }
 
@@ -998,6 +999,7 @@ if $ARGS[0] = 'private':
 				end
 			end
 		end
+		act 'Shave options': gt 'din_van', 'shave_options'
 	end
 
 	if analplug = 1 and analplugin = 1:
@@ -1511,7 +1513,57 @@ if $ARGS[0] = 'pblc_pee_end':
 	end
 end
 
+if $ARGS[0] = 'shave_options':
+	*clr
+	if shave_img_hgt = 0:shave_img_hgt = 250
 
+	'<h3><center><b><font color="maroon">Shaving optons</b></h3><br><center><font color="maroon">Here you can choose your style for pubic hair and which body parts you wish to shave.</font></center>'
+	'<br><center><table border=0 cellspacing=<<shave_img_hgt/25>> cellpadding=5>'
+	*P '<TR><TD><center><a href="exec:pubestyle = 2 & gt ''din_van'', ''shave_options''"><img Height = <<shave_img_hgt>> src="images/shared/home/bathroom/shave3.jpg"></a></center></TD><TD><center><a href="exec:pubestyle = 3 & gt ''din_van'', ''shave_options''"><img Height = <<shave_img_hgt>> src="images/shared/home/bathroom/shave3.jpg"></a></center></TD>'
+	'<TR><TD><center>'
+	if pubestyle ! 2:
+		'<a href="exec:pubestyle = 2 & gt ''din_van'', ''shave_options''">Clean Shave</a>'
+	else
+		'<u>Clean Shave</u>'
+	end
+	'</center></TD><TD><center>'
+	if pubestyle ! 3:
+		'<a href="exec:pubestyle = 3 & gt ''din_van'', ''shave_options''">Small Bush</a>'
+	else
+		'<u>Small Bush</u>'
+	end
+	'</center></TD>'
+	*P '<TR><TD><center><a href="exec:pubestyle = 1 & gt ''din_van'', ''shave_options''"><img Height = <<shave_img_hgt>> src="images/shared/home/bathroom/shave3.jpg"></a></center></TD><TD><center><a href="exec:pubestyle = 4 & gt ''din_van'', ''shave_options''"><img Height = <<shave_img_hgt>> src="images/shared/home/bathroom/shave3.jpg"></a></center></TD>'
+	'<TR><TD><center>'
+	if pubestyle ! 1:
+		'<a href="exec:pubestyle = 1 & gt ''din_van'', ''shave_options''">Full Bush</a>'
+	else
+		'<u>Full Bush</u>'
+	end
+	'</center></TD><TD><center>'
+	if pubestyle ! 4:
+		'<a href="exec:pubestyle = 4 & gt ''din_van'', ''shave_options''">Trimmed</a>'
+	else
+		'<u>Trimmed</u>'
+	end
+	'</center></TD>
+	<TR><center>'
+	'Your razor will last for <b><<stanok>></b> more shaves.'
+	'</center>'
+	'</table></center>'
+	
+	act 'Set image height for this view':
+		shave_img_hgt = input("Enter height in pixels you want for images on this page<br>(default 250, min 100, max 500)")
+		if shave_img_hgt < 100:
+			shave_img_hgt = 250
+		elseif shave_img_hgt > 500:
+			shave_img_hgt = 500
+		end
+		gt 'din_van', 'shave_options'
+	end
+	if pubestyle > 0: act 'Disable shave styles': pubestyle = 0 & gt 'din_van', 'shave_options'
+	act 'Return':gt $loc, $metka
+end
 
 --- din_van ---------------------------------
 

@@ -591,6 +591,7 @@ if $ARGS[0] = 'brothel:section1:girlroom':
 	dynamic $tampon
 	dynamic $quickwash
 	dynamic $basin
+	dynamic $brit
 	if painkiller > 0 and pain['total'] >0 and pain['killer'] = 0:
 		act 'Take a painkiller':
 			pain['killer'] += 1

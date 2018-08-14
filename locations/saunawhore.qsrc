@@ -955,7 +955,6 @@ if $ARGS[0] = 'saunawork':
 			minut += 60
 			clenerSauna = daystart
 			pcs_mood -= 25
-			workDolg -= 100
 			pcs_sweat += 30
 			'<center><img <<$set_imgh>> src="images/locations/city/residential/office/clener2.jpg"></center>'
 			if workDolg > 0:

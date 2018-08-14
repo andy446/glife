@@ -1038,12 +1038,12 @@ if $ARGS[0] = 'bathroom':
 		'<center><img <<$set_imgh>> src="images/locations/shared/brothel/brothelShower.jpg"></center>'
 		''
 		'After taking off all of your clothes, you gather up your towel, washcloth and soap, then head to the shower. You wash yourself thoroughly to be as clean as possible for potential customers.'
+		act 'Get out and dry off':gt $locM, $metkaM
 		if workDolg > 0:
 			gs 'saunawhore', 'saunabrit'
 		else
 			dynamic $brit
 		end
-		act 'Get out and dry off':gt $locM, $metkaM
 	end
 
 	if workDolg > 0:

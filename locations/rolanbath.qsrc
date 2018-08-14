@@ -51,7 +51,6 @@ if $ARGS[0] = 'start':
 		*nl
 		'You undress and turn on the water in the shower. When it hits the right temperature you enter the shower and let the warm water rain down on you. You carefully soap yourself trying not to miss any spots and then rinse off.'
 		*nl
-		dynamic $brit
 		if hypnoAddict > 0:'You have no reason to, but you carefully avoid cleaning out your pussy and ass.'
 		if btwarn > 0:
 			if btwarn = 1: $weightwarn = 'losing'
@@ -211,7 +210,7 @@ if $ARGS[0] = 'start':
 			end	
 		end
 		dynamic $preshave
-		
+		dynamic $brit
 !!		dynamic $dryOff
 	end
 !!gs 'arousal', 'masturbate', 20	
@@ -230,7 +229,6 @@ if $ARGS[0] = 'start':
 		*nl
 		'While the bathtub fills up you get undressed and then dip a toe into the water. It''s just the right temperature so you climb in and let yourself sink into the warm water.'
 		*nl
-		dynamic $brit
 		*nl
 		if sh_rolan_bazar < 4:
 			'You''re not used to having Rolan wandering around, especially with a broken door.'
@@ -382,6 +380,7 @@ if $ARGS[0] = 'start':
 			end	
 		end
 		dynamic $preshave
+		dynamic $brit
 !!		dynamic $dryOff
 	end
 

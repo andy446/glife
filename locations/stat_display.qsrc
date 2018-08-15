@@ -528,7 +528,7 @@ if mesec > 0:
 		$stat_msg += 'You need to wear panties to use a sanitary pad.'
 	end
 	$stat_msg += '</font>'
-elseif placebopart > 0 and LutH > 0:
+elseif placebopart > 0 and LutH > 0 and knowpreg = 0:
 	$stat_msg += '<BR><font color="red">Your period is due to start soon.'
 	$stat_msg += '</font>'
 end

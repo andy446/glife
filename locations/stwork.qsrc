@@ -136,8 +136,8 @@ if $ARGS[0] = 'toilet':
 		'<center><img <<$set_imgh>> src="images/locations/shared/brothel/brothelShower.jpg"></center>'
 		*nl
 		'After taking off all of your clothes, you gather up your towel, washcloth and soap, then head to the shower. You wash yourself thoroughly, brush your hair, and put on heavy you makeup for the customers.'
-		dynamic $brit
 		act 'Get out and dry off':gt $locM, $metkaM
+		dynamic $brit
 	end
 	act 'Have a shower':
 		cls
@@ -147,8 +147,8 @@ if $ARGS[0] = 'toilet':
 		'<center><img <<$set_imgh>> src="images/locations/shared/brothel/brothelShower.jpg"></center>'
 		*nl
 		'After taking off all of your clothes, you gather up your towel, washcloth and soap, then head to the shower. You wash yourself thoroughly to be as clean as possible for potential customers.'
-		dynamic $brit
 		act 'Get out and dry off':gt $locM, $metkaM
+		dynamic $brit
 	end
 	gs 'din_van', 'prvt_pee'
 	if klismaday < daystart:

@@ -1480,7 +1480,7 @@ if $ARGS[0] = 'waitclients':
 		cls
 		topmfc = 1
 		backmfc = 1
-		karta += tokens/2
+		karta += tokens * 2
 		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/shared/accessories/computer/camwhore2.jpg"></center>'
 		'Suddenly you hear the handle of your door creak, and an annoyed voice shouting: "<<$pcs_nickname>>, what the hell!? Why is the door locked? Let me in!"'

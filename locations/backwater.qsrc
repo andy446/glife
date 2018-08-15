@@ -143,6 +143,20 @@ if $clothingworntype = 'nude':
 
 		act 'Further':gt 'backwater'
 	end
+	if arrsize('sparrvol') > 0:
+		act 'Wash off sperm':
+			cla
+			*clr
+			dynamic $showerdin
+			lubonus = 0
+			pcs_sweat -= 1
+			minut += 10
+			if hantersRape = 1: hantersRape = 2
+			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/backwaterswim1.jpg"></center>'
+			'You carefully wash off the sperm in the creek.'
+			act 'Further':gt 'backwater'
+		end
+	end
 	if dirtyclothes = 1 and clothesAtLocation = 1:
 		act 'Wash your clothes':
 			cla
@@ -210,20 +224,6 @@ else
 			act 'Further':gt'swamp_yard'
 		end
 	end
-	if arrsize('sparrvol') > 0:
-		act 'Wash off sperm':
-			cla
-			*clr
-			dynamic $showerdin
-			lubonus = 0
-			pcs_sweat -= 1
-			minut += 10
-			if hantersRape = 1: hantersRape = 2
-			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/backwaterswim1.jpg"></center>'
-			'You carefully wash off the sperm in the creek.'
-			act 'Further':gt 'backwater'
-		end
-	end
 	if (cumloc[6] = 1 or cumloc[7] = 1):
 		act 'Clean the sperm off your clothes':
 			cla
@@ -236,32 +236,28 @@ else
 				act 'Finish':gt 'backwater'
 		end
 	end
-	if temper >= 10:
-		act 'Wash your face':
-			cla
-			*clr
-			pcs_makeup = 1
-			cumspclnt = 9
-			gs 'cum_cleanup'
-			cumspclnt = 11
-			gs 'cum_cleanup'
-			cumspclnt = 13
-			gs 'cum_cleanup'
-			if pcs_sweat > 19 : pcs_sweat -= 5
-			'<center><img <<$set_imgh>> src="images/shared/home/bathroom/facesp.jpg"></center>'
-			*nl
-			'You clean your face and get rid of any trace of cum.'
-			face_write = 0
+end
 
-			'<center><img <<$set_imgh>> src="images/shared/home/bathroom/facesp.jpg"></center>'
-			'You carefully wash your face, removing your makeup.'
-			minut += 5
-			gs'stat'
-
-			act 'Further':gt 'backwater'
-
-			if hantersRape = 1: hantersRape = 2
-		end
+if temper >= 10:
+	act 'Wash your face':
+		cla
+		*clr
+		minut += 5
+		pcs_makeup = 1
+		cumspclnt = 9
+		face_write = 0
+		gs 'cum_cleanup'
+		cumspclnt = 11
+		gs 'cum_cleanup'
+		cumspclnt = 13
+		gs 'cum_cleanup'
+		if pcs_sweat > 19 : pcs_sweat -= 5
+		gs'stat'
+		'<center><img <<$set_imgh>> src="images/shared/home/bathroom/facesp.jpg"></center>'
+		*nl
+		'You carefully wash your face, removing any impurities.'
+		act 'Further':gt 'backwater'
+		if hantersRape = 1: hantersRape = 2
 	end
 end
 

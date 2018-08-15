@@ -45,7 +45,7 @@ if $ARGS[0] = 'start':
 				if pcs_makeup >= 4:
 					if pcs_hairbsh = 1:
 						if pcs_sweat < 20:
-							if pcs_leghair <= 3 and pcs_pubes <= 19:
+							if pcs_leghair <= 3 and pcs_pubes <= 31:
 								if fingal <= 0:
 									stpredmet = 3 & gt 'stwork2', 'strip'
 								else

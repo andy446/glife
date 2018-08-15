@@ -373,10 +373,10 @@ if $ARGS[0] = 'manager':
 		if firstoffer = 0:
 			firstoffer = 1
 			'So, you''re the new girl. As luck would have it we are looking for a brand new girl for our shoot. It''s called ''Girls Jerk Guys #36''.'
-			'Guess what? You have to jerk off a guy, in this one he will finish on you tits. It pays 2,000 <b>₽</b>.'
+			'Guess what? You have to jerk off a guy, in this one he will finish on you tits. It pays 500 <b>₽</b>.'
 		else
 			'Hello <<$pfname>>, since you are brand new, all I can offer is an introductory movie called ''Girls Jerk Guys #36''.'
-			'Yes, you have to jerk off a guy, in this one he will finish on you tits. It pays 2,000 <b>₽</b>.'
+			'Yes, you have to jerk off a guy, in this one he will finish on you tits. It pays 500 <b>₽</b>.'
 		end
 
 		act 'Agree':

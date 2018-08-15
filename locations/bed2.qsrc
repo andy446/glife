@@ -226,7 +226,7 @@ if $ARGS[0] = 'wake_horny':
 		gt 'bed2', 'sleep'
 	end
 
-	act 'Masturbate': gt 'selfplay', 'start'
+	act 'Masturbate': InSleep = 0 & gt 'selfplay', 'start'
 
 	act 'Get out of bed (0:10)':
 		minut += 10

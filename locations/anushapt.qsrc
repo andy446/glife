@@ -64,6 +64,7 @@ if $ARGS[0] = 'home':
 		act 'Move away from the door':gt'pavComplexb2','etaj_4'
 	elseif ((hour >= 15 and hour < 20) or (week > 5 and hour >= 10 and hour < 20)) and (rand(0,4) = 0):
 		*clr & cla
+		'<center><img src="images/locations/pavlovsk/resident/apartment/anushapt/valeria.jpg"></center>'
 		'You stand outside the Konstantinov household, knocking on the door. It takes quite a while before someone actually does come and in the end it turns out to be Anushka''s mother.'
 		'Her mother just stands there glaring at you for a while, "Well now don''t just stand there, what do you want? Oh wait let me guess, you want to see Anushka? Well the little slut isn''t here and I don''t know when she''ll be back. So why don''t you just go bother someone else." Before you can even get a word in, she slams the door in your face and you hear the all the locks click into place. Not having any other option, you turn to leave.'
 		act 'Move away from the door':gt'pavComplexb2','etaj_4'
@@ -74,18 +75,19 @@ if $ARGS[0] = 'home':
 		if nushdoor = 1:
 			*clr & cla
 			AnushkaLoc = 7
+			'<center><img src="images/locations/pavlovsk/resident/apartment/anushapt/maksim.jpg"></center>'
 			'You stand outside the Konstantinov household, waiting for Anushka to come open the door.'
 			'Maksim answers the door instead, he looks you over from head to toe, obviously still trying to imagine you naked. "What?" He asks.'
 			'You ignore his look. "Is Anushka home?"'
 			'He hooks his thumb over his shoulder pointing down the hall with it. "She''s taking a shower."'
 			act 'Enter': gt 'anushapt','hallway' 
-			act 'Ask how he knows that.':
+			act 'Ask how he knows that':
 				*clr & cla
 				'<center><img src="images/locations/pavlovsk/resident/apartment/anushapt/maksim.jpg"></center>'
 				'You smile a bit. "How do you know she is taking a shower?"'
 				'He blushes a little bit and sputters. "I can hear the water."'
 				act 'Enter': gt 'anushapt','hallway' 
-				act 'Tease him.':
+				act 'Tease him':
 					*clr & cla
 					'<center><img src="images/locations/pavlovsk/resident/apartment/anushapt/maksim.jpg"></center>'
 					'You grin at him. "So you havn''t been spying on her taking a shower? She told me you spy on her and her friends."'
@@ -97,6 +99,7 @@ if $ARGS[0] = 'home':
 		elseif nushdoor <= 3:
 			*clr & cla
 			AnushkaLoc = 2
+			'<center><img src="images/locations/pavlovsk/resident/apartment/anushapt/maksim.jpg"></center>'
 			'You stand outside the Konstantinov household, waiting for Anushka to come open the door.'
 			'Maksim answers the door instead, he looks you over from head to toe, obviously still trying to imagine you naked. "What?" He asks.'
 			'You ignore his look. "Is Anushka home?"'
@@ -106,12 +109,14 @@ if $ARGS[0] = 'home':
 		elseif nushdoor <= 5:
 			*clr & cla
 			AnushkaLoc = 1
+			'<center><img src="images\locations\pavlovsk\school\head\45.jpg"></center>'
 			'You stand outside the Konstantinov household, hoping that Anushka will be the one to come open the door.'
 			'Anushka opens the door smiling, "Hi <<$pcs_nickname>>. Come in."'
 			act 'Enter': gt 'anushapt','hallway' 
 		else
 			if maksimQW = 0:
 				maksimQW = 1
+				'<center><img src="images/locations/pavlovsk/resident/apartment/anushapt/maksim.jpg"></center>'
 				'Maksim answers the door instead, he looks you over from head to toe, obviously still trying to imagine you naked. "What?" He asks.'
 				'You ignore his look. "Is Anushka home?"'
 				'"No she''s not home right now, she''s probably out sucking some guy''s dick or something, but if you want you can go wait for her in her room."'
@@ -119,6 +124,7 @@ if $ARGS[0] = 'home':
 				'At first, he looks a bit confused, as if he''s not sure what you mean but then he just shrugs. "That''s what my mom always says when I ask where Anushka is."'
 				'You shake your head unsure about what to think, should you go in and wait for her or just go? Maksim just stands there staring at your tits and you can actually feel him undressing you with his eyes.'
 			else
+				'<center><img src="images/locations/pavlovsk/resident/apartment/anushapt/maksim.jpg"></center>'
 				'Maksim answers the door instead, he looks you over from head to toe, obviously trying to imagine you naked. "Anushka''s not home right now, she''s probably out sucking some guy''s dick or something, but if you want you can go wait for her in her room."'
 				'You shake your head a bit, but there is nothing you can do about it, should you go in and wait for her or just go? As always, you can feel Maksim undressing you with his eyes while staring straight at your tits.'
 			end

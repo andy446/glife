@@ -455,7 +455,7 @@ $brit = {
 }
 
 $tampon = {
-	if sanpad > 0 and (mesec > 0 or (placebopart > 2 and pillcon < 40000)) and isprokp = 0 and isprok = 0 and $pantyworntype ! 'none':
+	if sanpad > 0 and (mesec > 0 or (placebopart > 2 and pillcon < 40000)) and isprokp = 0 and isprok = 0 and $pantyworntype ! 'none' and knowpreg = 0:
 		act 'Use a sanitary pad (0:05)':
 			cla
 			*clr
@@ -469,7 +469,7 @@ $tampon = {
 			act 'Finish':gt $loc, $metka
 		end
 	end
-	if tampon > 0 and (mesec > 0 or (placebopart > 2 and pillcon < 40000)) and isprok = 0 and isprokp = 0:
+	if tampon > 0 and (mesec > 0 or (placebopart > 2 and pillcon < 40000)) and isprok = 0 and isprokp = 0 and knowpreg = 0:
 		act 'Use a tampon (0:05)':
 			cla
 			*clr

@@ -25,7 +25,7 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 
 	'<center><H4>Hut</H4></center>'
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/swampizba.jpg"></center>'
-	'A small hunting cabin. The cabin contains a small room with a low ceiling. You see a <a href="exec: gT ''bed'',''start''">couch</a> where you can sleep.'
+	'A small hunting cabin. The cabin contains a small room with a low ceiling. You see a <a href="exec: gt ''bed2''">couch</a> where you can sleep.'
 	if bucket > 0:
 		'There''s a <a href="exec: gs ''swamphouse'', ''bucket'' ">bucket</a> filled with water placed in the corner.'
 	else

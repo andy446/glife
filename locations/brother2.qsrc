@@ -129,6 +129,7 @@ end
 
 if $ARGS[0] = 'hj':
 	brotherhj += 1
+	npc_rel['A34'] += 1
 	cla & *clr
 	gs 'arousal', 'hj', rand(1,3)
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/hj.jpg"></center>'
@@ -169,6 +170,7 @@ end
 
 if $ARGS[0] = 'bj':
 	cla & *clr
+	npc_rel['A34'] += 2
 	gs 'arousal', 'bj', rand(1,5)
 	if brotherSex < 6: brotherSex = 6
 	brotherbj += 1
@@ -288,30 +290,18 @@ if $ARGS[0] = 'wakeup':
 		
 	if brotherSex >= 2 or pcs_inhib >= 35 or npc_rel['A34'] >= 75:
 		act'Tell him you''ll show him your tits':
-			cla
-			brotherMorningSex = daystart
+			cla	
+			*nl
 			'"I''ll tell you what Kolka, if you get up now, I''ll let you look at my tits."'
 			if $clothingworntype = 'nude' and $braworntype = 'none':
 				'He cracks open an eye. "I don''t need to get up to do that."'
 				'You look down at yourself and remember that you''re already topless. Right. That wasn''t a very good plan...'
 				act'Back to the drawing board':gt'brother2','wakeup'
-			elseif brotherwaketrick = 1:
-				'He opens his eyes slowly, looking at you with suspicion.'
-				'"You''re not just going to leave like you did last time are you?"'
-				'"No Kolka."'
-				'"You promise? For real this time?"'
-				'"I promise."'
-				'He pulls back his blanket and sits up, rubbing the sleep from his eyes to focus on you.'
-			else
-				'He opens his eyes slowly, looking at you with suspicion.'
-				'"This isn''t just some trick to get me out of bed?"'
-				'"No Kolka."'
-				'"You promise?"'
-				'"I promise."'
-				'He pulls back his blanket and sits up, rubbing the sleep from his eyes before focus on you.'
 			end
+			
 			if $clothingworntype ! 'nude':
 				act'Pull up your top':
+					brotherMorningSex = daystart
 					cla & *clr
 					npc_rel['A34'] += 4
 					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/titflash<<rand(1,4)>>.jpg"></center>'
@@ -329,8 +319,10 @@ if $ARGS[0] = 'wakeup':
 					'"Alright," he says, yawning one more time before folding his blanket for storage and beginning the process of getting ready for school.'
 					act'Move away':gt $loc, $metka
 				end
-			else
+			end
+			if $braworntype ! 'none':
 				act'Pull down your bra':
+					brotherMorningSex = daystart
 					cla & *clr
 					npc_rel['A34'] += 4
 					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/titflash5.jpg"></center>'
@@ -350,27 +342,46 @@ if $ARGS[0] = 'wakeup':
 				end
 			end
 			
-			act'Trick him and don''t do it':
-				cla & *clr
-				brotherwaketrick = 1
-				npc_rel['A34'] -= 5
-				'<center><b><font color="maroon">Kolka</font></b></center>'
-				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/kolka/brother.jpg"></center>'
-				'You wait for him to be more or less fully awake before snatching his blanket and move away.'
-				'"Hey!" he cries. "What are you doing?"'
-				'"I''m leaving. What the hell is wrong with you? You really thought I was gonna show you my tits?"'
-				if brotherSex = 2 or brotherSex = 3:
-					'"You''ve let me look at you before!"'
-					'"Yeah well, this isn''t ''before''. I''m not doing it today."'
-				elseif brotherSex >= 4:
-					'"You''ve done so much with me before!"'
-					'"Yeah well, this isn''t ''before''. I''m not doing anything today."'
+			if $clothingworntype ! 'nude' or $braworntype ! 'none':
+				act'Trick him and don''t do it':
+					cla & *clr
+					brotherMorningSex = daystart
+					brotherwaketrick = 1
+					npc_rel['A34'] -= 5
+					'<center><b><font color="maroon">Kolka</font></b></center>'
+					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/kolka/brother.jpg"></center>'
+					'You wait for him to be more or less fully awake before snatching his blanket and move away.'
+					'"Hey!" he cries. "What are you doing?"'
+					'"I''m leaving. What the hell is wrong with you? You really thought I was gonna show you my tits?"'
+					if brotherSex = 2 or brotherSex = 3:
+						'"You''ve let me look at you before!"'
+						'"Yeah well, this isn''t ''before''. I''m not doing it today."'
+					elseif brotherSex >= 4:
+						'"You''ve done so much with me before!"'
+						'"Yeah well, this isn''t ''before''. I''m not doing anything today."'
+					end
+					'"Liar!" he screams at you.'
+					'"Listen here you little-!"'
+					'<b><i>"Hey!"</i></b> your mother shouts from the bedroom. "What is all this racket going on so early in the morning?! You two get along or so help me I will spank you! I don''t care how old you are!"'
+					'Glaring silently at one another, the two of you retreat after a ceasefire being called by your mother. This probably wasn''t good for your relationship though...'
+					act'Move away':gt $loc, $metka
 				end
-				'"Liar!" he screams at you.'
-				'"Listen here you little-!"'
-				'<b><i>"Hey!"</i></b> your mother shouts from the bedroom. "What is all this racket going on so early in the morning?! You two get along or so help me I will spank you! I don''t care how old you are!"'
-				'Glaring silently at one another, the two of you retreat after a ceasefire being called by your mother. This probably wasn''t good for your relationship though...'
-				act'Move away':gt $loc, $metka
+			end
+			
+			if brotherwaketrick = 1 and ($clothingworntype ! 'nude' or $braworntype ! 'none'):
+				'He opens his eyes slowly, looking at you with suspicion.'
+				'"You''re not just going to leave like you did last time are you?"'
+				'"No Kolka."'
+				'"You promise? For real this time?"'
+				'"I promise."'
+				'He pulls back his blanket and sits up, rubbing the sleep from his eyes to focus on you.'
+			elseif $clothingworntype ! 'nude' or $braworntype ! 'none':
+				'He opens his eyes slowly, looking at you with suspicion.'
+				'"This isn''t just some trick to get me out of bed?"'
+				'"No Kolka."'
+				'"You promise?"'
+				'"I promise."'
+				'He pulls back his blanket and sits up, rubbing the sleep from his eyes before focus on you.'
 			end
 		end
 	end
@@ -398,46 +409,48 @@ if $ARGS[0] = 'wakeup':
 				'"I promise."'
 				'He pulls back his blanket and sits up, rubbing the sleep from his eyes before focus on you.'
 			end
-			act'Expose yourself':
-				cla & *clr
-				npc_rel['A34'] += 4
-				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/pussyflash.jpg"></center>'
-				'Following through on your promise, you pull down your panties and pull up your top, exposing your breasts and pussy to your brother. Still tired, he smiles only faintly in satisfaction.'
-				'"There. Happy now?"'
-				if brotherwaketrick = 1:
-					'"Pretty happy, yeah. Especially since you actually kept your promise this time."'
-					'You gently lower your top again, not really sure what to say to that. He is right. You didn''t keep your promise last time.'
-					'"Well, I followed through this time. Hopefully you''ll forgive me. Now go get dressed Kolka. Mom will kill you if you''re late for school."'
-					brotherwaketrick = 2
-				else
-					'"Very. Not that I''m complaining, but how come you showed me your boobs too? I only asked to see your pussy."'
-					'"More motivation for you to wake up," you smile. You cover yourself up, putting your clothes back in place. "Bet it''s difficult to go back to sleep with an erection that hard. Now go get dressed."'
+			if $clothingworntype ! 'nude' or $pantyworntype ! 'none':
+				act'Expose yourself':
+					cla & *clr
+					npc_rel['A34'] += 4
+					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/pussyflash.jpg"></center>'
+					'Following through on your promise, you pull down your panties and pull up your top, exposing your breasts and pussy to your brother. Still tired, he smiles only faintly in satisfaction.'
+					'"There. Happy now?"'
+					if brotherwaketrick = 1:
+						'"Pretty happy, yeah. Especially since you actually kept your promise this time."'
+						'You gently lower your top again, not really sure what to say to that. He is right. You didn''t keep your promise last time.'
+						'"Well, I followed through this time. Hopefully you''ll forgive me. Now go get dressed Kolka. Mom will kill you if you''re late for school."'
+						brotherwaketrick = 2
+					else
+						'"Very. Not that I''m complaining, but how come you showed me your boobs too? I only asked to see your pussy."'
+						'"More motivation for you to wake up," you smile. You cover yourself up, putting your clothes back in place. "Bet it''s difficult to go back to sleep with an erection that hard. Now go get dressed."'
+					end
+					'"Alright," he says, yawning one more time before folding his blanket for storage and beginning the process of getting ready for school.'
+					act'Move away':gt $loc, $metka
 				end
-				'"Alright," he says, yawning one more time before folding his blanket for storage and beginning the process of getting ready for school.'
-				act'Move away':gt $loc, $metka
-			end
 			
-			act'Trick him and don''t do it':
-				cla & *clr
-				brotherwaketrick = 1
-				npc_rel['A34'] -= 5
-				'<center><b><font color="maroon">Kolka</font></b></center>'
-				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/kolka/brother.jpg"></center>'
-				'You wait for him to be more or less fully awake before snatching his blanket and move away.'
-				'"Hey!" he cries. "What are you doing?"'
-				'"I''m leaving. What the hell is wrong with you? You really thought I was gonna show you my pussy?"'
-				if brotherSex = 2 or brotherSex = 3:
-					'"You''ve let me look at you before!"'
-					'"Yeah well, this isn''t ''before''. I''m not doing it today."'
-				elseif brotherSex >= 4:
-					'"You''ve done so much with me before!"'
-					'"Yeah well, this isn''t ''before''. I''m not doing anything today."'
+				act'Trick him and don''t do it':
+					cla & *clr
+					brotherwaketrick = 1
+					npc_rel['A34'] -= 5
+					'<center><b><font color="maroon">Kolka</font></b></center>'
+					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/kolka/brother.jpg"></center>'
+					'You wait for him to be more or less fully awake before snatching his blanket and move away.'
+					'"Hey!" he cries. "What are you doing?"'
+					'"I''m leaving. What the hell is wrong with you? You really thought I was gonna show you my pussy?"'
+					if brotherSex = 2 or brotherSex = 3:
+						'"You''ve let me look at you before!"'
+						'"Yeah well, this isn''t ''before''. I''m not doing it today."'
+					elseif brotherSex >= 4:
+						'"You''ve done so much with me before!"'
+						'"Yeah well, this isn''t ''before''. I''m not doing anything today."'
+					end
+					'"Liar!" he screams at you.'
+					'"Listen here you little-!"'
+					'<b><i>"Hey!"</i></b> your mother shouts from the bedroom. "What is all this racket going on so early in the morning?! You two get along or so help me I will spank you! I don''t care how old you are!"'
+					'Glaring silently at one another, the two of you retreat after a ceasefire being called by your mother. This probably wasn''t good for your relationship though...'
+					act'Move away':gt $loc, $metka
 				end
-				'"Liar!" he screams at you.'
-				'"Listen here you little-!"'
-				'<b><i>"Hey!"</i></b> your mother shouts from the bedroom. "What is all this racket going on so early in the morning?! You two get along or so help me I will spank you! I don''t care how old you are!"'
-				'Glaring silently at one another, the two of you retreat after a ceasefire being called by your mother. This probably wasn''t good for your relationship though...'
-				act'Move away':gt $loc, $metka
 			end
 		end
 	end

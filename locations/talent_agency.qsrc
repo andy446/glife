@@ -536,7 +536,7 @@ if $ARGS[0] = 'wrong_room':
 		
 	elseif interview = 6:
 		'<center><video autoplay loop src="images/locations/city/citycenter/aurora/interview/wrong/6.mp4"></video></center>'
-		'You open the door to the interview room and see a girl on all fours on the couch being pummelled from behind by a man. You and the girl instantly make eye contact and her expression immediately becomes terrified.'
+		'You open the door to the interview room and see a girl on all fours on the couch being pummeled from behind by a man. You and the girl instantly make eye contact and her expression immediately becomes terrified.'
 		'"Oh my God!" she screams.'
 		'The man looks up from his business and sees you. He shouts at you, "What the fuck are you doing in here! Get out!" continuing to pound the girl even though she''s struggling to get off his dick now.'
 		'You run out the door, slamming it behind you. Through the barrier you can hear the girl still panicking.'
@@ -555,7 +555,7 @@ if $ARGS[0] = 'wrong_room':
 	
 	elseif interview = 8:
 		'<center><video autoplay loop src="images/locations/city/citycenter/aurora/interview/wrong/8.mp4"></video></center>'
-		'You open the door and are shocked to see a young girl on the couch while two men rhythmnicly piston her ass and pussy.'
+		'You open the door and are shocked to see a young girl on the couch while two men rhythmically piston her ass and pussy.'
 		'"Ahh! This ass is tight! You should try it!"'
 		'"Plenty of time for that later. We''ll have the whole of production now that we''ve found our perfect star."'
 		*nl
@@ -631,8 +631,8 @@ if $ARGS[0] = 'wrong_room':
 	
 	elseif interview = 15:
 		'<center><video autoplay loop src="images/locations/city/citycenter/aurora/interview/wrong/15.mp4"></video></center>'
-		'You open the door just in time to see cum fly out of a man''s cock and a girl squarely in the face.'
-		'"Sorry! Wrong room!" and shut the door fast.'
+		'You open the door just in time to see a girl on her knees in front of a man and jet of cum spurt from his cock to hit her square in the face.'
+		'"Sorry! Wrong room!" and shut the door fast behind you.'
 	
 		act 'Leave':gt'talent_agency','hallway'
 	

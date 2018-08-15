@@ -11,25 +11,25 @@ if $ARGS[0] = '' or $ARGS[0] = 'Start':
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/<<numnpc>>.jpg"></center>'
 
 	if kotovLoveQW > 0 and week < 5 and kotovVSkozlov = 0 and fedorKozlovQW >= 10:
-	   gt 'FedorEv', 'Vitek Vs Fedor'
+		gt 'FedorEv', 'Vitek Vs Fedor'
 	elseif kotovVSkozlov = 1:
-	   gt 'FedorEv', 'Strela Chat'
+		gt 'FedorEv', 'Strela Chat'
 	elseif FedorvsDimka = 2:
 		gt 'FedorEv4', 'Dimka Aftermath'
 	elseif GorSlut = 1 and fedorkoztalk = 0 and FedorLove = 0:
-	   gt 'FedorEv', 'Gorslut'
+		gt 'FedorEv', 'Gorslut'
 	elseif fedorKozlovQW >= 10 and GorSlut > 1 and FedorLove = 0:
-	   gt 'FedorEv', 'Gorslut 2'
-	 elseif fedorKozlovQW = 10 and FedorLuv < -5:
+		gt 'FedorEv', 'Gorslut 2'
+	elseif fedorKozlovQW = 10 and FedorLuv < -5:
 		gt 'FedorEv2', 'Fedor Breakup'
 	elseif fedorKozlovQW >= 10 and dimaFilm = 1 and FedorvsDimka = 1:
-		gt 'FedorMisc', 'Fedor Vs Dimka'	   
+		gt 'FedorMisc', 'Fedor Vs Dimka'
 	elseif fedorKozlovQW >= 20 and GorSlut < 2 and sub > 0:
-	   gt 'FedorEv', 'Fedor Date 2'
+		gt 'FedorEv', 'Fedor Date 2'
 	elseif fedorKozlovQW >= 20 and GorSlut < 2 and pcs_dom >= 0:
-	   gt 'FedorEv', 'Fedor Date 3'
+		gt 'FedorEv', 'Fedor Date 3'
 	else
-	   gt 'FedorEv', 'Fedor Date'
+		gt 'FedorEv', 'Fedor Date'
 	end
 end	
 
@@ -212,13 +212,13 @@ if $ARGS[0] = 'Fedor Date':
 		act 'Return the hug':gt 'FedorEv', 'Park 3'
 	elseif fedorkozqw = 5:
 		act 'Return the hug':gt 'FedorEv', 'Cinema'
-	end   
+	end
 end
 
 if $ARGS[0] = 'Park':
-   cls
-   gs 'stat'
-   '<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/fedor/fedorev/hold.jpg"></center>'
+	cls
+	gs 'stat'
+	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/fedor/fedorev/hold.jpg"></center>'
 	'You wrap your arm around Fedor''s neck while enjoying his embrace and after a few moments he asks you "Hey <<$pcs_nickname>>, would you like to go for a walk in the park?"'
 	
 	act 'Sure':
@@ -242,12 +242,12 @@ if $ARGS[0] = 'Park':
 end
 
 if $ARGS[0] = 'Cinema':
-   cls
-   gs 'stat'
-   '<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/fedor/fedorev/hold.jpg"></center>'
-   'You place your arm around Fedor''s neck while enjoying his embrace and after a few moments he says, to you "There is a movie playing in a bit that I''m sure you will love, Would you be up for a good horror?" He then shrugs and sarcastically says, "Buuut if your too scared then we could always pick flowers or something."'
-   
-   if fedorkozqw = 5:
+	cls
+	gs 'stat'
+	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/fedor/fedorev/hold.jpg"></center>'
+	'You place your arm around Fedor''s neck while enjoying his embrace and after a few moments he says, to you "There is a movie playing in a bit that I''m sure you will love, Would you be up for a good horror?" He then shrugs and sarcastically says, "Buuut if your too scared then we could always pick flowers or something."'
+	
+	if fedorkozqw = 5:
 		act 'Sure, that sounds fun':
 			cls
 			fedorkozqw = 2
@@ -315,11 +315,11 @@ if $ARGS[0] = 'Skate':
 end	
 
 if $ARGS[0] = 'Skate Date':
-   cls
-   gs 'stat'
-   '<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/fedor/fedorev/hold.jpg"></center>'
-   'You place your arm around Fedor''s neck while enjoying his embrace and after a few moments he says, to you "It''s a bit chilly today. Would you like to go ice skating?"'
-	  
+	cls
+	gs 'stat'
+	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/fedor/fedorev/hold.jpg"></center>'
+	'You place your arm around Fedor''s neck while enjoying his embrace and after a few moments he says, to you "It''s a bit chilly today. Would you like to go ice skating?"'
+	
 	act 'I would love too':
 		cls		
 		fedorkozqw = 4
@@ -384,9 +384,9 @@ if $ARGS[0] = 'Fedor Date 2':
 	
 	placerand = rand(1, 2)
 	
-	if placerand = 0:$place = 'Park 2' & $textEvent = ' "Wanna go for a walk in the park and see what kind of trouble we can get into?"'
-	if placerand = 1:$place = 'Cinema 2' & $textEvent = ' "<<$pcs_nickname>> are you up for another movie?"'
-	if placerand = 2:$place = 'Home 2' & $textEvent = ' "Would you like some "Alone time" at my place?."'
+	if placerand = 0:$place = 'Park 2' & $textEvent = '"Wanna go for a walk in the park and see what kind of trouble we can get into?"'
+	if placerand = 1:$place = 'Cinema 2' & $textEvent = '"<<$pcs_nickname>> are you up for another movie?"'
+	if placerand = 2:$place = 'Home 2' & $textEvent = '"Would you like some "Alone time" at my place?"'
 
 	'You continue to kiss Fedor passionately, neither of you willing to break it off. After what felt like an hour <<$ev_name>> finishes kissing you and suggests: <<$textEvent>>'
 

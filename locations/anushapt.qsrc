@@ -506,7 +506,7 @@ if $ARGS[0] = 'computer':
 												'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/sex/caughtmast/les5.jpg"></center>'
 												'You can hear her starting to breathe heavier and moan louder and you are about to suggest switching again, but apparently she had the same idea. She briefly stops straddling your face before turning around and then straddling your face again, while going down on her hands and knees so she can 69 with you.'
 												*nl
-												'As soon as you feel her tongue flicking against your clit, you lift up your head slightly and begin licking her pussy again as well. Her tongue is  absolutely magical and it doesn''t take all that long until your body is rocked by a furious orgasm. Apparently feeling your pussy twitch around her tongue and the extra juices from your orgasm sets her off as well, her own pussy juice flowing out, coating her face as her own orgasm hits her.'
+												'As soon as you feel her tongue flicking against your clit, you lift up your head slightly and begin licking her pussy again as well. Her tongue is absolutely magical and it doesn''t take all that long until your body is rocked by a furious orgasm. Apparently feeling your pussy twitch around her tongue and the extra juices from your orgasm sets her off as well, her own pussy juice flowing out, coating her face as her own orgasm hits her.'
 												gs 'arousal', 'cuni_give', 10, 'lesbian'
 												minut -= 10
 												$orgasm_or = 'yes'
@@ -918,7 +918,7 @@ if $ARGS[0] = 'chat':
 									'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/sex/caughtmast/les5.jpg"></center>'
 									'You can hear her starting to breathe heavier and moan louder and you are about to suggest switching again, but apparently she had the same idea. She briefly stops straddling your face before turning around and then straddling your face again, while going down on her hands and knees so she can 69 with you.'
 									*nl
-									'As soon as you feel her tongue flicking against your clit, you lift up your head slightly and begin licking her pussy again as well. Her tongue is  absolutely magical and it doesn''t take all that long until your body is rocked by a furious orgasm. Apparently feeling your pussy twitch around her tongue and the extra juices from your orgasm sets her off as well, her own pussy juice flowing out, coating your face as her own orgasm hits her.'
+									'As soon as you feel her tongue flicking against your clit, you lift up your head slightly and begin licking her pussy again as well. Her tongue is absolutely magical and it doesn''t take all that long until your body is rocked by a furious orgasm. Apparently feeling your pussy twitch around her tongue and the extra juices from your orgasm sets her off as well, her own pussy juice flowing out, coating your face as her own orgasm hits her.'
 									gs 'arousal', 'cuni_give', 10, 'lesbian'
 									minut -= 10
 									$orgasm_or = 'yes'
@@ -1386,13 +1386,13 @@ end
 
 if $ARGS[0] = 'kitchen':
 	CLOSE ALL
-    *clr & cla
-    minut += 1
+	*clr & cla
+	minut += 1
 	$locclass = 'kitr'
-    gs 'stat'
-    '<center><b><font color = maroon>Kitchen</font></b></center>'
-    '<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/anushapt/kitchen.jpg"></center>'
-    'The room is not clean and there are dishes on most of the surfaces. The wood floor is not polished and only covers the areas being used. You''re surprised by the lack of a dinner table.'
+	gs 'stat'
+	'<center><b><font color = maroon>Kitchen</font></b></center>'
+	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/anushapt/kitchen.jpg"></center>'
+	'The room is not clean and there are dishes on most of the surfaces. The wood floor is not polished and only covers the areas being used. You''re surprised by the lack of a dinner table.'
 	act 'Look in the fridge': gt 'anushapt', 'holodilnik'
 	act 'Leave':gt 'anushapt','hallway'
 end

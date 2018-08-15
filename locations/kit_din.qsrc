@@ -476,12 +476,12 @@ $edaD = {
 	end
 }
 
-
 $fatdel = {
 	if fatdel > 0:
-		act 'Take fat burners':
+		act 'Take fat burners (0:05)':
 			cla
 			*clr
+			minut += 5
 			fatdel -= 1
 			if pcs_hydra >= 100:
 				pcs_hydra += 25
@@ -523,7 +523,7 @@ $lekarstvo = {
 		'You have <b><<lekarstvo>></b> tablets.'
 
 		if sick > 0 and lekarday ! daystart:
-			act 'Take a pill':
+			act 'Take a pill (0:05)':
 				cla
 				*clr
 				minut += 5

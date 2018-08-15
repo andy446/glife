@@ -24,6 +24,7 @@ $locclass = 'kitr'
 clr
 minut += 1
 gs 'stat'
+gs 'kit_din'
 if night_mode = 1:
 	fcolor = rgb(255, 255, 255)
 	bcolor = rgb(0, 0, 0)
@@ -133,80 +134,9 @@ if edaD > 0:
 	end
 end
 
-if fatdel > 0:
-	act 'Consume fat burners':
-		cla
-		*clr
-		fatdel -= 1
-		if pcs_hydra >= 100:
-			pcs_hydra += 25
-		else
-			pcs_hydra += 50
-		end
-		salo -= 20
-		if salo < 11: salo = 11
-		gs 'body_shape', 'softreset'
-
-		'You throw the capsule of fat burners in a glass, add some water and drink it. You''re amazed at how fast the capsule works, feeling your body slim down almost immediately.'
-
-		act 'Get up from the table':gt $curloc
-	end
-end
-
-if lekarstvo > 0:
-	'You have <<lekarstvo>> tablet(s).'
-
-	if sick > 0 and lekarday ! daystart:
-		act 'Take a pill (0:05)':
-			cla
-			*clr
-			minut += 5
-			lekarday = daystart
-			lekarstvo -= 1
-			sick -= sick * 20 / 100
-			if pcs_hydra >= 100:
-				pcs_hydra += 25
-			else
-				pcs_hydra += 50
-			end
-			picrand = rand(1,9)
-			'<center><img <<$set_imgh>> src="images/locations/shared/apartment/event/sick/lekr<<picrand>>.jpg"></center>'
-			'You swallow the pill, and shortly after you feel a bit better.'
-
-			act 'Continue':gt $curloc
-		end
-	end
-end
-
-if vitamin > 0:
-	'You have <<vitamin>> vitamin pills.'
-
-	if vitaminday ! daystart:
-		act 'Take vitamins (0:05)':
-			cla
-			*clr
-
-			minut += 5
-			vitaminday = daystart
-			vitamin -= 1
-			frost = 0
-			if pcs_hydra >= 100:
-				pcs_hydra += 25
-			else
-				pcs_hydra += 50
-			end
-			if KandidozOnce = 1:Kandidoz -= 2
-			if GerpesOnce = 1:Gerpes -= 2
-			if SifacOnce = 1 and Sifilis >= 10:Sifilis -= rand(0, 1)
-
-			pcs_skin += 1
-
-			'You take some vitamins to stay healthy.'
-
-			act 'Continue':gt $curloc
-		end
-	end
-end
+dynamic $fatdel
+dynamic $lekarstvo
+dynamic $vitamin
 
 --- kuhrPar ---------------------------------
 

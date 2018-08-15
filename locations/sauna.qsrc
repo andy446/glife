@@ -84,6 +84,7 @@ if $ARGS[0] = 'saunaroom':
 	$location_type = 'private'
 	saunaYouRoom = 1
 	gs 'stat'
+	gs 'kit_din'
 	'<center><b><font color="maroon">Room</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/residential/sauna/saunaroom.jpg"></center>'
 
@@ -116,7 +117,6 @@ if $ARGS[0] = 'saunaroom':
 		end
 		act 'Drink some water (0:05)':
 			gs 'beverage', 'bev_wat'
-			workDolg += 50
 		end
 		act 'Borrow cosmetics':
 			workDolg += 1000
@@ -124,6 +124,7 @@ if $ARGS[0] = 'saunaroom':
 			gt 'sauna', 'saunaroom'
 		end
 	end
+	
 	if workDolg <= 0 and SaunaWhore > 0:
 
 		if money >= 100:
@@ -132,11 +133,9 @@ if $ARGS[0] = 'saunaroom':
 				money -= 100
 			end
 		end
-		if money >= 50:
-			act 'Drink some water (0:05)':
-				gs 'beverage', 'bev_wat'
-				money -= 50
-			end
+		
+		act 'Drink some water (0:05)':
+			gs 'beverage', 'bev_wat'
 		end
 
 		dynamic $fatdel

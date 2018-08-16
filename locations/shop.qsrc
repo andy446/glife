@@ -285,7 +285,7 @@ if $shoplocation= 'cosmetics':
 	*P FUNC ('$stock_item', 50, 'Cosmetics', 1300, 'kosmetica', $CURLOC)
 	*P FUNC ('$stock_item', 10, 'Plain false lashes', 1500, 'falselashesplain',$CURLOC)
 	*P FUNC ('$stock_item', 3, 'Mink false lashes', 900, 'falselashesmink',$CURLOC)
-	*P FUNC ('$stock_item', 10, 'Razors', 1000, 'stanok', $CURLOC)
+	*P FUNC ('$stock_item', 40, 'Razors', 700, 'stanok', $CURLOC)
 	*P FUNC ('$stock_item', 20, 'Sunblock', 500, 'krem', $CURLOC)
 	*P FUNC ('$stock_item', 20, 'Tampons', 200, 'tampon', $CURLOC)
 	*P FUNC ('$stock_item', 20, 'Sanitary napkins', 100, 'sanpad', $CURLOC)

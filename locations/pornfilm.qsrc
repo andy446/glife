@@ -1311,7 +1311,7 @@ if $ARGS[0] = '12':
 				sexpartkno = 1
 				spafinloc = 3
 				gs 'cum_manage'
-				'<center><video autoplay loop src="images/locations/city/citycenter/studio/sex/porncp<<rand(1,4)>>.mp4" width="500"></video></center>'
+				'<center><video autoplay loop src="/images/shared/sex/cum/analcreampie/cumAnal<<rand(1,2)>>.mp4" width="500"></video></center>'
 				if pcs_horny < 85 and pcs_inhib < 80:
 					'You lower your head on the pillows while pushing your ass in the air, giving the guys easy access. One of them immediately starts to fuck your ass, then stops, and pushing his dick in deep he pumps his considerable amount of sperm in your colon. As soon as he steps aside, another guy replaces him, then the third and fourth guys also cum in your ass.'
 					$orgasm_or = 'no'

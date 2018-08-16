@@ -413,16 +413,16 @@ $cheatmenu['avatar_hair_set'] = {
 }
 
 $cheatmenu['rename'] = {
-	$pcs_firstname = input("What is your first name? (Leave blank for default)")
+	$pcs_firstname = input("What is your first name? (Leave blank for Svetlana)")
 
 	if $pcs_firstname = '':$pcs_firstname = 'Svetlana'
 
-	$pcs_lastname = input("What is your last name? (Leave blank for default)")
+	$pcs_lastname = input("What is your last name? (Leave blank for Lebedev)")
 
 	if $pcs_lastname = '':$pcs_lastname = 'Lebedev'
 
 	!!!0.2.6 addition
-	$pcs_nickname = input("What is your nickname? (Note: If you chose a custom name, you have to enter something here!)")
+	$pcs_nickname = input("What is your nickname? (Leave blank for Sveta)")
 
 	if $pcs_nickname = '':$pcs_nickname = 'Sveta'
 }

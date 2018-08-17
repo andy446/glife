@@ -160,7 +160,7 @@ if $ARGS[0] = 'inside':
 		end
 	end
 
-	if talkartemday ! daystart:
+	if talkartemday ! daystart and artQW ! 5:
 		act 'Chat with Artem':
 			*clr & cla
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/2.jpg"></center>'

@@ -89,7 +89,7 @@ if $ARGS[0] = 'learn':
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/2.jpg"></center>'
 	'You spend an hour doing your homework together with Artem. He''s a very smart guy, and explains several things to you. At the end of the hour, you feel like you had a very productive homework session, and that you learned a lot from Artem''s tutoring.'
 	minut += 60
-	npc_rel['A2'] += 10
+	if artQW ! 5: npc_rel['A2'] += 10
 	lernHome = 0
 	lern += rand(3, 6)
 	intel_exp += rand(1, 2)
@@ -103,10 +103,10 @@ if $ARGS[0] = 'learn':
 	end
 
 	if (pav_slut >= 50 and artemblag = 0) or artQW = 5:
-		if artemBJQW = 0 and artemsex = 0:
+		if (artemBJQW = 0 and artemsex = 0) or artQW = 5:
 			cla
 			if artQW = 5:
-				'"You still want me to help you?" He asks. "Ok, suck me of again and we have a deal."'
+				'After you finish your homework, Artem has a serious look on his face when he says: "<<$pcs_nickname>>, with how much I''ve been helping you... We both know what you are willing to do. I think it''s only fair you give me a little something in return."'
 				act 'Suck him off': gt 'artemEv','bj'
 				
 				act '"No way!"':

@@ -183,7 +183,7 @@ if $ARGS[0] = 'start':
 				end
 			end
 
-			if pcs_inhib >= 35:
+			if pcs_inhib >= 35  or exhibitionist_lvl > 0:
 				act 'Expose your breasts':
 					*clr
 					cla

@@ -898,13 +898,13 @@ else
 end
 
 if pirsB > 0 and pirsB < 10000:
-	$pirsB = 'Your lip is pierced.'
+	$pirsB = ' Your lip is pierced. '
 	rand_lowerlip = rand(0)
 	if rand_lowerlip = 0:$pcdesc_lowerliprandom = 'pierced lower lip'
 	$pcdesc_lowerlipwordy = 'jewelry-studded lower lip'
 	$pcdesc_lowerlip = 'pierced lower lip'
 else
-	$pirsB = ''
+	$pirsB = ' '
 	rand_lowerlip = rand(0)
 	if rand_lowerlip = 0:$pcdesc_lowerliprandom = 'lower lip'
 	$pcdesc_lowerlipwordy = 'lower lip'
@@ -1050,7 +1050,7 @@ if pcs_lipbalm > 0:
 		$pcdesc_lipglossinsertive = ', shiny'
 		$pcdesc_lipglossed = 'glossed'
 		$pcdesc_lipglosswordy = 'gloss-slicked'
-		$lip = 'You have normal<<$pcdesc_lipglossinsertive>> lips. <<$pirsB>> <<$pirsA>>'
+		$lip = 'You have normal<<$pcdesc_lipglossinsertive>> lips.<<$pirsB>><<$pirsA>>'
 	elseif pcs_lip = 2:
 		rand_lipgloss = rand(0,2)
 		if rand_lipgloss = 0:$pcdesc_lipglossrandom = 'juicy'

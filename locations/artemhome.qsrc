@@ -188,7 +188,7 @@ if $ARGS[0] = 'liar':
 	cla & clr
 	gs 'stat'
 	DimaRudeBlock = 1
-	artemliar = 1
+	artQW = 5
 	npc_rel['A2'] = 0
 	'<center><b><font color="maroon"><<$npc_firstname[''A2'']>> <<$npc_lastname[''A2'']>></font></b></center>'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/2.jpg"></center>'

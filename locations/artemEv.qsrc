@@ -8,11 +8,11 @@
 !! artemStripSee .. number of strips for Artem
 !! artemLernQW
 !! artemblok .. artem is blocked
-!! artemliar .. lied to artem about the content of the video with dimka
 !! artQW =  1 .. Artem felt for Pc
 !! artQW =  2 .. Pc rejected Artems love
 !! artQW =  3 .. Pc accepted Artems love and jerked off him
 !! artQW =  4 .. Pc rejected Artems love roughly
+!! artQW =  5 .. Pc lied to artem about the dimka video, blocks love content and consenual petka content
 !! artQW = 10 .. Artem wants celebrate their longterm tutoring
 !! artQW = 20 .. Pc accepted Artems love and gave him a blowjob
 !! artQW = 21 .. Pc became know as a slut in Pavlovsk ... this part is not activated yet
@@ -102,10 +102,10 @@ if $ARGS[0] = 'learn':
 		'During your homework session, you notice Artem''s gaze wander a few times. He''s glancing at your feet and chest, whenever he thinks you''re not looking.'
 	end
 
-	if (pav_slut >= 50 and artemblag = 0) or artemliar = 1:
+	if (pav_slut >= 50 and artemblag = 0) or artQW = 5:
 		if artemBJQW = 0 and artemsex = 0:
 			cla
-			if artemliar = 1:
+			if artQW = 5:
 				'"You still want me to help you?" He asks. "Ok, suck me of again and we have a deal."'
 				act 'Suck him off': gt 'artemEv','bj'
 				
@@ -137,13 +137,13 @@ if $ARGS[0] = 'learn':
 					act 'Leave Artem''s apartment':gt 'artemhome','leave',5
 				end
 			end
-		elseif (artemBJQW > 0 and artemBJQW < 10 and artemsex = 0) or (artemStripSee = 3 and artemsex = 0 and artemTouch > daystart) or (artemBJQW > 0 and artemliar = 1):
+		elseif (artemBJQW > 0 and artemBJQW < 10 and artemsex = 0) or (artemStripSee = 3 and artemsex = 0 and artemTouch > daystart) or (artemBJQW > 0 and artQW = 5):
 			cla
 			'Artem unbuttons his pants and pulls his stiff erection from his pants.'
 			'He looks at you expectantly: "You know our deal, <<$pcs_nickname>>. If you want my help, I want your mouth."'
 
 			act 'Suck him off': gt 'artemEv','bj'
-		elseif artemBJQW = 10 and artemsex = 0 and artemliar = 0:
+		elseif artemBJQW = 10 and artemsex = 0 and artQW ! 5:
 			cla
 			'After you finish your homework with Artem, he says a little shyly: "You know... I''ve never seen a girl naked before. Only on pictures. Maybe you could..."'
 			if pcs_dom >= 30 and dimaFilm > 0 and arthakQW = 0 and pcs_vag > 0:
@@ -186,7 +186,7 @@ if $ARGS[0] = 'learn':
 					act 'Suck him off': gt 'artemEv','bj'
 				end
 			end
-		elseif artemBJQW > 10 and artemStripSee < 2 and artemsex = 0:
+		elseif artemBJQW > 10 and artemStripSee < 2 and artQW ! 5:
 			artemRand = rand(0,5)
 			*clr & cla
 			if artemRand = 5:
@@ -665,7 +665,7 @@ if $ARGS[0] = 'learn':
 		end
 	end
 
-	if (artQW = 3 or artQW = 20) and artemkissday ! daystart and (pav_slut < 50 or artemblag = 1) and artemliar = 0:
+	if (artQW = 3 or artQW = 20) and artemkissday ! daystart and (pav_slut < 50 or artemblag = 1):
 		'After you finish doing your homework with Artem, he closes his eyes and puckers his lips as he leans towards you. He wants to kiss you.'
 		act 'Kiss Artem': gt 'artemEv','kiss'
 	end

@@ -103,7 +103,7 @@ if $ARGS[0] = 'learn':
 	end
 
 	if (pav_slut >= 50 and artemblag = 0) or artQW = 5:
-		if (artemBJQW = 0 and artemsex = 0) or artQW = 5:
+		if artemBJQW = 0 and (artemsex = 0 or artQW = 5):
 			cla
 			if artQW = 5:
 				'After you finish your homework, Artem has a serious look on his face when he says: "<<$pcs_nickname>>, with how much I''ve been helping you... We both know what you are willing to do. I think it''s only fair you give me a little something in return."'

@@ -142,7 +142,7 @@ if $ARGS[0] =  'Hall Sex':
 				cls
 				gs'stat'
 				'<center><video autoplay loop src="images/characters/pavlovsk/school/boy/fedor/fedorev2/home/hall/sex/hall5.mp4"></video></center>'
-				'After a few seconds Fedor gets up then turns you around, pressing his body against yours as he enters your vagina from behind. Thrusting his dick deep inside you while his hips smack against your ass causing your whole body to bounce against the wall. You continue getting fucked while enjoying the warmth of  Fedor''s body pressing against yours and the feeling of his hot breath on your back while he holds your hips firmly. Fedor whispers in your ear. "I''m ready to cum, How would you like it?"'
+				'After a few seconds Fedor gets up then turns you around, pressing his body against yours as he enters your vagina from behind. Thrusting his dick deep inside you while his hips smack against your ass causing your whole body to bounce against the wall. You continue getting fucked while enjoying the warmth of Fedor''s body pressing against yours and the feeling of his hot breath on your back while he holds your hips firmly. Fedor whispers in your ear. "I''m ready to cum, How would you like it?"'
 				gs 'arousal', 'vaginal', 10, 'sub'
 				gs'stat'
 
@@ -638,7 +638,7 @@ if $ARGS[0] =  'Popcorn':
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/fedor/fedorev2/home/livingroom/munch2.jpg"></center>'
 	'You begin munching on some popcorn and drinking some soda as Fedor continues flipping through channels.'
 
-	act 'Wait for  Fedor to pick a channel':
+	act 'Wait for Fedor to pick a channel':
 		VK = rand(1,4)
 		if VK <= 1:
 			gt 'FedorEv4', 'Movie Family'
@@ -676,7 +676,7 @@ if $ARGS[0] =  'Snacks':
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/fedor/fedorev2/home/livingroom/munch1.jpg"></center>'
 	'You begin enjoyibg some strawberries and drinking soda as Fedor continues flipping through channels.'
 
-	act 'Wait for  Fedor to pick a channel':
+	act 'Wait for Fedor to pick a channel':
 		VK = rand(1,4)
 		if VK <= 1:
 			gt 'FedorEv4', 'Movie Family'

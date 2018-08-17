@@ -167,7 +167,7 @@ if $ARGS[0] = 'Cinema':
 			pcs_mood += 20
 			pcs_willpwr += 20
 			pcs_energy += 20
-			pcs_hydra += 5
+			pcs_hydra += 50
 			cumspclnt = 2
 			gs 'cum_cleanup'
 			pcs_breath = 0				
@@ -192,7 +192,7 @@ if $ARGS[0] = 'Cinema':
 			pcs_willpwr += 20
 			fat += 1
 			pcs_energy += 30
-			pcs_hydra += 5
+			pcs_hydra += 80
 			cumspclnt = 2	
 			gs 'cum_cleanup'
 			pcs_breath = 0				
@@ -591,7 +591,7 @@ if $ARGS[0] = 'Wash Up':
 	end	
 end
 
-if $ARGS[0] =  'Skate':
+if $ARGS[0] = 'Skate':
 	cls
 	minut += 5
 	gs'stat'
@@ -706,7 +706,7 @@ if $ARGS[0] = 'Cafe':
 	act 'Go to class':gt 'gschool_lessons', 'short_break'
 end
 
-if $ARGS[0] =  'Park 2':
+if $ARGS[0] = 'Park 2':
 	cls
 	minut += 15
 	gs'stat'

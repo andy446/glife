@@ -38,7 +38,7 @@ if $ARGS[0] = 'Food':
 	pcs_mood += 15
 	pcs_willpwr += 15
 	pcs_energy += 30
-	pcs_hydra += 10
+	pcs_hydra += 50
 	cumspclnt = 2
 	gs 'cum_cleanup'
 	pcs_breath = 0				
@@ -62,7 +62,7 @@ if $ARGS[0] = 'Food 2':
 	pcs_willpwr += 20
 	fat += 2
 	pcs_energy += 60
-	pcs_hydra += 20
+	pcs_hydra += 80
 	cumspclnt = 2
 	gs 'cum_cleanup'
 	pcs_breath = 0				

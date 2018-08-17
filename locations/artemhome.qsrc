@@ -188,6 +188,8 @@ if $ARGS[0] = 'liar':
 	cla & clr
 	gs 'stat'
 	DimaRudeBlock = 1
+	artemliar = 1
+	npc_rel['A2'] = 0
 	'<center><b><font color="maroon"><<$npc_firstname[''A2'']>> <<$npc_lastname[''A2'']>></font></b></center>'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/2.jpg"></center>'
 	'Artem looks away from you, with a blank stare in his eyes. He mutters: "You know... I watched that video you wanted me to delete from Dimka''s computer. I can''t believe it... I was willing to do anything for you. Anything!"'
@@ -219,14 +221,6 @@ if $ARGS[0] = 'liar':
 			'You know he will publish that video if you leave now. It would ruin your reputation in Pavlovsk, but you have no clue what Artem has planned for you if you stay.'
 			gs 'stat'
 			
-			act 'Leave his apartment and run away':
-				artemblok = 1
-				artemhakday = daystart
-				artemvbrosvid = 1
-				npc_rel['A2'] = 0
-				gt 'artemhome','leave',5
-			end
-
 			act 'Do what he wants':
 				*clr & cla
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/2.jpg"></center>'
@@ -273,15 +267,26 @@ if $ARGS[0] = 'liar':
 						cumface += 2
 						facial += 1
 						arthakQW = 10
-						artemblok = 1
+						artemblok = 0
 						'You carefully ask: "So... will you delete the video now?"'
-						'Artem chuckles: "Delete the video? <<$pcs_nickname>>, please... we''re just getting started. Me and Petka have big plans with you."'
-						'He continues: "Don''t worry, it will be our little secret. Next Monday, we will continue our anatomy lessons. I''ll be waiting for you after school."'
+						'Artem chuckles: "Delete the video?" He chuckles again and shakes his head. "No."'
+						
+						!! The forced petka/artem events dont seem to exit, commented them out until they are
+						!!'Artem chuckles: "Delete the video? <<$pcs_nickname>>, please... we''re just getting started. Me and Petka have big plans with you."'
+						!!'He continues: "Don''t worry, it will be our little secret. Next Monday, we will continue our anatomy lessons. I''ll be waiting for you after school."'
+						
 						gs 'stat'
 
 						act 'Leave the garage':gt 'pavComplex','garages'
 					end
 				end
+			end
+			
+			act 'Leave his apartment and run away':
+				artemblok = 1
+				artemhakday = daystart
+				artemvbrosvid = 1
+				gt 'artemhome','leave',5
 			end
 		end
 	end
@@ -290,7 +295,6 @@ if $ARGS[0] = 'liar':
 		artemvbrosvid = 1
 		artemblok = 1
 		artemhakday = daystart
-		npc_rel['A2'] = 0
 		gt 'artemhome','leave',5
 	end
 end

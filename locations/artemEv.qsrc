@@ -7,7 +7,8 @@
 !! leghumpArtem .. > 0 Artem humps Pc already
 !! artemStripSee .. number of strips for Artem
 !! artemLernQW
-!! artemblok
+!! artemblok .. artem is blocked
+!! artemliar .. lied to artem about the content of the video with dimka
 !! artQW =  1 .. Artem felt for Pc
 !! artQW =  2 .. Pc rejected Artems love
 !! artQW =  3 .. Pc accepted Artems love and jerked off him
@@ -97,36 +98,52 @@ if $ARGS[0] = 'learn':
 	gs 'stat'
 	act 'Take a break from studying':gt 'artemhome','inside'
 
-
 	if npc_rel['A2'] >= 90:
 		'During your homework session, you notice Artem''s gaze wander a few times. He''s glancing at your feet and chest, whenever he thinks you''re not looking.'
 	end
 
-	if pav_slut >= 50 and artemblag = 0:
+	if (pav_slut >= 50 and artemblag = 0) or artemliar = 1:
 		if artemBJQW = 0 and artemsex = 0:
 			cla
-			'After you finish your homework, Artem has a serious look on his face when he says: "<<$pcs_nickname>>, everyone in the school is talking about how much of a slut you are. With how much I''ve been helping you... I think it''s only fair you give me a little something in return."'
-			act 'Suck him off': gt 'artemEv','bj'
+			if artemliar = 1:
+				'"You still want me to help you?" He asks. "Ok, suck me of again and we have a deal."'
+				act 'Suck him off': gt 'artemEv','bj'
+				
+				act '"No way!"':
+					cla
+					pcs_dom += 1
+					artemLernQW = -1
+					artemblok = 1
+					npc_rel['A2'] = 0
+					gs 'stat'
+	
+					'"No, I won''t do it again. It ends here."'
+					act 'Leave Artem''s apartment':gt 'artemhome','leave',5
+				end
+			else
+				'After you finish your homework, Artem has a serious look on his face when he says: "<<$pcs_nickname>>, everyone in the school is talking about how much of a slut you are. With how much I''ve been helping you... I think it''s only fair you give me a little something in return."'
+				act 'Suck him off': gt 'artemEv','bj'
 
-			act '"No way!"':
-				cla
-				pcs_dom += 1
-				artemLernQW = -1
-				artemblok = 1
-				npc_rel['A2'] = 0
-				gs 'stat'
-
-				'You decline, and he''s very offended by that: "Look <<$pcs_nickname>>, I spent a lot of time and effort helping you out. Meanwhile, you... you suck off or fuck pretty much everyone who asks! But you won''t touch me? That''s so not fair! We''re done... find someone else to help you. Good luck, with that attitude."'
-				'You can tell Artem is seriously offended by your refusal, and won''t help you any further. Hopefully someone else can help you with your homework.'
-				act 'Leave Artem''s apartment':gt 'artemhome','leave',5
+				act '"No way!"':
+					cla
+					pcs_dom += 1
+					artemLernQW = -1
+					artemblok = 1
+					npc_rel['A2'] = 0
+					gs 'stat'
+	
+					'You decline, and he''s very offended by that: "Look <<$pcs_nickname>>, I spent a lot of time and effort helping you out. Meanwhile, you... you suck off or fuck pretty much everyone who asks! But you won''t touch me? That''s so not fair! We''re done... find someone else to help you. Good luck, with that attitude."'
+					'You can tell Artem is seriously offended by your refusal, and won''t help you any further. Hopefully someone else can help you with your homework.'
+					act 'Leave Artem''s apartment':gt 'artemhome','leave',5
+				end
 			end
-		elseif (artemBJQW > 0 and artemBJQW < 10 and artemsex = 0) or (artemStripSee = 3 and artemsex = 0 and artemTouch > daystart):
+		elseif (artemBJQW > 0 and artemBJQW < 10 and artemsex = 0) or (artemStripSee = 3 and artemsex = 0 and artemTouch > daystart) or (artemBJQW > 0 and artemliar = 1):
 			cla
 			'Artem unbuttons his pants and pulls his stiff erection from his pants.'
 			'He looks at you expectantly: "You know our deal, <<$pcs_nickname>>. If you want my help, I want your mouth."'
 
 			act 'Suck him off': gt 'artemEv','bj'
-		elseif artemBJQW = 10 and artemsex = 0:
+		elseif artemBJQW = 10 and artemsex = 0 and artemliar = 0:
 			cla
 			'After you finish your homework with Artem, he says a little shyly: "You know... I''ve never seen a girl naked before. Only on pictures. Maybe you could..."'
 			if pcs_dom >= 30 and dimaFilm > 0 and arthakQW = 0 and pcs_vag > 0:
@@ -648,7 +665,7 @@ if $ARGS[0] = 'learn':
 		end
 	end
 
-	if (artQW = 3 or artQW = 20) and artemkissday ! daystart and (pav_slut < 50 or artemblag = 1):
+	if (artQW = 3 or artQW = 20) and artemkissday ! daystart and (pav_slut < 50 or artemblag = 1) and artemliar = 0:
 		'After you finish doing your homework with Artem, he closes his eyes and puckers his lips as he leans towards you. He wants to kiss you.'
 		act 'Kiss Artem': gt 'artemEv','kiss'
 	end

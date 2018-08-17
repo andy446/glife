@@ -1527,13 +1527,13 @@ if $ARGS[0] = 'shave_options':
 	if pubestyle ! 2:
 		'<a href="exec:pubestyle = 2 & gt ''din_van'', ''shave_options''">Clean Shave</a>'
 	else
-		'<u>Clean Shave</u>'
+		'Clean Shave'
 	end
 	'</center></TD><TD><center>'
 	if pubestyle ! 3:
 		'<a href="exec:pubestyle = 3 & gt ''din_van'', ''shave_options''">Small Bush</a>'
 	else
-		'<u>Small Bush</u>'
+		'Small Bush'
 	end
 	'</center></TD>'
 	*P '<TR><TD><center><a href="exec:pubestyle = 1 & gt ''din_van'', ''shave_options''"><img Height = <<shave_img_hgt>> src="images/shared/home/bathroom/shave3.jpg"></a></center></TD><TD><center><a href="exec:pubestyle = 4 & gt ''din_van'', ''shave_options''"><img Height = <<shave_img_hgt>> src="images/shared/home/bathroom/shave3.jpg"></a></center></TD>'
@@ -1541,13 +1541,13 @@ if $ARGS[0] = 'shave_options':
 	if pubestyle ! 1:
 		'<a href="exec:pubestyle = 1 & gt ''din_van'', ''shave_options''">Full Bush</a>'
 	else
-		'<u>Full Bush</u>'
+		'Full Bush'
 	end
 	'</center></TD><TD><center>'
 	if pubestyle ! 4:
 		'<a href="exec:pubestyle = 4 & gt ''din_van'', ''shave_options''">Trimmed</a>'
 	else
-		'<u>Trimmed</u>'
+		'Trimmed'
 	end
 	'</center></TD>
 	<TR><center>'

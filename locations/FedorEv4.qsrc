@@ -2720,6 +2720,8 @@ if $ARGS[0] =  'Fedor Sleeping':
 		'Fedor then looks back at you and frowns. "<<$pcs_firstname>> you''re hurt. My mother works as a nurse. You should have her take a look at you."'
 	end
 
+	act 'Spend the night':gt 'bed2'
+	
 	act 'Walk away':gt 'FedorEv4', 'Bedroom'
 end
 

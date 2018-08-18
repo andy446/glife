@@ -1109,8 +1109,8 @@ if $ARGS[0] = 'walk':
 					'He nods a bit. "I better get changed before my parents get home." With that he goes and changes back into his boy clothes.'
 					act 'Finish': gt 'igorhome', 'igorroom'
 				end
-				if rand(1,100) <= 20:
-					if igor_DimaNos = 0 or igor_DimaNos = 3:
+				if rand(1,100) <= 25:
+					if igor_DimaNos = 0 or igor_DimaNos = 1:
 						cla
 						act 'Dimka': gt 'IgorEv', 'Dimka'
 					end

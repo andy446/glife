@@ -8,7 +8,7 @@ if $ARGS[0] = 'letter':
 		minut += 5
 		pcs_mood -= 100
 		gs 'stat'
-		!IMG = openletter.jpg
+		'<center><img <<$set_imgh>> src="images/locations/city/shared/court/openletter.jpg"></center>'
 		'As you enter your home you notice an envelope from the court. You anxiously look at it and take a deep breath before opening the envelope.'
 		'Going through the letter you read that you''ve been summoned to appear in court a week from now.'
 		'<i>Failing to appear in court will have dire consequences for the accused.</i> Your heart drops as you read that line...'
@@ -23,7 +23,7 @@ if $ARGS[0] = 'letter':
 		*clr & cla
 		minut += 5
 		gs 'stat'
-		!IMG = openletter.jpg
+		'<center><img <<$set_imgh>> src="images/locations/city/shared/court/openletter.jpg"></center>'
 		'As you come home you see the familiar envelope from the court. You already know the gist of it, <i>failure to show up will have dire consequences,</i> yadda yadda...'
 		'You glance through the letter seeing the same information once again and as you finish you throw it to the side and continue further on inside your apartment...'
 
@@ -41,7 +41,7 @@ if $ARGS[0] = 'start':
 	*clr & cla
 	minut += 2
 	gs'stat'
-	!img - courthouse
+	'<center><img <<$set_imgh>> src="images/locations/city/shared/court/courthouse.jpg"></center>'
 	'You are standing in the middle of the Greco-Roman inspired main courthouse for the whole St Petersburg region.'
 	'There are many statues of political and legal figures in the region going right back to a bust of Catherine the Great.'
 	act 'Leave': gt 'down'
@@ -51,7 +51,7 @@ if $ARGS[0] = 'hearing':
 	*clr & cla
 	minut += 10
 	gs 'stat'
-	!'<center><img <<$set_imgh>> src="images/locations/shared/police/interrogationpro.jpg"></center>' 'don''t remove, filename is entrance'
+	'<center><img <<$set_imgh>> src="images/locations/city/shared/court/entrance.jpg"></center>'
 	'You walk inside the courthouse dragging your legs and as you enter you notice a line has formed while people are walking through a body scanner. You patiently await your turn and head straight to the reception area.'
 	'"Hello, my name is <<$pcs_firstname>> <<$pcs_lastname>> and I got this summon in the mail," you tell the woman sitting there.'
 	'She tells you to hand it over and looks through it and nonchalantly says, "Okay, head to courtroom number 5 and they''ll call out your name when it''s your turn."'
@@ -61,7 +61,7 @@ if $ARGS[0] = 'hearing':
 		*clr & cla
 		minut += 10
 		gs 'stat'
-		!'<center><img <<$set_imgh>> src="images/locations/shared/police/interrogationpro.jpg"></center>' 'don''t remove, filename is Courtroom'
+		'<center><img <<$set_imgh>> src="images/locations/city/shared/court/courtroom.jpg"></center>'
 		'You spend some time searching for the correct courtroom and you stop and ask several people where the room is located. Thankfully, they''re really helpful and point you in the right direction.'
 		'Before opening the door you take a deep breath as you try to shake off the nervousness and after a few seconds you grab the handle and push the door to let yourself in.'
 		'Hardly anyone pays attention to you as you walk in as there''s already a sentencing in process.'
@@ -70,7 +70,7 @@ if $ARGS[0] = 'hearing':
 			*clr & cla
 			minut += 120
 			gs 'stat'
-			!'<center><img <<$set_imgh>> src="images/locations/shared/police/interrogationpro.jpg"></center>' 'don''t remove, filename is wait'
+			'<center><img <<$set_imgh>> src="images/locations/city/shared/court/wait.jpg"></center>'
 			'For what feels like an eternity you sit there there and listen to a court-case after another. The process seems to be quite streamlined, the judge starts out by telling the accused what they''re accused of and then lets the defendant state their case.'
 			'You try your best to listen to some of the defenses maybe you can pick up something useful before seeing the judge but it doesn''t take long before you lose focus and dream yourself away not really focusing on what''s happening around you.'
 			'All of a sudden you''re interrupted as you hear your name being called out. Startled, you quickly let the whole room know that you''re here as you hear some people quietly let out a laugh.'
@@ -80,7 +80,7 @@ if $ARGS[0] = 'hearing':
 					*clr & cla
 					minut += 20
 					gs 'stat'
-					!IMG = judge.jpg
+					'<center><img <<$set_imgh>> src="images/locations/city/shared/court/judge.jpg"></center>'
 					'The judge speaks up with a stern voice, "So I see that you''re here because of you''ve gotten caught stealing."'
 					'You sink your glance in shame and nod meekly.'
 					'The judge continues on, "Let''s see what the detectives concluded during their investigation."'
@@ -158,7 +158,7 @@ if $ARGS[0] = 'hearing':
 					*clr & cla
 					minut += 20
 					gs 'stat'
-					!IMG = judge.jpg
+					'<center><img <<$set_imgh>> src="images/locations/city/shared/court/judge.jpg"></center>'
 					'The judge speaks up with a stern voice, "So I see that you''re here because of you''ve gotten caught prostituting."'
 					'You sink your glance in shame and nod meekly.'
 					'The judge continues on, "Let''s see what the detectives concluded during their investigation."'
@@ -241,7 +241,7 @@ if $ARGS[0] = 'punishment':
 	*clr & cla
 	minut += 20
 	gs 'stat'
-	!IMG = sentence.jpg
+	'<center><img <<$set_imgh>> src="images/locations/city/shared/court/sentence.jpg"></center>'
 	'The judge is looking sternly at you, "So miss <<$pcs_lastname>>. You''ve caused quite ruckus. Now the law is quite stern when it comes to even petty crimes."'
 	'You tremble a bit in fear as he keeps on talking, "With that said, I believe in a more soft approach and that you can improve yourself by learning from your mistakes."'
 	'You meekly nod and feel a bit relieved as you hear that.'

@@ -991,7 +991,7 @@ if $ARGS[0] = 'rolan_meet':
 			'Roman is still stammering when you get back.'
 			'"Here we go! I''ll take the first bite!" You savour a little of the lunch, "See? It''s all good! Now you try a bite!"'
 			'Rolan grabs at a piece with his bare hands.'
-			'"No, silly! Use the knife and fork  You''re making a mess..."'
+			'"No, silly! Use the knife and fork You''re making a mess..."'
 			act 'Help Rolan':
 				*clr & cla
 				minut += 5
@@ -1203,7 +1203,7 @@ if $ARGS[0] = 'rolan_meet':
 		rolanmeet += 1
 		'<center><img src="images/characters/pavlovsk/school/teacher/rolan/school/rolanmeet21.jpg"></center>'		
 		'You spot Rolan and he''s already waving you over, "Miss <<$pcs_lastname>>, good morning! I''ll get our lunch today!"'
-		'"NO!  Um, I mean, good morning to you as well, Mr. Matveev!" You remember your last lunch together, "Let''s keep our meal light today, yeah?"'
+		'"NO! Um, I mean, good morning to you as well, Mr. Matveev!" You remember your last lunch together, "Let''s keep our meal light today, yeah?"'
 		'"Uh?" He looks a little perplexed.'
 		'You turn him around and gently push him towards the tables, "Yes, why don''t you find us a spot to sit and I''ll grab our food!"'
 		'"Uh, okay, Miss <<$pcs_lastname>>..."'

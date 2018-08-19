@@ -555,17 +555,17 @@ if $ARGS[0] = 'gopnik initiation':
 						gs 'stat'
 						LenaDis = 1 & LeraDis = 1
 						if bag = 1:
-							'You grab one bottle of the most expansive vodka on the shelf and stuff  it into your purse, then you grab another and do the same. You take a last look around making sure no one is watching you. You make your way to the door, you can feel your  heart pounding inside your chest. You walk up to the doors and push them open walking out, expecting at any moment for someone to yell that you''re stealing. Yet no one does, once outside you rush around the side of the building and await your accomplices. A few moments later Lera and Lena join you all smiles, you show them the bottles and the whoop.'
+							'You grab one bottle of the most expansive vodka on the shelf and stuff it into your purse, then you grab another and do the same. You take a last look around making sure no one is watching you. You make your way to the door, you can feel your heart pounding inside your chest. You walk up to the doors and push them open walking out, expecting at any moment for someone to yell that you''re stealing. Yet no one does, once outside you rush around the side of the building and await your accomplices. A few moments later Lera and Lena join you all smiles, you show them the bottles and the whoop.'
 							'Lena with a big grin starts to take off. "Come on they''re waiting for us by now." With that she takes off running with Lera right behind and you bringing up the rear.'
 
 							act 'Go to the party': gt 'gschool_socialchg', 'gopnik party'
 						elseif defaultcoat ! 0 and temper < 0:
-							'You grab one bottle of the most expansive vodka on the shelf and hide  it under your coat, then you grab another and do the same. You take a last look around making sure  no one is watching you. You make your way to the door, you can feel  your heart pounding inside your chest. You walk up to the doors and push  them open walking out, expecting at any moment for someone to yell that  you''re stealing. Yet no one does, once outside you rush around the side of the building and await your accomplices. A few moments later Lera and Lena join you all smiles, you show them the bottles and the whoop.'
+							'You grab one bottle of the most expansive vodka on the shelf and hide it under your coat, then you grab another and do the same. You take a last look around making sure no one is watching you. You make your way to the door, you can feel your heart pounding inside your chest. You walk up to the doors and push them open walking out, expecting at any moment for someone to yell that you''re stealing. Yet no one does, once outside you rush around the side of the building and await your accomplices. A few moments later Lera and Lena join you all smiles, you show them the bottles and the whoop.'
 							'Lena with a big grin starts to take off. "Come on they''re waiting for us by now." With that she takes off running with Lera right behind and you bringing up the rear.'
 
 							act 'Go to the party': gt 'gschool_socialchg', 'gopnik party'
 						else
-							'You grab one bottle of the most expansive vodka on the shelf and hide  it under your top, then you grab another and do the same. You take a last look around making sure no  one is watching you. You make your way to the door, you can feel your  heart pounding inside your chest. You walk up to the doors and push them  open walking out, expecting at any moment for someone to yell that you''re stealing. Yet no one does, once outside you rush around the side of the building and await your accomplices. A few moments later Lera and Lena join you all smiles, you show them the bottles and the whoop.'
+							'You grab one bottle of the most expansive vodka on the shelf and hide it under your top, then you grab another and do the same. You take a last look around making sure no one is watching you. You make your way to the door, you can feel your heart pounding inside your chest. You walk up to the doors and push them open walking out, expecting at any moment for someone to yell that you''re stealing. Yet no one does, once outside you rush around the side of the building and await your accomplices. A few moments later Lera and Lena join you all smiles, you show them the bottles and the whoop.'
 							'Lena with a big grin starts to take off. "Come on they''re waiting for us by now." With that she takes off running with Lera right behind and you bringing up the rear.'
 
 							act 'Go to the party': gt 'gschool_socialchg', 'gopnik party'
@@ -574,9 +574,9 @@ if $ARGS[0] = 'gopnik initiation':
 				end
 				act 'Change your mind':
 					cla & *clr
-					'<center><img <<$set_imgh>>  src="images/locations/pavlovsk/events/gopnikinvite/liqstoreout.jpg"></center>'
-					'Your heart is pounding so hard it feels like it is going to come out  of your chest. You look around and decide that you  can''t do this. So you turn and walk outside. A few minutes later Lena  and Lera join you, they are looking at you. Obviously trying to see  where you got the bottles hidden. You blush slightly and look down. "Sorry I couldn''t do it."'
-					'Lena goes red with rage and crowds you, pushing you up against the  side of the building. "Are you fucking kidding me? You fucking useless  bitch, why are you even here if all you''re  going to do is waste our time. I should beat your fucking ass!" She  looks around and notices some people are watching what''s going on with  her yelling. She then  looks back at you. "You''re fucking lucky bitch, stay the fuck away  from us from now on or I will give you a epic ass beating." With that  she turns and leaves, with Lera smirking at you, obviously looking  forward to pick on you from now on.'
+					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/events/gopnikinvite/liqstoreout.jpg"></center>'
+					'Your heart is pounding so hard it feels like it is going to come out of your chest. You look around and decide that you can''t do this. So you turn and walk outside. A few minutes later Lena and Lera join you, they are looking at you. Obviously trying to see where you got the bottles hidden. You blush slightly and look down. "Sorry I couldn''t do it."'
+					'Lena goes red with rage and crowds you, pushing you up against the side of the building. "Are you fucking kidding me? You fucking useless bitch, why are you even here if all you''re going to do is waste our time. I should beat your fucking ass!" She looks around and notices some people are watching what''s going on with her yelling. She then looks back at you. "You''re fucking lucky bitch, stay the fuck away from us from now on or I will give you a epic ass beating." With that she turns and leaves, with Lera smirking at you, obviously looking forward to pick on you from now on.'
 					gs 'stat'
 
 					act 'Stay silent':
@@ -596,16 +596,16 @@ if $ARGS[0] = 'gopnik initiation':
 						'As they start to walk off you catch up real quick. "Wait please, give me another chance."'
 						'Lera gives you a slight push away, while Lena says. "You had your chance and you blew it."'
 						'Feeling desperate you say. "Please! I''ll do anything!" you beg.'
-						'Finally they stop at those words and turn to look at you again. Lena  gives you a once over, while Lera gets a devious look on her face then  she leans over and whispers to Lena, who listens, laughs a bit then  nods. "Ok slut, you want in that bad? And you''re willing to do anything for the gopniks to become ones of us?" You nod your head yes.'
-						'She crosses her arms and gives you a look of slight disdain. "Fine,  then you can be the group bitch. We will take you to the party and you  have to do anything anyone fucking tells you. If I tell you to lick my  fucking boots, then you will lick  my boots. If one of the guys tells you to suck his fucking dick, then  you suck his fucking dick. If the guys decide to pull a train on you  then you let them. Got it? You still want in that badly?" Lera is  grinning like a wolf, as they wait for your reply.'
+						'Finally they stop at those words and turn to look at you again. Lena gives you a once over, while Lera gets a devious look on her face then she leans over and whispers to Lena, who listens, laughs a bit then nods. "Ok slut, you want in that bad? And you''re willing to do anything for the gopniks to become ones of us?" You nod your head yes.'
+						'She crosses her arms and gives you a look of slight disdain. "Fine, then you can be the group bitch. We will take you to the party and you have to do anything anyone fucking tells you. If I tell you to lick my fucking boots, then you will lick my boots. If one of the guys tells you to suck his fucking dick, then you suck his fucking dick. If the guys decide to pull a train on you then you let them. Got it? You still want in that badly?" Lera is grinning like a wolf, as they wait for your reply.'
 						minut += 5
 						gs 'stat'
 
 						act 'Yes, I''ll do anything':
 							cla & *clr
-							'<center><img <<$set_imgh>>  src="images/locations/pavlovsk/events/gopnikinvite/liqstoreout.jpg"></center>'
+							'<center><img <<$set_imgh>> src="images/locations/pavlovsk/events/gopnikinvite/liqstoreout.jpg"></center>'
 							'You nod your head yes. "Ok I''ll do anything, I will be anything you guys want me to be."'
-							'They exchange looks and then finally Lena shrugs and says to Lera. "You were right." Then she looks at you, "Well come on then slut." With that she  turns and leads you toward the party as she texts something on her  phone.'
+							'They exchange looks and then finally Lena shrugs and says to Lera. "You were right." Then she looks at you, "Well come on then slut." With that she turns and leads you toward the party as she texts something on her phone.'
 							gs 'stat'
 
 							act 'Go to the party': gt 'gschool_socialchg', 'gopnik slut'
@@ -714,24 +714,24 @@ if $ARGS[0] = 'gopnik initiation':
 				gs 'gschool_socialchg', 'group_rel_change','gopniks', -10
 				gs 'stat'
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/events/gopnikinvite/liqstoreout.jpg"></center>'
-				'You shake your head again. "Sorry I wasted your time then." With that you walk off, while Lena and Lera shout out all kind of names at you. You know you''ve  made a target of yourself to the gopniks but you''re no thief. You  don''t even know why you thought joining them was a good idea in the  first place.'
+				'You shake your head again. "Sorry I wasted your time then." With that you walk off, while Lena and Lera shout out all kind of names at you. You know you''ve made a target of yourself to the gopniks but you''re no thief. You don''t even know why you thought joining them was a good idea in the first place.'
 
 				!!have this auto dump you after the text back onto the residential street of Pavlovsk
 				act 'Leave the gang': gt 'pavResidential'
 			end
 			act 'Ask if there is something else you can do':
 				cla & *clr
-				'<center><img <<$set_imgh>>  src="images/locations/pavlovsk/events/gopnikinvite/liqstoreout.jpg"></center>'
-				'You know you''re about to blow your chance to be a gopnik and you are  feeling desperate now. "Maybe there is something else I can do, some  other way to be useful to you guys?"'
+				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/events/gopnikinvite/liqstoreout.jpg"></center>'
+				'You know you''re about to blow your chance to be a gopnik and you are feeling desperate now. "Maybe there is something else I can do, some other way to be useful to you guys?"'
 				'They look at you as you utter those words. Lena gives you a once over, while Lera gets a devious look on her face as she leans over and whispers something to Lena, who listens, laughs a bit then nods. "Ok slut, you want in that bad? Are you willing to do anything for the gopniks to become one of us?" You nod your head yes.'
-				'She crosses her arms and gives you a look of slight disdain. "Fine,  then you can be the group bitch. We will take you to the party and you  have to do anything anyone fucking tells you. If I tell you to lick my  fucking boots, then you will lick  my boots. If one of the guys tells you to suck his fucking dick, then  you suck his fucking dick. If the guys decide to pull a train on you  then you let them. Got it? You still want in that badly?" Lera is  grinning like a wolf, as they wait for your reply.'
+				'She crosses her arms and gives you a look of slight disdain. "Fine, then you can be the group bitch. We will take you to the party and you have to do anything anyone fucking tells you. If I tell you to lick my fucking boots, then you will lick my boots. If one of the guys tells you to suck his fucking dick, then you suck his fucking dick. If the guys decide to pull a train on you then you let them. Got it? You still want in that badly?" Lera is grinning like a wolf, as they wait for your reply.'
 				gs 'stat'
 
 				act 'Yes, I''ll do anything':
 					cla & *clr
-					'<center><img <<$set_imgh>>  src="images/locations/pavlovsk/events/gopnikinvite/liqstoreout.jpg"></center>'
+					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/events/gopnikinvite/liqstoreout.jpg"></center>'
 					'You nod your head yes. "Ok I''ll do anything, I will be anything you guys want me to be."'
-					'They exchange looks and then finally Lena shrugs and says to Lera. "You were  right." Then she looks at you, "Well come on then slut." With that she  turns and leads you toward the party as she texts something on her  phone.'
+					'They exchange looks and then finally Lena shrugs and says to Lera. "You were right." Then she looks at you, "Well come on then slut." With that she turns and leads you toward the party as she texts something on her phone.'
 					gs 'stat'
 
 					act 'Go to the party': gt 'gschool_socialchg', 'gopnik slut'
@@ -1436,7 +1436,7 @@ if $ARGS[0] = 'tValentin':
 	minut += 2
 	gs 'stat'
 	!if Sveta knows that Valentin works on motorcycle
-	if  anushkaFirstvisit = 1:
+	if anushkaFirstvisit = 1:
 		act 'How''s the work on the motorcycle going':
 			*clr & cla
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/43.jpg"></center>'

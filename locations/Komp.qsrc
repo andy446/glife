@@ -1445,7 +1445,7 @@ if $ARGS[0] = 'waitclients':
 				pcs_mood = 100
 				gs 'stat'
 				$orgasm_or = 'custom'
-				$orgasm_txt = 'It feels too good to stop! Before you know it, your fingers are repeatedly penetrating your ass and you moan excitedly, barely keeping yourself from screaming. You just had an anal orgasm in front of  <<camclients>> users, completely free of charge! Oops...'
+				$orgasm_txt = 'It feels too good to stop! Before you know it, your fingers are repeatedly penetrating your ass and you moan excitedly, barely keeping yourself from screaming. You just had an anal orgasm in front of <<camclients>> users, completely free of charge! Oops...'
 				gs 'stat'
 			end
 			act'Continue':gt'Komp','waitclients'

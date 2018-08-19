@@ -250,7 +250,7 @@ if $ARGS[0] = '':
 			pregTalkFamily = 2
 			npc_rel['A29'] += 20
 			'<br>'
-			'Your mother looks at you in shock. "  <<$pcs_nickname>>, Did you get an abortion ?"'
+			'Your mother looks at you in shock. " <<$pcs_nickname>>, Did you get an abortion ?"'
 			'You break down crying and tell your mother you had a miscarriage.'
 			'She takes you in her arms and tries to console you'
 			'"Don''t worry child, everything will be ok"'
@@ -870,7 +870,7 @@ if $ARGS[0] = 'pregreactbrother':
 		'You start to reply before you mother cuts you off.'
 		'"It doesn''t matter; you can''t stay here. You have to leave."'
 		'Your brother grabs your hand before rising to your defense. "Mom, that''s not fair. You can’t just kick <<$pcs_nickname>> out."'
-		'"Kolka, sweetheart.  Let go of your sister''s hand right now and shut up. Now is not the time."'
+		'"Kolka, sweetheart. Let go of your sister''s hand right now and shut up. Now is not the time."'
 		'Your brother reluctantly releases your hand, and in that moment you want nothing more than to feel the warmth of his skin against yours again. His hand''s departure from your own makes you feel more alone and terrified than you ever have.'
 		'Still, you can''t fault Kolka for that. There isn''t much else he could have done in that situation. If you survive this, you fully intend to reward your brother for his moment of bravery.'
 		'Your eyes well with tears that begin to stream down past your quivering lips.'

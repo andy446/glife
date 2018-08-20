@@ -648,7 +648,7 @@ if $ARGS[0] = 'startpagemfc':
 		gs 'stat'
 		'While you sit in your chair, you can''t help but wince every time you move. You want to put up a show, but it hurts too much. And besides... you doubt your viewers would want to see you in your current state! You should heal up a bit before trying again.'
 		act 'Collect your earnings and leave':
-			karta += tokens/2
+			karta += tokens * 2
 			gt 'Komp','mfc'
 		end
 	else
@@ -658,7 +658,7 @@ if $ARGS[0] = 'startpagemfc':
 		'You casually chat with the <<camclients>> visitors currently in your chatroom. Once you turn on your webcam, things will probably get busier.'
 		act 'Turn on your webcam':gt 'komp','waitclients'
 		act 'Collect your earnings and leave':
-			karta += tokens/2
+			karta += tokens * 2
 			gt 'Komp','mfc'
 		end
 	end

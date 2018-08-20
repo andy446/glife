@@ -259,8 +259,8 @@ if $ARGS[0] = 'wake':
 	if daystart < 10 and StoryLine = 0 and ntstart = 0:'The first thing you think as you wake up is, "Damn! It''s is not a dream, I really am a woman now."'
 	if daystart >= 10 and daystart < 30 and StoryLine = 0 and ntstart = 0:'Looking at your female body, you are still a little surprised it''s actually you.'
 
-	if kanikuli = 0 and StoryLine = 1 and SchoolAtestat = 0 and SchoolBlock = 0 and week < 6 and hour >= 8 and hour < 9:
-		if slept_in = 1:
+	if kanikuli = 0 and StoryLine = 1 and SchoolAtestat = 0 and SchoolBlock = 0 and week < 6 and hour >= 4 and hour < 9:
+		if slept_in = 1 and hour >= 8 and hour < 9:
 			pcs_mood -= 10
 			msg '<center>Damn, you''ve slept too long! You''re going to be late for school!</center>'
 		end
@@ -288,8 +288,8 @@ if $ARGS[0] = 'wake':
 			fullmorrout = 1
 			gs 'bed2', 'end'
 		end
-		if kanikuli = 0 and StoryLine = 1 and SchoolAtestat = 0 and SchoolBlock = 0 and week < 6 and hour >= 8 and hour < 9:
-			if slept_in = 1:
+		if kanikuli = 0 and StoryLine = 1 and SchoolAtestat = 0 and SchoolBlock = 0 and week < 6 and hour >= 4 and hour < 9:
+			if slept_in = 1 and hour >= 8 and hour < 9:
 				pcs_mood -= 10
 				msg '<center>Damn, you''ve slept too long! You''re going to be late for school!</center>'
 			end

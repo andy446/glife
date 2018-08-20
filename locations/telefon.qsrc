@@ -782,9 +782,20 @@ if $ARGS[0] = 'Phone_selfie_totals':
 	kitchen_clotot = 16
 	kitchen_undtot = 11
 	kitchen_nudtot = 20
-	livingr_clotot = 17
-	livingr_undtot = 21
-	livingr_nudtot = 21
+	livingroom_clotot = 17
+	livingroom_undtot = 21
+	livingroom_nudtot = 21
+	changingroom_clotot = 19
+	changingroom_undtot = 25
+	changingroom_nudtot = 21
+	park_clotot = 28
+	park_undtot = 0
+	park_nudtot = 18
+	lockeroom_clotot = 21
+	lockeroom_undtot = 16
+	lockeroom_nudtot = 14
+	beach_swim = 21
+	beach_nudtot = 22
 end
 
 
@@ -796,156 +807,98 @@ if $ARGS[0] = 'Phone_pictures':
 	pl '<center><TABLE cellspacing="0" width="80%"><TR><TD><img src="images/system/icon/icon_statusbar_left.png"></TD><TD></TD><TD align="right"><img src="images/system/icon/icon_statusbar_right.png"></TD></TR></TABLE></center>'
 	pl'<center><font size=6>Gallery</font></center>'
 	pl'<center><img src="<<FUNC(''$phone_theme'')>>icon_pictures.png" height="80" width="80"><br></center>'
+	!!default images that are used in any location not set
 	if phone_selfie[1] = 1:pl'<a href="exec:view''images/system/phone/selfie/phone_selfie1.jpg''"><b>Selfie number1</b></a>'
 	if phone_selfie[2] = 1:pl'<a href="exec:view''images/system/phone/selfie/phone_selfie2.jpg''"><b>Selfie number2</b></a>'
-	bathroom_clocnt = 1
-	:bathroom_cloloop
-		if bathroom_closelfie[bathroom_clocnt] = 1:pl'<a href="exec:view''images/pc/selfies/bathroom/clothed/<<bathroom_clocnt>>.jpg''"><b>Clothed bathroom selfie #<<bathroom_clocnt>></b></a>'
-		bathroom_clocnt += 1
-	if bathroom_clocnt <= bathroom_clotot: jump'bathroom_cloloop'
 
-	bathroom_undcnt = 1
-	:bathroom_undloop
-		if bathroom_undselfie[bathroom_undcnt] = 1:pl'<a href="exec:view''images/pc/selfies/bathroom/underwear/<<bathroom_undcnt>>.jpg''"><b>Underwear bathroom selfie #<<bathroom_undcnt>></b></a>'
-		bathroom_undcnt += 1
-	if bathroom_undcnt <= bathroom_undtot: jump'bathroom_undloop'
+	!!loop for locations where selfies can be taken starting with bathroom
+	$phone_loc = 'bathroom'
+	:phoneloc_loop
+		!!Loop for clothed selfies, dynamics set variables as mixing them in loop instructions is bad
+		temp_clocnt = 1
+		dynamic 'temp_loop = <<$phone_loc>>_cloloop'
+		dynamic 'temp_total = <<$phone_loc>>_clotot'
+		:temp_loop
+			!!setting value to unmixed variable so it can be checked in the if below
+			dyneval '$phone_locval = <<$phone_loc>>_closelfie[<<temp_clocnt>>]'
+			if $phone_locval = 1:pl '<a href="exec:view''images/pc/selfies/<<$phone_loc>>/clothed/<<temp_clocnt>>.jpg''"><b>Clothed <<$phone_loc>> selfie #<<temp_clocnt>></b></a>'
+			temp_clocnt += 1
+		if temp_clocnt <= temp_total: jump'temp_loop'
 
-	bathroom_nudcnt = 1
-	:bathroom_nudloop
-		if bathroom_nudselfie[bathroom_nudcnt] = 1:pl'<a href="exec:view''images/pc/selfies/bathroom/nude/<<bathroom_nudcnt>>.jpg''"><b>Nude bathroom selfie #<<bathroom_nudcnt>></b></a>'
-		bathroom_nudcnt += 1
-	if bathroom_nudcnt <= bathroom_nudtot: jump'bathroom_nudloop'
+		!!loop for underwwear selfies
+		temp_undcnt = 1
+		dynamic 'temp_loop1 = <<$phone_loc>>_undloop'
+		dynamic 'temp_total = <<$phone_loc>>_undtot'
+		:temp_loop1
+			dyneval '$phone_locval = <<$phone_loc>>_undselfie[<<temp_undcnt>>]'
+			if $phone_locval = 1:pl'<a href="exec:view''images/pc/selfies/<<$phone_loc>>/underwear/<<temp_undcnt>>.jpg''"><b>Underwear <<$phone_loc>> selfie #<<temp_undcnt>></b></a>'
+			temp_undcnt += 1
+		if temp_undcnt <= temp_total: jump'temp_loop1'
 
-	bedroom_clocnt = 1
-	:bedroom_cloloop
-		if bedroom_closelfie[bedroom_clocnt] = 1:pl'<a href="exec:view''images/pc/selfies/bedroom/clothed/<<bedroom_clocnt>>.jpg''"><b>Clothed bedroom selfie #<<bedroom_clocnt>></b></a>'
-		bedroom_clocnt += 1
-	if bedroom_clocnt <= bedroom_clotot: jump'bedroom_cloloop'
+		!!loop for nude selfies
+		temp_nudcnt = 1
+		dynamic 'temp_loop2 = <<$phone_loc>>_nudloop'
+		dynamic 'temp_total = <<$phone_loc>>_nudtot'
+		:temp_loop2
+			dyneval '$phone_locval = <<$phone_loc>>_nudselfie[<<temp_nudcnt>>]'
+			if $phone_locval = 1:pl'<a href="exec:view''images/pc/selfies/<<$phone_loc>>/nude/<<temp_nudcnt>>.jpg''"><b>Nude <<$phone_loc>> selfie #<<temp_nudcnt>></b></a>'
+			temp_nudcnt += 1
+		if temp_nudcnt <= temp_total: jump'temp_loop2'
 
-	bedroom_undcnt = 1
-	:bedroom_undloop
-		if bedroom_undselfie[bedroom_undcnt] = 1:pl'<a href="exec:view''images/pc/selfies/bedroom/underwear/<<bedroom_undcnt>>.jpg''"><b>Underwear bedroom selfie #<<bedroom_undcnt>></b></a>'
-		bedroom_undcnt += 1
-	if bedroom_undcnt <= bedroom_undtot: jump'bedroom_undloop'
+	!!Changes to location so all get processed 
+	if $phone_loc = 'bathroom':
+		$phone_loc = 'bedroom'
+		jump'phoneloc_loop'
+	elseif $phone_loc = 'bedroom':
+		$phone_loc = 'kitchen'
+		jump'phoneloc_loop'
+	elseif $phone_loc = 'kitchen':
+		$phone_loc = 'livingroom'
+		jump'phoneloc_loop'
+	elseif $phone_loc = 'livingroom':
+		$phone_loc = 'changingroom'
+		jump'phoneloc_loop'
+	elseif $phone_loc = 'changingroom':
+		$phone_loc = 'park'
+		jump'phoneloc_loop'
+	elseif $phone_loc = 'park':
+		$phone_loc = 'lockeroom'
+		jump'phoneloc_loop'
+	end
 
-	bedroom_nudcnt = 1
-	:bedroom_nudloop
-		if bedroom_nudselfie[bedroom_nudcnt] = 1:pl'<a href="exec:view''images/pc/selfies/bedroom/nude/<<bedroom_nudcnt>>.jpg''"><b>Nude bedroom selfie #<<bedroom_nudcnt>></b></a>'
-		bedroom_nudcnt += 1
-	if bedroom_nudcnt <= bedroom_nudtot: jump'bedroom_nudloop'
+	!!variant for beach selfies using swimwear and nude only
+	beach_swimcnt = 1
+	:beach_swimloop
+		if beach_swimselfie[beach_swimcnt] = 1:pl'<a href="exec:view''images/pc/selfies/bedroom/clothed/<<beach_swimcnt>>.jpg''"><b>Clothed bedroom selfie #<<beach_swimcnt>></b></a>'
+		beach_swimcnt += 1
+	if beach_swimcnt <= beach_swimtot: jump'beach_swimloop'
 
-	kitchen_clocnt = 1
-	:kitchen_cloloop
-		if kitchen_closelfie[kitchen_clocnt] = 1:pl'<a href="exec:view''images/pc/selfies/kitchen/clothed/<<kitchen_clocnt>>.jpg''"><b>Clothed kitchen selfie #<<kitchen_clocnt>></b></a>'
-		kitchen_clocnt += 1
-	if kitchen_clocnt <= kitchen_clotot: jump'kitchen_cloloop'
-
-	kitchen_undcnt = 1
-	:kitchen_undloop
-		if kitchen_undselfie[kitchen_undcnt] = 1:pl'<a href="exec:view''images/pc/selfies/kitchen/underwear/<<kitchen_undcnt>>.jpg''"><b>Underwear kitchen selfie #<<kitchen_undcnt>></b></a>'
-		kitchen_undcnt += 1
-	if kitchen_undcnt <= kitchen_undtot: jump'kitchen_undloop'
-
-	kitchen_nudcnt = 1
-	:kitchen_nudloop
-		if kitchen_nudselfie[kitchen_nudcnt] = 1:pl'<a href="exec:view''images/pc/selfies/kitchen/nude/<<kitchen_nudcnt>>.jpg''"><b>Nude kitchen selfie #<<kitchen_nudcnt>></b></a>'
-		kitchen_nudcnt += 1
-	if kitchen_nudcnt <= kitchen_nudtot: jump'kitchen_nudloop'
-
-	livingr_clocnt = 1
-	:livingr_cloloop
-		if livingr_closelfie[livingr_clocnt] = 1:pl'<a href="exec:view''images/pc/selfies/livingroom/clothed/<<livingr_clocnt>>.jpg''"><b>Clothed livingroom selfie #<<livingr_clocnt>></b></a>'
-		livingr_clocnt += 1
-	if livingr_clocnt <= livingr_clotot: jump'livingr_cloloop'
-
-	livingr_undcnt = 1
-	:livingr_undloop
-		if livingr_undselfie[livingr_undcnt] = 1:pl'<a href="exec:view''images/pc/selfies/livingroom/underwear/<<livingr_undcnt>>.jpg''"><b>Underwear livingroom selfie #<<livingr_undcnt>></b></a>'
-		livingr_undcnt += 1
-	if livingr_undcnt <= livingr_undtot: jump'livingr_undloop'
-
-	livingr_nudcnt = 1
-	:livingr_nudloop
-		if livingr_nudselfie[livingr_nudcnt] = 1:pl'<a href="exec:view''images/pc/selfies/livingroom/nude/<<livingr_nudcnt>>.jpg''"><b>Nude livingroom selfie #<<livingr_nudcnt>></b></a>'
-		livingr_nudcnt += 1
-	if livingr_nudcnt <= livingr_nudtot: jump'livingr_nudloop'
+	beach_nudcnt = 1
+	:beach_nudloop
+		if beach_nudselfie[beach_nudcnt] = 1:pl'<a href="exec:view''images/pc/selfies/beach/nude/<<beach_nudcnt>>.jpg''"><b>Nude beach selfie #<<beach_nudcnt>></b></a>'
+		beach_nudcnt += 1
+	if beach_nudcnt <= beach_nudtot: jump'beach_nudloop'
 
 	*nl
 	pl'<center><a href="exec:gs ''telefon'', ''Phone_menu'' "><img src="images/system/icon/back.png"></a></center>'
 end
 
-!!picking the selfie image when taking photos
+!!picking the selfie image when taking photos, this sets the location variable
 if $ARGS[0] = 'Phone_camera_selfie':
 	gs 'telefon', 'Phone_selfie_totals'
 	minut += RAND(5,7)
 	if $location_type = 'bathroom':
-		if $clothingworntype ! 'nude':
-			phone_rand = rand(1,bathroom_clotot)
-			bathroom_closelfie[phone_rand] = 1
-			gs 'stat'
-			view 'images/pc/selfies/bathroom/clothed/<<phone_rand>>.jpg'
-		elseif $pantyworntype ! 'none':
-			phone_rand = rand(1,bathroom_undtot)
-			bathroom_undselfie[phone_rand] = 1
-			gs 'stat'
-			view 'images/pc/selfies/bathroom/underwear/<<phone_rand>>.jpg'
-		else
-			phone_rand = rand(1,bathroom_nudtot)
-			bathroom_nudselfie[phone_rand] = 1
-			gs 'stat'
-			view 'images/pc/selfies/bathroom/nude/<<phone_rand>>.jpg'
-		end
+		$phone_loc = 'bathroom'
+		gs 'telefon', 'Phone_selfie_image'
 	elseif $locclass = 'bedr':
-		if $clothingworntype ! 'nude':
-			phone_rand = rand(1,bedroom_clotot)
-			bedroom_closelfie[phone_rand] = 1
-			gs 'stat'
-			view 'images/pc/selfies/bedroom/clothed/<<phone_rand>>.jpg'
-		elseif $pantyworntype ! 'none':
-			phone_rand = rand(1,bedroom_undtot)
-			bedroom_undselfie[phone_rand] = 1
-			gs 'stat'
-			view 'images/pc/selfies/bedroom/underwear/<<phone_rand>>.jpg'
-		else
-			phone_rand = rand(1,bedroom_nudtot)
-			bedroom_nudselfie[phone_rand] = 1
-			gs 'stat'
-			view 'images/pc/selfies/bedroom/nude/<<phone_rand>>.jpg'
-		end
+		$phone_loc = 'bedroom'
+		gs 'telefon', 'Phone_selfie_image'
 	elseif $locclass = 'kitr':
-		if $clothingworntype ! 'nude':
-			phone_rand = rand(1,kitchen_clotot)
-			kitchen_closelfie[phone_rand] = 1
-			gs 'stat'
-			view 'images/pc/selfies/kitchen/clothed/<<phone_rand>>.jpg'
-		elseif $pantyworntype ! 'none':
-			phone_rand = rand(1,kitchen_undtot)
-			kitchen_undselfie[phone_rand] = 1
-			gs 'stat'
-			view 'images/pc/selfies/kitchen/underwear/<<phone_rand>>.jpg'
-		else
-			phone_rand = rand(1,kitchen_nudtot)
-			kitchen_nudselfie[phone_rand] = 1
-			gs 'stat'
-			view 'images/pc/selfies/kitchen/nude/<<phone_rand>>.jpg'
-		end
-	elseif $locclass = 'livingr':
-		if $clothingworntype ! 'nude':
-			phone_rand = rand(1,livingr_clotot)
-			livingr_closelfie[phone_rand] = 1
-			gs 'stat'
-			view 'images/pc/selfies/livingroom/clothed/<<phone_rand>>.jpg'
-		elseif $pantyworntype ! 'none':
-			phone_rand = rand(1,livingr_undtot)
-			livingr_undselfie[phone_rand] = 1
-			gs 'stat'
-			view 'images/pc/selfies/livingroom/underwear/<<phone_rand>>.jpg'
-		else
-			phone_rand = rand(1,livingr_nudtot)
-			livingr_nudselfie[phone_rand] = 1
-			gs 'stat'
-			view 'images/pc/selfies/livingroom/nude/<<phone_rand>>.jpg'
-		end
+		$phone_loc = 'kitchen'
+		gs 'telefon', 'Phone_selfie_image'
+	elseif $locclass = 'livingroom':
+		$phone_loc = 'livingroom'
+		gs 'telefon', 'Phone_selfie_image'
 	else
 		phone_rand = RAND(1,2)
 		phone_selfie[phone_rand] = 1
@@ -955,6 +908,31 @@ if $ARGS[0] = 'Phone_camera_selfie':
 	!if spdirtyf > 0: phone_rand = RAND (m,n) - for SELF in the semen
 	!if photo_event_pic = x: phone_rand = RAND (x,y) - for photos during the events (by heart)
 	!view 'images/system/phone/phone_selfie<<phone_rand>>.jpg'
+end
+
+!!taking selfies, this chooses a random image for the location for clothed, underwear and nude
+if $ARGS[0] = 'Phone_selfie_image':
+	if $clothingworntype ! 'nude':
+		!!changing to and unmixed variable so the rng will work
+		dynamic 'temp_clotot = <<$phone_loc>>_clotot'
+		phone_rand = rand(1,temp_clotot)
+		!!Setting the image owned flag to 1
+		dynamic '<<$phone_loc>>_closelfie[<<phone_rand>>] = 1'
+		gs 'stat'
+		view 'images/pc/selfies/<<$phone_loc>>/clothed/<<phone_rand>>.jpg'
+	elseif $pantyworntype ! 'none':
+		dynamic 'temp_undtot = <<$phone_loc>>_undtot'
+		phone_rand = rand(1,temp_undtot)
+		dynamic '<<$phone_loc>>_undselfie[<<phone_rand>>] = 1'
+		gs 'stat'
+		view 'images/pc/selfies/<<$phone_loc>>/underwear/<<phone_rand>>.jpg'
+	else
+		dynamic 'temp_nudtot = <<$phone_loc>>_nudtot'
+		phone_rand = rand(1,temp_nudtot)
+		dynamic '<<$phone_loc>>_nudselfie[<<phone_rand>>] = 1'
+		gs 'stat'
+		view 'images/pc/selfies/<<$phone_loc>>/nude/<<phone_rand>>.jpg'
+	end
 end
 
 !!for taking photos - only selfies for now

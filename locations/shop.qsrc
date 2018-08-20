@@ -169,7 +169,7 @@ if $shoplocation = 'ATM':
 					atmDepositDate = daystart + 2
 					money -= kartaINATM
 					'<br>You deposited <<kartaINATM>> <b>₽</b> into your account.'
-					'It will take 2 days for funds to be available. Your new balance will be <<karta+atmDeposit>>  <b>₽</b>.'
+					'It will take 2 days for funds to be available. Your new balance will be <<karta+atmDeposit>> <b>₽</b>.'
 				end
 
 				gs 'stat'

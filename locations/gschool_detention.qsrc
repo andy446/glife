@@ -348,7 +348,7 @@ if $ARGS[0] = 'teasing girl':
 	if $rand_girl = 'Veronika' or $rand_girl = 'Ekaterina': jump'newteasinggirl'
 	'<center><b><font color="maroon">Detention</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/detention/tease.jpg"></center>'
-	'As you are sitting at a table bored out of your mind waiting for detention to end. You start looking around and you notice <<$rand_girl>> has snuck off into the book stacks, she is watching some boys watch her, she pulls down her pants and starts to pull down her panties but she stops just before she shows anything, grins as she pulls her clothes back up. After  doing this a few times, each time the boys look hopefully this might be the time, but it never is. Finally she gets bored teasing them and wanders off. After that you start playing on your phone again, at least there was a little excitement today.'
+	'As you are sitting at a table bored out of your mind waiting for detention to end. You start looking around and you notice <<$rand_girl>> has snuck off into the book stacks, she is watching some boys watch her, she pulls down her pants and starts to pull down her panties but she stops just before she shows anything, grins as she pulls her clothes back up. After doing this a few times, each time the boys look hopefully this might be the time, but it never is. Finally she gets bored teasing them and wanders off. After that you start playing on your phone again, at least there was a little excitement today.'
 	gs 'arousal', 'voyeur', 5
 	gs 'arousal', 'end'
 	gs 'stat'

@@ -481,6 +481,7 @@ if $ARGS[0] = 'rand_scoolboy':
 			'He''s kind of cute. You''re so horny right now, you decide to tease him and see if you can push him into doing more. You put your finger in your mouth and quietly ask him in a lewd voice, "Come on <<$rand_boy>>, is that all you have for me?"'
 			'His friends heard your question, and are now daring him to take you to the men''s room. He doesn''t seem so sure.'
 			act 'Tease him':
+				*clr & cla
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/rand_scoolboy3.jpg"></center>'
 				'You can see him starting to get turned on and sure this is going to turn out good for him. Then you lean in real close and whisper in his ear, but loud enough for others to hear. "Because this is what I have for you." You start sliding your skirt slowly up your thighs, now all the boys are watching and just before it gets high enough to show anything you let it go and it drops back in place. "Which is nothing." You say with a giggle and laugh off, you hear one of the boys saying to his friend. "God so close. She is such a tease."'
 				act 'Continue': gt 'gschool_lessons', 'short_break'

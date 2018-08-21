@@ -665,6 +665,7 @@ if $ARGS[0] = 'startpagemfc':
 end
 
 if $ARGS[0] = 'waitclients':
+	gs'family'
 	cls
 	minut += RAND(1,4)
 	if mfccum > 0: mfcdaycum = daystart

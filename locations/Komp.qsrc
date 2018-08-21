@@ -42,8 +42,11 @@ if $ARGS[0] = 'brows':
 		'<center><b>Browser</b></center>'
 		'<center><img <<$set_imgh>> src="images/shared/accessories/computer/eror.jpg"></center>'
 		'You have no prepaid internet access remaining. You need to buy more, before you can go online again.'
+		if camwhore = 1:
+			'Since MyFreeCams will cover the cost, you can still log on to do a cam show.'
+			act 'Go to MyFreeCams.org':gt 'Komp', 'mfc'
+		end
 	else
-
 		'<center><img <<$set_imgh>> src="images/shared/accessories/computer/komp.jpg"></center>'
 		'You go to your favourite start page, while you try to decide on what you want to see right now.'
 
@@ -459,7 +462,7 @@ if $ARGS[0] = 'rabota':
 				'<center><img <<$set_imgh>> src="images/shared/accessories/computer/camwhore1.jpg"></center>'
 				'You click the button and get taken to the full job description.'
 				'<i>For this job, you will have to expose your body in front of customers, fulfilling their wishes. Payment is completely based on a tip system: customers on the website can buy tokens, which they can use to tip girls they enjoy watching.'
-				'How much money you make is up to you: the better you are at attracting viewers, and the more you are willing to do to please them, the more likely they will be to tip you.'
+				'The website will cover all costs during your shows. But how much money you make is up to you: the better you are at attracting viewers, and the more you are willing to do to please them, the more likely they will be to tip you.'
 				'After a quick verification, you usually get paid immediately after a session ends. The tokens you earn will be converted to rubles, and paid to your bank account right away.'
 				'The website hides your stream for viewers from your region, so the chance of being recognized by someone you know in real life is very low.'
 				'If you''re interested in becoming a webcam girl, please fill in this questionnaire below.</i>'

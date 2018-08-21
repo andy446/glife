@@ -918,9 +918,9 @@ if $ARGS[0] = 'saunawork':
 				if saunaWorkKlient = 1:
 					cls
 					gs 'stat'
-					'A client has arrived at the sauna, and the girls line up so that the customer can choose his favorite.'
 					'<center><img <<$set_imgh>> src="images/locations/city/residential/sauna/saunawhore.jpg"></center>'
-
+					'A client has arrived at the sauna, and the girls line up so that the customer can choose his favorite.'
+					
 					if rand(0, 120) < pcs_apprnc:
 						'Client jabs a finger at you, "This one."'
 						act 'Go to the sauna with client':

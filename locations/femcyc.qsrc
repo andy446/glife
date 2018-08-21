@@ -364,7 +364,13 @@ if $ARGS[0] = '':
 			else
 				milkgrowday = daystart
 				if lactatemm >= lactatemv and salo > 11:
-					lactatemv += lactaterate
+					if lactaterate > lactaterate_use:
+						temp_lactaterate = lactaterate_use
+					else
+						temp_lactaterate = lactaterate
+					end
+					lactatemv += temp_lactaterate
+					lactaterate_use = lactaterate
 					if lactatemv > lactatemm:
 						lactatemv = lactatemm
 						lact_engorgement += 1
@@ -432,7 +438,13 @@ if $ARGS[0] = '':
 			else
 				milkgrowday = daystart
 				if lactatemm >= lactatemv and salo > 11:
-					lactatemv += lactaterate
+					if lactaterate > lactaterate_use:
+						temp_lactaterate = lactaterate_use
+					else
+						temp_lactaterate = lactaterate
+					end
+					lactatemv += temp_lactaterate
+					lactaterate_use = lactaterate
 					if lactatemv > lactatemm:
 						lactatemv = lactatemm
 						lact_engorgement += 1

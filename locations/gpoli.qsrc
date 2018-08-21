@@ -20,6 +20,10 @@ if $ARGS[0] = '':
 	if prcptn_lvl > 40 and pcs_know_mward <= 0:
 		'<br><br>You see a sign that reads <a href="exec: minut += 5 & gt ''gpoli'', ''maternity_ward''">"Maternity ward"</a>.'
 	end
+	
+	if pcs_ask_mward_help >= 1 and pcs_know_mward <= 0:
+		'<br><br><a href="exec: minut += 5 & gt ''gpoli'', ''reception''">Ask</a> at the reception for help with your breasts.'
+	end
 
 	act 'Leave':minut += 5 & gt 'pavCommercial'
 
@@ -1271,393 +1275,510 @@ if $ARGS[0] = 'maternity_ward':
 	cla
 	gs 'stat'
 	minut += 5
-	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/mward.jpg"></center>'
-	'<center>You are at the maternity ward. There are alot of babies and nurses taking care of them.</center>'
-	if lactate > 0 and pcs_gpolimilkdonation = 3:
-		act 'Talk to the nurse (0:05)':
-			gs 'stat'
-			*clr
-			cla
-			minut += 5
-			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/old_nurse.jpg"></center>'
-			'Nurse: Hello <<$pcs_firstname>>, how can I help you?'
-			act 'Donate your breast milk (0:15)':
+	if hour >= 6 and hour <= 21:
+		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/mward.jpg"></center>'
+		'<center>You are at the maternity ward. There are alot of babies and nurses taking care of them.</center>'
+		if lactate > 0 and pcs_gpolimilkdonation = 3:
+			act 'Talk to the nurse (0:05)':
+				gs 'stat'
 				*clr
 				cla
-				milkedvolume = 0
-				pcs_gpoli_donationsessioncount = 0
-				!!if rand(0,100) = 95 and orphanfeed = 0:
-				!!	orphanfeed = 1
-				!!end
-				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/pump_room.jpg"></center>'
-				'You talk to the old nurse and she leads you into the quiet room.'
-				!!if orphanfeed = 1:
-				!!	'It seems like there is a crib with a baby inside in this room, too.'
-				!!end
-				act 'have your breasts pumped':
+				minute += 5
+				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/old_nurse.jpg"></center>'
+				'Nurse: Hello <<$pcs_firstname>>, how can I help you?'
+				act 'Donate your breast milk (0:15)':
 					*clr
 					cla
+					milkedvolume = 0
+					pcs_gpoli_donationsessioncount = 0
+					!!if rand(0,100) = 95 and orphanfeed = 0:
+					!!	orphanfeed = 1
+					!!end
 					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/pump_room.jpg"></center>'
-					'You sit down and take off your top.'
-					if lactatemv > lactatemm*8/10:
-						'The nurse looks surprised at your engorged breasts'
-						'Nurse: Oh dear! These look painfully full. I hope the pumping will make you feel better.'
-					end					
-					if pain['nipples'] >= 60:
-						'<center><img <<$set_imgh>> src="images/pc/body/nipples/sore_nipples.jpg"></center>'
-						'The nurse looks at your sore nipples and frowns a bit. She then grabs a small tin, and takes a bit more of the yellowish cream from the tin.'
-						'She applies the cream to your nipples. It feels nice on your nipples and they hurt less.'
-						pain['nipples'] -= 20
-					else
-						'The nurse grabs the nipple balm and applies it to your nipples. It feels nice on your nipples as she rubs it in.'
-					end
-					nipple_cream = 1
-					act 'continue':	gt 'gpoli', 'maternity_ward_donation'
-				end
-			end
-			act 'Check your file (0:05)':
-				*clr
-				cla
-				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/formular.jpg"></center>'
-				'The nurse hands you a file on how much you have donated so far.'
-				'<br>----------------------------------------'
-				'Analyzed milksample measurements'
-				'Volume in ml: <<mward_donatesv/10>>ml'
-				'Fat in %: <<mward_donatesf/10>>.<<mward_donatesf mod 10>>%'
-				'Lactose in %: <<mward_donatess/10>>.<<mward_donatess mod 10>>%'
-				'<br>----------------------------------------'
-				if pcs_gpoli_totalmilkdonation_count > 0:
-					'Total breast milk donation statistics'
-					if pcs_gpoli_totalmilkdonation < 100:
-						'Donated milk volume in liter: <<pcs_gpoli_totalmilkdonation/1000>>.0<<pcs_gpoli_totalmilkdonation mod 1000>>l'
-					else
-						'Donated milk volume in liter: <<pcs_gpoli_totalmilkdonation/1000>>.<<pcs_gpoli_totalmilkdonation mod 1000>>l'
-					end
-					'Donation count: <<pcs_gpoli_totalmilkdonation_count>>'
-					'Average milk volume per donation in ml: <<pcs_gpoli_totalmilkdonation/pcs_gpoli_totalmilkdonation_count>>'
-					'Paid money: <<(((pcs_gpoli_totalmilkdonation*10)/3)*75)/100>><b>₽</b>'
-					'<br>----------------------------------------'
-				end
-				act 'Leave': gt 'gpoli', 'maternity_ward'
-			end
-			!!act 'Mammography (1:00)':
-			!!	
-			!!end
-			act 'Leave': gt 'gpoli', 'maternity_ward'			
-		end
-	end
-	if lactate > 0 and lactatemv > lactatemm/8 and pcs_gpolimilkdonation <= 2:
-		'<br><br><center>One of the nurses looks at you suspiciously.<center>'
-		act 'Talk to the nurse (0:05)':
-			*clr
-			cla
-			minut += 5
-			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/old_nurse.jpg"></center>'
-			if preg >= 0 and pregtimes > 0 and pcs_gpolimilkdonation <= 0:
-				'You walk up to the nurse'
-				'You: Uhm, Hello...'
-				'Nurse: Which one is yours?'
-				'You: Mine? I don''t understand...'
-				'The nurse looks at your face then down at your breast and than back at your face.'
-				'Nurse: Well, you are obviously lactating, so you came here to breastfeed your offspring?'
-				'She concludes on you, giving you a rised eyebrow.'
-			elseif preg = 0 and pregtimes = 0 and pcs_gpolimilkdonation <= 0:
-				'You walk up to the nurse'
-				'You: Uhm, Hello...'
-				'The nurse looks you up and down, rising an eyebrow on you.'
-				'Nurse: You don''t look like you ever had a child, how come you are lactating?'
-				'You are surprised by the sudden and precise analysis of the nurse.'
-				'You: How... how do you know?'
-				'Nurse: I''ve been working here for ages. Trust me ... I can tell by the smell. Now why are you lactating?'
-			elseif pcs_gpolimilkdonation <= 0:
-				'You walk up to the nurse'
-				'You: Uhm, Hello...'
-				'Nurse: Which one is yours?'
-				'You: Mine? I don''t understand...'
-				'The nurse looks at your face then down at your breast and than back at your face.'
-				'Nurse: Well, you are obviously lactating, so you came here to breastfeed your offspring?'
-				'She concludes on you, giving you a rised eyebrow.'
-			else
-				'You walk up to the nurse'
-				'You: Hello...'
-				'Nurse: Ah, it is you again...'
-				'She looks you up and down'
-				if pcs_gpolimilkdonation = 1 and preg = 0 and pregtimes = 0:
-					'Nurse: So, why are you lactating again?'
-				elseif pcs_gpolimilkdonation = 2:
-					'Nurse: Did you change your mind and want donate your breast milk?'
-				else
-					'Nurse: What do you want?'
-				end
-			end
-			if pcs_gpolimilkdonation < 1: pcs_gpolimilkdonation = 1
-			if pcs_gpolimilkdonation < 2:
-				act 'explain yourself':
-					*clr
-					cla
-					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/old_nurse.jpg"></center>'
-					if preg = 0 and pregtimes = 0:
-						pcs_gpolimilkdonation = 2
-						if lactateinduced = 1:
-							'You: Erm ... I used a breast pump on myself...'
-							'You blush a bit from embarresment, while telling it to her.'
+					'You talk to the old nurse and she leads you into the quiet room.'
+					!!if orphanfeed = 1:
+					!!	'It seems like there is a crib with a baby inside in this room, too.'
+					!!end
+					act 'have your breasts pumped':
+						*clr
+						cla
+						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/pump_room.jpg"></center>'
+						'You sit down and take off your top.'
+						if lactatemv > lactatemm*8/10:
+							'The nurse looks surprised at your engorged breasts'
+							'Nurse: Oh dear! These look painfully full. I hope the pumping will make you feel better.'
+						end					
+						if pain['nipples'] >= 60:
+							'<center><img <<$set_imgh>> src="images/pc/body/nipples/sore_nipples.jpg"></center>'
+							'The nurse looks at your sore nipples and frowns a bit. She then grabs a small tin, and takes a bit more of the yellowish cream from the tin.'
+							'She applies the cream to your nipples. It feels nice on your nipples and they hurt less.'
+							pain['nipples'] -= 20
 						else
-							'You: I don''t really now... it just started some day.'
-							'You explain, blushing from embarresment.'
+							'The nurse grabs the nipple balm and applies it to your nipples. It feels nice on your nipples as she rubs it in.'
 						end
-						'The nurse nods at you professionally, then pulls some paper together, while she looks really thoughful. She then looks up at you and starts to speak.'
-						'Nurse: Have you ever thought of donating your breast milk?'
-						'You: Donating?'
-						'Nurse: Yes, donating. We would pump your breasts and collect the milk. We can use the milk for the mothers that are not able to breastfeed yet. We also offer a bit of money for your donated breast milk.'
-						'You look at her with wide eyes.'
-						'Nurse: So, what do you think?'
-						pcs_gpolimilkdonation = 2
-						act 'give it a try (0:15)':
-							*clr
-							cla
-							minut += 15
-							pcs_gpolimilkdonation = 3
-							'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/pump_room.jpg"></center>'
-							'The nurse leads you into a room. It is quiet in here. There is a chair a table and a breastpump.'
-							'You sit down and the nurse invites you to take off your top.'
-							if pain['nipples'] >= 60 and pcs_knows_nipplecream <= 0:
-								'<center><img <<$set_imgh>> src="images/pc/body/nipples/sore_nipples.jpg"></center>'
-								'The nurse looks at your sore nipples and frowns a bit. She then grabs a small tin, and takes a bit of the yellowish cream from the tin.'
-								'You: What is that?'
-								'The nurse looks up at you.'
-								'Nurse: This is nipple balm. It helps with sore nipples during pumping. Don''t you now this?'
-								'You nod your head and watch as the nurse applies the cream to your nipples. The cream feels nice on your nipples and they hurt less.'
-								pain['nipples'] -= 20
-								'You: Where do I get this stuff?'
-								'Nurse: You can buy it in the pharmacy...'
-								pcs_knows_nipplecream = 1
-								'The nurse finishes rubbing you nipples with the nipple balm.'
-							elseif pain['nipples'] >= 60:
-								'<center><img <<$set_imgh>> src="images/pc/body/nipples/sore_nipples.jpg"></center>'
-								'The nurse looks at your sore nipples and frowns a bit. She then grabs a small tin, and takes a bit of the yellowish cream from the tin.'
-								'She applies the cream to your nipples. It feels nice on your nipples and they hurt less.'
-								pain['nipples'] -= 20
-							else
-								'The nurse grabs the nipple balm and applies it to your nipples. It feels nice on your nipples as she rubs it in.'
-							end
-							nipple_cream = 1
-							'Nurse: Okay, I am going to pump a bit milk off first, to check the quality and if you are able to donate enough. So this time you won''t get paid for your milk.'
-							'You nod and pull up your shirt. The nurse takes the pumps and puts them on your breasts. She flicks a switch and you can feel your nipples being sucked in with force. The pump slowly working your nipples.'
-							'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/pumping.jpg"></center>'
-							milkedvolume = func('lact_lib','$get_breastmilk', 4, 15)
-							breastpumped += 4
-							pcs_orphanfeed = 0
-							if milkedvolume >= 1000:
-								'Your breasts are able to fill both small bottles easily. The nurse nods at you confidently.'
-								'Nurse: Yes, it seems you are able to make good amount of milk. You could breastfeed a baby with no issue.'
-							elseif milkedvolume >= 500 and milkedvolume < 1000:
-								'Your breasts are not able to fill both small bottles. The nurse rises an eyebrow on you.'
-								'Nurse: Okay... it seems you are able to make enough milk for a 50ml donation, but you could have trouble to breastfeed a baby properly.'
-							else
-								'You have trouble to fill the bottles to the first mark. The nurse shakes her head disappointed.'
-								'Nurse: Mhmm ... your breasts don''t seem to make enough milk. You can still come here and get yourself pumped, but we need at least 50ml for a valid donation.'
-							end
-							'The nurse detaches the pump and allows you to dress up again.'
-							if milkedvolume > 500:
-								mward_donatesv = 500
-							else
-								mward_donatesv = milkedvolume
-							end
-							if salo > 40:
-								mward_donatesf = 60
-							elseif salo > 20:
-								mward_donatesf = 45
-							elseif salo > 15:
-								mward_donatesf = 20
-							else
-								mward_donatesf = 10
-							end
-							if pcs_energy > 30:
-								mward_donatess = rand(69, 80)
-							elseif sick > 1:
-								mward_donatess = rand(0,45)
-							else
-								mward_donatess = rand(45, 69)
-							end
-							act 'Leave':gt 'gpoli'								
-						end
-						act 'deny to donate':
-							*clr
-							cla
-							'You deny to donate your breast milk. The nurse looks sad at you and let you leave.'
-							act 'Leave':gt 'gpoli'							
-						end
-					end						
+						nipple_cream = 1
+						act 'continue':	gt 'gpoli', 'maternity_ward_donation'
+					end
 				end
-			elseif pcs_gpolimilkdonation = 2:
-				act 'Offer to donate your breast milk (0:15)':
-				*clr
+				act 'Check your file (0:05)':
+					*clr
 					cla
-					minut += 15
-					pcs_gpolimilkdonation = 3
-					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/pump_room.jpg"></center>'
-					'The nurse smiles and gets up, then she leads you into a room. It is quiet in here. There is a chair a table and a breastpump.'
-					'You sit down and the nurse invites you to take off your top.'
-					if pain['nipples'] >= 60 and pcs_knows_nipplecream <= 0:
-						'<center><img <<$set_imgh>> src="images/pc/body/nipples/sore_nipples.jpg"></center>'
-						'The nurse looks at your sore nipples and frowns a bit. She then grabs a small tin, and takes a bit of the yellowish cream from the tin.'
-						'You: What is that?'
-						'The nurse looks up at you.'
-						'Nurse: This is nipple balm. It helps with sore nipples during pumping. Don''t you now this?'
-						'You shake your head and watch as the nurse applies the cream to your nipples. The cream feels nice on your nipples and they hurt less.'
-						pain['nipples'] -= 20
-						'You: Where do I get this stuff?'
-						'Nurse: You can buy it in the pharmacy...'
-						pcs_knows_nipplecream = 1
-						'The nurse finishes rubbing you nipples with the nipple balm.'
-					elseif  pain['nipples'] >= 60:
-						'<center><img <<$set_imgh>> src="images/pc/body/nipples/sore_nipples.jpg"></center>'
-						'The nurse looks at your sore nipples and frowns a bit. She then grabs a small tin, and takes a bit of the yellowish cream from the tin.'
-						'She applies the cream to your nipples. It feels nice on your nipples and they hurt less.'
-						pain['nipples'] -= 20
-					elseif pcs_knows_nipplecream <= 0:
-						'The nurse grabs a small tin and takes a bit of yellowish cream from it.'
-						'You: What is that?'
-						'The nurse looks up at you.'
-						'Nurse: This is nipple balm. It helps during pumping and prevents nipple soreness. Don''t you now this?'
-						'You shake your head and watch as the nurse applies the cream to your nipples. The cream feels nice on your nipples.'
-						'You: Where do I get this stuff?'
-						'Nurse: You can buy it in the pharmacy...'
-						pcs_knows_nipplecream = 1
-						'The nurse finishes rubbing you nipples with the nipple balm.'
-					else
-						'The nurse grabs the nipple balm and applies it to your nipples. It feels nice on your nipples as she rubs it in.'
+					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/formular.jpg"></center>'
+					'The nurse hands you a file on how much you have donated so far.'
+					'<br>----------------------------------------'
+					'Analyzed milksample measurements'
+					'Volume in ml: <<mward_donatesv/10>>ml'
+					'Fat in %: <<mward_donatesf/10>>.<<mward_donatesf mod 10>>%'
+					'Lactose in %: <<mward_donatess/10>>.<<mward_donatess mod 10>>%'
+					'<br>----------------------------------------'
+					if pcs_gpoli_totalmilkdonation_count > 0:
+						'Total breast milk donation statistics'
+						if pcs_gpoli_totalmilkdonation < 100:
+							'Donated milk volume in liter: <<pcs_gpoli_totalmilkdonation/1000>>.0<<pcs_gpoli_totalmilkdonation mod 1000>>l'
+						else
+							'Donated milk volume in liter: <<pcs_gpoli_totalmilkdonation/1000>>.<<pcs_gpoli_totalmilkdonation mod 1000>>l'
+						end
+						'Donation count: <<pcs_gpoli_totalmilkdonation_count>>'
+						'Average milk volume per donation in ml: <<pcs_gpoli_totalmilkdonation/pcs_gpoli_totalmilkdonation_count>>'
+						'Paid money: <<(((pcs_gpoli_totalmilkdonation*10)/3)*75)/100>><b>₽</b>'
+						'<br>----------------------------------------'
 					end
-					nipple_cream = 1
-					'Nurse: Okay, I am going to pump a bit milk off first, to check the quality and if you are able to donate enough.'
-					'You nod and pull up your shirt. The nurse takes the pumps and puts it on your breasts. She flicks a switch and you can feel your nipples being sucked in with force. The pump slowly working your nipples.'
-					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/pumping.jpg"></center>'
-					milkedvolume = func('lact_lib','$get_breastmilk', 4, 15)
-					breastpumped += 4
-					pcs_orphanfeed = 0
-					if milkedvolume >= 1000:
-						'Your breasts are able to fill both small bottles easily. The nurse nods at you confidently.'
-						'Nurse: Yes, it seems you are able to make good amount of milk. You could breastfeed a baby with no issue.'
-					elseif milkedvolume >= 50 and milkedvolume < 1000:
-						'Your breasts are not able to fill both small bottles. The nurse rises an eyebrow on you.'
-						'Nurse: Okay... it seems you are able to make enough milk for a donation, but you could have trouble to breastfeed a baby properly.'
-					else
-						'You have trouble to fill the bottles to the first mark. The nurse shakes her head disappointed.'
-						'Nurse: Mhmm ... your breasts don''t seem to make enough milk. You can still come and be pumped, but we need at least 50ml for a valid donation.'
-					end
-					'The nurse detaches the pump and allows you to dress up again.'
-					if milkedvolume > 500:
-						mward_donatesv = 500
-					else
-						mward_donatesv = milkedvolume
-					end
-					if salo > 40:
-						mward_donatesf = 60
-					elseif salo > 20:
-						mward_donatesf = 45
-					elseif salo > 15:
-						mward_donatesf = 20
-					else
-						mward_donatesf = 10
-					end
-					if pcs_energy > 30:
-						mward_donatess = rand(69, 80)
-					elseif sick > 1:
-						mward_donatess = rand(0,45)
-					else
-						mward_donatess = rand(45, 69)
-					end							
-					act 'Leave':gt 'gpoli'				
+					act 'Leave': gt 'gpoli', 'maternity_ward'
 				end
+				!!act 'Mammography (1:00)':
+				!!	
+				!!end
+				act 'Leave': gt 'gpoli', 'maternity_ward'			
 			end
-			act 'Leave':gt 'gpoli'
 		end
+		if lactate > 0 and lactatemv > lactatemm/8 and pcs_gpolimilkdonation <= 2:
+			'<br><br><center>One of the nurses looks at you suspiciously.<center>'
+			act 'Talk to the nurse (0:05)':
+				*clr
+				cla
+				minut += 5
+				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/old_nurse.jpg"></center>'
+				if preg >= 0 and pregtimes > 0 and pcs_gpolimilkdonation <= 0:
+					'You walk up to the nurse'
+					'You: Uhm, Hello...'
+					'Nurse: Which one is yours?'
+					'You: Mine? I don''t understand...'
+					'The nurse looks at your face then down at your breast and than back at your face.'
+					'Nurse: Well, you are obviously lactating, so you came here to breastfeed your offspring?'
+					'She concludes on you, giving you a rised eyebrow.'
+				elseif preg = 0 and pregtimes = 0 and pcs_gpolimilkdonation <= 0:
+					'You walk up to the nurse'
+					'You: Uhm, Hello...'
+					'The nurse looks you up and down, rising an eyebrow on you.'
+					'Nurse: You don''t look like you ever had a child, how come you are lactating?'
+					'You are surprised by the sudden and precise analysis of the nurse.'
+					'You: How... how do you know?'
+					'Nurse: I''ve been working here for ages. Trust me ... I can tell by the smell. Now why are you lactating?'
+				elseif pcs_gpolimilkdonation <= 0:
+					'You walk up to the nurse'
+					'You: Uhm, Hello...'
+					'Nurse: Which one is yours?'
+					'You: Mine? I don''t understand...'
+					'The nurse looks at your face then down at your breast and than back at your face.'
+					'Nurse: Well, you are obviously lactating, so you came here to breastfeed your offspring?'
+					'She concludes on you, giving you a rised eyebrow.'
+				else
+					'You walk up to the nurse'
+					'You: Hello...'
+					'Nurse: Ah, it is you again...'
+					'She looks you up and down'
+					if pcs_gpolimilkdonation = 1 and preg = 0 and pregtimes = 0:
+						'Nurse: So, why are you lactating again?'
+					elseif pcs_gpolimilkdonation = 2:
+						'Nurse: Did you change your mind and want donate your breast milk?'
+					else
+						'Nurse: What do you want?'
+					end
+				end
+				if pcs_gpolimilkdonation < 1: pcs_gpolimilkdonation = 1
+				if pcs_gpolimilkdonation < 2:
+					act 'explain yourself':
+						*clr
+						cla
+						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/old_nurse.jpg"></center>'
+						if preg = 0 and pregtimes = 0:
+							pcs_gpolimilkdonation = 2
+							if lactateinduced = 1:
+								'You: Erm ... I used a breast pump on myself...'
+								'You blush a bit from embarresment, while telling it to her.'
+							else
+								'You: I don''t really now... it just started some day.'
+								'You explain, blushing from embarresment.'
+							end
+							'The nurse nods at you professionally, then pulls some paper together, while she looks really thoughful. She then looks up at you and starts to speak.'
+							'Nurse: Have you ever thought of donating your breast milk?'
+							'You: Donating?'
+							'Nurse: Yes, donating. We would pump your breasts and collect the milk. We can use the milk for the mothers that are not able to breastfeed yet. We also offer a bit of money for your donated breast milk.'
+							'You look at her with wide eyes.'
+							'Nurse: So, what do you think?'
+							pcs_gpolimilkdonation = 2
+							act 'give it a try (0:15)':
+								*clr
+								cla
+								minut += 15
+								pcs_gpolimilkdonation = 3
+								'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/pump_room.jpg"></center>'
+								'The nurse leads you into a room. It is quiet in here. There is a chair a table and a breastpump.'
+								'You sit down and the nurse invites you to take off your top.'
+								if pain['nipples'] >= 60 and pcs_knows_nipplecream <= 0:
+									'<center><img <<$set_imgh>> src="images/pc/body/nipples/sore_nipples.jpg"></center>'
+									'The nurse looks at your sore nipples and frowns a bit. She then grabs a small tin, and takes a bit of the yellowish cream from the tin.'
+									'You: What is that?'
+									'The nurse looks up at you.'
+									'Nurse: This is nipple balm. It helps with sore nipples during pumping. Don''t you now this?'
+									'You nod your head and watch as the nurse applies the cream to your nipples. The cream feels nice on your nipples and they hurt less.'
+									pain['nipples'] -= 20
+									'You: Where do I get this stuff?'
+									'Nurse: You can buy it in the pharmacy...'
+									pcs_knows_nipplecream = 1
+									'The nurse finishes rubbing you nipples with the nipple balm.'
+								elseif pain['nipples'] >= 60:
+									'<center><img <<$set_imgh>> src="images/pc/body/nipples/sore_nipples.jpg"></center>'
+									'The nurse looks at your sore nipples and frowns a bit. She then grabs a small tin, and takes a bit of the yellowish cream from the tin.'
+									'She applies the cream to your nipples. It feels nice on your nipples and they hurt less.'
+									pain['nipples'] -= 20
+								else
+									'The nurse grabs the nipple balm and applies it to your nipples. It feels nice on your nipples as she rubs it in.'
+								end
+								nipple_cream = 1
+								'Nurse: Okay, I am going to pump a bit milk off first, to check the quality and if you are able to donate enough. So this time you won''t get paid for your milk.'
+								'You nod and pull up your shirt. The nurse takes the pumps and puts them on your breasts. She flicks a switch and you can feel your nipples being sucked in with force. The pump slowly working your nipples.'
+								'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/pumping.jpg"></center>'
+								milkedvolume = func('lact_lib','$get_breastmilk', 4, 15)
+								breastpumped += 4
+								pcs_orphanfeed = 0
+								if milkedvolume >= 1000:
+									'Your breasts are able to fill both small bottles easily. The nurse nods at you confidently.'
+									'Nurse: Yes, it seems you are able to make good amount of milk. You could breastfeed a baby with no issue.'
+								elseif milkedvolume >= 500 and milkedvolume < 1000:
+									'Your breasts are not able to fill both small bottles. The nurse rises an eyebrow on you.'
+									'Nurse: Okay... it seems you are able to make enough milk for a 50ml donation, but you could have trouble to breastfeed a baby properly.'
+								else
+									'You have trouble to fill the bottles to the first mark. The nurse shakes her head disappointed.'
+									'Nurse: Mhmm ... your breasts don''t seem to make enough milk. You can still come here and get yourself pumped, but we need at least 50ml for a valid donation.'
+								end
+								'The nurse detaches the pump and allows you to dress up again.'
+								if milkedvolume > 500:
+									mward_donatesv = 500
+								else
+									mward_donatesv = milkedvolume
+								end
+								if salo > 40:
+									mward_donatesf = 60
+								elseif salo > 20:
+									mward_donatesf = 45
+								elseif salo > 15:
+									mward_donatesf = 20
+								else
+									mward_donatesf = 10
+								end
+								if pcs_energy > 30:
+									mward_donatess = rand(69, 80)
+								elseif sick > 1:
+									mward_donatess = rand(0,45)
+								else
+									mward_donatess = rand(45, 69)
+								end
+								act 'Leave':gt 'gpoli'								
+							end
+							act 'deny to donate':
+								*clr
+								cla
+								'You deny to donate your breast milk. The nurse looks sad at you and let you leave.'
+								act 'Leave':gt 'gpoli'							
+							end
+						else
+							pcs_gpolimilkdonation = 2
+							'You: Well ... I don''t have a kid here... I was just looking around for a bit'
+							'You look a bit awkward at the nurse as you try to explain yourself.'
+							'The nurse nods at you professionally, then pulls some paper together, while she looks really thoughful. She then looks up at you and starts to speak.'
+							'Nurse: Have you ever thought of donating your breast milk?'
+							'You: Donating?'
+							'Nurse: Yes, donating. We would pump your breasts and collect the milk. We can use the milk for the mothers that are not able to breastfeed yet. We also offer a bit of money for your donated breast milk.'
+							'You look at her with wide eyes.'
+							'Nurse: So, what do you think?'
+							pcs_gpolimilkdonation = 2
+							act 'give it a try (0:15)':
+								*clr
+								cla
+								minut += 15
+								pcs_gpolimilkdonation = 3
+								'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/pump_room.jpg"></center>'
+								'The nurse leads you into a room. It is quiet in here. There is a chair a table and a breastpump.'
+								'You sit down and the nurse invites you to take off your top.'
+								if pain['nipples'] >= 60 and pcs_knows_nipplecream <= 0:
+									'<center><img <<$set_imgh>> src="images/pc/body/nipples/sore_nipples.jpg"></center>'
+									'The nurse looks at your sore nipples and frowns a bit. She then grabs a small tin, and takes a bit of the yellowish cream from the tin.'
+									'You: What is that?'
+									'The nurse looks up at you.'
+									'Nurse: This is nipple balm. It helps with sore nipples during pumping. Don''t you now this?'
+									'You nod your head and watch as the nurse applies the cream to your nipples. The cream feels nice on your nipples and they hurt less.'
+									pain['nipples'] -= 20
+									'You: Where do I get this stuff?'
+									'Nurse: You can buy it in the pharmacy...'
+									pcs_knows_nipplecream = 1
+									'The nurse finishes rubbing you nipples with the nipple balm.'
+								elseif pain['nipples'] >= 60:
+									'<center><img <<$set_imgh>> src="images/pc/body/nipples/sore_nipples.jpg"></center>'
+									'The nurse looks at your sore nipples and frowns a bit. She then grabs a small tin, and takes a bit of the yellowish cream from the tin.'
+									'She applies the cream to your nipples. It feels nice on your nipples and they hurt less.'
+									pain['nipples'] -= 20
+								else
+									'The nurse grabs the nipple balm and applies it to your nipples. It feels nice on your nipples as she rubs it in.'
+								end
+								nipple_cream = 1
+								'Nurse: Okay, I am going to pump a bit milk off first, to check the quality and if you are able to donate enough. So this time you won''t get paid for your milk.'
+								'You nod and pull up your shirt. The nurse takes the pumps and puts them on your breasts. She flicks a switch and you can feel your nipples being sucked in with force. The pump slowly working your nipples.'
+								'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/pumping.jpg"></center>'
+								milkedvolume = func('lact_lib','$get_breastmilk', 4, 15)
+								breastpumped += 4
+								pcs_orphanfeed = 0
+								if milkedvolume >= 1000:
+									'Your breasts are able to fill both small bottles easily. The nurse nods at you confidently.'
+									'Nurse: Yes, it seems you are able to make good amount of milk. You could breastfeed a baby with no issue.'
+								elseif milkedvolume >= 500 and milkedvolume < 1000:
+									'Your breasts are not able to fill both small bottles. The nurse rises an eyebrow on you.'
+									'Nurse: Okay... it seems you are able to make enough milk for a 50ml donation, but you could have trouble to breastfeed a baby properly.'
+								else
+									'You have trouble to fill the bottles to the first mark. The nurse shakes her head disappointed.'
+									'Nurse: Mhmm ... your breasts don''t seem to make enough milk. You can still come here and get yourself pumped, but we need at least 50ml for a valid donation.'
+								end
+								'The nurse detaches the pump and allows you to dress up again.'
+								if milkedvolume > 500:
+									mward_donatesv = 500
+								else
+									mward_donatesv = milkedvolume
+								end
+								if salo > 40:
+									mward_donatesf = 60
+								elseif salo > 20:
+									mward_donatesf = 45
+								elseif salo > 15:
+									mward_donatesf = 20
+								else
+									mward_donatesf = 10
+								end
+								if pcs_energy > 30:
+									mward_donatess = rand(69, 80)
+								elseif sick > 1:
+									mward_donatess = rand(0,45)
+								else
+									mward_donatess = rand(45, 69)
+								end
+								act 'Leave':gt 'gpoli'								
+							end
+							act 'deny to donate':
+								*clr
+								cla
+								'You deny to donate your breast milk. The nurse looks sad at you and let you leave.'
+								act 'Leave':gt 'gpoli'							
+							end
+						end						
+					end
+				elseif pcs_gpolimilkdonation = 2:
+					act 'Offer to donate your breast milk (0:15)':
+					*clr
+						cla
+						minut += 15
+						pcs_gpolimilkdonation = 3
+						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/pump_room.jpg"></center>'
+						'The nurse smiles and gets up, then she leads you into a room. It is quiet in here. There is a chair a table and a breastpump.'
+						'You sit down and the nurse invites you to take off your top.'
+						if pain['nipples'] >= 60 and pcs_knows_nipplecream <= 0:
+							'<center><img <<$set_imgh>> src="images/pc/body/nipples/sore_nipples.jpg"></center>'
+							'The nurse looks at your sore nipples and frowns a bit. She then grabs a small tin, and takes a bit of the yellowish cream from the tin.'
+							'You: What is that?'
+							'The nurse looks up at you.'
+							'Nurse: This is nipple balm. It helps with sore nipples during pumping. Don''t you now this?'
+							'You shake your head and watch as the nurse applies the cream to your nipples. The cream feels nice on your nipples and they hurt less.'
+							pain['nipples'] -= 20
+							'You: Where do I get this stuff?'
+							'Nurse: You can buy it in the pharmacy...'
+							pcs_knows_nipplecream = 1
+							'The nurse finishes rubbing you nipples with the nipple balm.'
+						elseif  pain['nipples'] >= 60:
+							'<center><img <<$set_imgh>> src="images/pc/body/nipples/sore_nipples.jpg"></center>'
+							'The nurse looks at your sore nipples and frowns a bit. She then grabs a small tin, and takes a bit of the yellowish cream from the tin.'
+							'She applies the cream to your nipples. It feels nice on your nipples and they hurt less.'
+							pain['nipples'] -= 20
+						elseif pcs_knows_nipplecream <= 0:
+							'The nurse grabs a small tin and takes a bit of yellowish cream from it.'
+							'You: What is that?'
+							'The nurse looks up at you.'
+							'Nurse: This is nipple balm. It helps during pumping and prevents nipple soreness. Don''t you now this?'
+							'You shake your head and watch as the nurse applies the cream to your nipples. The cream feels nice on your nipples.'
+							'You: Where do I get this stuff?'
+							'Nurse: You can buy it in the pharmacy...'
+							pcs_knows_nipplecream = 1
+							'The nurse finishes rubbing you nipples with the nipple balm.'
+						else
+							'The nurse grabs the nipple balm and applies it to your nipples. It feels nice on your nipples as she rubs it in.'
+						end
+						nipple_cream = 1
+						'Nurse: Okay, I am going to pump a bit milk off first, to check the quality and if you are able to donate enough.'
+						'You nod and pull up your shirt. The nurse takes the pumps and puts it on your breasts. She flicks a switch and you can feel your nipples being sucked in with force. The pump slowly working your nipples.'
+						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/pumping.jpg"></center>'
+						milkedvolume = func('lact_lib','$get_breastmilk', 4, 15)
+						breastpumped += 4
+						pcs_orphanfeed = 0
+						if milkedvolume >= 1000:
+							'Your breasts are able to fill both small bottles easily. The nurse nods at you confidently.'
+							'Nurse: Yes, it seems you are able to make good amount of milk. You could breastfeed a baby with no issue.'
+						elseif milkedvolume >= 50 and milkedvolume < 1000:
+							'Your breasts are not able to fill both small bottles. The nurse rises an eyebrow on you.'
+							'Nurse: Okay... it seems you are able to make enough milk for a donation, but you could have trouble to breastfeed a baby properly.'
+						else
+							'You have trouble to fill the bottles to the first mark. The nurse shakes her head disappointed.'
+							'Nurse: Mhmm ... your breasts don''t seem to make enough milk. You can still come and be pumped, but we need at least 50ml for a valid donation.'
+						end
+						'The nurse detaches the pump and allows you to dress up again.'
+						if milkedvolume > 500:
+							mward_donatesv = 500
+						else
+							mward_donatesv = milkedvolume
+						end
+						if salo > 40:
+							mward_donatesf = 60
+						elseif salo > 20:
+							mward_donatesf = 45
+						elseif salo > 15:
+							mward_donatesf = 20
+						else
+							mward_donatesf = 10
+						end
+						if pcs_energy > 30:
+							mward_donatess = rand(69, 80)
+						elseif sick > 1:
+							mward_donatess = rand(0,45)
+						else
+							mward_donatess = rand(45, 69)
+						end							
+						act 'Leave':gt 'gpoli'				
+					end
+				end
+				act 'Leave':gt 'gpoli'
+			end
+		end
+		act 'leave':gt 'gpoli'
+	else
+		'The clinic is closed. It''s open every day between 06:00 and 21:00.'
+		act 'Leave':minut += 5 & gt 'pavCommercial'
 	end
 	act 'Leave':gt 'gpoli'
+end
+
+if $ARGS[0] = 'reception':
+	*clr
+	cla
+	minut += 2
+	gs 'stat'
+	'You walk up to the reception and ask for help with your problem'
+	'The receptionist looks you up and down and tells you to visit the maternity ward. Someone over there would be able to help you.'
+	pcs_know_mward = 1
+	act 'Go to maternity ward (0:05)': gt 'gpoli', 'maternity_ward'
+	act 'Leave': gt 'gpoli'
 end
 
 if $ARGS[0] = 'maternity_ward_donation':	
 	*clr
 	cla
 	gs 'stat'
-	nipple_cream = 1
-	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/pumping.jpg"></center>'
-	'The nurse attaches the pumps and switches them on.'
-	if lactatemv >= 0:
-		'Your nipples are worked by the pumps, pumping your milk out, first draining at your collected milk resevoir. You feel the pressure in your breasts easing down.'
-	else
-		'Your nipples are worked by the pumps, pumping your milk out, you feel the pressure in your breasts easing down. Then your breasts tingle from the milk production as the pump demands more of your milk.'
-	end
-	act 'continue':
-		*clr
-		cla
-		milkedvolume += func('lact_lib','$get_breastmilk', 4, 15)
-		breastpumped += 4
-		'After 15 minutes, the nurse detaches the pumps from your breasts.'
-		if milkedvolume > 500:
-			temp_var = milkedvolume/500
-			!!'milkedvolume: <<milkedvolume>> - temp var test: <<temp_var>>'
-			pcs_gpoli_donationsessioncount += temp_var
-			pcs_gpoli_totalmilkdonation_count += 1
-			pcs_gpoli_totalmilkdonation += temp_var*50
-			if temp_var < 2:
-				'She looks satisfied at you as she puts away one bottle with 50ml of your breast milk.'
-			elseif temp_var => 4:
-				'She looks satisfied at you as she puts away the <<temp_var>> bottles containing <<temp_var*50>>ml of your breast milk.'
-				'Nurse: This is a good amount of milk.'
-			elseif temp_var => 8:
-				'She looks surprised at the at the amount of milk you made as she stores away the <<temp_var>> bottles that contain <<temp_var*50>>ml of your breast milk.'
-				'Nurse: Dear, that is much milk...'
+	if hour >= 6 and hour <= 21:
+		nipple_cream = 1
+		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/pumping.jpg"></center>'
+		'The nurse attaches the pumps and switches them on.'
+		if lactatemv >= 0:
+			'Your nipples are worked by the pumps, pumping your milk out, first draining at your collected milk resevoir. You feel the pressure in your breasts easing down.'
+		else
+			'Your nipples are worked by the pumps, pumping your milk out, you feel the pressure in your breasts easing down. Then your breasts tingle from the milk production as the pump demands more of your milk.'
+		end
+		act 'continue':
+			*clr
+			cla
+			milkedvolume = func('lact_lib','$get_breastmilk', 4, 15)
+			breastpumped += 4
+			'After 15 minutes, the nurse detaches the pumps from your breasts.'
+			if milkedvolume > 500:
+				'milked volume = <<milkedvolume/10>>ml'
+				temp_var = milkedvolume/500
+				pcs_gpoli_donationsessioncount += temp_var
+				pcs_gpoli_totalmilkdonation_count += 1
+				pcs_gpoli_totalmilkdonation += temp_var*50
+				if temp_var < 2:
+					'She looks satisfied at you as she puts away one bottle with 50ml of your breast milk.'
+				elseif temp_var => 4:
+					'She looks satisfied at you as she puts away the <<temp_var>> bottles containing <<temp_var*50>>ml of your breast milk.'
+					'Nurse: This is a good amount of milk.'
+				elseif temp_var => 8:
+					'She looks surprised at the at the amount of milk you made as she stores away the <<temp_var>> bottles that contain <<temp_var*50>>ml of your breast milk.'
+					'Nurse: Dear, that is much milk...'
+				else
+					'You put on your top'
+				end
+				act 'Leave':
+					milkedvolume = 0
+					gt 'gpoli', 'maternity_ward'
+				end
 			else
-				'She looks satisfied at you as she puts away <<temp_var>> bottles with <<temp_var*50>>ml of your breast milk inside.'
+				'She looks at you a bit disappointed.'
+				'Nurse: Mhmm... I am sorry, but this isn''t enough milk for a valid donation. You only made <<milkedvolume/10>>ml of breast milk.'
 			end
-		else
-			'She looks at you a bit disappointed.'
-			'Nurse: Mhmm... I am sorry, but this isn''t enough milk for a valid donation. You only made <<milkedvolume/10>>ml of breast milk.'
-		end
-		if pcs_gpoli_donationsessioncount > 0:
-			mward_donatemoney = (((pcs_gpoli_donationsessioncount*500)/3)*75)/100
-		else
-			mward_donatemoney = 0
-		end
-		money += mward_donatemoney
-		minut += 15
-		nipple_cream = 0
-		if lactatemv > lactatemm/2:
-			'The nurse looks at your breasts'
-			'Nurse: Looks like you could go for a another pumping...shall we?'
-			act 'have your breasts pumped again': gt 'gpoli', 'maternity_ward_donation'
-			act 'enough for today':
-				*clr
-				cla
-				gs 'stat'
-				if pcs_gpoli_donationsessioncount > 0:
-					'You put on your top, and the nurse hands you <<mward_donatemoney>><b>₽</b> for your donated breast milk.'
-				else
-					'You put on your top'
-				end
-				act 'Leave':
-					milkedvolume = 0
-					gt 'gpoli', 'maternity_ward'
-				end
+			if pcs_gpoli_donationsessioncount > 0:
+				mward_donatemoney = (((pcs_gpoli_donationsessioncount*500)/3)*75)/100
+			else
+				mward_donatemoney = 0
 			end
-		else
-			act 'ask to donate more': gt 'gpoli', 'maternity_ward_donation'
-			act 'enough for today':
-				*clr
-				cla
-				gs 'stat'
-				if pcs_gpoli_donationsessioncount > 0:
-					'You put on your top, and the nurse hands you <<mward_donatemoney>><b>₽</b> for your donated breast milk.'
-				else
-					'You put on your top'
+			money += mward_donatemoney
+			minut += 15
+			nipple_cream = 0
+			if lactatemv > lactatemm/2:
+				'The nurse looks at your breasts'
+				'Nurse: Looks like you could go for a another pumping...shall we?'
+				act 'have your breasts pumped again': gt 'gpoli', 'maternity_ward_donation'
+				act 'enough for today':
+					*clr
+					cla
+					gs 'stat'
+					if pcs_gpoli_donationsessioncount > 0:
+						'You put on your top, and the nurse hands you <<mward_donatemoney>><b>₽</b> for your donated breast milk.'
+					else
+						'You put on your top'
+					end
+					act 'leave':
+						milkedvolume = 0
+						gt 'gpoli', 'maternity_ward'
+					end
 				end
-				act 'Leave':
-					milkedvolume = 0
-					gt 'gpoli', 'maternity_ward'
+			else
+				act 'ask to donate more': gt 'gpoli', 'maternity_ward_donation'
+				act 'enough for today':
+					*clr
+					cla
+					gs 'stat'
+					if pcs_gpoli_donationsessioncount > 0:
+						'You put on your top, and the nurse hands you <<mward_donatemoney>><b>₽</b> for your donated breast milk.'
+					else
+						'You put on your top'
+					end
+					act 'leave':
+						milkedvolume = 0
+						gt 'gpoli', 'maternity_ward'
+					end
 				end
 			end
 		end
+	elseif pcs_gpoli_donationsessioncount > 0:
+		'Sorry <<$pcs_firstname>>, we are closing now.'
+		'You put on your top, and the nurse hands you <<mward_donatemoney>><b>₽</b> for your donated breast milk.'
+		act 'Leave':minut += 5 & gt 'pavCommercial'
+	else
+		'The clinic is closed. It''s open every day between 06:00 and 21:00.'
+		act 'Leave':minut += 5 & gt 'pavCommercial'
 	end
 end
 --- gpoli ---------------------------------

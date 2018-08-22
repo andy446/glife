@@ -1275,7 +1275,7 @@ if $ARGS[0] = 'maternity_ward':
 	cla
 	gs 'stat'
 	minut += 5
-	if hour >= 6 and hour <= 21:
+	if hour >= 6 and hour <= 20:
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/mward.jpg"></center>'
 		'<center>You are at the maternity ward. There are alot of babies and nurses taking care of them.</center>'
 		if lactate > 0 and pcs_gpolimilkdonation = 3:
@@ -1669,7 +1669,6 @@ if $ARGS[0] = 'maternity_ward':
 		'The clinic is closed. It''s open every day between 06:00 and 21:00.'
 		act 'Leave':minut += 5 & gt 'pavCommercial'
 	end
-	act 'Leave':gt 'gpoli'
 end
 
 if $ARGS[0] = 'reception':
@@ -1688,7 +1687,7 @@ if $ARGS[0] = 'maternity_ward_donation':
 	*clr
 	cla
 	gs 'stat'
-	if hour >= 6 and hour <= 21:
+	if hour >= 6 and hour <= 20:
 		nipple_cream = 1
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/pumping.jpg"></center>'
 		'The nurse attaches the pumps and switches them on.'
@@ -1718,11 +1717,7 @@ if $ARGS[0] = 'maternity_ward_donation':
 					'She looks surprised at the at the amount of milk you made as she stores away the <<temp_var>> bottles that contain <<temp_var*50>>ml of your breast milk.'
 					'Nurse: Dear, that is much milk...'
 				else
-					'You put on your top'
-				end
-				act 'Leave':
-					milkedvolume = 0
-					gt 'gpoli', 'maternity_ward'
+					'She looks satisfied at you as she puts away <<temp_var>> bottles with <<temp_var*50>>ml of your breast milk inside.'
 				end
 			else
 				'She looks at you a bit disappointed.'

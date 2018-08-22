@@ -290,7 +290,7 @@ end
 if $ARGS[0] = 'Niko Dates':
 	if fedorkozlovQW >= 10 and NikoVsFedor = 0:
 		gt 'NikoEv', 'Fyodor'
-	elseif KotovloveQW >= 10 and NikoVsVitek = 0:
+	elseif KotovloveQW > 0 and NikoVsVitek = 0:
 		gt 'NikoEv', 'Viktor'
 	elseif dimafilm = 1 and DimaRudeBlock = 0 and NikoVsDimka = 0:
 		gt 'NikoEv', 'Dimka'

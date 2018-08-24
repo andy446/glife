@@ -843,7 +843,7 @@ end
 
 if $ARGS[0] = 'PainalDyn':
 	cls
-	'<center><video src="images/locations/city/industrial/bar/martin/anal/painal1.mp4"></center>'
+	'<center><video src="images/locations/city/industrial/bar/sex/bar/martin/anal/painal1.mp4"></center>'
 	'Feeling as brave and well-lubricated as spit can ever make you, you grab Martin''s cock, hold it against your anus and push against it.'
 	*nl
 	'Unfortunately, anal with Martin is not as easy as slipping his dick inside your pussy. The more you try to put his dick in, the more it hurts. Your ass is obviously a little too tight and Martin must realize that too when more than one attempt at penetration results in you pulling away again.'
@@ -854,7 +854,7 @@ if $ARGS[0] = 'PainalDyn':
 			
 	act 'Force his dick inside your ass':
 		cls
-		'<center><video src="images/locations/city/industrial/bar/martin/anal/painal2.mp4"></center>'
+		'<center><video src="images/locations/city/industrial/bar/sex/bar/martin/anal/painal2.mp4"></center>'
 		if $martinpos = 'rev_cowgirl':
 			'No, you don''t want to quit, not now. Maybe it''s because of the position you''re in, just a bad angle for penetration, right? You climb off Martin and bend over in front of him. When you look back at him to give him an inviting look, you do feel a little intimidated by his size, though...'
 			'Maybe this wasn''t such a good idea after all?'
@@ -881,7 +881,7 @@ if $ARGS[0] = 'PainalDyn':
 			
 			act 'Continue':
 				cls
-				'<center><video src="images/locations/city/industrial/bar/martin/anal/painal3.mp4"></center>'
+				'<center><video src="images/locations/city/industrial/bar/sex/bar/martin/anal/painal3.mp4"></center>'
 				'But as patient as Martin has proven so far, you eventually push him too far, your <<$pcdesc_anusrandom>> asshole too snug and arousing around him for him to stay idle.'
 				*nl
 				'Your lover starts moving on his own. At first, he is gentle, careful, only adding a tiny bit of extra sensation to your mutual experience, but with ever stroke, he loses his inhibitions and turns more and more into an animal, possessed by the need to destroy your ass and fill it with cum.'
@@ -964,7 +964,7 @@ end
 if $ARGS[0] = 'MartinCumshot_Mouth':
 	cls
 	gs 'boyStat', 'A216'
-	'<center><video src="images/locations/city/industrial/bar/martin/cumshot/cum_mouth.mp4"></center>'
+	'<center><video src="images/locations/city/industrial/bar/sex/bar/martin/cumshot/cum_mouth.mp4"></center>'
 	if $martinpos ! 'MartinBlowjob_dressed' or $martinpos ! 'MartinBlowjob_undressed': 'You quickly move off Martin''s cock and get on your knees in front of him, taking his dick into your mouth and savoring the taste of yourself on your man as you get him off.'
 	'For a moment, you think about saying something dirty, like verbally asking him to cum in your mouth, but by the time this thought has manifested, Martin has already pulled out and complied with it, shooting his hot sperm into your open, waiting mouth.'
 	'You wait like this for the second and third spurt, but then you take him right back into your mouth, sucking and licking him through his orgasm.'
@@ -982,7 +982,7 @@ end
 if $ARGS[0] = 'MartinCumshot_Face':
 	cls
 	gs 'boyStat', 'A216'
-	'<center><video src="images/locations/city/industrial/bar/martin/cumshot/cum_facial.mp4"></center>'
+	'<center><video src="images/locations/city/industrial/bar/sex/bar/martin/cumshot/cum_facial.mp4"></center>'
 	
 	!Variation for pic and text sticking out your tongue for the cumshot
 	if $martinpos ! 'MartinBlowjob_dressed' or $martinpos ! 'MartinBlowjob_undressed': 'You quickly move off Martin''s cock and get on your knees in front of him, taking his dick into your mouth and savoring the taste of yourself on your man as you help him finish.'
@@ -999,7 +999,7 @@ end
 if $ARGS[0] = 'MartinCumshot_Tits':
 	cls
 	gs 'boyStat', 'A216'
-	'<center><video src="images/locations/city/industrial/bar/martin/cumshot/cum_tits.mp4"></center>'
+	'<center><video src="images/locations/city/industrial/bar/sex/bar/martin/cumshot/cum_tits.mp4"></center>'
 	if $martinpos ! 'MartinBlowjob_dressed' or $martinpos ! 'MartinBlowjob_undressed': 'You quickly move off Martin''s cock and get on your knees in front of him, stroking his dick as you point it at your bust and savoring the expression of bliss on your man''s face.'
 	'"Go ahead", you whisper in your sultriest voice, "Cum all over my tits, baby."'
 	'That''s all the invitation Martin needs: With a final moan, the first hot jet of cum hits your breasts, soon followed by another, and another. By the time his cock stops twitching, your breast and chin are covered in sperm. Cleaning up is gonna take a while, but with a single look at Martin and the satisfied boyish grin the sight of you puts on his face, you know that it''s worth it.'

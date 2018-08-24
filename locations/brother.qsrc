@@ -227,6 +227,7 @@ if $ARGS[0] = 'start':
 					cls
 					picrand = RAND(1,2)
 					minut += 60
+					gs 'stat'
 					if npc_rel['A34'] <50:npc_rel['A34'] += rand(1,2)
 						'<center><b><font color = maroon>School - football field</font></b></center>'
 					if month=1 or month=2 or month=12:

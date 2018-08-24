@@ -132,8 +132,11 @@ if $ARGS[0] = 'start':
 						act 'Leave':gt 'Nord', 'redlight'			
 					end
 				end
+			elseif stripwork = 0 and pcs_inhib < 60:
+				'You could ask the manager for a job, but you don''t feel confident enough to be a stripper, you should get more used to showing off your body first.'
 			end
-			act 'Walk into the dressing room':frost = 0 & gt 'stwork', 'start'
+			
+			if stripwork = 1: act 'Walk into the dressing room':frost = 0 & gt 'stwork', 'start'
 		end
 	end
 

@@ -5,9 +5,7 @@
 if $ARGS[0] = 'start':
 	$metka = 'start'
 	$loc = 'zaprFWash'
-	cla
-	clr
-
+	*clr & cla
 	! can''t wash cars if have visible cum already
 	if (cumloc[6] = 1 or cumloc[7] = 1) or cumloc[11] = 1:
 		minut += 5

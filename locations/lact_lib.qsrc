@@ -1,7 +1,7 @@
 # lact_lib
 
 if $ARGS[0] = '$get_bfat_tissue':
-	!! func('lac_lib', 'get_bfattissue', npc_nbsize, npc_lactatemm)
+	!! func('lact_lib', 'get_bfattissue', npc_nbsize, npc_lactatemm)
 	!! function to get breast fat tissue amount. Can be used for NPC as well as PC.
 	!! ARGS[1] = npc_nbsize - the natural bust size of the NPC/PC.
 	!! ARGS[2] = npc_lactatemm - he lactatemm of the NPC/PC.
@@ -114,63 +114,45 @@ if $ARGS[0] = '$get_breastmilk_time':
 	if lactate > 0:
 		!! 'suck_flow_rate initialized' Base Rate of sucking is 10ml/minute.
 		if ARGS[1] = 0:
-			!! 'adult sucking'
-			suck_flow_rate = 12 + rand(0,4)
-			temp_var = pcs_mood +(ARGS[2]/8)
-			if temp_var > 100:
-				pcs_mood = 100
-			else
-				pcs_mood += ARGS[2]/8
-			end
+			!!	'adult sucking'
+			suck_flow_rate = 120
 		elseif ARGS[1] = 1:
-			!! 'child sucking'
-			suck_flow_rate = 8 + rand(0,2)
-			temp_var = pcs_mood + (ARGS[2]/2)
-			if temp_var > 100:
-				pcs_mood = 100
-			else
-				pcs_mood += ARGS[2]/2
-			end
+			!!	'child sucking'
+			suck_flow_rate = 110
 		elseif ARGS[1] = 2:
 			!!	'baby sucking'
-			suck_flow_rate = 6 + (rand(0,2))
-			temp_var = pcs_mood + ARGS[2]
-			if temp_var > 100:
-				pcs_mood = 100
-			else
-				pcs_mood += ARGS[2]
-			end
+			suck_flow_rate = 80
 		elseif ARGS[1] = 3:
 			!!	'manual_breastpump sucking'
-			suck_flow_rate = 9
+			suck_flow_rate = 180
 		elseif ARGS[1] = 4:
 			!!	'electric_breastpump sucking'
-			suck_flow_rate = 10
+			suck_flow_rate = 400
 		elseif ARGS[1] = 5:
-			!! 'hand expression'
-			suck_flow_rate = 3 + rand(1,2)
+			!!	'hand expression'
+			suck_flow_rate = 105
 		elseif ARGS[1] = 6:
-			!! 'cow milker sucking'
-			suck_flow_rate = 100
+			!!	'cow milker sucking'
+			suck_flow_rate = 1000
 		else
-			!! 'suck flow else branch'
-			suck_flow_rate = 10
+			!!	'suck flow else branch'
+			suck_flow_rate = 100
 		end
 		
 		if pcs_nips > 0:
-			max_nip_flow_rate = 6
+			max_nip_flow_rate = 60
 		elseif pcs_nips > 20:
-			max_nip_flow_rate = 8
+			max_nip_flow_rate = 80
 		elseif pcs_nips > 40:
-			max_nip_flow_rate = 10
+			max_nip_flow_rate = 100
 		elseif pcs_nips > 60:
-			max_nip_flow_rate = 12
+			max_nip_flow_rate = 120
 		elseif pcs_nips > 80:
-			max_nip_flow_rate = 14
+			max_nip_flow_rate = 140
 		elseif pcs_nips > 100:
-			max_nip_flow_rate = 16
+			max_nip_flow_rate = 160
 		else
-			max_nip_flow_rate = 10
+			max_nip_flow_rate = 100
 		end
 		
 		if breastcounter > 0:
@@ -189,50 +171,50 @@ if $ARGS[0] = '$get_breastmilk_time':
 		if nip_flow > 30: nip_flow_mod = 30
 		max_nip_flow_rate += nip_flow_mod
 		
-		if (lactaterate/600) < 1 and lactaterate > 0:
+		if (lactaterate/60) < 1 and lactaterate > 0:
 			temp_lactaterate = 1
 		else
-			temp_lactaterate = lactaterate/600
+			temp_lactaterate = lactaterate/60
 		end
 		
 		if lactatemv >= (ARGS[2]*10):
 			if max_nip_flow_rate <= suck_flow_rate:
-				temp_var = ARGS[2]/max_nip_flow_rate
+				temp_var = (ARGS[2]*10)/max_nip_flow_rate
 			else
-				temp_var = ARGS[2]/suck_flow_rate
+				temp_var = (ARGS[2]*10)/suck_flow_rate
 			end
 			RESULT = temp_var
 		elseif lactatemv > 0 and lactatemv < (ARGS[2]*10):
 			if max_nip_flow_rate <= suck_flow_rate:
-				temp_var = (lactatemv/10)/max_nip_flow_rate
-				temp_var2 = ARGS[2] - (lactatemv/10)
+				temp_var = lactatemv/max_nip_flow_rate
+				temp_var2 = (ARGS[2]*10) - lactatemv
 				if max_nip_flow_rate <= temp_lactaterate:
 					temp_var += temp_var2/max_nip_flow_rate
 				else
-					temp_var += temp_var2/temp_lactaterate
+					temp_var += temp_var2/(temp_lactaterate*10)
 				end
 			else
-				temp_var = (lactatemv/10)/suck_flow_rate
-				temp_var2 = ARGS[2] - (lactatemv/10)
+				temp_var = lactatemv/suck_flow_rate
+				temp_var2 = (ARGS[2]*10) - lactatemv
 				if suck_flow_rate <= temp_lactaterate:
 					temp_var += temp_var2/suck_flow_rate
 				else
-					temp_var += temp_var2/temp_lactaterate
+					temp_var += temp_var2/(temp_lactaterate*10)
 				end
 			end
 			RESULT = temp_var
 		elseif lactatemv <=0:
 			if max_nip_flow_rate <= suck_flow_rate:
 				if max_nip_flow_rate <= temp_lactaterate:
-					temp_var = ARGS[2]/max_nip_flow_rate
+					temp_var = (ARGS[2]*10)/max_nip_flow_rate
 				else
-					temp_var = ARGS[2]/temp_lactaterate
+					temp_var = (ARGS[2]*10)/(temp_lactaterate*10)
 				end
 			else
 				if suck_flow_rate <= temp_lactaterate:
-					temp_var = ARGS[2]/suck_flow_rate
+					temp_var = (ARGS[2]*10)/suck_flow_rate
 				else
-					temp_var = ARGS[2]/temp_lactaterate
+					temp_var = (ARGS[2]*10)/(temp_lactaterate*10)
 				end
 			end
 			RESULT = temp_var
@@ -245,20 +227,18 @@ if $ARGS[0] = '$get_breastmilk_time':
 end
 
 if $ARGS[0] = '$get_breastmilk':
-
 	!!	func('lact_lib','$get_breastmilk', sucktion_type, sucktion_time)
 	!!	ARGS[1] = sucktion_type: the type of sucktion. adult_mouth [0], child_mouth [1], baby_mouth [2], manual_breastpump [3] , electric_breastpump [4], hand_expressing [5], cow milker [6]
 	!!	ARGS[2] = sucktion_time: how many minutes the sucking/pumping takes place
 	!!	Usage: breastmilkvolume = func('lact_lib','$get_breastmilk', 4, 20)
 	!! 	RESULT = Milk in ml*10
-	!!	what type of sucktion is happening? different sucktion can cause a different demand of breastmilk. Base rate of sucktion is 10ml/minute.
-
-	soreness_mod = 10
+	!!	Sveta, someone or something tries to milk Svetas breasts, so the daily variable breastpumped is switched on. This is used for the femcycle. If this is not switched on, possible changes like prolactinlvl etc go down.
 	breastpumped = 1
-	!! 'suck_flow_rate initialized'
+	if soreness_mod <= 0: soreness_mod = 1
+	!!	what type of sucktion is happening? different sucktion can cause a different demand of breastmilk. Base rate of sucktion is 10ml/minute x 10. So if the sucktion rate is 10ml/min then suck_flow_rate = 100.
 	if ARGS[1] = 0:
-		!! 'adult sucking'
-		suck_flow_rate = 12 + rand(0,4)
+		!!	'adult sucking'
+		suck_flow_rate = 120
 		temp_var = pcs_mood +(ARGS[2]/8)
 		if temp_var > 100:
 			pcs_mood = 100
@@ -266,8 +246,8 @@ if $ARGS[0] = '$get_breastmilk':
 			pcs_mood += ARGS[2]/8
 		end
 	elseif ARGS[1] = 1:
-		!! 'child sucking'
-		suck_flow_rate = 8 + rand(0,2)
+		!!	'child sucking'
+		suck_flow_rate = 110
 		temp_var = pcs_mood + (ARGS[2]/2)
 		if temp_var > 100:
 			pcs_mood = 100
@@ -276,7 +256,7 @@ if $ARGS[0] = '$get_breastmilk':
 		end
 	elseif ARGS[1] = 2:
 		!!	'baby sucking'
-		suck_flow_rate = 6 + (rand(0,2))
+		suck_flow_rate = 80
 		temp_var = pcs_mood + ARGS[2]
 		if temp_var > 100:
 			pcs_mood = 100
@@ -285,221 +265,232 @@ if $ARGS[0] = '$get_breastmilk':
 		end
 	elseif ARGS[1] = 3:
 		!!	'manual_breastpump sucking'
-		suck_flow_rate = 9
+		suck_flow_rate = 180
 	elseif ARGS[1] = 4:
 		!!	'electric_breastpump sucking'
-		suck_flow_rate = 10
+		suck_flow_rate = 400
 	elseif ARGS[1] = 5:
-		!! 'hand expression'
-		suck_flow_rate = 3 + rand(1,2)
+		!!	'hand expression'
+		suck_flow_rate = 105
 	elseif ARGS[1] = 6:
-		!! 'cow milker sucking'
-		suck_flow_rate = 100
+		!!	'cow milker sucking'
+		suck_flow_rate = 1000
 	else
-		!! 'suck flow else branch'
-		suck_flow_rate = 10
+		!!	'suck flow else branch'
+		suck_flow_rate = 100
 	end
 	!!	If you pump and work your breast more, soreness will decrease after pumping. This can also decline if your breasts arent worked for a longer time.
 	if breastcounter > 0:
 		temp_var = breastcounter/10
 		soreness_mod += temp_var
-		if soreness_mod > 20: soreness_mod = 20
+		if soreness_mod > 30: soreness_mod = 30
 		if nipple_cream = 1:
 			soreness_mod += 20
 			nipple_cream = 0
 		end
 	end
-	!! No lactation, no milk, but stimulus is applied, so some things are going to happen here.
-	if lactate = 0:
+	!!	If Sveta is not lactating we still need to do some actions. This is handled in here. Nipple pain + breast pain are applied as well as stamina is used.
+	if lactate <= 0:
 		if milkoverdemand <= 0: milkoverdemand = 0
 		pump_stop_brake = 0
 		!!	This is how much milk demand is applied to the breasts. In this function it is needed to calculate the nipple pain and breast pain.
-		max_sucktion_demand = 10*suck_flow_rate*ARGS[2]
+		max_sucktion_demand = suck_flow_rate*ARGS[2]
 		if pain['nipples'] <= 60:
-			suck_until_pain = ((60 - pain['nipples'])*10*(soreness_mod/10))/suck_flow_rate
+			suck_until_pain = (((60 - pain['nipples'])*soreness_mod)*10)/(suck_flow_rate/18)
 		end
-		temp_var = pain['nipples'] + (max_sucktion_demand/100)/(soreness_mod/10)
+		temp_var = pain['nipples'] + max_sucktion_demand/(soreness_mod*100)
 		if temp_var > 60:
 			pain['nipples'] = 65
 			pump_stop_brake = 1
 			pumptime = suck_until_pain
-			max_sucktion_demand = 10*suck_flow_rate*pumptime
+			max_sucktion_demand = suck_flow_rate*pumptime
 		else
-			pain['nipples'] += (max_sucktion_demand/100)/(soreness_mod/10)
+			pain['nipples'] += max_sucktion_demand/(soreness_mod*100)
 		end
-
-		temp_var = pain['breasts'] + max_sucktion_demand/1000
+		temp_var = pain['breasts'] + max_sucktion_demand/10000
 		if temp_var > 20:
 			pain['breasts'] = 25
 		else
-			pain['breasts'] += max_sucktion_demand/1000
+			pain['breasts'] += max_sucktion_demand/10000
 		end
-		!! Pumping breasts is exhausting even if no milk comes. so this is handled here.
-
-		temp_var = pcs_energy - max_sucktion_demand/1500
+		!!	Pumping breasts is exhausting even if no milk comes. Pumping will impact the stamina of Sveta if she is not lactating.
+		temp_var = pcs_stam - max_sucktion_demand/300
 		if temp_var < 0:
-			pcs_energy = 0
-			!! energy usage flag on.
+			pcs_stam = 0
+			!!	energy usage flag on.
 			energytomilkpump = 1
+			pcs_sweat += max_sucktion_demand/1000
 		else
-			pcs_energy -= max_sucktion_demand/1500
-			!! energy usage flag on.
+			pcs_stam -= max_sucktion_demand/300
+			pcs_sweat += max_sucktion_demand/1000
+			!!	energy usage flag on.
 			energytomilkpump = 1
 		end
-
 		if pumptime < 10:
 			breastcounter += 1
 		else
 			breastcounter += pumptime/10
 		end
-
 		milkoverdemand += max_sucktion_demand
 		RESULT = 0
-	!! If there is lactation, do the magic
-	elseif lactate >0:
-		!!	How much milk can go through the nipple. Base rate is 10ml/minute when sucktion is applied to the nipple. If the demand is higher than the nipple can push through, nipple soreness will happen more quickly.
+	elseif lactate > 0:
+		!!	How much milk can go through the nipple. Base rate is 10ml/minute (100) when sucktion is applied to the nipple. If the demand is higher than the nipple can push through, nipple soreness will happen more quickly.
 		if pcs_nips > 0:
-			max_nip_flow_rate = 6
+			max_nip_flow_rate = 60
 		elseif pcs_nips > 20:
-			max_nip_flow_rate = 8
+			max_nip_flow_rate = 80
 		elseif pcs_nips > 40:
-			max_nip_flow_rate = 10
+			max_nip_flow_rate = 100
 		elseif pcs_nips > 60:
-			max_nip_flow_rate = 12
+			max_nip_flow_rate = 120
 		elseif pcs_nips > 80:
-			max_nip_flow_rate = 14
+			max_nip_flow_rate = 140
 		elseif pcs_nips > 100:
-			max_nip_flow_rate = 16
+			max_nip_flow_rate = 160
 		else
-			max_nip_flow_rate = 10
+			max_nip_flow_rate = 100
 		end
-
-		!!	If you pump and work your breast more, soreness will decrease after pumping. This can also decline if your breasts arent worked for a longer time.
-		if breastcounter > 0:
-			temp_var = breastcounter/10
-			soreness_mod += temp_var
-			if soreness_mod > 20: soreness_mod = 20
-			if nipple_cream = 1:
-				soreness_mod += 10
-				nipple_cream = 0
-			end
-		end
-
-		!!	If you pump more, more milk will come, disregarding nipplesize. Things will get used to milking and be more loose.
+		!!	If you pump more, more milk will be able to flow out, disregarding nipplesize. Svetas nipples will get used to have milk stream through them, grows and drops with the breastcounter.
 		nip_flow_mod = 1
-		temp_var = breastcounter/10
-		nip_flow_mod += temp_var
-		if nip_flow > 30: nip_flow_mod = 30
+		nip_flow_mod += breastcounter
+		if nip_flow > 400: nip_flow_mod = 400
 		max_nip_flow_rate += nip_flow_mod
-
-		!!	How much milk demand is applied to the breasts. We want to know if we can just suck out what is already stored or if additional milk production is needed to go through the whole pumping/sucking.
+		!!	How much milk demand is applied to the breasts.
+		max_sucktion_demand = suck_flow_rate*ARGS[2]
+		!!	We want to know if we can just suck out what is already stored or if additional milk production is needed to go through the whole pumping/sucking.
 		!!	If we only need 20ml from a 100ml storage, we would only substract 20ml, leaving 80ml inside the breasts.
-		
-		max_sucktion_demand = 10*suck_flow_rate*ARGS[2]
-		!!	Is enough milk already in the breasts?
+		!!	Also lets make sure we start at zero from the stuff we get from Sveta.
+		milkedvolume = 0
+		!!	Case: Enough milk in Svetas breasts, covering the demand
 		if lactatemv >= max_sucktion_demand:
-			!! can the nipples handle the flow?
+			!!	Checking if svetas nipple flow is enough to serve the demand. If yes - get the demand; If no - get what she is able to give us.
 			if max_nip_flow_rate >= suck_flow_rate:
 				milkedvolume = max_sucktion_demand
 				lactatemv -= max_sucktion_demand
-			elseif max_nip_flow_rate < suck_flow_rate:
-				milkedvolume = max_nip_flow_rate*10*ARGS[2]
+			else:
+				milkedvolume = max_nip_flow_rate*ARGS[2]
 				lactatemv -= milkedvolume
-				!!	time for sore nipples. We apply more sucking than the nipples can handle. So it hurts more. if nipple pain over 60, then it goes to 65. else it just adds soreness.
-				max_sucktion_demand -= milkedvolume
-				temp_var = pain['nipples'] + (max_sucktion_demand/100)/(soreness_mod/10)
-				if temp_var > 60:
-					pain['nipples'] = 65
-				else
-					pain['nipples'] += (max_sucktion_demand/100)/(soreness_mod/10)
-				end
-			else
-				cls & '<b><font color="red">BAD ARGUMENT CHECK IN <i>$get_breastmilk</i>!</font></b><b>Error in Lactatemv bigger than max_sucktion_demand fork.</b>'
 			end
+		!!	Case: Not enough milk in Svetas breasts.
 		elseif lactatemv < max_sucktion_demand:
-			!!	Magic!
-			temp_var = (lactatemv/(max_nip_flow_rate*10))
-			if temp_var <= 0 and lactatemv > 0: temp_var = 1
-			pumptime_left = ARGS[2] - temp_var
-			if pumptime_left <= 0 and lactatemv > 0: pumptime_left = 1
-			temp_var = lactaterate/60
-			if temp_var <= 0 and lactaterate > 0: temp_var = 1
-			if temp_var >= max_nip_flow_rate:
-				if ARGS[1] = 2: breastcounter += 50
-				milkedvolume = (max_nip_flow_rate * 10 * pumptime_left) + (max_nip_flow_rate * 10 * (ARGS[2] - pumptime_left))
-				lactatemv -= (max_nip_flow_rate * 10 * (ARGS[2] - pumptime_left))
-			elseif temp_var < max_nip_flow_rate:
-				!!with a baby sucking, more milk should be made due to nature ...
-				if ARGS[1] = 2: milkoverdemand += 100000
-				milkedvolume = (temp_var * pumptime_left) + (max_nip_flow_rate * 10 * (ARGS[2] - pumptime_left))
-				lactatemv -= (max_nip_flow_rate * 10 * (ARGS[2] - pumptime_left))
+			!!	We have two sub cases in this one. Sveta has no lactatemv and Sveta has not enough lactatemv. This means she has to produce more milk, but first we need to know how much is needed.
+			!!	temp_var will be the amount of milk Sveta has to produce to serve the demand. pump time left is the time left after lactatemv is drained.
+			if lactatemv <= 0:
+				temp_var = max_sucktion_demand
+				pumptime_left = ARGS[2]
 			else
-				cls & '<b><font color="red">BAD ARGUMENT CHECK IN <i>$get_breastmilk</i>!</font></b><b>Error in Lactatemv smaller than max_sucktion_demand fork.</b>'
-			end
-			if lactatemv <= 0: lactatemv = 0
-			!!	the breasts had to produce milk, so energy is used.
-			temp_var = pcs_energy - milkedvolume/1000
-			if temp_var < 0:
-				pcs_energy = 0
-				if rand(0,100) > 90: fat -= 1
-				!!	this is checking if pcs_energy was impacted during milking.
-				energytomilkpump = 1
-			else
-				pcs_energy -= milkedvolume/1000
-				!!	this is checking if pcs_energy was impacted during milking.
-				energytomilkpump = 1
-			end
-			!! the breasts had to produce milk, so hydration is used.
-			temp_var = pcs_hydra - milkedvolume/500
-			if temp_var < 0:
-				pcs_hydra = 0
-				energytomilkpump = 1
-			else
-				pcs_hydra -= milkedvolume/500
-				energytomilkpump = 1
-			end
-			!!	if more is pumped than produced the breasts will hurt too.
-			if milkedvolume < max_sucktion_demand:
-				!!	milkoverdemand: This is used for the daily milk growth. If there is overdemand, the lactaterate will change the next day. Will be set to 0 every day.
-				milkoverdemand += max_sucktion_demand - milkedvolume
-				temp_var = pain['breasts'] + (max_sucktion_demand - milkedvolume)/1000
-				if temp_var > 20:
-					pain['breasts'] = 20
+				temp_var = max_sucktion_demand - lactatemv
+				if max_nip_flow_rate >= suck_flow_rate:
+					pumptime_left = ARGS[2] - (lactatemv/suck_flow_rate)
 				else
-					pain['breasts'] += (max_sucktion_demand - milkedvolume)/1000
+					pumptime_left = ARGS[2] - (lactatemv/max_nip_flow_rate)
+				end
+				if pumptime_left < 0: pumptime_left = 0
+			end
+			!!	Now we know how much time we have and how much demand we have. Time to check if Sveta can do it.
+			!!	For the case, that svetas milk flow is not big enough pumptime left will be 0, therefore this is handled here.
+			if pumptime_left >0:
+				if max_nip_flow_rate >= suck_flow_rate:
+					!!	the lactaterate is per hour, so it is possible that lactaterate will end up being zero when devided by 60. therefore everything here is multiplied by 100.
+					if (suck_flow_rate*100) <= ((lactaterate*100)/60):
+						milkedvolume += suck_flow_rate*pumptime_left
+					else
+						milkedvolume += ((((lactaterate*100)/60)*pumptime_left)/100)
+						breastcounter += 2
+					end
+				else
+					!!	Same here as above.
+					if (max_nip_flow_rate*100) <= ((lactaterate*100)/60):
+						milkedvolume += max_nip_flow_rate*pumptime_left
+						breastcounter += 2
+					else
+						milkedvolume += ((((lactaterate*100)/60)*pumptime_left)/100)
+						breastcounter += 2
+					end
+				end
+				!!	Produced milk needs to be subtracted from the hourly lactate rate, so femcycle is only adding the milk that was not produced yet in the next hour
+				if pumptime_left > 60:
+					if ((pumptime_left*100)/60) > 100:
+						lactaterate_use -= ((((lactaterate*100)/60)*(pumptime_left mod 60))/100)
+					else
+						lactaterate_use = lactaterate
+					end
+				else
+					if lactaterate >= lactaterate_use:
+						lactaterate_use -= milkedvolume
+					else
+						lactaterate_use = lactaterate
+					end
+				end
+				if lactaterate_use <= 0: lactaterate_use = 0
+				!!	Sveta had to make milk, so she needs to use some of her body resources to make the milk.
+				if milkedvolume > 0:
+					!!	energy usage flag on. Can be used in events to show that sveta is getting hungry or thirsty
+					energytomilkpump = 1
+					pcs_stam -= max_sucktion_demand/300
+					if pcs_stam <= 0: pcs_stam = 0
+					pcs_sweat += max_sucktion_demand/1000
+					pcs_hydra -= milkedvolume/120
+					if pcs_hydra < 1: pcs_hydra = 1
+					pcs_energy -= milkedvolume/1200
 				end
 			end
+			!!	Now we check if sveta was able to make it or not. If not we have milk overdemand which will be used in femcycle to make her produce more milk next day.
+			if temp_var > milkedvolume:
+				milkoverdemand += (temp_var - milkedvolume)
+			end
+			!!	time to add the pumped lactatemv to the milkedvolume and empty lactatemv.
+			milkedvolume += lactatemv
+			lactatemv = 0
+			!!	Here we have nipple and breastpain. The idea is - if there is more sucktion than the nipples can take more pain is applied. If the breasts make less milk then demanded pain to the breasts is applied.
+			!!	Else - there will only be nipple pain.
 			if max_nip_flow_rate < suck_flow_rate:
-				!!	sore nipples again. "used to breastpumping" variable needs to come in here too!
-				temp_var = pain['nipples'] + ((((max_nip_flow_rate*100)/60) * pumptime_left)/100) + (max_sucktion_demand/100)/(soreness_mod/10)
-				if temp_var > 60:
+				temp_var = pain['nipples'] + ((suck_flow_rate - max_nip_flow_rate)*100*ARGS[2])/2000 - (soreness_mod*ARGS[2])*15
+				if temp_var >= 60:
 					pain['nipples'] = 65
+				elseif temp_var <= 0:
+					pain['nipples'] += 1
 				else
-					pain['nipples'] += ((((max_nip_flow_rate*100)/60) * pumptime_left)/100) + (max_sucktion_demand/100)/(soreness_mod/10)
+					pain['nipples'] += (((suck_flow_rate - max_nip_flow_rate)*100*ARGS[2])/2000 - (soreness_mod*ARGS[2])*15)
+				end
+			else
+				if ARGS[2] < 10:
+					pain['nipples'] += 1
+				elseif ARGS[2] >= 10 and soreness_mod > ARGS[2]:
+					pain['nipples'] += 1
+				else
+					pain['nipples'] += (ARGS[2]/10 - soreness_mod/10)
 				end
 			end
+			if max_nip_flow_rate >= suck_flow_rate:
+				if (suck_flow_rate*100) > ((lactaterate*100)/60):
+					temp_var = pain['breasts'] + (((suck_flow_rate*100)-((lactaterate*100)/60))*pumptime_left)/1000
+					if temp_var > 20:
+						pain['breasts'] = 20
+					else
+						pain['breasts'] += (((suck_flow_rate*100)-((lactaterate*100)/60))*pumptime_left)/1000
+					end
+				end
+			else				
+				if (max_nip_flow_rate*100) > ((lactaterate*100)/60):
+					temp_var = pain['breasts'] + (((max_nip_flow_rate*100)-((lactaterate*100)/60))*pumptime_left)/1000
+					if temp_var > 20:
+						pain['breasts'] = 20
+					else
+						pain['breasts'] += (((max_nip_flow_rate*100)-((lactaterate*100)/60))*pumptime_left)/1000
+					end
+				end
+			end				
 		end
-		!! The standard nipple pain applied due to pumping. Adding to the pain that is calculated above
-		temp_var = pain['nipples'] + (max_sucktion_demand/100)/(soreness_mod/10)
-		if temp_var > 60:
-			pain['nipples'] = 65
-		else
-			pain['nipples'] += (max_sucktion_demand/100)/(soreness_mod/10)
-		end
-
 		if pumptime < 10:
 			breastcounter += 1
 		else
 			breastcounter += pumptime/10
 		end
-
+		!!	Done - Result is the milked volume.
 		RESULT = milkedvolume
-	else
-		cls & '<b><font color="red">BAD ARGUMENT CHECK IN <i>$get_breastmilk</i>!</font></b>'
 	end
 end
-
-!! lact_lib
 
 !!	bp_milking - breast pump milking
 !!	use href="exec:gt ''lact_lib'',''bp_milking''"
@@ -507,42 +498,103 @@ end
 if $ARGS[0] = 'bp_milking':
 	pumptime = 0
 	pumptype = 0
-	if $location_type ! 'bathroom' and pcs_inhib < 50:
+	if pump_bottletype < 1500: pump_bottletype = 1500
+	if bpbottles <= 0: bpbottles = 1
+	if $location_type ! 'bathroom' and pcs_exhibition < 60:
 		'You can''t use it here.'
-		act 'Don''t pump':gt $loc, $metka
 	else
 		*clr
 		cla
-		pumptime = input ("How long do you plan to pump your breasts?<br>(Defaults 15 minutes, maximum 60 minutes)")
-		if pumptime = '':pumptime = 15
-		if pumptime > 0 and pumptime <= 60:
-			gt 'lact_lib', 'milking'
-		elseif pumptime <= 0 or pumptime > 60:
-			minut += 2
-			act 'Don''t pump':gt $loc, $metka
+		'How long do you want to pump your breasts with the manual breast pump?'
+		if bpbottlem > 0:
+			if pump_bottletype = 1500:
+				'Current bottle size in use: &gt;150ml | <a href="exec:pump_bottletype = 2500 & gt ''lact_lib'', ''bp_milking''">250ml</a>'
+			else
+				'Current bottle size in use <a href="exec:pump_bottletype = 1500 & gt ''lact_lib'', ''bp_milking''">150ml</a> | &gt;250ml'
+			end
 		end
+		'<center><img <<$set_imgh>> src="images/pc/body/tits/breast_pump.jpg"></center>'
+		if lactatemv > 0:
+			pumptime = (func('lact_lib','$get_breastmilk_time', 3, (lactatemv/10)))
+			if pumptime > 5:
+				pumptime -= 2
+			end
+			if pumptime > 60:
+				act 'Pump until breasts are empty':
+					*clr
+					cla
+					minut += 2
+					'As you prepare for pumping you weight your breasts in your hands. You feel that your breasts carry a large amount of milk and pumping will probably take a long time.'
+					'Getting relieve for your breasts with the manual breast pump will probably take at least <<pumptime>> minutes.'
+					if pcs_know_mward <= 0:
+						'You concider visiting a hospital to get help or buying a better breastpump.'
+						pcs_ask_mward_help = 1
+						pcs_knows_electric_pump = 1
+					end
+					'Do you want to continue?'
+					act 'Don''t pump':gt $loc, $metka
+					act 'Continue':					
+						gt 'lact_lib', 'milking'
+					end
+				end
+			elseif pumptime <= 0:
+				act 'Pump until breasts are empty':
+					*clr
+					cla
+					minute += 2
+					'As you prepare for pumping you weight your breasts in your hands. Your breasts feel really empty. There is no need to pump now.'
+					act 'Don''t pump':gt $loc, $metka
+					act 'back':gt 'lact_lib', 'bp_milking'
+				end
+			else
+				act 'Pump until breasts are empty':
+					pumptime = func('lact_lib','$get_breastmilk_time', 3, (lactatemv/10))
+					if pumptime > 5:
+						pumptime -= 2
+					end				
+					gt 'lact_lib', 'milking'
+				end
+			end
+		end
+		act '15 Minutes':
+			pumptime = 15
+			gt 'lact_lib', 'milking'
+		end
+		act '30 Minutes':
+			pumptime = 30
+			gt 'lact_lib', 'milking'
+		end
+		act 'Custom':
+			pumptime = input ("How long do you plan to pump your breasts? (Not more than 60 minutes)")
+			if pumptime <= 0 or pumptime > 60:
+				minut += 2
+				act 'Don''t pump':gt $loc, $metka
+				act 'back':gt 'lact_lib', 'bp_milking'
+			elseif pumptime > 0 and pumptime <= 60:
+				gt 'lact_lib', 'milking'
+			end
+		end
+		act 'Don''t pump':gt $loc, $metka
 	end
 end
 
 !!	man_milking - manual (with hands) milking
 !!	use href="exec:gt ''lact_lib'',''man_milking''"
-
+!!	Warning! Protoype function! Don not make changes to this function as it is not used yet!
 if $ARGS[0] = 'man_milking':
 	pumptime = 0
 	pumptype = 1
-	if $location_type ! 'bathroom' and pcs_inhib < 50:
+	if $location_type ! 'bathroom' and pcs_inhib < 60:
 		'You can''t do this here.'
-		act 'Don''t pump':gt $loc, $metka
 	else
 		*clr
 		cla
-		pumptime = input ("How long would you like to milk your breasts?<br>(Default 15 minutes, maximum 60 minutes)")
-		if pumptime = '':pumptime = 15
-		if pumptime > 0 and pumptime <= 60:
-			gt 'lact_lib', 'milking'
-		elseif pumptime <= 0 or pumptime > 60:
+		pumptime = input ("How long would you like to milk your breasts? (Not more than 60 minutes)")
+		if pumptime <= 0 or pumptime > 60:
 			minut += 2
-			act 'Don''t pump':gt $loc, $metka
+			act 'Don''t milk':gt $loc, $metka
+		elseif pumptime > 0 and pumptime <= 60:
+			gt 'lact_lib', 'milking'
 		end
 	end
 end
@@ -551,16 +603,129 @@ end
 !!	never use directly. Always use bp_milking, man_milking or sex_milking
 
 if $ARGS[0] = 'milking':
-	if pumptime <= 0 or pumptime > 60:
-		act 'Finish':gt $loc, $metka
-	end
+	!!	if pumptime <= 0 or pumptime > 60:
+	!!		act 'Finish':gt $loc, $metka
+	!!	end
 	if pumptype = 1:
 		pumptime = (pumptime*6)/10
 	end
+	
+		!!	:loop
+		!!	if k < kid:
+		!!	gs 'kid','kidlist'
+		!!	k += 1
+		!!	jump 'loop'
+		!! end
 	if lactate > 0 and pain['nipples'] < 60:
 		milkedvolume = func('lact_lib','$get_breastmilk', 3, pumptime)
 		'<center><img <<$set_imgh>> src="images/pc/body/tits/pump_lactating.jpg"></center>'
-		'You attach the pump to your breast and start rythmically squeezing the bulb until your breasts feel empty.<br>You give it a few more pumps and detach the pump.<br>You filled the bottle with <<milkedvolume/10>>ml of your milk.'
+		if pumptime > 1:
+			'You attach the pump to your breast and start rythmically squeezing the bulb for <<pumptime>> minutes.'
+		else
+			'You attach the pump to your breast and start rythmically squeezing the bulb for one minute.'
+		end
+		!!	Fill the bottles :D
+		if milkedvolume > pump_bottletype and (bpbottles*1500 + bpbottlem*2500) = pump_bottletype:
+			'During pumping you have to empty the collecting bottle as it filled up with your milk.'
+			'You give it a few more pumps and detach the pump.<br>You filled the bottle with <<pump_bottletype/10>>ml of your milk.'
+			'To collect all your pumped milk you should probably check if the pharmacy has additional bottles for your breast pump.'
+			pcs_knowsmilkbottles = 1
+		elseif milkedvolume > pump_bottletype and (bpbottles*1500 + bpbottlem*2500) > pump_bottletype:
+			!!	Checking which bottletype is used and filling those bottles up before the other type is used.
+			bp_used_mbottle = 0
+			bp_used_sbottle = 0
+			:sbottleloop
+			if pump_bottletype < 2500 and milkedvolume >= 1500 and bp_used_sbottle < bpbottles:
+				bp_used_sbottle += 1
+				milkedvolume -= 1500
+				jump 'sbottleloop'
+			end
+			:mbottleloop
+			if pump_bottletype >= 2500 and milkedvolume >= 2500 and bp_used_mbottle < bpbottlem:
+				bp_used_mbottle += 1
+				milkedvolume -= 2500
+				jump 'mbottleloop'
+			end
+			!!	Checking for the milkedvolume and if there are bottles left. if yes - use these bottles
+			if milkedvolume > 0 and (((bpbottlem - bp_used_mbottle) > 0) or ((bpbottles - bp_used_sbottle) > 0)):
+				:altfill01
+				if pump_bottletype < 2500 and milkedvolume >= 2500 and bp_used_mbottle < bpbottlem:
+					bp_used_mbottle += 1
+					milkedvolume -= 2500
+					jump 'altfill01'
+				end
+				:altfill02
+				if pump_bottletype >= 2500 and milkedvolume >= 1500 and bp_used_sbottle < bpbottles:
+					bp_used_sbottle += 1
+					milkedvolume -= 1500
+					jump 'altfill02'
+				end
+			end
+			!!	by this point all bottles should have been used up. Everything else needs to end up in the drain.
+			if milkedvolume > 0 and bpbottlem = bp_used_mbottle and bpbottles = bp_used_sbottle:
+				'During pumping you have to switch the collecting bottle as it filled up with your milk. Unfortunately you don''t have enough bottles to collect all your milk.'
+				'You had to pour <<milkedvolume/10>>ml of your breast milk into the sink.'
+				milkedvolume = ((bp_used_mbottle*2500) + (bp_used_sbottle*1500))
+			elseif milkedvolume > 0 and milkedvolume < 1500 and (bpbottles - bp_used_sbottle) > 0:
+				'During pumping you have to switch the collecting bottle as it filled up with your milk.'
+			elseif milkedvolume > 0 and milkedvolume < 2500 and milkedvolume > 1500 and (bpbottlem - bp_used_mbottle) > 0:
+				'During pumping you have to switch the collecting bottle as it filled up with your milk.'
+			else
+				'During pumping you have to switch the collecting bottle as it filled up with your milk.'
+			end
+			if bp_used_mbottle >= 1 or bp_used_sbottle >= 1:
+				'<center><img <<$set_imgh>> src="images/pc/body/tits/bottles_full.jpg"></center>'
+				if milkedvolume = ((bp_used_mbottle*2500) + (bp_used_sbottle*1500)):
+					'You pumped <<milkedvolume/10>>ml of milk from your breasts, collecting it in:'
+					if bp_used_sbottle = 1:
+						'One 150ml bottle'
+					elseif bp_used_sbottle > 1:
+						'<<bp_used_sbottle>> x 150ml bottles'
+					end 
+					if bp_used_mbottle = 1:
+						'One 250ml bottle'
+					elseif bp_used_mbottle > 1:
+						'<<bp_used_mbottle>> x 250ml bottles'
+					end 
+				else
+					'You pumped <<((bp_used_mbottle*2500)+(bp_used_sbottle*1500)+milkedvolume)/10>>ml of milk from your breasts collecting it in:'
+					if bp_used_sbottle = 1:
+						'One 150ml bottle'
+					elseif bp_used_sbottle > 1:
+						'<<bp_used_sbottle>> x 150ml bottles'
+					end 
+					if bp_used_mbottle = 1:
+						'One 250ml bottle'
+					elseif bp_used_mbottle > 1:
+						'<<bp_used_mbottle>> x 250ml bottles'
+					end
+					if (bpbottles - bp_used_sbottle) > 0 and milkedvolume <= 1500:
+						'You also stored <<milkedvolume/10>>ml of breast milk in a 150ml bottle.'
+					elseif (bpbottlem - bp_used_mbottle) > 0 and milkedvolume <= 2500:
+						'You also stored <<milkedvolume/10>>ml of breast milk in a 250ml bottle.'
+					else	
+						'unhandled case - you shouldn''t end up here. Please report this in the bug section of Girl Life in the tfg-forums.'
+						'bp_used_mbottle: <<bp_used_mbottle>>'
+						'bp_used_sbottle: <<bp_used_sbottle>>'
+						'milkedvolume: <<milkedvolume>>'
+						'pump_bottletype: <<pump_bottletype>>'
+						'bpbottles: <<bpbottles>>'
+						'bpbottlem: <<bpbottlem>>'
+					end
+					milkedvolume += bp_used_mbottle*2500 + bp_used_sbottle*1500
+				end
+			else	
+				'unhandled case - you shouldn''t end up here. Please report this in the bug section of Girl Life in the tfg-forums.'
+				'bp_used_mbottle: <<bp_used_mbottle>>'
+				'bp_used_sbottle: <<bp_used_sbottle>>'
+				'milkedvolume: <<milkedvolume>>'
+				'pump_bottletype: <<pump_bottletype>>'
+				'bpbottles: <<bpbottles>>'
+				'bpbottlem: <<bpbottlem>>'
+			end
+		else
+			'You give it a few more pumps and detach the pump.<br>You filled the bottle with <<milkedvolume/10>>ml of your milk.'
+		end
 		breastcounter += 1
 		if energytomilkpump > 0 and pcs_energy = 0:
 			'<br>During pumping you feel really hungry, producing breast milk seems to be more exhausing then thought.'
@@ -588,7 +753,13 @@ if $ARGS[0] = 'milking':
 		else
 			milkedvolume = func('lact_lib','$get_breastmilk', 3, pumptime)
 			'<center><img <<$set_imgh>> src="images/pc/body/tits/t<<tits>>.jpg"></center>'
-			'You attach the pump to your nipples and start squeezing the bulb. The vacuum feels good on your nipples.'
+			if breastcounter < 100:
+				'You attach the pump to your nipples and start squeezing the bulb. The vacuum feels uncomfortable on your nipples.'
+			elseif breastcounter >= 100 and breastcounter < 200:
+				'You attach the pump to your nipples and start squeezing the bulb. You are used to the vacuum on your nipples.'
+			else
+				'You attach the pump to your nipples and start squeezing the bulb. The vacuum feels good on your nipples.'
+			end
 			if prolactinlvl > 70: 'A few droplets of liquid come out of your nipples but it is not milk.'
 			breastcounter += 1
 			if pump_stop_brake = 1:
@@ -615,9 +786,14 @@ if $ARGS[0] = 'milking':
 		act 'Pour it into the sink':
 			*clr
 			cla
-			'<center><img <<$set_imgh>> src="images/pc/body/tits/milk_sink.jpg"></center>'
-			'<center>You pour <<milkedvolume/10>>ml of your breast milk into the sink and clean up your breastpump.</center>'
-			minut += 5
+			if milkedvolume > 1500 and bpbottles <= 1:
+				'<center><img <<$set_imgh>> src="images/pc/body/tits/milk_sink.jpg"></center>'
+				'<center>You pour 150ml of your breast milk into the sink and clean up your breastpump.</center>'
+			else
+				'<center><img <<$set_imgh>> src="images/pc/body/tits/milk_sink.jpg"></center>'
+				'<center>You pour <<milkedvolume/10>>ml of your breast milk into the sink and clean up your breastpump.</center>'
+			end
+			minute += 5
 			act 'Finish':
 				milkedvolume = 0
 				gt $loc, $metka
@@ -657,5 +833,5 @@ if $ARGS[0] = 'engorged_morning':
 	act 'Finish':gt $loc, $metka
 end
 
---- lac_lib ---------------------------------
+--- lact_lib ---------------------------------
 

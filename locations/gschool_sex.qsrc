@@ -322,6 +322,8 @@ if $ARGS[0] = 'Anush_private2':
 			'As Anushka takes a swig Valentin adds in "Fuck yeah you will, soon you''ll be putting them away like this bitch, now this bitch knows how to party." He says as he gropes Anushka''s tit as she drink and wraps another arm around her giving her a quick hug. Afterwards she passes the bottle back to the boys who start to take a drink, while she turns towards you and leans in close. She kisses you softly then a bit passionately on your lips.'
 			gs 'arousal', 'foreplay', 2, 'lesbian'
 			act 'Push her away':
+				*clr
+				cla
 				npc_rel['A144'] -= 5
 				npc_rel['A158'] -= 5
 				npc_rel['A156'] -= 5

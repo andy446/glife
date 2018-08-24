@@ -896,7 +896,7 @@ if $ARGS[0] = 'Phone_camera_selfie':
 	elseif $locclass = 'kitr':
 		$phone_loc = 'kitchen'
 		gs 'telefon', 'Phone_selfie_image'
-	elseif $locclass = 'livingroom':
+	elseif $locclass = 'livingr':
 		$phone_loc = 'livingroom'
 		gs 'telefon', 'Phone_selfie_image'
 	else

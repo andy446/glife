@@ -81,7 +81,7 @@ if hantersSergeiQw >= 10:
 							'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hanterkiss3.jpg"></center>'
                             '"<<$pcs_nickname>>, I want to make love to you," he says, when he finally pulls back. You answer Sergey with a kiss every bit as passionate as the one that started this. You''re making your way back towards his room as you do so.'
 
-                            act 'Go':gt'HanterLoveSex'
+                            act 'Go': gt'HanterLoveSex', 'Sergei'
                         end
                     else
                         act'Continue':

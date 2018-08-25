@@ -154,7 +154,7 @@ if $ARGS[0] = 'SGStart2':
 	else
 		'<<$startdob>>'
 	end
-	act 'confirm':
+	act 'Confirm':
 		cls
 		'<center><img <<$set_imgh>> src="images/pre/sys/altstart26.jpg"></center>'
 		'You have two options when it comes to beginning your game. You can start at the end of the summer holiday, very close to starting the new school year, or you can start at the beginning of the summer holiday.'

@@ -29,30 +29,26 @@ gs 'stat'
 if streetevent_hour + 2 < hour:gt'street_event','pavResidential', 'main'
 
 '<center><h2>Pavlovsk</h2></center>'
-if Enable_towntable = 1 : $_str = '<center><table><tr><td>' else $_str = ''
 if month >= 11 or month <= 3:
 	if hour >= 8 and hour <= 21:
-		$_str += '<center><img <<$set_imgh>> src="images/locations/pavlovsk/pavreswinter.jpg"></center>'
+		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/pavreswinter.jpg"></center>'
 	else
-		$_str += '<center><img <<$set_imgh>> src="images/locations/pavlovsk/pavreswintern.jpg"></center>'
+		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/pavreswintern.jpg"></center>'
 	end
 else
 	if hour >= 8 and hour <= 21:
-		$_str += '<center><img <<$set_imgh>> src="images/locations/pavlovsk/pavres.jpg"></center>'
+		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/pavres.jpg"></center>'
 	else
-		$_str += '<center><img <<$set_imgh>> src="images/locations/pavlovsk/pavresn.jpg"></center>'
+		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/pavresn.jpg"></center>'
 	end
 end
+*nl
 
-if Enable_towntable = 1 : $_str += '</td><td>'
-$_str += '<center>You are in the residential area of a provincial town in a rural area of Russia.	Population: about 15000 inhabitants.</center>'
-$_str += '<center>Apart from the old <a href="exec:view''images/locations/pavlovsk/palace/pav_palace.jpg''">Imperial palace</a> with its surrounding gardens and forest, built by Catherine the Great, and the recently rebuilt <a href="exec:view''images/locations/pavlovsk/fortress/bip_hotel.png''">Bip fortress</a> (which is now a Luxury hotel and restaurant), it looks much like all the other towns in the region.</a></center> '
-$_str += '<center>The tallest building in town is the <a href="exec:minut += 5 & gt ''ParChurch'',''start''">church of St Nikolas.</a></center>'
-if Enable_towntable = 1 : $_str += '</td></tr><table></center>'
-*nl $_str
-killvar '$_str'
+'<center>You are in the residential area of a provincial town in a rural area of Russia.	Population: about 15000 inhabitants.</center>'
+'<center>Apart from the old <a href="exec:view''images/locations/pavlovsk/palace/pav_palace.jpg''">Imperial palace</a> with its surrounding gardens and forest, built by Catherine the Great, and the recently rebuilt <a href="exec:view''images/locations/pavlovsk/fortress/bip_hotel.png''">Bip fortress</a> (which is now a Luxury hotel and restaurant), it looks much like all the other towns in the region.</a></center> '
+'<center>The tallest building in town is the <a href="exec:minut += 5 & gt ''ParChurch'',''start''">church of St Nikolas.</a></center>'
+*nl
 
-''
 
 gs'street_event','pavResidential', 'extras'
 

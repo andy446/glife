@@ -26,7 +26,6 @@ if $ARGS[0] = 'start':
 	gs 'stat'
 !!	gs 'rolanapt' , 'rolanroute'
 	'<center><h2>Apartment Complex</h2></center>'
-	if Enable_towntable = 1 : $_str = '<center><table><tr><td>' else $_str = ''
 	if month >= 11 or month <= 3:
 		if hour >= 8 and hour <= 21:
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/complexw.jpg"></center>'

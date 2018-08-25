@@ -1540,11 +1540,6 @@ $cheatmenu['display'] = {
 	else
 		pl'List friends in table: <a href="exec:Enable_tablemap = 1 & dynamic $cheatmenu[''display'']">OFF</a>'
 	end
-	if Enable_towntable = 1:
-		pl'Display Pavlovsk description in table: <a href="exec:Enable_towntable = 0 & dynamic $cheatmenu[''display'']">ON</a>'
-	else
-		pl'Display Pavlovsk description in table: <a href="exec:Enable_towntable = 1 & dynamic $cheatmenu[''display'']">OFF</a>'
-	end
 	nl
 	if Enable_clothwidth<0:Enable_clothwidth=0
 	if Enable_clothwidth > 0:

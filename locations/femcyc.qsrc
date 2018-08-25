@@ -211,11 +211,16 @@ if $ARGS[0] = '':
 	if lactate = 0 and milkoverdemand >= 0 and prolactinlvl >= 0:
 		if milkgrowday < daystart:
 			temp_var = milkoverdemand/200
+			if temp_var >= 10 and pregtimes <= 0: temp_var = 10
+			if temp_var >= 50 and pregtimes > 0: temp_var = 50
 			if temp_var <= 0 and milkoverdemand >0:
 				prolactinlvl += 1
 			else
-				prolactinlvl += milkoverdemand/200
+				prolactinlvl += temp_var
 			end
+			!!	if sveta had no kid, milk induction will take a while as her breasts need to change alot.
+			if prolactinlvl >= 150 and kid <= 0 and pregtimes <= 0:milkinduceday += 1
+			if prolactinlvl >= 100 and kid <= 0 and pregtimes <= 0 and pain['breasts'] <= 20: pain['breasts'] = 20
 			!! as long as your tits are not over 11 growth will happen to them. If you do not pump or no pregnancy happens, no growth will happen.
 			if milkoverdemand = 0 and pregchem = 0 and tits < 11:
 				temp_var = prolactinlvl - 10
@@ -223,7 +228,7 @@ if $ARGS[0] = '':
 					prolactinlvl = 0
 				end
 				!! if prolactinlvl is sinking too much, the aveoli will deflate and thus the breasts growth is reverted. This only counts for induced lactation. If natural lactation occurs breasts will shrink a bit too, but stay bigger in total.
-				if prolactinlvl < 75 and total_milkinduce_growth > 0:
+				if prolactinlvl < 100 and total_milkinduce_growth > 0:
 					nbsize -= total_milkinduce_growth
 					total_milkinduce_growth = 0
 					if prolactinlvl > 10:
@@ -242,7 +247,7 @@ if $ARGS[0] = '':
 				milkgrowday = daystart
 			elseif milkoverdemand > 0 and pregchem = 0 and tits < 11:
 				!! inducing without ever being pregnant
-				if prolactinlvl > 75 and kid <= 0:
+				if prolactinlvl > 100 and kid <= 0:
 					if total_milkinduce_growth < 8:
 						total_milkinduce_growth += 1 + pumpinggrowth
 						nbsize += 1 + pumpinggrowth
@@ -251,7 +256,7 @@ if $ARGS[0] = '':
 						pumpinggrowth = 0
 					end
 				!! inducing after being pregnant
-				elseif prolactinlvl > 75 and kid > 0:
+				elseif prolactinlvl > 100 and kid > 0:
 					if total_milkinduce_growth < (total_preg_growth/2):
 						total_milkinduce_growth += 1 + pumpinggrowth
 						nbsize += 1 + pumpinggrowth
@@ -260,7 +265,7 @@ if $ARGS[0] = '':
 				end
 				milkoverdemand = 0
 			elseif milkoverdemand >= 0 and pregchem > 0 and tits < 11:
-				if prolactinlvl > 75 and pregchem < 3000 and kid <= 0:
+				if prolactinlvl > 100 and pregchem < 3000 and kid <= 0:
 					if total_milkinduce_growth < 8:
 						total_milkinduce_growth += 1 + pumpinggrowth
 						nbsize += 1 + pumpinggrowth
@@ -269,14 +274,14 @@ if $ARGS[0] = '':
 						pumpinggrowth = 0
 					end
 				!! first breast growth with first pregnancy
-				elseif prolactinlvl >= 75 and pregchem >= 2000 and pregchem < 3000 and kid <= 0:
+				elseif prolactinlvl >= 100 and pregchem >= 2000 and pregchem < 3000 and kid <= 0:
 					if rand(0,100) > 55:
 						first_preg_growth += 1
 						total_preg_growth += 1
 						if total_preg_growth > total_milkinduce_growth: nbsize += 1
 					end
 				!! there is little chance your breast grow additional sizes if you have more kids.
-				elseif prolactinlvl >= 75 and pregchem >= 2000 and pregchem < 3000 and kid > 0:
+				elseif prolactinlvl >= 100 and pregchem >= 2000 and pregchem < 3000 and kid > 0:
 					if first_preg_growth > total_preg_growth:
 						total_preg_growth += 1
 						if total_preg_growth > total_milkinduce_growth: nbsize += 1
@@ -287,7 +292,7 @@ if $ARGS[0] = '':
 						end
 					end
 				!! inducing after being pregnant
-				elseif prolactinlvl > 75 and pregchem =< 3000 and kid > 0:
+				elseif prolactinlvl > 100 and pregchem =< 3000 and kid > 0:
 					if total_milkinduce_growth < (total_preg_growth/2):
 						total_milkinduce_growth += 1 + pumpinggrowth
 						nbsize += 1 + pumpinggrowth
@@ -307,7 +312,7 @@ if $ARGS[0] = '':
 		if lactateinduced > 0 and kid <= 0:
 			if milkgrowday < daystart:
 				!! first breast growth with first pregnancy
-				if prolactinlvl >= 75 and pregchem >= 2000 and pregchem < 3000 and kid <= 0:
+				if prolactinlvl >= 100 and pregchem >= 2000 and pregchem < 3000 and kid <= 0:
 					if rand(0,100) > 55:
 						first_preg_growth += 1
 						total_preg_growth += 1
@@ -351,6 +356,7 @@ if $ARGS[0] = '':
 						lactate = 0
 						lactateinduced = 0
 						nbsize -= total_milkinduce_growth
+						milkinduceday = 0
 						'You notice that you stopped lactating.'
 					elseif lactaterate = 0 and pregchem >= 1000:
 						lactaterate = 1

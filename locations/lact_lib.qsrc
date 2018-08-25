@@ -740,7 +740,7 @@ if $ARGS[0] = 'milking':
 		end
 		minut += pumptime
 	elseif lactate = 0 and pain['nipples'] < 60:
-		if rand(1,50) + prolactinlvl >= rand(200,250):
+		if rand(1,50) + prolactinlvl >= rand(200,250) and milkinduceday >= 5:
 			'<center><img <<$set_imgh>> src="images/pc/body/tits/lactate_start.jpg"></center>'
 			'As usual, you attach the pump but after a few pumps white liquid suddenly starts flowing from your nipples.<br>You started lactating!'
 			lactateinduced = 1
@@ -760,12 +760,12 @@ if $ARGS[0] = 'milking':
 			else
 				'You attach the pump to your nipples and start squeezing the bulb. The vacuum feels good on your nipples.'
 			end
-			if prolactinlvl > 70: 'A few droplets of liquid come out of your nipples but it is not milk.'
+			if prolactinlvl > 100: 'A few droplets of liquid come out of your nipples but it is not milk.'
 			breastcounter += 1
 			if pump_stop_brake = 1:
 				'During pumping your nipples start to hurt extremely. You have to stop after <<pumptime>> minutes, because you couldn''t go on.'
 			end
-			if prolactinlvl > 75:
+			if prolactinlvl > 100:
 				if rand(0,10) > 9:
 					pumpinggrowth += 1
 				end

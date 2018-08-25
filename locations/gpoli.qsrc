@@ -1703,7 +1703,6 @@ if $ARGS[0] = 'maternity_ward_donation':
 			breastpumped += 4
 			'After 15 minutes, the nurse detaches the pumps from your breasts.'
 			if milkedvolume > 500:
-				'milked volume = <<milkedvolume/10>>ml'
 				temp_var = milkedvolume/500
 				pcs_gpoli_donationsessioncount += temp_var
 				pcs_gpoli_totalmilkdonation_count += 1

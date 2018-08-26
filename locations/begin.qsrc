@@ -6,7 +6,7 @@ if $ARGS[0] = 'start':
 	showstat 1
 	'<center><b><font color="maroon">CHOOSE GAME START</font></b></center>'
 	*nl
-	'<b>Transgendered Start:</b>'
+	'<b>Transformation Start:</b>'
 	'You are Michael Kuznetsov, a fairly average, 35 year old businessman who finds an artefact that changes everything about him and his life. Features magic.'
 	*nl
 	'<b>School girl Start:</b>'
@@ -18,7 +18,7 @@ if $ARGS[0] = 'start':
 	'<b>New in Town Start:</b>'
 	'You''re controlled by your overbearing mother and can''t take it any more. It is time to find a new life in the city away from her influence. For the first time you can make your own decisions and mistakes. No magic.'
 	
-	act '<center><b>Transgendered start</b></center>':
+	act '<center><b>Transformation Start</b></center>':
 		settingmode = 0
 		showstat 0
 		cla

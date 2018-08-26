@@ -13,25 +13,34 @@ frost = 0
 'Grandma''s enema bulb is hidden behind some stuff on the shelf.'
 gs 'stat'
 
-
 if mira = 0:
 	if $clothingworntype = 'nude':
-		act 'Get dressed':
+		act 'Get dressed and leave':
 			minut += 1
 			gs 'clothing', 'wear_last_worn'
 			gs 'underwear', 'wear'
-			gt 'Gadbana'
+			gt 'Gaddvor'
 		end
 	end
-
-	act 'Go outside':
-		if $clothingworntype ! 'nude':
-			minut += 1 & gt'Gaddvor'
-		else
+	if $clothingworntype ! 'nude':
+		act 'Go outside':minut += 1 & gt'Gaddvor'
+	elseif $clothingworntype = 'nude' and ($pantyworntype ! 'none' or $braworntype ! 'none'):
+		act 'Go outside in your underwear':
 			cls
-			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/noundress.jpg"></center>'
-			'You can''t go out without any clothes on.'
-			act 'Back':gt'Gadbana'
+			minut += 1
+			'<center><img <<$set_imgh>> src="images/locations/gadukino/grandparents/gaddvor_nude.jpg"></center>'
+			'Luckily no one saw you outside in your underwear, but there''s a thrill in almost getting caught'
+			gs 'arousal', 'voyeur', 10
+			act 'Continue': gt 'Gaddvor'
+		end
+	elseif $clothingworntype = 'nude':
+		act 'Go outside naked':
+			cls
+			minut += 1
+			'<center><img <<$set_imgh>> src="images/locations/gadukino/grandparents/Gaddvor_nude.jpg"></center>'
+			'Luckily no one saw you outside naked, but there''s a thrill in almost getting caught'
+			gs 'arousal', 'voyeur', 10
+			act 'Continue': gt 'Gaddvor'
 		end
 	end
 
@@ -62,15 +71,7 @@ if mira = 0:
 
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/village/par.jpg"></center>'
 					'You strip, sit down and relax. After a proper banya session, you pick up a bucket filled with cold water and pour it over yourself and head over to the shower. You feel like a completely new person.'
-
-					act 'Get dressed':
-						minut += 1
-						gs 'clothing', 'wear_last_worn'
-						gs 'underwear', 'wear'
-						gt 'Gadbana'
-					end
-					
-					act 'Go outside nude': minut += 1 & gt 'Gaddvor'
+					act 'Finish': gt $loc, $metka
 				end
 			end
 		else
@@ -79,24 +80,35 @@ if mira = 0:
 	elseif week < 6:
 		'The banya is not used during the week, it is usually ready to use from 19:00 during the weekend.'
 	end
+	*nl
 
 	act 'Wash your body (0:25)':
 		cls
 		minut += 25
 		dynamic $showerdin
-
 		if frost > 0:frost = 0
-
+		gs 'clothing', 'strip'
+		gs 'underwear', 'remove'
 		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mit.jpg"></center>'
 		'You lather your body washcloth and start scrubbing your body. You rinse off the soap and start to lather the hair with the shampoo. After rising off the shampoo you are completely clean.'
 
-		act 'Leave':gt $loc, $metka
+		act 'Finish':gt $loc, $metka
 	end
 
 	dynamic $bteeth
 	gs 'din_van', 'prvt_pee'
 	dynamic $tampon
+
+	if $clothingworntype ! 'nude':
+		act 'Remove clothes':
+			minut += 1
+			gs 'clothing', 'strip'
+			gs 'stat'
+			gt 'Gadbana'
+		end
+	end
+
 	dynamic $wearpan
 	dynamic $removepan
 	dynamic $basin
@@ -119,6 +131,29 @@ if mira = 0:
 				act 'Finish':gt $loc, $metka
 			end
 		end
+	end
+	if stanok > 0:'Your razor will last for <b><<stanok>></b> more shavings. <a href="exec:gs ''din_van'', ''shave_options''">Shave Options</a>'
+
+	!WD: heal chafe
+	if mosolmaz>0:'On a shelf is a tube of ointment for chafing, which will be enough for <b><<mosolmaz>></b> applications.'
+
+	if tampon = 0 and sanpad = 0:
+		'<b><font color="red">You have no tampons left.</font></b>'
+	elseif tampon = 1:
+		'<font color="red">You have only <b><<tampon>></b> tampon left.</font>'
+	else
+		'You have <b><<tampon>></b> tampons.'
+	end
+	if sanpad = 0 and tampon = 0:
+		'<b><font color="red">You have no pads left.</font></b>'
+	elseif sanpad = 1:
+		'<font color="red">You have only <b><<sanpad>></b> pads left.</font>'
+	else
+		'You have <b><<sanpad>></b> pads.'
+	end
+
+	if bcream_have > 0:
+		'<a href="exec:dynamic $use_bcream & gt $loc, $metka">Apply breast cream.</a> Uses left: <<bcream_have>>.'
 	end
 
 	if (cumloc[6] = 1 or cumloc[7] = 1):
@@ -214,16 +249,23 @@ else
 				gs 'arousal', 'voyeur', 120
 				gs 'arousal', 'end'
 				gs 'stat'
-				
-				act 'Get dressed':
+
+				act 'Get dressed and leave':
 					mira = 0
 					minut += 1
 					gs 'clothing', 'wear_last_worn'
 					gs 'underwear', 'wear'
-					gt 'Gadbana'
+					act 'Continue': gt 'Gaddvor'
 				end
-				
-				act 'Go outside nude': mira = 0 & minut += 1 & gt 'Gaddvor'
+
+				act 'Go outside naked':
+					mira = 0
+					minut += 1
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/grandparents/Gaddvor_nude.jpg"></center>'
+					'Luckily no one saw you outside naked, but there''s a thrill in almost getting caught'
+					gs 'arousal', 'voyeur', 10
+					act 'Continue': gt 'Gaddvor'
+				end
 			end
 		end
 	end

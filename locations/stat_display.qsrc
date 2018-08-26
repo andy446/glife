@@ -666,7 +666,11 @@ if dirtyclothes = 1 and swamp_clothes = 0:
 	end
 end
 
-if lactate = 1:
+if lactate <= 0 and prolactinlvl >= 100:
+	$stat_msg += '<BR>'+iif(night_mode = 1,'<font color = white>','<font color = black>')+'Your breasts feel weirdly engorged and sore.</font><BR>'
+end
+
+if lactate >= 1:
 	if lactatemv >= lactatemm-1:
 		if lact_engorgement > 0 and lact_engorgement < 3:
 			$stat_msg += '<BR><font color = orange>Your breasts are so full they hurt.</font><BR>'

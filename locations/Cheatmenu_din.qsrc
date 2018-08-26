@@ -382,6 +382,7 @@ $cheatmenu['status'] = {
 	nl
 	if lactate <= 0:
 		pl 'You are not lactating'
+		pl 'Your current prolactinlvl is <<prolactinlvl>>ng/ml.'
 		pl '<a href="exec:lactate = 1 & lactateinduced = 1 & total_milkinduce_growth = 8 & nbsize += 8 & prolactinlvl = 200 & lactaterate = 100 & lactatemv = 0 & lactatemm = func(''lact_lib'',''$calc_lactatemm'') & dynamic $cheatmenu[''status'']">Switch ON</a>'
 	else
 		pl 'You are lactating'

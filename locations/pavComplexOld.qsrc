@@ -29,7 +29,7 @@ if $ARGS[0] = 'etaj_1':
 		act 'Turn back': gt 'pavComplexOld', 'etaj_1'
 	end
 
-	act 'Leave the building':gt 'pavResidential'
+	act 'Leave the building':gt 'pavcomplex', 'start'
 end
 
 if $ARGS[0] = 'advert':

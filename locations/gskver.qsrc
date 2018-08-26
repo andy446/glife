@@ -113,17 +113,24 @@ if $ARGS[0] = 'start':
 
 	act 'Go for a walk (0:15)':
 		if pcs_exhib = 100 and exhibitionQW = 0: gt 'kseniyaQW', 'event1', 1
-		cla
-		*clr
-		minut += 15
-		place = 1
-		Frend_num = 0
+		
+		if StoryLine = 1 and SchoolAtestat = 0 and mey_vika['mey_vika_qw'] = 0 and rand(1,4) = 1:
+			gs 'mey_vika_events', 'park_meet'
+			gs 'stat'
+			if mey_vika['qw_day'] = daystart: delact 'Looking for Vika'
+		else
+			cla
+			*clr
+			minut += 15
+			place = 1
+			Frend_num = 0
 			if MagikDostup ! 1:
 				if rand (1, 4) <= pcs_magik and (hour <=6 or hour >=19):
 					gt 'MagEncounterFairy'
 				end
 			end
-		gt 'placer'
+			gt 'placer'
+		end		
 	end
 
 	if hour >= 8 and hour < 22:

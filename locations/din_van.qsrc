@@ -206,34 +206,32 @@ $bath = {
 }
 
 $brit = {
-	if pcs_leghair > 3 and stanok > 1:
-		if pcs_pubes > 3 or pcs_bush > 0:
-			if pubestyle > 1 or pubestyle = 0:
-				act 'Shave your legs and pussy (0:15)':
-					cla
-					*clr
+	if shave_menu = 1  and stanok > 1:
+		if pcs_leghair > 3 or (pubestyle = 1 and pcs_pubes > 3) or (pubestyle >= 2 and pubestyle <=7 and pcs_pubes > 11) or (pubestyle = 8 and pcs_pubes > 11) or (pubestyle = 9 and pcs_pubes > 20) or (pubestyle = 10 and pcs_pubes > 26):
+			if pubestyle > 0:
+				act 'Shave yourself (0:15)':
+					*clr & cla
 					minut += 15
 					pcs_leghair = 0
-					if pubestyle = 4 or pubestyle = 2:
+					if pubestyle = 1 and pcs_pubes > 3:
 						pcs_pubes = 0
-						pcs_bush = 0
-					elseif pubestyle = 3:
+					elseif (pubestyle >= 2 and pubestyle <=7) and pcs_pubes > 11:
 						pcs_pubes = 11
-						pcs_bush = 1
-					elseif pubestyle = 4 and pcs_pubes > 11:
-						pcs_pubes = 11
+					elseif pubestyle = 8 and pcs_pubes > 11:
+						pcs_pubes = 16
+					elseif pubestyle = 9 and pcs_pubes > 20:
+						pcs_pubes = 20
+					elseif pubestyle = 10 and pcs_pubes > 26:
+						pcs_pubes = 26
 					end
 					pcs_horny += 5
 					stanok -= 2
-
 					if obdysh = 1 and rand(0, 5) = 0:gt 'vann', 'brit1'
-
 					if $loc ='Gadbana':
 						'<center><video src="images/shared/home/bathroom/shave.mp4"></center>'
 					else
 						'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shave3.jpg"></center>'
 					end
-
 					*nl
 					if daystart < 10 and StoryLine = 0 and ntstart = 0:
 						'You can''t shake off the fact that you''re a girl now, so you decide it''d be best to shave your legs. You begin to lather your legs, still marveling at how soft and round they are. Then you take the razor in your hand and begin to shave your legs.'
@@ -241,191 +239,58 @@ $brit = {
 					elseif daystart < 30 and StoryLine = 0 and ntstart = 0:
 						pcs_mood += 10
 						'With a newfound routine you lather up your legs and start shaving, careful not to miss a spot. After washing away the foam you softly glide your hands over your smooth legs, feeling good to know that you don''t need to hide your legs in pants. Maybe you should wear a skirt tomorrow?'
-					elseif pubestyle = 2:
-						'You lather up your legs and carefully shave them. Once you''re finished gliding your hands over your smooth legs, ensuring you didn''t miss a spot, you spend some time shaving off the stubble around your small bush tidy as well.'
-					elseif pubestyle = 3:
-						'You lather up your legs and carefully shave them. Once you''re finished gliding your hands over your smooth legs, ensuring you didn''t miss a spot, you spend some time cleaning up the area around your neat patch of pussy hair as well.'
-					elseif pubestyle >= 4:
-						'You lather up your legs and carefully shave them. Once you''re finished gliding your hands over your smooth legs, ensuring you didn''t miss a spot, you spend some time trimming back your bush as well.'
-					else
+					elseif pubestyle = 1:
 						'You lather up your legs and crotch and carefully shave them. Once you''re finished you gently glide your hands over your smooth pussy and legs, enjoying the smooth feeling and getting slightly more aroused by the touch.'
+					elseif pubestyle >= 2 and pubestyle <=7:
+						'You lather up your legs and carefully shave them. Once you''re finished gliding your hands over your smooth legs, ensuring you didn''t miss a spot, you spend some time cleaning up the area around your neatly trimed and styled patch of pussy hair as well.'
+					elseif pubestyle = 8:
+						'You lather up your legs and carefully shave them. Once you''re finished gliding your hands over your smooth legs, ensuring you didn''t miss a spot, you spend some time shaving off the stubble around your small patch of hair tidy as well.'
+					elseif pubestyle >= 9:
+						'You lather up your legs and carefully shave them. Once you''re finished gliding your hands over your smooth legs, ensuring you didn''t miss a spot, you spend some time trimming back your small neat bush as well.'
+					elseif pubestyle >= 10:
+						'You lather up your legs and carefully shave them. Once you''re finished gliding your hands over your smooth legs, ensuring you didn''t miss a spot, you spend some time trimming back your  bush as well.'
 					end
-
 					dynamic $dryOff
 				end
 			end
 		end
-	end
-	
-	if pcs_leghair > 3 and stanok > 0:
-		act 'Shave your legs (0:10)':
-			cla
-			*clr
-			minut += 10
-			pcs_leghair = 0
-			pcs_horny += 5
-			stanok -= 1
-			'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shave.jpg"></center>'
-			*nl
-			if daystart < 10 and StoryLine = 0 and ntstart = 0:
-				'You can''t shake off the fact that you''re a girl now, so you decide it''d be best to shave your legs. You begin to lather your legs, still marveling at how soft and round they are. Then you take the razor in your hand and begin to shave your legs.'
-				'You feel really awkward, never having done this before as a guy. Luckily, you had more than enough experience with shaving your face and technically this isn''t really all that different. So in the end you get a pretty decent job done.'
-			elseif daystart < 30 and StoryLine = 0 and ntstart = 0:
-				pcs_mood += 10
-				'With a newfound routine you lather up your legs and start shaving, careful not to miss a spot. After washing away the foam you softly glide your hands over your smooth legs, feeling good to know that you don''t need to hide your legs in pants. Maybe you should wear a skirt tomorrow?'
-			else
-				'You lather up your legs and then start carefully shaving them. Once you''re finished you gently glide your hands over your smooth legs, making sure you didn''t miss a spot.'
-			end
-
-			dynamic $dryOff
-		end
-	end
-
-	if pcs_pubes > 3 and stanok > 0:
-		if pubestyle = 2 or pubestyle = 0:
-			act 'Shave your pussy (0:10)':
-				cla
-				*clr
-				minut += 10
-				pcs_pubes = 0
-				pcs_bush = 0
-				pcs_horny += 5
-				stanok -= 1
-				if obdysh = 1 and rand(0, 5) = 5:gt 'vann', 'brit1'
-
-				if $loc ='Gadbana':
-					'<center><video src="images/shared/home/bathroom/shave.mp4"></center>'
-				else
-					'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shave3.jpg"></center>'
-				end
-
-				*nl
-				'You lather your crotch with some soapy water and carefully shave your pubic region. After shaving you can''t help but run your fingers over your pussy, enjoying the smooth feeling and getting slightly more aroused by the touch.'
-
-				dynamic $dryOff
-			end
-			
-		elseif pubestyle = 2 and pcs_pubes > 15:
-			act 'Trim your pussy (0:10)':
-				cla
-				*clr
-				minut += 10
-				pcs_pubes = 11
-				pcs_horny += 5
-				stanok -= 1
-				if obdysh = 1 and rand(0, 5) = 5:gt 'vann', 'brit1'
-				'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shave4.jpg"></center>'
-				*nl
-				'You spend some time trimming back your bush, not shaving it away completely but careful to make it neat and tidy.'
-				dynamic $dryOff
-			end
-		end
-	end
-	
-	if pcs_leghair > 3 and stanok > 1:
-		if pubestyle > 1 or pubestyle = 0:
-			if pcs_pubes > 3 or pcs_bush > 0:
-				act 'Shave your legs and pussy (0:15)':
-					cla
-					*clr
-					minut += 15
-					pcs_leghair = 0
-					if pubestyle = 4 or pubestyle = 2:
-						pcs_pubes = 0
-						pcs_bush = 0
-					elseif pubestyle = 3:
-						pcs_pubes = 11
-						pcs_bush = 1
-					elseif pubestyle = 4 and pcs_pubes > 11:
-						pcs_pubes = 11
-					elseif pubestyle = 5 and pcs_pubes > 24:
-						pcs_pubes = 21
-					end
-					pcs_horny += 5
-					stanok -= 2
-					if obdysh = 1 and rand(0, 5) = 5:gt 'vann', 'brit1'
-
-					'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shave3.jpg"></center>'
-					*nl
-					if daystart < 10 and StoryLine = 0 and ntstart = 0:
-						'You can''t shake off the fact that you''re a girl now, so you decide it''d be best to shave your legs. You begin to lather your legs, still marveling at how soft and round they are. Then you take the razor in your hand and begin to shave your legs.'
-						'You feel really awkward, never having done this before as a guy. Luckily, you had more than enough experience with shaving your face and technically this isn''t really all that different. So in the end you get a pretty decent job done.'
-					elseif daystart < 30 and StoryLine = 0 and ntstart = 0:
-						pcs_mood += 10
-						'With a newfound routine you lather up your legs and start shaving, careful not to miss a spot. After washing away the foam you softly glide your hands over your smooth legs, feeling good to know that you don''t need to hide your legs in pants. Maybe you should wear a skirt tomorrow?'
-					
-					elseif pubestyle >= 3:
-						'You lather up your legs and carefully shave them. Once you''re finished gliding your hands over your smooth legs, ensuring you didn''t miss a spot, you spend some time trimming back your pubes as well.'
-					else
-						'You lather up your legs and crotch and carefully shave them. Once you''re finished you gently glide your hands over your smooth pussy and legs, enjoying the smooth feeling and getting slightly more aroused by the touch.'
-					end
-
-					dynamic $dryOff
-				end
-			end
-		end
-	end
-
-	if pcs_leghair > 3 and stanok > 0:
-		act 'Shave your legs (0:10)':
-			cla
-			*clr
-			minut += 10
-			pcs_leghair = 0
-			pcs_horny += 5
-			stanok -= 1
-			'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shave.jpg"></center>'
-			*nl
-			'You lather your legs up with some soapy water and shave your legs. After a few swift movements, your legs are smooth as silk. The feeling of your smooth legs turns you on a little.'
-
-			dynamic $dryOff
-		end
-	end
-
-	if stanok > 0:
-		if pcs_pubes > 3 or pcs_bush > 0:
-			if pubestyle = 2 or pubestyle = 0:
+	elseif shave_menu = 2 and stanok > 0:
+		if pcs_pubes > 3:
+			if pubestyle = 1:
 				act 'Shave your pussy (0:10)':
-					cla
-					*clr
+					*clr & cla
 					minut += 10
 					pcs_pubes = 0
-					pcs_bush = 0
 					pcs_horny += 5
 					stanok -= 1
 					if obdysh = 1 and rand(0, 5) = 5:gt 'vann', 'brit1'
-
 					'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shave3.jpg"></center>'
 					*nl
 					'You lather your crotch with some soapy water and carefully shave your pubic hair. After shaving you can''t help but run your fingers over your pussy, enjoying the smooth feeling and getting slightly more aroused by the touch.'
-
 					dynamic $dryOff
 				end
-			elseif pubestyle = 3 and pcs_pubes > 15:
+			elseif (pubestyle >= 2 and pubestyle <= 7) and pcs_pubes > 15:
 				act 'Trim your pussy (0:10)':
-					cla
-					*clr
+					*clr & cla
 					'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shave4.jpg"></center>'
 					*nl
 					if pcs_pubes >= 20:
-						'You carefully shave away the hair at the edges of your pussy, trimming it all away until there is only a neat bush left at the top.'
+						'You carefully shave away the hair at the edges of your pussy, trimming it all away until there is only a neatly styled bush left at the top.'
 					else
-						'You carefully shave away the stubble at the edges of your pussy, careful to only trim and maintain the neat bush you have at the top.'
+						'You carefully shave away the stubble at the edges of your pussy, careful to only trim and maintain the neatly styled bush you have at the top.'
 					end
 					minut += 10
 					pcs_pubes = 11
-					pcs_bush = 1
 					pcs_horny += 5
 					stanok -= 1
 					if obdysh = 1 and rand(0, 5) = 5:gt 'vann', 'brit1'
 					dynamic $dryOff
 				end
-			elseif pubestyle = 4 and pcs_pubes > 15:
-				act 'Trim your bush (0:10)':
-					cla
-					*clr
+			elseif pubestyle = 8 and pcs_pubes > 19:
+				act 'Trim your pubic hair (0:10)':
+					*clr & cla
 					minut += 10
-					pcs_pubes = 11
+					pcs_pubes = 19
 					pcs_horny += 5
 					stanok -= 1
 					if obdysh = 1 and rand(0, 5) = 5:gt 'vann', 'brit1'
@@ -434,12 +299,24 @@ $brit = {
 					'You spend some time trimming back your pubic hair, not shaving it away completely but careful to make it neat and tidy.'
 					dynamic $dryOff
 				end
-			elseif pubestyle = 5 and pcs_pubes >= 25:
-				act 'Trim back your bush (0:10)':
-					cla
-					*clr
+			elseif pubestyle = 9 and pcs_pubes >= 25:
+				act 'Trim your bush (0:10)':
+					*clr & cla
 					minut += 10
 					pcs_pubes = 21
+					pcs_horny += 5
+					stanok -= 1
+					if obdysh = 1 and rand(0, 5) = 5:gt 'vann', 'brit1'
+					'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shave4.jpg"></center>'
+					*nl
+					'You spend some time trimming back your light bush of pubic hair, tidying it up and keeping your bikini line nice and clean.'
+					dynamic $dryOff
+				end
+			elseif pubestyle = 10 and pcs_pubes >= 30:
+				act 'Trim back your bush (0:10)':
+					*clr & cla
+					minut += 10
+					pcs_pubes = 26
 					pcs_horny += 5
 					stanok -= 1
 					if obdysh = 1 and rand(0, 5) = 5:gt 'vann', 'brit1'
@@ -450,7 +327,29 @@ $brit = {
 				end
 			end
 		end
-		act 'Shave options': gt 'din_van', 'shave_options'
+	elseif shave_menu = 3 and stanok > 0:
+		if pcs_leghair > 3:
+			act 'Shave your legs (0:05)':
+				*clr & cla
+				minut += 5
+				pcs_leghair = 0
+				pcs_horny += 5
+				stanok -= 1
+				if obdysh = 1 and rand(0, 5) = 5:gt 'vann', 'brit1'
+				'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shave.jpg"></center>'
+				*nl
+				if daystart < 10 and StoryLine = 0 and ntstart = 0:
+					'You can''t shake off the fact that you''re a girl now, so you decide it''d be best to shave your legs. You begin to lather your legs, still marveling at how soft and round they are. Then you take the razor in your hand and begin to shave your legs.'
+					'You feel really awkward, never having done this before as a guy. Luckily, you had more than enough experience with shaving your face and technically this isn''t really all that different. So in the end you get a pretty decent job done.'
+				elseif daystart < 30 and StoryLine = 0 and ntstart = 0:
+					pcs_mood += 10
+					'With a newfound routine you lather up your legs and start shaving, careful not to miss a spot. After washing away the foam you softly glide your hands over your smooth legs, feeling good to know that you don''t need to hide your legs in pants. Maybe you should wear a skirt tomorrow?'
+				else
+					'You lather your legs up with some soapy water and shave your legs. After a few swift movements, your legs are smooth as silk. The feeling of your smooth legs turns you on a little.'
+				end
+				dynamic $dryOff
+			end
+		end
 	end
 }
 
@@ -512,31 +411,45 @@ $quickwash = {
 
 $wearpan = {
 	if $pantyworntype = 'none':
-		act 'Wear panties': gt 'panties', 'view_panty_list', 'bathroom'
+		act 'Wear panties (0:02)': 
+			minut += 2
+			gs 'stat'
+			gt 'panties', 'view_panty_list', 'bathroom'
+		end
 	end
 
 	if $braworntype = 'none':
-		act 'Wear a bra': gt 'bras', 'view_bra_list', 'bathroom'
+		act 'Wear a bra (0:02)': 
+			minut += 2
+			gs 'stat'
+			gt 'bras', 'view_bra_list', 'bathroom'
+		end
 	end
 }
 
 $removepan = {
 	if $pantyworntype ! 'none' and $braworntype ! 'none':
-		act 'Remove underwear':
+		act 'Remove underwear (0:02)':
+			minut += 2
+			gs 'stat'
 			gs 'underwear', 'remove'
 			gt $loc, $metka
 		end
 	end
 
 	if $pantyworntype ! 'none':
-		act 'Remove panties':
+		act 'Remove panties (0:02)':
+			minut += 2
+			gs 'stat'
 			gs 'panties', 'remove'
 			gt $loc, $metka
 		end
 	end
 
 	if $braworntype ! 'none':
-		act 'Remove bra':
+		act 'Remove bra (0:02)':
+			minut += 2
+			gs 'stat'
 			gs 'bras', 'remove'
 			gt $loc, $metka
 		end
@@ -563,7 +476,7 @@ $basin = {
 			act 'Finish':gt $loc, $metka
 		end
 	end
-	
+
 	if body_write > 0 or face_write > 0:
 		act 'Wash the writings off your body (0:10)':
 			cla
@@ -595,7 +508,7 @@ $basin = {
 			act 'Finish':gt $loc, $metka
 		end
 	end
-	
+
 	if pcs_makeup ! 1:
 		act 'Wash off cosmetics (0:10)':
 			cla
@@ -629,15 +542,13 @@ $basin = {
 			act 'Finish':gt $loc, $metka
 		end
 	end
-	
-	dynamic $removepan
 }
 
 $pir_title = {
 	cla
 	*clr
 	'<center><b>Available piercings - select one by clicking the image</b></center>'
-	*nl	
+	*nl
 }
 $pirTongue = {
 	dynamic $pir_title
@@ -790,227 +701,7 @@ $pirManage = {
 	act'<b>Back</b>':gt $loc, $metka
 }
 
-if $ARGS[0] = 'private':
-	if stanok > 0:'Your razor will last for <b><<stanok>></b> more shavings.'
-	
-	'Pubic Shaving Style:'
-	if pubestyle = 0:'<a href="exec:pubestyle = 2 & gt $loc, $metka">Clean Shave</a> | <a href="exec:pubestyle = 3 & gt $loc, $metka">Small Bush</a> | <a href="exec:pubestyle = 4 & gt $loc, $metka">Trimmed</a> | <a href="exec:pubestyle = 5 & gt $loc, $metka">Full Bush</a> | <a href="exec:pubestyle = 1 & gt $loc, $metka">Never Shave</a> | <u>None</u>'
-	if pubestyle = 1:'<a href="exec:pubestyle = 2 & gt $loc, $metka">Clean Shave</a> | <a href="exec:pubestyle = 3 & gt $loc, $metka">Small Bush</a> | <a href="exec:pubestyle = 4 & gt $loc, $metka">Trimmed</a> | <a href="exec:pubestyle = 5 & gt $loc, $metka">Full Bush</a> | <u>Never Shave</u> | <a href="exec:pubestyle = 0 & gt $loc, $metka">None</a>'
-	if pubestyle = 2:'<u>Clean Shave</u> | <a href="exec:pubestyle = 3 & gt $loc, $metka">Small Bush</a> | <a href="exec:pubestyle = 4 & gt $loc, $metka">Trimmed</a> | <a href="exec:pubestyle = 5 & gt $loc, $metka">Full Bush</a> | <a href="exec:pubestyle = 1 & gt $loc, $metka">Never Shave</a> | <a href="exec:pubestyle = 0 & gt $loc, $metka">None</a>'
-	if pubestyle = 3:'<a href="exec:pubestyle = 2 & gt $loc, $metka">Clean Shave</a> | <u>Small Bush</u> | <a href="exec:pubestyle = 4 & gt $loc, $metka">Trimmed</a> | <a href="exec:pubestyle = 5 & gt $loc, $metka">Full Bush</a> | <a href="exec:pubestyle = 1 & gt $loc, $metka">Never Shave</a> | <a href="exec:pubestyle = 0 & gt $loc, $metka">None</a>'
-	if pubestyle = 4:'<a href="exec:pubestyle = 2 & gt $loc, $metka">Clean Shave</a> | <a href="exec:pubestyle = 3 & gt $loc, $metka">Small Bush</a> | <u>Trimmed</u> | <a href="exec:pubestyle = 5 & gt $loc, $metka">Full Bush</a> | <a href="exec:pubestyle = 1 & gt $loc, $metka">Never Shave</a> | <a href="exec:pubestyle = 0 & gt $loc, $metka">None</a>'
-	if pubestyle = 5:'<a href="exec:pubestyle = 2 & gt $loc, $metka">Clean Shave</a> | <a href="exec:pubestyle = 3 & gt $loc, $metka">Small Bush</a> | <a href="exec:pubestyle = 4 & gt $loc, $metka">Trimmed</a> | <u>Full Bush</u> | <a href="exec:pubestyle = 1 & gt $loc, $metka">Never Shave</a> | <a href="exec:pubestyle = 0 & gt $loc, $metka">None</a>'
-	
-	!WD: heal chafe
-	if mosolmaz>0:'On a shelf is a tube of ointment for chafing, which will be enough for <b><<mosolmaz>></b> applications.'
-
-	if tampon = 0 and sanpad = 0:
-		'<b><font color="red">You have no tampons left.</font></b>'
-	elseif tampon = 1:
-		'<font color="red">You have only <b><<tampon>></b> tampon left.</font>'
-	else
-		'You have <b><<tampon>></b> tampons.'
-	end
-	if sanpad = 0 and tampon = 0:
-		'<b><font color="red">You have no pads left.</font></b>'
-	elseif sanpad = 1:
-		'<font color="red">You have only <b><<sanpad>></b> pads left.</font>'
-	else
-		'You have <b><<sanpad>></b> pads.'
-	end
-
-	if shampoo > 0 or $loc = 'vanrPar':
-		if $loc = 'vanrPar':
-			if shampoo < 1:shampoo = 1
-			'You are using your parents'' shampoo.'
-		else
-			'You have enough shampoo for <b><<shampoo>></b> uses.'
-		end
-		dynamic $shower
-		dynamic $bath
-	elseif shampoo = 0 and $loc = 'tanvanr':
-		shampoo = 1
-		'You can use Tanyas shampoo.'
-		gs 'din_van', 'prvt_pee'
-	else
-		'<font color="red">You''ve run out of shampoo and will have to buy some more before you can wash yourself.</font>'
-		gs 'din_van', 'prvt_pee'
-	end
-
-	if painkiller > 0:
-		$pluralS = 's'
-		if painkiller = 1:$pluralS = ''
-		'You have <b><<painkiller>></b> painkiller<<$pluralS>>.'
-		if pain['total'] > 0 and pain['killer'] = 0:
-			act 'Take a painkiller':
-				cla
-				pain['killer'] += 1
-				painkiller -= 1
-				pcs_hydra += 20
-				gs 'stat'
-
-				*nl
-				'You take a painkiller and gulp it down with a glass of water.'
-
-				act 'Finish':gt $loc, $metka
-			end
-		end
-	end
-
-	if bcream_have > 0:
-		'<a href="exec:dynamic $use_bcream & gt $loc, $metka">Apply breast cream.</a> Uses left: <<bcream_have>>.'
-	end
-
-	if pirsA + pirsB + pirsC + pirsD + pirsE + pirsF + pirsN + pirsG + pirsGL > 0:'<a href="exec:dynamic $pirManage">Manage Piercings.</a>'
-
-	if fillimplant = 1 and siliconeBag >= 1:'<a href="exec:cls & siliconeBag -= 1 & silicone += 10 & gt $loc, $metka">Inject silicone into breast implants.</a>'
-	if fillimplant = 1 and silicone >= 20:'<a href="exec:cls & silicone -= 10 & gt $loc, $metka">Drain silicone from breast implants.</a>'
-
-	dynamic $bteeth
-
-	dynamic $tampon
-
-	dynamic $wearpan
-	act 'Check weight on the scales':
-		cla
-		*clr
-		msg 'Your body fat is = (<<salo>>)'
-		gt $loc, $metka
-	end
-	gs 'din_van', 'prvt_pee'
-
-	dynamic $basin
-
-	if pcs_leghair > 3 and stanok > 1:
-		if pubestyle > 1 or pubestyle = 0:
-			if pcs_pubes > 3 or pcs_bush > 0:
-				act 'Shave your legs and pussy (0:15)':
-					cla
-					*clr
-					minut += 15
-					pcs_leghair = 0
-					if pubestyle = 4 or pubestyle = 2:
-						pcs_pubes = 0
-						pcs_bush = 0
-					elseif pubestyle = 3:
-						pcs_pubes = 11
-						pcs_bush = 1
-					elseif pubestyle = 4 and pcs_pubes > 11:
-						pcs_pubes = 11
-					elseif pubestyle = 5 and pcs_pubes > 24:
-						pcs_pubes = 21
-					end
-					pcs_horny += 5
-					stanok -= 2
-					if obdysh = 1 and rand(0, 5) = 5:gt 'vann', 'brit1'
-
-					'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shave3.jpg"></center>'
-					*nl
-					if daystart < 10 and StoryLine = 0 and ntstart = 0:
-						'You can''t shake off the fact that you''re a girl now, so you decide it''d be best to shave your legs. You begin to lather your legs, still marveling at how soft and round they are. Then you take the razor in your hand and begin to shave your legs.'
-						'You feel really awkward, never having done this before as a guy. Luckily, you had more than enough experience with shaving your face and technically this isn''t really all that different. So in the end you get a pretty decent job done.'
-					elseif daystart < 30 and StoryLine = 0 and ntstart = 0:
-						pcs_mood += 10
-						'With a newfound routine you lather up your legs and start shaving, careful not to miss a spot. After washing away the foam you softly glide your hands over your smooth legs, feeling good to know that you don''t need to hide your legs in pants. Maybe you should wear a skirt tomorrow?'
-					
-					elseif pubestyle = 2:
-						'You lather up your legs and carefully shave them. Once you''re finished gliding your hands over your smooth legs, ensuring you didn''t miss a spot, you spend some time trimming back your pubes as well.'
-					else
-						'You lather up your legs and crotch and carefully shave them. Once you''re finished you gently glide your hands over your smooth pussy and legs, enjoying the smooth feeling and getting slightly more aroused by the touch.'
-					end
-
-					act 'Finish':gt $loc, $metka
-				end
-			end
-		end
-	end
-
-	if pcs_leghair > 3 and stanok > 0:
-		act 'Shave your legs (0:10)':
-			cla
-			*clr
-			minut += 10
-			pcs_leghair = 0
-			pcs_horny += 5
-			stanok -= 1
-			'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shave.jpg"></center>'
-			*nl
-			'You lather your legs up with some soapy water and shave your legs. After a few swift movements, your legs are smooth as silk. The feeling of your smooth legs turns you on a little.'
-
-			act 'Finish':gt $loc, $metka
-		end
-	end
-
-	if stanok > 0:
-		if pcs_pubes > 3 or pcs_bush > 0:
-			if pubestyle = 2 or pubestyle = 0:
-				act 'Shave your pussy (0:10)':
-					cla
-					*clr
-					minut += 10
-					pcs_pubes = 0
-					pcs_bush = 0
-					pcs_horny += 5
-					stanok -= 1
-					if obdysh = 1 and rand(0, 5) = 5:gt 'vann', 'brit1'
-
-					'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shave3.jpg"></center>'
-					*nl
-					'You lather your crotch with some soapy water and carefully shave your pubic hair. After shaving you can''t help but run your fingers over your pussy, enjoying the smooth feeling and getting slightly more aroused by the touch.'
-
-					act 'Finish':gt $loc, $metka
-				end
-			elseif pubestyle = 3 and pcs_pubes > 15:
-				act 'Trim your pussy (0:10)':
-					cla & *clr
-					'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shave4.jpg"></center>'
-					*nl
-					if pcs_pubes > 20:
-						'You carefully shave away the hair at the edges of your pussy, trimming it all away until there is only a neat bush left at the top.'
-					else
-						'You carefully shave away the stubble at the edges of your pussy, careful to only trim and maintain the neat bush you have at the top.'
-					end
-					minut += 10
-					pcs_pubes = 11
-					pcs_bush = 1
-					pcs_horny += 5
-					stanok -= 1
-					if obdysh = 1 and rand(0, 5) = 5:gt 'vann', 'brit1'
-					act 'Finish':gt $loc, $metka
-				end
-			elseif pubestyle = 4 and pcs_pubes > 15:
-				act 'Trim your bush (0:10)':
-					cla
-					*clr
-					minut += 10
-					pcs_pubes = 11
-					pcs_horny += 5
-					stanok -= 1
-					if obdysh = 1 and rand(0, 5) = 5:gt 'vann', 'brit1'
-					'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shave4.jpg"></center>'
-					*nl
-					'You spend some time trimming back your pubic hair, not shaving it away completely but careful to make it neat and tidy.'
-					act 'Finish':gt $loc, $metka
-				end
-			elseif pubestyle = 5 and pcs_pubes >= 25:
-				act 'Trim back your bush (0:10)':
-					cla
-					*clr
-					minut += 10
-					pcs_pubes = 21
-					pcs_horny += 5
-					stanok -= 1
-					if obdysh = 1 and rand(0, 5) = 5:gt 'vann', 'brit1'
-					'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shave4.jpg"></center>'
-					*nl
-					'You spend some time trimming back your thick bush of pubic hair, tidying it up and keeping your bikini line nice and clean.'
-					act 'Finish':gt $loc, $metka
-				end
-			end
-		end
-		act 'Shave options': gt 'din_van', 'shave_options'
-	end
-
+$toymanage = {
 	if analplug = 1 and analplugin = 1:
 		act 'Remove your butt plug (0:05)':
 			cla
@@ -1095,6 +786,118 @@ if $ARGS[0] = 'private':
 			act 'Finish':gt $loc, $metka
 		end
 	end
+}
+
+if $ARGS[0] = 'private':
+	if stanok > 0:'Your razor will last for <b><<stanok>></b> more shavings. <a href="exec:gs ''din_van'', ''shave_options''">Shave Options</a>'
+
+	!WD: heal chafe
+	if mosolmaz>0:'On a shelf is a tube of ointment for chafing, which will be enough for <b><<mosolmaz>></b> applications.'
+
+	if tampon = 0 and sanpad = 0:
+		'<b><font color="red">You have no tampons left.</font></b>'
+	elseif tampon = 1:
+		'<font color="red">You have only <b><<tampon>></b> tampon left.</font>'
+	else
+		'You have <b><<tampon>></b> tampons.'
+	end
+	if sanpad = 0 and tampon = 0:
+		'<b><font color="red">You have no pads left.</font></b>'
+	elseif sanpad = 1:
+		'<font color="red">You have only <b><<sanpad>></b> pads left.</font>'
+	else
+		'You have <b><<sanpad>></b> pads.'
+	end
+
+	if shampoo > 0 or $loc = 'vanrPar':
+		if $loc = 'vanrPar':
+			if shampoo < 1:shampoo = 1
+			'You are using your parents'' shampoo.'
+		else
+			'You have enough shampoo for <b><<shampoo>></b> uses.'
+		end
+		dynamic $shower
+		dynamic $bath
+	elseif shampoo = 0 and $loc = 'tanvanr':
+		shampoo = 1
+		'You can use Tanyas shampoo.'
+		gs 'din_van', 'prvt_pee'
+	else
+		'<font color="red">You''ve run out of shampoo and will have to buy some more before you can wash yourself.</font>'
+		gs 'din_van', 'prvt_pee'
+	end
+
+	if painkiller > 0:
+		$pluralS = 's'
+		if painkiller = 1:$pluralS = ''
+		'You have <b><<painkiller>></b> painkiller<<$pluralS>>.'
+		if pain['total'] > 0 and pain['killer'] = 0:
+			act 'Take a painkiller':
+				cla
+				pain['killer'] += 1
+				painkiller -= 1
+				pcs_hydra += 20
+				gs 'stat'
+
+				*nl
+				'You take a painkiller and gulp it down with a glass of water.'
+
+				act 'Finish':gt $loc, $metka
+			end
+		end
+	end
+
+	if bcream_have > 0:
+		'<a href="exec:dynamic $use_bcream & gt $loc, $metka">Apply breast cream.</a> Uses left: <<bcream_have>>.'
+	end
+
+	if pirsA + pirsB + pirsC + pirsD + pirsE + pirsF + pirsN + pirsG + pirsGL > 0:'<a href="exec:dynamic $pirManage">Manage Piercings.</a>'
+
+	if fillimplant = 1 and siliconeBag >= 1:'<a href="exec:cls & siliconeBag -= 1 & silicone += 10 & gt $loc, $metka">Inject silicone into breast implants.</a>'
+	if fillimplant = 1 and silicone >= 20:'<a href="exec:cls & silicone -= 10 & gt $loc, $metka">Drain silicone from breast implants.</a>'
+
+	dynamic $bteeth
+
+	dynamic $tampon
+
+	act 'Change clothes and toys':
+		cla
+		dynamic $wearpan
+		dynamic $removepan
+
+		if $curloc = 'vanrPar' and $clothingworntype = 'nude':
+			act 'Wear clothes (0:05)':
+				*clr & cla
+				minut = 5
+				'<center><video autoplay loop src="images/locations/city/citycenter/photo/dress.mp4"></video></center>'
+				'You get dressed'
+				gs 'clothing', 'wear_last_worn'
+				gs 'stat'
+				act 'Return': gt $loc, $metka
+			end
+		elseif $curloc = 'vanrPar' and $clothingworntype ! 'nude':
+			act 'Remove clothes (0:05)':
+				*clr & cla
+				minut = 5
+				'<center><video autoplay loop src="images/shared/Accessories/computer/webcam/undress1.mp4"></video></center>'
+				'You remove your clothing'
+				gs 'clothing', 'strip'
+				gs 'stat'
+				act 'Return': gt $loc, $metka
+			end
+		end
+		dynamic $toymanage
+
+		act 'Return':gt $loc, $metka
+	end
+
+	'<a href="exec:msg ''Your body fat is = (<<salo>>)''">Check weight on the scales</a>'
+
+	gs 'din_van', 'prvt_pee'
+
+	dynamic $basin
+
+	dynamic $brit
 
 	if mosolmaz > 0 and mosol > 0 and mosal_time ! (daystart * 100) + hour:
 		act 'Rub ointment onto your pussy (0:05)':
@@ -1147,8 +950,8 @@ if $ARGS[0] = 'private':
 			act 'Finish':gt $loc, $metka
 		end
 	end
-	
-	!!breast pump is now in the menue, not on the screen
+
+	!!breast pump is now in the menu, not on the screen
 	if breastpump > 0:
 		act 'Use breast pump':
 			gt 'lact_lib', 'bp_milking'
@@ -1523,54 +1326,124 @@ if $ARGS[0] = 'pblc_pee_end':
 end
 
 if $ARGS[0] = 'shave_options':
-	*clr
-	if shave_img_hgt = 0:shave_img_hgt = 250
-
+	*clr & cla
+	if shave_img_hgt = 0:shave_img_hgt = 100
+	!if pubestyle = 0 = never shave (uses $pcs_pubes)
+	!if pubestyle = 1: $pubeimage = 'images/pc/body/pussy/pussy.jpg' (uses $pcs_pubes)
+	if pubestyle = 2: $pubeimage = 'images/pc/body/pussy/shave/v1.jpg'
+	if pubestyle = 3: $pubeimage = 'images/pc/body/pussy/shave/triangle1.jpg'
+	if pubestyle = 4: $pubeimage = 'images/pc/body/pussy/shave/landing1.jpg'
+	if pubestyle = 5: $pubeimage = 'images/pc/body/pussy/shave/heart1.jpg'
+	if pubestyle = 6: $pubeimage = 'images/pc/body/pussy/shave/flame1.jpg'
+	if pubestyle = 7: $pubeimage = 'images/pc/body/pussy/shave/cross1.jpg'
+	if pubestyle = 8: $pubeimage = 'images/pc/body/pussy/shave/s_bush1.jpg'
+	!if pubestyle = 9: $pubeimage = 'images/pc/body/pussy/spussy.jpg'  (uses $pcs_pubes)
+	!if pubestyle = 10: $pubeimage = 'images/pc/body/pussy/hpussy.jpg' (uses $pcs_pubes)
 	'<h3><center><b><font color="maroon">Shaving optons</b></h3><br><center><font color="maroon">Here you can choose your style for pubic hair and which body parts you wish to shave.</font></center>'
 	'<br><center><table border=0 cellspacing=<<shave_img_hgt/25>> cellpadding=5>'
-	*P '<TR><TD><center><a href="exec:pubestyle = 2 & gt ''din_van'', ''shave_options''"><img Height = <<shave_img_hgt>> src="images/shared/home/bathroom/shave3.jpg"></a></center></TD><TD><center><a href="exec:pubestyle = 3 & gt ''din_van'', ''shave_options''"><img Height = <<shave_img_hgt>> src="images/shared/home/bathroom/shave3.jpg"></a></center></TD>'
+	*P '<TR><TD><center><a href="exec:view''images/pc/body/pussy/pussy.jpg''"><img Height = <<shave_img_hgt>> src="images/pc/body/pussy/pussy.jpg"></a></center></TD><TD><center><a href="exec:view''images/pc/body/pussy/shave/v1.jpg''"><img Height = <<shave_img_hgt>> src="images/pc/body/pussy/shave/v1.jpg"></a></center></TD><TD><center><a href="exec:view''images/pc/body/pussy/shave/triangle1.jpg''"><img Height = <<shave_img_hgt>> src="images/pc/body/pussy/shave/triangle1.jpg"></a></center></TD><TD><center><a href="exec:view''images/pc/body/pussy/shave/landing1.jpg''"><img Height = <<shave_img_hgt>> src="images/pc/body/pussy/shave/landing1.jpg"></a></center></TD><TD><center><a href="exec:view''images/pc/body/pussy/shave/heart1.jpg''"><img Height = <<shave_img_hgt>> src="images/pc/body/pussy/shave/heart1.jpg"></a></center></TD>'
 	'<TR><TD><center>'
-	if pubestyle ! 2:
-		'<a href="exec:pubestyle = 2 & gt ''din_van'', ''shave_options''">Clean Shave</a>'
+	if pubestyle ! 1:
+		'<a href="exec:pubestyle = 1 & '+iif(shave_menu = 3,'shave_menu = 1', 'shave_menu = 2')+' & gt ''din_van'', ''shave_options''">Clean Shave</a>'
 	else
 		'Clean Shave'
 	end
 	'</center></TD><TD><center>'
-	if pubestyle ! 3:
-		'<a href="exec:pubestyle = 3 & gt ''din_van'', ''shave_options''">Small Bush</a>'
+	if pubestyle ! 2 and pcs_pubes > 15:
+		'<a href="exec:pubestyle = 2 & '+iif(shave_menu = 3,'shave_menu = 1', 'shave_menu = 2')+' & gt ''din_van'', ''shave_options''">V-shaped</a>'
 	else
-		'Small Bush'
-	end
-	'</center></TD>'
-	*P '<TR><TD><center><a href="exec:pubestyle = 1 & gt ''din_van'', ''shave_options''"><img Height = <<shave_img_hgt>> src="images/shared/home/bathroom/shave3.jpg"></a></center></TD><TD><center><a href="exec:pubestyle = 4 & gt ''din_van'', ''shave_options''"><img Height = <<shave_img_hgt>> src="images/shared/home/bathroom/shave3.jpg"></a></center></TD>'
-	'<TR><TD><center>'
-	if pubestyle ! 1:
-		'<a href="exec:pubestyle = 1 & gt ''din_van'', ''shave_options''">Full Bush</a>'
-	else
-		'Full Bush'
+		'V-shaped'
 	end
 	'</center></TD><TD><center>'
-	if pubestyle ! 4:
-		'<a href="exec:pubestyle = 4 & gt ''din_van'', ''shave_options''">Trimmed</a>'
+	if pubestyle ! 3 and pcs_pubes > 15:
+		'<a href="exec:pubestyle = 3 & '+iif(shave_menu = 3,'shave_menu = 1', 'shave_menu = 2')+' & gt ''din_van'', ''shave_options''">Triangle-shaped</a>'
+	else
+		'Triangle-shaped'
+	end
+	'</center></TD><TD><center>'
+	if pubestyle ! 4 and pcs_pubes > 15:
+		'<a href="exec:pubestyle = 4 & '+iif(shave_menu = 3,'shave_menu = 1', 'shave_menu = 2')+' & gt ''din_van'', ''shave_options''">Landing-strip</a>'
+	else
+		'Landing-strip'
+	end
+	'</center></TD><TD><center>'
+	if pubestyle ! 5 and pcs_pubes > 15:
+		'<a href="exec:pubestyle = 5 & '+iif(shave_menu = 3,'shave_menu = 1', 'shave_menu = 2')+' & gt ''din_van'', ''shave_options''">Heart-shaped</a>'
+	else
+		'Heart-shaped'
+	end
+	'</center></TD>'
+	*P '<TR><TD><center><a href="exec:view''images/pc/body/pussy/shave/flame1.jpg''"><img Height = <<shave_img_hgt>> src="images/pc/body/pussy/shave/flame1.jpg"></a></center></TD><TD><center><a href="exec:view''images/pc/body/pussy/shave/cross1.jpg''"><img Height = <<shave_img_hgt>> src="images/pc/body/pussy/shave/cross1.jpg"></a></center></TD><TD><center><a href="exec:view''images/pc/body/pussy/shave/s_bush1.jpg''"><img Height = <<shave_img_hgt>> src="images/pc/body/pussy/shave/s_bush1.jpg"></a></center></TD><TD><center><a href="exec:view''images/pc/body/pussy/spussy.jpg''"><img Height = <<shave_img_hgt>> src="images/pc/body/pussy/spussy.jpg"></a></center></TD><TD><center><a href="exec:view''images/pc/body/pussy/hpussy.jpg''"><img Height = <<shave_img_hgt>> src="images/pc/body/pussy/hpussy.jpg"></a></center></TD>'
+	'<TR><TD><center>'
+	if pubestyle ! 6 and pcs_pubes > 15:
+		'<a href="exec:pubestyle = 6 & '+iif(shave_menu = 3,'shave_menu = 1', 'shave_menu = 2')+' & gt ''din_van'', ''shave_options''">Flame-shaped</a>'
+	else
+		'Flame-shaped'
+	end
+	'</center></TD><TD><center>'
+	if pubestyle ! 7 and pcs_pubes > 15:
+		'<a href="exec:pubestyle = 7 & '+iif(shave_menu = 3,'shave_menu = 1', 'shave_menu = 2')+' & gt ''din_van'', ''shave_options''">Cross-Shaped</a>'
+	else
+		'Cross-Shaped'
+	end
+	'</center></TD><TD><center>'
+	if pubestyle ! 8 and pcs_pubes > 20:
+		'<a href="exec:pubestyle = 8 & '+iif(shave_menu = 3,'shave_menu = 1', 'shave_menu = 2')+' & gt ''din_van'', ''shave_options''">Trimmed</a>'
 	else
 		'Trimmed'
 	end
-	'</center></TD>
-	<TR><center>'
+	'</center></TD><TD><center>'
+	if pubestyle ! 9 and pcs_pubes > 25:
+		'<a href="exec:pubestyle = 9 & '+iif(shave_menu = 3,'shave_menu = 1', 'shave_menu = 2')+' & gt ''din_van'', ''shave_options''">Small Bush</a>'
+	else
+		'Small Bush'
+	end
+	'</center></TD><TD><center>'
+	if pubestyle ! 10 and pcs_pubes > 30:
+		'<a href="exec:pubestyle = 10 & '+iif(shave_menu = 3,'shave_menu = 1', 'shave_menu = 2')+' & gt ''din_van'', ''shave_options''">Full Bush</a>'
+	else
+		'Full Bush'
+	end
+	'</center></TD><TR><center>'
 	'Your razor will last for <b><<stanok>></b> more shaves.'
-	'</center>'
+	*nl
+	'<center><b>Change your shaving routine:</b></center>'
+	'<center><font color="grey">Note: Choosing to never shave, or to shave legs only, will remove your chosen shave style.<br> You can only choose a style if you currently have enough hair to support it.</font></center>'
+	*nl
+	!if shave_menu = 0:nothing
+	!if shave_menu = 1:legs and pussy
+	!if shave_menu = 2:pussy only
+	!if shave_menu = 3:legs only
+	if shave_menu = 0:
+		$shave_chosen = 'doesn''t include any shaving options.'
+		$shave_time = ''
+		'Never shave | '+iif(pubestyle = 0,'<a href="exec: msg ''You must choose a shave style before you can choose to shave everything.''">Everything</a>','<a href="exec:shave_menu = 1 & gs ''din_van'', ''shave_options''">Everything</a>')+' | '+iif(pubestyle = 0,'<a href="exec: msg ''You must choose a shave style before you can choose to shave your pussy.''">Pussy only</a>','<a href="exec:shave_menu = 2 & gs ''din_van'', ''shave_options''">Pussy only</a>')+' | <a href="exec:shave_menu = 3 & pubestyle = 0 & gs ''din_van'', ''shave_options''">Legs only</a>'
+	elseif shave_menu = 1:
+		$shave_chosen = 'involves shaving your legs and maintaining your current pubic style.'
+		$shave_time = 'It takes 15 minutes to complete this routine.'
+		'<a href="exec:shave_menu = 0 & pubestyle = 0 & gs ''din_van'', ''shave_options''">Never shave</a> | Everything | '+iif(pubestyle = 0,'<a href="exec: msg ''You must choose a shave style before you can choose to shave your pussy.''">Pussy only</a>','<a href="exec:shave_menu = 2 & gs ''din_van'', ''shave_options''">Pussy only</a>')+' | <a href="exec:shave_menu = 3 & pubestyle = 0 & gs ''din_van'', ''shave_options''">Legs only</a>'
+	elseif shave_menu = 2:
+		$shave_chosen = 'involves not shaving your legs and maintaining your current pubic style.'
+		$shave_time = 'It takes 10 minutes to complete this routine.'
+		'<a href="exec:shave_menu = 0 & pubestyle = 0 & gs ''din_van'', ''shave_options''">Never shave</a> | '+iif(pubestyle = 0,'<a href="exec: msg ''You must choose a shave style before you can choose to shave everything.''">Everything</a>','<a href="exec:shave_menu = 1 & gs ''din_van'', ''shave_options''">Everything</a>')+' | Pussy only | <a href="exec:shave_menu = 3 & pubestyle = 0 & gs ''din_van'', ''shave_options''">Legs only</a>'
+	elseif shave_menu = 3:
+		$shave_chosen = 'involves shaving your legs and not maintaining any chosen pubic style.'
+		$shave_time = 'It takes 5 minutes to complete this routine.'
+		'<a href="exec:shave_menu = 0 & pubestyle = 0 & gs ''din_van'', ''shave_options''">Never shave</a> | '+iif(pubestyle = 0,'<a href="exec: msg ''You must choose a shave style before you can choose to shave everything.''">Everything</a>','<a href="exec:shave_menu = 1 & gs ''din_van'', ''shave_options''">Everything</a>')+' | '+iif(pubestyle = 0,'<a href="exec: msg ''You must choose a shave style before you can choose to shave your pussy.''">Pussy only</a>','<a href="exec:shave_menu = 2 & gs ''din_van'', ''shave_options''">Pussy only</a>')+' | Legs only'
+	end
+	*nl
+	'<center>Your current routine <<$shave_chosen>> <br><<$shave_time>></center>'
 	'</table></center>'
-	
+
 	act 'Set image height for this view':
-		shave_img_hgt = input("Enter height in pixels you want for images on this page<br>(default 250, min 100, max 500)")
-		if shave_img_hgt < 100:
-			shave_img_hgt = 250
+		shave_img_hgt = input("Enter height in pixels you want for images on this page<br>(default 100, min 50, max 500)")
+		if shave_img_hgt < 50:
+			shave_img_hgt = 50
 		elseif shave_img_hgt > 500:
 			shave_img_hgt = 500
 		end
 		gt 'din_van', 'shave_options'
 	end
-	if pubestyle > 0: act 'Disable shave styles': pubestyle = 0 & gt 'din_van', 'shave_options'
 	act 'Return':gt $loc, $metka
 end
 

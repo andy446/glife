@@ -392,6 +392,7 @@ if $ARGS[0] = 'start':
 	dynamic $bteeth
 	dynamic $tampon
 	dynamic $basin
+	dynamic $removepan
 	if (cumloc[6] = 1 or cumloc[7] = 1):
 		act 'Clean semen stains from your clothing (0:15)':
 			*clr & cla
@@ -402,43 +403,6 @@ if $ARGS[0] = 'start':
 			'<center><img <<$set_imgh>> src="images/shared/sex/cum/frotsp.jpg"></center>'
 			'You take fifteen minutes to thoroughly rinse the semen stains out of your clothes. By the time you''re done, all the evidence that remains of them are some quickly drying damp spots.'
 			act 'Finish': gt 'rolanbath', 'start'
-		end
-	end
-	if klisma = 1 and (klismaday ! daystart or arrpos('sparrloc', 3) ! -1):
-		act 'Give yourself an enema (0:05)':
-			*clr & cla
-			cumspclnt = 7
-			gs 'cum_cleanup'
-			minut += 5
-			klismaday = daystart
-			klismaday1= 1
-			'<center><img <<$set_imgh>> src="images/shared/home/bathroom/klisma.jpg"></center>'
-			'You give yourself an enema, feeling clean down there. Your ass is now ready for anal sex without any awkward surprises.'
-			act 'Finish':gt 'rolanbath', 'start'
-		end
-	end
-	if analplug = 1 and analplugin = 1:
-		act 'Take out your butt plug (0:05)':
-			*clr & cla
-			minut += 5
-			analplugIN = 0
-			if pcs_ass < 30:pcs_ass += 1
-			'<center><img <<$set_imgh>> src="images/pc/body/analplug.jpg"></center>'
-			'You squat and tug gently at the butt plug, gasping as you push it out of you. You can''t help but feel a bit empty, now that it''s out.'
-			act 'Finish':gt 'rolanbath', 'start'
-		end
-	elseif analplug = 1 and analplugin = 0 and klismaday = daystart:
-		act 'Wear your butt plug (0:05)':
-			*clr & cla
-			minut += 5
-			analplugIN = 1
-			if pcs_ass < 10:pcs_ass = pcs_ass + 5
-			if pcs_ass >= 10 and pcs_ass < 20:pcs_ass += rand(1, 2)
-			if pcs_ass >= 20 and pcs_ass < 30:pcs_ass += rand(0, 1)
-			'<center><img <<$set_imgh>> src="images/pc/body/analplug.jpg"></center>'
-			if butpluguse > 0:'You squat and gently rub the butt plug against your anus, after lubricating it with a bit of saliva. After a short while, you''ve relaxed enough to be able to push it in. Once it''s in you give it a few gentle tugs, wondering if anyone will catch you wearing it today.'
-			if butpluguse = 0:butpluguse = 1 & '"If I''m not going to use it, then why did I buy it?" you ask yourself. You look at the butt plug for a while, thinking "It is necessary to start developing my ass, so I could have great adventures someday... you could even say huge and thick adventures with crimson heads, uh, now I got carried away..." You''re slightly embarrassed at the thought for a second, but are then overcome by your horny fantasies. Determined to get the plug all the way in, you slowly press it against your asshole after lubricating it with a bit of saliva. It hurts a bit at first, but once the thickest part is in the rest follows rather easily. Patting yourself on your ass once it''s in, you wonder if anyone will notice you''re wearing it today and then immediately feel naughty for even having thought that.'
-			act 'Finish':gt 'rolanbath', 'start'
 		end
 	end
 	if pregtest > 0 and (abortionbirthdate = 0 or daystart - abortionbirthdate > 100):
@@ -457,27 +421,7 @@ if $ARGS[0] = 'start':
 			act 'Finish':gt 'rolanbath', 'start'
 		end
 	end
-	if vibrator = 1 and vibratorIN = 1:
-		act 'Remove the vibrator (0:05)':
-			*clr & cla
-			minut += 5
-			vibratorIN = 0
-			if pcs_vag < 30:pcs_vag += 1
-			'<center><img <<$set_imgh>> src="images/shared/accessories/toys/vibrator.jpg"></center>'
-			'You spread your legs and take the vibrator out of your pussy, letting out a slight moan as you do so. You feel somewhat empty now.'
-			act 'Finish':gt 'rolanbath', 'start'
-		end
-	elseif vibrator = 1 and vibratorIN = 0 and pcs_vag > 0:
-		act 'Insert the vibrator in your vagina (0:05)':
-			*clr & cla
-			minut += 5
-			vibratorIN = 1
-			if pcs_vag < 30:pcs_vag += 2
-			'<center><img <<$set_imgh>> src="images/shared/accessories/toys/vibrator.jpg"></center>'
-			'You spread your legs and slowly insert the vibrator in your pussy, wondering if anyone will notice you wearing it today.'
-			act 'Finish':gt 'rolanbath', 'start'
-		end
-	end
+	dynamic $toymanage
 end
 
 !Bathroom, Rolan caught:

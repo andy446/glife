@@ -338,6 +338,7 @@ if $ARGS[0] = 'mens':
 	dynamic $tampon
 	dynamic $quickwash
 	dynamic $basin
+	dynamic $removepan
 end
 
 if $ARGS[0] = 'mensmast':

@@ -806,10 +806,10 @@ else
 end
 
 if avatar_hair = 1:
-   $hair = $av_hair
-   !! I do not really understand how the avatar system works in terms of hair growth and such, so these descriptors will just have to do
-   $pcdesc_hairlength = 'normal length'
-   $pcdesc_hairlengthwordy = 'normal length'
+	$hair = $av_hair
+	!! I do not really understand how the avatar system works in terms of hair growth and such, so these descriptors will just have to do
+	$pcdesc_hairlength = 'normal length'
+	$pcdesc_hairlengthwordy = 'normal length'
 else
 	if pcs_hairlng <= 30:
 		$hair = 'You have very short <<$pcs_haircol>> hair. It doesn''t cover your ears, and looks a little masculine. Nevertheless, some people like this style as it''s easy to take care of.'

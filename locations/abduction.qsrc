@@ -74,6 +74,8 @@ if $ARGS[0] = 'abdRoomFirstChaining':
 end
 
 if $ARGS[0] = 'abdRoom':
+	$loc = 'abduction'
+	$metka = 'abdRoom'
 	*clr
 	cla
 	'<center><img <<$set_imgh>> src="images/locations/shared/abduction/basement1.jpg"></center>'

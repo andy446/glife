@@ -995,7 +995,6 @@
 		<Location name="$menu_obnovit"/>
 		<Location name="$menu_bloknot"/>
 		<Location name="$menu_avariya"/>
-		<Location name="$menu_addoldmenu"/>
 		<Location name="$menu_autosave"/>
 		<Location name="$menu_cheat"/>
 	</Folder>

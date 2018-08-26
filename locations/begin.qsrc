@@ -3,10 +3,7 @@
 if $ARGS[0] = 'start':
 	$metka = 'start'
 	$loc = 'begin'
-	gs 'Cheatmenu_din'
 	showstat 1
-	Enable_settingmode = 2
-	dynamic $cheatmenu['display']
 	'<center><b><font color="maroon">CHOOSE GAME START</font></b></center>'
 	*nl
 	'<b>Transgendered Start:</b>'
@@ -22,7 +19,7 @@ if $ARGS[0] = 'start':
 	'You''re controlled by your overbearing mother and can''t take it any more. It is time to find a new life in the city away from her influence. For the first time you can make your own decisions and mistakes. No magic.'
 	
 	act '<center><b>Transgendered start</b></center>':
-		Enable_settingmode = 0
+		settingmode = 0
 		showstat 0
 		cla
 		act '<center>Show intro (recommended)</center>':
@@ -36,7 +33,7 @@ if $ARGS[0] = 'start':
 
 	act '<center><b>School Girl Start</b></center>':
 		cla
-		Enable_settingmode = 0
+		settingmode = 0
 		showstat 0
 		MagikDostup = 1
 		gt 'preSYS', 'SGStart'
@@ -45,7 +42,7 @@ if $ARGS[0] = 'start':
 
 	act '<center><b>Cursed Schoolgirl Start</b></center>':
 		cla
-		Enable_settingmode = 0
+		settingmode = 0
 		showstat 0
 		altQS = 1
 		gt 'preSYS', 'SGStart'
@@ -53,11 +50,12 @@ if $ARGS[0] = 'start':
 
 	act '<center><b>New in Town Start</b></center>':
 		cla
-		Enable_settingmode = 0
+		settingmode = 0
 		showstat 0
 		MagikDostup = 1
 		gt 'preSYS', 'TGStart'
 	end
+	act '<center><b>Change game settings</b></center>': settingmode = 1 & gs '$menu_setting'
 end
 
 if $ARGS[0] = 'real_character':

@@ -419,12 +419,6 @@ if $ARGS[0] =  'Listings':
 			cla
 			showstat 1
 			showobjs 1
-
-			if oldobjmenu = 0:
-				gs 'obj_din', 'new'
-			else
-				gs 'obj_din', 'old'
-			end
 			gt 'korr'
 		end
 	end
@@ -512,12 +506,6 @@ if $ARGS[0] =  'Train':
 						cla
 						showstat 1
 						showobjs 1
-
-						if oldobjmenu = 0:
-							gs 'obj_din', 'new'
-						else
-							gs 'obj_din', 'old'
-						end
 						cla
 						*clr
 						'<center><img <<$set_imgh>> src="images/system/newintown.jpg"></center>'

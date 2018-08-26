@@ -33,7 +33,6 @@ if mod_list > 0:
 else
 	'<br>No Mod actived.'
 end
-'<img src="images/system/icon/mod_sample.jpg">'
 '</center>'
 act 'Install new mod':
 	killvar 'mod_info'
@@ -65,8 +64,8 @@ act 'Disable all mods':
 		act 'Continue':goto curloc
 	end
 end
-act 'Return':
-	gt $loc,$metka
+act 'Return to settings index':
+	gs '$menu_setting'
 end
 
 --- mod_setting ---------------------------------

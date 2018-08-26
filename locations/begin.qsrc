@@ -3,6 +3,7 @@
 if $ARGS[0] = 'start':
 	$metka = 'start'
 	$loc = 'begin'
+	gs 'Cheatmenu_din'
 	showstat 1
 	'<center><b><font color="maroon">CHOOSE GAME START</font></b></center>'
 	*nl

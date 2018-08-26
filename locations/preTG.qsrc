@@ -483,6 +483,7 @@ if $ARGS[0] = 'sleepPRE':
 					cla
 					showstat 1
 					showobjs 1
+					gs 'obj_din', 'old'
 					cla
 					*clr
 					'<center><img <<$set_imgh>> src="images/system/transgender.jpg"></center>'

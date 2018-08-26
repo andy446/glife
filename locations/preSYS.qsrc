@@ -512,6 +512,7 @@ if $ARGS[0] = 'charselect':
 				currentpursenumber = 9
 				dynamic $currentpursetype + '_purses[' + currentpursenumber + '] = 1'
 				bag = 1
+				gs 'obj_din', 'old'
 				greben = 1
 				kosmetitka = 10
 				krem = 10
@@ -816,6 +817,7 @@ if $ARGS[0] = 'charselect':
 				$currentpursetype = 'kats'
 				currentpursenumber = 10
 				bag = 1
+				gs 'obj_din', 'old'
 				greben = 1
 				kosmetitka = 10
 				salfetka = 10

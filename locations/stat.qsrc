@@ -6,6 +6,7 @@ if opPRE > 0: exit
 if Enable_Android = 0:
 	clr
 	!only clear status and renew object in non-Android mode
+	gs 'obj_din', 'old'
 end
 
 if daystart_start < 100:

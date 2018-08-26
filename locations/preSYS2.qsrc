@@ -19,6 +19,7 @@ if $ARGS[0] = 'start':
 		if bag = 1:
 			!!using current combination should prevent having more than 1 bag at the start of game.
 			dynamic $currentpursetype + '_purses[<<currentpursenumber>>] = 1'
+			gs 'obj_din', 'old'
 		end
 		gt 'preCUST', 'SGStart'
 	end

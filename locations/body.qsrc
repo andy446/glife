@@ -806,10 +806,10 @@ else
 end
 
 if avatar_hair = 1:
-   $hair = $av_hair
-   !! I do not really understand how the avatar system works in terms of hair growth and such, so these descriptors will just have to do
-   $pcdesc_hairlength = 'normal length'
-   $pcdesc_hairlengthwordy = 'normal length'
+	$hair = $av_hair
+	!! I do not really understand how the avatar system works in terms of hair growth and such, so these descriptors will just have to do
+	$pcdesc_hairlength = 'normal length'
+	$pcdesc_hairlengthwordy = 'normal length'
 else
 	if pcs_hairlng <= 30:
 		$hair = 'You have very short <<$pcs_haircol>> hair. It doesn''t cover your ears, and looks a little masculine. Nevertheless, some people like this style as it''s easy to take care of.'
@@ -1575,51 +1575,49 @@ if lashair = 0:
 		if rand_pubes = 2:$pcdesc_pubesrandom = 'roughly-stubbled'
 		$pcdesc_pubes = 'stubbly'
 		$pcdesc_pubeswordy = 'scratchy, roughly-stubbled'
-	elseif pcs_pubes <= 15 and pcs_bush = 1:
+	elseif pcs_pubes <= 15:
 		lobkoef = 0
-		$pcs_pubes = 'You have stubble growing at the edges of your <a href="exec:view''images/pc/body/pussy/bpussy.jpg''">trimmed pussy</a>. <<$pirspiz>><br><<$clitsize>>'
+		$pcs_pubes = 'You have a tidy patch of hair growing above your '+iif(pubestyle >= 2 and pubestyle <=7,'<a href="exec:view''<<$pubeimage>>''">pussy</a>','<a href="exec:view''images/pc/body/pussy/3.jpg''">pussy</a>')+'. <<$pirspiz>><br><<$clitsize>>'
 		rand_pubes = rand(0,2)
-		if rand_pubes = 0:$pcdesc_pubesrandom = 'trimmed-back'
-		if rand_pubes = 1:$pcdesc_pubesrandom = 'lightly-furred'
-		if rand_pubes = 3:$pcdesc_pubesrandom = 'mostly well-kept'
+		if rand_pubes = 0:$pcdesc_pubesrandom = 'almost bare'
+		if rand_pubes = 1:$pcdesc_pubesrandom = 'barely-haired'
+		if rand_pubes = 3:$pcdesc_pubesrandom = 'well-kept'
 		$pcdesc_pubes = 'stubbly'
 		$pcdesc_pubeswordy = 'scratchy, roughly-stubbled'
-	elseif pcs_pubes <= 20 and pcs_bush = 1:
-		lobkoef = 3 
-		$pcs_pubes = 'You have a small neat bush of hair at the top of your <a href="exec:view''images/pc/body/pussy/3.jpg''">pussy</a>. <<$pirspiz>><br><<$clitsize>>'
-		rand_pubes = rand(0,2)
-		if rand_pubes = 0:$pcdesc_pubesrandom = 'neatly-trimmed'
-		if rand_pubes = 1:$pcdesc_pubesrandom = 'lightly-furred'
-		if rand_pubes = 3:$pcdesc_pubesrandom = 'well-kept'
-		$pcdesc_pubes = 'neatly-trimmed'
-		$pcdesc_pubeswordy = 'trimmed, well-kept'
 	elseif pcs_pubes <= 20:
 		lobkoef = 0
-		$pcs_pubes = 'You have neatly trimmed triangle of hair around your <a href="exec:view''images/pc/body/pussy/spussy.jpg''">pussy</a>. <<$pirspiz>><br><<$clitsize>>'
+		$pcs_pubes = 'You have neatly trimmed section of hair around your '+iif(pubestyle = 8,'<a href="exec:view''<<$pubeimage>>''">pussy</a>','<a href="exec:view''images/pc/body/pussy/spussy.jpg''">pussy</a>')+'. <<$pirspiz>><br><<$clitsize>>'
 		rand_pubes = rand(0,3)
 		if rand_pubes = 0:$pcdesc_pubesrandom = 'wispy-haired'
 		if rand_pubes = 1:$pcdesc_pubesrandom = 'lightly-furred'
 		if rand_pubes = 2:$pcdesc_pubesrandom = 'trimmed'
-		if rand_pubes = 3:$pcdesc_pubesrandom = 'well-kept'
+		if rand_pubes = 3:$pcdesc_pubesrandom = 'mostly well-kept'
 		$pcdesc_pubes = 'neatly-trimmed'
 		$pcdesc_pubeswordy = 'trimmed, well-kept'
-	elseif pcs_pubes <= 30:
-		pcs_bush = 0
+	elseif pcs_pubes <= 25:
 		lobkoef = 0
 		$pcs_pubes = 'You have a bushy but well-maintained mat of <a href="exec:view''images/pc/body/pussy/hpussy.jpg''">pubic hair</a>. <<$pirspiz>><br><<$clitsize>>'
 		rand_pubes = rand(0,2)
-		if rand_pubes = 0:$pcdesc_pubesrandom = 'furred'
-		if rand_pubes = 1:$pcdesc_pubesrandom = 'bushy'
+		if rand_pubes = 0:$pcdesc_pubesrandom = 'mildly-furred'
+		if rand_pubes = 1:$pcdesc_pubesrandom = 'slightly-bushy'
 		if rand_pubes = 2:$pcdesc_pubesrandom = 'well-maintained'
 		$pcdesc_pubes = 'bushy'
 		$pcdesc_pubeswordy = 'bushy, thick'
-	else
-		pcs_bush = 0
+	elseif pcs_pubes <= 30:
+		lobkoef = 0
+		$pcs_pubes = 'You have a bushy but well-maintained mat of <a href="exec:view''images/pc/body/pussy/shave/h_bush1.jpg''">pubic hair</a>. <<$pirspiz>><br><<$clitsize>>'
+		rand_pubes = rand(0,2)
+		if rand_pubes = 0:$pcdesc_pubesrandom = 'furred'
+		if rand_pubes = 1:$pcdesc_pubesrandom = 'bushy'
+		if rand_pubes = 2:$pcdesc_pubesrandom = 'partially-maintained'
+		$pcdesc_pubes = 'bushy'
+		$pcdesc_pubeswordy = 'bushy, thick'
+	elseif pcs_pubes >= 31
 		lobkoef = 0
 		$pcs_pubes = 'You have a wild and unkempt jungle of <a href="exec:view''images/pc/body/pussy/hrypussy.jpg''">pubic hair</a>. <<$pirspiz>><br><<$clitsize>>'
 		rand_pubes = rand(0,2)
 		if rand_pubes = 0:$pcdesc_pubesrandom = 'thickly-furred'
-		if rand_pubes = 1:$pcdesc_pubesrandom = 'hairy'
+		if rand_pubes = 1:$pcdesc_pubesrandom = 'very hairy'
 		if rand_pubes = 2:$pcdesc_pubesrandom = 'ill-maintained'
 		$pcdesc_pubes = 'hairy'
 		$pcdesc_pubeswordy = 'hairy, wild-maned'

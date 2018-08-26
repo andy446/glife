@@ -32,9 +32,9 @@ if $ARGS[0] = 'entrance':
 	elseif IgorLove <= 0:
 		IgorLoverQW = -1
 		if month > 8 or month < 4:
-			'<center><img <<$set_imgh>>  src="images/locations/pavlovsk/school/walk_homew'+ rand(1,2) +'.jpg"></center>'
+			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/walk_homew'+ rand(1,2) +'.jpg"></center>'
 		else
-			'<center><img <<$set_imgh>>  src="images/locations/pavlovsk/school/walk_home'+ rand(1,3) +'.jpg"></center>'
+			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/walk_home'+ rand(1,3) +'.jpg"></center>'
 		end
 		'As you walk towards Igor''s house, he starts having second thoughts "<<$pcs_firstname>>, you know I love you very much, but we don''t know each other well enough, so I''m wondering if we should let it be."'
 		act 'Leave': gt 'pavResidential'
@@ -46,7 +46,7 @@ if $ARGS[0] = 'entrance':
 !!			cls
 !!			minut += 15
 !!			gs 'stat'
-!!			'<center><img <<$set_imgh>>  src="images/locations/pavlovsk/school/walk_homeb1.jpg"></center>'
+!!			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/walk_homeb1.jpg"></center>'
 !!			'You follow Igor home. Once you get to his place, he unlocks the door and invites you in.'
 !!			act 'Walk around his home': gt 'igorhome','hallway'
 !!			act 'Go to his room': gt 'igorhome', 'igorroom'
@@ -61,7 +61,7 @@ if $ARGS[0] = 'hallway':
 	killvar '$locclass'
 	gs 'stat'
 	'<center><h4><font color="maroon">Entrance hall</font></h4></center>'
-	'<center><img <<$set_imgh>>  src="images/locations/pavlovsk/resident/igorhome/kor.jpg"></center>'
+	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/igorhome/kor.jpg"></center>'
 	'This is the entrance hall to Igor''s house, it is tastefully decorated. It leads to all the other rooms in the house.'
 	act 'Igor''s Room': gt 'igorhome','igorroom'
 	act 'Bathroom': gt 'igorhome','bathroom'
@@ -83,12 +83,12 @@ if $ARGS[0] = 'bathroom':
 	gs 'stat'
 	$location_type = 'bathroom'
 	'<center><h4><font color="maroon">Bathroom</font></h4></center>'
-	'<center><img <<$set_imgh>>  src="images/locations/pavlovsk/resident/igorhome/vann.jpg"></center>'
+	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/igorhome/vann.jpg"></center>'
 	'The bathroom has a large sink area and tile floors. The toilet sits along the far wall. There is also a walk-in shower and bath tub. It all looks very nice.'
 	'You can do your hair and makeup in the <a href="exec:gt ''mirror'', ''start''">mirror</a> above the sink.'
 	*nl
 
-    if pirsA + pirsB + pirsC + pirsD + pirsE + pirsF + pirsN + pirsG + pirsGL > 0:'<a href="exec:dynamic $pirManage">Manage Piercings</a>'
+	if pirsA + pirsB + pirsC + pirsD + pirsE + pirsF + pirsN + pirsG + pirsGL > 0:'<a href="exec:dynamic $pirManage">Manage Piercings</a>'
 
 	act 'Take a shower':
 		cls
@@ -103,8 +103,9 @@ if $ARGS[0] = 'bathroom':
 	dynamic $bath
 	gs 'din_van', 'prvt_pee'
 	dynamic $bteeth
-    dynamic $tampon
-    dynamic $basin
+	dynamic $tampon
+	dynamic $basin
+	dynamic $removepan
 
 	act 'Leave the bathroom': gt 'igorhome','hallway'
 end
@@ -115,7 +116,7 @@ if $ARGS[0] = 'igorroom':
 	$locclass = 'bedr'
 	gs 'stat'
 	'<center><h4><font color="maroon">Igor''s Room</font></h4></center>'
-	'<center><img <<$set_imgh>>  src="images/locations/pavlovsk/resident/igorhome/kom.jpg"></center>'
+	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/igorhome/kom.jpg"></center>'
 	'The room is surprisingly clean and organized for a boys room. It is fairly tastefully decorated. In the center of the room against one wall is a single narrow bed. Against the opposite wall is a desk and a chair, with a computer sitting on the desk. Next to the desk is a book shelf with a fairly large collection of books, just below the shelves leaning against the wall rests a guitar.'
 !!This one I think is if he is dating Dima, not sure.
 	if DimaLoveIgor > 1:'Sitting on the bed is a Teddy Bear with a red heart in its little hands.'
@@ -128,7 +129,7 @@ if $ARGS[0] = 'igorroom':
 		if IgorloverQW = 1:
 			*clr & cla
 			'<center><h4><font color="maroon">Igor''s Room</font></h4></center>'
-			'<center><img <<$set_imgh>>  src="images/characters/pavlovsk/school/boy/igor/talkgf.jpg"></center>'
+			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/talkgf.jpg"></center>'
 			'Igor looks at his watch. "If you stay any later, my mom will come in and make a fuss and talk about how unseemly it is for a boy to have a girl in his room this late."'
 			'You nod to him. "I understand, then I guess I will see you later."'
 			act 'Say goodbye and go home': gt 'pavResidential'
@@ -140,7 +141,7 @@ if $ARGS[0] = 'igorroom':
 		else
 			cls
 			'<center><h4><font color="maroon">Igor''s Room</font></h4></center>'
-			'<center><img <<$set_imgh>>  src="images/characters/pavlovsk/school/boy/igor/talk.jpg"></center>'
+			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/talk.jpg"></center>'
 			'You look at the clock saying that it''s really late and that you need to go home.'
 			act 'Say goodbye and go home': gt 'pavResidential'
 		end
@@ -148,9 +149,9 @@ if $ARGS[0] = 'igorroom':
 		cls
 		'<center><h4><font color="maroon">Igor''s Room</font></h4></center>'
 		if IgorloverQW = 1:
-			'<center><img <<$set_imgh>>  src="images/characters/pavlovsk/school/boy/igor/talkgf.jpg"></center>'
+			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/talkgf.jpg"></center>'
 		else
-			'<center><img <<$set_imgh>>  src="images/characters/pavlovsk/school/boy/igor/talk.jpg"></center>'
+			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/talk.jpg"></center>'
 		end
 		if week = 5 or week = 6:
 			'Igor looks at his watch and asks you "I want to have fun tonight. Let''s go to the disco!"'
@@ -161,7 +162,7 @@ if $ARGS[0] = 'igorroom':
 			'Igor tells you its getting late, you could take the hint and leave or maybe chat just a little longer.'
 			act 'Take the hint and go home': gt 'pavResidential'
 			act 'Chat just a little longer':gt 'igorhome','Chat'
-		end			
+		end
 	end
 	act 'Leave Igor''s room': gt 'igorhome','hallway'
 end
@@ -172,9 +173,9 @@ if $ARGS[0] = 'Chat':
 	gs 'stat'
 	'<center><h4><font color="maroon">Igor''s Room</font></h4></center>'
 	if IgorloverQW = 1:
-		'<center><img <<$set_imgh>>  src="images/characters/pavlovsk/school/boy/igor/talkgf.jpg"></center>'
+		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/talkgf.jpg"></center>'
 	else
-		'<center><img <<$set_imgh>>  src="images/characters/pavlovsk/school/boy/igor/talk.jpg"></center>'
+		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/talk.jpg"></center>'
 	end
 	if npcrel['A4'] > 50:
 		i = rand(0,10)
@@ -228,9 +229,9 @@ if $ARGS[0] = 'Chat':
 			cla
 			'<center><h4><font color="maroon">Igor''s Room</font></h4></center>'
 			if IgorloverQW = 1:
-				'<center><img <<$set_imgh>>  src="images/characters/pavlovsk/school/boy/igor/talkgf.jpg"></center>'
+				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/talkgf.jpg"></center>'
 			else
-				'<center><img <<$set_imgh>>  src="images/characters/pavlovsk/school/boy/igor/talk.jpg"></center>'
+				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/talk.jpg"></center>'
 			end
 			'Igor asks you, "<<$pcs_nickname>> lets go see a movie, my treat."'
 			act 'Agree': gt 'IgorEv', 'Movies'
@@ -239,9 +240,9 @@ if $ARGS[0] = 'Chat':
 				cla
 				'<center><h4><font color="maroon">Igor''s Room</font></h4></center>'
 				if IgorloverQW = 1:
-					'<center><img <<$set_imgh>>  src="images/characters/pavlovsk/school/boy/igor/talkgf.jpg"></center>'
+					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/talkgf.jpg"></center>'
 				else
-					'<center><img <<$set_imgh>>  src="images/characters/pavlovsk/school/boy/igor/talk.jpg"></center>'
+					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/talk.jpg"></center>'
 				end
 				'You shake your head no. "I would rather just stay here." He nods and smiles.'
 				act 'Continue': gt 'IgorHome', 'Chat'
@@ -269,7 +270,7 @@ if $ARGS[0] = 'study':
 	cls
 	gs 'stat'
 	'<center><h4><font color="maroon">Igor''s Room</font></h4></center>'
-	'<center><img <<$set_imgh>>  src="images/characters/pavlovsk/school/boy/igor/study.jpg"></center>'
+	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/study.jpg"></center>'
 	'You sit down next to Igor and he pulls out his history book and notes. He starts tutoring you in history, he is very good tutor and your learn a lot.'
 	act 'Study More':gt 'igorhome','study'
 	act 'Chat':gt 'igorhome','Chat'
@@ -727,13 +728,13 @@ if $ARGS[0] = 'livingroom4':
 end
 
 if $ARGS[0] = 'kitchen':
-    *clr & cla
-    minut += 1
+	*clr & cla
+	minut += 1
 	$locclass = 'kitr'
-    gs 'stat'
-    '<center><b><font color = maroon>Kitchen</font></b></center>'
-    '<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/igorhome/kitchen.jpg"></center>'
-    'The room is very clean and neat. Everything is perfectly in place, the counters are polished to a near mirror like quality. The wood floor is also highly polished.'
+	gs 'stat'
+	'<center><b><font color = maroon>Kitchen</font></b></center>'
+	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/igorhome/kitchen.jpg"></center>'
+	'The room is very clean and neat. Everything is perfectly in place, the counters are polished to a near mirror like quality. The wood floor is also highly polished.'
 !!this is a elseif, if it is 06:00 to 07:00 igors mother is here, or if it is 18:00 to 23:00 she is here during the week. On weekends she is here from 08:00 to 23:00
 	if (week <=5 and (hour = 6 or (hour >= 18 and hour < 23))) or (week > 5 and hour >= 8 and hour < 23):
 		'You see Igor''s mother Inga is in the kitchen drinking tea. She is very neatly dressed, you don''t think she has noticed you yet.'
@@ -1129,7 +1130,7 @@ end
 
 !!new scene for going to Igors house with out following him from school.
 if $ARGS[0] = 'home':
-	'<center><img <<$set_imgh>>  src="images/locations/pavlovsk/resident/igorhome/house.jpg"></center>'
+	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/igorhome/house.jpg"></center>'
 	'You walk up to the front door and knock.'
 !!This will have a lot of if's and elseif's.
 	if SchoolAtestat = 1 and kanikuli > 0:

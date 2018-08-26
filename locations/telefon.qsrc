@@ -997,8 +997,8 @@ if $ARGS[0] = 'Phone_menu':
 	pl'<center><a href="exec:gs ''telefon'', ''Phone_camera'' "><img src="<<FUNC(''$phone_theme'')>>icon_camera.png" height="80" width="80"></a><a href="exec:gs ''telefon'', ''Phone_calendar'' "><img src="<<FUNC(''$phone_theme'')>>icon_calendar.png" height="80" width="80"></a><a href="exec:gs ''telefon'', ''Phone_pictures'' "><img src="<<FUNC(''$phone_theme'')>>icon_pictures.png" height="80" width="80"></a></center>'
 	pl'<center><a href="exec:gs ''telefon'', ''Phone_media'' "><img src="<<FUNC(''$phone_theme'')>>icon_music.png" height="80" width="80"></a><a href="exec:gs ''telefon'', ''Phone_notebook'' "><img src="<<FUNC(''$phone_theme'')>>icon_notebook.png" height="80" width="80"></a><a href="exec:gs ''telefon'', ''Phone_wheather'' "><img src="<<FUNC(''$phone_theme'')>>icon_weather.png" height="80" width="80"></a></center>'
 	pl'<center><a href="exec:gs ''telefon'', ''Phone_contactlist'' "><img src="<<FUNC(''$phone_theme'')>>icon_call.png" height="80" width="80"></a><a href="exec:gs ''telefon'', ''Phone_sms'' "><img src="<<FUNC(''$phone_theme'')>>icon_sms.png" height="80" width="80"></a><a href="exec:gs ''telefon'', ''Phone_megafon'' "><img src="<<FUNC(''$phone_theme'')>>icon_megafon.png" height="80" width="80"></a></center>'
-	pl'<center><a href="exec:gs ''Cheatmenu_din'' & Enable_settingmode = 1 & dynamic $cheatmenu[''display'']"><img src="<<FUNC(''$phone_theme'')>>icon_settings.png" height="80" width="80"></a></center>'
-	pl'<center><a href="exec:gs''stat''"><img src="images/system/icon/back.png"></a></center>'
+	pl'<center><a href="exec:gs ''Cheatmenu_din'' dynamic $cheatmenu[''setting'']"><img src="<<FUNC(''$phone_theme'')>>icon_settings.png" height="80" width="80"></a></center>'
+	pl'<center><a href="exec:clr & gs''stat''"><img src="images/system/icon/back.png"></a></center>'
 end &! --- Phone_menu ---
 
 if $ARGS[0] = 'Add_contact':

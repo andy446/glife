@@ -27,7 +27,6 @@ if $ARGS[0] = 'body':
 end
 
 if $ARGS[0] = 'coat':
-	clr
 	if defaultcoat = 0:
 		$RESULT = ''
 		$body_image_msg += 'You have no default coat set.'
@@ -70,7 +69,7 @@ if $ARGS[0] = 'clothes':
 		else
 			$body_image_msg += FUNC('$clothing_name', $clothingworntype, clothingwornnumber)
 		end
-		nl
+		*nl
 		if $clothingworntype = 'uniform':
 			if PCloStyle2 = 1:
 				$body_image_msg += '<br>This outfit is considered to be a maid uniform.'

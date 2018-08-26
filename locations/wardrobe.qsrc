@@ -145,8 +145,6 @@ if $ARGS[0] = 'default_entry_wear':
 	else
 		bag = 1
 	end
-	if menu_option = 1:dynamic $menu_addoldmenu
-	if menu_option = 0:gs 'obj_din', 'new'
 
 	if dyneval('RESULT = coat[<<defcoat[default_entry]>>]') = 0: defcoat[default_entry] = 0
 	defaultcoat = defcoat[default_entry]

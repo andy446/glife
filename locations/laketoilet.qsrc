@@ -36,6 +36,7 @@ if $ARGS[0] = 'main':
 		dynamic $tampon
 		dynamic $quickwash
 		dynamic $basin
+		dynamic $removepan
 	end
 end
 

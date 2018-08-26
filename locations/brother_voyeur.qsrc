@@ -748,17 +748,13 @@ if $ARGS[0] = 'brother_wash':
 	gs 'arousal', 'end'
 	gs 'stat'
 
-	if pcs_leghair > 3 or pcs_pubes > 3 or pcs_bush > 0:
+	if pcs_leghair > 3 or pcs_pubes > 3:
 		*nl
 		if pcs_leghair > 3 and pcs_pubes > 3:
 			'	As you rinse off, your brother gives a meaningful look at your lower body and you follow his gaze to your <<$pcdesc_legs>> legs and <<$pcdesc_pubes>> pussy.'
-		elseif pcs_leghair > 3 and pcs_bush > 0:
-			'	As you rinse off, your brother gives a meaningful look at your lower body and you follow his gaze to your <<$pcdesc_legs>> legs and the stubble growing around the patch of hair above your pussy.'
 		elseif pcs_leghair > 3 and pcs_pubes < 3:
 			'	As you rinse off, your brother gives a meaningful look at your lower body and you follow his gaze to your <<$pcdesc_legs>> legs.'
 		elseif pcs_leghair < 3 and pcs_pubes > 3:
-			'	As you rinse off, your brother gives a meaningful look at your lower body and you follow his gaze to your <<$pcdesc_pubes>> pussy.'
-		elseif pcs_leghair < 3 and pcs_bush > 0:
 			'	As you rinse off, your brother gives a meaningful look at your lower body and you follow his gaze to your <<$pcdesc_pubes>> pussy.'
 		end
 		'	"Aren''t you going to shave?"'
@@ -986,7 +982,7 @@ if $ARGS[0] = 'brother_shower_shave':
 			*nl
 			if pcs_pubes > 3:
 				if pcs_pubes <= 20:'	Kolka frowns. "You''re not going to shave your pussy?"'
-				if pcs_pubes >= 21 or pcs_bush > 0:'	Kolka frowns. "You''re not going to shave that bush?"'
+				if pcs_pubes >= 21:'	Kolka frowns. "You''re not going to shave that bush?"'
 				if stanok = 0:
 					act'"I can''t. Razor''s gone dull"':
 						cla

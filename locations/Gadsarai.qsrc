@@ -361,8 +361,6 @@ if $ARGS[0] = '':
 					$currentpursetype = 'cheap'
 					currentpursenumber = 5
 					bag = 1
-					if menu_option = 1:gs 'obj_din', 'old'
-					if menu_option = 0:gs 'obj_din', 'new'
 					'You can use this cool looking bag as a handbag.'
 				else
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/village/junk_barn.jpg"></center>'

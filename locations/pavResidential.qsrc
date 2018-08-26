@@ -187,7 +187,7 @@ act 'Go to the high street':minut += 5 & gt 'pavCommercial'
 if home_owned[2] = 1: act '<b>GO HOME</b> (Parents'' Apartment)': minut += 4 & GT 'korrPar'
 if pavSharedAptEnabled = 1:act '<b>GO HOME</b> (Shared Apartment)': minut += 5 & GT 'pavSharedApt', 'start'
 
-act 'Go to your apartment complex':minut += 3 & gt 'pavcomplex', 'start'
+act 'Go to the apartment complex':minut += 3 & gt 'pavcomplex', 'start'
 
 act 'Wait':gs 'obj_din', 'wait'
 

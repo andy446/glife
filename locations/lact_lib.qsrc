@@ -505,6 +505,7 @@ if $ARGS[0] = 'bp_milking':
 	else
 		*clr
 		cla
+		'<center><img <<$set_imgh>> src="images/pc/body/tits/breast_pump.jpg"></center>'
 		'How long do you want to pump your breasts with the manual breast pump?'
 		if bpbottlem > 0:
 			if pump_bottletype = 1500:
@@ -513,7 +514,6 @@ if $ARGS[0] = 'bp_milking':
 				'Current bottle size in use <a href="exec:pump_bottletype = 1500 & gt ''lact_lib'', ''bp_milking''">150ml</a> | &gt;250ml'
 			end
 		end
-		'<center><img <<$set_imgh>> src="images/pc/body/tits/breast_pump.jpg"></center>'
 		if lactatemv > 0:
 			pumptime = (func('lact_lib','$get_breastmilk_time', 3, (lactatemv/10)))
 			if pumptime > 5:

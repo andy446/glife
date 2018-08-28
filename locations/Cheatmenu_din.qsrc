@@ -388,7 +388,7 @@ $cheatmenu['state'] = {
 		'<a href="exec:lactate = 1 & lactateinduced = 1 & total_milkinduce_growth = 8 & nbsize += 8 & prolactinlvl = 200 & lactaterate = 100 & lactatemv = 0 & lactatemm = func(''lact_lib'',''$calc_lactatemm'') & dynamic $cheatmenu[''state'']">Switch ON</a>'
 	else
 		'You are lactating'
-		'<a href="exec:lactate = 0 & lactateinduced = 0 & total_milkinduce_growth = 0 & nbsize -= 8 & prolactinlvl = 0 & lactaterate = 0 & lactatemv = 0 & lactatemm = 0 & dynamic & dynamic $cheatmenu[''state'']">Switch OFF</a>'
+		'<a href="exec:lactate = 0 & lactateinduced = 0 & total_milkinduce_growth = 0 & nbsize -= 8 & prolactinlvl = 0 & lactaterate = 0 & lactatemv = 0 & lactatemm = 0 & dynamic $cheatmenu[''state'']">Switch OFF</a>'
 		if lactaterate <= 0:
 			'Lactate Rate: <<lactaterate/10>>ml/h <a href="exec:lactaterate += 100 & dynamic $cheatmenu[''state'']">+10</a>'
 		elseif lactaterate >= 6000:
@@ -493,7 +493,7 @@ $cheatmenu['looks'] = {
 	if vshrink < 10:'<a href="exec:vshrink += 1 & dynamic $cheatmenu[''looks'']">Increase the amount to shrink</a>'
 	if vshrink > 0:'<a href="exec:vshrink -= 1 & dynamic $cheatmenu[''looks'']">Reduce the amount to shrink</a>'
 	if vshrinkdays < 10:'<a href="exec:vshrinkdays += 1 & dynamic $cheatmenu[''looks'']">Increase the number of days it takes</a>'
-	if vshrinkdays > 1:'<a href="exec:vshrinkdays -= 1 & gs $menu_obnovit dynamic $cheatmenu[''looks'']">Reduce the number of days it takes</a>'
+	if vshrinkdays > 1:'<a href="exec:vshrinkdays -= 1 & gs $menu_obnovit & dynamic $cheatmenu[''looks'']">Reduce the number of days it takes</a>'
 	*nl
 	'<<$pcs_ass>>'
 	if pcs_ass <= 31:'<a href="exec:pcs_ass += 5 & dynamic $cheatmenu[''looks'']">Enlarge anus</a>'

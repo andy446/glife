@@ -535,7 +535,7 @@ $d_cycreport_actor = {
 		'<td width="250" cellspacing="0" cellpadding="0" valign="top">'
 		'How many days ago was it you had your last period?'
 		'Currently: <<pertemp>>'
-		'<a href="exec: pertemp += 1 & dynamic $d_cycreport_actor, 4">+1</a> <a href="exec: pertemp += 5 & *dynamic $d_cycreport_actor, 4">+5</a> <a href="exec: pertemp += 10 & dynamic $d_cycreport_actor, 4">+10</a> <a href="exec: pertemp = 0 & dynamic $d_cycreport_actor, 4">Reset</a> <a href="exec: daylastperiod = daystart - pertemp & dynamic $d_cycreport_update & gs ''stat'' & dynamic $d_cycreport_choice">Accept</a>'
+		'<a href="exec: pertemp += 1 & dynamic $d_cycreport_actor, 4">+1</a> <a href="exec: pertemp += 5 & dynamic $d_cycreport_actor, 4">+5</a> <a href="exec: pertemp += 10 & dynamic $d_cycreport_actor, 4">+10</a> <a href="exec: pertemp = 0 & dynamic $d_cycreport_actor, 4">Reset</a> <a href="exec: daylastperiod = daystart - pertemp & dynamic $d_cycreport_update & gs ''stat'' & dynamic $d_cycreport_choice">Accept</a>'
 		act 'Return':dynamic $d_cycreport_choice
 		act 'Exit':gs 'stat' & gt $loc, $metka
 		'</td></tr></table></center>'

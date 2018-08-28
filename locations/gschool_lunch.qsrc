@@ -428,7 +428,7 @@ if $ARGS[0] = 'events':
 	elseif (Anush_lunch > 0 or grupTipe = 4) and rand(0, 5) = 0:
 		pcs_horny += 20
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/anushka/sex/school/want.jpg"></center>'
-		'As you are leaving the canteen, Anushka grabs you and pushes you up against the wall. She starts kissing you passionately, while one of her hands slides up your skirt and starts rubbing at your clit. You can hear several of your fellow classmates whistling, hooting and hollering, but right now you don''t really care. She breaks the kiss just long enough to moan into your ear. "I want to fuck you, come with me." , her fingers sliding up into your pussy as she says it.'
+		'As you are leaving the canteen, Anushka grabs you and pushes you up against the wall. She starts kissing you passionately, while one of her hands slides up your skirt and starts rubbing at your clit. You can hear several of your fellow classmates whistling, hooting and hollering, but right now you don''t really care. She breaks the kiss just long enough to moan into your ear. "I want to fuck you, come with me," her fingers sliding up into your pussy as she says it.'
 		act 'Not today':
 			*clr & cla
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/anushka/nomake.jpg"></center>'

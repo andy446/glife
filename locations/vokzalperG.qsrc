@@ -20,13 +20,6 @@ gs'stat'
 '<center><img <<$set_imgh>> src="images/locations/shared/train/pavplat.jpg"></center>'
 'Because Pavlovsk is a place that attracts a fair amount of tourists, the station can be quite busy at times. The busiest times on the platforms are between 11:00 and 11:30, and between 18:00 and 18:30 when the long-distance trains are ready for boarding.'
 
-if snarkozak = 1 and narkossista = 0 and narkozakday!day:
-    if money >= 2000:
-        act 'Find the drug dealer':gs 'events', 'snarkozaka'
-    end
-end
-
-
 if Trainpass_day > daystart:
 	act 'Take a train to the old town': gt 'vokzalGin', 'oldtown'
 

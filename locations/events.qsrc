@@ -266,6 +266,7 @@ end
 if $ARGS[0] = 'snarkozaka':
 	cls
 	minut += 20
+	gs 'stat'
 	'<center><B>Pavlovsk train station</B></center>'
 	'<center><img <<$set_imgh>> src="images/locations/shared/train/pavplat.jpg"></center>'
 	'You walk to the end of the platform and see a man hiding undercover smoking a cigarette'
@@ -287,7 +288,6 @@ if $ARGS[0] = 'snarkozaka':
 	end
 	act 'Leave': gt $loc, $metka
 end
-
 
 if $ARGS[0] = 'snkayf1':
 	snkz = RAND(1,6)

@@ -701,6 +701,26 @@ $pirManage = {
 	act'<b>Back</b>':gt $loc, $metka
 }
 
+$enema = {
+	if klisma = 1 and (klismaday ! daystart or arrpos('sparrloc', 3) ! -1):
+		act 'Give yourself an enema (0:05)':
+			cla
+			*clr
+			cumspclnt = 7
+			gs 'cum_cleanup'
+			minut += 5
+			klismaday = daystart
+			klismaday1 = 1
+
+			'<center><img <<$set_imgh>> src="images/shared/home/bathroom/klisma.jpg"></center>'
+			*nl
+			'You give yourself an enema, feeling clean down there. Your ass is now ready for anal sex without any awkward surprises.'
+
+			act 'Finish':gt $loc, $metka
+		end
+	end
+}
+
 $toymanage = {
 	if analplug = 1 and analplugin = 1:
 		act 'Remove your butt plug (0:05)':
@@ -732,24 +752,6 @@ $toymanage = {
 			*nl
 			if butpluguse > 0:'You squat and gently rub the butt plug against your anus, after lubricating it with a bit of saliva. After a short while, you''ve relaxed enough to be able to push it in. Once it''s in you give it a few gentle tugs, wondering if anyone will catch you wearing it today.'
 			if butpluguse = 0:butpluguse = 1 & '"If I''m not going to use it, then why did I buy it?" you ask yourself. You look at the butt plug for a while, thinking "It is necessary to start developing my ass, so I could have great adventures someday... you could even say huge and thick adventures with crimson heads, uh, now I got carried away..." You''re slightly embarrassed at the thought for a second, but are then overcome by your horny fantasies. Determined to get the plug all the way in, you slowly press it against your asshole after lubricating it with a bit of saliva. It hurts a bit at first, but once the thickest part is in the rest follows rather easily. Patting yourself on your ass once it''s in, you wonder if anyone will notice you''re wearing it today and then immediately feel naughty for even having thought that.'
-
-			act 'Finish':gt $loc, $metka
-		end
-	end
-
-	if klisma = 1 and (klismaday ! daystart or arrpos('sparrloc', 3) ! -1):
-		act 'Give yourself an enema (0:05)':
-			cla
-			*clr
-			cumspclnt = 7
-			gs 'cum_cleanup'
-			minut += 5
-			klismaday = daystart
-			klismaday1 = 1
-
-			'<center><img <<$set_imgh>> src="images/shared/home/bathroom/klisma.jpg"></center>'
-			*nl
-			'You give yourself an enema, feeling clean down there. Your ass is now ready for anal sex without any awkward surprises.'
 
 			act 'Finish':gt $loc, $metka
 		end
@@ -898,6 +900,9 @@ if $ARGS[0] = 'private':
 	dynamic $basin
 
 	dynamic $brit
+
+	dynamic $enema
+
 
 	if mosolmaz > 0 and mosol > 0 and mosal_time ! (daystart * 100) + hour:
 		act 'Rub ointment onto your pussy (0:05)':

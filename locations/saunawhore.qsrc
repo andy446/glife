@@ -1056,6 +1056,7 @@ if $ARGS[0] = 'bathroom':
 	gs 'din_van', 'prvt_pee'
 
 	dynamic $toymanage
+	dynamic $enema
 
 	if workdolg > 0:
 		if (mesec > 0 or (placebopart > 2 and pillcon < 40000)) and isprok = 0 and isprokp = 0:

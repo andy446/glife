@@ -199,6 +199,7 @@ if mira = 0:
 	end
 
 	dynamic $toymanage
+	dynamic $enema
 
 	if mosolmaz > 0 and mosol > 0 and mosal_time ! (daystart * 100) + hour:
 		act 'Rub ointment onto your pussy (0:05)':

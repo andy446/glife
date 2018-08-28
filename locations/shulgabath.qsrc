@@ -61,6 +61,7 @@ if $ARGS[0] = 'start':
 	end
 
 	dynamic $toymanage
+	dynamic $enema
 
 	if pregtest > 0 and (abortionbirthdate = 0 or daystart - abortionbirthdate > 100):
 		act 'Do a pregnancy test':

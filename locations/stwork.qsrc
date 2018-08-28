@@ -152,6 +152,7 @@ if $ARGS[0] = 'toilet':
 	end
 	gs 'din_van', 'prvt_pee'
 	dynamic $toymanage
+	dynamic $enema
 	dynamic $tampon
 	dynamic $quickwash
 	dynamic $basin

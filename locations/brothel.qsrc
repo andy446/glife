@@ -505,6 +505,7 @@ if $ARGS[0] = 'brothel:section1:girlroom':
 	end
 	gs 'din_van', 'prvt_pee'
 	dynamic $toymanage
+	dynamic $enema
 	dynamic $tampon
 	dynamic $quickwash
 	dynamic $basin

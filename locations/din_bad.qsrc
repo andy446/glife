@@ -153,9 +153,7 @@ $d_bag = {
 	else
 		'You are out of condoms.'
 	end
-	if amphetamine > 0 :
-		'You have <<amphetamine>> tablets of amphetamine left in your purse. <b><a href="exec:dynamic $use_amphetamines & dynamic $d_bag">Take One</a></b>'
-	end
+	if amphetamine > 0:	'You have <<amphetamine>> tablets of amphetamine left in your purse. <b><a href="exec:dynamic $use_amphetamines & dynamic $d_bag">Take One</a></b>'
 	if tabletki > 0 and pillsleft[ptype] > 0:
 		'You have <<tabletki>> unopened packages of <a href="exec:dynamic $d_tabletkied">birth control pills</a> and <<pillsleft[ptype]>> pills left in your opened package.</b>'
 	elseif tabletki	= 0 and pillsleft[ptype] > 0:
@@ -165,18 +163,10 @@ $d_bag = {
 	else
 		'You are out of birth control pills.'
 	end
-	if mentats_have > 0:
-		'<a href="exec:dynamic $use_mentats & dynamic $d_bag"><b>Use a neurobooster pill in your purse.</b></a> There are <<mentats_have>> pills left. The warning label says not to take more than one per day.'
-	end
-	if steroid_have > 0:
-		'<a href="exec:dynamic $use_steroids & dynamic $d_bag"><b>Use steroids.</b></a> You have <<steroid_have>> steroids left in your purse.'
-	end
-	if bcream_have > 0:
-		'<a href="exec:dynamic $use_bcream & dynamic $d_bag"><b>Apply breast cream.</b></a> You have <<bcream_have>> cream left in your purse.'
-	end
-	if aphrodisiac_have > 0:
-		'<a href="exec:dynamic $use_aphrodisiac & dynamic $d_bag"><b>Chew aphrodisiac gum.</b></a> You have <<aphrodisiac_have>> gum left in your purse.'
-	end
+	if mentats_have > 0:'<a href="exec:dynamic $use_mentats & dynamic $d_bag"><b>Use a neurobooster pill in your purse.</b></a> There are <<mentats_have>> pills left. The warning label says not to take more than one per day.'
+	if steroid_have > 0:'<a href="exec:dynamic $use_steroids & dynamic $d_bag"><b>Use steroids.</b></a> You have <<steroid_have>> steroids left in your purse.'
+	if bcream_have > 0:'<a href="exec:dynamic $use_bcream & dynamic $d_bag"><b>Apply breast cream.</b></a> You have <<bcream_have>> cream left in your purse.'
+	if aphrodisiac_have > 0:'<a href="exec:dynamic $use_aphrodisiac & dynamic $d_bag"><b>Chew aphrodisiac gum.</b></a> You have <<aphrodisiac_have>> gum left in your purse.'
 
 	if lubri > 0:'There''s a tube of lubricant in your purse, enough for <<lubri>> applications.'
 	if bottle > 0: 'There''s a bottle of water in your purse. <a href="exec:bottle = 0 & pcs_hydra += 100 & cumspclnt = 2 & gs ''cum_cleanup'' & gs ''stat'' & dynamic $d_bag"><b>Drink</b></a>'
@@ -185,17 +175,16 @@ $d_bag = {
 	if wine = 1 and alkowine = 1:'There''s a half-bottle of <a href="exec:dynamic $dinalkowin2">wine</a> in your purse.'
 	if foto = 1:'Your purse contains a strange photo'
 	if pattest > 0:
-		if pattest > 1:$tt = 's' else $tt = ''
+		iif(used_pattest > 1,$tt = 's',$tt = '')
 		'You have <<pattest>> unused paternity test<<$tt>> in your purse.'
 	end
 	if used_pattest > 0:
-		if used_pattest > 1:$tt = 's' else $tt = ''
+		iif(used_pattest > 1,$tt = 's',$tt = '')
 		'You have <<used_pattest>> <a href="exec:dynamic $test_purse">used</a> paternity test<<$tt>> in your purse.'
 	end
 	killvar 'tt'
 
 	act 'Return':gt $loc, $metka
-	end
 	'</td></tr></table></center>'
 }
 

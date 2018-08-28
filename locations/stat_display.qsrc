@@ -1242,6 +1242,7 @@ if StoryLine = 1:
 	if week = 6 and hour < 9 and detention_set = 1:$stat_msg += '<BR><b>You have a detention this morning and must be at school between 8 and 9.</b>'
 	if gopnik_initiation = 1 and gopnik_initiation_day = daystart and hour > 15 and hour < 21: $stat_msg += '<BR><b>Meet Lena and Lera at the apartment garages at eight</b>'
 	if nerd_night_game = 1 and nerd_night_game_day = daystart and hour > 15 and hour < 21: $stat_msg += '<BR><b>Join nerds at the community center at eight</b>'
+	if InvitationToDimkaNYparty = 1 and month = 12 and day = 31: $stat_msg += '<BR><b>Go to the residential area between 15:00 and 18:00 to go to Dimka''s New Year party.</b>'
 end
 
 if model > 0 and model_week = (daystart - week) / 7 and model_job_week >= 2:

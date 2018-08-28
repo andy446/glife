@@ -1210,17 +1210,17 @@ $cheatmenu['time'] = {
 	if temp_minut < 46:$SS += '<a href="exec:temp_minut += 15 & dynamic $cheatmenu[''time'']">+15</a>'
 	$SS
 	killvar 'SS'
-
-	' <a href="exec:dynamic $cheatmenu[''input_time'']">Direct input time</a>'
-
+	*nl
 	'Weather: <a href="exec:sunWeather=iif(sunWeather=0,1,0) & $pogoda=iif(sunWeather=0,''Rain...'',''Clear...'') & chWeather = 1 & gs ''outdoors'', ''weather'' & dynamic $cheatmenu[''time'']">'+iif(sunWeather=0,'Rain','Sunny')+'</a>'
-
+	*nl
+	'Temperature = <<$temperature>> - <a href="exec:temper += 1 & dynamic $cheatmenu[''time'']">+1 degree</a> - <a href="exec:temper += 5 & dynamic $cheatmenu[''time'']">+5 degrees</a> - <a href="exec:temper -= 1 & dynamic $cheatmenu[''time'']">-1 degree</a> - <a href="exec:temper -= 5 & dynamic $cheatmenu[''time'']">-5 degrees</a>'
+	*nl
+	if TempUnit = 0: 'Use <a href="exec:TempUnit = 1 & gs ''outdoors'',''weather'' & dynamic $cheatmenu[''time'']">Fahrenheit</a> scale' else 'Use <a href="exec:TempUnit = 0 & gs ''outdoors'',''weather'' & dynamic $cheatmenu[''time'']">Celsius</a> scale'
+	*nl
+	'<a href="exec:dynamic $cheatmenu[''input_time'']">Direct input time</a>'
+	*nl
 	'<a href="exec:day = temp_day & $month = $temp_month & month = temp_month & year = temp_year & hour = temp_hour & minut = temp_minut & currtimecheck = 1 & dynamic $cheatmenu[''time'']">Accept target date & time</a>'
 	'<a href="exec:temp_day = day & $temp_month = $month & temp_month = month & temp_year = year & temp_hour = hour & temp_minut = minut & dynamic $cheatmenu[''time'']">Reset target date & time</a>'
-
-	'Temperature = <<$temperature>> - <a href="exec:temper += 1 & dynamic $cheatmenu[''time'']">+1 degree</a> - <a href="exec:temper += 5 & dynamic $cheatmenu[''time'']">+5 degrees</a> - <a href="exec:temper -= 1 & dynamic $cheatmenu[''time'']">-1 degree</a> - <a href="exec:temper -= 5 & dynamic $cheatmenu[''time'']">-5 degrees</a>'
-
-	if TempUnit = 0: 'Use <a href="exec:TempUnit = 1 & gs ''outdoors'',''weather'' & dynamic $cheatmenu[''time'']">Fahrenheit</a> scale' else 'Use <a href="exec:TempUnit = 0 & gs ''outdoors'',''weather'' & dynamic $cheatmenu[''time'']">Celsius</a> scale'
 	'</td></tr></table></center>'
 }
 

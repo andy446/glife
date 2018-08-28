@@ -22,14 +22,14 @@ if $ARGS[0] = '':
 end
 
 if $ARGS[0] = 'fairy_chat_no1':
-	cls
+	cla
 	gs 'stat'
 	knowsfairy = 1
 	'You take a closer look at the floating glowing orb. What you mistook for a large firefly is actually a small woman with translucent wings on her back: A fairy!'
 	'"Hello, biggie!", she says in a high pitched voice. "You can see me, right?'
 	'"It''s so nice to meet you! Finally someone who can see me!", she goes on before you have a chance to answer. "Finally someone to chat with!!! You have no idea how annoying it is to be here and nobody recognizes you. It''s sooo BORING!!!"'
 	act 'Chat with the fairy':
-		cls
+		cla
 		minut += 30
 		fairychat = 1
 		pcs_manna += 25 * pcs_magik
@@ -54,7 +54,7 @@ if $ARGS[0] = 'fairy_chat_no1':
 end
 
 if $ARGS[0] = 'fairy_shoo':
-	cls
+	cla
 	minut += 1
 	if knowsfairy < 1:
 		knowsfairy = 1
@@ -78,11 +78,11 @@ if $ARGS[0] = 'fairy_shoo':
 end
 
 if $ARGS[0] = 'fairy_chat':
-	cls
+	cla
 	gs 'stat'
 	'You take the few steps over to the glowing orb that apparently only you can recognize as what it truly is: a fairy.'
 	act 'Chat with the fairy':
-		cls
+		cla
 		minut += 30
 		if fairyshoo = 1 and rand (1, 3) = 2:
 			fairyshoo = 0
@@ -120,13 +120,13 @@ if $ARGS[0] = 'fairy_chat':
 			gs 'stat'
 			'The fairy takes another quick look at you, rubs her chin, and says "Hmm, since you''ve been a little nice to me, maybe I could be a little nice to you."'
 			act 'Huh?':
-				cls
+				cla
 				*nl
 				'You look at her, puzzled, wondering if you heard her right.  She just shrugs her shoulders and says "Okay, if you''re not interested"'
 				act 'Go on your way': gt $loc, $metka
 			end
 			act 'Sure':
-				cls
+				cla
 				fday_surprise += 1
 				fairy_surprise = RAND(1,9)
 				if fairy_surprise =< 2:

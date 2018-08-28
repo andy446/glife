@@ -103,7 +103,7 @@ if $ARGS[0] = 'titsQ':
 	'Want to earn some more cash, girl? Show me your tits. I''ll give you 100 <b>₽</b>. It''s easy money.'
 	
 	! inhibition or exhibitionism requirements needed to accept the offer or just have fun with him
-	if pcs_inhib >= 30 or pcs_horny >= 40: act 'Agree and show him your tits':gt 'zaprFWash', 'titsFlash', 'Paid', 'Question'
+	if exhibitionist_lvl > 0 or pcs_inhib >= 35 or pcs_horny >= 40: act 'Agree and show him your tits':gt 'zaprFWash', 'titsFlash', 'Paid', 'Question'
 	act 'Refuse':gt 'zaprFWash', 'refuse'
 end
 
@@ -265,7 +265,10 @@ if $ARGS[0] = 'titsFlash':
 		end
 	! flashing for cars just allows you to return to the gas station
 	else
-		act 'Go back to the gas station':gt 'zaprF', 'start'
+		act 'Go back to the gas station': 
+			if $ARGS[1] = 'Paid': slutty += 1
+			gt 'zaprF', 'start'
+		end
 	end
 end
 
@@ -349,7 +352,10 @@ if $ARGS[0] = 'assFlash':
 			act 'Continue':gt 'zaprFWash', 'pussyQ'
 		end
 	else
-		act 'Go back to the gas station':gt 'zaprF', 'start'
+		act 'Go back to the gas station': 
+			if $ARGS[1] = 'Paid': slutty += 1
+			gt 'zaprF', 'start'
+		end
 	end
 end
 
@@ -401,7 +407,10 @@ if $ARGS[0] = 'pussyFlash':
 			act 'Continue':gt 'zaprFWash', 'handQ'
 		end
 	else
-		act 'Go back to the gas station':gt 'zaprF', 'start'
+		act 'Go back to the gas station': 
+			if $ARGS[1] = 'Paid': slutty += 1
+			gt 'zaprF', 'start'
+		end
 	end
 end
 

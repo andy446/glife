@@ -149,7 +149,7 @@ if $ARGS[0] = '':
 			end
 
 			act'Show her your pierced tongue':
-				cls
+				cla
 				pirsAmother=1
 				delin_beh += 1 &!counter for getting sent to Gadukino for the summer
 				gs'stat'
@@ -167,7 +167,7 @@ if $ARGS[0] = '':
 		motherpirsadbytalk=daystart
 		'Your mother looks at your lips, noticing your new lip piercing. She doesn''t seem very happy about it. "And this is why?"'
 		act'I just think it looks pretty':
-			cls
+			cla
 			pirsBmother=1
 			delin_beh += 1 &!counter for getting sent to Gadukino for the summer
 			gs'stat'
@@ -214,7 +214,7 @@ if $ARGS[0] = '':
 	end
 
 	act 'Chat':
-		cls
+		*clr & cla
 		minut+=rand(10,15)
 		npc_rel['A29']+=1
 		gs'stat'
@@ -263,7 +263,7 @@ if $ARGS[0] = '':
 
 		if momslut = 1:
 			act 'Tell her you saw her fucking her boss':
-				cls
+				cla
 				minut += 5
 				momslut = 2
 				gs 'stat'
@@ -278,7 +278,7 @@ if $ARGS[0] = '':
 		end
 
 		act 'Ask for some money':
-			cls
+			cla
 			minut += 5
 			gs 'stat'
 			'<center><b><font color="maroon">Your mother, Natasha <<$pcs_lastname>></font></b></center>'
@@ -379,7 +379,7 @@ if $ARGS[0] = '':
 		end
 
 		act 'Ask about your biological father':
-			cls
+			cla
 			minut += 5
 			gs 'stat'
 			'<center><b><font color="maroon">Your mother, Natasha <<$pcs_lastname>></font></b></center>'
@@ -398,7 +398,7 @@ if $ARGS[0] = '':
 		end
 
 		act 'Ask for some new clothes':
-			cls
+			cla
 			minut += 5
 			gs 'stat'
 			'<center><b><font color="maroon">Your mother, Natasha <<$pcs_lastname>></font></b></center>'
@@ -415,7 +415,7 @@ if $ARGS[0] = '':
 							'Your mother lets out an exasperated sigh, and throws her hands in the air. "Here we go again... "Mommy, I have nothing to wear!"" he says, mocking your voice in a high pitch. You both laugh. "Alright then <<$pcs_nickname>>, let''s go see if we can find something."'
 
 							act 'Go to the store':
-								cls
+								cla
 								npc_rel['A29'] = 70
 								motherClotheMonth = month
 								minut += 30
@@ -423,7 +423,7 @@ if $ARGS[0] = '':
 								'Going clothes shopping with your mother is always an interesting experience. You never get to pick your own clothes, but she brings you clothes that she thinks would suit you and lets you try them on. You would argue but her taste in clothing is actually very good, always picking out cute outfits for you to wear that are quite trendy too. You directly go towards the changing booths, wondering what she''ll bring you this time.'
 
 								act 'Try on the clothes she brings you':
-									cls
+									cla
 									gs 'stat'
 									loop_counter = 0
 									:markbuyclomother
@@ -475,7 +475,7 @@ if $ARGS[0] = '':
 		gs 'mother', 'pregreact'
 
 		act 'Offer to help around the house':
-			cls
+			cla
 			minut += 60
 			npc_rel['A29'] += rand(1, 5)
 			pcs_mood -= 10
@@ -514,7 +514,7 @@ if $ARGS[0] = '':
 
 	if npc_QW['A29'] = 1 and npc_rel['A29'] >= 20 and $loc = 'kuhrPar':
 		act 'Try to reconcile':
-			cls
+			cla
 			'<center><b><font color="maroon">Your mother, Natasha <<$pcs_lastname>></font></b></center>'
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/mother.jpg"></center>'
 

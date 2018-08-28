@@ -1082,8 +1082,8 @@ if $ARGS[0] = 'bathroom':
 	dynamic $bteeth
 	dynamic $basin
 	dynamic $removepan
-	if breastpump > 0:
-		act 'Use breast pump':gt 'lact_lib', 'bp_milking'
+	if breastpump > 0 and bp_unbox >= 1:
+		act 'Use breast pump' :gt 'lact_lib', 'bp_milking'
 	end
 end
 

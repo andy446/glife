@@ -192,7 +192,7 @@ if mira = 0:
 			act 'Finish':gt $loc, $metka
 		end
 	end
-	if breastpump > 0:
+	if breastpump > 0 and bp_unbox >= 1:
 		act 'Use breast pump':
 			gt 'lact_lib', 'bp_milking'
 		end

@@ -1612,7 +1612,7 @@ if lashair = 0:
 		if rand_pubes = 2:$pcdesc_pubesrandom = 'partially-maintained'
 		$pcdesc_pubes = 'bushy'
 		$pcdesc_pubeswordy = 'bushy, thick'
-	elseif pcs_pubes >= 31
+	elseif pcs_pubes >= 31:
 		lobkoef = 0
 		$pcs_pubes = 'You have a wild and unkempt jungle of <a href="exec:view''images/pc/body/pussy/hrypussy.jpg''">pubic hair</a>. <<$pirspiz>><br><<$clitsize>>'
 		rand_pubes = rand(0,2)

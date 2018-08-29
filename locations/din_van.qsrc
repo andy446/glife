@@ -864,6 +864,9 @@ if $ARGS[0] = 'private':
 
 	act 'Change clothes and toys':
 		cla
+		
+		act 'Return':gt $loc, $metka
+		
 		dynamic $wearpan
 		dynamic $removepan
 
@@ -889,8 +892,6 @@ if $ARGS[0] = 'private':
 			end
 		end
 		dynamic $toymanage
-
-		act 'Return':gt $loc, $metka
 	end
 
 	'<a href="exec:msg ''Your body fat is = (<<salo>>)''">Check weight on the scales</a>'

@@ -139,8 +139,8 @@ $d_bag = {
 	if pain_timer > totminut - 242 and painkiller > 0: 'Take a <a href="exec:pain[''killer''] = 1 & painkiller -= 1 & pain_timer = totminut & dynamic $d_bag">painkiller</a>. <<painkiller>> painkillers left in your purse.'
 	if kosmetitka > 0 and pcs_makeup = 1: 'There''s a portable makeup in your purse. <<kosmetitka>> cosmetic applications left. <a href="exec:dynamic $d_kosmetitka"><b>Put on makeup</b></a>'
 	if kosmetitka > 0 and pcs_makeup ! 1: 'There''s a portable makeup in your purse. <<kosmetitka>> cosmetic applications left.'
-	if mouthwash > 0 and pcs_breath = 0: 'There''s a mouthwash in your purse. <<mouthwash>> uses remaining. <a href="exec:dynamic $d_mouthwash"><b>Use mouthwash</b></a>'
-	if mouthwash > 0 and pcs_breath = 1: 'There''s a mouthwash in your purse. <<mouthwash>> uses remaining.'
+	if mouthwash > 0 and (pcs_breath = 0 or cumloc[12] = 1): 'There''s a mouthwash in your purse. <<mouthwash>> uses remaining. <a href="exec:dynamic $d_mouthwash"><b>Use mouthwash</b></a>'
+	if mouthwash > 0 and pcs_breath = 1 and cumloc[12] = 0: 'There''s a mouthwash in your purse. <<mouthwash>> uses remaining.'
 	if greben > 0 and pcs_hairbsh = 0: 'There''s a hairbrush in your purse. <a href="exec:pcs_hairbsh = 1 & gs ''stat'' & dynamic $d_bag"><b>Brush your hair</b></a>'
 	if greben > 0 and pcs_hairbsh = 1: 'There''s a hairbrush in your purse. Your hair doesn''t need brushing right now.'
 	if prezik + prezikcount + preziksabo > 0:

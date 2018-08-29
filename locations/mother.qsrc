@@ -398,7 +398,7 @@ if $ARGS[0] = '':
 		end
 
 		act 'Ask for some new clothes':
-			cla
+			cla & *clr
 			minut += 5
 			gs 'stat'
 			'<center><b><font color="maroon">Your mother, Natasha <<$pcs_lastname>></font></b></center>'
@@ -423,7 +423,7 @@ if $ARGS[0] = '':
 								'Going clothes shopping with your mother is always an interesting experience. You never get to pick your own clothes, but she brings you clothes that she thinks would suit you and lets you try them on. You would argue but her taste in clothing is actually very good, always picking out cute outfits for you to wear that are quite trendy too. You directly go towards the changing booths, wondering what she''ll bring you this time.'
 
 								act 'Try on the clothes she brings you':
-									cla
+									cla & *clr
 									gs 'stat'
 									loop_counter = 0
 									:markbuyclomother

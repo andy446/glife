@@ -598,29 +598,82 @@ if $ARGS[0] = 'bp_milking':
 				gt 'lact_lib', 'milking'
 			end
 		end
+		act 'Massage your breasts':	gt 'lact_lib','man_milking'
 		act 'Don''t pump':gt $loc, $metka
 	end
 end
 
 !!	man_milking - manual (with hands) milking
 !!	use href="exec:gt ''lact_lib'',''man_milking''"
-!!	Warning! Protoype function! Don not make changes to this function as it is not used yet!
+!!	for manual milk expression in bathrooms etc. please use this function.
 if $ARGS[0] = 'man_milking':
 	pumptime = 0
-	pumptype = 1
-	if $location_type ! 'bathroom' and pcs_inhib < 40:
+	if pcs_inhib < 40:
+		*clr
+		cla
 		'You can''t do this here.'
 			act 'Finish': gt $loc, $metka
 	else
 		*clr
 		cla
-		pumptime = input ("How long would you like to milk your breasts? (Not more than 60 minutes)")
-		if pumptime <= 0 or pumptime > 60:
-			minut += 2
-			act 'Don''t milk':gt $loc, $metka
-		elseif pumptime > 0 and pumptime <= 60:
-			gt 'lact_lib', 'milking'
+		'How long do you want to massage your breasts?'
+		if lactatemv > 0:
+			pumptime = (func('lact_lib','$get_breastmilk_time', 5, (lactatemv/10)))
+			if pumptime > 60:
+				act 'Express until breasts are empty':
+					*clr
+					cla
+					minut += 2
+					'You prepare yourself and weight your breasts in your hands. You feel that your breasts carry a large amount of milk and manually expressing it will probably take a long time.'
+					'Getting relieve for your breasts with manual expression will probably take at least <<pumptime>> minutes.'
+					if breastpump <= 0 and bp_unbox <= 1:
+						'You should concider buying a breastpump'
+					elseif breastpump = 1 and bp_unbox <= 1 and pain['nipples'] <= 60:
+						'You should concider using your breastpump.'
+					else
+						'You should concider the use of a breastpump.'
+					end
+					'Do you want to continue?'
+					act 'Don''t express':gt $loc, $metka
+					act 'Express your milk':
+						gt 'lact_lib', 'hand_milking'
+					end
+				end
+			elseif pumptime <= 0:
+				act 'Express milk until breasts are empty':
+					*clr
+					cla
+					minute += 2
+					'As you prepare yourself you feel your breasts in your hands. Your breasts feel really empty. There is no need to express now.'
+					act 'Don''t express milk':gt $loc, $metka
+					act 'back':gt 'lact_lib', 'man_milking'
+				end
+			else
+				act 'Express until breasts are empty':
+					pumptime = func('lact_lib','$get_breastmilk_time', 5, (lactatemv/10))
+					gt 'lact_lib', 'hand_milking'
+				end
+			end
 		end
+		act '5 Minutes':
+			pumptime = 5
+			gt 'lact_lib', 'hand_milking'
+		end
+		act '10 Minutes':
+			pumptime = 10
+			gt 'lact_lib', 'hand_milking'
+		end
+		act 'Custom':
+			pumptime = input ("How long do you plan to massage your breasts? (Not more than 60 minutes)")
+			if pumptime <= 0 or pumptime > 60:
+				minut += 2
+				act 'Don''t express':gt $loc, $metka
+				act 'back':gt 'lact_lib', 'man_milking'
+			elseif pumptime > 0 and pumptime <= 60:
+				gt 'lact_lib', 'hand_milking'
+			end
+		end
+		act 'Don''t express':gt $loc, $metka
 	end
 end
 
@@ -1028,6 +1081,24 @@ if $ARGS[0] = 'engorged_morning':
 	minut += 5
 	'<center><img <<$set_imgh>> src="images/pc/body/tits/lactate_start.jpg"></center>'
 	'You wake up and your breasts hurt. As you look down, you can see that you have a heavy letdown. You should pump your breasts as soon as possible.'
+	act 'Finish':gt $loc, $metka
+end
+
+if $ARGS[0] = 'hand_milking':
+	*clr
+	cla
+	if lactate > 0:
+		'You start to massage your breasts, your fingers gliding down your breasts skin, over the areolas. Your fingers pressing down into the areola, stretching it forwards to your nipple.'
+		'Several small streams of your milk start to jet out of your nipples.'
+		'You go on for <<pumptime>> minutes until you stop. You clean yourself up and everything else that got wet from your milk.<br>'
+		'<center><video autoplay loop src="images/pc/body/tits/bathroom_milking.mp4"></video></center>'
+		milkedvolume = func('lact_lib','$get_breastmilk', 5, pumptime)
+		minut += pumptime
+	else
+		'You start to massage your breasts, your fingers gliding down your breasts skin, over the areolas. Your fingers pressing down into the areola, stretching it forwards to your nipple.'
+		milkedvolume = func('lact_lib','$get_breastmilk', 5, pumptime)
+		minut += pumptime
+	end
 	act 'Finish':gt $loc, $metka
 end
 

@@ -493,7 +493,7 @@ $cheatmenu['looks'] = {
 	if vshrink < 10:'<a href="exec:vshrink += 1 & dynamic $cheatmenu[''looks'']">Increase the amount to shrink</a>'
 	if vshrink > 0:'<a href="exec:vshrink -= 1 & dynamic $cheatmenu[''looks'']">Reduce the amount to shrink</a>'
 	if vshrinkdays < 10:'<a href="exec:vshrinkdays += 1 & dynamic $cheatmenu[''looks'']">Increase the number of days it takes</a>'
-	if vshrinkdays > 1:'<a href="exec:vshrinkdays -= 1 & gs $menu_obnovit & dynamic $cheatmenu[''looks'']">Reduce the number of days it takes</a>'
+	if vshrinkdays > 1:'<a href="exec:vshrinkdays -= 1 & dynamic $cheatmenu[''looks'']">Reduce the number of days it takes</a>'
 	*nl
 	'<<$pcs_ass>>'
 	if pcs_ass <= 31:'<a href="exec:pcs_ass += 5 & dynamic $cheatmenu[''looks'']">Enlarge anus</a>'

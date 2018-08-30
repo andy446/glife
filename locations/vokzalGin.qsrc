@@ -51,6 +51,12 @@ if $ARGS[0] = '':
 		act 'Go to the ticket office': gt 'vokzalGin', 'ticket'
 	end
 
+	if snarkozak = 1 and narkossista = 0 and narkozakday!day:
+		if money >= 1500:
+			act 'Find the drug dealer':gs 'events', 'snarkozaka'
+		end
+	end
+	
 	if vokzalVork >= 1:
 		if cleZalDay ! daystart or cleMTDay ! daystart or cleWTDay ! daystart:
 			act 'Work': gt 'vokzalGin', 'work'

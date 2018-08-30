@@ -68,7 +68,7 @@ if $ARGS[0] = '1':
 		if foresteventrand = 9 and hour >= 8 and hour <= 15 and month >= 4 and month <= 10 and gadboyday ! daystart and week > 5: gt 'gadforest_event', 'gopforest_3boys'
 	end
 
-	if $clothingworntype ! 'nude' and clothesAtLocation = 0 and temper >= 15 and sunWeather = 1 and hour>=6 and hour<=20 and miratalkforest > 1 and MiraLoc ! 3:
+	if $clothingworntype ! 'nude' and clothesAtLocation = 0 and temper >= 15 and sunWeather = 1 and hour>=6 and hour<=20 and miratalkforest > 1 and MiraLoc ! 3 and inhib > 50:
 		act'Strip naked':
 			if forestpicnic = 0:
 				inhib_exp += rand(1,3)

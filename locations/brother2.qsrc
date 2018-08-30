@@ -390,7 +390,7 @@ if $ARGS[0] = 'wakeup':
 			cla
 			brotherMorningSex = daystart
 			'"I''ll tell you what Kolka, if you get up now, I''ll show you my pussy."'
-			if $clothingworntype = 'nude' and $panyworntype = 'none':
+			if $clothingworntype = 'nude':
 				'He cracks open an eye. "I don''t need to get up to do that."'
 				'You look down at yourself and remember that you''re naked. Right. That wasn''t a very good plan...'
 				act'Back to the drawing board':gt'brother2','wakeup'

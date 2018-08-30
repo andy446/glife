@@ -862,6 +862,7 @@ if $ARGS[0] = 'toilet':
 	dynamic $tampon
 	dynamic $quickwash
 	dynamic $basin
+	dynamic $removepan
 end
 
 --- leonid ---------------------------------

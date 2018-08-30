@@ -151,28 +151,12 @@ if $ARGS[0] = 'toilet':
 		dynamic $brit
 	end
 	gs 'din_van', 'prvt_pee'
-	if klismaday < daystart:
-		act 'Give yourself an enema (0:05)':
-			'<h3>Toilet</h3>'
-			'<h5>Enema</h5>'
-			cla
-			*clr
-			cumspclnt = 7
-			gs 'cum_cleanup'
-			minut += 5
-			klismaday = daystart
-			klismaday1 = 1
-
-			'<center><img <<$set_imgh>> src="images/shared/home/bathroom/klisma.jpg"></center>'
-			*nl
-			'You give yourself an enema, feeling clean down there, hopefully avoiding any awkward surprises.'
-
-			act 'Continue':gt $locM, $metkaM
-		end
-	end
+	dynamic $toymanage
+	dynamic $enema
 	dynamic $tampon
 	dynamic $quickwash
 	dynamic $basin
+	dynamic $removepan
 end
 
 --- stwork ---------------------------------

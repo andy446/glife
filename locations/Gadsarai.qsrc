@@ -360,15 +360,15 @@ if $ARGS[0] = '':
 					cheap_purses[5] = 1
 					$currentpursetype = 'cheap'
 					currentpursenumber = 5
-					bag = 1
-					if menu_option = 1:gs 'obj_din', 'old'
-					if menu_option = 0:gs 'obj_din', 'new'
 					'You can use this cool looking bag as a handbag.'
 				else
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/village/junk_barn.jpg"></center>'
 					'In the barn you find many mouldy magazines, rusty tools and equipment, toys and many dusty, yellowed books. The entire barn reeks of mould and decay.'
 				end
-				act 'Leave and get some fresh air':gt 'Gadsarai'
+				act 'Leave and get some fresh air':
+					if findbag = 1: bag = 1
+					gt 'Gadsarai'
+				end
 			elseif findbraclet = 0:
 				*clr & cla
 				if RAND(0,15) >= 14:

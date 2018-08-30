@@ -45,11 +45,7 @@ if $ARGS[0] = 'Three':
 	if MagikDostup = 1:
 		showstat 1
 		showobjs 1
-		if oldobjmenu = 0:
-			gs 'obj_din', 'new'
-		else
-			gs 'obj_din', 'old'
-		end
+		gs 'obj_din', 'old'
 		act 'Begin':
 			*clr
 			cla
@@ -135,11 +131,7 @@ if $ARGS[0] = 'Cursed Schoolgirl Start':
 		hour = 18
 		showstat 1
 		showobjs 1
-		if oldobjmenu = 0:
-			gs 'obj_din', 'new'
-		else
-			gs 'obj_din', 'old'
-		end
+		gs 'obj_din', 'old'
 		'<center><img <<$set_imgh>> src="images/system/magicschoolgirl.jpg"></center>'
 		'Welcome to the Cursed Schoolgirl version! Guide <<$pcs_nickname>> through her school life, relationships and myriad other issues that might pop up and all with the added spice of magic to keep things interesting!'
 		act 'Begin':
@@ -231,11 +223,7 @@ if $ARGS[0] = 'Cursed Schoolgirl Start 2':
 								act 'Continue':
 									showstat 1
 									showobjs 1
-									if oldobjmenu = 0:
-										gs 'obj_din', 'new'
-									else
-										gs 'obj_din', 'old'
-									end
+									gs 'obj_din', 'old'
 									cla
 									*clr
 									'<center><img <<$set_imgh>> src="images/system/magicschoolgirl.jpg"></center>'

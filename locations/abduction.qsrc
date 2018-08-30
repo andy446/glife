@@ -74,6 +74,8 @@ if $ARGS[0] = 'abdRoomFirstChaining':
 end
 
 if $ARGS[0] = 'abdRoom':
+	$loc = 'abduction'
+	$metka = 'abdRoom'
 	*clr
 	cla
 	'<center><img <<$set_imgh>> src="images/locations/shared/abduction/basement1.jpg"></center>'
@@ -579,7 +581,7 @@ if $ARGS[0] = 'abdFood':
 
 	if abdTools = 1:
 		act 'Train with dildos':gt 'abduction', 'abdTrainDildos'
-		if breastpump > 0:
+		if breastpump > 0 and bp_unbox >= 1:
 			act 'Use breast pump':gt 'lact_lib', 'bp_milking'
 		end
 	end

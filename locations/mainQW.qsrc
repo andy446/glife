@@ -49,12 +49,6 @@ act 'Investigate':
 				minut += 30
 				killobj
 
-				if oldobjmenu = 0:
-					gs 'obj_din', 'new'
-				else
-					gs 'obj_din', 'old'
-				end
-
 				'<center><img <<$set_imgh>> src="images/locations/city/citycenter/lab/event/main1.jpg"></center>'
 				'You undress and lie down on the couch, Tatiana begins to examine you. She dabs you with charms and uses a variety strange looking devices, after half an hour of examination she sighs and tells you to get dressed.'
 				'You get up from the couch and dress and ask Tatiana, "So? Did you learn anything else about me?"'

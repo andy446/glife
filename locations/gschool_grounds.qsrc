@@ -628,6 +628,7 @@ if $ARGS[0] = 'change_room':
 	dynamic $tampon
 	dynamic $quickwash
 	dynamic $basin
+	dynamic $removepan
 
 	if pirsA + pirsB + pirsC + pirsD + pirsE + pirsF + pirsN + pirsG + pirsGL > 0:'<a href="exec:dynamic $pirManage">Manage Piercings</a>'
 

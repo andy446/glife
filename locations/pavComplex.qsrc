@@ -109,6 +109,7 @@ if $ARGS[0] = 'start':
 		end
 	end
 	act 'Go to the Western apartment building':minut += 3 & gt 'pavComplexb3', 'etaj_1'
+	act 'Go to the old apartment building':minut += 3 & gt 'pavComplexOld', 'etaj_1'
 	act 'Go to the apartment courtyard':minut += 3 & gt 'pavComplex', 'courtyard'
 	act 'Go to the apartment garages':minut += 3 & gt 'pavComplex', 'garages'
 end
@@ -160,6 +161,7 @@ if $ARGS[0] = 'courtyard':
 		end
 	end
 	act 'Go to the Western apartment building':minut += 3 & gt 'pavComplexb3', 'etaj_1'
+	act 'Go to the old apartment building':minut += 3 & gt 'pavComplexOld', 'etaj_1'
 	act 'Go to the garages':minut += 1 & gt 'pavComplex', 'garages'
 end
 

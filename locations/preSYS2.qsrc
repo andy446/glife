@@ -19,8 +19,7 @@ if $ARGS[0] = 'start':
 		if bag = 1:
 			!!using current combination should prevent having more than 1 bag at the start of game.
 			dynamic $currentpursetype + '_purses[<<currentpursenumber>>] = 1'
-			if menu_option = 1:gs 'obj_din', 'old'
-			if menu_option = 0:gs 'obj_din', 'new'
+			gs 'obj_din', 'old'
 		end
 		gt 'preCUST', 'SGStart'
 	end
@@ -384,7 +383,7 @@ if $ARGS[0] = 'modatt':
 	gs 'preSYS2', 'modrel_setup2', 'pcs_vital', 'Endurance'
 	gs 'preSYS2', 'modrel_setup2', 'pcs_intel', 'Intelligence'
 	gs 'preSYS2', 'modrel_setup2', 'pcs_sprt', 'Spirit'
-	gs 'preSYS2', 'modrel_setup2', 'pcs_react', 'Mental Agility'
+	gs 'preSYS2', 'modrel_setup2', 'pcs_react', 'Reaction'
 	gs 'preSYS2', 'modrel_setup2', 'pcs_chrsm', 'Charisma'
 	gs 'preSYS2', 'modrel_setup2', 'pcs_prcptn', 'Perception'
 	if MagikDostup = 0: gs 'preSYS2', 'modrel_setup2', 'pcs_magik', 'Magic'

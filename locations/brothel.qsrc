@@ -504,93 +504,12 @@ if $ARGS[0] = 'brothel:section1:girlroom':
 		dynamic $brit
 	end
 	gs 'din_van', 'prvt_pee'
-	if klismaday < daystart:
-		act 'Give yourself an enema (0:05)':
-			'<h3>Girl room</h3>'
-			'<h5>Enema</h5>'
-			cla
-			*clr
-			cumspclnt = 7
-			gs 'cum_cleanup'
-			minut += 5
-			klismaday = daystart
-			klismaday1 = 1
-
-			'<center><img <<$set_imgh>> src="images/shared/home/bathroom/klisma.jpg"></center>'
-			*nl
-			'You give yourself an enema, feeling clean down there. Your ass is now ready for anal sex without any awkward surprises.'
-
-			act 'Finish':gt 'brothel', $metka
-		end
-	end
-	if analplug = 1 and analplugin = 1:
-		act 'Remove your butt plug (0:05)':
-			cla
-			*clr
-			minut += 5
-			analplugIN = 0
-
-			if pcs_ass < 30:pcs_ass += 1
-
-			'<center><img <<$set_imgh>> src="images/pc/body/analplug.jpg"></center>'
-			*nl
-			'You squat and tug gently at the butt plug, gasping as you push it out of you. You can''t help but feel a bit empty, now that it''s out.'
-
-			act 'Finish':gt $loc, $metka
-		end
-	elseif analplug = 1 and analplugin = 0 and klismaday = daystart:
-		act 'Insert your butt plug (0:05)':
-			cla
-			*clr
-			minut += 5
-			analplugIN = 1
-
-			if pcs_ass < 10:pcs_ass += 5
-			if pcs_ass >= 10 and pcs_ass < 20:pcs_ass += rand(1, 2)
-			if pcs_ass >= 20 and pcs_ass < 30:pcs_ass += rand(0, 1)
-
-			'<center><img <<$set_imgh>> src="images/pc/body/analplug.jpg"></center>'
-			*nl
-			if butpluguse > 0:'You squat and gently rub the butt plug against your anus, after lubricating it with a bit of saliva. After a short while, you''ve relaxed enough to be able to push it in. This should help with some anal stretching before today''s activities.'
-			if butpluguse = 0:butpluguse = 1 & '"If I''m not going to use it, then why did I buy it?" you ask yourself. You look at the butt plug for a while, thinking "It is necessary to start developing my ass, especially in a place like this. You''re slightly embarrassed at the thought for a second, but are then overcome by your horny fantasies. Determined to get the plug all the way in, you slowly press it against your asshole after lubricating it with a bit of saliva. It hurts a bit at first, but once the thickest part is in the rest follows rather easily. Patting yourself on your ass once it''s in.'
-
-			act 'Finish':gt $loc, $metka
-		end
-	end
-	if vibrator = 1 and vibratorIN = 1:
-		act 'Remove the vibrator (0:05)':
-			cla
-			*clr
-			minut += 5
-			vibratorIN = 0
-
-			if pcs_vag < 30:pcs_vag += 1
-
-			'<center><img <<$set_imgh>> src="images/shared/accessories/toys/vibrator.jpg"></center>'
-			*nl
-			'You spread your legs and take the vibrator out of your pussy, letting out a slight moan as you do so. You feel somewhat empty now.'
-
-			act 'Finish':gt $loc, $metka
-		end
-	elseif vibrator = 1 and vibratorIN = 0 and pcs_vag ! 0:
-		act 'Insert the vibrator in your vagina (0:05)':
-			cla
-			*clr
-			minut += 5
-			vibratorIN = 1
-
-			if pcs_vag < 30:pcs_vag += 2
-
-			'<center><img <<$set_imgh>> src="images/shared/accessories/toys/vibrator.jpg"></center>'
-			*nl
-			'You spread your legs and slowly insert the vibrator in your pussy, hoping the added arrousal will aid with today''s activities.'
-
-			act 'Finish':gt $loc, $metka
-		end
-	end
+	dynamic $toymanage
+	dynamic $enema
 	dynamic $tampon
 	dynamic $quickwash
 	dynamic $basin
+	dynamic $removepan
 	dynamic $brit
 	if painkiller > 0 and pain['total'] >0 and pain['killer'] = 0:
 		act 'Take a painkiller':

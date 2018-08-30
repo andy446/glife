@@ -5,7 +5,10 @@ Added birth control control options to desk in Pavlovsk and "Bric-a-Brac drawer"
 }
 if $ARGS[0] = 'start':
 	cla
-	clr
+	*clr
+	'<center><h1>Desk</h1></center>'
+	'<center><img <<$set_imgh>> src="images/shared/home/bedroom/stol.jpg"></center>'
+	*nl
 	gs 'stat'
 	'Bric-a-brac drawer.'
 
@@ -16,13 +19,13 @@ if $ARGS[0] = 'start':
 	if dildo > 0:'Realistic Dildo.'
 
 	if mentats_have > 0:
-		pl'<a href="exec:dynamic $use_mentats & gt ''stol'', ''start''"><b>Take neurobooster pill.</b></a> Uses left: <<mentats_have>>. Warning on the box says not to take more than one per day.'
+		'<a href="exec:dynamic $use_mentats & gt ''stol'', ''start''"><b>Take neurobooster pill.</b></a> Uses left: <<mentats_have>>. Warning on the box says not to take more than one per day.'
 	end
 	if steroid_have > 0:
-		pl'<a href="exec:dynamic $use_steroids & gt ''stol'', ''start''"><b>Take steroids.</b></a> Uses left: <<steroid_have>>.'
+		'<a href="exec:dynamic $use_steroids & gt ''stol'', ''start''"><b>Take steroids.</b></a> Uses left: <<steroid_have>>.'
 	end
 	if aphrodisiac_have > 0:
-		pl'<a href="exec:dynamic $use_aphrodisiac & gt ''stol'', ''start''"><b>Chew aphrodisiac gum.</b></a> Uses left: <<aphrodisiac_have>>.'
+		'<a href="exec:dynamic $use_aphrodisiac & gt ''stol'', ''start''"><b>Chew aphrodisiac gum.</b></a> Uses left: <<aphrodisiac_have>>.'
 	end
 
 	act 'Close the drawer':
@@ -67,25 +70,26 @@ end
 if $ARGS[0] = 'fin':
 	cla
 	gt $loc, $metka
-
 end
 
 if $ARGS[0] = 'stolPar':
+	*clr & cla
 	gs'stat'
-
+	'<center><h1>Desk</h1></center>'
 	'<center><img <<$set_imgh>> src="images/shared/home/bedroom/stol.jpg"></center>'
+	*nl
 	'You sat down at his desk.'
 	act 'Check birth control': gt 'stol', 'bc'
 	act 'Get up from the table':gt $loc, $metka
 
 	if mentats_have > 0:
-		pl'<a href="exec:dynamic $use_mentats & gt ''stol'', ''stolPar''"><b>Take neurobooster pill.</b></a> Uses left: <<mentats_have>>. Warning on the box says not to take more than one per day.'
+		'<a href="exec:dynamic $use_mentats & gt ''stol'', ''stolPar''"><b>Take neurobooster pill.</b></a> Uses left: <<mentats_have>>. Warning on the box says not to take more than one per day.'
 	end
 	if steroid_have > 0:
-		pl'<a href="exec:dynamic $use_steroids & gt ''stol'', ''stolPar''"><b>Take steroids.</b></a> Uses left: <<steroid_have>>.'
+		'<a href="exec:dynamic $use_steroids & gt ''stol'', ''stolPar''"><b>Take steroids.</b></a> Uses left: <<steroid_have>>.'
 	end
 	if aphrodisiac_have > 0:
-		pl'<a href="exec:dynamic $use_aphrodisiac & gt ''stol'', ''stolPar''"><b>Chew aphrodisiac gum.</b></a> Uses left: <<aphrodisiac_have>>.'
+		'<a href="exec:dynamic $use_aphrodisiac & gt ''stol'', ''stolPar''"><b>Chew aphrodisiac gum.</b></a> Uses left: <<aphrodisiac_have>>.'
 	end
 
 	if lernHome > 0:
@@ -111,8 +115,10 @@ if $ARGS[0] = 'stolPar':
 end
 
 if $ARGS[0] = 'bc':
-	cls 
-	cla
+	*clr & cla
+	'<center><h1>Desk</h1></center>'
+	'<center><img <<$set_imgh>> src="images/shared/home/bedroom/stol.jpg"></center>'
+	*nl
 	gs 'stat'
 	gs 'din_bad'
 	'In the drawer of your desk, you store your birth control.'
@@ -122,16 +128,16 @@ if $ARGS[0] = 'bc':
 		elseif preziktype < 2 and preziksabo = 0:
 			'You have <<prezik+prezikcount>> <a href="exec:dynamic $din_Table_Condom_Menu"><b>condoms.</b></a>'
 		END
-		NL
+		*nl
 	else
-		pl 'You are out of condoms.'
+		'You are out of condoms.'
 	end
 	if tabletki > 0 and pillsleft[ptype] > 0:
-		'You have <<tabletki>> unopened packages of <a href="exec:dynamic $d_tabletkied">birth control pills</a> and <<pillsleft[ptype]>> pills left in your opened package.</b>'
+		'You have <<tabletki>> unopened packages of <a href="exec:dynamic $d_tabletkiedt">birth control pills</a> and <<pillsleft[ptype]>> pills left in your opened package.</b>'
 	elseif tabletki	= 0 and pillsleft[ptype] > 0:
-		'You have <<pillsleft[ptype]>> <a href="exec:dynamic $d_tabletkied">birth control pills</a> left.</b>'
+		'You have <<pillsleft[ptype]>> <a href="exec:dynamic $d_tabletkiedt">birth control pills</a> left.</b>'
 	elseif tabletki > 0 and pillsleft[ptype] = 0:
-		'You have <<tabletki>> unopened packages of <a href="exec:dynamic $d_tabletkied">birth control pills</a>.'
+		'You have <<tabletki>> unopened packages of <a href="exec:dynamic $d_tabletkiedt">birth control pills</a>.'
 	else
 		'You are out of birth control pills.'
 	end

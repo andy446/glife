@@ -176,7 +176,7 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 			end
 		end
 	end
-	if breastpump > 0:
+	if breastpump > 0 and bp_unbox >= 1:
 		act 'Use breast pump':
 			gt 'lact_lib', 'bp_milking'
 		end

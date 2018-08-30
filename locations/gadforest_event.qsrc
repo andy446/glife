@@ -2014,23 +2014,25 @@ if $ARGS[0] = 'nude_event':
 		'Finally after the hundredth time, of looking around to make sure no one is around, you decide...'
 	end
 
-	act'Give in to the temptation':
-		cla
-		*clr
-		minut+=5
-		gs 'underwear', 'remove'
-		pcs_horny += 10
-		inhib_exp += rand(1,3)
-		if MiraLoc = 3:npc_rel['A60'] += 5
-		gs 'stat'
-		if CloSkirtShortness = 0 and MiraLoc ! 3:'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/nudeforest.jpg"></center>'
-		if CloSkirtShortness > 0 and MiraLoc ! 3:'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/nudeforest1.'+rand(1,2)+'.jpg"></center>'
-		if MiraLoc = 3:'<center><img <<$set_imgh>> src="images/characters/village/mira/miraforest5.jpg"></center>'
-		gs 'clothing', 'strip', 'gadforest'
-		if MiraLoc ! 3:'You do not hesitate and quickly get undressed, leaving your clothes in a pile on the forest floor.'
-		if MiraLoc = 3:'Seeing that the resistance stopped, Mira quickly began to undress you, leaving your clothes in a pile on the forest floor.'
+	if inhib > 50:
+		act'Give in to the temptation':
+			cla
+			*clr
+			minut+=5
+			gs 'underwear', 'remove'
+			pcs_horny += 10
+			inhib_exp += rand(1,3)
+			if MiraLoc = 3:npc_rel['A60'] += 5
+			gs 'stat'
+			if CloSkirtShortness = 0 and MiraLoc ! 3:'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/nudeforest.jpg"></center>'
+			if CloSkirtShortness > 0 and MiraLoc ! 3:'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/nudeforest1.'+rand(1,2)+'.jpg"></center>'
+			if MiraLoc = 3:'<center><img <<$set_imgh>> src="images/characters/village/mira/miraforest5.jpg"></center>'
+			gs 'clothing', 'strip', 'gadforest'
+			if MiraLoc ! 3:'You do not hesitate and quickly get undressed, leaving your clothes in a pile on the forest floor.'
+			if MiraLoc = 3:'Seeing that the resistance stopped, Mira quickly began to undress you, leaving your clothes in a pile on the forest floor.'
 
-		act'Further':gt 'gadforest','1'
+			act'Further':gt 'gadforest','1'
+		end
 	end
 
 	act 'Resist the temptation':

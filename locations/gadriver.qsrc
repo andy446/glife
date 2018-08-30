@@ -184,7 +184,7 @@ if $ARGS[0] = 'Gadbitch':
 
 	if temper >= 15 and month >= 5 and month <= 9:
 		temp_gr = RAND(0,9)
-		if $clothingworntype ! 'nude':
+		if $clothingworntype ! 'nude' and pcs_inhib > 50:
 			act 'Strip naked':
 				cla
 				minut += 5

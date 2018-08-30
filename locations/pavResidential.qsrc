@@ -114,14 +114,14 @@ end
 
 
 if home_owned[2] = 1:
-	'You live in one of the apartment blocks in the old part of Pavlovsk, and the door to the <a href="exec:minut += 2 & GT ''pavcomplex'',''start''">apartment building</a> is right there. Your <a href="exec:minut += 5 & GT ''korrPar''">parents'' home</a> is on the second floor there. <<$gcartext>>'
+	'You live in one of the apartment blocks in the old part of Pavlovsk, and the door to the <a href="exec:minut += 3 & GT ''pavcomplex'',''start''">apartment building</a> is right there. Your <a href="exec:minut += 5 & GT ''korrPar''">parents'' home</a> is on the second floor there. <<$gcartext>>'
 elseif StoryLine = 1:
-	'You are standing near one of the apartment blocks in the old part of Pavlovsk, and the door to the <a href="exec:minut += 2 & GT ''pavcomplex'',''start''">apartment building</a> is right there. Your parents live here, but you are no longer welcome in their home. <<$gcartext>>'
+	'You are standing near one of the apartment blocks in the old part of Pavlovsk, and the door to the <a href="exec:minut += 3 & GT ''pavcomplex'',''start''">apartment building</a> is right there. Your parents live here, but you are no longer welcome in their home. <<$gcartext>>'
 else
 	'<<$gcartext>>'
 end
 
-if StoryLine = 1: 'There is an <a href="exec:minut += 2 & GT ''pavComplexOld'',''etaj_1''">old apartment building</a> near to where your parents live.'
+if StoryLine = 1: 'There is an <a href="exec:minut += 3 & GT ''pavComplexOld'',''etaj_1''">old apartment building</a> near to where your parents live.'
 
 if rexCar = 1 and rexCarDay = daystart and hour >= 21 and hour < 23 and rexSisTalk = 3:
 	'Rex is in his car, waiting for you at the parking lot near the apartment building where your parents live.'
@@ -187,6 +187,8 @@ act 'Go to the high street':minut += 5 & gt 'pavCommercial'
 if home_owned[2] = 1: act '<b>GO HOME</b> (Parents'' Apartment)': minut += 4 & GT 'korrPar'
 if pavSharedAptEnabled = 1:act '<b>GO HOME</b> (Shared Apartment)': minut += 5 & GT 'pavSharedApt', 'start'
 
+act 'Go to the apartment complex':minut += 3 & gt 'pavcomplex', 'start'
+
 act 'Wait':gs 'obj_din', 'wait'
 
 if (hour > 20 or hour < 4) and succubusQW = 5 and suchuntday ! daystart:
@@ -220,20 +222,6 @@ if (hour > 20 or hour < 4) and succubusQW = 5 and suchuntday ! daystart:
 		end
 	end
 end
-
-act 'Go to the Southern apartment building':minut += 3 & gt 'pod_ezd', 'etaj_1'
-act 'Go to the Eastern apartment building':
-	minut += 3
-	if anushkaFirstvisit = 0 and npc_rel['A144'] > 50:
-		gt 'pavComplexb2', 'anushkaFirst'
-	else
-		gt 'pavComplexb2', 'etaj_1'
-	end
-end
-act 'Go to the Western apartment building':minut += 3 & gt 'pavComplexb3', 'etaj_1'
-act 'Go to the apartment courtyard':minut += 3 & gt 'pavComplex', 'courtyard'
-act 'Go to the apartment garages':minut += 3 & gt 'pavComplex', 'garages'
-
 
 if StoryLine ! 0 and (hour >= 8 or hour < 23) and cumloc[11] = 1 and rand(0, 3) = 0 and sosedday ! daystart:
 	cls

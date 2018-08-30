@@ -46,12 +46,12 @@ if $ARGS[0] = '':
 
 	!check hair color
 	if hcolfronce=0:
-		hcolmotherremember=pcs_haircol 
+		hcolmotherremember=pcs_haircol
 		hcolfronce=1
 	end
 
 	if hcolmotherremember!pcs_haircol:
-		if pcs_haircol = nathcol: 
+		if pcs_haircol = nathcol:
 			$texthcol = 'Or, rather, un-dyed your hair. Good, you decided to go back to your natural color!'
 		elseif pcs_haircol=0:
 			$texthcol='I see you decided to go back to go with black hair?'
@@ -65,7 +65,7 @@ if $ARGS[0] = '':
 			npc_rel['A29'] -= 25
 			$texthcol='What were you thinking? Do you think you''ll get into university with hair like that!'
 		end
-		if pcs_haircol ! nathcol and pcs_haircol <= 3 and npc_rel['A29'] < 60: 
+		if pcs_haircol ! nathcol and pcs_haircol <= 3 and npc_rel['A29'] < 60:
 			$texthcol2 = 'says with a frown, "You should concentrate on your studies, not on how you look."'
 		elseif pcs_haircol ! nathcol and pcs_haircol > 3 and npc_rel['A29'] < 60:
 			delin_beh += 1 &!counter for getting sent to Gadukino for the summer
@@ -147,9 +147,9 @@ if $ARGS[0] = '':
 
 				act 'Move away':gt $loc, $metka
 			end
-		
+
 			act'Show her your pierced tongue':
-				cls
+				cla
 				pirsAmother=1
 				delin_beh += 1 &!counter for getting sent to Gadukino for the summer
 				gs'stat'
@@ -167,7 +167,7 @@ if $ARGS[0] = '':
 		motherpirsadbytalk=daystart
 		'Your mother looks at your lips, noticing your new lip piercing. She doesn''t seem very happy about it. "And this is why?"'
 		act'I just think it looks pretty':
-			cls
+			cla
 			pirsBmother=1
 			delin_beh += 1 &!counter for getting sent to Gadukino for the summer
 			gs'stat'
@@ -208,33 +208,8 @@ if $ARGS[0] = '':
 			minut += 3
 			'You tell your mother you''re menstruating and ran out of tampons, but really need one right now. She looks at you knowingly, gives you three sanitary pads from her own supply and sternly tells you to next time take care of this in advance.'
 
-			act 'Thank her and move away':gt $loc, $metka
+			act 'Thank her':gt 'mother'
 			exit
-		end
-	end
-
-	act 'Chat':
-		cls
-		minut+=rand(10,15)
-		npc_rel['A29']+=1
-		gs'stat'
-		'<center><b><font color = maroon>Your mother, Natasha <<$pcs_lastname>></font></b></center>'
-		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/mother.jpg"></center>'
-		'Your mother Natasha is still quite young and attractive. She''s only <<motherAge>> years. She works at the station cafe.'
-		if npc_rel['A29']<20:'Your mother can''t stand you, and she avoids you as much as she can.'
-		if npc_rel['A29']>=20 and npc_rel['A29']<40:'You and mom have a tense relationship.'
-		if npc_rel['A29']>=40 and npc_rel['A29']<60:'You have a normal relationship with your mother.'
-		if npc_rel['A29']>=60 and npc_rel['A29']<80:'You have a good relationship with your mother.'
-		if npc_rel['A29']>=80:'You have a great relationship with your mother.'
-		act 'Move away':gt $loc, $metka
-		if npc_rel['A29']<20:
-			dynamic $d_mother[1]
-		exit
-		elseif npc_rel['A29']>=20 and npc_rel['A29']<40:
-			dynamic $d_mother[2]
-		exit
-		elseif npc_rel['A29'] >=40:
-			dynamic $d_mother[3]
 		end
 	end
 
@@ -263,7 +238,7 @@ if $ARGS[0] = '':
 
 		if momslut = 1:
 			act 'Tell her you saw her fucking her boss':
-				cls
+				*clr & cla
 				minut += 5
 				momslut = 2
 				gs 'stat'
@@ -277,321 +252,289 @@ if $ARGS[0] = '':
 			end
 		end
 
-		act 'Ask for some money':
-			cls
-			minut += 5
-			gs 'stat'
-			'<center><b><font color="maroon">Your mother, Natasha <<$pcs_lastname>></font></b></center>'
-			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/mother.jpg"></center>'
-			'You ask your mother for some money.'
-
-			if SchoolAtestat = 0:
-				if npc_rel['A29'] >= 80:
-					if motherPayDay = daystart:
-						'Your mother frowns: "Again, <<$pcs_nickname>>? Did you forget I already gave you money today? Don''t be greedy!"'
-
-					else
-						npc_rel['A29'] -= 1
-						motherPayDay = daystart
-
-						if pcs_grades >= 70:
-							if pcs_grades < 90:
-								money += 150
-								'Your mother reluctantly gives you 150 <b>₽</b>: "When you do better in school, I will give you more. In the meantime, this is all you deserve!"'
-
-								act 'Thank her and move away':gt $loc, $metka
-
-							exit
-							else
-								money += 300
-								'Your mother smiles and gives you 300 <b>₽</b>: "Okay <<$pcs_nickname>>, you''ve earned it. I''m glad you''re doing such a good job in school."'
-
-								act 'Thank her and move away':gt $loc, $metka
-
-							exit
-							end
-						else
-							'Your mother scoffs, and shakes her head: "Money? No way, <<$pcs_nickname>>. With how poorly you are doing in school, the only thing you deserve is the belt. You can have some money when you improve your grades, until then you get nothing."'
-						end
+		if mother_go = 0 or (week < 6 and hour >= 16 and hour < 21) or (week >= 6 and hour >= 7 and hour < 21):
+			if (week < 6 and hour >= 17 and hour < 21) or (week >= 6 and hour >= 7 and hour < 21 and hour ! 16):
+				! schedule copied from #family - should be identical.
+				act 'Chat':
+					*clr & cla
+					minut+=rand(10,15)
+					npc_rel['A29']+=1
+					gs'stat'
+					'<center><b><font color = maroon>Your mother, Natasha <<$pcs_lastname>></font></b></center>'
+					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/mother.jpg"></center>'
+					'Your mother Natasha is still quite young and attractive. She''s only <<motherAge>> years. She works at the station cafe.'
+					if npc_rel['A29']<20:'Your mother can''t stand you, and she avoids you as much as she can.'
+					if npc_rel['A29']>=20 and npc_rel['A29']<40:'You and mom have a tense relationship.'
+					if npc_rel['A29']>=40 and npc_rel['A29']<60:'You have a normal relationship with your mother.'
+					if npc_rel['A29']>=60 and npc_rel['A29']<80:'You have a good relationship with your mother.'
+					if npc_rel['A29']>=80:'You have a great relationship with your mother.'
+					act 'Continue':gt 'mother'
+					if npc_rel['A29']<20:
+						dynamic $d_mother[1]
+					exit
+					elseif npc_rel['A29']>=20 and npc_rel['A29']<40:
+						dynamic $d_mother[2]
+					exit
+					elseif npc_rel['A29'] >=40:
+						dynamic $d_mother[3]
 					end
-				elseif npc_rel['A29'] >= 60 and npc_rel['A29'] < 80:
-					if motherPayDay = daystart:
-						'Your mother frowns: "Again, <<$pcs_nickname>>? Did you forget I already gave you money today? Don''t be greedy!"'
-					else
-						npc_rel['A29'] -= 1
-						motherPayDay = daystart
-
-						if pcs_grades >= 70:
-							if pcs_grades < 90:
-								money += 100
-								'Your mother reluctantly gives you 100 <b>₽</b>: "When you do better in school, I will give you more. In the meantime, this is all you deserve!"'
-
-								act 'Thank her and move away':gt $loc, $metka
-
-							exit
-							else
-								money += 250
-								'Your mother smiles and gives you 250 <b>₽</b>: "Okay <<$pcs_nickname>>, you''ve earned it. I''m glad you''re doing such a good job in school."'
-
-								act 'Thank her and move away':gt $loc, $metka
-
-							exit
-							end
-						else
-							'Your mother scoffs, and shakes her head: "Money? No way, <<$pcs_nickname>>. With how poorly you are doing in school, the only thing you deserve is the belt. You can have some money when you improve your grades, until then you get nothing."'
-						end
-					end
-				elseif npc_rel['A29'] >= 40 and npc_rel['A29'] < 60:
-					if motherPayDay = daystart:
-						'Your mother frowns: "Again, <<$pcs_nickname>>? Did you forget I already gave you money today? Don''t be greedy!"'
-					elseif motherPayDay ! daystart:
-						npc_rel['A29'] -= 1
-						motherPayDay = daystart
-
-						if pcs_grades >= 70:
-							if pcs_grades < 90:
-								money += 50
-								'Your mother reluctantly gives you 50 <b>₽</b>: "When you do better in school, I will give you more. In the meantime, this is all you deserve!"'
-
-								act 'Thank her and move away':gt $loc, $metka
-
-							else
-								money += 200
-								'Your mother smiles and gives you 200 <b>₽</b>: "Okay <<$pcs_nickname>>, you''ve earned it. I''m glad you''re doing such a good job in school."'
-
-								act 'Thank her and move away':gt $loc, $metka
-
-							end
-						else
-							'Your mother scoffs, and shakes her head: "Money? No way, <<$pcs_nickname>>. With how poorly you are doing in school, the only thing you deserve is the belt. You can have some money when you improve your grades, until then you get nothing."'
-						end
-					end
-				elseif npc_rel['A29'] < 40 and motherKnowWhore = 0 and motherKnowSpravka = 0:
-					'Your mother scowls, shaking her head: "Why should I give you anything? Go get a job, you''ll get nothing from me." She really doesn''t like you very much.'
-				elseif (motherKnowWhore >= 1 or motherKnowSpravka >= 1) and npc_rel['A29'] < 40:
-					'Your mother can''t believe you would even ask, and shouts angrily: "Whores don''t get money from me! Get out of here, run to your stud and go ask him!"'
 				end
-			elseif SchoolAtestat > 0:
-				'Your mother shakes her head: "You are old enough to earn your own money <<$pcs_nickname>>, you can''t keep depending on me forever. Get a job."'
-			end
 
-			act 'Move away from her':gt $loc, $metka
-		end
+				act 'Ask for some money':
+					*clr & cla
+					minut += 5
+					gs 'stat'
+					'<center><b><font color="maroon">Your mother, Natasha <<$pcs_lastname>></font></b></center>'
+					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/mother.jpg"></center>'
+					'You ask your mother for some money.'
 
-		act 'Ask about your biological father':
-			cls
-			minut += 5
-			gs 'stat'
-			'<center><b><font color="maroon">Your mother, Natasha <<$pcs_lastname>></font></b></center>'
-			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/mother.jpg"></center>'
+					if SchoolAtestat = 0:
+						if npc_rel['A29'] >= 80:
+							if motherPayDay = daystart:
+								'Your mother frowns: "Again, <<$pcs_nickname>>? Did you forget I already gave you money today? Don''t be greedy!"'
 
-			if npc_rel['A29'] < 80:
-				'You barely have any memories of your real father, and are curious about him. When you see your mother in the kitchen you decide to ask: "Mom... about my real father... what was he like? What happened between you two?"'
-				'You seem to have struck a sore spot. Your mother''s face saddens, and after a few seconds she replies: "<<$pcs_nickname>>, I don''t want to talk about him, it brings back too many bad memories. Just know that Vladimir, your stepfather, raised you and Anya as if they were his own daughters."'
-			elseif npc_rel['A29'] >= 80:
-				'You barely have any memories of your real father, and are curious about him. When you see your mother in the kitchen you decide to ask: "Mom... about my real father... what was he like? What happened between you two?"'
-				'You seem to have struck a sore spot. Your mother''s face saddens, and after a few seconds she replies: "I have no idea where Mikhail is and what he does now, I haven''t seen him in many years. We went to the same school when we were young, and were dating back then... nothing serious. Things weren''t great between us, but then I got pregnant with your sister Anya. Our parents forced us to get married. We tried to make the most of it, and for a while things didn''t seem so bad. A few months after I had you, we got into a huge argument though. We decided we couldn''t live together any more, and got divorced." You can''t help but notice she won''t tell you what the argument was about, but you don''t interrupt her. It''s rare enough to get her to talk about your real father as it is.'
-				'"A year later I married Vladimir, your stepfather. We had Kolka together, but Vladimir always treated you and Anya as if they were his own daughters too. He looked after you, bathed you, told you stories at night and took you for walks whenever he could." Those memories seem to have cheered her up, and she has a serene smile on her face. "Vladimir really is a wonderful man..." she adds, while you thank her for the story and let her get back to what she was doing.'
-			end
+							else
+								npc_rel['A29'] -= 1
+								motherPayDay = daystart
 
-			act 'Move away from her':gt $loc, $metka
-		end
+								if pcs_grades >= 70:
+									if pcs_grades < 90:
+										money += 150
+										'Your mother reluctantly gives you 150 <b>₽</b>: "When you do better in school, I will give you more. In the meantime, this is all you deserve!"'
 
-		act 'Ask for some new clothes':
-			cls
-			minut += 5
-			gs 'stat'
-			'<center><b><font color="maroon">Your mother, Natasha <<$pcs_lastname>></font></b></center>'
-			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/mother.jpg"></center>'
-			'You wait until your mother is in a good mood, and then quickly swoop in: "Mom, I have nothing nice to wear. Can I please have some new clothes?"'
-			if pav_prostitute >= 100 and motherKnowWhore >= 1:
-				'Your mother is outraged by the suggestion. "Really <<$pcs_nickname>>? You have lots of customers, and you''re still asking me for clothes? You should have plenty of whore money, you can afford them yourself. Besides, I don''t know where to buy clothes for a whore."'
+										act 'Thank her':gt 'mother'
 
-				act 'Move away from her':gt $loc, $metka
-			else
-				if SchoolAtestat = 0:
-					if npc_rel['A29'] >= 80:
-						if motherClotheMonth ! month:
-							'Your mother lets out an exasperated sigh, and throws her hands in the air. "Here we go again... "Mommy, I have nothing to wear!"" he says, mocking your voice in a high pitch. You both laugh. "Alright then <<$pcs_nickname>>, let''s go see if we can find something."'
-	
-							act 'Go to the store':
-								cls
-								npc_rel['A29'] = 70
-								motherClotheMonth = month
-								minut += 30
-								gs 'stat'
-								'Going clothes shopping with your mother is always an interesting experience. You never get to pick your own clothes, but she brings you clothes that she thinks would suit you and lets you try them on. You would argue but her taste in clothing is actually very good, always picking out cute outfits for you to wear that are quite trendy too. You directly go towards the changing booths, wondering what she''ll bring you this time.'
-
-								act 'Try on the clothes she brings you':
-									cls
-									gs 'stat'
-									loop_counter = 0
-									:markbuyclomother
-									loop_counter += 1
-									if loop_counter = 300:
-										'After 30 minutes of trying on various outfits you are unable to find any that you either don''t already own or that you are willing to wear.'
+									exit
 									else
-										numrand = rand(1, 413)
+										money += 300
+										'Your mother smiles and gives you 300 <b>₽</b>: "Okay <<$pcs_nickname>>, you''ve earned it. I''m glad you''re doing such a good job in school."'
 
-										gs 'clothing_attributes', 'cheap', numrand
-										!!not prostitute
-										if CloStyle = 4:jump 'markbuyclomother'
-										!!Sveta can wear it and not too revealing
-										if CloInhibit > pcs_inhib or CloInhibit > 30:jump 'markbuyclomother'
+										act 'Thank her':gt 'mother'
 
-										if cheap[numrand] = 0:
-											cheap[numrand] = 1
-											cheapH[numrand] = 50
-											cheapB[numrand] = pcs_hips
-											'<center><img <<$set_imgh>> src="images/pc/clothing/1cheap/<<numrand>>.jpg"></center>'
-										else
-											jump 'markbuyclomother'
-										end
+									exit
 									end
-
-									'You enter a changing booth and spend 30 minutes trying on various outfits: short ones, long ones, light ones, dark ones... Then finally her eyes light up, and she beams: "This one! This one is perfect!" She buys the outfit for you, and you go back home together. You thank your mother and give her a hug.'
-	
-									act 'Move away':gt $loc, $metka
+								else
+									'Your mother scoffs, and shakes her head: "Money? No way, <<$pcs_nickname>>. With how poorly you are doing in school, the only thing you deserve is the belt. You can have some money when you improve your grades, until then you get nothing."'
 								end
 							end
-						else
-							'Your mother sadly shakes her head: I''m sorry <<$pcs_nickname>>, our budget is limited and we already went clothes shopping this month. You''ll have to manage with what you have in your closet for a little while, maybe we can go again next month."'
-							act 'Move away':gt $loc, $metka
+						elseif npc_rel['A29'] >= 60 and npc_rel['A29'] < 80:
+							if motherPayDay = daystart:
+								'Your mother frowns: "Again, <<$pcs_nickname>>? Did you forget I already gave you money today? Don''t be greedy!"'
+							else
+								npc_rel['A29'] -= 1
+								motherPayDay = daystart
+
+								if pcs_grades >= 70:
+									if pcs_grades < 90:
+										money += 100
+										'Your mother reluctantly gives you 100 <b>₽</b>: "When you do better in school, I will give you more. In the meantime, this is all you deserve!"'
+
+										act 'Thank her':gt 'mother'
+
+									exit
+									else
+										money += 250
+										'Your mother smiles and gives you 250 <b>₽</b>: "Okay <<$pcs_nickname>>, you''ve earned it. I''m glad you''re doing such a good job in school."'
+
+										act 'Thank her':gt 'mother'
+
+									exit
+									end
+								else
+									'Your mother scoffs, and shakes her head: "Money? No way, <<$pcs_nickname>>. With how poorly you are doing in school, the only thing you deserve is the belt. You can have some money when you improve your grades, until then you get nothing."'
+								end
+							end
+						elseif npc_rel['A29'] >= 40 and npc_rel['A29'] < 60:
+							if motherPayDay = daystart:
+								'Your mother frowns: "Again, <<$pcs_nickname>>? Did you forget I already gave you money today? Don''t be greedy!"'
+							elseif motherPayDay ! daystart:
+								npc_rel['A29'] -= 1
+								motherPayDay = daystart
+
+								if pcs_grades >= 70:
+									if pcs_grades < 90:
+										money += 50
+										'Your mother reluctantly gives you 50 <b>₽</b>: "When you do better in school, I will give you more. In the meantime, this is all you deserve!"'
+
+										act 'Thank her':gt 'mother'
+
+									else
+										money += 200
+										'Your mother smiles and gives you 200 <b>₽</b>: "Okay <<$pcs_nickname>>, you''ve earned it. I''m glad you''re doing such a good job in school."'
+
+										act 'Thank her':gt 'mother'
+
+									end
+								else
+									'Your mother scoffs, and shakes her head: "Money? No way, <<$pcs_nickname>>. With how poorly you are doing in school, the only thing you deserve is the belt. You can have some money when you improve your grades, until then you get nothing."'
+								end
+							end
+						elseif npc_rel['A29'] < 40 and motherKnowWhore = 0 and motherKnowSpravka = 0:
+							'Your mother scowls, shaking her head: "Why should I give you anything? Go get a job, you''ll get nothing from me." She really doesn''t like you very much.'
+						elseif (motherKnowWhore >= 1 or motherKnowSpravka >= 1) and npc_rel['A29'] < 40:
+							'Your mother can''t believe you would even ask, and shouts angrily: "Whores don''t get money from me! Get out of here, run to your stud and go ask him!"'
 						end
-					else
-						'Your mother shakes her head: "I''m sorry <<$pcs_nickname>>, money is tight. We just can''t afford it right now."'
-						act 'Move away':gt $loc, $metka
+					elseif SchoolAtestat > 0:
+						'Your mother shakes her head: "You are old enough to earn your own money <<$pcs_nickname>>, you can''t keep depending on me forever. Get a job."'
 					end
-				else
-					'Your mother shakes her head: "No <<$pcs_nickname>>, you''re old enough to earn your own money and buy your own clothes. Get a job if you want new clothes."'
-					act 'Move away':gt $loc, $metka
-				end
-			end
-		end
-	end
 
-	if $loc = 'kuhrPar':
-
-		gs 'mother', 'pregreact'
-
-		act 'Offer to help around the house':
-			cls
-			minut += 60
-			npc_rel['A29'] += rand(1, 5)
-			pcs_mood -= 10
-			delin_beh -= 1 &!counter for getting sent to Gadukino for the summer
-			TotalMomPom += 1
-			MomPom += 1
-			gs 'stat'
-			'You offer to help your mother out around the house.'
-
-			if MomPom = 1:
-				'Your mother asks you to do the dishes. You spend an hour washing the dishes in the kitchen.'
-			elseif MomPom = 2:
-				'Your mother asks you to peel potatoes for tonight''s meals. You spend an hour in the kitchen peeling potatoes.'
-			elseif MomPom = 3:
-				'Your mother asks you to clean the floor. You spend an hour scubbing the floors of the apartment.'
-			elseif MomPom = 4:
-				'Your mother asks you to do a load of laundry. You spend an hour washing clothes in the bathroom.'
-			elseif MomPom = 5:
-				'Your mother asks you to iron some clothes. You spend an hour in the hallway ironing clothes.'
-			elseif MomPom = 6:
-				sdacharand = rand(10, 50)
-				money += sdacharand
-				gs 'stat'
-				'Your mother asks you to run to the store, and buy some groceries. You head to the store and purchase the food, hauling the heavy bags home. The groceries cost you <<sdacharand>> <b>₽</b>, and she gives you the money back when you return home.'
-			elseif MomPom = 7:
-				'Your mother asks you to go to the pharmacy, to get some medicine. Your mother''s sister, Lyudmila, works there and always gives your family the medicine you need for free. Your mother gave you a list of the items you need, and when you enter the pharmacy you see your aunt Luda behind the counter as always. She smiles when she recognizes you. "Hi <<$pcs_nickname>>! How are you? I hope everything is okay?"'
-				'"Hello aunt!" You greet her back, and have a chat with her before you give her list your mother made. Aunt Luda quickly gathers the items your mother wrote down, gathers them in a paper bag and hands the bag over to you. "Here you go, <<$pcs_nickname>>! Have a nice day, tell your mother I said hi!"'
-				'You say you will and wave her goodbye. When you come home, you give your mother the bag. After a few minutes you realize you forgot to pass on aunt Luda''s regards to your mom, but decide to not bother now.'
-			elseif MomPom = 8:
-				MomPom = 1
-			end
-
-			act 'Move away':gt $loc, $metka
-		end
-	end
-
-	if SchoolAtestat = 0 and motherKnowSpravka = 0:
-		if GspravkaT = 0 and GspravkaTimes >= 3 and hour >= 6 and hour <= 21:
-			cla
-			npc_rel['A29'] -= 1
-			'Your mother frowns and gets her handbag: "<<$pcs_nickname>>, why haven''t you been to the gynaecologist like I asked you to? You don''t have anything to hide, do you? Come on, we''re going there right now." Your mother takes you by the hand and leads you to the clinic, ushering you into the gynaecologist''s office.'
-
-			act 'Get a referral from the gynaecologist':
-				cla
-				minut += 15
-				'You lie on the examination table and spread your legs. The gynaecologist examines your vagina.'
-
-				if pcs_vag > 0:
-					Gspravka = 7
-					GspravkaT = 2
-					'The gynaecologist notices you are not a virgin any more, and gives you a written referral to give to your mother.'
-				else
-					Gspravka = 7
-					GspravkaT = 1
-					'The gynaecologist verifies you are a virgin and gives you a written referral to give to your mother.'
+					act 'Continue':gt 'mother'
 				end
 
-				act 'Leave the office':gt $loc, $metka
-			end
+				act 'Ask about your biological father':
+					*clr & cla
+					minut += 5
+					gs 'stat'
+					'<center><b><font color="maroon">Your mother, Natasha <<$pcs_lastname>></font></b></center>'
+					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/mother.jpg"></center>'
 
-		elseif GspravkaT = 0 and GspravkaTimes < 3:
-			GspravkaTimes += 1
-			'"<<$pcs_nickname>>, you need to go to the clinic. We need a written referral from the gynaecologist for school."'
-		elseif GspravkaT = 2 and motherKnowSpravka = 0:
-			cla
-
-			if motherKnowWhore = 0:
-				npc_rel['A29'] = 0
-				motherKnowSpravka = 1
-
-				if npc_QW['A29'] = 0:npc_QW['A29'] = 1
-
-				if momslut < 2:
-					delin_beh += 1 &!counter for getting sent to Gadukino for the summer
-					'Your mother is furious and grabs you by the ear, pulling you out of the clinic and onto the street. "Oh, you slut! Your father and I worked so hard to raise you as a decent person, hoping you would find a good husband some day... and now it turns out you''re a whore who has already put her pussy to work. Get out of my sight!" She storms off, leaving you to find your own way home. When you return home, you make sure you do it quietly so she can''t give you another earful.'
-				else
-					'Your mother shakes her head sadly when she reads the referral. "Well... I guess I shouldn''t be surprised."'
+					if npc_rel['A29'] < 80:
+						'You barely have any memories of your real father, and are curious about him. When you see your mother in the kitchen you decide to ask: "Mom... about my real father... what was he like? What happened between you two?"'
+						'You seem to have struck a sore spot. Your mother''s face saddens, and after a few seconds she replies: "<<$pcs_nickname>>, I don''t want to talk about him, it brings back too many bad memories. Just know that Vladimir, your stepfather, raised you and Anya as if they were his own daughters."'
+					elseif npc_rel['A29'] >= 80:
+						'You barely have any memories of your real father, and are curious about him. When you see your mother in the kitchen you decide to ask: "Mom... about my real father... what was he like? What happened between you two?"'
+						'You seem to have struck a sore spot. Your mother''s face saddens, and after a few seconds she replies: "I have no idea where Mikhail is and what he does now, I haven''t seen him in many years. We went to the same school when we were young, and were dating back then... nothing serious. Things weren''t great between us, but then I got pregnant with your sister Anya. Our parents forced us to get married. We tried to make the most of it, and for a while things didn''t seem so bad. A few months after I had you, we got into a huge argument though. We decided we couldn''t live together any more, and got divorced." You can''t help but notice she won''t tell you what the argument was about, but you don''t interrupt her. It''s rare enough to get her to talk about your real father as it is.'
+						'"A year later I married Vladimir, your stepfather. We had Kolka together, but Vladimir always treated you and Anya as if they were his own daughters too. He looked after you, bathed you, told you stories at night and took you for walks whenever he could." Those memories seem to have cheered her up, and she has a serene smile on her face. "Vladimir really is a wonderful man..." she adds, while you thank her for the story.'
+					end
+					act 'Continue':gt 'mother'
 				end
-			elseif motherKnowWhore > 0 and npc_QW['A29'] < 2:
-				npc_rel['A29'] -= 10
-				motherKnowSpravka = 1
-				delin_beh += 1 &!counter for getting sent to Gadukino for the summer
-				if npc_QW['A29'] = 0:npc_QW['A29'] = 1
-				'Your mother reads the referral and closes her eyes for a second, trying to suppress her anger. "To be honest, it''s not even a surprise to me. Don''t think that I haven''t seen you sneaking around the house at weird times, and all the guys loitering near our apartment."'
-			elseif npc_QW['A29'] >= 2:
-				motherKnowSpravka = 2
-				'"Why are you showing me this, <<$pcs_nickname>>, do you think this is funny? Are you trying to rub it in my face? Even if you made photocopies of it and handed them out at school, I doubt it would change your reputation at all... everyone already knows." your mother says coldly.'
-			end
 
-			act 'Move away':gt $loc, $metka
+				act 'Ask for some new clothes':
+					*clr & cla
+					minut += 5
+					gs 'stat'
+					'<center><b><font color="maroon">Your mother, Natasha <<$pcs_lastname>></font></b></center>'
+					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/mother.jpg"></center>'
+					'You wait until your mother is in a good mood, and then quickly swoop in: "Mom, I have nothing nice to wear. Can I please have some new clothes?"'
+					if pav_prostitute >= 100 and motherKnowWhore >= 1:
+						'Your mother is outraged by the suggestion. "Really <<$pcs_nickname>>? You have lots of customers, and you''re still asking me for clothes? You should have plenty of whore money, you can afford them yourself. Besides, I don''t know where to buy clothes for a whore."'
 
-		end
-	end
-		
-	if npc_QW['A29'] = 1 and npc_rel['A29'] >= 20 and $loc = 'kuhrPar':
-		act 'Try to reconcile':
-			cls
-			'<center><b><font color="maroon">Your mother, Natasha <<$pcs_lastname>></font></b></center>'
-			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/mother.jpg"></center>'
+						act 'Move away from her':gt $loc, $metka
+					else
+						if SchoolAtestat = 0:
+							if npc_rel['A29'] >= 80:
+								if motherClotheMonth ! month:
+									'Your mother lets out an exasperated sigh, and throws her hands in the air. "Here we go again... "Mommy, I have nothing to wear!"" he says, mocking your voice in a high pitch. You both laugh. "Alright then <<$pcs_nickname>>, let''s go see if we can find something."'
 
-			mqwtRand = rand(1, 10)
+									act 'Go to the store':
+										cla
+										npc_rel['A29'] = 70
+										motherClotheMonth = month
+										minut += 30
+										gs 'stat'
+										'Going clothes shopping with your mother is always an interesting experience. You never get to pick your own clothes, but she brings you clothes that she thinks would suit you and lets you try them on. You would argue but her taste in clothing is actually very good, always picking out cute outfits for you to wear that are quite trendy too. You directly go towards the changing booths, wondering what she''ll bring you this time.'
 
-			if mqwtRand <= 2:
-				npc_rel['A29'] -= rand(1, 5)
-				minut += 30
-				'You try to have a talk with your mother, to hopefully patch up your horrible relationship. You''re not sure whether you said something wrong, or whether she''s just in a bad mood, but your attempt to reconcile backfired horribly; within moments the conversation turns into a screaming contest, and your mother ends up disliking you even more.'
+										act 'Try on the clothes she brings you':
+											*clr & cla
+											gs 'stat'
+											loop_counter = 0
+											:markbuyclomother
+											loop_counter += 1
+											if loop_counter = 300:
+												'After 30 minutes of trying on various outfits you are unable to find any that you either don''t already own or that you are willing to wear.'
+											else
+												numrand = rand(1, 413)
 
-				act 'Leave her be for now':gt $loc, $metka
-			elseif mqwtRand > 2 and mqwtRand <= 8:
-				npc_rel['A29'] += rand(0, 1)
-				minut += 30
-				'You try to have a talk with your mother, to try and patch up your horrible relationship. Despite your best efforts, the whole half-hour conversation consists mainly of a fairly aggressive monologue from your mother about morality, diseases and what awaits you in the future, if you do not change your ways. Still, there is some improvement in your relationship.'
+												gs 'clothing_attributes', 'cheap', numrand
+												!!not prostitute
+												if CloStyle = 4:jump 'markbuyclomother'
+												!!Sveta can wear it and not too revealing
+												if CloInhibit > pcs_inhib or CloInhibit > 30:jump 'markbuyclomother'
 
-				act 'Leave her be for now':gt $loc, $metka
-			elseif mqwtRand > 8:
-				gt'motherQW','motherQW_2'
+												if cheap[numrand] = 0:
+													cheap[numrand] = 1
+													cheapH[numrand] = 50
+													cheapB[numrand] = pcs_hips
+													'<center><img <<$set_imgh>> src="images/pc/clothing/1cheap/<<numrand>>.jpg"></center>'
+												else
+													jump 'markbuyclomother'
+												end
+											end
+
+											'You enter a changing booth and spend 30 minutes trying on various outfits: short ones, long ones, light ones, dark ones... Then finally her eyes light up, and she beams: "This one! This one is perfect!" She buys the outfit for you, and you go back home together. You thank your mother and give her a hug.'
+
+											act 'Continue':gt 'mother'
+										end
+									end
+								else
+									'Your mother sadly shakes her head: I''m sorry <<$pcs_nickname>>, our budget is limited and we already went clothes shopping this month. You''ll have to manage with what you have in your closet for a little while, maybe we can go again next month."'
+									act 'Continue':gt 'mother'
+								end
+							else
+								'Your mother shakes her head: "I''m sorry <<$pcs_nickname>>, money is tight. We just can''t afford it right now."'
+								act 'Continue':gt 'mother'
+							end
+						else
+							'Your mother shakes her head: "No <<$pcs_nickname>>, you''re old enough to earn your own money and buy your own clothes. Get a job if you want new clothes."'
+							act 'Continue':gt 'mother'
+						end
+					end
+				end
+
+				gs 'mother', 'pregreact'
+				act 'Offer to help around the house':
+					cla
+					minut += 60
+					npc_rel['A29'] += rand(1, 5)
+					pcs_mood -= 10
+					delin_beh -= 1 &!counter for getting sent to Gadukino for the summer
+					TotalMomPom += 1
+					MomPom += 1
+					gs 'stat'
+					'You offer to help your mother out around the house.'
+
+					if MomPom = 1:
+						'Your mother asks you to do the dishes. You spend an hour washing the dishes in the kitchen.'
+					elseif MomPom = 2:
+						'Your mother asks you to peel potatoes for tonight''s meals. You spend an hour in the kitchen peeling potatoes.'
+					elseif MomPom = 3:
+						'Your mother asks you to clean the floor. You spend an hour scubbing the floors of the apartment.'
+					elseif MomPom = 4:
+						'Your mother asks you to do a load of laundry. You spend an hour washing clothes in the bathroom.'
+					elseif MomPom = 5:
+						'Your mother asks you to iron some clothes. You spend an hour in the hallway ironing clothes.'
+					elseif MomPom = 6:
+						sdacharand = rand(10, 50)
+						money += sdacharand
+						gs 'stat'
+						'Your mother asks you to run to the store, and buy some groceries. You head to the store and purchase the food, hauling the heavy bags home. The groceries cost you <<sdacharand>> <b>₽</b>, and she gives you the money back when you return home.'
+					elseif MomPom = 7:
+						'Your mother asks you to go to the pharmacy, to get some medicine. Your mother''s sister, Lyudmila, works there and always gives your family the medicine you need for free. Your mother gave you a list of the items you need, and when you enter the pharmacy you see your aunt Luda behind the counter as always. She smiles when she recognizes you. "Hi <<$pcs_nickname>>! How are you? I hope everything is okay?"'
+						'"Hello aunt!" You greet her back, and have a chat with her before you give her list your mother made. Aunt Luda quickly gathers the items your mother wrote down, gathers them in a paper bag and hands the bag over to you. "Here you go, <<$pcs_nickname>>! Have a nice day, tell your mother I said hi!"'
+						'You say you will and wave her goodbye. When you come home, you give your mother the bag. After a few minutes you realize you forgot to pass on aunt Luda''s regards to your mom, but decide to not bother now.'
+					elseif MomPom = 8:
+						MomPom = 1
+					end
+					act 'Continue':gt 'mother'
+				end
+
+				if npc_QW['A29'] = 1 and npc_rel['A29'] >= 20 and $loc = 'kuhrPar':
+					act 'Try to reconcile':
+						*clr & cla
+						'<center><b><font color="maroon">Your mother, Natasha <<$pcs_lastname>></font></b></center>'
+						'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/mother.jpg"></center>'
+
+						mqwtRand = rand(1, 10)
+
+						if mqwtRand <= 2:
+							npc_rel['A29'] -= rand(1, 5)
+							minut += 30
+							'You try to have a talk with your mother, to hopefully patch up your horrible relationship. You''re not sure whether you said something wrong, or whether she''s just in a bad mood, but your attempt to reconcile backfired horribly; within moments the conversation turns into a screaming contest, and your mother ends up disliking you even more.'
+
+							act 'Leave her be for now':gt $loc, $metka
+						elseif mqwtRand > 2 and mqwtRand <= 8:
+							npc_rel['A29'] += rand(0, 1)
+							minut += 30
+							'You try to have a talk with your mother, to try and patch up your horrible relationship. Despite your best efforts, the whole half-hour conversation consists mainly of a fairly aggressive monologue from your mother about morality, diseases and what awaits you in the future, if you do not change your ways. Still, there is some improvement in your relationship.'
+
+							act 'Leave her be for now':gt $loc, $metka
+						elseif mqwtRand > 8:
+							gt'motherQW','motherQW_2'
+						end
+					end
+				end
+			else
+				gt $loc, $metka
 			end
 		end
 	end
@@ -667,7 +610,88 @@ if $ARGS[0] = '':
 			act 'Go to Gadukino':hour = 12 & minut = 0 & indorf = 1 & gt 'famdorfride'
 		end
 	end
-end	
+
+	if SchoolAtestat = 0 and motherKnowSpravka = 0 and GspravkaT ! 1:
+		gt 'mother', 'referral'
+	elseif Gspassed = 1:
+		gt 'mother', 'referral_pass'
+	end
+end
+
+if $ARGS[0] = 'referral':
+	*clr & cla
+	'<center><b><font color="maroon">Your mother, Natasha <<$pcs_lastname>></font></b></center>'
+	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/mother.jpg"></center>'
+	*nl
+	if GspravkaT = 0 and GspravkaTimes >= 3 and hour >= 6 and hour <= 21:
+		npc_rel['A29'] -= 1
+		'Your mother frowns and gets her handbag: "<<$pcs_nickname>>, why haven''t you been to the gynaecologist like I asked you to? You don''t have anything to hide, do you? Come on, we''re going there right now." Your mother takes you by the hand and leads you to the clinic, ushering you into the gynaecologist''s office.'
+
+		act 'Get a referral from the gynaecologist':
+			gt 'gpoli', 'referral'
+		end
+
+	elseif GspravkaT = 0 and GspravkaTimes < 3:
+		GspravkaTimes += 1
+		'"<<$pcs_nickname>>, you need to go to the clinic. We need a written referral from the gynaecologist for school."'
+		act 'Continue': gt 'mother'
+
+	elseif GspravkaT = 2 and motherKnowSpravka = 0:
+		gt 'mother', 'referral_fail'
+	elseif Gspassed = 1:
+		gt 'mother', 'referral_pass'
+	end
+end
+
+if $ARGS[0] = 'referral_fail':
+	*clr & cla
+	'<center><h2>Pavlovsk</h2></center>'
+	if month >= 11 or month <= 3:
+		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/gorodokw.jpg"></center>'
+	else
+		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/gorodok.jpg"></center>'
+	end
+	*nl
+	if motherKnowWhore = 0:
+		npc_rel['A29'] = 0
+		motherKnowSpravka = 1
+
+		if npc_QW['A29'] = 0:npc_QW['A29'] = 1
+
+		if momslut < 2:
+			!counter for getting sent to Gadukino for the summer
+			delin_beh += 1
+			'Your mother is furious and grabs you by the ear, pulling you out of the clinic and onto the street. "Oh, you slut! Your father and I worked so hard to raise you as a decent person, hoping you would find a good husband some day... and now it turns out you''re a whore who has already put her pussy to work. Get out of my sight!" She storms off, leaving you to find your own way home. When you return home, you make sure you do it quietly so she can''t give you another earful.'
+			act 'Walk home': gt 'korrPar'
+		else
+			'Your mother shakes her head sadly when she reads the referral. "Well... I guess I shouldn''t be surprised." You head home in silence.'
+			act 'Walk home': gt 'korrPar'
+		end
+
+	elseif motherKnowWhore > 0 and npc_QW['A29'] < 2:
+		npc_rel['A29'] -= 10
+		motherKnowSpravka = 1
+		!counter for getting sent to Gadukino for the summer
+		delin_beh += 1
+		if npc_QW['A29'] = 0:npc_QW['A29'] = 1
+		'Your mother reads the referral and closes her eyes for a second, trying to suppress her anger. "To be honest, it''s not even a surprise to me. Don''t think that I haven''t seen you sneaking around the house at weird times, and all the guys loitering near our apartment." You head home in silence.'
+		act 'Walk home': gt 'korrPar'
+	elseif npc_QW['A29'] >= 2:
+		motherKnowSpravka = 2
+		'"Why are you showing me this, <<$pcs_nickname>>, do you think this is funny? Are you trying to rub it in my face? Even if you made photocopies of it and handed them out at school, I doubt it would change your reputation at all... everyone already knows." your mother says coldly. You head home in silence.'
+		act 'Walk home': gt 'korrPar'
+	end
+end
+
+if $ARGS[0] = 'referral_pass':
+	*clr & cla
+	'<center><b><font color="maroon">Your mother, Natasha <<$pcs_lastname>></font></b></center>'
+	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/mother.jpg"></center>'
+	*nl
+	Gspassed = 0
+	'You hand your mother the referral. She opens it, closes her eyes for a second, and breates a sigh of relief. "I''m not even surprised, you''re a good girl <<$pcs_nickname>>, just as I raised you to be."'
+	act 'Continue': gt 'mother'
+end
 
 if $ARGS[0] = 'pregreact':
 	*nl
@@ -739,11 +763,11 @@ if $ARGS[0] = 'pregreactnude':
 	act 'Return to mother':gt 'mother', 'pregreact1'
 end
 
-!!Mom should have more pregnancy reactions than other characters. 
+!!Mom should have more pregnancy reactions than other characters.
 !!Add shorter reactions inside this array. If longer, link to another array in the format of 'pregreactbrother'
 if $ARGS[0] = 'pregreact1':
 	*nl
-	if $wombthfath = 'Kolka' and npc_rel['A34'] > 50 and brotherSecret = 1 and momKnowsKolka = 0:	
+	if $wombthfath = 'Kolka' and npc_rel['A34'] > 50 and brotherSecret = 1 and momKnowsKolka = 0:
 		'"I... I don''t actually know. I was," you stammer as you struggle to get the next word out. "I was raped."'
 		'"What? Are you okay? Why did''t you tell me sooner?"'
 		'"I was scared and ashamed and I didn''t know how you would react." Your lip quivers as tears begin to flow down your face. "I''m sorry. I should have said something."'
@@ -758,7 +782,7 @@ if $ARGS[0] = 'pregreact1':
 			act 'Continue':gt 'kuhrPar'
 		elseif brotherSecret = 1 and pcs_intel < 60:
 			cla
-			'"Wow, thank God that worked. I thought for sure you would figure out I was lying and I would have to tell you that Kolka is really the father."' 
+			'"Wow, thank God that worked. I thought for sure you would figure out I was lying and I would have to tell you that Kolka is really the father."'
 			'You see the stunned look on her face and realize your mistake. "I mean... that was a joke. Shit."'
 
 			act 'Continue':gt 'mother', 'pregreactbrother'
@@ -777,7 +801,7 @@ if $ARGS[0] = 'pregreact1':
 			cla
 			'You continue on with your successful act, "Thank you. I''m so glad you didn''t get mad at me." The two of you then share a warm embrace as you''re doing a victory dance inside your head over your successful ruse.'
 
-			act 'Continue':gt 'kuhrPar'
+			act 'Continue':gt 'mother'
 		elseif stepdadSecret = 1 and pcs_intel < 60:
 			cla
 			'"Wow, I can''t believe that worked. I was for certain that you would figure out I was lying and I would have to tell you that Vladimir''s the true father."'
@@ -809,10 +833,10 @@ if $ARGS[0] = 'pregreact1':
 			'"All right, I had to ask," she says, hugging you again. A bit later she whispers in your ear. "You know, it will not be that bad. You will be still young when your child grows up. You can even go to parties with her. Or him. Whatever. And I will be the awesome hot grandma."'
 			'The image conjured by that thought makes you giggle a bit. Maybe it will not be that bad.'
 		end
-		act 'Continue':gt 'kuhrPar'
+		act 'Continue':gt 'mother'
 	else
 		'You tell her that the father is <<$wombthfath>> and give her some brief details about how you met and the events that led up to your pregnancy. She reassuers you that she will help you get through this.'
-		act 'Continue':gt 'kuhrPar'
+		act 'Continue':gt 'mother'
 	end
 end
 
@@ -822,7 +846,7 @@ if $ARGS[0] = 'pregreactbrother':
 		'As soon as your brother''s name crosses your lips, your mother''s face visibly reddens. Her mouth curls into a snarl and she reaches up and grips you by your hair. '
 		'"What the fuck is wrong with you?" she screams in your face. "I knew you were a worthless whore, but this? Even I didn''t think you’d go so far as to try corrupting your brother, too."'
 		'Kolka tries to speak up. "Mom, <<$pcs_nickname>>-"'
-		'Your mother quickly cuts him off. "Kolka, shut the fuck up and go to the living room. I''ll deal with you later."' 
+		'Your mother quickly cuts him off. "Kolka, shut the fuck up and go to the living room. I''ll deal with you later."'
 		'He shuffles out of the room, stopping in the doorway for a moment to look at you sympathetically.'
 		'Your mother releases your hair as tears begin to stream down your face.'
 		'"Mom, I''m s-"'

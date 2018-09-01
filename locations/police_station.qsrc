@@ -1136,6 +1136,7 @@ if $ARGS[0] = 'shplft_easy':
 	*clr & cla
 	minut += 20
 	picrand = rand(1, 2)
+	$detec_type = 'easy'
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/shared/police/interrogation<<picrand>>.jpg"></center>'
 	'He takes a seat at the table opposite of you, "So caught stealing, eh?" he asks.'
@@ -1173,6 +1174,7 @@ if $ARGS[0] = 'shplft_norm':
 	*clr & cla
 	minut += 20
 	picrand = rand(1, 2)
+	$detec_type = 'norm'
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/shared/police/interrogation<<picrand>>.jpg"></center>'
 	'He takes a seat opposite of you, "So caught stealing, eh?" he asks.'
@@ -1210,6 +1212,7 @@ if $ARGS[0] = 'shplft_hard':
 	*clr & cla
 	minut += 20
 	picrand = rand(1, 2)
+	$detec_type = 'hard'
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/shared/police/interrogation<<picrand>>.jpg"></center>'
 	'He takes a seat opposite of you, "So caught stealing, eh?" he asks.'
@@ -1246,6 +1249,7 @@ if $ARGS[0] = 'prst_easy':
 	!easy going detective
 	*clr & cla
 	minut += 20
+	$detec_type = 'easy'
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/shared/police/interrogationpro.jpg"></center>'
 	'He takes a seat opposite of you, "So caught prostituting, eh?" he asks.'
@@ -1289,6 +1293,7 @@ if $ARGS[0] = 'prst_norm':
 !normal detective
 	*clr & cla
 	minut += 20
+	$detec_type = 'norm'
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/shared/police/interrogationpro.jpg"></center>'
 	'He takes a seat opposite of you, "So caught prostituting, eh?" he asks.'
@@ -1336,6 +1341,7 @@ if $ARGS[0] = 'prst_hard':
 !rough detective
 	*clr & cla
 	minut += 20
+	$detec_type = 'hard'
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/shared/police/interrogationpro.jpg"></center>'
 	'He takes a seat opposite of you, "So caught prostituting, eh?" he asks.'
@@ -1434,6 +1440,7 @@ if $ARGS[0] = 'returncell':
 				'"Go on before they change their mind," she smiles.'
 				'You say good bye to each other and the officer leads you towards the entrance and as the police station doors open you can feel the fresh wind breeze against your face.'
 
+				Sentence_date = daystart + 7
 				act 'Walk outside':gt 'down'
 
 			end
@@ -1450,6 +1457,7 @@ if $ARGS[0] = 'returncell':
 		'Some time passes by and the cell door opens, "<<$pcs_lastname>>, it''s your time to get released."'
 		'You quickly jump up and hurry out from the holding cell. The officer leads you towards the entrance and as the police station doors open you can feel the fresh wind breeze against your face.'
 
+		Sentence_date = daystart + 7
 		act 'Walk outside':gt 'down'
 	end
 end

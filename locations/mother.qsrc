@@ -252,8 +252,8 @@ if $ARGS[0] = '':
 			end
 		end
 
-		if mother_go = 0 or (week < 6 and hour >= 16 and hour < 21) or (week >= 6 and hour >= 7 and hour < 21):
-			if (week < 6 and hour >= 17 and hour < 21) or (week >= 6 and hour >= 7 and hour < 21 and hour ! 16):
+		if mother_go = 0 or ((week < 6 and (hour >= 17 and hour < 21) or (hour >= 7 and hour < 8)) or (week >= 6 and hour >= 7 and hour < 21)):
+			if (week < 6 and (hour >= 17 and hour < 21) or (hour >= 7 and hour < 8)) or (week >= 6 and hour >= 7 and hour < 21 and hour ! 16):
 				! schedule copied from #family - should be identical.
 				act 'Chat':
 					*clr & cla

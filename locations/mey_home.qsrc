@@ -85,7 +85,7 @@ if $ARGS[0] = 'start':
 			gt 'mey_tamara_events', 'party0'
 		end
 		! check appearance before going to corporate
-		if (hour = 17 or hour = 18) and mey_vika['mey_vika_qw'] = 41:
+		if week = 7 and (hour = 17 or hour = 18) and mey_vika['mey_vika_qw'] = 41:
 			'<br><a href="exec: gt''mey_tamara_events'',''check_look''">Tamara Mikhailovna.</a> is waiting for you in the lobby.'
 
 			exit

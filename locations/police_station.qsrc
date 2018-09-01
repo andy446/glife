@@ -24,24 +24,40 @@ if $ARGS[0] = 'entrance':
 	!first time offender, event where Sveta gets caught stealing
 	!need to add a variable to store that Sveta has been brought into the police station
 	if shplft_booked + prst_booked = 0:
-		gt 'police_station', 'first'
+		if $ARGS[1] = 'shplft':
+			gs 'police_station', 'first', 'shplft'
+		else
+			gs 'police_station', 'first', 'prst'
+		end
 	elseif shplft_booked + prst_booked < 6:
-		gt 'police_station', 'repeat'
+		if $ARGS[1] = 'shplft':
+			gs 'police_station', 'repeat', 'shplft'
+		else
+			gs 'police_station', 'repeat', 'prst'
+		end
 	elseif shplft_booked + prst_booked < 11:
-		gt 'police_station', 'multiple'
+		if $ARGS[1] = 'shplft':
+			gs 'police_station', 'multiple', 'shplft'
+		else
+			gs 'police_station', 'multiple', 'prst'
+		end
 	else
-		gt 'police_station', 'regular'
+		if $ARGS[1] = 'shplft':
+			gs 'police_station', 'regular', 'shplft'
+		else
+			gs 'police_station', 'regular', 'prst'
+		end 
 	end
 end
 
 if $ARGS[0] = 'first':
-	if ARGS[1] = 'shplft':
+	if $ARGS[1] = 'shplft':
 		shplft_booked += 1
 		shplft_tmp = 1
 
 		if toldonguard = 2:
 			!! if had sex with the security guard but still got arrested
-			*clr & cla
+			cla
 			minut += 2
 			gs 'pain', 2, 'armR', 'pinch'
 			gs 'stat'
@@ -55,7 +71,7 @@ if $ARGS[0] = 'first':
 
 		elseif grupTipe = 4:
 			!else if gopnik
-			*clr & cla
+			cla
 			minut += 2
 			gs 'pain', 2, 'armR', 'pinch'
 			gs 'stat'
@@ -70,7 +86,7 @@ if $ARGS[0] = 'first':
 
 		elseif hotcat > 7:
 			!else if beautiful
-			*clr & cla
+			cla
 			minut += 2
 			gs 'pain', 2, 'armR', 'pinch'
 			gs 'stat'
@@ -84,7 +100,7 @@ if $ARGS[0] = 'first':
 
 		elseif hotcat < 3:
 			!else if ugly
-			*clr & cla
+			cla
 			minut += 2
 			gs 'pain', 2, 'armR', 'pinch'
 			gs 'stat'
@@ -98,7 +114,7 @@ if $ARGS[0] = 'first':
 
 		else
 			!if plain looking
-			*clr & cla
+			cla
 			minut += 2
 			gs 'pain', 2, 'armR', 'pinch'
 			gs 'stat'
@@ -110,14 +126,14 @@ if $ARGS[0] = 'first':
 
 			act 'Continue further in':gt 'police_station', 'booking'
 		end
-	elseif ARGS[1] = 'prst':
+	elseif $ARGS[1] = 'prst':
 		prst_booked += 1
 		prst_tmp = 1
 
 		if hotcat < 3:
 			!Prostitute event, this will be an continuation to the prostitute events that happened earlier
 			!if ugly
-			*clr & cla
+			cla
 			minut += 2
 			gs 'pain', 2, 'armR', 'pinch'
 			gs 'stat'
@@ -128,7 +144,7 @@ if $ARGS[0] = 'first':
 
 
 			!else if plain
-			*clr & cla
+			cla
 			minut += 2
 			gs 'pain', 2, 'armR', 'pinch'
 			gs 'stat'
@@ -139,7 +155,7 @@ if $ARGS[0] = 'first':
 
 
 			!else if beautiful
-			*clr & cla
+			cla
 			minut += 2
 			gs 'pain', 2, 'armR', 'pinch'
 			gs 'stat'
@@ -153,7 +169,7 @@ if $ARGS[0] = 'first':
 
 
 			!else if ugly and bribed the officer with money
-			*clr & cla
+			cla
 			minut += 2
 			gs 'pain', 2, 'armR', 'pinch'
 			gs 'stat'
@@ -164,7 +180,7 @@ if $ARGS[0] = 'first':
 
 
 			!else if plain and bribed the officer with money
-			*clr & cla
+			cla
 			minut += 2
 			gs 'pain', 2, 'armR', 'pinch'
 			gs 'stat'
@@ -175,7 +191,7 @@ if $ARGS[0] = 'first':
 
 
 			!else if beautiful and bribed the officer with money
-			*clr & cla
+			cla
 			minut += 2
 			gs 'pain', 2, 'armR', 'pinch'
 			gs 'stat'
@@ -186,7 +202,7 @@ if $ARGS[0] = 'first':
 
 
 			!else if ugly and bribed the officer with sex
-			*clr & cla
+			cla
 			minut += 2
 			gs 'pain', 2, 'armR', 'pinch'
 			gs 'stat'
@@ -198,7 +214,7 @@ if $ARGS[0] = 'first':
 
 
 			!else if plain and bribed the officer with sex
-			*clr & cla
+			cla
 			minut += 2
 			gs 'pain', 2, 'armR', 'pinch'
 			gs 'stat'
@@ -210,7 +226,7 @@ if $ARGS[0] = 'first':
 
 
 			!else if beautiful and bribed the officer with sex
-			*clr & cla
+			cla
 			minut += 2
 			gs 'pain', 2, 'armR', 'pinch'
 			gs 'stat'
@@ -226,10 +242,10 @@ end
 
 
 if $ARGS[0] = 'repeat':
-	if ARGS[1] = 'shplft':
+	if $ARGS[1] = 'shplft':
 		shplft_booked += 1
 		shplft_tmp = 1
-	elseif ARGS[1] = 'prst':
+	elseif $ARGS[1] = 'prst':
 		prst_booked += 1
 		prst_tmp = 1
 	end
@@ -290,10 +306,10 @@ if $ARGS[0] = 'repeat':
 end
 
 if $ARGS[0] = 'multiple':
-	if ARGS[1] = 'shplft':
+	if $ARGS[1] = 'shplft':
 		shplft_booked += 1
 		shplft_tmp = 1
-	elseif ARGS[1] = 'prst':
+	elseif $ARGS[1] = 'prst':
 		prst_booked += 1
 		prst_tmp = 1
 	end
@@ -352,10 +368,10 @@ if $ARGS[0] = 'multiple':
 end
 
 if $ARGS[0] = 'regular':
-	if ARGS[1] = 'shplft':
+	if $ARGS[1] = 'shplft':
 		shplft_booked += 1
 		shplft_tmp = 1
-	elseif ARGS[1] = 'prst':
+	elseif $ARGS[1] = 'prst':
 		prst_booked += 1
 		prst_tmp = 1
 	end

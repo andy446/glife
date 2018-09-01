@@ -228,10 +228,10 @@ end
 
 if $ARGS[0] = 'blowjob':
 	minut += 5
-	'You kneel in front of him and bite your lip, caressing his cock through his pants with your hands.'
-
+	
 	if $moodType = 'fairly normal':
 		'<center><video autoplay loop src="images/locations/city/residential/sauna/sex/blowjob'+rand(1, 5)+'.mp4"></video></center>'
+		'You kneel in front of him and bite your lip, caressing his cock through his pants with your hands.'
 		'He pulls out his <<$dick_girth>> dick and brings it to your <<$liptalk>>.'
 		'You start kissing the tip, licking it all around and putting it a bit inside your mouth and sucking the head.'
 		gs 'arousal', 'bj', 5, 'prostitution'
@@ -240,12 +240,14 @@ if $ARGS[0] = 'blowjob':
 		act 'Suck it':gt 'saunawhore', 'blowjobGate'
 	elseif $moodType = 'good':
 		'<center><video autoplay loop src="images/locations/city/residential/sauna/sex/blowjob'+rand(1, 5)+'.mp4"></video></center>'
+		'You kneel in front of him and bite your lip, caressing his cock through his pants with your hands.'
 		'He comes close to you, fondles your hair and face and takes you gently by your arm, raising you up from the floor.'
 		'He directs you to the bed, undresses and both of you lie down.'
 
 		act 'Embrace him':gt 'saunawhore', 'fuckGate'
 	elseif $moodType = 'bad':
 		'<center><video autoplay loop src="images/locations/city/residential/sauna/sex/slapface'+rand(1, 1)+'.mp4"></video></center>'
+		'You kneel in front of him and bite your lip, caressing his cock through his pants with your hands.'
 		'He comes close to you and suddenly slaps your face hard.'
 		'You are caught by surprise and tears well up in your eyes.'
 		'He seems very angry and even aroused by your misfortune.'
@@ -914,13 +916,13 @@ if $ARGS[0] = 'saunawork':
 				else
 					if rand(0, 100) >= 40:saunaWorkKlient = 1
 				end
-				
+
 				if saunaWorkKlient = 1:
 					cls
 					gs 'stat'
 					'<center><img <<$set_imgh>> src="images/locations/city/residential/sauna/saunawhore.jpg"></center>'
 					'A client has arrived at the sauna, and the girls line up so that the customer can choose his favorite.'
-					
+
 					if rand(0, 120) < pcs_apprnc:
 						'Client jabs a finger at you, "This one."'
 						act 'Go to the sauna with client':
@@ -1019,14 +1021,14 @@ if $ARGS[0] = 'bathroom':
 	$locM = 'saunawhore'
 	$metkaM = 'bathroom'
 	$location_type = 'bathroom'
-	
+
 	*clr & cla
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/shared/brothel/brothelShower.jpg"></center>'
 	''
 	'You enter the staff bathroom, which is usually cleaned by the girls that have only just started work here, voluntary or otherwise.'
 	'There is a <a href="exec:gt ''mirror'', ''start''">mirror</a>, where you can ' + iif(pcs_hairbsh = 0,'<a href="exec:GT ''mirror'',''brush''">brush</a>','brush') + ' your hair, a shower, toilet, and basin.'
-		
+
 	act 'Return to foyer': minut += 1 & gt 'saunawhore', 'saunawork'
 
 	act 'Take a shower (0:15)':
@@ -1038,24 +1040,29 @@ if $ARGS[0] = 'bathroom':
 		'<center><img <<$set_imgh>> src="images/locations/shared/brothel/brothelShower.jpg"></center>'
 		''
 		'After taking off all of your clothes, you gather up your towel, washcloth and soap, then head to the shower. You wash yourself thoroughly to be as clean as possible for potential customers.'
-		act 'Get out and dry off':gt $locM, $metkaM
 		if workDolg > 0:
-			gs 'saunawhore', 'saunabrit'
-		else
+			if stanok <= 0: stanok = 5
+			dynamic $brit
+		elseif workDolg = 0 and stanok > 0:
 			dynamic $brit
 		end
+		dynamic $dryOff
 	end
 
 	if workDolg > 0:
-		gs 'saunawhore', 'saunabrit'
+		*nl
+		'There are a handful of cheap razors you can use, enough for <<stanok>> shaves. At least they don''t make you pay for them, but only because they don''t know who has used which blades. <a href="exec:gs ''din_van'', ''shave_options''">Shave Options</a>'
+		if stanok <= 0: stanok = 5
+		dynamic $brit
 	elseif workDolg = 0 and stanok > 0:
+		*nl
+		'Your currnet pack of razors will last for <b><<stanok>></b> more shavings. <a href="exec:gs ''din_van'', ''shave_options''">Shave Options</a>'
 		dynamic $brit
 	elseif workDolg = 0 and stanok = 0:
-		'Your razor blade looks in good enough shape for <b><<stanok>></b> more shaves.'	
+		*nl
+		'You have <<stanok>> razors left. You should to go to the store and buy more razors. <a href="exec:gs ''din_van'', ''shave_options''">Shave Options</a>'
 	end
 	gs 'din_van', 'prvt_pee'
-
-	dynamic $toymanage
 	dynamic $enema
 
 	if workdolg > 0:
@@ -1067,30 +1074,23 @@ if $ARGS[0] = 'bathroom':
 				minut += 5
 				pcs_mood -= 5
 				workDolg += 10
-	
+
 				'<center><img <<$set_imgh>> src="images/shared/home/bathroom/wash3.jpg"></center>'
 				'You use a tampon, it will add another 10 <b>₽</b> to your debt, but the alternative is unpleasant.'
-	
+
 				act 'Finish':gt $locM, $metkaM
 			end
 		end
 	elseif workdolg = 0:
 		dynamic $tampon
 	end
-	
+
 	dynamic $quickwash
 	dynamic $bteeth
 	dynamic $basin
-	dynamic $removepan
 	if breastpump > 0 and bp_unbox >= 1:
 		act 'Use breast pump' :gt 'lact_lib', 'bp_milking'
 	end
-end
-
-if $ARGS[0] = 'saunabrit':
-	'There are a handful of cheap razors you can use. At least they don''t make you pay for them, but only because they don''t know who has used which blades.'
-	dynamic $brit
-	act 'Get out and dry off':gt $locM, $metkaM
 end
 
 --- saunaWhore ---------------------------------

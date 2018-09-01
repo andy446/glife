@@ -318,15 +318,24 @@ if $ARGS[0] = 'sports':
 	end
 
 	if week = 6 and schoolSorev = 2 and hour = 10 and SchoolBlock = 0:
+		*nl
 		'Athletic students of your school and other schools in the area have gathered at the athletics track near your school. Everyone is getting ready for the running competition.'
-
-		act 'Participate in the 400m sprint event':gt 'gschool_grounds', 'SchoolRun2'
+		if $clothingworntype = 'exercise' and $shoeworntype = 'trainers':
+			act 'Participate in the 400m sprint event':gt 'gschool_grounds', 'SchoolRun2'
+		else 
+			'You need to wear exercise clothes to participate.'
+		end
 	end
 
 	if week = 6 and schoolSorev = 1 and hour = 10 and SchoolBlock = 0:
+		*nl
 		'Athletic students of your school and other schools in the area have gathered at the athletics track near your school. Everyone is getting ready for the running competition.'
 
-		act 'Participate in the 400m sprint race':gt 'gschool_grounds', 'SchoolRun'
+		if $clothingworntype = 'exercise' and $shoeworntype = 'trainers':
+			act 'Participate in the 400m sprint race':gt 'gschool_grounds', 'SchoolRun'
+		else
+			'You need to wear exercise clothes to participate.'
+		end
 	end
 
 	gs 'family'

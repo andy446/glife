@@ -498,7 +498,7 @@ if $ARGS[0] = 'punish':
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/city/shared/shoplift/sex/revenge/revenge1.jpg"></center>'
 	'The guard forcefully drags you into the room and shoves you towards the chair, "Well well, look who''s back...If it isn''t the little rat!" he heatedly comments.'
-	'<i>Fuck it''s the same guard, now you''ve done it, <<pcs_nickname>>, get prepared for whatever awaits you...Your fate is in his hands...</i>'
+	'<i>Fuck it''s the same guard, now you''ve done it, <<$pcs_nickname>>, get prepared for whatever awaits you...Your fate is in his hands...</i>'
 	'"I hate you fucking rats. Do you know what I had to go through to get away from ending up in jail. Luckily one of the pigs didn''t mind getting bribed so I got away," he grins, "And now for your punishment."'
 
 	act 'Beg':

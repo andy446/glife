@@ -80,14 +80,15 @@ if $ARGS[0] = 'start':
 	end
 
 	'There are two sofas next to a <a href="exec: gt ''shulga_room'', ''shultv''">TV</a>, and a <a href="exec:GT ''Komp'',''start''">laptop</a> sitting on a table covered in empty beer bottles.'
-	if hour >= 0 and hour < 7: '<a href="exec: gt ''shulga_room'', ''shulga_bazar_sleep''">Vasily</a> is sleeping on the big couch'
+	if (week < 6 and hour >= 0 and hour < 7) or (week >= 6 and hour >= 3 and hour < 7): '<a href="exec: gt ''shulga_room'', ''shulga_bazar_sleep''">Vasily</a> is sleeping on the big couch'
+	
 	shulga_room_rnd = RAND(0,2)
 	if shulga_room_rnd = 0:$shulga_room_rnd = 'The boys are sitting on the couch talking and drinking beer.'
 	if shulga_room_rnd = 1:$shulga_room_rnd = 'The boys are drinking beer and playing cards.'
 	if shulga_room_rnd = 2:$shulga_room_rnd = 'The boys are drinking beer while watching TV.'
 
 	if week < 6 and hour >= 20: '<<$shulga_room_rnd>> <a href="exec: gt ''shulga_room'', ''shulga_bazar_night''">Vasily</a>, <a href="exec: gt ''shulga_room'', ''den_bazar''">Dan</a> and <a href="exec: gt ''shulga_room'', ''vitek_bazar''">Vitek</a>, invites you to <a href="exec: gt ''shulga_room'', ''shulga_beer''">have a drink with them</a>.'
-	if week >= 6 and hour >= 10 and hour < 17 or week >= 6 and hour >= 0 and hour < 3: 'Sergey''s son <a href="exec: gt ''shulga_room'', ''shulga_bazar_day''">Vasily</a> is sitting on the big sofa.'
+	if (week >= 6 and hour >= 10 and hour < 17) or (week >= 6 and hour >= 0 and hour < 3): 'Sergey''s son <a href="exec: gt ''shulga_room'', ''shulga_bazar_day''">Vasily</a> is sitting on the big sofa.'
 
 	if week < 6 and hour >= 20:
 		act 'Drink beer with the guys': gt 'shulga_room', 'shulga_beer'
@@ -692,7 +693,7 @@ if $ARGS[0] = 'drunken_sex':
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/shulginhome/bigroom/drunk_ev/sex/cum'+rand(1,9)+'.jpg"></center>'
 			shulga_whore = daystart + 7
 			'It feels so intense!'
-			'Head spinning, you find yourself back on your knees, and quickly realize the boys weren''t finished. Hot cum and laughter rains down on you. You make a final effort to finish what you started. You open wide for your boys and smile up at them seeking approval. After you have milked the last drop from each of them. Dan pats you on the head and says:  "What a good little slut you are <<$pcs_nickname>>. From now on you get to be our personal whore. You are going to have so much fun with us. Now, what do you say? Or we will tell the whole school what a whore you are."' 
+			'Head spinning, you find yourself back on your knees, and quickly realize the boys weren''t finished. Hot cum and laughter rains down on you. You make a final effort to finish what you started. You open wide for your boys and smile up at them seeking approval. After you have milked the last drop from each of them. Dan pats you on the head and says: "What a good little slut you are <<$pcs_nickname>>. From now on you get to be our personal whore. You are going to have so much fun with us. Now, what do you say? Or we will tell the whole school what a whore you are."' 
 			'You gaze up at him, with your <<$pcs_eyecol>> eyes open wide as saucers and whisper, "Thank you."'
 			'Dan continues: "For your first official duty you will lick me clean"'
 			'With some hesitation and maybe a little excitement you bend down and lick Dan''s cock clean, occasionally moving to gently suckle on the tip'
@@ -791,7 +792,7 @@ if $ARGS[0] = 'view_pornotv_evgr':
 		'<center><video autoplay loop src="images/locations/pavlovsk/resident/apartment/shulginhome/tv/tvporn'+rand(1,5)+'.mp4" width="748" height="540"></video></center> You switched to porn channel.'
 		'The guys getting excited watching porn with you.'
 		'Vasily asks if you would like to help them get some relief.'
-		'Everyone''s  eyes are fixed on you, as they await your answer.'
+		'Everyone''s eyes are fixed on you, as they await your answer.'
 		if pav_slut < 75 or kotovLoveQW > 0: 
 			act 'Flee the scene': gt 'shulga_room', 'start'
 		else
@@ -813,7 +814,7 @@ if $ARGS[0] = 'view_pornotv_evgr':
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/shulginhome/bigroom/tv_ev/sex_group/bj'+rand(1,13)+'.jpg"></center>'
 				'When you nod yes, the boys start laughing and get their dicks out and form a pinwheel of flesh around your mouth. You roll your eyes and smile saying: "One at a time at boys. I would tell you to settle down, but I think we''re well past that."'
 				'You decide to reward Vitek for his patience by slowly licking him from base to tip, before wrapping your <<$liptalk3>> lips around him. For a good five minutes you slowly suck, savoring the taste his hard cock.' 
-				'Eventually Dan and Vasily get their turns too. While dutifully sucking away at one boy,  you worked your hands on whoever was waiting, doing your best to make sure nobody felt left out.'
+				'Eventually Dan and Vasily get their turns too. While dutifully sucking away at one boy, you worked your hands on whoever was waiting, doing your best to make sure nobody felt left out.'
 				if pav_slut >= 75 and pcs_horny < 30 or pav_slut < 75:
 
 					act 'Open wide and stick out your tongue':

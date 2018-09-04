@@ -155,7 +155,7 @@ else
 	bimbocl = 0
 end
 
-bimbo += snapshotY
+if $cheatBimbo ! '<b>ON</b>': bimbo += snapshotY
 
 !!Once bimbolevel is set to 1, must use the withdrawal in stat to return to 0
 if bimbo > 0 or bimbolevel > 0:

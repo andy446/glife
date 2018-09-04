@@ -144,7 +144,7 @@ if hour >= 8 and hour <= 22:'You can see the <a href="exec:$locM = ''pavResident
 !	'.'
 !end
 
-'The town surrounds the old palace grounds which are now a large <a href="exec:minut += 5 & gt ''gskver'', ''start''">public park</a>, close to the residential area is the <a href="exec:gt ''glake''">lake</a>.'
+'The town surrounds the old palace grounds which are now a large <a href="exec:minut += 5 & gt ''gskver'', ''start''">public park</a>, close to the residential area is the <a href="exec: minut += 5 & gt ''glake''">lake</a>.'
 
 'The town square features a <a href="exec: minut += 2 & gt ''gdk''">community center</a><<$schoolname>>'
 

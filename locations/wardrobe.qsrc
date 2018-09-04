@@ -315,6 +315,7 @@ if $ARGS[0] = 'sports_entry_wear':
 
 	if dyneval('RESULT = coat[<<sportscoat>>]') = 0: sportscoat = 0
 	defaultcoat = sportscoat
+	minut += 2
 	gs 'stat'
 
 	!! do not own this clothing anymore
@@ -401,6 +402,7 @@ if $ARGS[0] = 'prev_entry_wear':
 	$currentpursetype = $prevsportspursetype 
 	currentpursenumber = prevsportspursenumber 
 	defaultcoat = prevsportscoat 
+	minut += 2
 	gs 'stat'
 	act 'Return': 
 		if $wloc = 'wardrobe':

@@ -109,9 +109,18 @@ if $ARGS[0] = 'redlight':
 	gs 'stat'
 	'<center><h2>St. Petersburg</h2></center>'
 	'<center><b>Red Light District</b></center>'
-	'The <a href="exec:gt ''stripclub'', ''start''">Strip Clubs</a> red lights, attracting men from all over the city.'
-	if pornstudio >= 1 and hour >= 10 and hour < 22:'At the <a href="exec:gt ''pornstudio'', ''start''">Porn Studio</a>, where a variety of naughty movies are created'
-	'A shop for <a href="exec:gt ''sexshop'', ''start''">sex toys</a> is open for perverts from all around the city.'
+	
+	if hour >= 18 or hour < 2:
+		'The <a href="exec:gt ''stripclub'', ''start''">Strip Clubs</a> red lights, attracting men from all over the city.'
+	else
+		'The <a href="exec:msg ''The Strip Club is closed for the day and will reopen at 18:00''">Strip Clubs</a> red lights, attracting men from all over the city.'
+	end
+	if pornstudio >= 1 and hour >= 10 and hour < 22:
+		'At the <a href="exec:gt ''pornstudio'', ''start''">Porn Studio</a>, where a variety of naughty movies are created'
+	elseif pornstudio >= 1 and (hour < 10 or hour >= 22):
+		'At the <a href="exec:msg ''The Porn Studio is closed for the day and will reopen at 10:00''">Porn Studio</a>, where a variety of naughty movies are created'
+	end
+	'A shop for <a href="exec:gt ''sexshop'', ''start''">Sex Toys</a> is open for perverts from all around the city.'
 	if bordel > 0 and hour >= 20 or bordel > 0 and hour <= 3:'Inside the courtyard is the entrance to the <a href="exec:gt ''bordel''">brothel</a>.'
 
 	act 'Return to the Industrial Region (0:05)': minut += 5 & gt 'Nord'

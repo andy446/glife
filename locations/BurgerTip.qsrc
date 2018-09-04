@@ -53,7 +53,7 @@ if $ARGS[0] = 'work':
 					if PSBBtimes = 1:
 						act 'Have your lunch': gt 'burgerWork', 'work'
 					elseif PSBBtimes = 2:
-						act 'Have your lunch': gs 'burgerWork', 'work2'
+						act 'Leave work': gs 'burgerWork', 'work2'
 					end
 				end
 			elseif bossrand = 1:
@@ -74,7 +74,7 @@ if $ARGS[0] = 'work':
 						if PSBBtimes = 1:
 							act 'Have your lunch': gt 'burgerWork', 'work'
 						elseif PSBBtimes = 2:
-							act 'Have your lunch': gs 'burgerWork', 'work2'
+							act 'Leave work': gs 'burgerWork', 'work2'
 						end
 					end
 				end
@@ -97,7 +97,7 @@ if $ARGS[0] = 'work':
 						if PSBBtimes = 1:
 							act 'Have your lunch': gt 'burgerWork', 'work'
 						elseif PSBBtimes = 2:
-							act 'Have your lunch': gs 'burgerWork', 'work2'
+							act 'Leave work': gs 'burgerWork', 'work2'
 						end
 					end
 				end
@@ -126,27 +126,29 @@ if $ARGS[0] = 'work':
 					gs 'stat'
 					
 					act 'Suck his dick': gt 'BurgerTip', 'bj'
-
-					act 'Have sex':
-						*clr&cla
-						gs 'stat'
-						'<center><img <<$set_imgh>> src="images/characters/city/anatoly/sex/bossex2.jpg"></center>'
-						'Anatoly puts you on your back, and begins to undress you. His kisses and his hands run all over your body, soon his hand finds it''s way between your legs.'
-
-						bosstipsexrand = rand(1, 10)
-
-						gs 'arousal', 'vaginal_finger', 5, 'sub'
-						gs 'stat'
 					
-						if bosstipsexrand >= 3:
-							act 'Moan': gt 'BurgerTip', 'sex2'
-						elseif bosstipsexrand < 3:
-							'His hand goes further finding your sphincter with one of his fingers. The probing of his finger leaves no doubt about what he wants.'
-							
-							gs 'arousal', 'anal_finger', 5, 'sub'
+					if pcs_vag > 0 or pcs_ass > 0:
+						act 'Have sex':
+							*clr&cla
+							gs 'stat'
+							'<center><img <<$set_imgh>> src="images/characters/city/anatoly/sex/bossex2.jpg"></center>'
+							'Anatoly puts you on your back, and begins to undress you. His kisses and his hands run all over your body, soon his hand finds it''s way between your legs.'
+
+							bosstipsexrand = rand(1, 10)
+
+							gs 'arousal', 'vaginal_finger', 5, 'sub'
 							gs 'stat'
 						
-							act 'Take it in the ass':gt 'BurgerTip', 'anal2'
+							if bosstipsexrand >= 3:
+								act 'Moan': gt 'BurgerTip', 'sex2'
+							elseif bosstipsexrand < 3:
+								'His hand goes further finding your sphincter with one of his fingers. The probing of his finger leaves no doubt about what he wants.'
+								
+								gs 'arousal', 'anal_finger', 5, 'sub'
+								gs 'stat'
+							
+								act 'Take it in the ass':gt 'BurgerTip', 'anal2'
+							end
 						end
 					end
 				end
@@ -186,7 +188,7 @@ if $ARGS[0] = 'work':
 			if bosstiprand = 0:
 				TerminalPapper = 1
 				DayTerminalPapper = daystart
-				'Anatoly comes out of the office, and asks, "<<$pcs_nickname>>, I know it''s lunch time, but I really need these documents taken to the storage terminal in the city industrial area to be signed." I''ll give you the rest of the day off if you take care of it for me," he finishes, with a smile.'
+				'Anatoly comes out of the office, and asks, "<<$pcs_nickname>>, I know it''s lunch time, but I really need these documents taken to the storage terminal in the city industrial area to be signed. I''ll give you the rest of the day off if you take care of it for me," he finishes, with a smile.'
 
 				act 'Deliver the papers':gt 'down'
 			elseif bosstiprand = 1:
@@ -200,14 +202,14 @@ if $ARGS[0] = 'work':
 					if PSBBtimes = 1:
 						act 'Have your lunch': gt 'burgerWork', 'work'
 					elseif PSBBtimes = 2:
-						act 'Have your lunch': gs 'burgerWork', 'work2'
+						act 'Leave work': gs 'burgerWork', 'work2'
 					end
 				end
 
 			elseif bosstiprand = 2:
 				BankPapper = 1
 				dayBankPapper = daystart
-				'Anatoly comes out of the office, and says, "<<$pcs_nickname>>, please run these documents to the bank for me. There''s a cookie it for you if you do," he finishes.'
+				'Anatoly comes out of the office, and says, "<<$pcs_nickname>>, please run these documents to the bank for me. I''ll give you the rest of the day off if you take care of it for me," he finishes, with a smile.'
 
 				act 'Go to the bank':gt 'down'
 			elseif bosstiprand = 3:
@@ -230,7 +232,7 @@ if $ARGS[0] = 'work':
 					if PSBBtimes = 1:
 						act 'Have your lunch': gt 'burgerWork', 'work'
 					elseif PSBBtimes = 2:
-						act 'Have your lunch': gs 'burgerWork', 'work2'
+						act 'Leave work': gs 'burgerWork', 'work2'
 					end
 				end
 			end
@@ -251,7 +253,7 @@ if $ARGS[0] = 'work':
 						if PSBBtimes = 1:
 							act 'Have your lunch': gt 'burgerWork', 'work'
 						elseif PSBBtimes = 2:
-							act 'Have your lunch': gs 'burgerWork', 'work2'
+							act 'Leave work': gs 'burgerWork', 'work2'
 						end
 					end
 
@@ -273,7 +275,7 @@ if $ARGS[0] = 'work':
 							if PSBBtimes = 1:
 								act 'Have your lunch': gt 'burgerWork', 'work'
 							elseif PSBBtimes = 2:
-								act 'Have your lunch': gs 'burgerWork', 'work2'
+								act 'Leave work': gs 'burgerWork', 'work2'
 							end
 						end
 
@@ -314,7 +316,7 @@ if $ARGS[0] = 'work':
 					if PSBBtimes = 1:
 						act 'Have your lunch': gt 'burgerWork', 'work'
 					elseif PSBBtimes = 2:
-						act 'Have your lunch': gs 'burgerWork', 'work2'
+						act 'Leave work': gs 'burgerWork', 'work2'
 					end
 
 				elseif bburand = 2:
@@ -325,7 +327,7 @@ if $ARGS[0] = 'work':
 					if PSBBtimes = 1:
 						act 'Have your lunch': gt 'burgerWork', 'work'
 					elseif PSBBtimes = 2:
-						act 'Have your lunch': gs 'burgerWork', 'work2'
+						act 'Leave work': gs 'burgerWork', 'work2'
 					end
 				elseif bburand = 3:
 					'The the personnel manager Vick comes into the office looking for the boss. When you tell her he is gone, she mutters something about personnel, and walks out'
@@ -333,7 +335,7 @@ if $ARGS[0] = 'work':
 					if PSBBtimes = 1:
 						act 'Have your lunch': gt 'burgerWork', 'work'
 					elseif PSBBtimes = 2:
-						act 'Have your lunch': gs 'burgerWork', 'work2'
+						act 'Leave work': gs 'burgerWork', 'work2'
 					end
 				elseif bburand > 3:
 					'With some free time at in the office alone, you screw around on the computer. The first thing you do is check for any updates on TFgamessite, disappointed you play solitaire instead.'
@@ -341,7 +343,7 @@ if $ARGS[0] = 'work':
 					if PSBBtimes = 1:
 						act 'Have your lunch': gt 'burgerWork', 'work'
 					elseif PSBBtimes = 2:
-						act 'Have your lunch': gs 'burgerWork', 'work2'
+						act 'Leave work': gs 'burgerWork', 'work2'
 					end
 				end
 			elseif bosstiprand = 1:
@@ -372,7 +374,7 @@ if $ARGS[0] = 'work':
 							elseif SaunaWhore = 0:
 								'You head into the sauna, and up to your luxury room. Anatoly doesn''t waste anytime undressing, and motions for you to do the same. When you are both naked, he motions for you to come to him. You know just what to do.'
 
-								act 'Drop to you knees':
+								act 'Drop to your knees':
 									*clr&cla
 									gs 'stat'
 									'<center><img <<$set_imgh>> src="images/characters/city/anatoly/sex/bossbjs.jpg"></center>'
@@ -380,7 +382,13 @@ if $ARGS[0] = 'work':
 
 									gs 'arousal', 'bj', 5, 'sub'
 									gs 'stat'
-						
+									
+									if pcs_vag = 0:
+										'Wait! You''ve never had sex before!'
+										'Anatoly grins and says, "It''s not that big of a deal just lay down on this bench and relax. All secretaries do it for their bosses from time to time."'
+										'He continues, "Now just spread your legs a little. I promise you''ll enjoy this, just maybe not as much as me."'
+									end
+									
 									act 'Further':
 										*clr&cla
 										minut += 5
@@ -414,7 +422,7 @@ if $ARGS[0] = 'work':
 										protect = 0
 										sexcontra = 0
 										dynamic 'showerdin'
-										'You head to the shower to wash up. When you return, you see that he is already dressed. "<<$pcs_nickname>>, I''ve got to run, but you were great baby," he says, giving you a kiss before he leaves.'
+										'You head to the shower to wash up. When you return, you see that he is already dressed."<<$pcs_nickname>>, I''ve got to run, but you were great baby," he says, giving you a kiss before he leaves.'
 
 										gs 'arousal', 'vaginal', 15, 'sub'
 										gs 'arousal', 'end'
@@ -468,7 +476,7 @@ if $ARGS[0] = 'work':
 					if PSBBtimes = 1:
 						act 'Have your lunch': gt 'burgerWork', 'work'
 					elseif PSBBtimes = 2:
-						act 'Have your lunch': gs 'burgerWork', 'work2'
+						act 'Leave work': gs 'burgerWork', 'work2'
 					end
 				end
 			elseif bosstiprand = 3:
@@ -496,7 +504,7 @@ if $ARGS[0] = 'work':
 			if PSBBtimes = 1:
 				act 'Have your lunch': gt 'burgerWork', 'work'
 			elseif PSBBtimes = 2:
-				act 'Have your lunch': gs 'burgerWork', 'work2'
+				act 'Leave work': gs 'burgerWork', 'work2'
 			end
 		end
 
@@ -509,7 +517,7 @@ if $ARGS[0] = 'work':
 		if PSBBtimes = 1:
 			act 'Have your lunch': gt 'burgerWork', 'work'
 		elseif PSBBtimes = 2:
-			act 'Have your lunch': gs 'burgerWork', 'work2'
+			act 'Leave work': gs 'burgerWork', 'work2'
 		end
 
 		exit
@@ -521,7 +529,7 @@ if $ARGS[0] = 'work':
 		if PSBBtimes = 1:
 			act 'Have your lunch': gt 'burgerWork', 'work'
 		elseif PSBBtimes = 2:
-			act 'Have your lunch': gs 'burgerWork', 'work2'
+			act 'Leave work': gs 'burgerWork', 'work2'
 		end
 
 		exit
@@ -531,7 +539,7 @@ if $ARGS[0] = 'work':
 		if PSBBtimes = 1:
 			act 'Have your lunch': gt 'burgerWork', 'work'
 		elseif PSBBtimes = 2:
-			act 'Have your lunch': gs 'burgerWork', 'work2'
+			act 'Leave work': gs 'burgerWork', 'work2'
 		end
 
 		exit
@@ -544,7 +552,7 @@ if $ARGS[0] = 'work':
 			if PSBBtimes = 1:
 				act 'Have your lunch': gt 'burgerWork', 'work'
 			elseif PSBBtimes = 2:
-				act 'Have your lunch': gs 'burgerWork', 'work2'
+				act 'Leave work': gs 'burgerWork', 'work2'
 			end
 		end
 
@@ -587,14 +595,22 @@ if $ARGS[0] = 'bj':
 
 	gs 'arousal', 'bj', 5, 'sub'
 	gs 'stat'
-						
+	
 	if wantrand = 3:
 		'After a short time, Anatoly takes his cock from your mouth and says, "<<$pcs_nickname>>, I want all of you."'
-		act 'Bend over the desk': gt 'BurgerTip', 'bend'
+		if pcs_vag > 0 or pcs_ass > 0:
+			act 'Bend over the desk': gt 'BurgerTip', 'bend'
+		else
+			'Wait! You''ve never had sex before!'
+			'Anatoly grins and says, "It''s not that big of a deal just turn around for me. All secretaries do it for their bosses from time to time."'
+			'He continues, "Now just spread your legs a little. I promise you''ll enjoy this, just maybe not as much as me."'
+			act 'Bend over the desk': gt 'BurgerTip', 'bend'
+		end
 	elseif wantrand = 2:
-		'After a short time, Anatoly groans, "<<$pcs_nickname>> if keep sucking, I''m going to finish"'
-		act 'Bend over the desk': gt 'BurgerTip', 'bend'
-		dynamic $boss_din_bj2
+		'After a short time, Anatoly groans, "<<$pcs_nickname>> if you keep sucking, I''m going to finish"'
+		if pcs_vag > 0 or pcs_ass > 0: act 'Bend over the desk': gt 'BurgerTip', 'bend'
+		act 'Finish him by hand': gt 'BurgerTip', 'bj_cum'
+		act 'Continue to suck': gt 'BurgerTip', 'bj2'
 	elseif wantrand < 2:
 		'After a short time, Anatoly groans loudly. He is obviously about to finish.'
 		act 'Finish him by hand': gt 'BurgerTip', 'bj_cum'
@@ -649,7 +665,7 @@ if $ARGS[0] = 'toilet':
 			if PSBBtimes = 1:
 				act 'Have your lunch': gt 'burgerWork', 'work'
 			elseif PSBBtimes = 2:
-				act 'Have your lunch': gs 'burgerWork', 'work2'
+				act 'Leave work': gs 'burgerWork', 'work2'
 			end
 		end
 	end
@@ -670,7 +686,7 @@ if $ARGS[0] = 'toilet_wash':
 	if PSBBtimes = 1:
 		act 'Have your lunch': gt 'burgerWork', 'work'
 	elseif PSBBtimes = 2:
-		act 'Have your lunch': gs 'burgerWork', 'work2'
+		act 'Leave work': gs 'burgerWork', 'work2'
 	end
 end
 
@@ -689,7 +705,7 @@ if $ARGS[0] = 'toilet_wash2':
 	if PSBBtimes = 1:
 		act 'Have your lunch': gt 'burgerWork', 'work'
 	elseif PSBBtimes = 2:
-		act 'Have your lunch': gs 'burgerWork', 'work2'
+		act 'Leave work': gs 'burgerWork', 'work2'
 	end
 end
 
@@ -701,19 +717,16 @@ if $ARGS[0] = 'bj_cum':
 
 	if reaktrand <= 5:
 		'<center><img <<$set_imgh>> src="images/shared/sex/handjob/bossbjcum.jpg"></center>'
-		'Not wanting a mouth full of cum, you decide to jerk Anatoly to completion. His semen pours out all over your hand. Exhausted, Anatoly lies back breathing heavily.'
+		'Not wanting a mouth full of cum, you decide to jerk Anatoly to completion. His semen pours out all over your hand. Exhausted, Anatoly lies back breathing heavily. You better head to the bathroom to wash your hands off.'
 
 		gs 'arousal', 'hj', 5, 'sub'
 		gs 'stat'
-						
-		if PSBBtimes = 1:
-			act 'Have your lunch': gt 'burgerWork', 'work'
-		elseif PSBBtimes = 2:
-			act 'Have your lunch': gs 'burgerWork', 'work2'
-		end
+		
+		act 'Go to the toilet': gt 'BurgerTip', 'toilet'
 	elseif reaktrand > 5 and reaktrand < 9:
 		spafinloc = 7
 		gs 'cum_manage'
+		
 		'<center><img <<$set_imgh>> src="images/characters/city/anatoly/sex/bossbjcum2.jpg"></center>'
 		'Not wanting a mouth full of cum, you decide to jerk Anatoly to completion. Oh dear, it looks like your clever plan backfired. Anatoly managed to shoot his load all over your pretty outfit. It looks sexy, but you better head to the bathroom before it stains.'
 		
@@ -726,6 +739,7 @@ if $ARGS[0] = 'bj_cum':
 		gs 'cum_manage'
 		spafinloc = 7
 		gs 'cum_manage'
+		
 		'<center><img <<$set_imgh>> src="images/characters/city/anatoly/sex/bossbjcum3.jpg"></center>'
 		'Not wanting a mouth full of cum, you decide to jerk Anatoly to completion. You realize your error when jets of semen splatter against your face and clothes. You manage to get most of it off your face with a tissue, but you better get to the little girls room before it stains your top.'
 		
@@ -760,7 +774,7 @@ if $ARGS[0] = 'bj2':
 			if PSBBtimes = 1:
 				act 'Have your lunch': gt 'burgerWork', 'work'
 			elseif PSBBtimes = 2:
-				act 'Have your lunch': gs 'burgerWork', 'work2'
+				act 'Leave work': gs 'burgerWork', 'work2'
 			end
 		elseif boburand <= 2:
 			spafinloc = 7
@@ -787,7 +801,7 @@ if $ARGS[0] = 'bj2':
 			if PSBBtimes = 1:
 				act 'Have your lunch': gt 'burgerWork', 'work'
 			elseif PSBBtimes = 2:
-				act 'Have your lunch': gs 'burgerWork', 'work2'
+				act 'Leave work': gs 'burgerWork', 'work2'
 			end
 		elseif boburand <= 2:
 			spafinloc = 7
@@ -842,7 +856,7 @@ if $ARGS[0] = 'sex':
 		if PSBBtimes = 1:
 			act 'Have your lunch': gt 'burgerWork', 'work'
 		elseif PSBBtimes = 2:
-			act 'Have your lunch': gs 'burgerWork', 'work2'
+			act 'Leave work': gs 'burgerWork', 'work2'
 		end
 	elseif bosswantrand < 3:
 		'Without warning, Anatoly takes his cock from pussy, and pushes it against your sphincter.'
@@ -871,7 +885,7 @@ if $ARGS[0] = 'anal':
 	if PSBBtimes = 1:
 		act 'Have your lunch': gt 'burgerWork', 'work'
 	elseif PSBBtimes = 2:
-		act 'Have your lunch': gs 'burgerWork', 'work2'
+		act 'Leave work': gs 'burgerWork', 'work2'
 	end
 end
 
@@ -902,7 +916,7 @@ if $ARGS[0] = 'sex2':
 		if PSBBtimes = 1:
 			act 'Have your lunch': gt 'burgerWork', 'work'
 		elseif PSBBtimes = 2:
-			act 'Have your lunch': gs 'burgerWork', 'work2'
+			act 'Leave work': gs 'burgerWork', 'work2'
 		end
 	elseif bosswantrand < 3:
 		'Without warning, Anatoly takes his cock from pussy, and pushes it against your tight little ass.'
@@ -931,7 +945,7 @@ if $ARGS[0] = 'anal2':
 	if PSBBtimes = 1:
 		act 'Have your lunch': gt 'burgerWork', 'work'
 	elseif PSBBtimes = 2:
-		act 'Have your lunch': gs 'burgerWork', 'work2'
+		act 'Leave work': gs 'burgerWork', 'work2'
 	end
 end
 
@@ -952,7 +966,7 @@ if $ARGS[0] = 'Ivan_work':
 			if PSBBtimes = 1:
 				act 'Have your lunch': gt 'burgerWork', 'work'
 			elseif PSBBtimes = 2:
-				act 'Have your lunch': gs 'burgerWork', 'work2'
+				act 'Leave work': gs 'burgerWork', 'work2'
 			end
 
 			act 'Plead with him not to show the pictures':gs 'BurgerTip', 'ivan_work2'
@@ -997,7 +1011,7 @@ if $ARGS[0] = 'Ivan_work2':
 				if PSBBtimes = 1:
 					act 'Have your lunch': gt 'burgerWork', 'work'
 				elseif PSBBtimes = 2:
-					act 'Have your lunch': gs 'burgerWork', 'work2'
+					act 'Leave work': gs 'burgerWork', 'work2'
 				end
 			end
 		end
@@ -1018,7 +1032,7 @@ if $ARGS[0] = 'Ivan_work3':
 	if PSBBtimes = 1:
 		act 'Have your lunch': gt 'burgerWork', 'work'
 	elseif PSBBtimes = 2:
-		act 'Have your lunch': gs 'burgerWork', 'work2'
+		act 'Leave work': gs 'burgerWork', 'work2'
 	end
 end
 

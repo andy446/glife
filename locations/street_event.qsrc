@@ -132,7 +132,7 @@ if $ARGS[1] = 'main':
 	!!Changing this event some and rewriting parts of it. I also want to change how often and when it can happen, based on clothes, time and if drunk. If drunk double the odds and for time it can happen from 24:00 to 04:00. This gets checked last after any other events could happen.
 	!!town(pav or pushkin) normal clothes 1 in 50, if drunk 1 in 25. slutty clothes(clothes that cover everything but very short skirts revealing tops etc) 1 in 30, if drunk 1 in 15. bimbo/exhibitionist clothes 1 in 20, if drunk 1 in 10. naked 1 in 5, if drunk 1 in 2
 	!!city normal clothes 1 in 40, if drunk 1 in 20. slutty clothes(clothes that cover everything but short skirts revealing tops etc) 1 in 20, if drunk 1 in 10, bimbo/exhibitionist clothes 1 in 10, if drunk 1 in 5. naked 1 in 2, if drunk always
-	if $loc = 'pavResidential' and $loc = 'pavCommercial':
+	if $loc = 'pavResidential' or $loc = 'pavCommercial':
 		if $clothingworntype = 'nude':
 			if alko >= 6:
 				streetev_rape = 50

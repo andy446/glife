@@ -255,10 +255,15 @@ $cheatmenu['Vibrator'] = {
 }
 
 $cheatmenu['BimboCloth'] = {
-	if $cheatBimbo = '<b>ON</b>':
-		$cheatBimbo = 'OFF'
-	elseif $cheatBimbo = 'OFF':
-		$cheatBimbo = '<b>ON</b>'
+	if cheatBimbo = 0:
+		cheatBimbo = 1
+		dynamic $cheatmenu['permanent']
+		bimbo = 0
+		bimbolevel = 0
+		bimbowithdrawal = 0
+	elseif cheatBimbo = 1:
+		cheatBimbo = 0
+		dynamic $cheatmenu['permanent']	
 	end
 }
 
@@ -298,7 +303,8 @@ $cheatmenu['permanent'] = {
 	if cheatBandit = 1:$cheatBandit = 'Currently ON'
 	if cheat_NoPregnancy = 0:$cheat_NoPregnancy = 'Currently OFF'
 	if cheat_NoPregnancy = 1:$cheat_NoPregnancy = 'Currently ON'
-	if $cheatBimbo = '':$cheatBimbo = 'Currently OFF'
+	if cheatBimbo = 0:$cheatBimbo = 'Currently OFF'
+	if cheatBimbo = 1:$cheatBimbo = 'Currently ON'
 
 	'<center><h1>Cheat Menu - Recurrent Cheats</h1></center>'
 	'<center><table cellspacing="0" cellpadding="20" valign="top"><tr>'
@@ -323,7 +329,7 @@ $cheatmenu['permanent'] = {
 
 	'Enable sleeping with vibrator inserted: <a href="exec:dynamic $cheatmenu[''Vibrator'']"><<$cheatVib>></a>'
 	'Bandit always horny: <a href="exec:dynamic $cheatmenu[''Bandit'']"><<$cheatBandit>></a>'
-	'Bimbo clothing without becoming bimbo: <a href="exec:dynamic $cheatmenu[''BimboCloth''] & dynamic $cheatmenu[''permanent'']"><<$cheatBimbo>></a>'
+	'Remove the bimbo trait and the effects of wearing bimbo clothes: <a href="exec:dynamic $cheatmenu[''BimboCloth'']"><<$cheatBimbo>></a>'
 	*nl
 	'Set arousal to always be at 50 or more: <a href="exec:dynamic $cheatmenu[''cheatHorny'']"><<$cheatHorny>></a>'
 	'Turn off periods (and pregnancies): <a href="exec:dynamic $cheatmenu[''slutshot'']"><<$cheatSlut>></a>'

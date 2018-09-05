@@ -1,7 +1,6 @@
 # stripclub
 if $ARGS[0] = 'start':
 	cla
-	clr
 	*clr
 	minut += 5
 	gs 'stat'
@@ -20,9 +19,8 @@ if $ARGS[0] = 'start':
 	if hour = 2:
 		'The strip club is closing and security guard ushers everyone out.'
 	elseif hour > 2 and hour < 11:
-		'The strip club is closed. You notice a sign on the door: The business hours are between 15 - 02.'
-	else
-		
+		'The strip club is closed. You notice a sign on the door: The business hours are between 18:00 - 02:00.'
+	else	
 		if stripdolg > 0:
 			if money >= 50000:
 				act 'Pay off your fine (50,000 <b>₽</b>)':

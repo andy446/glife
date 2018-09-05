@@ -106,9 +106,9 @@ if $ARGS[0] = 'description_real_character':
 	if birthday = 0: birthday = 1
 	cls
 	'<center><b><font color = maroon>CHARACTER CUSTOMIZATION</font></b></center>'
-	'<center><img <<$set_imgh>> src="images/pre/shared/character_creation_pic1.jpg"></center>'
+	'<center><img HEIGHT = 478 src="images/avatar.jpg"></center>'
 	*nl
-	'<center>On this screen, you may adjust your character''s description to match your <a href="exec:view''images/avatar.jpg''">avatar</a>. Please note, at present, hair color and glasses choice may be overridden by the personality choice you make during the game intro.</center>'
+	'<center>On this screen, you may adjust your character''s description to match your avatar. Please note, at present, hair color and glasses choice may be overridden by the personality choice you make during the game intro.</center>'
 	*nl
 	'<center>Customize your:</center>'
 	!'<center>Your name is <B><i><<$pcs_nickname>> <<$pcs_lastname>></B></i>. (You may change this during the intro, and also at the passport office in-game.)'

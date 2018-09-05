@@ -14,7 +14,7 @@ if $ARGS[0] = '' or $ARGS[0] = 'sex':
 	
 	gs 'arousal', 'kiss', 5, 'sub', 'prostitution'
 	gs 'arousal', 'foreplay', 5, 'sub', 'prostitution'
-	minut =- 5
+	minut -= 5
 	gs 'stat'
 	
 	belybj = rand(0,2)

@@ -144,7 +144,7 @@ if coatH[defaultcoat] <= 0: defaultcoat = 0
 !!------------------------------------------------------------------------------------------------------------
 
 !!Bonus from clothing and shoes
-if succubusflag = 0 and $cheatBimbo ! '<b>ON</b>':
+if succubusflag = 0 and cheatBimbo = 0:
 	if bimbocl = 1:
 		snapshotY += 2
 	end
@@ -155,7 +155,7 @@ else
 	bimbocl = 0
 end
 
-bimbo += snapshotY
+if cheatBimbo = 0: bimbo += snapshotY
 
 !!Once bimbolevel is set to 1, must use the withdrawal in stat to return to 0
 if bimbo > 0 or bimbolevel > 0:

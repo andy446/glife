@@ -1095,7 +1095,9 @@ if $ARGS[0] = 'hand_milking':
 		milkedvolume = func('lact_lib','$get_breastmilk', 5, pumptime)
 		minut += pumptime
 	else
-		'You start to massage your breasts, your fingers gliding down your breasts skin, over the areolas. Your fingers pressing down into the areola, stretching it forwards to your nipple.'
+		'You start to massage your breasts, your fingers gliding down your breasts skin, over the areolas. Your fingers pressing down into the areola, stretching it forwards to your nipple,'
+		'kneading your breasts as well.'
+		'<center><video autoplay loop src="images/pc/body/tits/bathroom_massage.mp4"></video></center>'		
 		milkedvolume = func('lact_lib','$get_breastmilk', 5, pumptime)
 		minut += pumptime
 	end

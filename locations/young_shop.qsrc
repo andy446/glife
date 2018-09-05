@@ -470,11 +470,33 @@ end
 if $ARGS[0] = '11':
 	*clr
 	cla
+	i = rand(1, ARRSIZE('average'))
 	'<b><center><font size="4"><font color="black">Employee Perks</font></center></b>'
 	'"<<$pcs_nickname>>, look here," Nastya approaches you. "I''ve got a nice, new blouse but it''s got a slight defect. The manager is just going to put it in the <b>70%</b> off discount bin, but maybe you want to take it yourself?"'
 	'The store is selling it for <b>2400₽</b> , but you can buy it for <b>720₽</b>.'
-
-	act 'Finish your shift':gt 'young_shop', 'endwork'
+	if average[i] = 1:
+		*nl
+		'You look at the outfit and realise its one you already own. "Thanks hon but I have that same outfit already"'
+		act 'Finish your shift':gt 'young_shop', 'endwork'
+	else
+		if money >= 720:
+			act 'Buy the outfit Kats #<<i>> (<b>720₽</b>)':
+				cla
+				money -= 720
+				average[i] = 1
+				averageH[i] = 50
+				averageB[i] = pcs_hips
+				averageS[i] = 0
+				*nl
+				'You hand over the money for the slightly less than perfect outfit, its not going to last you as long as the stitching has a flaw but you still got quite a bargain.'
+				act 'Finish your shift':gt 'young_shop', 'endwork'
+			end
+		else
+			*nl
+			'You don''t have the cash on you so you can''t take her up on this offer.'
+			act 'Finish your shift':gt 'young_shop', 'endwork'
+		end
+	end
 end
 
 if $ARGS[0] = '12':
@@ -667,18 +689,23 @@ if $ARGS[0] = '15':
 	cla
 	*clr
 	'<b><center><font size="4"><font color="black">The Shirt Off Her Back</font></center></b>'
-	'You go to the changing booths and find that someone has left a shirt behind. You remember that it belongs to a girl who just 5 minutes ago bought a blouse and left the store. Apparently, she decided she no longer needs the t-shirt and just left it in the booth.'
-	'You decide to wait until the end of the shift, as the shopper may return. An hour passes and your shift ends, but nobody comes for the shirt. You carefully look at it: it is an ordinary shirt, almost new, no holes, fairly clean. Could you just keep it for yourself?'
+	'You go to the changing booths and find that someone has left an outfit behind. You remember that it belongs to a girl who just 5 minutes ago bought an outfit and left the store. Apparently, she decided she no longer needs this and just left it in the booth.'
+	'You decide to wait until the end of the shift, as the shopper may return. An hour passes and your shift ends, but nobody comes for it. You carefully look at it: it is an ordinary outfit from G&M, almost new, no holes, fairly clean. Could you just keep it for yourself?'
 
 	act 'Keep it':
 		cla
-		'Before leaving, you take the shirt with you. The girl didn''t seem to want it, and you''re not about to throw away fairly new clothing. Your mother raised you better than that!'
+		i = (1, ARRSIZE('cheap'))
+		'Before leaving, you take the oufit with you. The girl didn''t seem to want it, and you''re not about to throw away fairly new clothing. Your mother raised you better than that!'
 
 		! WD: Uninitialised ~ 'wear_chest_have_'
-		if wear_chest_have_[6] = 0:
-			'no action'
+		if cheap[i] = 0:
+			*nl
+			'<b>However, it occurs to you that you already have this outfit. You decide to leave it behind in the store. Perhaps it could be resold? Your boss will love you for that!</b>'
 		else
-			'<b>However, it occurs to you that you already have this shirt. You decide to leave the shirt behind in the store. Perhaps it could be resold? Your boss will love you for that!</b>'
+			cheap[i] = 1
+			cheapH[i] = 50
+			cheapB[i] = pcs_hips
+			cheapS[i] = 0
 		end
 
 		act 'Finish your shift':gt 'young_shop', 'endwork'

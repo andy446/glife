@@ -625,10 +625,31 @@ if $ARGS[0] = 'referral':
 	*nl
 	if GspravkaT = 0 and GspravkaTimes >= 3 and hour >= 6 and hour <= 21:
 		npc_rel['A29'] -= 1
-		'Your mother frowns and gets her handbag: "<<$pcs_nickname>>, why haven''t you been to the gynaecologist like I asked you to? You don''t have anything to hide, do you? Come on, we''re going there right now." Your mother takes you by the hand and leads you to the clinic, ushering you into the gynaecologist''s office.'
-
-		act 'Get a referral from the gynaecologist':
-			gt 'gpoli', 'referral'
+		if $clothingworntype ! 'nude':
+			'Your mother frowns and gets her handbag: "<<$pcs_nickname>>, why haven''t you been to the gynaecologist like I asked you to? You don''t have anything to hide, do you? Come on, we''re going there right now." Your mother takes you by the hand and leads you to the clinic, ushering you into the gynaecologist''s office.'
+			act 'Get a referral from the gynaecologist':
+				gt 'gpoli', 'referral'
+			end
+		else
+			'Your mother frowns and gets her handbag: "<<$pcs_nickname>>, why haven''t you been to the gynaecologist like I asked you to? You don''t have anything to hide, do you? Come on, we''re going there right now, go and get yourself dressed!" '
+			act 'Hurry to your room and get dressed':
+				*clr & cla
+				'<center><b><font color="maroon">Your bedroom</font></b></center>'
+				'<center><video autoplay loop src="images/locations/city/citycenter/photo/dress.mp4"></video></center>'
+				*nl
+				'You rush to your room and get dressed, ready to go with your mother to the gynaecologist'
+				gs 'clothing', 'wear_last_worn'
+				act 'Continue':
+					*clr & cla
+					'<center><b><font color="maroon">Your mother, Natasha <<$pcs_lastname>></font></b></center>'
+					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/mother.jpg"></center>'
+					*nl
+					'Your mother takes you by the hand and leads you to the clinic, ushering you into the gynaecologist''s office.'
+					act 'Get a referral from the gynaecologist':
+						gt 'gpoli', 'referral'
+					end
+				end
+			end
 		end
 
 	elseif GspravkaT = 0 and GspravkaTimes < 3:

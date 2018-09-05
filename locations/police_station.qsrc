@@ -24,24 +24,40 @@ if $ARGS[0] = 'entrance':
 	!first time offender, event where Sveta gets caught stealing
 	!need to add a variable to store that Sveta has been brought into the police station
 	if shplft_booked + prst_booked = 0:
-		gt 'police_station', 'first'
+		if $ARGS[1] = 'shplft':
+			gs 'police_station', 'first', 'shplft'
+		else
+			gs 'police_station', 'first', 'prst'
+		end
 	elseif shplft_booked + prst_booked < 6:
-		gt 'police_station', 'repeat'
+		if $ARGS[1] = 'shplft':
+			gs 'police_station', 'repeat', 'shplft'
+		else
+			gs 'police_station', 'repeat', 'prst'
+		end
 	elseif shplft_booked + prst_booked < 11:
-		gt 'police_station', 'multiple'
+		if $ARGS[1] = 'shplft':
+			gs 'police_station', 'multiple', 'shplft'
+		else
+			gs 'police_station', 'multiple', 'prst'
+		end
 	else
-		gt 'police_station', 'regular'
+		if $ARGS[1] = 'shplft':
+			gs 'police_station', 'regular', 'shplft'
+		else
+			gs 'police_station', 'regular', 'prst'
+		end 
 	end
 end
 
 if $ARGS[0] = 'first':
-	if ARGS[1] = 'shplft':
+	if $ARGS[1] = 'shplft':
 		shplft_booked += 1
 		shplft_tmp = 1
 
 		if toldonguard = 2:
 			!! if had sex with the security guard but still got arrested
-			*clr & cla
+			cla
 			minut += 2
 			gs 'pain', 2, 'armR', 'pinch'
 			gs 'stat'
@@ -55,7 +71,7 @@ if $ARGS[0] = 'first':
 
 		elseif grupTipe = 4:
 			!else if gopnik
-			*clr & cla
+			cla
 			minut += 2
 			gs 'pain', 2, 'armR', 'pinch'
 			gs 'stat'
@@ -70,7 +86,7 @@ if $ARGS[0] = 'first':
 
 		elseif hotcat > 7:
 			!else if beautiful
-			*clr & cla
+			cla
 			minut += 2
 			gs 'pain', 2, 'armR', 'pinch'
 			gs 'stat'
@@ -84,7 +100,7 @@ if $ARGS[0] = 'first':
 
 		elseif hotcat < 3:
 			!else if ugly
-			*clr & cla
+			cla
 			minut += 2
 			gs 'pain', 2, 'armR', 'pinch'
 			gs 'stat'
@@ -98,7 +114,7 @@ if $ARGS[0] = 'first':
 
 		else
 			!if plain looking
-			*clr & cla
+			cla
 			minut += 2
 			gs 'pain', 2, 'armR', 'pinch'
 			gs 'stat'
@@ -110,14 +126,14 @@ if $ARGS[0] = 'first':
 
 			act 'Continue further in':gt 'police_station', 'booking'
 		end
-	elseif ARGS[1] = 'prst':
+	elseif $ARGS[1] = 'prst':
 		prst_booked += 1
 		prst_tmp = 1
 
 		if hotcat < 3:
 			!Prostitute event, this will be an continuation to the prostitute events that happened earlier
 			!if ugly
-			*clr & cla
+			cla
 			minut += 2
 			gs 'pain', 2, 'armR', 'pinch'
 			gs 'stat'
@@ -128,7 +144,7 @@ if $ARGS[0] = 'first':
 
 
 			!else if plain
-			*clr & cla
+			cla
 			minut += 2
 			gs 'pain', 2, 'armR', 'pinch'
 			gs 'stat'
@@ -139,7 +155,7 @@ if $ARGS[0] = 'first':
 
 
 			!else if beautiful
-			*clr & cla
+			cla
 			minut += 2
 			gs 'pain', 2, 'armR', 'pinch'
 			gs 'stat'
@@ -153,7 +169,7 @@ if $ARGS[0] = 'first':
 
 
 			!else if ugly and bribed the officer with money
-			*clr & cla
+			cla
 			minut += 2
 			gs 'pain', 2, 'armR', 'pinch'
 			gs 'stat'
@@ -164,7 +180,7 @@ if $ARGS[0] = 'first':
 
 
 			!else if plain and bribed the officer with money
-			*clr & cla
+			cla
 			minut += 2
 			gs 'pain', 2, 'armR', 'pinch'
 			gs 'stat'
@@ -175,7 +191,7 @@ if $ARGS[0] = 'first':
 
 
 			!else if beautiful and bribed the officer with money
-			*clr & cla
+			cla
 			minut += 2
 			gs 'pain', 2, 'armR', 'pinch'
 			gs 'stat'
@@ -186,7 +202,7 @@ if $ARGS[0] = 'first':
 
 
 			!else if ugly and bribed the officer with sex
-			*clr & cla
+			cla
 			minut += 2
 			gs 'pain', 2, 'armR', 'pinch'
 			gs 'stat'
@@ -198,7 +214,7 @@ if $ARGS[0] = 'first':
 
 
 			!else if plain and bribed the officer with sex
-			*clr & cla
+			cla
 			minut += 2
 			gs 'pain', 2, 'armR', 'pinch'
 			gs 'stat'
@@ -210,7 +226,7 @@ if $ARGS[0] = 'first':
 
 
 			!else if beautiful and bribed the officer with sex
-			*clr & cla
+			cla
 			minut += 2
 			gs 'pain', 2, 'armR', 'pinch'
 			gs 'stat'
@@ -226,10 +242,10 @@ end
 
 
 if $ARGS[0] = 'repeat':
-	if ARGS[1] = 'shplft':
+	if $ARGS[1] = 'shplft':
 		shplft_booked += 1
 		shplft_tmp = 1
-	elseif ARGS[1] = 'prst':
+	elseif $ARGS[1] = 'prst':
 		prst_booked += 1
 		prst_tmp = 1
 	end
@@ -290,10 +306,10 @@ if $ARGS[0] = 'repeat':
 end
 
 if $ARGS[0] = 'multiple':
-	if ARGS[1] = 'shplft':
+	if $ARGS[1] = 'shplft':
 		shplft_booked += 1
 		shplft_tmp = 1
-	elseif ARGS[1] = 'prst':
+	elseif $ARGS[1] = 'prst':
 		prst_booked += 1
 		prst_tmp = 1
 	end
@@ -352,10 +368,10 @@ if $ARGS[0] = 'multiple':
 end
 
 if $ARGS[0] = 'regular':
-	if ARGS[1] = 'shplft':
+	if $ARGS[1] = 'shplft':
 		shplft_booked += 1
 		shplft_tmp = 1
-	elseif ARGS[1] = 'prst':
+	elseif $ARGS[1] = 'prst':
 		prst_booked += 1
 		prst_tmp = 1
 	end
@@ -1136,6 +1152,7 @@ if $ARGS[0] = 'shplft_easy':
 	*clr & cla
 	minut += 20
 	picrand = rand(1, 2)
+	$detec_type = 'easy'
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/shared/police/interrogation<<picrand>>.jpg"></center>'
 	'He takes a seat at the table opposite of you, "So caught stealing, eh?" he asks.'
@@ -1173,6 +1190,7 @@ if $ARGS[0] = 'shplft_norm':
 	*clr & cla
 	minut += 20
 	picrand = rand(1, 2)
+	$detec_type = 'norm'
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/shared/police/interrogation<<picrand>>.jpg"></center>'
 	'He takes a seat opposite of you, "So caught stealing, eh?" he asks.'
@@ -1210,6 +1228,7 @@ if $ARGS[0] = 'shplft_hard':
 	*clr & cla
 	minut += 20
 	picrand = rand(1, 2)
+	$detec_type = 'hard'
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/shared/police/interrogation<<picrand>>.jpg"></center>'
 	'He takes a seat opposite of you, "So caught stealing, eh?" he asks.'
@@ -1246,6 +1265,7 @@ if $ARGS[0] = 'prst_easy':
 	!easy going detective
 	*clr & cla
 	minut += 20
+	$detec_type = 'easy'
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/shared/police/interrogationpro.jpg"></center>'
 	'He takes a seat opposite of you, "So caught prostituting, eh?" he asks.'
@@ -1289,6 +1309,7 @@ if $ARGS[0] = 'prst_norm':
 !normal detective
 	*clr & cla
 	minut += 20
+	$detec_type = 'norm'
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/shared/police/interrogationpro.jpg"></center>'
 	'He takes a seat opposite of you, "So caught prostituting, eh?" he asks.'
@@ -1336,6 +1357,7 @@ if $ARGS[0] = 'prst_hard':
 !rough detective
 	*clr & cla
 	minut += 20
+	$detec_type = 'hard'
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/shared/police/interrogationpro.jpg"></center>'
 	'He takes a seat opposite of you, "So caught prostituting, eh?" he asks.'
@@ -1434,6 +1456,7 @@ if $ARGS[0] = 'returncell':
 				'"Go on before they change their mind," she smiles.'
 				'You say good bye to each other and the officer leads you towards the entrance and as the police station doors open you can feel the fresh wind breeze against your face.'
 
+				Sentence_date = daystart + 7
 				act 'Walk outside':gt 'down'
 
 			end
@@ -1450,6 +1473,7 @@ if $ARGS[0] = 'returncell':
 		'Some time passes by and the cell door opens, "<<$pcs_lastname>>, it''s your time to get released."'
 		'You quickly jump up and hurry out from the holding cell. The officer leads you towards the entrance and as the police station doors open you can feel the fresh wind breeze against your face.'
 
+		Sentence_date = daystart + 7
 		act 'Walk outside':gt 'down'
 	end
 end

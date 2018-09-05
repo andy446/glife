@@ -315,7 +315,7 @@ if $ARGS[0] = 'boy3_kiss':
 			'He doesn''t stop his movements, though; with how excited he must be, it''d probably be close to impossible for him to do that. He has adjusted the depth and speed of his penetration but doesn''t say a word, beyond his adjustments, shows no sign of noticing what he did. Still, it helps, and after a while, the pain recedes and you can feel pleasure taking the upper hand again. He chooses that moment to pull out of you; Lazar quickly lifts you off your feet and lays you on your back, across the sink. He spreads your legs and steps between them where he slips his <<dick>>cm <<$dick_girth>> cock back into your ass. This time, you can appreciate the feeling of him entering your backdoor and moan in satisfaction. Your lover takes advantage of the new position and occasionally squeezes your boobs; you follow his example and rub your clit, making this steamy encounter even more enjoyable for you. Minutes go by and he keeps speeding up, eventually fucking your little asshole as fast as he can, the shockwaves traveling to your clit and up your spine, adding to the building orgasm. That''s when you notice that his panting changes and he has a look of intense concentration on his face - he is obviously about to shoot his load.'
 			gs 'arousal', 'anal', 6
 			gs 'stat'
-			act 'You do your math homework?':
+			act 'Continue':
 				*clr & cla
 				gs 'cum_call', 'labia', $boy, 1, '', '', 20
 				gs 'cum_call', 'anus', $boy, 1, '', '', 20
@@ -329,16 +329,22 @@ if $ARGS[0] = 'boy3_kiss':
 				gs 'stat'
 				'His dick barely exits your ass before the first jet of hot sperm lands on your inner thigh, another lands on your pubic area, a third hitting your wet cunt and fingers. He shudders a bit and finally stops spurting cum as your own shivers subside. He looks at you and smiles, giving you a quick kiss while he helps you down from the sink. "That was good", he comments and you are inclined to agree.'
 				*nl
-				'You use the sinks to clean yourselves up, exchanging remarks on the sex you just had while you''re coming down from that postcoital high. As you get cleaned up in the sink he gets dressed, when you start to get dressed you see him grab your panties. You expect him to give them to you but instead he sticks them in his pocket instead. "Um Lazar I think those are mine." You say indicating the pocket he just stuck your panties in.'
-				act 'You do your math homework?':
+				'You use the sinks to clean yourselves up, exchanging remarks on the sex you just had while you''re coming down from that postcoital high.'
+				
+				!!Should probably also remove svetas panties
+				if $pantyworntype ! 'none': 'As you get cleaned up in the sink he gets dressed, when you start to get dressed you see him grab your panties. You expect him to give them to you but instead he sticks them in his pocket instead. "Um Lazar I think those are mine." You say indicating the pocket he just stuck your panties in.'
+				
+				act 'Continue':
 					*clr
 					cla
 					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/boysbathroom.jpg"></center>'
-					'He grins at you. "Not anymore." seeing the look on your face he adds. "Hey I play for trophies, the more gratifying the challenge the more I deserve a trophy and fucking you is very gratifying. So I think I earned these."'
-					'"Yeah well this isn''t a game we shared something intimate."'
-					'He laughs slightly. "Everything in life is just a game and trust me, every guy in school wishes he had been me a few minutes ago. Yet it was me so I earned them."'
-					'You roll your eyes at that but give up, if he wants them that bad, well that was great and maybe he did earn them. So instead of saying more you just shake your head and finish getting dressed.'
-					*nl
+					if $pantyworntype ! 'none':
+						'He grins at you. "Not anymore." seeing the look on your face he adds. "Hey I play for trophies, the more gratifying the challenge the more I deserve a trophy and fucking you is very gratifying. So I think I earned these."'
+						'"Yeah well this isn''t a game we shared something intimate."'
+						'He laughs slightly. "Everything in life is just a game and trust me, every guy in school wishes he had been me a few minutes ago. Yet it was me so I earned them."'
+						'You roll your eyes at that but give up, if he wants them that bad, well that was great and maybe he did earn them. So instead of saying more you just shake your head and finish getting dressed.'
+						*nl
+					end
 					'Suddenly, Lazar asks: "Hey <<$pcs_nickname>>, did you do the math homework?" You are a bit taken off-guard by the unexpected question - it just doesn''t seem to fit in with everything that''s just happened - and it takes you a moment to reply. "Yeah, why?"'
 					*nl
 					'"Mind if I borrow it and fill in mine real quick? I was busy with practice and didn''t have time." First taking each of your holes and now your homework, too? The thought crosses your mind and makes you grin but you nod anyway - what''s a little homework cheating between friends after you just let him fuck you up the ass in the boys room? It sure as hell beat going to class, though, and the two of you spend the rest of the period talking while he copies your homework.'

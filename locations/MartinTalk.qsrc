@@ -130,7 +130,7 @@ if $ARGS[0] = '':
 		'"Excuse me?"' 
 		'You ' + iif($body='skinny','would call yourself skinny, too, but','see yourself as <<$body>> rather than skinny, so') + ' you don''t really see why he would bring this up.'
 		*nl
-		'"Are you eating right, <<pcs_firstname>>?" He inquires, completely ignoring your visible confusion.'
+		'"Are you eating right, <<$pcs_firstname>>?" He inquires, completely ignoring your visible confusion.'
 		'"Uh... I guess. Wait, you didn''t, by any chance, talk to my mother, did you?"'
 		'"Hmm? Oh, no no no, mi amor, but I''m sure she''d agree that you could use a good meal every now and then - good meat, not the filth they sell you everywhere."'
 		*nl
@@ -193,7 +193,7 @@ if $ARGS[0] = '':
 		*nl
 		'He recoils in mock-shock. "That you would even <b>suggest</b> that! The insolence!"'
 		'You grin at his antics, but your question is still to the point: "Do you do anything besides working out?"'
-		'"This and that," he replies, now more serious. "I don''t know what you want to hear, <<pcs_firstname>>. I don''t run a drug ring or strip club on the side, if that''s what you want to know. Days pass pretty quickly, even when all you do is sleep, work out and go for a walk every now and then."'
+		'"This and that," he replies, now more serious. "I don''t know what you want to hear, <<$pcs_firstname>>. I don''t run a drug ring or strip club on the side, if that''s what you want to know. Days pass pretty quickly, even when all you do is sleep, work out and go for a walk every now and then."'
 		'"You should share that thought at the next book club meeting," you comment dryly.'
 		'"I''d rather not. It would only disturb the other housewives," Martin retorts.'
 		*nl

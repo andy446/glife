@@ -228,10 +228,10 @@ end
 
 if $ARGS[0] = 'blowjob':
 	minut += 5
-	'You kneel in front of him and bite your lip, caressing his cock through his pants with your hands.'
-
+	
 	if $moodType = 'fairly normal':
 		'<center><video autoplay loop src="images/locations/city/residential/sauna/sex/blowjob'+rand(1, 5)+'.mp4"></video></center>'
+		'You kneel in front of him and bite your lip, caressing his cock through his pants with your hands.'
 		'He pulls out his <<$dick_girth>> dick and brings it to your <<$liptalk>>.'
 		'You start kissing the tip, licking it all around and putting it a bit inside your mouth and sucking the head.'
 		gs 'arousal', 'bj', 5, 'prostitution'
@@ -240,12 +240,14 @@ if $ARGS[0] = 'blowjob':
 		act 'Suck it':gt 'saunawhore', 'blowjobGate'
 	elseif $moodType = 'good':
 		'<center><video autoplay loop src="images/locations/city/residential/sauna/sex/blowjob'+rand(1, 5)+'.mp4"></video></center>'
+		'You kneel in front of him and bite your lip, caressing his cock through his pants with your hands.'
 		'He comes close to you, fondles your hair and face and takes you gently by your arm, raising you up from the floor.'
 		'He directs you to the bed, undresses and both of you lie down.'
 
 		act 'Embrace him':gt 'saunawhore', 'fuckGate'
 	elseif $moodType = 'bad':
 		'<center><video autoplay loop src="images/locations/city/residential/sauna/sex/slapface'+rand(1, 1)+'.mp4"></video></center>'
+		'You kneel in front of him and bite your lip, caressing his cock through his pants with your hands.'
 		'He comes close to you and suddenly slaps your face hard.'
 		'You are caught by surprise and tears well up in your eyes.'
 		'He seems very angry and even aroused by your misfortune.'

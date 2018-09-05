@@ -1,7 +1,9 @@
 # Gaddvor
 
-
 if $ARGS[0]='':
+	
+	music_loop = 0
+	
 	$metka = ''
 	$loc = 'Gaddvor'
 	$location_type = 'public_outdoors'

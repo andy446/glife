@@ -645,6 +645,7 @@ if $ARGS[0] = 'cumMouth':
 	if useCondom = 1:
 		'The client strips the condom from his dick and shoots <<$cumType>> cum inside your mouth.'
 	else
+		swallow += 1
 		'The client stuffs his dick back inside your mouth, and as you suck it, he shoots <<$cumType>> cum inside your mouth.'
 	end
 	if rand(1,100) >= 70:dynamic $venerasiakOral

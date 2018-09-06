@@ -39,6 +39,7 @@ if $ARGS[0] = 'start':
 	act 'Return to the hallway': gt'shulgahall'
 
 	dynamic $shower
+	gs 'din_van', 'prvt_pee'
 	dynamic $bteeth
 	dynamic $tampon
 	dynamic $quickwash

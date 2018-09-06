@@ -928,14 +928,16 @@ if $ARGS[0] = 'private':
 			 if pregchem > 120 and bimbolevel < 3 and knowpreg = 0 and huband = 0 and pregTalkPC = 0:
 				knowpreg = 1
 				thinkpreg = 1
-				'As you look at the test in your hand, you are?'
+				*nl
+				'The test shows two strips. You are pregnant. As you look at the test in your hand, you are?'
 				act 'Horrified':gt 'din_van', 'HorrifiedReact1'
 				act 'Concerned':gt 'din_van', 'ConcernedReact1'
 				act 'Excited':gt 'din_van', 'ExcitedReact1'
 			elseif pregchem > 120 and bimbolevel = 3 and knowpreg = 0 and huband = 0 and pregTalkPC = 0:
 				knowpreg = 1
 				thinkpreg = 1
-				'As you look at the test in your hand, you are?'
+				*nl
+				'The test shows two strips. You are pregnant. As you look at the test in your hand, you are?'
 				act 'Excited':gt 'din_van', 'ExcitedReact1'
 				act 'Aroused':gt 'din_van', 'ArousedReact1'
 			elseif pregchem > 120 and knowpreg = 0 and huband = 1 and kid = 0 and pregTalkPC = 0:
@@ -947,10 +949,12 @@ if $ARGS[0] = 'private':
 				thinkpreg = 1
 				gt 'din_van', 'WifeReact2'
 			elseif pregTalkPC = 1:
-				'The test showed two strips. You are pregnant.'
+				*nl
+				'The test shows two strips. You are pregnant.'
 			else
 				knowpreg = 0
-				'The test showed one band. Not pregnant.'
+				*nl
+				'The test shows one band. You are not pregnant.'
 			end
 
 			act 'Finish':gt $loc, $metka

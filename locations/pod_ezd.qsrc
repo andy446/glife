@@ -436,20 +436,17 @@ if $ARGS[0] = 'smoke_misha':
 				'"No problem <<$pcs_nickname>>, I''ll hold you to that!" he says as he gives you a lewd grin. "In that case, I better get going. I''ll talk to you later."'
 				act 'Say goodbye': gt 'pod_ezd', 'etaj_2'
 			end
-		end
-		if misha_smoke_rnd = 2:
+		elseif misha_smoke_rnd = 2:
 			pcs_mood +=5
 			'You have a chat with uncle Misha, as he smokes his cigarette. Once he finishes it, he apologizes and says he has things to do now.'
 			act 'Say goodbye': gt 'pod_ezd', 'etaj_2'
-		end
-		if misha_smoke_rnd = 3:
+		elseif misha_smoke_rnd = 3:
 			pcs_mood +=5
 			'You have a chat with uncle Misha, as he smokes his cigarette. He talks about how his life has been much easier, ever since he retired.'
 			act 'Say goodbye': gt 'pod_ezd', 'etaj_2'
 		end
 		killvar 'misha_smoke_rnd'
-	end
-	if pav_slut < 75:
+	else
 		pcs_mood +=5
 		'While uncle Misha smokes his cigarette, you engage with him in some small talk. When he finishes the cigarette, he apologizes and says he has to go.'
 		act 'Say goodbye': gt 'pod_ezd', 'etaj_2'

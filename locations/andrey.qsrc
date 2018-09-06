@@ -215,7 +215,7 @@ if $ARGS[0] = 'punish':
 			act 'Accept his offer': gt 'andrey', 'fired1'
 		end
 !!this happens if Sveta misses 3 days of work but kept her job already once by sucking his dick.
-	elseif young_shop_fired >= 5:
+	elseif young_shop_fired <= 5:
 		cla
 		*clr
 		'<center><img <<$set_imgh>> src="images\locations\city\citycenter\mall\cats\fired.jpg"></center>'

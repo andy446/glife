@@ -148,6 +148,7 @@ if $ARGS[0] = 'start':
 			cycle = 4
 			RecovH = rand(7,70)
 			RecovH += pregchem
+			pregchem = 0
 			knowpregloss = 2
 			abortrand = rand(0, 10)
 

@@ -956,6 +956,7 @@ if $ARGS[0] = 'Phone_wheather':
 	pl'<center><img src="<<FUNC(''$phone_theme'')>>icon_weather.png" height="80" width="80"><br></center>'
 	pl'<center><b>Temperature:</b></center>'
 	pl'<center><<$temperature>>. <<$osadki>></center>'
+	pl'<center>P.O.P. today is <<weatherFall>>%</center>'
 	pl'<center><a href="exec:gs ''telefon'', ''Phone_menu'' "><img src="images/system/icon/back.png"></a></center>'
 end &! --- Phone_wheather ---
 

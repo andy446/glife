@@ -1,5 +1,6 @@
 # sauna
 
+CLOSE ALL
 if night_mode = 1:
 	fcolor = rgb(255, 255, 255)
 	bcolor = rgb(0, 0, 0)
@@ -11,7 +12,7 @@ else
 end
 
 if $ARGS[0] = '':
-	clr
+	*clr & cla
 	$loc = 'sauna'
 	$metka = ''
 	sauna += 1
@@ -46,6 +47,7 @@ if $ARGS[0] = 'sauna2':
 	*clr & cla
 	$loc = 'sauna'
 	$metka = 'sauna2'
+	$location_type = 'indoors'
 	minut += 5
 	gs 'stat'
 	'<center><b><font color="maroon">Sauna</font></b></center>'
@@ -189,11 +191,12 @@ end
 if $ARGS[0] = 'saunafitness':
 	$loc = 'sauna'
 	$metka = 'saunaroom'
+	$location_type = 'indoors'
 	cla
 	*clr
 	'<center><video autoplay loop src="images/pc/activities/push_naked.mp4"></video></center>'
 	gs 'exercise', 'tier2', 30, 'stren_exp'
-	'You do push-ups for <<$timestring>> minutes, improving your strength.'
+	'You do push-ups for 30 minutes, improving your strength.'
 
 	randpushfact = rand(-5,5)
 	if pcs_energy < 40: randpushfact -= RAND(1,10)

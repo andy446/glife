@@ -206,6 +206,8 @@ if $ARGS[0] = 'start':
 	minut += 2
 	gs 'stat'
 
+	gs 'sentence', 'letter'
+
 	! do this once a day
 	if daystart >= tomorrow:
 		tomorrow = daystart + 1

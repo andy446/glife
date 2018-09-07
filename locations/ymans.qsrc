@@ -16,6 +16,9 @@ else
 	bcolor = rgb(255, 255, 255)
 	lcolor = rgb(106, 90, 205)
 end
+
+gs 'sentence', 'letter'
+
 '<center><b><font color="maroon">House</font></b></center>'
 '<center>Hall</center>'
 '<center>The main hall of the mansion. From here you can visit the different rooms in the mansion.</center>'

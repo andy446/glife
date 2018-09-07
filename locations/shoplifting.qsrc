@@ -98,6 +98,7 @@ if $ARGS[0] = 'securityroom':
 	!if you''ve snitched on the security guard to the easy-going or normal cop, he fucks the shit out of you and calls the cops again, one-off event
 	*clr & cla
 	minut += 5
+	shplft_value = 1300
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/city/shared/shoplift/caught.jpg"></center>'
 	'"Where are you taking me?" you shout out, "I haven''t done anything wrong!" you look around trying to catch someone''s attention. People are staring at you in disgust and turning their heads.'

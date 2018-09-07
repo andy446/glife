@@ -101,6 +101,7 @@ if $ARGS[0] = 'korr':
 	end
 
 	if student > 0:
+		gs 'sentence', 'letter'
 		act 'Your room':gt 'obroom', 'start'
 
 		act 'Go to the shared kitchen':

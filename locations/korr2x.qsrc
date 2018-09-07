@@ -26,6 +26,9 @@ else
 	bcolor = rgb(255, 255, 255)
 	lcolor = rgb(106, 90, 205)
 end
+
+gs 'sentence', 'letter'
+
 '<center><b><font color = maroon>Corridor</font></b></center>'
 '<center><img <<$set_imgh>> src="images/locations/oldtown/apartment/korr2x.jpg"></center>'
 

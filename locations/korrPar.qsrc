@@ -4,10 +4,10 @@ music_loop = 0
 CLOSE ALL
 if sound = 0:PLAY 'sound/korr.mp3',30
 
-$metkaM = $ARGS[0]
-$locM = $CURLOC
-$metka = $ARGS[0]
-$loc = $CURLOC
+$metkaM = ''
+$locM = 'korrPar'
+$metka = ''
+$loc = 'korrPar'
 $location_type = 'private'
 killvar '$locclass'
 clr
@@ -27,6 +27,9 @@ else
 	bcolor = rgb(255, 255, 255)
 	lcolor = rgb(106, 90, 205)
 end
+
+gs 'sentence', 'letter'
+
 if hour ! 18 and blockBedrPar = 1:blockBedrPar = 0
 
 if blockBedrPar = 0:

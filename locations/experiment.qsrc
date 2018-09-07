@@ -21,15 +21,20 @@ if $ARGS[0] = 'start':
 		'An elderly nurse is sitting behind a desk.'
 	end
 
-	if exp_form = 0 and experimentAbsolved = 0:
+	if unrelated_preg = 1 and knowpreg = 1:
+		''
+		'You are pregnant and they don''t take pregnant candidates' 	
+	elseif exp_form = 0 and experimentAbsolved = 0 and (knowpreg = 0 or unrelated_preg = 0):
+		''
 		'Hello miss, can I help you?'
 		'I have read an advert that you are looking for people to test some kind of new treatment.. And that you pay for it.'
 		'Yes, that is true. If you want to apply, please read and fill in this form.'
 
 		act 'Take the form':gt $loc,'form'
-	elseif exp_form = 1 and experimentAbsolved = 0: 
+	elseif exp_form = 1 and experimentAbsolved = 0 and (knowpreg = 0 or unrelated_preg = 0): 
 		act 'Go to the area marked in the book to start the experiment':gt $loc,'form:filled'
 	elseif shouted = 1:
+		''
 		'Hello miss <<$pcs_lastname>>, you are not going to shout at me again, will you?'
 		act '<i>Angrily shout at her for ruining your life</i>':gt $loc, 'deskTalk:shout'
 		act 'No, I am sorry about that..':gt $loc, 'deskTalk' && shouted = 0
@@ -179,7 +184,37 @@ if $ARGS[0] = 'testarea:start':
 	'Yes, I have the confirmed form right here.'
 	'OK, very well. Before we start, we need to have some facts checked, if you dont mind.'
 	'She brings up a new form and begins to ask you questions, taking notes:'
-	act 'Start the questionare':gt $loc,'testarea:questionare:1'
+	act 'Start the questionare':gt $loc,'testarea:questionare:0'
+end
+
+! pregnant
+if $ARGS[0] = 'testarea:questionare:0':
+	minut += 1
+	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse2.jpg"></center>'
+	''
+	'Are you pregnant?'
+	
+	if knowpreg = 1:
+		act 'Yes': 
+			cla
+			''
+			'"Yes", you answer truthfully.'
+			'"Oh, I''m sorry, but we can''t sign you up for the experiment when you are pregnant.'
+			unrelated_preg = 1
+			act 'Leave': gt $loc,'start'
+		end
+		act 'No (lie)': gt $loc,'testarea:questionare:1'
+	elseif knowpreg = 0:
+		 act 'Yes (lie)': 
+			cla
+			''
+			'"Yes", you lie.'
+			'"Oh, I''m sorry, but we can''t sign you up for the experiment when you are pregnant.'
+			unrelated_preg = 1
+			act 'Leave': gt $loc,'start'
+		end
+		act 'No': unrelated_preg = 0 & gt $loc,'testarea:questionare:1'
+	end
 end
 
 ! age
@@ -514,7 +549,20 @@ if $ARGS[0] = 'testarea:start:treatmentStart':
 	''
 	'She brings up an injection, pushing the remaining air bubbles out. Holding you by the arm she is about to inject it into you..'
 	
-	act 'Brace for the jab':gt $loc,'testarea:start:treatmentStart:injection'
+	act 'Brace for the jab':
+		if preg = 0: gt $loc,'testarea:start:treatmentStart:injection'
+		if preg > 0: 
+			cla & *clr
+			minut += 120
+			knowpreg = 1
+			unrelated_preg = 1
+			'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse2.jpg"></center>'
+			''
+			'You wake up in a hospital bed the nurse standing beside you. "I''m sorry but you are pregnant and we can''t sign up pregnant woman for the experiment."'
+			
+			act 'Leave': gt $loc, 'start'
+		end
+	end
 end
 
 if $ARGS[0] = 'testarea:start:treatmentStart:injection':
@@ -975,7 +1023,7 @@ if $ARGS[0] = 'testarea:treatment:bed:wait:event':
 	actionType = rand (1, 10)
 
 	! fuck other girl
-	if actionType >= 1 and actionType <= 2:
+	if actionType >= 1 and actionType <= 3 and pcs_health >= 100 and pain['vaginal'] < 50:
 		if plugIn = 0:'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\bedBound4.jpg"></center>'
 		if plugIn = 1:'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\bedBound5.jpg"></center>'
 		''
@@ -991,7 +1039,7 @@ if $ARGS[0] = 'testarea:treatment:bed:wait:event':
 		'<i>I must have passed out again.. maybe it is a side effect of that experimental drug of theirs?</i>'
 		act 'Continue':gt $loc,'testarea:treatment:bed'
 	! fuck Sveta
-	elseif actionType >= 3 and actionType <= 7:
+	elseif actionType >= 4 and actionType <= 8 and pcs_health >= 100 and pain['vaginal'] < 50:
 		coitVagCount += 1
 		'A naked african with huge erection enters the room, followed by a nurse.'
 		'You tremble in fear..and it comes true. He stops by your bed, looking down at your helpless body.'
@@ -1011,13 +1059,16 @@ if $ARGS[0] = 'testarea:treatment:bed:wait:event':
 		end
 		act 'Continue':gt $loc,'testarea:treatment:sex1'
 	! status check by nurse
-	elseif actionType >= 8 and actionType <= 10:
+	else
 		cumPlugCheck += 1
-		pcs_health += 30
+		if pcs_health < 100: 
+			pcs_health += 150
+		else
+			pcs_health += 30
+		end
 		pcs_hydra += 100
 		pcs_energy += 100
 		pcs_mood += 50
-		gs 'stat'
 
 		'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse1.jpg"></center>'
 		''
@@ -1028,23 +1079,27 @@ if $ARGS[0] = 'testarea:treatment:bed:wait:event':
 			''
 			'She is not here to release you. Instead she takes a small ampule of blood, checking your health and insemination status.'
 			''
-
 		elseif cumPlugCheck >= 2:
 			'<i>Maybe this time she will really release me?</i>'
 			''
 			'Once again, she is not here to release you. Instead she takes a small ampule of blood, checking your health and insemination status.'
 			''
-
 		elseif cumPlugCheck >= 4:
 			'<i>Oh, another inspection. Great...</i>'
 			''
 			'She takes a small ampule of blood, checking your health and insemination status.'
-			''
-
 		end
 
+		if pain['vaginal'] > 30: 
+			'And she gives you something against the pain.'
+			pain['vaginal'] -= rand(9,18)
+		end
+
+		gs 'stat'
+		
 		if plugIn = 1:
 			if coitVagCount >= 6 and refusal = 0:
+				''
 				'The nurse pulls the plug out of your pussy.'
 				'Hmm, yes, it is time.'
 				'<i>Time for what??</i> you think to yourself, still unable to speak.'
@@ -1054,8 +1109,10 @@ if $ARGS[0] = 'testarea:treatment:bed:wait:event':
 				if pregchem > 30:
 					pregTalkPC = 1
 					impreg = 1
+					''
 					'Very well you little cumbucket, you have finally managed to finish the impregnation process. You will proceed to the final stage in a short time.'
 				else
+					''
 					'The nurse pulls the plug out of your pussy.'
 					'Hm, it seems you''ll need a fresh dose of sperm soon. The old one has been almost absorbed.'
 					'With these words she rams the plug back in.'
@@ -1078,7 +1135,7 @@ if $ARGS[0] = 'testarea:treatment:sex1':
 	minut += 3
 	imgRand = rand(1, 3)
 	'<center><img <<$set_imgh>> src="images\shared\sex\vag\miss\AfricanMis'+imgRand+'.jpg"></center>'
-	'The african is setting himself to position above you. He holds his giant cock  in one hand, forcing it down.. the grey tip, big as apple, now touches the brim of your vagina, making you shake both in fear and expectation.'
+	'The african is setting himself to position above you. He holds his giant cock in one hand, forcing it down.. the grey tip, big as apple, now touches the brim of your vagina, making you shake both in fear and expectation.'
 	'The previously applied lube does its job as he lowers his entire body down, pushing the tip inside you.'
 	''
 	if coitVagCount = 1:'<i>Nonono..this can''t be true!</i>'
@@ -1093,7 +1150,7 @@ end
 if $ARGS[0] = 'testarea:treatment:sex2':
 	imgRand = rand(3, 7)
 	minut += 9
-	'<center><video autoplay loop src="images\shared\sex\vag\miss\AfricanMis'+imgRand+'.mp4"></video>'
+	'<center><video autoplay loop src="images\shared\sex\vag\miss\AfricanMis'+imgRand+'.mp4"></video></center>'
 	'The few first strokes are enough for him to get comfortable. he is already burrying his long black cock more than halfway down your aching vagina.'
 	if coitVagCount = 1:
 			'<i>Aaarghh..I''m being sodomized, please help! It hurts! If I could at least scream!</i>'
@@ -1118,7 +1175,7 @@ end
 if $ARGS[0] = 'testarea:treatment:sex3':
 	minut += 4
 	imgRand = rand(1, 3)
-	'<center><video autoplay loop src="images\shared\sex\cum\vagcreampie\AfricanCreampie'+imgRand+'.mp4"></video>'
+	'<center><video autoplay loop src="images\shared\sex\cum\vagcreampie\AfricanCreampie'+imgRand+'.mp4"></video></center>'
 	'Finally he reaches his orgasm, but not before he increases the pace even more.'
 	'Your pussy already feels like on fire, your back hurts from his full weight falling down on your bound and exposed body.'
 	'Burried all the way inside you, tip of his cock surely pushed to your cervix, he ejaculates.'
@@ -1170,7 +1227,7 @@ if $ARGS[0] = 'testarea:treatment:deflower':
 	
 	elseif stage = 2:
 		minut += 5
-		'<center><video autoplay loop src="images\shared\sex\vag\miss\AfricanMis8.mp4"></video>'
+		'<center><video autoplay loop src="images\shared\sex\vag\miss\AfricanMis8.mp4"></video></center>'
 		''
 		'Few minutes and his penis gets to its full size. The doctor was not exaggerating, it is huge and super thick!'
 		'He lowers the phallus with his hands, pointing at the virgin membrane still present in your innocent pussy..'
@@ -1185,7 +1242,7 @@ if $ARGS[0] = 'testarea:treatment:deflower':
 	
 	elseif stage = 3:
 		minut += 15
-		'<center><video autoplay loop src="images\shared\sex\vag\miss\AfricanMis9.mp4"></video>'
+		'<center><video autoplay loop src="images\shared\sex\vag\miss\AfricanMis9.mp4"></video></center>'
 		''
 		'As he goes deeper and deeper, a stream of blood starts pouring out of your deflowered pussy..'
 		'Yet he does not mind - his only aim is to penetrate you as deep as possible, using his superior strength.'
@@ -1203,7 +1260,7 @@ if $ARGS[0] = 'testarea:treatment:deflower':
 	
 	elseif stage = 4:
 		minut += 5
-		'<center><video autoplay loop src="images\shared\sex\cum\vagcreampie\AfricanCreampie4.mp4"></video>'
+		'<center><video autoplay loop src="images\shared\sex\cum\vagcreampie\AfricanCreampie4.mp4"></video></center>'
 		''
 		'Finally he starts to grunt - he''s reaching his finale.'
 		'White cunt now get reward, lot cum.'
@@ -1372,7 +1429,7 @@ if $ARGS[0] = 'testarea:treatment:room':
 		'You drank the whole bottle.'
 		act 'Get back':gt $loc, $this
 	end
-	if pcs_sleep  < 50:
+	if pcs_sleep < 50:
 		act 'Go to sleep':gt $loc, 'testarea:treatment:room:sleep'
 	end
 	act 'Go to social room':gt $loc, 'testarea:treatment:room:social'
@@ -1476,7 +1533,7 @@ if $ARGS[0] = 'testarea:treatment:room:shower':
 		*nl
 		'You give yourself an enema, feeling clean down there. Your ass is now ready for anal sex without any awkward surprises.'
 
-		act 'Finish':gt $loc, $this
+		act 'Finish':gt $loc, $metka
 	end
 
 	act 'Go back':gt $loc, 'testarea:treatment:room'
@@ -1720,7 +1777,7 @@ if $ARGS[0] = 'testarea:treatment:room:event':
 	actionType = rand (1, 12)
 
 	! SEX
-	if actionType >= 1 and actionType <= 8:
+	if actionType >= 1 and actionType <= 6 and pain['asshole'] < 50 and pain['vagina'] < 50 and pcs_health >= 100:
 		type = rand(1, 3)
 		if type = 1:
 			$africanN = 'africanMaleDark'
@@ -1761,20 +1818,20 @@ if $ARGS[0] = 'testarea:treatment:room:event':
 			act 'Beg him not to abuse you':gt $loc, 'testarea:treatment:room:event:beg'
 			act 'Resist him':gt $loc, 'testarea:treatment:room:event:resist'
 		end
-
+	
+	! NOTHING
+	elseif actionType >= 7 and actionType <= 10 and pain['asshole'] < 50 and pain['vagina'] < 50 and pcs_health >= 100:
+		'You wait and wait, but it seems nothing is going to happen this time.'
+		act 'Continue':gt $loc,'testarea:treatment:room'
+	
 	! NURSE
-	elseif actionType >= 9 and actionType <= 10:
+	else
 		'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse1.jpg"></center>'
 		''
 		'A nurse enters your room, looking at you very strictly: Lay down, hands behind head, legs wide spread, don''t move.'				
 		act 'Do as told':gt $loc, 'testarea:treatment:room:event:nurse:check'
 		if nurseTalk = 0:act 'Try to talk to her':gt $loc, 'testarea:treatment:room:event:nurse:talkTry'
 		if nurseTalk = 1:act 'Talk to her':gt $loc, 'testarea:treatment:room:event:nurse:talk'
-
-	! NOTHING
-	elseif actionType >= 11 and actionType <= 12:
-		'You wait and wait, but it seems nothing is going to happen this time.'
-		act 'Continue':gt $loc,'testarea:treatment:room'
 	end
 end
 
@@ -1844,7 +1901,7 @@ if $ARGS[0] = 'testarea:treatment:room:event:sex':
 	if coitusType = 1:
 		minut += 20
 		imgRand = rand(1, 5)
-		'<center><video autoplay loop src="images\shared\sex\vag\doggy\AfricanDoggy'+imgRand+'.mp4"></video>'
+		'<center><video autoplay loop src="images\shared\sex\vag\doggy\AfricanDoggy'+imgRand+'.mp4"></video></center>'
 		''
 		'Holding you by your neck, he pushes you on the bed, lifting your hips with his strong hands.'
 		'Kneeling like that you brace for the entry of his giant cock.'
@@ -1859,7 +1916,7 @@ if $ARGS[0] = 'testarea:treatment:room:event:sex':
 	elseif coitusType = 2:
 		minut += 30
 		imgRand = rand(1, 3)
-		'<center><video autoplay loop src="images\shared\sex\mmf\AfricanDoggyDouble'+imgRand+'.mp4"></video>'
+		'<center><video autoplay loop src="images\shared\sex\mmf\AfricanDoggyDouble'+imgRand+'.mp4"></video></center>'
 		'When he''s about to penetrate you, the door open and another man comes in.'
 		'Confused you expect what is going to happen, but the other man just comes around and grabs your head, pushing the tip of his cock to your yet closed lips.'
 		'Before you realize what''s happening, the first african penetrates your vagina..'
@@ -1876,7 +1933,7 @@ if $ARGS[0] = 'testarea:treatment:room:event:sex':
 	elseif coitusType = 3:
 		minut += 45
 		imgRand = rand(1, 3)
-		'<center><video autoplay loop src="images\shared\sex\vag\cowgirl\AfricanCowgirl'+imgRand+'.mp4"></video>'
+		'<center><video autoplay loop src="images\shared\sex\vag\cowgirl\AfricanCowgirl'+imgRand+'.mp4"></video></center>'
 		''
 		'He lies down on the bed, relaxed and already with a huge erection: Do your job white slut, or I make sure it hurts even more.'
 		'<i>I don''t want to risk him getting angry..</i>'
@@ -1894,7 +1951,7 @@ if $ARGS[0] = 'testarea:treatment:room:event:sex':
 	elseif coitusType = 4:
 		minut += 15
 		imgRand = rand(1, 3)
-		'<center><video autoplay loop src="images\shared\sex\vag\miss\AfricanMis'+imgRand+'.mp4"></video>'
+		'<center><video autoplay loop src="images\shared\sex\vag\miss\AfricanMis'+imgRand+'.mp4"></video></center>'
 		''
 		'Holding you by your neck, he pushes you on the bed, spreading your legs to get better access to your pink, wetly pussy.'
 		'Shaking a bit you expect him to penetrate you.'
@@ -1910,7 +1967,7 @@ if $ARGS[0] = 'testarea:treatment:room:event:sex':
 	elseif coitusType = 5:
 		minut += 20
 		imgRand = rand(1, 5)
-		'<center><video autoplay loop src="images\shared\sex\anal\doggy\AfricanAnalDoggy'+imgRand+'.mp4"></video>'
+		'<center><video autoplay loop src="images\shared\sex\anal\doggy\AfricanAnalDoggy'+imgRand+'.mp4"></video></center>'
 		'Holding you by your neck, he pushes you on the bed, lifting your hips with his strong hands.'
 		'Kneeling like that you expect him to penetrate your pussy..'
 		'..but suddenly a sharp pain runs through your lower parts! Ouuch!! He pushed it inside my ass!'
@@ -1927,7 +1984,7 @@ if $ARGS[0] = 'testarea:treatment:room:event:sex':
 	elseif coitusType = 6:
 		minut += 30
 		imgRand = rand(1, 4)
-		'<center><video autoplay loop src="images\shared\sex\anal\mis\AfricanAnalMis'+imgRand+'.mp4"></video>'
+		'<center><video autoplay loop src="images\shared\sex\anal\mis\AfricanAnalMis'+imgRand+'.mp4"></video></center>'
 		'Holding you by your neck, he pushes you on the bed, spreading your legs to get better access to your pink, wetly pussy.'
 		'Shaking a bit you expect him to penetrate your pussy..'
 		'..but suddenly a sharp pain runs through your lower parts! Ouuch!! He pushed it inside my ass!'
@@ -1944,12 +2001,12 @@ if $ARGS[0] = 'testarea:treatment:room:event:sex':
 	elseif coitusType = 7:
 		minut += 30
 		imgRand = rand(1, 5)
-		'<center><video autoplay loop src="images\shared\sex\blowjob\AfricanBlowjob'+imgRand+'.mp4"></video>'
+		'<center><video autoplay loop src="images\shared\sex\blowjob\AfricanBlowjob'+imgRand+'.mp4"></video></center>'
 		''
 		'Holding you by your neck, he forcefully pushes you to the ground, making you kneel before him.'
 		'His giant black cock is hanging just before your face..'
 		'Suck my black cock white cunt. Suck deep, or I make you.'
-		'Taking his cock in your hands, almost  unable to wrap your whole hand around it, you start to suck the tip.'
+		'Taking his cock in your hands, almost unable to wrap your whole hand around it, you start to suck the tip.'
 		'Making the way down your throat the horselike cock makes you gag and almost suffocate.'
 		'Labouring like that after several long minutes he grunts and finally ejaculates.'
 		'Part of his cum lands around your mouth and face - as he sees you are not swallowing he forces your head - almost whole length of his cock is now burried inside your throat.'
@@ -1964,7 +2021,7 @@ if $ARGS[0] = 'testarea:treatment:room:event:sex':
 	elseif coitusType = 8:
 		minut += 30
 		imgRand = rand(1, 3)
-		'<center><video autoplay loop src="images\shared\sex\anal\bdsm\AfricanAnalBDSM'+imgRand+'.mp4"></video>'
+		'<center><video autoplay loop src="images\shared\sex\anal\bdsm\AfricanAnalBDSM'+imgRand+'.mp4"></video></center>'
 		'White cunt, I have no patience now. Turn around.'
 		'As you do it he holds your hands together and binds them.'
 		'Then he positions you to his likes - you are unable to move, with all your holes at his mercy.'
@@ -1982,7 +2039,7 @@ if $ARGS[0] = 'testarea:treatment:room:event:sex':
 	elseif coitusType = 9:
 		minut += 30
 		imgRand = rand(1, 5)
-		'<center><video autoplay loop src="images\locations\shared\clinic\experiment\whip'+imgRand+'.mp4"></video>'
+		'<center><video autoplay loop src="images\locations\shared\clinic\experiment\whip'+imgRand+'.mp4"></video></center>'
 		'White cunt deserve to be punished. Turn around.'
 		'As you do it he holds your hands together and binds them, securing you in a position.'
 		'From the box in the corner he takes a long leather whip.'
@@ -2183,6 +2240,13 @@ if $ARGS[0] = 'testarea:treatment:room:event:nurse:check':
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse1.jpg"></center>'
 	''
 	'She takes a sample of your blood, measures your temperature, blood pressure and proceeds to examine insides of your vagina.'
+	
+	if pain['vaginal'] > 30 or pain['asshole'] > 30: 
+		'And she gives you something against the pain.'
+		if pain['vaginal'] > 30: pain['vaginal'] -= rand(9,18)
+		if pain['asshole'] > 30: pain['asshole'] -= rand(9,18)
+	end
+
 	'<i>The cold medical mirror is nothing compared to abuse endured by the giant black cocks.</i>'
 	'When she''s done, she packs up her equipment and says: '
 	if pregchem > 30:
@@ -2360,6 +2424,8 @@ end
 
 if $ARGS[0] = 'testarea:treatment:impreg:doctor:volunteer':
 	minut += 3
+	knowpreg = 1
+	unrelated_preg = 0
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\doc1.jpg"></center>'
 	''
 	'<<$doc1>>: Miss <<$pcs_lastname>>?'
@@ -2380,6 +2446,8 @@ end
 
 if $ARGS[0] = 'testarea:treatment:impreg:doctor':
 	minut += 3
+	knowpreg = 1
+	unrelated_preg = 0
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\doc1.jpg"></center>'
 	''
 	'<<$doc1>>: Miss <<$pcs_lastname>>?'
@@ -2486,7 +2554,7 @@ end
 
 if $ARGS[0] = 'testarea:treatment:impreg:shout:punish':
 	minut += 30
-	'<center><video autoplay loop src="images\shared\sex\group\AfricanGroup1.mp4"></video>'
+	'<center><video autoplay loop src="images\shared\sex\group\AfricanGroup1.mp4"></video></center>'
 	''
 	'Several africans, most of them you have ''met'' before, start entering the room.'
 	'The one called Abdul is holding you while the other africans grab your legs, making their way to your battered groin.'
@@ -2522,7 +2590,7 @@ if $ARGS[0] = 'testarea:treatment:impreg:shout:punish:kickout':
 	'You just breath, unable to move..'
 	'Get up white slut! Now time is to kick you back to real world! He grabs you by your hair, forcing you to get up.'
 	'Like this he drags you naked and cum covered through the hallway to the reception.'
-	''                                                              
+	''
 	'Nurse get her junk. I order have to kick her out! The nurse looks down at you, yet no pity is seen from her eyes. More likely a despise.'
 	'In a few minutes she comes back, carrying a plastic bag with your clothing inside.'
 	'Miss <<$pcs_lastname>>, in this bag are your things and the payment. Take it and get out.'

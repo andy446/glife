@@ -319,7 +319,7 @@ if $ARGS[0] = '':
 				end
 			end
 
-			if money >= 5000 and SifNapr > 0 and SifUkolDay ! daystart:
+			if money >= 1000 and SifNapr > 0 and SifUkolDay ! daystart:
 				act 'Get syphilis shot (1,000 <b>₽</b>). You need <<SifNapr>> more injections to complete the treatment.':
 					cls
 					money -= 1000

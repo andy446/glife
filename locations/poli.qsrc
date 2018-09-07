@@ -25,15 +25,17 @@ if $ARGS[0] = 'start':
 	'<i>General practitioner: currently available'
 	'Psychotherapist: currently available'
 	'STD testing - 1,000 <b>₽</b>.'
-	''
+	*nl
 	'For hospital admissions visit us on a Monday before the 10th of the month.'
-	''
+	*nl
 	'An abortion at the woman''s request can be performed up until the 84th day of pregnancy - 15,000 <b>₽</b>.'
 	'Be warned, improperly performed abortions can be dangerous to your health. There is a risk of complications and the possibility of damage to your uterus.</i>'
-	''
+	*nl
 	'At first you thought the warning was only health department boiler-plate. However, no sooner do you finish thinking that then you noticed a nurse pushing a cart of freshly sterilized coat hangers down the hallway and begin to wonder how competent this facility really is in terms of women''s health...'
-	''
+	*nl
 	'One area of the clinic is devoted to cosmetic surgery. A sign with directions on the wall point you to the surgeon''s office.'
+	*nl
+	'There is a small poster on an otherwise empty wall advertising a medical trial taking place here.'
 
 	if workhosp = 1 and hour >= 8 and hour <= 9 and week < 6:act 'Begin your work day':gt 'poli', 'beginwork'
 
@@ -436,6 +438,7 @@ if $ARGS[0] = 'start':
 			end
 		end
 	end
+	act 'Go to the medical trials reception desk': gt 'experiment', 'start'
 end
 
 if $ARGS[0] = 'stdclinic':

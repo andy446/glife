@@ -411,7 +411,7 @@ if $ARGS[0] = '2':
 		gs 'arousal', 'voyeur', 5, 'exhibitionism'
 		gs 'stat'
 
-		act 'Leave':
+		act 'Continue':
 			gs 'arousal', 'end'
 			gs 'stat'
 			gt 'gadukino'
@@ -448,7 +448,7 @@ if $ARGS[0] = '2':
 		'<center><h2>Village Gadukino</h2></center>'
 		'<center><img <<$set_imgh>> src="images/locations/gadukino/village/walk.jpg"></center>'
 		'You kill time, walking through the village.'
-		act 'Leave':gt 'gadukino'
+		act 'Continue':gt 'gadukino'
 	end
 end
 
@@ -592,7 +592,7 @@ if $ARGS[0] = '4':
 	gs 'arousal', 'end'
 	gs 'stat'
 
-	act 'Leave': gt 'gadukino'
+	act 'Continue': gt 'gadukino'
 end
 
 if $ARGS[0] = '5':
@@ -603,7 +603,7 @@ if $ARGS[0] = '5':
 	gs 'arousal', 'end'
 	gs 'stat'
 
-	act 'Leave': gt 'gadukino'
+	act 'Continue': gt 'gadukino'
 end
 
 if $ARGS[0] = '6':
@@ -614,7 +614,7 @@ if $ARGS[0] = '6':
 	gs 'arousal', 'end'
 	gs 'stat'
 
-	act 'Leave': gt 'gadukino'
+	act 'Continue': gt 'gadukino'
 end
 
 if $ARGS[0] = '7':
@@ -625,7 +625,7 @@ if $ARGS[0] = '7':
 	gs 'arousal', 'end'
 	gs 'stat'
 
-	act 'Leave': gt 'gadukino'
+	act 'Continue': gt 'gadukino'
 end
 
 if $ARGS[0] = '8':
@@ -636,7 +636,7 @@ if $ARGS[0] = '8':
 	gs 'arousal', 'end'
 	gs 'stat'
 
-	act 'Leave': gt 'gadukino'
+	act 'Continue': gt 'gadukino'
 end
 
 if $ARGS[0] = '9':
@@ -647,7 +647,7 @@ if $ARGS[0] = '9':
 	gs 'arousal', 'end'
 	gs 'stat'
 
-	act 'Leave': gt 'gadukino'
+	act 'Continue': gt 'gadukino'
 end
 
 if $ARGS[0] = '10':
@@ -658,7 +658,7 @@ if $ARGS[0] = '10':
 	gs 'arousal', 'end'
 	gs 'stat'
 
-	act 'Leave': gt 'gadukino'
+	act 'Continue': gt 'gadukino'
 end
 
 if $ARGS[0] = '11':
@@ -669,7 +669,7 @@ if $ARGS[0] = '11':
 	gs 'arousal', 'end'
 	gs 'stat'
 
-	act 'Leave': gt 'gadukino'
+	act 'Continue': gt 'gadukino'
 end
 
 if $ARGS[0] = '12':
@@ -679,17 +679,16 @@ if $ARGS[0] = '12':
 	'Walking through the village, you see two grandmas, sawing boards...'
 	gs 'stat'
 
-	act 'Leave': gt 'gadukino'
+	act 'Continue': gt 'gadukino'
 end
 
 if $ARGS[0] = '13':
 	*clr & cla
 	minut += 5
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/village/gadlol1.jpg"></center>'
-	'Walking through the village, you see two thieving grannies, taking load-bearing boards from a dilapidated farm...'
 	gs 'stat'
 
-	act 'Leave': gt 'gadukino'
+	act 'Continue': gt 'gadukino'
 end
 
 if $ARGS[0] = '14':
@@ -704,17 +703,17 @@ if $ARGS[0] = '14':
 	end
 	gs 'stat'
 
-	act 'Pass by': gt 'gadukino'
+	act 'Walk past them': gt 'gadukino'
 end
 
 if $ARGS[0] = '15':
 	*clr & cla
 	minut += 5
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/village/gadlol4.jpg"></center>'
-	'Walking through the village, you see some younger children. They happily smile at you...'
+	'Walking through the village, a group of young boys, looking no older than 13 or 14, are playing in the road. Two of the older boys sit on an old, beat up dirt bike. You''re not even sure it even works, but the kids are having fun playing on it nonetheless.'
 	gs 'stat'
 
-	act 'Leave': gt 'gadukino'
+	act 'Continue': gt 'gadukino'
 end
 
 if $ARGS[0] = '16':
@@ -723,39 +722,38 @@ if $ARGS[0] = '16':
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/village/walk.jpg"></center>'
 	'You kill time, walking through the village.'
 
-	act 'Leave': gt 'gadukino'
+	act 'Continue': gt 'gadukino'
 end
 !125s
 if $ARGS[0] = 'collection_point':
 	*clr & cla
 	minut += 5
 	gs 'stat'
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/village/collection_point.jpg"></center>'
-	'Mobile procurement vehicle for local mushrooms and berries.'
+	'Parked half way off the road is an old, unmarked truck. The back doors are held open and found inside is usually a farmer looking to buy any mushrooms locals find while out in the nearby woods. Some find it odd that they''re operating out of a truck, but you imagine it''s cheaper to maintain than a shop and it lets them get around to other villages like yours to buy their mushrooms, too.'
 
 	if boletus > 0:
-		act'sell mushrooms':
+		act'Sell your mushrooms':
 			*clr & cla
 			minut += 30
 			money += boletus*150
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/village/collection_point.jpg"></center>'
-			'You sale your mushrooms for <b><<boletus*150>></b> rubles.'
+			'You decide to sell your mushrooms for <<boletus*150>> <b>₽</b>.'
 			gs 'stat'
 
-			act'Further':boletus = 0 & gt 'gadukino','collection_point'
+			act'Continue':boletus = 0 & gt 'gadukino','collection_point'
 		end
 	end
 	if bilberry > 0:
-		act'sell berries':
+		act'Sell your berries':
 			*clr & cla
 			minut += 30
 			money += bilberry*75
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/village/collection_point.jpg"></center>'
-			'You sale your berries for <b><<bilberry*75>></b> rubles.'
+			'You decide to your berries for <<bilberry*75>> <b>₽</b>.'
 			gs 'stat'
 
-			act'Further':bilberry = 0 & gt 'gadukino','collection_point'
+			act'Continue':bilberry = 0 & gt 'gadukino','collection_point'
 		end
 	end
 

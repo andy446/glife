@@ -892,7 +892,7 @@ end
 
 if $ARGS[0] = 'testarea:treatment:bed':
 	minut += 5
-	'<h3>Experiment public room</h3>'
+	'<center><h3>Experiment public room</h3></center>'
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\bedBound2.jpg"></center>'
 	''
 	'You are lying bound to a medical bed, completely naked. Your legs are secured high behind your head.'
@@ -1330,7 +1330,7 @@ if $ARGS[0] = 'testarea:treatment:room':
 	minut += 1
 	gs 'stat'
 	$this = 'testarea:treatment:room'
-	'<h3>Experiment private room</h3>'
+	'<center><h3>Experiment private room</h3></center>'
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\room.jpg"></center>'
 	''
 	'The room you are locked in is not a big one, but has all what you might need. Everything is however somehow adjusted to provide for more or less violent sexual acts.'
@@ -1397,7 +1397,7 @@ end
 if $ARGS[0] = 'testarea:treatment:room:shower':
 	$metkaM = 'testarea:treatment:room:shower'
 	$metka = 'testarea:treatment:room:shower'
-	'<h3>Experiment private room - shower</h3>'
+	'<center><h3>Experiment private room - shower</h3></center>'
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\roomShower.jpg"></center>'
 	''
 	'Small, hospital-like shower, a toilet and a sink with mirror.'

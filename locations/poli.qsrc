@@ -447,7 +447,8 @@ if $ARGS[0] = 'stdclinic':
 	*nl
 	'You notice an advertisement In the waiting room.'
 	*nl
-	'	Private Sexually Transmitted Disease Clinic provides the following treatment.'
+	'	Private Sexually Transmitted Disease Clinic provides the following test and treatments.'
+	'		STD test - 1,000 <b>₽</b>'
 	'		Complete cure for herpes - 45,000 <b>₽</b>.'
 	'		Complete cure of syphilis - 60,000 <b>₽</b>.'
 	'		Complete cure for yeast infection - 15,000 <b>₽</b>.'
@@ -455,7 +456,7 @@ if $ARGS[0] = 'stdclinic':
 	
 	act 'Leave':gt 'poli', 'start'
 
-	act 'Take STD test (1,000 <b>₽</b>)':gt 'poli', 'stdcheck'
+	if money >= 1000: act 'Take STD test (1,000 <b>₽</b>)':gt 'poli', 'stdcheck'
 
 	if GerpesNapr > 0 and GerpesUkolDay ! daystart:
 		act 'Get herpes shot (450 <b>₽</b>). You need <<GerpesNapr>> more injections to complete the treatment.':

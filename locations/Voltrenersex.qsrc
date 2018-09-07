@@ -65,7 +65,7 @@ if $ARGS[0] = 'sex':
 	gs 'boyStat', 'A69'
 	gs 'stat'
 	'<center><video autoplay loop src="images/locations/pavlovsk/community/gym/volley/sex/voitrensex3.mp4"></video></center>'
-	'He unzips his fly and pulls down his pants, letting his <<dick>>cm <<$dick_girth>> cock spring to life. Clasping his dick in your hand you start to stroke him, your every  movement, causes him to moan in pleasure.'
+	'He unzips his fly and pulls down his pants, letting his <<dick>>cm <<$dick_girth>> cock spring to life. Clasping his dick in your hand you start to stroke him, your every movement, causes him to moan in pleasure.'
 	act 'Balls':
 		cls
 		stat['bj'] += 1
@@ -167,7 +167,7 @@ end
 if $ARGS[0] = 'vag':
 	cls
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/gym/volley/sex/voitrensex29.jpg"></center>'
-	'Pulling his dick out of your mouth, he lefts you up and lays you back, where he spreads your pussy wide with his fingers. He gently asks "Is this hole ready for some training?",  exhausted from the desire you only groaned in response.'
+	'Pulling his dick out of your mouth, he lefts you up and lays you back, where he spreads your pussy wide with his fingers. He gently asks "Is this hole ready for some training?", exhausted from the desire you only groaned in response.'
 	act 'Further':
 		cls
 		pcs_horny = 100

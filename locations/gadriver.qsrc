@@ -23,7 +23,7 @@ if $ARGS[0] = 'start':
 		end
 	end
 
-	'A large river flows lazily a hundred meters in the northern outskirts of Gadukino.'
+	'A large river flows lazily a for a few hundred meters in the northern outskirts of Gadukino.'
 
 	if hour >= 6 and hour < 21 and sunWeather = 1: 'You see the local <a href="exec:gt ''Gadriver'', ''fishers''">fishermen</a> fishing with their rods on the riverbank.'
 
@@ -34,12 +34,12 @@ if $ARGS[0] = 'start':
 	if temp_gr = 4 and MiraLoc ! 1 and npc_QW['A63'] >= 13 and hour >= 5 and sub > 0:
 		if mitkaguysriver ! daystart:
 			mitkaguysriver = daystart
-			'While going to the river you meet Kolyamba and Vasya. They first invite you to join them, then insist you go with them.'
+			'While going to the river you meet Kolyamba and Vasyan. They first invite you to join them, then insist you go with them.'
 
 			act 'Go with them':
 				*clr & cla
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkaguysriversex17.jpg"></center>'
-				'The boys take you to Vasya''s house, where, they rudely keep pushing you until you are bent over the kitchen table. They then take turns fucking you...'
+				'The boys take you to Vasyan''s house, where, they rudely keep pushing you until you are bent over the kitchen table. They then take turns fucking you...'
 				gs 'boyStat', 'A61'
 				npc_sex[$boy] += 1
 				pose = 1
@@ -78,7 +78,7 @@ if $ARGS[0] = 'start':
 			act 'Go with them':
 				*clr & cla
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkaguysriversex18.jpg"></center>'
-				'The boys lead you to Vasya''s house, where they spend an hour fucking you in the ass...'
+				'The boys lead you to Vasyan''s house, where they spend an hour fucking you in the ass...'
 				gs 'boyStat', 'A63'
 				npc_sex[$boy] += 1
 				gs 'arousal', 'anal', 20, 'gangbang', 'sub'
@@ -104,7 +104,7 @@ if $ARGS[0] = 'start':
 	elseif temp_gr = 6 and MiraLoc ! 1 and npc_QW['A63'] >= 13 and hour >= 5 and sub > 0:
 		if mitkaguysriver ! daystart:
 			mitkaguysriver = daystart
-			'On your way to the river you meet Vasya, he insists you follow him home...'
+			'On your way to the river you meet Vasyan, he insists you follow him home...'
 
 			act 'Go with him':
 				*clr & cla
@@ -114,12 +114,12 @@ if $ARGS[0] = 'start':
 
 				if mesec = 0:
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkaguysriversex20.jpg"></center>'
-					'As soon as you open the door, Vasya pushes you inside and starts pulling your clothes off crudely. Once you are naked, he pushes you towards the sofa and forces you to your knees...'
+					'As soon as you open the door, Vasyan pushes you inside and starts pulling your clothes off crudely. Once you are naked, he pushes you towards the sofa and forces you to your knees...'
 					gs 'arousal', 'vaginal', 20, 'sub'
 					gs 'cum_call','butt',$boy,1
 				else
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkaguysriversex21.jpg"></center>'
-					'As soon as you open the door, Vasya pushes you inside and starts pulling your clothes off crudely. He then throws you onto his bed. Noticing, that you are slightly bleeding he asks if it is that time of the month. You whimper, "Yes." He curses angrily, turns you over and begins roughly fucking your ass...'
+					'As soon as you open the door, Vasyan pushes you inside and starts pulling your clothes off crudely. He then throws you onto his bed. Noticing, that you are slightly bleeding he asks if it is that time of the month. You whimper, "Yes." He curses angrily, turns you over and begins roughly fucking your ass...'
 					gs 'arousal', 'anal', 20, 'sub'
 					gs 'cum_call','butt',$boy,1
 				end
@@ -383,7 +383,7 @@ if $ARGS[0] = 'Gadbitch':
 							pcs_tan += 1
 						elseif krem > 0:
 							krem -= 1
-							'You smear the suntan lotion all over your body to help prevent a sunburn. You use the lotion all of your body and lie down.'
+							'You smear the suntan lotion all over your body to help prevent a sunburn.'
 							pcs_tan += 3
 						end
 						act 'Finish sunbathing':
@@ -476,7 +476,7 @@ if $ARGS[0] = 'Gadbitch':
 							elseif MiraLoc = 1 and npc_QW['A60'] >= 15 and temp_gr = 1 and hour >= 8 and hour < 20:
 								*clr & cla
 								'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkaguysriversex16.jpg"></center>'
-								'After a while, you hear voices rapidly approaching from the village, in a couple of minutes you see the village boys emerge from the bushes. Seeing Miroslava they smile obscenely, and without hesitation they quickly surround her as she lays on the sand. You sit up and watch as they fuck her in all her holes...'
+								'After a while, you hear voices rapidly approaching from the village, in a couple of minutes you see the village boys emerge from the bushes. Seeing Mira they smile obscenely, and without hesitation they quickly surround her as she lays on the sand. You sit up and watch as they fuck her in all her holes...'
 
 								gs 'arousal', 'voyeur', 30, 'gangbang', 'dom'
 								gs 'arousal', 'end'
@@ -718,7 +718,7 @@ if $ARGS[0] = 'GuysRiver':
 		'"Ah, no Mira, it''s just our other hot babe. Come here lovely, we have something really special for you."'
 	end
 	if temp_gr < 4:
-		act 'Pleasure Kolyambu':
+		act 'Pleasure Kolyamba':
 			*clr & cla
 			gs 'boyStat', 'A61'
 			pose = 0
@@ -731,7 +731,7 @@ if $ARGS[0] = 'GuysRiver':
 			gs 'arousal', 'vaginal', 10, 'sub', 'group'
 			gs 'stat'
 
-			act 'Pleasure Vasya':
+			act 'Pleasure Vasyan':
 				*clr & cla
 				gs 'boyStat', 'A62'
 				pose = 0
@@ -739,7 +739,7 @@ if $ARGS[0] = 'GuysRiver':
 				temp_gr = RAND(0,2)
 				if temp_gr = 0:
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkaguysriversex1.jpg"></center>'
-					'Vasya, rolls you onto your back, sticking his cock into your wet pussy.'
+					'Vasyan, rolls you onto your back, sticking his cock into your wet pussy.'
 					gs 'arousal', 'vaginal', 10, 'sub', 'group'
 					gs 'arousal', 'end'
 					gs 'stat'
@@ -761,7 +761,7 @@ if $ARGS[0] = 'GuysRiver':
 					gs 'cum_manage'
 					gs'stat'
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkaguysriversex3.jpg"></center>'
-					'Vasya forces you on all four and starts pumping his dick into your ass.'
+					'Vasyan forces you on all four and starts pumping his dick into your ass.'
 					gs 'arousal', 'anal', 10, 'sub', 'group', 'rough'
 					gs 'arousal', 'end'
 					gs 'stat'
@@ -781,7 +781,7 @@ if $ARGS[0] = 'GuysRiver':
 			'He only manages to hold out for a short time finishing in your mouth...'
 			gs 'arousal', 'bj', 5, 'sub', 'group', 'rough'
 			gs 'stat'
-			act 'Pleasure Vasya':
+			act 'Pleasure Vasyan':
 				*clr & cla
 				gs 'boyStat', 'A62'
 				pose = 0
@@ -789,7 +789,7 @@ if $ARGS[0] = 'GuysRiver':
 				temp_gr = RAND(0,2)
 				if temp_gr = 0:
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkaguysriversex5.jpg"></center>'
-					'Vasya, lays you onto your back, using his fingers stimulating your vaginal lips while sticking his cock into your wet pussy.'
+					'Vasyan, lays you onto your back, using his fingers stimulating your vaginal lips while sticking his cock into your wet pussy.'
 					gs 'arousal', 'vaginal', 10, 'sub', 'group', 'rough'
 					gs 'arousal', 'end'
 					gs 'stat'
@@ -799,7 +799,7 @@ if $ARGS[0] = 'GuysRiver':
 					gs 'cum_manage'
 					gs'stat'
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkaguysriversex6.jpg"></center>'
-					'Vasya steps up and roughs you up a little with his hands and then takes out his dick forcing you to suck him off.'
+					'Vasyan steps up and roughs you up a little with his hands and then takes out his dick forcing you to suck him off.'
 					'He shoves the cock into your mouth and soon cums violently...'
 					gs 'arousal', 'bj', 5, 'sub', 'group', 'rough'
 					gs 'arousal', 'end'
@@ -811,7 +811,7 @@ if $ARGS[0] = 'GuysRiver':
 					gs 'cum_manage'
 					gs'stat'
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkaguysriversex7.jpg"></center>'
-					'Vasya forces you on all four, telling you that you will enjoy this. He pulls out his dick and starts fucking you in the ass.'
+					'Vasyan forces you on all four, telling you that you will enjoy this. He pulls out his dick and starts fucking you in the ass.'
 					gs 'arousal', 'anal', 10, 'sub', 'group', 'rough'
 					gs 'arousal', 'end'
 					gs 'stat'
@@ -838,7 +838,7 @@ if $ARGS[0] = 'GuysRiver':
 			minut -= 10
 			gs 'stat'
 
-			act 'Pleasure Vasya':
+			act 'Pleasure Vasyan':
 				*clr & cla
 				gs 'boyStat', 'A62'
 				pose = 1
@@ -847,7 +847,7 @@ if $ARGS[0] = 'GuysRiver':
 
 				if temp_gr = 0:
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkaguysriversex9.jpg"></center>'
-					'Vasya tells you he heard about a sex position where both of you will reach ecstasy. Intrigued by this you take your clothes off and start caressing his cock. He removes your hand from his cock and tells you to get down on your hands and knees. Vasya walks behind you, grabs his cock and enters you from behind. You gasp as he mounts you. Soon enough you both cry out in ecstasy cumming at the same time.'
+					'Vasyan tells you he heard about a sex position where both of you will reach ecstasy. Intrigued by this you take your clothes off and start caressing his cock. He removes your hand from his cock and tells you to get down on your hands and knees. Vasya walks behind you, grabs his cock and enters you from behind. You gasp as he mounts you. Soon enough you both cry out in ecstasy cumming at the same time.'
 
 					$orgasm_or = 'yes'
 					gs 'arousal', 'bj', 10, 'sub', 'group', 'rough'
@@ -863,7 +863,7 @@ if $ARGS[0] = 'GuysRiver':
 					gs'stat'
 
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkaguysriversex10.jpg"></center>'
-					'Vasya steps closer to you and tells you he wants his cock sucked. You drop down on your knees and start sucking his glans.'
+					'Vasyan steps closer to you and tells you he wants his cock sucked. You drop down on your knees and start sucking his glans.'
 					'Feeling dissatisfied by your performance he grabs you by the head and forces his cock deep down your throat mumbling something about teaching you how to do it properly. He finishes inside your mouth...'
 					gs 'arousal', 'bj', 5, 'sub', 'group', 'rough', 'deepthroat'
 					gs 'arousal', 'end'
@@ -876,7 +876,7 @@ if $ARGS[0] = 'GuysRiver':
 					gs'stat'
 
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkaguysriversex11.jpg"></center>'
-					'Vasya forces you to your hands and knees and starts thrusting his dick into your anus.'
+					'Vasyan forces you to your hands and knees and starts thrusting his dick into your anus.'
 					gs 'arousal', 'anal', 10, 'sub', 'group', 'rough'
 					gs 'arousal', 'end'
 					gs 'stat'
@@ -1103,7 +1103,7 @@ if $ARGS[0] = 'fishing':
 
 				act 'Leave':minut += 5 & gt $loc, $metka
 			end
-			act 'Give to Uncle Stepa':
+			act 'Give to Uncle Stepan':
 				cla
 				*clr
 				minut += 5

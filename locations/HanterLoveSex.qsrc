@@ -2,14 +2,14 @@
 
 if $ARGS[0] = 'din_mesec':
 	if klismaday ! daystart:
-		'<<$boydesc>>: Damn, they weren''t lying about what they said about that body of yours.'
-		'Only good things, <<$pcs_nickname>>. Do you want it in the ass or in the mouth? " he asks you.'
+		'<<$boydesc>>: Damn, they weren''t lying about that body of yours.'
+		'Don''t worry, we were only told good things, <<$pcs_nickname>>. Do you want it in the ass or in the mouth? " he asks you.'
 		'Oh, anal won''t work for me today <<$boydesc>>, I''m not quite ready...if you know what I mean...'
 		'I understand, says <<$boydesc>>. -  Okay, next time, come with a clean ass!'
 	else
-		'<<$boydesc>>: Damn, they weren''t lying about what they said about that body of yours.'
-		'Only good things, <<$pcs_nickname>>. Do you want it in the ass or in the mouth? " he asks you.'
-		'Well... - you mutter.'
+		'<<$boydesc>>: Damn, they weren''t lying about that body of yours.'
+		'Don''t worry, we were only told good things, <<$pcs_nickname>>. Do you want it in the ass or in the mouth? " he asks you.'
+		'"Let''s not rush things too fast", you say.'
 	end
 	xgt 'HanterLoveSex', 'din_hanters_bj'
 end &! --- din_mesec ---
@@ -20,8 +20,8 @@ if $ARGS[0] = 'din_hanters_bj_bonusH1':
 	'<center><video autoplay loop src="images/shared/sex/blowjob/kotovbjbonus1.mp4"></video></center>'
 	*pl
 	'You glide your tongue over the head of his member, gently flicking and poking at his urethra.'
-	if harakBoyH = 2:'<<$boydesc>> this already started: -<<$pcs_nickname>>, what are you doing, stop it, I''m fucking going to cum from this.'
-	if harakBoyH < 2:'<<$boydesc>> this already started: -<<$pcs_nickname>>, what are you doing, stop it, I''m going to shoot my load.'
+	if harakBoyH = 2:'<<$boydesc>> looks down at you: -<<$pcs_nickname>>, what are you doing, stop it, I''m fucking going to cum from this already.'
+	if harakBoyH < 2:'<<$boydesc>> looks down at you: -<<$pcs_nickname>>, what are you doing, stop it, I''m going to shoot my load already.'
 	gs 'arousal', 'foreplay', 5, 'sub'
 	gs 'stat'
 	act 'Continue':gt 'HanterLoveSex', 'din_hanters_bjH1'
@@ -497,7 +497,7 @@ if $ARGS[0] = 'din_hanters_bj':
 		if bj > 10: act 'Suck on the head':gt 'HanterLoveSex', 'din_hanters_bjH2'
 		if bj > 5 and bj <= 10: act 'Lick the head':gt 'HanterLoveSex', 'din_hanters_bjH1'
 		if bj > 2 and bj <= 5: act 'Kiss the head':gt 'HanterLoveSex', 'din_hanters_bjH3'
-		if bj <= 2: act 'Caress his cockhead with your hand':gt 'HanterLoveSex', 'din_hanters_bjH4'
+		if bj <= 2: act 'Caress his head with your hand':gt 'HanterLoveSex', 'din_hanters_bjH4'
 	end
 end &! --- din_hanters_bj ---
 
@@ -603,7 +603,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface7':
 	gs 'arousal', 'end'
 	gs 'stat'
 	if silavag = 1 and dikos < 1 and pcs_horny >= 60 and pcs_vag > 0:
-		act '<<$boydesc>>, want.':
+		act '<<$boydesc>>, you want more?':
 			*clr & cla
 			dikos += 1
 			minut += 5
@@ -617,7 +617,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface7':
 			if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 			if pcs_vag > 0:
 				i = rand(1,5)
-				if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -627,7 +627,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface7':
 		end
 	end
 	if silavag = 2 and dikos < 2 and pcs_horny >= 60 and pcs_vag > 0:
-		act '<<$boydesc>>, want.':
+		act '<<$boydesc>>, you want more?':
 			*clr & cla
 			dikos += 1
 			minut += 5
@@ -641,7 +641,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface7':
 			if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 			if pcs_vag > 0:
 				i = rand(1,5)
-				if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -669,7 +669,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface6':
 	gs 'arousal', 'end'
 	gs 'stat'
 	if silavag = 1 and dikos < 1 and pcs_horny >= 60 and pcs_vag > 0:
-		act '<<$boydesc>>, want.':
+		act '<<$boydesc>>, you want more?':
 			*clr & cla
 			dikos += 1
 			minut += 5
@@ -683,7 +683,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface6':
 			if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 			if pcs_vag > 0:
 				i = rand(1,5)
-				if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -693,7 +693,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface6':
 		end
 	end
 	if silavag = 2 and dikos < 2 and pcs_horny >= 60 and pcs_vag > 0:
-		act '<<$boydesc>>, want.':
+		act '<<$boydesc>>, you want more?':
 			*clr & cla
 			dikos += 1
 			minut += 5
@@ -707,7 +707,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface6':
 			if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 			if pcs_vag > 0:
 				i = rand(1,5)
-				if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -735,7 +735,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface5':
 	gs 'arousal', 'end'
 	gs 'stat'
 	if silavag = 1 and dikos < 1 and pcs_horny >= 60 and pcs_vag > 0:
-		act '<<$boydesc>>, want.':
+		act '<<$boydesc>>, you want more?':
 			*clr & cla
 			dikos += 1
 			minut += 5
@@ -749,7 +749,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface5':
 			if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 			if pcs_vag > 0:
 				i = rand(1,5)
-				if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -759,7 +759,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface5':
 		end
 	end
 	if silavag = 2 and dikos < 2 and pcs_horny >= 60 and pcs_vag > 0:
-		act '<<$boydesc>>, want.':
+		act '<<$boydesc>>, you want more?':
 			*clr & cla
 			dikos += 1
 			minut += 5
@@ -773,7 +773,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface5':
 			if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 			if pcs_vag > 0:
 				i = rand(1,5)
-				if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -801,7 +801,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface4':
 	gs 'arousal', 'end'
 	gs 'stat'
 	if silavag = 1 and dikos < 1 and pcs_horny >= 60 and pcs_vag > 0:
-		act '<<$boydesc>>, want.':
+		act '<<$boydesc>>, you want more?':
 			*clr & cla
 			dikos += 1
 			minut += 5
@@ -815,7 +815,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface4':
 			if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 			if pcs_vag > 0:
 				i = rand(1,5)
-				if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -825,7 +825,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface4':
 		end
 	end
 	if silavag = 2 and dikos < 2 and pcs_horny >= 60 and pcs_vag > 0:
-		act '<<$boydesc>>, want.':
+		act '<<$boydesc>>, you want more?':
 			*clr & cla
 			dikos += 1
 			minut += 5
@@ -839,7 +839,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface4':
 			if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 			if pcs_vag > 0:
 				i = rand(1,5)
-				if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -867,7 +867,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface3':
 	gs 'arousal', 'end'
 	gs 'stat'
 	if silavag = 1 and dikos < 1 and pcs_horny >= 60 and pcs_vag > 0:
-		act '<<$boydesc>>, want.':
+		act '<<$boydesc>>, you want more?':
 			*clr & cla
 			dikos += 1
 			minut += 5
@@ -881,7 +881,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface3':
 			if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 			if pcs_vag > 0:
 				i = rand(1,5)
-				if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -891,7 +891,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface3':
 		end
 	end
 	if silavag = 2 and dikos < 2 and pcs_horny >= 60 and pcs_vag > 0:
-		act '<<$boydesc>>, want.':
+		act '<<$boydesc>>, you want more?':
 			*clr & cla
 			dikos += 1
 			minut += 5
@@ -905,7 +905,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface3':
 			if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 			if pcs_vag > 0:
 				i = rand(1,5)
-				if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -943,7 +943,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface2':
 		gs 'arousal', 'end'
 		gs 'stat'
 		if silavag = 1 and dikos < 1 and pcs_horny >= 60 and pcs_vag > 0:
-			act '<<$boydesc>>, want.':
+			act '<<$boydesc>>, you want more?':
 				*clr & cla
 				dikos += 1
 				minut += 5
@@ -957,7 +957,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface2':
 				if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 				if pcs_vag > 0:
 				   i = rand(1,5)
-				   if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				   if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				   if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				   if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				   if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -967,7 +967,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface2':
 			end
 		end
 		if silavag = 2 and dikos < 2 and pcs_horny >= 60 and pcs_vag > 0:
-			act '<<$boydesc>>, want.':
+			act '<<$boydesc>>, you want more?':
 				*clr & cla
 				dikos += 1
 				minut += 5
@@ -981,7 +981,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface2':
 				if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 				if pcs_vag > 0:
 					i = rand(1,5)
-					if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+					if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 					if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 					if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 					if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1008,7 +1008,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface2':
 		gs 'arousal', 'end'
 		gs 'stat'
 		if silavag = 1 and dikos < 1 and pcs_horny >= 60 and pcs_vag > 0:
-		   act '<<$boydesc>>, want.':
+		   act '<<$boydesc>>, you want more?':
 				*clr & cla
 				dikos += 1
 				minut += 5
@@ -1022,7 +1022,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface2':
 				if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 				if pcs_vag > 0:
 				   i = rand(1,5)
-				   if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				   if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				   if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				   if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				   if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1032,7 +1032,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface2':
 			end
 		end
 		if silavag = 2 and dikos < 2 and pcs_horny >= 60 and pcs_vag > 0:
-			act '<<$boydesc>>, want.':
+			act '<<$boydesc>>, you want more?':
 				*clr & cla
 				dikos += 1
 				minut += 5
@@ -1046,7 +1046,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface2':
 				if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 				if pcs_vag > 0:
 					i = rand(1,5)
-					if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+					if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 					if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 					if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 					if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1074,7 +1074,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface1':
 	gs 'arousal', 'end'
 	gs 'stat'
 	if silavag = 1 and dikos < 1 and pcs_horny >= 60 and pcs_vag > 0:
-		act '<<$boydesc>>, want.':
+		act '<<$boydesc>>, you want more?':
 			*clr & cla
 			dikos += 1
 			minut += 5
@@ -1088,7 +1088,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface1':
 			if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 			if pcs_vag > 0:
 				i = rand(1,5)
-				if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1098,7 +1098,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface1':
 		end
 	end
 	if silavag = 2 and dikos < 2 and pcs_horny >= 60 and pcs_vag > 0:
-		act '<<$boydesc>>, want.':
+		act '<<$boydesc>>, you want more?':
 			*clr & cla
 			dikos += 1
 			minut += 5
@@ -1112,7 +1112,7 @@ if $ARGS[0] = 'din_hanters_sex_cumface1':
 			if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 			if pcs_vag > 0:
 				i = rand(1,5)
-				if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1138,7 +1138,7 @@ if $ARGS[0] = 'din_hanters_sex_cum11':
 		gs 'arousal', 'end'
 		gs 'stat'
 		if silavag = 1 and dikos < 1 and pcs_horny >= 60 and pcs_vag > 0:
-			act '<<$boydesc>>, want.':
+			act '<<$boydesc>>, you want more?':
 				*clr & cla
 				dikos += 1
 				minut += 5
@@ -1151,7 +1151,7 @@ if $ARGS[0] = 'din_hanters_sex_cum11':
 				if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 				if pcs_vag > 0:
 					i = rand(1,5)
-					if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+					if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 					if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 					if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 					if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1161,7 +1161,7 @@ if $ARGS[0] = 'din_hanters_sex_cum11':
 			end
 		end
 		if silavag = 2 and dikos < 2 and pcs_horny >= 60 and pcs_vag > 0:
-			act '<<$boydesc>>, want.':
+			act '<<$boydesc>>, you want more?':
 				*clr & cla
 				dikos += 1
 				minut += 5
@@ -1175,7 +1175,7 @@ if $ARGS[0] = 'din_hanters_sex_cum11':
 				if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 				if pcs_vag > 0:
 					i = rand(1,5)
-					if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+					if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 					if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 					if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 					if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1199,7 +1199,7 @@ if $ARGS[0] = 'din_hanters_sex_cum11':
 		gs 'arousal', 'end'
 		gs 'stat'
 		if silavag = 1 and dikos < 1 and pcs_horny >= 60 and pcs_vag > 0:
-			act '<<$boydesc>>, want.':
+			act '<<$boydesc>>, you want more?':
 				*clr & cla
 				dikos += 1
 				minut += 5
@@ -1212,7 +1212,7 @@ if $ARGS[0] = 'din_hanters_sex_cum11':
 				if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 				if pcs_vag > 0:
 					i = rand(1,5)
-					if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+					if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 					if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 					if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 					if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1222,7 +1222,7 @@ if $ARGS[0] = 'din_hanters_sex_cum11':
 			end
 		end
 		if silavag = 2 and dikos < 2 and pcs_horny >= 60 and pcs_vag > 0:
-			act '<<$boydesc>>, want.':
+			act '<<$boydesc>>, you want more?':
 				*clr & cla
 				dikos += 1
 				minut += 5
@@ -1236,7 +1236,7 @@ if $ARGS[0] = 'din_hanters_sex_cum11':
 				if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 				if pcs_vag > 0:
 					i = rand(1,5)
-					if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+					if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 					if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 					if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 					if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1263,7 +1263,7 @@ if $ARGS[0] = 'din_hanters_sex_cum10':
 	gs 'arousal', 'end'
 	gs 'stat'
 	if silavag = 1 and dikos < 1 and pcs_horny >= 60 and pcs_vag > 0:
-		act '<<$boydesc>>, want.':
+		act '<<$boydesc>>, you want more?':
 			*clr & cla
 			dikos += 1
 			minut += 5
@@ -1277,7 +1277,7 @@ if $ARGS[0] = 'din_hanters_sex_cum10':
 			if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 			if pcs_vag > 0:
 				i = rand(1,5)
-				if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1287,7 +1287,7 @@ if $ARGS[0] = 'din_hanters_sex_cum10':
 		end
 	end
 	if silavag = 2 and dikos < 2 and pcs_horny >= 60 and pcs_vag > 0:
-		act '<<$boydesc>>, want.':
+		act '<<$boydesc>>, you want more?':
 			*clr & cla
 			dikos += 1
 			minut += 5
@@ -1301,7 +1301,7 @@ if $ARGS[0] = 'din_hanters_sex_cum10':
 			if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 			if pcs_vag > 0:
 				i = rand(1,5)
-				if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1329,7 +1329,7 @@ if $ARGS[0] = 'din_hanters_sex_cum9':
 		gs 'arousal', 'end'
 		gs 'stat'
 		if silavag = 1 and dikos < 1 and pcs_horny >= 60 and pcs_vag > 0:
-			act '<<$boydesc>>, want.':
+			act '<<$boydesc>>, you want more?':
 				*clr & cla
 				dikos += 1
 				minut += 5
@@ -1343,7 +1343,7 @@ if $ARGS[0] = 'din_hanters_sex_cum9':
 				if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 				if pcs_vag > 0:
 					i = rand(1,5)
-					if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+					if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 					if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 					if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 					if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1353,7 +1353,7 @@ if $ARGS[0] = 'din_hanters_sex_cum9':
 			end
 		end
 		if silavag = 2 and dikos < 2 and pcs_horny >= 60 and pcs_vag > 0:
-			act '<<$boydesc>>, want.':
+			act '<<$boydesc>>, you want more?':
 				*clr & cla
 				dikos += 1
 				minut += 5
@@ -1367,7 +1367,7 @@ if $ARGS[0] = 'din_hanters_sex_cum9':
 				if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 				if pcs_vag > 0:
 					i = rand(1,5)
-					if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+					if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 					if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 					if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 					if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1392,7 +1392,7 @@ if $ARGS[0] = 'din_hanters_sex_cum9':
 		gs 'arousal', 'end'
 		gs 'stat'
 		if silavag = 1 and dikos < 1 and pcs_horny >= 60 and pcs_vag > 0:
-			act '<<$boydesc>>, want.':
+			act '<<$boydesc>>, you want more?':
 				*clr & cla
 				dikos += 1
 				minut += 5
@@ -1406,7 +1406,7 @@ if $ARGS[0] = 'din_hanters_sex_cum9':
 				if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 				if pcs_vag > 0:
 					i = rand(1,5)
-					if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+					if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 					if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 					if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 					if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1416,7 +1416,7 @@ if $ARGS[0] = 'din_hanters_sex_cum9':
 			end
 		end
 		if silavag = 2 and dikos < 2 and pcs_horny >= 60 and pcs_vag > 0:
-			act '<<$boydesc>>, want.':
+			act '<<$boydesc>>, you want more?':
 				*clr & cla
 				dikos += 1
 				minut += 5
@@ -1430,7 +1430,7 @@ if $ARGS[0] = 'din_hanters_sex_cum9':
 				if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 				if pcs_vag > 0:
 					i = rand(1,5)
-					if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+					if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 					if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 					if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 					if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1459,7 +1459,7 @@ if $ARGS[0] = 'din_hanters_sex_cum81':
 		gs 'arousal', 'end'
 		gs 'stat'
 		if silavag = 1 and dikos < 1 and pcs_horny >= 60 and pcs_vag > 0:
-			act '<<$boydesc>>, want.':
+			act '<<$boydesc>>, you want more?':
 				*clr & cla
 				dikos += 1
 				minut += 5
@@ -1473,7 +1473,7 @@ if $ARGS[0] = 'din_hanters_sex_cum81':
 				if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 				if pcs_vag > 0:
 					i = rand(1,5)
-					if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+					if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 					if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 					if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 					if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1483,7 +1483,7 @@ if $ARGS[0] = 'din_hanters_sex_cum81':
 			end
 		end
 		if silavag = 2 and dikos < 2 and pcs_horny >= 60 and pcs_vag > 0:
-			act '<<$boydesc>>, want.':
+			act '<<$boydesc>>, you want more?':
 				*clr & cla
 				dikos += 1
 				minut += 5
@@ -1497,7 +1497,7 @@ if $ARGS[0] = 'din_hanters_sex_cum81':
 				if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 				if pcs_vag > 0:
 					i = rand(1,5)
-					if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+					if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 					if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 					if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 					if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1521,7 +1521,7 @@ if $ARGS[0] = 'din_hanters_sex_cum81':
 		gs 'arousal', 'end'
 		gs 'stat'
 		if silavag = 1 and dikos < 1 and pcs_horny >= 60 and pcs_vag > 0:
-			act '<<$boydesc>>, want.':
+			act '<<$boydesc>>, you want more?':
 				*clr & cla
 				dikos += 1
 				minut += 5
@@ -1535,7 +1535,7 @@ if $ARGS[0] = 'din_hanters_sex_cum81':
 				if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 				if pcs_vag > 0:
 					i = rand(1,5)
-					if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+					if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 					if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 					if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 					if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1545,7 +1545,7 @@ if $ARGS[0] = 'din_hanters_sex_cum81':
 			end
 		end
 		if silavag = 2 and dikos < 2 and pcs_horny >= 60 and pcs_vag > 0:
-			act '<<$boydesc>>, want.':
+			act '<<$boydesc>>, you want more?':
 				*clr & cla
 				dikos += 1
 				minut += 5
@@ -1559,7 +1559,7 @@ if $ARGS[0] = 'din_hanters_sex_cum81':
 				if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 				if pcs_vag > 0:
 					i = rand(1,5)
-					if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+					if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 					if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 					if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 					if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1587,7 +1587,7 @@ if $ARGS[0] = 'din_hanters_sex_cum8':
 		gs 'arousal', 'end'
 		gs 'stat'
 		if silavag = 1 and dikos < 1 and pcs_horny >= 60 and pcs_vag > 0:
-			act '<<$boydesc>>, want.':
+			act '<<$boydesc>>, you want more?':
 				*clr & cla
 				dikos += 1
 				minut += 5
@@ -1601,7 +1601,7 @@ if $ARGS[0] = 'din_hanters_sex_cum8':
 				if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 				if pcs_vag > 0:
 					i = rand(1,5)
-					if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+					if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 					if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 					if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 					if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1611,7 +1611,7 @@ if $ARGS[0] = 'din_hanters_sex_cum8':
 			end
 		end
 		if silavag = 2 and dikos < 2 and pcs_horny >= 60 and pcs_vag > 0:
-			act '<<$boydesc>>, want.':
+			act '<<$boydesc>>, you want more?':
 				*clr & cla
 				dikos += 1
 				minut += 5
@@ -1625,7 +1625,7 @@ if $ARGS[0] = 'din_hanters_sex_cum8':
 				if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 				if pcs_vag > 0:
 					i = rand(1,5)
-					if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+					if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 					if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 					if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 					if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1649,7 +1649,7 @@ if $ARGS[0] = 'din_hanters_sex_cum8':
 		gs 'arousal', 'end'
 		gs 'stat'
 		if silavag = 1 and dikos < 1 and pcs_horny >= 60 and pcs_vag > 0:
-			act '<<$boydesc>>, want.':
+			act '<<$boydesc>>, you want more?':
 				*clr & cla
 				dikos += 1
 				minut += 5
@@ -1663,7 +1663,7 @@ if $ARGS[0] = 'din_hanters_sex_cum8':
 				if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 				if pcs_vag > 0:
 					i = rand(1,5)
-					if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+					if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 					if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 					if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 					if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1673,7 +1673,7 @@ if $ARGS[0] = 'din_hanters_sex_cum8':
 			end
 		end
 		if silavag = 2 and dikos < 2 and pcs_horny >= 60 and pcs_vag > 0:
-			act '<<$boydesc>>, want.':
+			act '<<$boydesc>>, you want more?':
 				*clr & cla
 				dikos += 1
 				minut += 5
@@ -1687,7 +1687,7 @@ if $ARGS[0] = 'din_hanters_sex_cum8':
 				if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 				if pcs_vag > 0:
 					i = rand(1,5)
-					if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+					if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 					if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 					if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 					if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1715,7 +1715,7 @@ if $ARGS[0] = 'din_hanters_sex_cum7':
 		gs 'arousal', 'end'
 		gs 'stat'
 		if silavag = 1 and dikos < 1 and pcs_horny >= 60 and pcs_vag > 0:
-			act '<<$boydesc>>, want.':
+			act '<<$boydesc>>, you want more?':
 				*clr & cla
 				dikos += 1
 				minut += 5
@@ -1729,7 +1729,7 @@ if $ARGS[0] = 'din_hanters_sex_cum7':
 				if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 				if pcs_vag > 0:
 					i = rand(1,5)
-					if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+					if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 					if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 					if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 					if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1739,7 +1739,7 @@ if $ARGS[0] = 'din_hanters_sex_cum7':
 			end
 		end
 		if silavag = 2 and dikos < 2 and pcs_horny >= 60 and pcs_vag > 0:
-			act '<<$boydesc>>, want.':
+			act '<<$boydesc>>, you want more?':
 				*clr & cla
 				dikos += 1
 				minut += 5
@@ -1753,7 +1753,7 @@ if $ARGS[0] = 'din_hanters_sex_cum7':
 				if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 				if pcs_vag > 0:
 					i = rand(1,5)
-					if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+					if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 					if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 					if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 					if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1777,7 +1777,7 @@ if $ARGS[0] = 'din_hanters_sex_cum7':
 		gs 'arousal', 'end'
 		gs 'stat'
 		if silavag = 1 and dikos < 1 and pcs_horny >= 60 and pcs_vag > 0:
-			act '<<$boydesc>>, want.':
+			act '<<$boydesc>>, you want more?':
 				*clr & cla
 				dikos += 1
 				minut += 5
@@ -1791,7 +1791,7 @@ if $ARGS[0] = 'din_hanters_sex_cum7':
 				if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 				if pcs_vag > 0:
 					i = rand(1,5)
-					if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+					if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 					if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 					if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 					if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1801,7 +1801,7 @@ if $ARGS[0] = 'din_hanters_sex_cum7':
 			end
 		end
 		if silavag = 2 and dikos < 2 and pcs_horny >= 60 and pcs_vag > 0:
-			act '<<$boydesc>>, want.':
+			act '<<$boydesc>>, you want more?':
 				*clr & cla
 				dikos += 1
 				minut += 5
@@ -1815,7 +1815,7 @@ if $ARGS[0] = 'din_hanters_sex_cum7':
 				if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 				if pcs_vag > 0:
 					i = rand(1,5)
-					if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+					if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 					if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 					if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 					if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1843,7 +1843,7 @@ if $ARGS[0] = 'din_hanters_sex_cum6':
 		gs 'arousal', 'end'
 		gs 'stat'
 		if silavag = 1 and dikos < 1 and pcs_horny >= 60 and pcs_vag > 0:
-			act '<<$boydesc>>, want.':
+			act '<<$boydesc>>, you want more?':
 				*clr & cla
 				dikos += 1
 				minut += 5
@@ -1857,7 +1857,7 @@ if $ARGS[0] = 'din_hanters_sex_cum6':
 				if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 				if pcs_vag > 0:
 					i = rand(1,5)
-					if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+					if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 					if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 					if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 					if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1867,7 +1867,7 @@ if $ARGS[0] = 'din_hanters_sex_cum6':
 			end
 		end
 		if silavag = 2 and dikos < 2 and pcs_horny >= 60 and pcs_vag > 0:
-			act '<<$boydesc>>, want.':
+			act '<<$boydesc>>, you want more?':
 				*clr & cla
 				dikos += 1
 				minut += 5
@@ -1881,7 +1881,7 @@ if $ARGS[0] = 'din_hanters_sex_cum6':
 				if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 				if pcs_vag > 0:
 					i = rand(1,5)
-					if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+					if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 					if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 					if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 					if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1905,7 +1905,7 @@ if $ARGS[0] = 'din_hanters_sex_cum6':
 		gs 'arousal', 'end'
 		gs 'stat'
 		if silavag = 1 and dikos < 1 and pcs_horny >= 60 and pcs_vag > 0:
-			act '<<$boydesc>>, want.':
+			act '<<$boydesc>>, you want more?':
 				*clr & cla
 				dikos += 1
 				minut += 5
@@ -1919,7 +1919,7 @@ if $ARGS[0] = 'din_hanters_sex_cum6':
 				if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 				if pcs_vag > 0:
 					i = rand(1,5)
-					if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+					if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 					if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 					if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 					if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1929,7 +1929,7 @@ if $ARGS[0] = 'din_hanters_sex_cum6':
 			end
 		end
 		if silavag = 2 and dikos < 2 and pcs_horny >= 60 and pcs_vag > 0:
-			act '<<$boydesc>>, want.':
+			act '<<$boydesc>>, you want more?':
 				*clr & cla
 				dikos += 1
 				minut += 5
@@ -1943,7 +1943,7 @@ if $ARGS[0] = 'din_hanters_sex_cum6':
 				if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 				if pcs_vag > 0:
 					i = rand(1,5)
-					if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+					if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 					if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 					if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 					if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1971,7 +1971,7 @@ if $ARGS[0] = 'din_hanters_sex_cum5':
 	gs 'arousal', 'end'
 	gs 'stat'
 	if silavag = 1 and dikos < 1 and pcs_horny >= 60 and pcs_vag > 0:
-		act '<<$boydesc>>, want.':
+		act '<<$boydesc>>, you want more?':
 			*clr & cla
 			dikos += 1
 			minut += 5
@@ -1985,7 +1985,7 @@ if $ARGS[0] = 'din_hanters_sex_cum5':
 			if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 			if pcs_vag > 0:
 				i = rand(1,5)
-				if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -1995,7 +1995,7 @@ if $ARGS[0] = 'din_hanters_sex_cum5':
 		end
 	end
 	if silavag = 2 and dikos < 2 and pcs_horny >= 60 and pcs_vag > 0:
-		act '<<$boydesc>>, want.':
+		act '<<$boydesc>>, you want more?':
 			*clr & cla
 			dikos += 1
 			minut += 5
@@ -2009,7 +2009,7 @@ if $ARGS[0] = 'din_hanters_sex_cum5':
 			if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 			if pcs_vag > 0:
 				i = rand(1,5)
-				if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -2035,7 +2035,7 @@ if $ARGS[0] = 'din_hanters_sex_cum41':
 	gs 'arousal', 'end'
 	gs 'stat'
 	if silavag = 1 and dikos < 1 and pcs_horny >= 60 and pcs_vag > 0:
-		act '<<$boydesc>>, want.':
+		act '<<$boydesc>>, you want more?':
 			*clr & cla
 			dikos += 1
 			minut += 5
@@ -2049,7 +2049,7 @@ if $ARGS[0] = 'din_hanters_sex_cum41':
 			if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 			if pcs_vag > 0:
 				i = rand(1,5)
-				if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -2059,7 +2059,7 @@ if $ARGS[0] = 'din_hanters_sex_cum41':
 		end
 	end
 	if silavag = 2 and dikos < 2 and pcs_horny >= 60 and pcs_vag > 0:
-		act '<<$boydesc>>, want.':
+		act '<<$boydesc>>, you want more?':
 			*clr & cla
 			dikos += 1
 			minut += 5
@@ -2073,7 +2073,7 @@ if $ARGS[0] = 'din_hanters_sex_cum41':
 			if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 			if pcs_vag > 0:
 				i = rand(1,5)
-				if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -2099,7 +2099,7 @@ if $ARGS[0] = 'din_hanters_sex_cum4':
 	gs 'arousal', 'end'
 	gs 'stat'
 	if silavag = 1 and dikos < 1 and pcs_horny >= 60 and pcs_vag > 0:
-		act '<<$boydesc>>, want.':
+		act '<<$boydesc>>, you want more?':
 			*clr & cla
 			dikos += 1
 			minut += 5
@@ -2113,7 +2113,7 @@ if $ARGS[0] = 'din_hanters_sex_cum4':
 			if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 			if pcs_vag > 0:
 				i = rand(1,5)
-				if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -2123,7 +2123,7 @@ if $ARGS[0] = 'din_hanters_sex_cum4':
 		end
 	end
 	if silavag = 2 and dikos < 2 and pcs_horny >= 60 and pcs_vag > 0:
-		act '<<$boydesc>>, want.':
+		act '<<$boydesc>>, you want more?':
 			*clr & cla
 			dikos += 1
 			minut += 5
@@ -2137,7 +2137,7 @@ if $ARGS[0] = 'din_hanters_sex_cum4':
 			if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 			if pcs_vag > 0:
 				i = rand(1,5)
-				if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -2165,7 +2165,7 @@ if $ARGS[0] = 'din_hanters_sex_cum3':
 	gs 'arousal', 'end'
 	gs 'stat'
 	if silavag = 1 and dikos < 1 and pcs_horny >= 60 and pcs_vag > 0:
-		act '<<$boydesc>>, want.':
+		act '<<$boydesc>>, you want more?':
 			*clr & cla
 			dikos += 1
 			minut += 5
@@ -2179,7 +2179,7 @@ if $ARGS[0] = 'din_hanters_sex_cum3':
 			if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 			if pcs_vag > 0:
 				i = rand(1,5)
-				if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -2189,7 +2189,7 @@ if $ARGS[0] = 'din_hanters_sex_cum3':
 		end
 	end
 	if silavag = 2 and dikos < 2 and pcs_horny >= 60 and pcs_vag > 0:
-		act '<<$boydesc>>, want.':
+		act '<<$boydesc>>, you want more?':
 			*clr & cla
 			dikos += 1
 			minut += 5
@@ -2203,7 +2203,7 @@ if $ARGS[0] = 'din_hanters_sex_cum3':
 			if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 			if pcs_vag > 0:
 				i = rand(1,5)
-				if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -2230,7 +2230,7 @@ if $ARGS[0] = 'din_hanters_sex_cum2':
 	gs 'arousal', 'end'
 	gs 'stat'
 	if silavag = 1 and dikos < 1 and pcs_horny >= 60 and pcs_vag > 0:
-		act '<<$boydesc>>, want.':
+		act '<<$boydesc>>, you want more?':
 			*clr & cla
 			dikos += 1
 			minut += 5
@@ -2244,7 +2244,7 @@ if $ARGS[0] = 'din_hanters_sex_cum2':
 			if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 			if pcs_vag > 0:
 				i = rand(1,5)
-				if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -2254,7 +2254,7 @@ if $ARGS[0] = 'din_hanters_sex_cum2':
 		end
 	end
 	if silavag = 2 and dikos < 2 and pcs_horny >= 60 and pcs_vag > 0:
-		act '<<$boydesc>>, want.':
+		act '<<$boydesc>>, you want more?':
 			*clr & cla
 			dikos += 1
 			minut += 5
@@ -2268,7 +2268,7 @@ if $ARGS[0] = 'din_hanters_sex_cum2':
 			if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 			if pcs_vag > 0:
 				i = rand(1,5)
-				if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -2295,7 +2295,7 @@ if $ARGS[0] = 'din_hanters_sex_cum1':
 	gs 'arousal', 'end'
 	gs 'stat'
 	if silavag = 1 and dikos < 1 and pcs_horny >= 60 and pcs_vag > 0:
-		act '<<$boydesc>>, want.':
+		act '<<$boydesc>>, you want more?':
 			*clr & cla
 			dikos += 1
 			minut += 5
@@ -2309,7 +2309,7 @@ if $ARGS[0] = 'din_hanters_sex_cum1':
 			if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 			if pcs_vag > 0:
 				i = rand(1,5)
-				if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -2319,7 +2319,7 @@ if $ARGS[0] = 'din_hanters_sex_cum1':
 		end
 	end
 	if silavag = 2 and dikos < 2 and pcs_horny >= 60 and pcs_vag > 0:
-		act '<<$boydesc>>, want.':
+		act '<<$boydesc>>, you want more?':
 			*clr & cla
 			dikos += 1
 			minut += 5
@@ -2333,7 +2333,7 @@ if $ARGS[0] = 'din_hanters_sex_cum1':
 			if pcs_vag = 0:xgt 'HanterLoveSex', 'din_hanters_bj'
 			if pcs_vag > 0:
 				i = rand(1,5)
-				if i = 1: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				if i = 1: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				if i = 2: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				if i = 3: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				if i = 4 and hanters_kuni = 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
@@ -2474,7 +2474,7 @@ if $ARGS[0] = 'din_hanters_sex_69':
 	i = rand(1,4)
 	j = rand(1,3)
 	h = rand(1,3)
-	if h < 3:'Have you had enough of this position he asks you...'
+	if h < 3:'Having had enough of this position he asks you...'
 	if h = 3:'Suddenly <<$boydesc>> begins to move faster and your realize that he is already on edge and ready...'
 	*pl
 	if h < 3 and j < 3 and i = 1: act 'Lie on your back':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
@@ -2506,7 +2506,7 @@ if $ARGS[0] = 'din_hanters_sex_hand_bonus':
 	i = rand(1,4)
 	j = rand(1,3)
 	h = rand(1,3)
-	if h < 3:'Have you had enough of this position he asks you...'
+	if h < 3:'Having had enough of this position he asks you...'
 	if h = 3:'Suddenly <<$boydesc>> begins to move faster and your realize that he is already on edge and ready...'
 	*pl
 	if h < 3 and j < 3 and i = 1: act 'Lie on your back':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
@@ -2541,7 +2541,7 @@ if $ARGS[0] = 'din_hanters_sex_hand':
 	h = rand(1,3)
 	if h < 3:'Start <a href="exec:gt ''HanterLoveSex'', ''din_hanters_sex_hand_bonus''">move</a> guy to meet.'
 	*pl
-	if h < 3:'Have you had enough of this position he asks you...'
+	if h < 3:'Having had enough of this position he asks you...'
 	if h = 3:'Suddenly <<$boydesc>> begins to move even faster and you realize that he is already on edge and ready...'
 	*pl
 	if h < 3 and j < 3 and i = 1: act 'Lie on your back':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
@@ -2576,7 +2576,7 @@ if $ARGS[0] = 'din_hanters_sex_bell_bonus1':
 	i = rand(1,4)
 	j = rand(1,3)
 	h = rand(1,3)
-	if h < 3:'Have you had enough of this position he asks you...'
+	if h < 3:'Having had enough of this position he asks you...'
 	if h = 3:'Suddenly <<$boydesc>> begins to move even faster and you realize that he is already on edge and ready...'
 	*pl
 	if h < 3 and j < 3 and i = 1: act 'Lie on your back':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
@@ -2610,7 +2610,7 @@ if $ARGS[0] = 'din_hanters_sex_bell_bonus':
 	i = rand(1,4)
 	j = rand(1,3)
 	h = rand(1,3)
-	if h < 3:'Have you had enough of this position he asks you...'
+	if h < 3:'Having had enough of this position he asks you...'
 	if h = 3:'Suddenly <<$boydesc>> begins to move even faster and you realize that he is already on edge and ready...'
 	*pl
 	if h < 3 and j < 3 and i = 1: act 'Lie on your back':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
@@ -2646,7 +2646,7 @@ if $ARGS[0] = 'din_hanters_sex_bell':
 	if g = 1 and h < 3 and sex > 10:'Raise your head and <a href="exec:gt ''HanterLoveSex'', ''din_hanters_sex_bell_bonus''">make out</a> with him.'
 	if g = 2 and h < 3 and sex > 20:'Clench your <a href="exec:gt ''HanterLoveSex'', ''din_hanters_sex_bell_bonus1''">ass</a> while his cock is inside.'
 	*pl
-	if h < 3:'Have you had enough of this position he asks you...'
+	if h < 3:'Having had enough of this position he asks you...'
 	if h = 3:'Suddenly <<$boydesc>> begins to move even faster and you realize that he is already on edge and ready...'
 	*pl
 	if h < 3 and j < 3 and i = 1: act 'Lie on your back':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
@@ -2680,7 +2680,7 @@ if $ARGS[0] = 'din_hanters_sex_cow_bonus3':
 	i = rand(1,4)
 	j = rand(1,3)
 	h = rand(1,3)
-	if h < 3:'Have you had enough of this position he asks you...'
+	if h < 3:'Having had enough of this position he asks you...'
 	if h = 3:'Suddenly <<$boydesc>> begins to move even faster and you realize that he is already on edge and ready...'
 
 	if h < 3 and j < 3 and i = 1: act 'Lie on your back':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
@@ -2717,7 +2717,7 @@ if $ARGS[0] = 'din_hanters_sex_cow_bonus2':
 	i = rand(1,4)
 	j = rand(1,3)
 	h = rand(1,3)
-	if h < 3:'Have you had enough of this position he asks you...'
+	if h < 3:'Having had enough of this position he asks you...'
 	if h = 3:'Suddenly <<$boydesc>> begins to move even faster and you realize that he is already on edge and ready...'
 	*pl
 	if h < 3 and j < 3 and i = 1: act 'Lie on your back':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
@@ -2753,7 +2753,7 @@ if $ARGS[0] = 'din_hanters_sex_cow_bonus1':
 	i = rand(1,4)
 	j = rand(1,3)
 	h = rand(1,3)
-	if h < 3:'Have you had enough of this position he asks you...'
+	if h < 3:'Having had enough of this position he asks you...'
 	if h = 3:'Suddenly <<$boydesc>> begins to move even faster and you realize that he is already on edge and ready...'
 
 	if h < 3 and j < 3 and i = 1: act 'Lie on your back':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
@@ -2788,7 +2788,7 @@ if $ARGS[0] = 'din_hanters_sex_cow_bonus':
 	i = rand(1,4)
 	j = rand(1,3)
 	h = rand(1,3)
-	if h < 3:'Have you had enough of this position he asks you...'
+	if h < 3:'Having had enough of this position he asks you...'
 	if h = 3:'Suddenly <<$boydesc>> begins to move even faster and you realize that he is already on edge and ready...'
 	*pl
 	if h < 3 and j < 3 and i = 1: act 'Lie on your back':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
@@ -2825,7 +2825,7 @@ if $ARGS[0] = 'din_hanters_sex_cow':
 	if g = 1 and h < 3 and sex > 20:'Give him a break and <a href="exec:gt ''HanterLoveSex'', ''din_hanters_sex_cow_bonus''">jump</a> onto his strong dick.'
 	if g = 2 and h < 3 and sex > 10:'Ask him to get up and <a href="exec:gt ''HanterLoveSex'', ''din_hanters_sex_cow_bonus2''">hug</a> you.'
 	*pl
-	if h < 3:'Have you had enough of this position he asks you...'
+	if h < 3:'Having had enough of this position he asks you...'
 	if h = 3:'Suddenly <<$boydesc>> begins to move even faster and you realize that he is already on edge and ready...'
 	*pl
 	if h < 3 and j < 3 and i = 1: act 'Lie on your back':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
@@ -2860,7 +2860,7 @@ if $ARGS[0] = 'din_hanters_sex_dog_bonus':
 	i = rand(1,4)
 	j = rand(1,3)
 	h = rand(1,3)
-	if h < 3:'Have you had enough of this position he asks you...'
+	if h < 3:'Having had enough of this position he asks you...'
 	if h = 3:'Suddenly <<$boydesc>> begins to move even faster and you realize that he is already on edge and ready...'
 	*pl
 	if h < 3 and j < 3 and i = 1: act 'Sit down':gt 'HanterLoveSex', 'din_hanters_sex_cow'
@@ -2891,7 +2891,7 @@ if $ARGS[0] = 'din_hanters_sex_dog_bonus1':
 	i = rand(1,4)
 	j = rand(1,3)
 	h = rand(1,3)
-	if h < 3:'Have you had enough of this position he asks you...'
+	if h < 3:'Having had enough of this position he asks you...'
 	if h = 3:'Suddenly <<$boydesc>> begins to move even faster and you realize that he is already on edge and ready...'
 
 	if h < 3 and j < 3 and i = 1: act 'Sit down':gt 'HanterLoveSex', 'din_hanters_sex_cow'
@@ -2922,7 +2922,7 @@ if $ARGS[0] = 'din_hanters_sex_dog_bonus2':
 	i = rand(1,4)
 	j = rand(1,3)
 	h = rand(1,3)
-	if h < 3:'Have you had enough of this position he asks you...'
+	if h < 3:'Having had enough of this position he asks you...'
 	if h = 3:'Suddenly <<$boydesc>> begins to move even faster and you realize that he is already on edge and ready...'
 	*pl
 	if h < 3 and j < 3 and i = 1: act 'Sit down':gt 'HanterLoveSex', 'din_hanters_sex_cow'
@@ -2959,7 +2959,7 @@ if $ARGS[0] = 'din_hanters_sex_dog':
 	if g = 1 and h < 3 and sex <= 20:'Bury your <a href="exec:gt ''HanterLoveSex'', ''din_hanters_sex_dog_bonus1''">face</a> in the bed, and continue to fuck in this position.'
 	if g = 2 and h < 3 and sex > 20:'Ask him to help you <a href="exec:gt ''HanterLoveSex'', ''din_hanters_sex_dog_bonus2''">get up</a> .'
 	*pl
-	if h < 3:'Have you had enough of this position he asks you...'
+	if h < 3:'Having had enough of this position he asks you...'
 	if h = 3:'Suddenly <<$boydesc>> begins to move even faster and you realize that he is already on edge and ready...'
 
 	if h < 3 and j < 3 and i = 1: act 'Sit down':gt 'HanterLoveSex', 'din_hanters_sex_cow'
@@ -2991,7 +2991,7 @@ if $ARGS[0] = 'din_hanters_sex_misionary_bonus2':
 	i = rand(1,4)
 	j = rand(1,3)
 	h = rand(1,3)
-	if h < 3:'Have you had enough of this position he asks you...'
+	if h < 3:'Having had enough of this position he asks you...'
 	if h = 3:'Suddenly <<$boydesc>> begins to move even faster and you realize that he is already on edge and ready...'
 	*pl
 	if h < 3 and j < 3 and i = 1: act 'Sit down':gt 'HanterLoveSex', 'din_hanters_sex_cow'
@@ -3024,7 +3024,7 @@ if $ARGS[0] = 'din_hanters_sex_misionary_bonus1':
 	i = rand(1,4)
 	j = rand(1,3)
 	h = rand(1,3)
-	if h < 3:'Have you had enough of this position he asks you...'
+	if h < 3:'Having had enough of this position he asks you...'
 	if h = 3:'Suddenly <<$boydesc>> begins to move even faster and you realize that he is already on edge and ready...'
 	*pl
 	if h < 3 and j < 3 and i = 1: act 'Sit down':gt 'HanterLoveSex', 'din_hanters_sex_cow'
@@ -3058,7 +3058,7 @@ if $ARGS[0] = 'din_hanters_sex_misionary_bonus':
 	h = rand(1,3)
 	if pcs_agil > 50 and pcs_dom > 30 and musle >= salo:'Throw legs <a href="exec:gt ''HanterLoveSex'', ''din_hanters_sex_misionary_bonus1''">head</a> .'
 	*pl
-	if h < 3:'Have you had enough of this position he asks you...'
+	if h < 3:'Having had enough of this position he asks you...'
 	if h = 3:'Suddenly <<$boydesc>> begins to move even faster and you realize that he is already on edge and ready...'
 	*pl
 	if h < 3 and j < 3 and i = 1: act 'Sit down':gt 'HanterLoveSex', 'din_hanters_sex_cow'
@@ -3213,7 +3213,7 @@ if $ARGS[0] = 'din_hanters_sex_misionary':
 	*pl
 	if hanters_kuni = 0 and pcs_dom > 30 and h < 3:'To ask a guy <a href="exec:gt ''HanterLoveSex'', ''din_hanters_sex_kuni''">lick</a> you pussy.'
 	*pl
-	if h < 3:'Have you had enough of this position he asks you...'
+	if h < 3:'Having had enough of this position he asks you...'
 	if h = 3:'Suddenly <<$boydesc>> begins to move even faster and you realize that he is already on edge and ready...'
 	*pl
 	if h < 3 and j < 3 and hanters_kuni = 0 and i = 8 or i = 1 or i = 2: act 'Sit down':gt 'HanterLoveSex', 'din_hanters_sex_cow'
@@ -4264,7 +4264,7 @@ if $ARGS[0] = 'Igor':
 				'<center><video autoplay loop src="images/shared/sex/undress/kotovpre1'+rand(1,6)+'.mp4"></video></center>'
 				'You quickly took off  <<$boydesc>>''s clothes and gaze at his gorgeous naked body.'
 
-				if pcs_dom > 50 and mesec <= 0: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				if pcs_dom > 50 and mesec <= 0: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				if pcs_dom > 30 and mesec <= 0: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				if pcs_dom > 10 and mesec <= 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				if pcs_dom <= 10 and mesec <= 0: act 'Obey him':gt 'HanterLoveSex', 'din_hanters_sub'
@@ -4408,7 +4408,7 @@ if $ARGS[0] = 'Andrei':
 				'<center><video autoplay loop src="images/shared/sex/undress/kotovpre1'+rand(1,6)+'.mp4"></video></center>'
 				'You quickly take off his clothes and stare at <<$boydesc>>''s naked body for the first time.'
 
-				if pcs_dom > 50 and mesec <= 0: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				if pcs_dom > 50 and mesec <= 0: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				if pcs_dom > 30 and mesec <= 0: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				if pcs_dom > 10 and mesec <= 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				if pcs_dom <= 10 and mesec <= 0: act 'Obey him':gt 'HanterLoveSex', 'din_hanters_sub'
@@ -4585,7 +4585,7 @@ if $ARGS[0] = 'Sergei':
 				'<center><video autoplay loop src="images/shared/sex/undress/kotovpre1'+rand(1,6)+'.mp4"></video></center>'
 				'You quickly took off <<$boydesc>>''s clothes, exsposing his naked body to your greedy eyes for the first time.'
 
-				if pcs_dom > 50 and mesec <= 0: act 'Jump on top of':gt 'HanterLoveSex', 'din_hanters_sex_cow'
+				if pcs_dom > 50 and mesec <= 0: act 'Jump on top of him':gt 'HanterLoveSex', 'din_hanters_sex_cow'
 				if pcs_dom > 30 and mesec <= 0: act 'Spread your legs ':gt 'HanterLoveSex', 'din_hanters_sex_misionary'
 				if pcs_dom > 10 and mesec <= 0: act 'Kneel':gt 'HanterLoveSex', 'din_hanters_bj200'
 				if pcs_dom <= 10 and mesec <= 0: act 'Obey him':gt 'HanterLoveSex', 'din_hanters_sub'

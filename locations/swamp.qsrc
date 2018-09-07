@@ -26,7 +26,7 @@ else
 	end
 end
 
-'You''ve found the swamp area of the forest, in which it is considered dangerous to climb in the afternoon, and forbidden at night. But you can find a lot of mushrooms and berries in the woods near the swamp area.'
+'You''ve found the swamp area of the forest. It is considered dangerous to hike here in the afternoon, and forbidden at night. But you can find a lot of mushrooms and berries in the woods near the swamp area.'
 'There''s a small visible path to a clearing that leads to <a href="exec: gt ''swamp_yard'' ">the old hut</a>, it is probably used as a hunting lodge.'
 
 if hour >= 6 and hour <= 21 and month >= 6 and month <= 9:

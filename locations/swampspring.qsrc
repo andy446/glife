@@ -54,7 +54,7 @@ if bucket < 10:
 		act 'Finish':gt 'swampspring'
 	end
 end
-act 'Go':minut += 5 & gt 'swamp_yard'
+act 'Leave':minut += 5 & gt 'swamp_yard'
 
 --- swampspring ---------------------------------
 

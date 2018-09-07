@@ -21,11 +21,11 @@ if $ARGS[0] = '1':
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/gadforestlostswamp_winter_night.jpg"></center>'
 		end
 	end
-	'You went to the marsh, behind it you can see some kind of hut. You can go back into the woods or try to get to the hut through the mash, but will you have enough strength and dexterity to overcome this mess?'
+	'You went to the marsh, behind it you can see some kind of hut. You can go back into the woods or try to get to the hut through the mash, but will you have enough strength and agility to overcome this obstacle?'
 
 	act 'Go back to the forest':gt 'gadforestlost','4'
 
-	act 'To go through the mire':
+	act 'Try to go forward through the mire':
 		*clr & cla
 		minut += 10
 		swamprand = pcs_stren + pcs_agil
@@ -95,7 +95,7 @@ if $ARGS[0] = '2':
 		end
 	end
 
-	act 'Trying to get back to the woods':
+	act 'Try to get back to the woods':
 		*clr & cla
 		minut += 10
 		swamprand = pcs_stren + pcs_agil
@@ -114,7 +114,7 @@ if $ARGS[0] = '2':
 			if swamprand < temp_gads and temp_gads > 20:gt 'gadforestswamp','2'
 		end
 	end
-	act 'Try to go on to the house':
+	act 'Try to go on to the hut':
 		cla
 		*clr
 		minut += 10

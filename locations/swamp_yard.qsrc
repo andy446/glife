@@ -1,6 +1,5 @@
 # swamp_yard
 
-
 $location_type = 'secluded'
 $metka = ''
 $loc = 'swamp_yard'
@@ -422,7 +421,7 @@ if hour >= 8 and hour < 20:
 			if hantslutsex = 0:
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/swampdvornude2.jpg"></center>'
 				'Seeing you naked, the men get excited...'
-				'"Come over here <<$pcs_nickname>>, I want to check you out more extensivly," said one of the guys.'
+				'"Come over here <<$pcs_nickname>>, I want to check you out more extensively," said one of the guys.'
 
 				act'Further':hantersexnude = 1 & gt 'hanters', 'start'
 			else
@@ -469,7 +468,7 @@ if hour >= 8 and hour < 20:
 		'"I need to talk to you, <<$pcs_nickname>>," he said. "Do you understand what happened yesterday and that you should keep quiet about it?"'
 		'You shamelessly nodded.'
 		'"What happened to you is no one others fault but your own, you wanted to get fucked," said Andrei looking sternly at you. "Don''t pull off anything stupid like that anymore."'
-		'"I wouldn''t advice you to call the police," he adds. "Sergei will cover for me. Infact we''ll just cover for each other, and no one will believe you lying ass. Understand?"'
+		'"I wouldn''t advise you to call the police," he adds. "Sergei will cover for me. In fact, we''ll just cover for each other, and no one will believe your lying pretty ass. Understand?"'
 		'You''re too afraid to look straight at Andrei, you just nod.'
 		'"Perfect," said Andrei, moving away from you.'
 
@@ -822,7 +821,7 @@ if hour >= 8 and hour < 20:
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hanterswork1.7.jpg"></center>'
 				'"You know what Andrei, I''ll take you up on your offer." you said staring down at the ground.'
 				'"Nice!" said Andrei high-fiving Igor. "It was just like I expected. What do you say Igor, you up to it?"'
-				'"No, Andrei, I''m not!" said Igor, looking at you completely disdained. "It''s probably for the best that I go away."'
+				'"No, Andrei, I''m not!" said Igor, looking at you completely disdained. "It''s probably for the best you don''t visit me anymore."'
 				'An upset Igor leaves without even looking at you...'
 
 				act 'Further':gt 'swamp_yard'
@@ -1027,12 +1026,11 @@ if StoryLine = 1 and lost_girl > 0 and daystart > lost_girl:
 
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/forester.jpg"></center>'
 	'You walked across the yard when noticing a man resembling a park ranger.'
-	'"There you are," he said wearily. "Your grandparents been sick and worried searching for you all over the forrest. They''ve asked me to help them out. Come with me, I''ll take you home."'
+	'"There you are," he said wearily. "Your grandparents been sick and worried searching for you all over the forest. They''ve asked me to help them out. Come with me, I''ll take you home."'
 	'"Oh, this is so embarrassing..." How could I forget about my poor grandparents."'
 	'You quickly pack your stuff, letting the park ranger take you home...'
 	act 'Further':gt 'Gadhouse'
 end
-
 
 --- swamp_yard ---------------------------------
 

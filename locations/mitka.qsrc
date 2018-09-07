@@ -1,6 +1,6 @@
 # mitka
 gs 'stat'
-'<center><b><font color="maroon">Mitka Kingpin</font></b></center>'
+'<center><b><font color="maroon">Mitka Shkvoryen</font></b></center>'
 '<center><img <<$set_imgh>> src="images/locations/gadukino/village/mitka.jpg"></center>'
 *nl
 'He is barely older than you, you remember him from your childhood. You both used to swim in the local river together.'
@@ -65,7 +65,7 @@ else
 						else
 							'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkabjhomecum1.jpg"></center>'
 							*nl
-							'Mitya places his large hands on the back of your head and roughly force you to take his cock deep into your throat. Slowly he builds up a rhythm and finally finishes in your mouth.'
+							'Mitka places his large hands on the back of your head and roughly forces you to take his cock deep into your throat. Slowly he builds up a rhythm and finally finishes in your mouth.'
 							gs 'arousal', 'bj', 10, 'sub', 'deepthroat', 'rough'
 							gs 'cum_call','mouth',1
 							swallow += 1
@@ -91,8 +91,8 @@ else
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitka2.jpg"></center>'
 				    end
 					*nl
-					'Mitka takes you to his house and onto the veranda. He has you sit on the couch and begins pawing at your cloths pulling them off you.'
-					'Breathing heavily, Mitka steps to your side and says, "Nice fuck!"'
+					'Mitka takes you to his house and onto the veranda. He has you sit on the couch and begins pawing at your clothes pulling them off you.'
+					'Breathing heavily, Mitka gets off of you and says, "Nice fuck!"'
 					npc_QW['A63'] += 1
 					gs 'boyStat', 'A63'
 					npc_sex[$boy] += 1
@@ -133,7 +133,7 @@ else
 						else
 							'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkabjhomecum1.jpg"></center>'
 							*nl
-							'Mitya places his large hands on the back of your head and roughly force you to take his cock deep into your throat. Slowly he builds up a rhythm and finally finishes in your mouth.'
+							'Mitka places his large hands on the back of your head and roughly forces you to take his cock deep into your throat. Slowly he builds up a rhythm and finally finishes in your mouth.'
 							gs 'arousal', 'bj', 10, 'sub', 'deepthroat', 'rough'
 							gs 'cum_call','mouth',1
 						end
@@ -154,7 +154,7 @@ else
 					elseif pcs_ass >= 25:
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkaanalhome2.jpg"></center>'
 					end
-					'Mitka takes you to his house and onto the veranda. He has you sit on the couch and begins pawing at your cloths pulling them off you.'
+					'Mitka takes you to his house and onto the veranda. He has you sit on the couch and begins pawing at your clothes pulling them off you.'
 					gs 'boyStat', 'A63'
 					npc_sex[$boy] += 1
 					npc_QW['A63'] += 1
@@ -174,7 +174,7 @@ else
 
 			'You hesitate for a moment then look at him sternly.'
 			'"What about Mira? Aren''t you going out with her?"'
-			'Mitka smiles sheepishly and has the decentcy to blush. He looks around to make sure Mira isn''t nearby then tries to explain.'
+			'Mitka smiles sheepishly and has the decency to blush. He looks around to make sure Mira isn''t nearby then tries to explain.'
 			'"Well, I just figured since, you know, we already did stuff..." he trails off as he notices that you aren''t going for it.'
 			'"You thought wrong." you tell him coldly, "Unlike boys, girls don''t fool around with their best friend''s boyfriend."'
 			'You turn around and walk away and Mitka kicks at the ground in frustration. You decide not to mention this to Mira.'

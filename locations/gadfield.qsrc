@@ -78,7 +78,7 @@ if $ARGS[0] = 'horse':
 			hndiwrk_exp += rand(0,3) 
 			gs 'stat'
 
-			act 'Further':gt'Gadsarai'
+			act 'Go back to your grandparent''s barn':gt'Gadsarai'
 		end
 	end
 	act 'Back':gt'gadfield','field'
@@ -103,7 +103,7 @@ if $ARGS[0] = 'cow':
 			hndiwrk_exp += rand(0,3) 
 			gs 'stat'
 
-			act 'Further':gt'Gadsarai'
+			act 'Go back to your grandparent''s barn':gt'Gadsarai'
 		end
 	end
 	if graze_cow = 1:
@@ -463,7 +463,7 @@ if $ARGS[0] = 'cow3':
 			hndiwrk_exp += rand(0,3) 
 			gs 'stat'
 
-			act 'Further':gt'gadukino'
+			act 'Go back to the village':gt'gadukino'
 		end
 	end
 end

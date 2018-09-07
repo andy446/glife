@@ -298,7 +298,7 @@ if $ARGS[0] = 'gadforestlostfinish4':
 end
 if $ARGS[0] = 'searchfood':
 	if hour >= 6 and hour <= 20 and month >= 6 and month <= 9 and boletus + bilberry < 10:
-		act 'To look for mushrooms and berries':
+		act 'Look for mushrooms and berries':
 			cla
 			*clr
 			minut += 30

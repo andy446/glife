@@ -55,8 +55,7 @@ if $ARGS[0] = 'start':
 	'You are standing in the middle of the Greco-Roman inspired main courthouse for the whole St Petersburg region.'
 	'There are many statues of political and legal figures in the region going right back to a bust of Catherine the Great.'
 
-	if courthearing_date = daystart and hour >= 7 and hour < 11:
-		act 'Go to your hearing': gt 'sentence', 'hearing'
+	if courthearing_date = daystart and hour >= 7 and hour < 11: act 'Go to your hearing': gt 'sentence', 'hearing'
 	act 'Leave': gt 'down'
 end
 
@@ -120,7 +119,7 @@ if $ARGS[0] = 'hearing':
 							act 'Await punishment': gt 'sentence', 'punishment'
 						!end
 
-					elseif if $detec_type = 'norm':
+					elseif $detec_type = 'norm':
 						'The judge sits and quietly glances through the report, looking towards you from time to time, "Miss <<$pcs_lastname>>, the detective has only written neutral comments in the report."'
 						'Suddenly, you feel a bit looser as you can probably expect a lighter sentencing than usual. You let out a relieving sigh.'
 						'"Well as you''ve already admitted being guilty I guess we don''t need to listen to your pleading," he sternly looks at you.'
@@ -197,7 +196,7 @@ if $ARGS[0] = 'hearing':
 							act 'Await punishment': gt 'sentence', 'punishment'
 						!end
 
-					elseif if $detec_type = 'norm':
+					elseif $detec_type = 'norm':
 						'The judge sits and quietly glances through the report, looking towards you from time to time, "Miss <<$pcs_lastname>>, the detective has only written neutral comments in the report."'
 						'Suddenly, you feel a bit looser as you can probably expect a lighter sentencing than usual. You let out a relieving sigh.'
 						'"Well as you''ve already admitted being guilty I guess we don''t need to listen to your pleading," he sternly looks at you.'
@@ -242,7 +241,7 @@ if $ARGS[0] = 'hearing':
 						!end
 					end
 				end
-			!end
+			end
 		end
 	end
 end
@@ -280,7 +279,7 @@ if $ARGS[0] = 'punishment':
 
 				act 'Leave the court':gt 'down'
 
-			elseif if $detec_type = 'norm':
+			elseif $detec_type = 'norm':
 				sum = 5000 + shplft_value
 				'"I hereby sentence you to a fine of <<sum>> <b>₽</b>." the judge reads out your sentence.'
 				'"You can pay your fine at the post office." the judge finishes.'
@@ -306,7 +305,7 @@ if $ARGS[0] = 'punishment':
 
 				act 'Leave the court':gt 'down'
 
-			elseif if $detec_type = 'norm':
+			elseif $detec_type = 'norm':
 				sum = 7500 + (shplft_value/2*3)
 				'"Seems that I need to increase the fine for you to pay back to a sum of <<sum>> <b>₽</b>. Hopefully, this will teach you a lesson." the judge reads out your sentence.'
 				'"You can pay your fine at the post office." the judge finishes.'
@@ -331,7 +330,7 @@ if $ARGS[0] = 'punishment':
 
 				act 'Leave the court':gt 'down'
 
-			elseif if $detec_type = 'norm':
+			elseif $detec_type = 'norm':
 				sum = 10000 + (shplft_value*2)
 				'"<<$pcs_lastname>> I see that name come up quite often here. Seems like I need to increase the fine even further to a sum of <<sum>> <b>₽</b> and sentence you to community service at the Mercy Clinic to 20 hours." the judge reads out your sentence.'
 				'"You can pay your fine at the post office and by now you should know where to find the Mercy Clinic." the judge finishes.'
@@ -356,7 +355,7 @@ if $ARGS[0] = 'punishment':
 
 				act 'Leave the court':gt 'down'
 
-			elseif if $detec_type = 'norm':
+			elseif $detec_type = 'norm':
 				sum = 15000 + (shplft_value/2*5)
 				'"This is starting to get out of hand, <<$pcs_lastname>>!  Seems like I need to increase the fine even further to a sum of <<sum>> <b>₽</b> and increase the community service at the Mercy Clinic to 40 hours." the judge reads out your sentence.'
 				'"You already know what you need to do." the judge finishes.'
@@ -381,7 +380,7 @@ if $ARGS[0] = 'punishment':
 
 				act 'Leave the court':gt 'down'
 
-			elseif if $detec_type = 'norm':
+			elseif $detec_type = 'norm':
 				sum = 25000 + (shplft_value*3)
 				'"Well well, what a surprise, <<$pcs_lastname>> stands in front of me again. You''re starting to annoy me! Are you doing this on purpose? Don''t answer and instead pay the fine of <<sum>> <b>₽</b> and enjoy your community service at the Mercy Clinic for 80 hours." the judge reads out your sentence.'
 				'"You can pay your fine at the post office and I suppose you know where to find the Mercy Clinic?" the judge finishes.'
@@ -406,7 +405,7 @@ if $ARGS[0] = 'punishment':
 
 				act 'Leave the court':gt 'down'
 
-			elseif if $detec_type = 'norm':
+			elseif $detec_type = 'norm':
 				sum = 50000 + (shplft_value*4)
 				'The judge sighs, "Here we are again <<$pcs_lastname>>! I''m getting tired of being lenient so you''re getting the maximum sentence. The fine will be set to <<sum>> <b>₽</b> and the community service at the Mercy Clinic for 120 hours." the judge reads out your sentence.'
 				'"You already know what you need to do. I hope you will think about your actions before stealing again." the judge finishes.'
@@ -442,7 +441,7 @@ if $ARGS[0] = 'punishment':
 
 				act 'Leave the court':gt 'down'
 
-			elseif if $detec_type = 'norm':
+			elseif $detec_type = 'norm':
 				'"I hereby sentence you to a fine of 7000 <b>₽</b>." the judge reads out your sentence.'
 				'"You can pay your fine at the post office." the judge finishes.'
 				'You nod and quickly make your way out of courtroom.'
@@ -467,7 +466,7 @@ if $ARGS[0] = 'punishment':
 
 				act 'Leave the court':gt 'down'
 
-			elseif if $detec_type = 'norm':
+			elseif $detec_type = 'norm':
 				'"I need to increase the fine to 10500 <b>₽</b>. Hopefully, this will get you to reconsider your actions." the judge reads out your sentence.'
 				'"You can pay your fine at the post office." the judge finishes.'
 				'You nod and quickly make your way out of courtroom.'
@@ -491,7 +490,7 @@ if $ARGS[0] = 'punishment':
 
 				act 'Leave the court':gt 'down'
 
-			elseif if $detec_type = 'norm':
+			elseif $detec_type = 'norm':
 				'"<<$pcs_lastname>> I see that name come up quite often here. Seems like I need to increase the fine even further to 14000 <b>₽</b> and sentence you to community service at the Mercy Clinic for 20 hours." the judge reads out your sentence.'
 				'"You can pay your fine at the post office and by now you should know where to find the Mercy Clinic." the judge finishes.'
 				'You nod and quickly make your way out of courtroom.'
@@ -515,7 +514,7 @@ if $ARGS[0] = 'punishment':
 
 				act 'Leave the court':gt 'down'
 
-			elseif if $detec_type = 'norm':
+			elseif $detec_type = 'norm':
 				'"This is starting to get out of hand, <<$pcs_lastname>>!  Seems like I need to increase the fine even further to 20000 <b>₽</b> and increase the community service at the Mercy Clinic to 40 hours." the judge reads out your sentence.'
 				'"You already know what you need to do." the judge finishes.'
 				'You nod and quickly make your way out of courtroom.'
@@ -539,7 +538,7 @@ if $ARGS[0] = 'punishment':
 
 				act 'Leave the court':gt 'down'
 
-			elseif if $detec_type = 'norm':
+			elseif $detec_type = 'norm':
 				'"Well well, what a surprise, <<$pcs_lastname>> stands in front of me again. You''re starting to annoy me! Are you doing this on purpose? Don''t answer and instead pay the fine of 31000 <b>₽</b> and enjoy your community service at the Mercy Clinic for 80 hours." the judge reads out your sentence.'
 				'"You can pay your fine at the post office and I suppose you know where to find the Mercy Clinic?" the judge finishes.'
 				'You nod and quickly make your way out of courtroom.'
@@ -563,7 +562,7 @@ if $ARGS[0] = 'punishment':
 
 				act 'Leave the court':gt 'down'
 
-			elseif if $detec_type = 'norm':
+			elseif $detec_type = 'norm':
 				'The judge sighs, "Here we are again <<$pcs_lastname>>! I''m getting tired of being lenient so you''re getting the maximum sentence. The fine will be set to 57500 <b>₽</b> and the community service at the Mercy Clinic for 120 hours." the judge reads out your sentence.'
 				'"You already know what you need to do. I hope you will think about your actions before stealing again." the judge finishes.'
 				'You nod and quickly make your way out of courtroom.'

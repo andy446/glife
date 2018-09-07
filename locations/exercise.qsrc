@@ -362,7 +362,7 @@ if $ARGS[0] = 'yoga':
 
 	if $clothingworntype ! 'nude':
 		if $location_type = 'secluded':
-			'<center><img <<$set_imgh>> src="images/pc/activities/yoga_dressed.jpg"></center>'
+			'<center><img <<$set_imgh>> src="images/pc/activities/yoga_dressed_outdoor.jpg"></center>'
 		else
 			'<center><video autoplay loop src="images/pc/activities/yoga_dressed.mp4"></video></center>'
 		end

@@ -1055,7 +1055,7 @@ if $ARGS[0] = 'bathroom':
 		'There are a handful of cheap razors you can use, enough for <<stanok>> shaves. At least they don''t make you pay for them, but only because they don''t know who has used which blades. <a href="exec:gs ''din_van'', ''shave_options''">Shave Options</a>'
 		if stanok <= 0: stanok = 5
 		dynamic $brit
-	elseif workDolg = 0 and stanok > 0:
+	elseif workDolg <= 0 and stanok > 0:
 		*nl
 		'Your currnet pack of razors will last for <b><<stanok>></b> more shavings. <a href="exec:gs ''din_van'', ''shave_options''">Shave Options</a>'
 		dynamic $brit

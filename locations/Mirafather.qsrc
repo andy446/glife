@@ -14,7 +14,7 @@ gs 'stat'
 if npc_QW['A64'] < 10:'<center><b><font color = maroon>Father Miroslava</font></b></center>'
 if npc_QW['A64'] >= 10:'<center><b><font color = maroon>Afanasiy</font></b></center>'
 '<center><img <<$set_imgh>> src="images/locations/gadukino/village/mirafather.jpg"></center>'
-'Mira''s father, <<boyage>> years old. After his wife died, he drank heavily and looks much older than is actually is, still he is in good shape for a man his age.'
+'Mira''s father, <<boyage>> years old. After his wife died, he drank heavily and looks much older than he actually is. He is still in good shape for a man his age.'
 if MiraFather ! daystart:
 	MiraFather = daystart
 
@@ -26,7 +26,7 @@ if MiraFather ! daystart:
 
 		act 'Leave': gt 'miroslavahome', 'start'
 		'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mirafather.jpg"></center>'
-		'You are greeted with Mira''s father and politely inquire about his health.  He responds with a smile and says,"All is well, little lady"'
+		'You are greeted by Mira''s father and politely inquire about his health.  He responds with a smile and says,"All is well, little lady."'
 		if npc_QW['A64'] >= 10:
 
 			act 'Chat':
@@ -99,7 +99,7 @@ if MiraFather ! daystart:
 						gs 'stat'
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mirafather.jpg"></center>'
 						if temp_mf < 5:
-							'You expressly wink at Afanasiy and he understands your meaning.  Looking about for noicy nieghbors, he quickly waves for you to enter the house.'
+							'You expressly wink at Afanasiy and he understands your meaning.  Looking about for nosy neighbors, he quickly waves for you to enter the house.'
 							gs 'arousal', 'foreplay', 5
 							gs 'stat'
 

@@ -36,7 +36,7 @@ end
     
 if ($clothingworntype ! 'nude' and $clothingworntype ! 'swimwear') and bonfire = 1:
 	if edahot = 1:
-	    act 'To eat fried mushrooms':
+	    act 'Eat fried mushrooms':
 	        cla
 	        *clr
 	        minut += 15
@@ -59,7 +59,7 @@ if ($clothingworntype ! 'nude' and $clothingworntype ! 'swimwear') and bonfire =
             act 'Further':gt 'gadforestrelax'
         end
     end       	     
-   	act 'To get warm by the fire':
+   	act 'Get warm by the fire':
         cla
    	    *clr
         minut += 60
@@ -78,7 +78,7 @@ if ($clothingworntype ! 'nude' and $clothingworntype ! 'swimwear') and bonfire =
    	    
    	    act 'Further':gt 'gadforestrelax' 
    	end
-	act 'To lie down to take a NAP around the campfire':
+	act 'Nap by the campfire':
         cla
    	    *clr	
 	    if pcs_sleep < 40:
@@ -137,7 +137,7 @@ if $clothingworntype ! 'nude' and bonfire = 0:
    	    
    	    act 'Further':gt 'gadforestrelax' 
    	end
-	act 'To lie down and take a NAP':
+	act 'Nap on the ground':
         cla
    	    *clr	
 	    if pcs_sleep < 40:
@@ -165,7 +165,7 @@ if $clothingworntype ! 'nude' and bonfire = 0:
 end
 
 if bilberry > 0:
-	act 'To eat berries':
+	act 'Eat berries':
 	    cla
 	    *clr
 	    minut += 30

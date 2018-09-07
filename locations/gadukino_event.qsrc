@@ -49,7 +49,7 @@ if $ARGS[0] = 'mira_apologise':
 			'"No, Mira, I don''t want anything more from you," you reply. "I''m not sexually interested in girls."'
 			'"Well, if you ever change your mind..." said Mira. "Let''s get back to the village."'
 			'You walk back to the village, gossiping about the boys in the village.'
-			act 'Go':gt 'gadukino'
+			act 'Go back to the village':gt 'gadukino'
 		end
 	end
 end
@@ -85,7 +85,7 @@ if $ARGS[0] = 'mitka_apologise':
 			'"Well, what can I do. If she begs me to it, I can''t promise I''ll say no." he laughed. "Well, I think we''re all set, I''ll try to avoid Mira... But if she begs me to fuck her I won''t say no."'
 			'Mitka starts walking towards Kolyamba''s house. You watch him for a while, until he disappears behind a corner.'
 		end
-		act 'Go':gt 'gadukino'
+		act 'Go back to the village':gt 'gadukino'
 	end
 end
 
@@ -106,7 +106,7 @@ if $ARGS[0] = 'gang_apologise':
 		'<center><b><font color = maroon>Uncle Styopa</font></b></center>'
 		'<center><img <<$set_imgh>> src="images/locations/gadukino/village/uncle_stepan.jpg"></center>'
 		'For a moment you hesitated, wondering what he wants. While you contemplating to stay or run away, he caught up with you. He started nervously shifted from foot to foot, clearly not knowing how to begin the conversation. You looked puzzled at him thinking he would be prepared, when he finally speaks up.'
-		'"<<$pcs_nickname>>, KKH-um," he began, but immediately faltered. "In short, I''m trully sorry for what happened the other night... I don''t know what came over us, it was like a demon possessed me, I got arroused by Mitka''s drunken tales."'
+		'"<<$pcs_nickname>>, -uh," he began, but immediately faltered. "In short, I''m trully sorry for what happened the other night... I don''t know what came over us, it was like a demon possessed me, I got aroused by Mitka''s drunken tales."'
 		'He looked at you with sorrow in his eyes. You did not expect that anyone of them would be sorry.'
 		'"I had a talk with the other men in the morning, and, uh," uncle Stepan losing his composure. "Well, in short, I decided that I wanted to talk to you, apologize and ask if you could forget about yesterday... I''m really sorry and I''m worried that we might have damaged you physically."'
 		'You looked skeptically at "your uncle", not really knowing if he''s joking or not.'
@@ -117,7 +117,7 @@ if $ARGS[0] = 'gang_apologise':
 
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/village/10000.jpg"></center>'
 			'Feeling that you''re still skeptical, Uncle Stepan reached into his sweatpants and pulled out a bundle, handing it over to you.'
-			'"Here," he showed the money in your hand. "It''s ten thousand rubels."'
+			'"Here," he showed the money in your hand. "It''s ten thousand rubles."'
 			'"What do you do want me to do with this?" you asked somewhat annoyed.'
 			'"I don''t know, you can do whatever you want with them," replied uncle Stepan. "Spend it on some treatment, or buy yourself something nice."'
 			'Not knowing what to choose, you look at the money, then at "your uncle."'
@@ -134,10 +134,10 @@ if $ARGS[0] = 'gang_apologise':
 				'"Okay, I accept your money," you finally decide. "Let''s pretend nothing happened yesterday."'
 				'You take the money from his hand.'
 				'"That''s a relief..." Stepan says relieved. "I''ll be on my way."'
-				'You were about to turn and leave, when uncle Stepa added:'
+				'You were about to turn and leave, when Uncle Stepan added:'
 				'"And yeah... <<$pcs_nickname>>, none of the men will fuck you like that again, so there''s no need to be afraid."'
 				'"I understand..." you answer, turning away and walking away from him.'
-				act 'Go':gt 'gadukino'
+				act 'Walk back to the village':gt 'gadukino'
 			end
 			act 'Refuse':
 				*clr & cla
@@ -150,10 +150,10 @@ if $ARGS[0] = 'gang_apologise':
 				'"I don''t need your fucking money, I''m not a prostitute or a whore" you said in a firm voice, clearly annoyed, looking straight into Uncle Stepan eyes. "You think you can buy my silence with some money, are you really that dumb?"'
 				'He starts acting anxiously telling you once more to take the money. "I''ve already said it, I don''t want your money! But you don''t need to worry I won''t tell anyone what happened." you sternly tell him.'
 				'"That''s a relief..." Stepan says relieved. "I''ll be on my way."'
-				'Just as you were leaving, uncle Stepan added:'
+				'Just as you were leaving, Uncle Stepan added:'
 				'"One last thing <<$pcs_nickname>>. None of the men will try to fuck you anymore. Mitka warned everyone that if it happens again their cannon would be shooting blanks for the rest of their life... If anyone approaches you, you come to me and I''ll sort it out."'
 				'"I understand..." you answer, turning away and walking away from him.'
-				act 'Go':gt 'gadukino'
+				act 'Walk back to the village':gt 'gadukino'
 			end
 		end
 	end
@@ -215,7 +215,7 @@ if $ARGS[0] = 'gadriver_gang':
 				guy += 1
 
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/river/gadriver_gang_oral3.jpg"></center>'
-				'The men continued piling up, one after another. Some of the men got so impatient they shoved two cocks at once. You sucked each one of them off, embracing their penis head with your <<$liptalk>> lips, deepthroating them all. '
+				'The men continued piling up, one after another. Some of the men got so impatient they shoved two cocks at you at once. You sucked each one of them off, embracing their penis head with your <<$liptalk>> lips, deepthroating them all. '
 
 				gs 'arousal', 'bj', 5, 'sub', 'gangbang', 'deepthroat'
 				gs 'stat'
@@ -304,7 +304,7 @@ if $ARGS[0] = 'gadriver_gang':
 										npc_sex[$boy] += 1
 
 										'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/river/gadriver_gang_mis1.jpg"></center>'
-										'The men lay you on your back. You move your head wanting to see who''s about to enter you this time and you see your uncle Stepan, the fisherman, readying his cock between your splayed legs.'
+										'The men lay you on your back. You move your head wanting to see who''s about to enter you this time and you see your Uncle Stepan, the fisherman, readying his cock between your splayed legs.'
 										'You look straight into his eyes begging him not to do this, showing no remorse, you only hear him say "I''ve been fantasizing about this for a very long time."'
 
 										pose = 0
@@ -340,8 +340,8 @@ if $ARGS[0] = 'gadriver_gang':
 												npc_sex[$boy] += 1
 
 												'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/river/gadriver_gang_mis3.jpg"></center>'
-												'You see a familiar face again, Vasya.'
-												'"Zachit and Kolyamba are also here somewhere waiting for their turn", he tells you before shoving his cock deep inside you.'
+												'You see a familiar face again, Vasyan.'
+												'"Mitka and Kolyamba are also here somewhere waiting for their turn", he tells you before shoving his cock deep inside you.'
 
 												gs 'arousal', 'bj', 5, 'sub', 'gangbang', 'deepthroat'
 												gs 'arousal', 'vaginal', 5, 'sub', 'gangbang'
@@ -445,7 +445,7 @@ if $ARGS[0] = 'gadriver_gang':
 																		guy += 1
 
 																		'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/river/gadriver_gang_dog8.jpg"></center>'
-																		'Next up is a drunk man barely able to stand straight, his cock is pretty limp as he''s having difficult getting an erection. He doesn''t pay to much mind to it as he enters your anus.'
+																		'Next up is a drunk man barely able to stand straight, his cock is pretty limp as he''s having difficult getting an erection. He doesn''t seem to mind too much as he enters your anus.'
 																		gs 'dinSex','boy_wants_anal','lubri'
 																		gs 'dinsex','analsex'
 																		gs 'arousal', 'bj', 5, 'sub', 'gangbang', 'deepthroat'
@@ -477,7 +477,7 @@ if $ARGS[0] = 'gadriver_gang':
 																				guy += 1
 
 																				'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/river/gadriver_gang_dog10.jpg"></center>'
-																				'You continue to get anally fucked, when the next man decided to take advantage of your pussy. In the corner of your eye, you notice in the Kolyamba standing in the crowd awaiting eagerly for his turn.'
+																				'You continue to get anally fucked, when the next man decided to take advantage of your pussy. In the corner of your eye, you notice in Kolyamba standing in the crowd eagerly awaiting his turn.'
 
 																				gs 'arousal', 'bj', 5, 'sub', 'gangbang', 'deepthroat'
 																				gs 'arousal', 'anal', 5, 'sub', 'gangbang'
@@ -495,7 +495,7 @@ if $ARGS[0] = 'gadriver_gang':
 																					'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/river/gadriver_gang_oral5.jpg"></center>'
 																					'You''re suddenly surprised to find that no one is using your pussy or ass.'
 																					'"I really hope that that was the last one..." you thought.'
-																					'This was just unfortunately wishfull thinking. The men soon put you on your knees and then several men shoved their cocks in your face.'
+																					'This was just unfortunately wishful thinking. The men soon put you on your knees and then several men shoved their cocks in your face.'
 
 																					act 'Further':
 																						*clr & cla
@@ -521,7 +521,7 @@ if $ARGS[0] = 'gadriver_gang':
 																							guy += 1
 
 																							'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/river/gadriver_gang_cow2.jpg"></center>'
-																							'The next guy was also lying on the ground, you climb him on your own, without any hesitation. Someone else steps to you with his cock out which you immediately began sucking.'
+																							'The next guy was also lying on the ground, you climb on top of him on your own, without any hesitation. Someone else steps up to you with his cock out which you immediately began sucking.'
 
 																							dick = rand(10,20)
 																							guy += 1
@@ -541,7 +541,7 @@ if $ARGS[0] = 'gadriver_gang':
 																								guy += 1
 
 																								'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/river/gadriver_gang_cow3.jpg"></center>'
-																								'You see another man lying on the ground, as you''ve already gotten used to it, you climb him.'
+																								'You see another man lying on the ground, as you''ve already gotten used to it, you climb on him too.'
 
 																								protect = rand(0,1)
 																								pose = 1
@@ -626,7 +626,7 @@ if $ARGS[0] = 'gadriver_gang':
 																													gs 'stat'
 
 																													'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/river/gadriver_gang_cum4.jpg"></center>'
-																													'When the last men finally came, the crowd began to disperse, leaving you wrapped around on the tattered blanket. You hear them sharing impressions of their drunken antics.'
+																													'When the last men finally came, the crowd began to disperse, leaving you wrapped in a tattered blanket. You hear them sharing impressions of their drunken antics.'
 																													gs 'arousal', 'end'
 																													gs 'stat'
 																													act 'Further':minut += 5 & gt'Gadriver', 'Gadbitch'
@@ -665,7 +665,7 @@ if $ARGS[0] = 'gadukino_mitka':
 	mitkaday = daystart
 	gs 'stat'
 
-	'<center><b><font color = maroon>Mitka Pin</font></b></center>'
+	'<center><b><font color = maroon>Mitka Shkvoryen</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mitka.jpg"></center>'
 	'Walking through the village you met Mitka. Seeing you, he started rubbing his crotch and said with a grin.'
 	'"Hey, <<$pcs_nickname>>, let''s go have some fun getting rid of this boner you just gave me."'
@@ -678,7 +678,7 @@ if $ARGS[0] = 'gadukino_kolyamba':
 	kolyambaday = daystart
 	gs 'stat'
 
-	'<center><b><font color = maroon>Kolyamba</font></b></center>'
+	'<center><b><font color = maroon>Kolyamba Pyut</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/village/kolyamba.jpg"></center>'
 	'Walking through the village you met Kolyamba. Seeing you, he reached into his pants and started playing with his balls. He then grabbed you by the arm and dragged into the bushes next to the road.'
 
@@ -690,7 +690,7 @@ if $ARGS[0] = 'gadukino_vasyan':
 	vasyanday = daystart
 	gs 'stat'
 
-	'<center><b><font color = maroon>Vasya Package</font></b></center>'
+	'<center><b><font color = maroon>Vasya Paket</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/village/vasyan.jpg"></center>'
 	'Walking through the village you met Vasya. Seeing you, he smiled and waved you over to him. He kisses you on the lips and asks you to join him as he walked into the bushes next to the road.'
 
@@ -720,7 +720,7 @@ if $ARGS[0] = 'mira_mitka':
 	mitkaday = daystart
 	gs 'stat'
 
-	'<center><b><font color = maroon>Mitka Pin</font></b></center>'
+	'<center><b><font color = maroon>Mitka Shkvoryen</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mitka.jpg"></center>'
 	'Walking with Mira in the village you met Mitka. Seeing Mira, he started playing with his balls and said with a grin.'
 	'"Oh hey Mira, let''s go have some fun getting rid of this boner you just gave me."'
@@ -733,7 +733,7 @@ if $ARGS[0] = 'mira_kolyamba':
 	kolyambaday = daystart
 	gs 'stat'
 
-	'<center><b><font color = maroon>Kolyamba</font></b></center>'
+	'<center><b><font color = maroon>Kolyamba Pyut</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/village/kolyamba.jpg"></center>'
 	'Walking with Mira in the village you met Kolyamba. Seeing Mira, he started playing with his balls, dragging her into the bushes next to the road.'
 
@@ -745,9 +745,9 @@ if $ARGS[0] = 'mira_vasyan':
 	vasyanday = daystart
 	gs 'stat'
 
-	'<center><b><font color = maroon>Vasan Package</font></b></center>'
+	'<center><b><font color = maroon>Vasyan Paket</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/village/vasyan.jpg"></center>'
-	'Walking with Mira in the village you met Vasya. Seeing Mira, he smiled and dragged her into the bushes next to the road.'
+	'Walking with Mira in the village you met Vasyan. Seeing Mira, he smiled and dragged her into the bushes next to the road.'
 
 	act 'Further': gt 'mitkasex', 'forest1', 'A62'
 end
@@ -764,8 +764,8 @@ if $ARGS[0] = 'mira_2boys':
 		'<center><img <<$set_imgh>> src="images/locations/gadukino/village/2boys.2.jpg"></center>'
 	end
 	if mitboyrand = 1:'Walking with Mira in the village you met Mitka and Kolyamba. Seeing Mira, they grin, grab her arms and drag her into the bushes.'
-	if mitboyrand = 2:'Walking with Mira in the village you met Mitka and Vasya. Seeing Mira, they grin, grab her arms and drag her into the bushes.'
-	if mitboyrand = 3:'Walking with Mira in the village you met Kolyamba and Vasya. Seeing Mira, they grin, grab her arms and drag her into the bushes.'
+	if mitboyrand = 2:'Walking with Mira in the village you met Mitka and Vasyan. Seeing Mira, they grin, grab her arms and drag her into the bushes.'
+	if mitboyrand = 3:'Walking with Mira in the village you met Kolyamba and Vasyan. Seeing Mira, they grin, grab her arms and drag her into the bushes.'
 
 	act 'Further': gt 'mitkasex', 'forest2', mitboyrand
 end
@@ -781,7 +781,7 @@ if $ARGS[0] = 'mira_3boys':
 		'<center><img <<$set_imgh>> src="images/locations/gadukino/village/drunk.jpg"></center>'
 	end
 
-	'Walking with Mira in the village you met Mitka, Kolyamba and Vasya. Seeing Mira, they grin, grab her arms and drag her into the bushes.'
+	'Walking with Mira in the village you met Mitka, Kolyamba and Vasyan. Seeing Mira, they grin, grab her arms and drag her into the bushes.'
 
 	act 'Further': gt 'mitkasex', 'forest3'
 end
@@ -825,7 +825,7 @@ if $ARGS[0] = 'go_home_ender':
 	end
 	gadstay = 0
 	gs 'stat'
-	'You get into the Volga with the rest of your family and before you know it, you''ve arrived back in Pavlovo.'
+	'You get into the Lada with the rest of your family and before you know it, you''ve arrived back in Pavlovosk.'
 	act 'Go to your room': gt 'bedrPar'
 end
 
@@ -834,7 +834,7 @@ if $ARGS[0] = 'to_gadukino':
 	!family_trip_month = 1
 	minut += rand(15,25)
 	gs 'stat'
-	'You get into the Volga with the rest of your family and before you know, you''ve arrived in Gadukino. Your grandparents have lived here for forty years.'
+	'You get into the Lada with the rest of your family and before you know, you''ve arrived in Gadukino. Your grandparents have lived here for forty years.'
 	act 'Go into the house': gt 'gadhouse'
 end
 

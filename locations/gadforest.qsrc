@@ -1,6 +1,5 @@
 # gadforest
 
-
 if $ARGS[0] = '1':
 	PC_arrive = iif($loc ! 'Miroslava', 1 , 0)
 	!out skirt
@@ -155,7 +154,7 @@ if $ARGS[0] = '1':
 		end
 	end
 	if hour >= 6 and hour <= 20 and month >= 6 and month <= 9 and boletus + bilberry < 10 and edge_forestday ! daystart:
-		act 'To look for mushrooms and berries':
+		act 'Look for mushrooms and berries':
 			cla
 			*clr
 			minut += 30
@@ -200,7 +199,7 @@ if $ARGS[0] = '1':
 		end
  	end
 	if hour >= 6 and hour <= 20 and month >= 6 and month <= 9 and MiraLoc ! 3:
-		act 'To go further into the forest':
+		act 'Go further into the forest':
 			if goforest >= lostrand:minut += 30 & gt 'gadforest','2'
 			if goforest < lostrand:gt 'gadforest', 'gadforestloststart'
 	 	end
@@ -289,7 +288,7 @@ if $ARGS[0] = '2':
 		if goforest < lostrand:gt 'gadforest', 'gadforestloststart'
 	end
 	if hour >= 6 and hour <= 20 and month >= 6 and month <= 9 and boletus + bilberry < 10 and forestday ! daystart:
-			act 'To look for mushrooms and berries':
+			act 'Look for mushrooms and berries':
 				cla
 			*clr
 			minut += 30
@@ -334,7 +333,7 @@ if $ARGS[0] = '2':
 		end
 	end
 	if hour >= 6 and hour <= 20 and month >= 6 and month <= 9:
-		act 'To go further into the forest':
+		act 'Go further into the forest':
 			if goforest >= lostrand:minut += 30 & gt 'gadforest','3'
 			if goforest < lostrand:gt 'gadforest', 'gadforestloststart'
 	 	end
@@ -391,7 +390,7 @@ if $ARGS[0] = '3':
 	end
 	if hour >= 6 and hour <= 20 and month >= 6 and month <= 9 and boletus + bilberry < 10 and thicketday ! daystart:
 
-	act 'To look for mushrooms and berries':
+	act 'Look for mushrooms and berries':
 			*clr & cla
 			minut += 30
 			thicketday = daystart
@@ -410,7 +409,7 @@ if $ARGS[0] = '3':
 	end
 	if hour >= 6 and hour <= 20 and month >= 6 and month <= 9:
 
-		act 'To go further into the forest':
+		act 'Go further into the forest':
 			if goforest >= lostrand:minut += 30 & gt 'gadforest','4'
 			if goforest < lostrand:gt 'gadforest', 'gadforestloststart'
 	 	end
@@ -454,7 +453,7 @@ if $ARGS[0] = '4':
 			'Forest. Night in the winter forest is very scary and uncomfortable.'
 		end
 	end
-	if goforest < 60:'You do not know this part of the forest, then it is better not to go too far.'
+	if goforest < 60:'You do not know this part of the forest. It is better not to go too far in.'
 
 	if foresteventrand < 2 and month >= 6 and month <= 9 and foresteventday ! daystart: gt 'gadforest_event', 'bilberry'
 	if foresteventrand > 7 and month >= 6 and month <= 9 and foresteventday ! daystart: gt 'gadforest_event', 'mushroom'
@@ -466,7 +465,7 @@ if $ARGS[0] = '4':
 		if goforest < lostrand:gt 'gadforest', 'gadforestloststart'
 	end
 	if hour >= 6 and hour <= 20 and month >= 6 and month <= 9 and boletus + bilberry < 10 and swampforest ! daystart:
-			act 'To look for mushrooms and berries':
+			act 'Look for mushrooms and berries':
 				cla
 			*clr
 			minut += 30
@@ -485,7 +484,7 @@ if $ARGS[0] = '4':
 			act 'Further':gt 'gadforest','4'
 		end
 	end
-	act 'To go further into the forest':
+	act 'Go further into the forest':
 		if goforest >= lostrand and goswamp = 1:minut += 30 & gt 'swamp'
 		if goforest >= lostrand and goswamp = 0:minut += 30 & gt 'gadforestswamp','1'
 		if goforest < lostrand:gt 'gadforest', 'gadforestloststart'
@@ -562,7 +561,6 @@ if $ARGS[0] = 'torncloth':
 		end
 	end
 end
-
 
 --- gadforest ---------------------------------
 

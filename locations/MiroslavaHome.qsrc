@@ -1,6 +1,5 @@
 # MiroslavaHome
 
-
 if $ARGS[0] = 'start':
 	$metka = $ARGS[0]
 	$loc = $CURLOC
@@ -44,7 +43,7 @@ if $ARGS[0] = 'start':
 		elseif temper >= 15 and sunWeather = 1 and npc_QW['A60'] = 7 and hour >= 8 and hour <= 18:
 			*clr & cla
 			'<center><img <<$set_imgh>> src="images/characters/village/mira/miraqw7.jpg"></center>'
-			'Entering the courtyard, you notice Miroslav, working in the garden. She is bent over and, to your amazement, you see her bare naked crotch...'
+			'Entering the courtyard, you notice Mira, working in the garden. She is bent over and, to your amazement, you see her bare naked crotch...'
 			MiraLoc = 0
 
 			act 'Approach it':
@@ -58,7 +57,7 @@ if $ARGS[0] = 'start':
 				act 'Watch':
 					*clr & cla
 					'<center><img <<$set_imgh>> src="images/characters/village/mira/mirawish2.jpg"></center>'
-					'You enjoy the view, then you comes to mind crazy idea, and you decide to make a second wish. Mira Sadly said that you thought this was your second wish, but you answer that just could not resist, after which the speaks her to go for you.'
+					'You enjoy the view, then you have a crazy idea, and you decide to make a second wish. Mira sadly said that she thought this was your second wish, but you answer that you just could not resist, after which you ask her to follow you.'
 					pcs_horny += 15
 					minut += 15
 					gs 'stat'
@@ -66,12 +65,12 @@ if $ARGS[0] = 'start':
 					act 'Go out on the road':
 						*clr & cla
 						'<center><img <<$set_imgh>> src="images/characters/village/mira/mirawish2_1.jpg"></center>'
-						'Out on the road you say Miroslava, so she posed as a prostitute, this will be the second wish. Mira sadly nods her head, looks around and seeing that the street was quiet, fulfills your desire...'
+						'Out on the road you say, "Mira, pose as a prostitute, this will be the second wish." Mira sadly nods her head, looks around and seeing that the street was quiet, fulfills your desire...'
 						minut += 15
 						npc_QW['A60'] = 8
 						gs 'stat'
 
-						act 'Go':gt'gadukino'
+						act 'Go back to the village':gt'gadukino'
 					end
 				end
 			end
@@ -102,10 +101,10 @@ if $ARGS[0] = 'start':
 					gs 'stat'
 					'Mira isn''t home.'
 					if miraprost > 0 and month >= 5 and month <= 9 and hour >= 18 and hour >= 0 and rand(0,5) >= 4:
-						' You think you know where to find her. Ever since granting your second wish Mira has been earning money as a prostitute on the highway '
-						act 'go to the highway': gt 'gadprostitutes','start'
+						' You think you know where to find her. Ever since granting your second wish Mira has been earning money as a prostitute on the highway.'
+						act 'Go to the highway': gt 'gadprostitutes','start'
 					else
-						'She definitely isn''t around here, and you have no idea where she might be. Maybe you should ask her father, or go look around town'
+						'She definitely isn''t around here, and you have no idea where she might be. Maybe you should ask her father, or go look around town.'
 					end
 					act 'Leave': gt 'gadukino'
 				end
@@ -140,7 +139,7 @@ if $ARGS[0] = 'start':
 		end
 	else
 		'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mirahome.jpg"></center>'
-		if hour > 22 or hour < 3: 'It''s late, most of Mira''s family is asleep, no need to wake people up unnecessarily.' else 'It''s too early, most of Mira''s family is still asleep, no need to wake people up unnecessarily.'
+		if hour > 22 or hour < 3: 'It''s late, most of Mira''s family is asleep, no need to them up unnecessarily.' else 'It''s too early, most of Mira''s family is still asleep, no need to wake people up unnecessarily.'
 		act 'Leave': gt 'gadukino'
 	end
 	act 'Leave': gt 'gadukino'
@@ -164,19 +163,23 @@ if $ARGS[0] = 'mirabrother':
 		'You ask Mira''s brother for a ride on his motorcycle.'
 		if hotcat < 5:
 			if npc_rel['A60'] > 20:
-
-				'He looks you up and down appraisingly and tells you, some other time.'
+				'He looks you up and down checking you out and says, "Some other time."'
 			else
-				'He gazes at you a couple of seconds, and then asks, "Who are you anyway again?"'
+				'He gazes at you a couple of seconds, and then asks, "Who are you again?"'
 			end
-				act 'Walk away': gt 'gadukino'
+			
+			act 'Walk away': gt 'MiroslavaHome', 'start'
 		else
 			if $pantyworntype ! 'none':
-				'"No problem", he says to you while looking you up and down with strange glent in his eyes. "But my bike, well he only allows girls without panties to ride on his back and there''s nothing I can do about it, this bike is a little devil"'
-				act 'You look shocked and walk away.': gt 'gadukino'
+				'"No problem", he says to you while looking you up and down with a strange glint in his eyes. "But my bike, well he only allows girls without panties to ride on his back and there''s nothing I can do about it, this bike is a little devil"'
+				act 'Remove panties':
+					gs 'underwear', 'remove'
+					'You really want a ride on his motorcycle, and quickly slide them down your legs and stuff them in your pocket.'
+					gt 'MiroslavaHome', 'mirabrother'
+				end
+				act 'You look at him in disgust and walk away.': gt 'MiroslavaHome', 'start'
 			else
-
-				'"No problem", he says to you, and then adds with a mischievous smile. "But first, sit down on him, he''ll check to make sure he likes you. He is fussy sombitch."'
+				'"No problem", he says to you, and then adds with a mischievous smile. "But first, sit down on him, he''ll check to make sure he likes you. He is fussy son of a bitch."'
 				act 'Get on the bike':
 					*clr & cla
 					pcs_horny += 10
@@ -184,10 +187,8 @@ if $ARGS[0] = 'mirabrother':
 					gs 'stat'
 
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mira/mirabromoto.jpg"></center>'
-					'You quickly swing your leg up and over the iron horse, you plop your ass down on the motorcycles padded seat and grab the handlebars. Mira''s brother, with a satisfied smile, never takes his eyes off your crotch. You wiggle your ass on the seat a little giving him a great view of your naked pussy.'
-
+					'You quickly swing your leg up and over the motorcycle, plop your ass down on the padded seat and grab the handlebars. Mira''s brother, with a satisfied smile, never takes his eyes off your crotch. You wiggle your ass on the seat a little giving him a great view of your naked pussy.'
 					'"Fine", he say still smiling, "Just fine! You have an awesome pussy, and I''m sure my friend," and he slaps the gas tank,"is looking forward to having you ride on him. You know what I mean, yes?" You give him a wicked grin and nod. "We''ll give you a ride to remember, and then you can give me a ride to remember..." You just continue to nod.'
-
 
 					act 'Hell yes, you agree...':
 						*clr & cla
@@ -209,7 +210,7 @@ if $ARGS[0] = 'mirabrother':
 
 							'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mira/mirabromoto1.jpg"></center>'
 
-							'You slide your as back to allow him room to mount the motorcycle. He grabs his helmet from the handlebars and slams it down on his head.'
+							'You slide your ass back to allow him room to mount the motorcycle. He grabs his helmet from the handlebars and slams it down on his head.'
 
 
 							act 'Wrap your arms around his waist...':
@@ -230,7 +231,7 @@ if $ARGS[0] = 'mirabrother':
 									gs 'stat'
 
 									'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mira/mirabromoto3.jpg"></center>'
-									'He rolls down a higway another mile he pulls the motorcycle off the main road onto a little side track and parks a couple hundred meters off the road. He jumps off the bike, pulling off his helmet, and turns to you with a "devil may care" attitude. He pulls the helmet of your head and drops it to the ground. He turns you around and begins to paw your crotch and tits...'
+									'He rolls down the highway another mile before pulling off onto a little side track and parks a couple hundred meters off the road. He jumps off the bike, pulling off his helmet, and turns to you with a "devil may care" attitude. He pulls the helmet of your head and drops it to the ground. He turns you around and begins to feel your bare pussy...'
 
 									act 'Stand':
 										*clr & cla
@@ -239,26 +240,27 @@ if $ARGS[0] = 'mirabrother':
 										gs 'stat'
 
 										'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mira/mirabromoto4.jpg"></center>'
-										'You, bearing in mind the deal, obediently stand, while his hands imperiously crumple your Breasts and stroking the crotch.'
+										'You, bearing in mind the deal, obediently stand, while his hands knead your breasts and stroke your crotch.'
 
-										act 'Stand':
+										act 'Try to enjoy his touch':
 											*clr & cla
 											pcs_horny += RAND(5,15)
 											minut += 2
 											gs 'stat'
 
 											'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mira/mirabromoto5.jpg"></center>'
-											'You feel, as his hand rubs your crotch, fingering labia. A minute later a guy turns you on yourself, and persistently puts pressure on the shoulders...'
+											'You feel, as his hand rubs your crotch, fingering your labia. A minute later he turns you around and press down on your shoulders...'
 
 
-											act 'To squat':
+											act 'Squat':
 												*clr & cla
 												pcs_horny += RAND(5,15)
 												minut += 2
 												gs 'stat'
 
 												'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mira/mirabromoto6.jpg"></center>'
-												'You obediently sit down in front of him on his haunches and unzip his pants. Opened them together with cowards, you see right in front of my face on his swelling member...'
+												'You obediently sit down in front of him on your knees and unzip his pants. His quickly growing member pops out right in front of your face...'
+												
 												act 'Suck':
 													*clr & cla
 													pcs_horny += RAND(10,20)
@@ -266,7 +268,7 @@ if $ARGS[0] = 'mirabrother':
 													gs 'stat'
 
 													'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mira/mirabromoto7.jpg"></center>'
-													'You have a few seconds, transfixed, watching, as he grows in power, and then, mouth wide open, gently absorb it into himself and then release, then take in hand and begin to suck on it and at the same time nadrachivat hand.'
+													'You stare for a few seconds, transfixed, as he grows larger and larger. You take his dick in your mouth and begin to suck on it and at the same time caressing his balls with your hands.'
 
 													act 'Swallow':
 														*clr & cla
@@ -280,9 +282,9 @@ if $ARGS[0] = 'mirabrother':
 														if mirabrosextime = 0:mirabrosextime = 1 & guy += 1
 														gs 'stat'
 														'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mira/mirabromoto8.jpg"></center>'
-														'After a couple of minutes you in the mouth strikes unexpectedly warm sticky cum and you quickly begin to swallow. Miroslava brother for another minute stands, blissfully closed his eyes, while you are sucking his cock, and then zips up pants, sits on a motorcycle and drives away...'
+														'After a couple of minutes you feel his warm sticky cum hit the back of your throat and being to swallow it all down. Mira''s brother stands still for a minute, his eyes closed in bliss. Finally he takes his cock out of your mouth, zips up pants, sits on a motorcycle and drives you back to the village...'
 
-														act 'Going home': gt 'Gadhouse'
+														act 'Go back to your grandparents house': gt 'Gadhouse'
 													end
 												end
 											end
@@ -299,7 +301,6 @@ if $ARGS[0] = 'mirabrother':
 		end
 	end
 end
-
 
 --- MiroslavaHome ---------------------------------
 

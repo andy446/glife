@@ -1,6 +1,5 @@
 # backwater
 
-
 $location_type = 'secluded'
 $metka = $ARGS[0]
 $loc = $CURLOC
@@ -27,7 +26,7 @@ if $clothingworntype = 'nude' and hantersKnowSlut = 0 and hanters = 1 and hour >
 			gs 'clothing', 'recover_lost_clothes', $CURLOC, 1
 
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/swampbackwaternude1.jpg"></center>'
-			'Noticing the hunter, you rush over to your clothes and begin dressed yourself in panic. As you get fully dressed, you look over your shoulder, expecting the hunter standing there, but there is no one there.'
+			'Noticing the hunter, you rush over to your clothes and begin dressing yourself in panic. As you get fully dressed, you look over your shoulder, expecting the hunter standing there, but there is no one there.'
 			act'Further':gt 'backwater'
 		end
 	else
@@ -35,8 +34,8 @@ if $clothingworntype = 'nude' and hantersKnowSlut = 0 and hanters = 1 and hour >
 			cls
 			minut += 1
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/swampbackwaternude2.jpg"></center>'
-			'Covering your Breasts and crotch you jump into the nearest bush. In your state of fear and confusion, you start scanning the area but you don''t see anyone there. You quickly run back towards the cabin.'
-			act'Further':gt 'swamp_yard'
+			'Covering your breasts and crotch you jump into the nearest bush. In your state of fear and confusion, you start scanning the area but you don''t see anyone there. You quickly run back towards the cabin.'
+			act'Go back to the hut':gt 'swamp_yard'
 		end
 	end
 	act'Stay naked':
@@ -261,7 +260,7 @@ if temper >= 10:
 	end
 end
 
-act 'Go':minut += 5 & gt'swamp_yard'
+act 'Go back to the hut':minut += 5 & gt'swamp_yard'
 
 if hantersRape = 2:
 	cla

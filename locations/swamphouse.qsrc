@@ -1,6 +1,5 @@
 # swamphouse
 
-
 if $ARGS[0] = 'start' or $ARGS[0] = '':
 	$location_type = 'indoors'
 	$metka = 'start'
@@ -215,7 +214,7 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hanterflirt2.'+rand(4,6)+'.jpg"></center>'
 			'Smiling you look straight into Igor''s eyes telling him all he needs to know. Without any hesitation he takes you by the hand and leads you...'
-			act 'Go': gt 'HanterLoveSex','Igor'
+			act 'Go with Igor': gt 'HanterLoveSex','Igor'
 		end
 		act 'Refuse':
 			*clr & cla
@@ -225,7 +224,7 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 
 			'<center><img <<$set_imgh>> src="images/pc/speak_to_the_hand.jpg"></center>'
 			'"I''m sorry, Igor. I''m not in the mood." you say avoiding eye contact. Igor leaves disappointed...'
-			act 'Go': gt 'swamphouse', 'start'
+			act 'Walk away': gt 'swamphouse', 'start'
 		end
 	end
 	!sex with Sergei
@@ -247,7 +246,7 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hanterflirt2.'+rand(4,6)+'.jpg"></center>'
 			'Smiling you look straight into Sergei''s eyes telling him all he needs to know. Without any hesitation he takes you by the hand and leads you...'
-			act 'Go': gt 'HanterLoveSex','Sergei'
+			act 'Go with Sergei': gt 'HanterLoveSex','Sergei'
 		end
 		act 'Refuse':
 			*clr & cla
@@ -257,7 +256,7 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 
 			'<center><img <<$set_imgh>> src="images/pc/speak_to_the_hand.jpg"></center>'
 			'"I''m sorry, Sergei. I''m not in the mood." you say avoiding eye contact. Sergei leaves disappointed...'
-			act 'Go': gt 'swamphouse', 'start'
+			act 'Walk away': gt 'swamphouse', 'start'
 		end
 	end
 	! sex with Andrew
@@ -280,7 +279,7 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hanterhands.jpg"></center>'
 			'Smiling you look straight into Andrei''s eyes telling him all he needs to know. Without any hesitation he takes you by the hand and leads you...'
-			act 'Further': gt 'HanterLoveSex','Andrei'
+			act 'Go with Andrei': gt 'HanterLoveSex','Andrei'
 		end
 		act 'Refuse':
 			*clr & cla
@@ -290,7 +289,7 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 
 			'<center><img <<$set_imgh>> src="images/pc/speak_to_the_hand.jpg"></center>'
 			'"I''m sorry, Andrei. I''m not in the mood." you say avoiding eye contact. Andrei leaves disappointed...'
-			act 'Go': gt 'swamphouse', 'start'
+			act 'Walk away': gt 'swamphouse', 'start'
 		end
 	end
 	! trio of HS, Andrei and Sergei, if love
@@ -333,7 +332,7 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 
 			'<center><img <<$set_imgh>> src="images/pc/speak_to_the_hand.jpg"></center>'
 			'"No, I refuse, this is something I don''t want part of," you say and without hesitating you turn around and walk away.'
-			act 'Go': gt 'swamphouse', 'start', 'doublelovesex'
+			act 'Walk away': gt 'swamphouse', 'start', 'doublelovesex'
 		end
 	end
 	!hunters are invited to the table
@@ -438,7 +437,7 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 				gs 'stat'
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/swamphousenude1.jpg"></center>'
 				'You take a deep breath and decided to disregard your nerves and leave it as it is. Upon entering the hut, the hunters can''t help themselves, they start staring at your most private parts.'
-				'"Damn, <<$pcs_nickname>>, you look really good. The things I would want to do to you..." said an somewhat aroused Andrei.'
+				'"Damn, <<$pcs_nickname>>, you look really good. The things I would want to do to you..." said a somewhat aroused Andrei.'
 				act 'Further': gt 'swamphouse', 'start'
 			end
 		end
@@ -1231,7 +1230,7 @@ if $ARGS[0] = 'hanterstable':
 			temp_sh = rand(1,6)
 			gs 'stat'
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/swamphousedrunkgirl.jpg"></center>'
-			'You''re really drunk, you sludder your words, everything is spinning...'
+			'You''re really drunk, you slur your words, and everything is spinning...'
 
 			if hanterslut <= 20:
 				if temp_sh = 1:
@@ -1360,7 +1359,7 @@ if $ARGS[0] = 'hanterstable':
 										if hantersSergeiLove > 0:hantersSergeiQw -= 1
 										gs 'stat'
 										'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/dance2.'+rand(1,2)+'.jpg"></center>'
-										'In the sput of the moment, while the men cheer you on, you remove your top, leaving you only with a bra on...'
+										'In the spur of the moment, while the men cheer you on, you remove your top, leaving you only with a bra on...'
 										inhib_exp += rand(0,1)
 										if hanterslut >= 15:
 											act 'Keep dancing':
@@ -1479,7 +1478,7 @@ if $ARGS[0] = 'hanterstable':
 							if hantersSergeiLove > 0:hantersSergeiQw -= 1
 							gs 'stat'
 							'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/dance2.'+rand(1,2)+'.jpg"></center>'
-							'In the sput of the moment, while the men cheer you on, you remove your top, leaving you only with a bra on...'
+							'In the spur of the moment, while the men cheer you on, you remove your top, leaving you only with a bra on...'
 							inhib_exp += rand(0,1)
 							act 'Keep dancing':
 								*clr & cla
@@ -1556,7 +1555,7 @@ if $ARGS[0] = 'hanterstable':
 			temp_sh = rand(1,6)
 			gs 'stat'
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/swamphousedrunkgirl1.jpg"></center>'
-			'You''re really drunk, you sludder your words, everything is spinning...'
+			'You''re really drunk, you slur your words,  and everything is spinning...'
 
 			if temp_sh = 1:
 				act 'Pass out':
@@ -1654,7 +1653,7 @@ if $ARGS[0] = 'hanterstable':
 							inhib_exp += rand(0,1)
 							gs 'stat'
 							'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/dance2.'+rand(1,2)+'.jpg"></center>'
-							'In the sput of the moment, while the men cheer you on, you remove your top, leaving you only with a bra on...'
+							'In the spur of the moment, while the men cheer you on, you remove your top, leaving you only with a bra on...'
 
 							act 'Keep dancing':
 								*clr & cla
@@ -1843,9 +1842,6 @@ if $ARGS[0] = 'dirty_swamphouse':
 
 	act 'Further':dirty_swamphouse = 0 & gt 'swamphouse', 'start'
 end
-
-
-
 
 --- swamphouse ---------------------------------
 

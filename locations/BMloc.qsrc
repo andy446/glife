@@ -37,9 +37,9 @@ act 'Dance':
 		cls
 		boynumBlock = 1
 
-		if bmTip[Tboynum] = 0:gt 'EvBoyBuh'
-		if bmTip[Tboynum] = 1:gt 'EvgopBuh'
-		if bmTip[Tboynum] = 2:DPtipe = 2 & gt 'EvOtelMan'
+		if bmTip[Tboynum] = 0:gt 'gdksex', 'outside', 'nice'
+		if bmTip[Tboynum] = 1:gt 'gdksex', 'outside', 'aggressiv'
+		if bmTip[Tboynum] = 2:DPtipe = 2 & gt 'gdksex', 'hotel'
 	end
 
 	act 'Refuse':

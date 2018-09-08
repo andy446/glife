@@ -2,7 +2,7 @@
 
 if $ARGS[0] = 'Start' or $ARGS[0] = '':
 	$metka = $ARGS[0]
-	$loc = $CURLOC
+	$loc = $curloc
 	gs 'boyStat', 'A60'
 	girlage = age
 	temp = RAND(0,20)
@@ -54,7 +54,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 	end
 
 	if graze_cow = 1:
-		act 'Talking to Mira':
+		act 'Talk to Mira':
 			*clr & cla
 			minut += 60
 			if temper >= 25 and sunWeather = 1:pcs_hydra -= 12
@@ -136,32 +136,18 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 		act 'Depart':gt'gadfield','field'
 	end
 	if npc_QW['A60'] = 11:
-		act 'Talk to Mira in the meadow':
-			gt 'Meadow','miraperversion11'
-		end
+		act 'Talk to Mira in the meadow': gt 'Meadow','miraperversion11'
 	elseif npc_QW['A60'] >= 15 and mirasex = 0 and MiraLoc = 2 and npc_QW['A63'] < 13 and pcs_horny >= 40:
-		act 'Talk to Mira in the meadow':
-			gt 'Meadow','lesb_talk_mira1'
-		end
+		act 'Talk to Mira in the meadow': gt 'Meadow','lesb_talk_mira1'
 	elseif npc_QW['A60'] >= 15 and npc_QW['A63'] >= 13 and mirasex = 1 and miralick = 0 and MiraLoc = 2 and pcs_horny >= 60:
-		act 'Talk to Mira in the meadow':
-			gt 'Meadow','lesb_talk_mira2'
-		end
+		act 'Talk to Mira in the meadow': gt 'Meadow','lesb_talk_mira2'
 	else
-		if mirasex = 1 and npc_QW['A63'] < 13 and miralick > 0 and MiraLoc = 2 and pcs_horny >= 40:
-			act 'Talk to Mira in the meadow':
-				gt 'Meadow','lesb_talk_mira3'
-			end
-		end
-		if mirasex = 2 and MiraLoc = 2 and pcs_horny >= 40 and npc_rel['A60'] >= 15:
-			act 'Talk to Mira in the meadow':
-				gt 'Meadow','lesb_mira'
-			end
-		end
-		! not certain this belongs here, looks like it belongs in Meadow
-
+		if mirasex = 1 and npc_QW['A63'] < 13 and miralick > 0 and MiraLoc = 2 and pcs_horny >= 40: act 'Talk to Mira in the meadow': gt 'Meadow','lesb_talk_mira3'
+		if mirasex = 2 and MiraLoc = 2 and pcs_horny >= 40 and npc_rel['A60'] >= 15: act 'Talk to Mira in the meadow': gt 'Meadow','lesb_mira'
+		
+		act 'Leave':gt 'Miroslava','Leave'
 		act 'Chat':gt 'Miroslava', 'miratalk'
-
+		
 		if month >= 4 and month <= 10 and sunWeather = 1:
 			act 'Offer to walk together':
 				*clr & cla
@@ -215,7 +201,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 				end
 			end
 		end
-
+		
 		if meadow = 1 and MiraLoc ! 3:
 			act 'Show her your secret place':
 				*clr & cla
@@ -271,7 +257,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 				end
 			end
 		end
-
+		
 		if npc_rel['A60'] >= 15 and hour >= 20 and npc_QW['A60'] = 0 and sunWeather = 1 and MiraLoc ! 3:
 			act 'Ask if she has met the local boys?':
 				*clr & cla
@@ -291,7 +277,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 			end
 		end
 
-		if npc_rel['A60'] >= 16 and hour >= 21 and npc_QW['A60'] > 0 and sunWeather = 1 and MiraLoc ! 3:
+		if npc_rel['A60'] >= 16 and hour >= 20 and npc_QW['A60'] > 0 and sunWeather = 1 and MiraLoc ! 3:
 			act 'Suggest catching up with the local guys and having a drink or three':
 				if Mira_no = 0:
 					*clr & cla
@@ -324,7 +310,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 				end
 			end
 		end
-
+		
 		if npc_rel['A60'] >= 20 and week >= 6 and hour > 18 and hour < 22:
 			act 'Suggest taking a steam bath in your grandparents sauna':
 				if Mira_no = 0:
@@ -344,7 +330,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 						gs 'Miroslava', 'miraclothes'
 						'You offer Mira the opportunity to relax with you in the bath. She pauses for a few moments to think, but then agrees slowly. You lead her into your grandparent''s backyard...'
 
-						act 'Go to the your home':gt 'Gadbana'
+						act 'Go to your home':gt 'Gadbana'
 					else
 						*clr & cla
 						minut += 5
@@ -366,6 +352,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 				end
 			end
 		end
+		
 		if sunWeather = 1 and temper >= 15 and month >= 5 and month <= 9 and MiraLoc ! 1:
 			act 'Offer to go to the river':
 				*clr & cla
@@ -406,7 +393,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 				end
 			end
 		end
-		!125s
+		
 		if miratalkforest = 0 and npc_rel['A60'] >= 5:
 			act 'Ask about the forest':
 				*clr & cla
@@ -476,7 +463,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 				end
 			end
 		end
-
+		
 		if sunWeather = 1 and temper >= 15 and month >= 5 and month <= 9 and MiraLoc = 3 and miratalkforest > 1 and npc_rel['A60'] >= 5 and $clothingworntype ! 'nude' and forestpicnic = 0:
 			act 'Offer to walk naked':
 				*clr & cla
@@ -492,7 +479,285 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 				act'Further':gt'gadforest','1'
 			end
 		end
-		!125e
+		
+		if npc_rel['A60'] >= 15 and MiraLoc ! 3 and (npc_QW['A63'] < 13 or npc_QW['A60'] >= 10 or mirasex > 1):
+			if mira_guest = 0:
+				act 'Invite Mira back to your grandparent''s house':
+					*clr & cla
+					minut += 5
+					mira_guest = 1
+					if npc_rel['A60'] < 30:npc_rel['A60'] += 1
+					gs 'stat'
+					gs 'Miroslava', 'miraclothes'
+					'You are tired of hanging around on the street and you decided to invite Mira to dinner.'
+
+					act'Go home':
+						if ($clothingworntype ! 'nude' and $clothingworntype ! 'swimwear'):
+							minut += 15 & gt'Gadhouse'
+						else
+							*clr & cla
+							minut += 5
+							mira_guest = 1
+							gs 'underwear', 'wear'
+							gs 'clothing', 'wear', $lastwornclothingtype, lastwornclothingnumber
+							'<center><img <<$set_imgh>> src="images/locations/gadukino/river/dressbch.jpg"></center>'
+							'You changed into your regular clothes and went home with Mira.'
+
+							act 'Further': minut += 15 & gt'Gadhouse'
+						end
+					end
+				end
+			end
+			
+			if mira_guest = 1:
+				act 'Watch TV':
+					*clr & cla
+					minut += 60
+					if npc_rel['A60'] < 20:npc_rel['A60'] += 1
+					pcs_mood += 10
+					gs 'stat'
+					'<center><img <<$set_imgh>> src="images/characters/village/mira/mira_tv'+rand(1,12)+'.jpg"></center>'
+					'You and Mira watch TV for an hour.'
+
+					act'Further':gt'Gadhouse'
+				end
+			end
+			
+			if mira_guest = 1 and hour >= 18:
+				act 'Sleep over':
+					*clr & cla
+					minut += 60
+					if npc_rel['A60'] < 20: npc_rel['A60'] += RAND(1,2)
+						gs 'stat'
+						'<center><img <<$set_imgh>> src="images/characters/village/mira/mira_tv'+rand(1,12)+'.jpg"></center>'
+						'You ask your grandparents if Mira can sleep over. They tell you it''s fine with them, so you invite Mira to sleep over.'
+						*nl
+						'You and Mira head over to the huge wardrobe where your clothes are and spend an hour trying on different clothes and underwear.'
+
+						act 'Mira and you raid the kitchen for a late night snack (0:15)': 'You and Mira head to the kitchen to make a quick snack' & gs 'food', 'snack'
+						act 'Go to sleep': 'You''re feeling tired. You and Mira head to your bed and crawl under the covers together and get into bed.' & gt 'bed2'
+						act 'Finish': mira_guest = 0 & gt $loc, $metka
+					end
+				end
+			end
+			
+			if mira_guest > 0:
+				act 'Say goodbye to Mira':
+					*clr & cla
+					minut += 5
+					mira_guest = 0
+					MiraLoc = 0
+					gs 'stat'
+					gs 'Miroslava', 'miraclothes'
+					'You say goodbye to Mira, and she went home.'
+					
+					act 'Walk back home':gt'Gadhouse'
+				end
+			end
+		end
+		
+		if npc_rel['A60'] >= 15 and Mira_no = 0 and (npc_QW['A63'] < 13 or npc_QW['A60'] >= 10 or mirasex > 1):
+			if mira_guest = 0 and mira_temp >= 1 and mira_temp <= 2 and mira_go_blok = 0 and MiraLoc ! 3:
+				*clr & cla
+				minut += 1
+				gs 'stat'
+
+				if MiraLoc = 1:gs 'Miroslava', 'mira_river'
+				if MiraLoc ! 1:gs 'Miroslava', 'miraclothes'
+				'"<<$pcs_nickname>>, it''s so boring here," Mira pouts, "I know! Let''s go to your place." Mira suggests brightly.'
+
+				act'Agree':
+					if ($clothingworntype ! 'nude' and $clothingworntype ! 'swimwear'):
+						mira_go_blok = 1
+						mira_guest = 1
+						minut += 15
+						npc_rel['A60'] += 1
+						gt 'Gadhouse'
+					else
+						*clr & cla
+						npc_rel['A60'] += 1
+						mira_go_blok = 1
+						mira_guest = 1
+						if npc_rel['A60'] < 30:npc_rel['A60'] += 1
+						minut += 20
+						gs 'underwear', 'wear'
+						gs 'clothing', 'wear', $lastwornclothingtype, lastwornclothingnumber
+						'<center><img <<$set_imgh>> src="images/locations/gadukino/river/dressbch.jpg"></center>'
+						'You change into your clothes and go home with Mira.'
+
+						act 'Further': gt'Gadhouse'
+					end
+				end
+
+				act'Refuse':
+					*clr & cla
+					minut += 1
+					npc_rel['A60'] -= 1
+					gs 'stat'
+					'<center><img <<$set_imgh>> src="images/pc/speak_to_the_hand.jpg"></center>'
+					'You deny Mira, saying that you don''t want to right now.'
+
+					act 'Further': gt 'Miroslava', 'Start'
+				end
+			end
+			if mira_guest = 1 and mira_temp >= 3 and mira_temp <= 4:
+				*clr & cla
+				minut += 1
+				gs 'stat'
+				gs 'Miroslava', 'miraclothes'
+				'"<<$pcs_nickname>>, come watch TV with me, that''s boring -"  Mira said.'
+
+				act'Agree':
+					*clr & cla
+					minut += 60
+					if npc_rel['A60'] < 20:npc_rel['A60'] += 1
+					pcs_mood += 10
+					mira_go_blok = 1
+					gs 'stat'
+					'<center><img <<$set_imgh>> src="images/characters/village/mira/mira_tv'+rand(1,12)+'.jpg"></center>'
+					'You watch TV with Mira for an hour.'
+
+					act'Further':gt'Gadhouse'
+				end
+
+				act'Refuse':
+					*clr & cla
+					minut += 1
+					npc_rel['A60'] -= 1
+					'<center><img <<$set_imgh>> src="images/pc/speak_to_the_hand.jpg"></center>'
+					'You deny Mira, saying that you don''t want to right now.'
+
+					act 'Further': gt $loc, $metka
+				end
+			end
+			if MiraLoc ! 2 and mira_temp = 5 and (meadow = 3 or meadow = 6) and mira_go_blok = 0 and MiraLoc ! 3 and hour < 19 and sunWeather = 1:
+				*clr & cla
+				minut += 1
+				gs 'stat'
+				gs 'Miroslava', 'miraclothes'
+				'"<<$pcs_nickname>>, can we go to the meadow?" Mira asked you. "Let''s take a walk, get some fresh air."'
+
+				act'Agree':
+					*clr & cla
+					minut += 15
+					if npc_rel['A60'] < 50:npc_rel['A60'] += 1
+					mira_guest = 0
+					MiraLoc = 2
+					mira_go_blok = 1
+					if ($clothingworntype = 'nude' or $clothingworntype = 'swimwear'):
+						gs 'clothing', 'wear', $lastwornclothingtype, lastwornclothingnumber
+						gs 'underwear', 'wear'
+					end
+					gs 'stat'
+					'<center><img <<$set_imgh>> src="images/characters/village/mira/girls_go.jpg"></center>'
+					'You go to Mira through the dense undergrowth to the hidden meadow. Along the way she merrily tells stories from her past city life.'
+
+					act 'Further': gt 'Meadow'
+				end
+
+				act'Refuse':
+					*clr & cla
+					minut += 1
+					npc_rel['A60'] -= 1
+					gs 'stat'
+					'<center><img <<$set_imgh>> src="images/pc/speak_to_the_hand.jpg"></center>'
+					'You deny Mira, saying that you don''t want to right now.'
+
+					act 'Further': gt 'Miroslava', 'Start'
+				end
+			end
+
+			if hour >= 20 and mira_temp > 10 and sunWeather = 1 and mira_go_blok = 0 and npc_QW['A60'] > 0 and MiraLoc ! 3:
+				*clr & cla
+				minut += 1
+				mira_go_blok = 1
+				MiraLoc = 5
+				mira_guest = 0
+				if ($clothingworntype = 'nude' or $clothingworntype = 'swimwear'):
+					gs 'clothing', 'wear', $lastwornclothingtype, lastwornclothingnumber
+					gs 'underwear', 'wear'
+				end
+				gs 'stat'
+				gs 'Miroslava', 'miraclothes'
+				'"<<$pcs_nickname>>, let''s go hang out with those guys and drink a little?" Mira asks you. "I''m bored and want to party."'
+				if npc_QW['A60'] > 15 and npc_QW['A63'] > 15:
+					act 'Agree':mira_guest = 0 & MiraLoc = 5 & minut += 15 & temp = 0 & npc_drunk['A60'] = 0 & gt 'mitkabuh_group'
+				else
+					act 'Agree':mira_guest = 0 & MiraLoc = 5 & minut += 15 & temp = 0 & npc_drunk['A60'] = 0 & gt 'mitkabuh'
+				end
+
+				act'Refuse':
+					*clr & cla
+					minut += 1
+					npc_rel['A60'] -= 1
+					gs 'stat'
+					'<center><img <<$set_imgh>> src="images/pc/speak_to_the_hand.jpg"></center>'
+					'You deny Mira, saying that you don''t want to right now.'
+
+					act 'Further': gt 'Miroslava', 'Start'
+				end
+			end
+
+			if mira_temp >= 8 and mira_temp <= 9:
+				*clr & cla
+				minut += 1
+				mira_go_blok = 1
+				gs 'stat'
+				gs 'Miroslava', 'miraclothes'
+				'Mira wants to chat with you.'
+				'"<<$pcs_nickname>>, do you want to just chat a little?" Mira asks.'
+
+				act 'Chat':gt 'Miroslava', 'miratalk'
+
+				act'Refuse':
+					*clr & cla
+					minut += 1
+					npc_rel['A60'] -= 1
+					gs 'stat'
+					'<center><img <<$set_imgh>> src="images/characters/village/mira/mira.jpg"></center>'
+					'"Not right now Mira," you say. "I''m not in the mood to talk right now."'
+
+					act 'Further': gt 'Miroslava', 'Start'
+				end
+			end
+			if MiraLoc ! 1 and mira_temp >= 6 and mira_temp <= 7 and sunWeather = 1 and temper >= 15 and month >= 5 and month <= 9 and mira_go_blok = 0 and MiraLoc ! 3 and hour < 18:
+				*clr & cla
+				minut += 1
+				gs 'stat'
+				gs 'Miroslava', 'miraclothes'
+				'"<<$pcs_nickname>>, do you want to go to the river?" - Mira asks. "Let''s go swim and sunbathe."'
+
+				act'Agree':
+					*clr & cla
+					minut += 15
+					if npc_rel['A60'] < 30:npc_rel['A60'] += 1
+					mira_guest = 0
+					MiraLoc = 1
+					mira_go_blok = 1
+					if ($clothingworntype = 'nude' or $clothingworntype = 'swimwear'):
+						gs 'clothing', 'wear', $lastwornclothingtype, lastwornclothingnumber
+						gs 'underwear', 'wear'
+					end
+					gs 'stat'
+					'<center><img <<$set_imgh>> src="images/characters/village/mira/girls_go.jpg"></center>'
+					'You decided to go with Mira to the village beach and all the way she goes, merrily chattering and telling stories.'
+
+					act 'Further': gt'Gadriver', 'Gadbitch'
+				end
+
+				act'Refuse':
+					*clr & cla
+					minut += 1
+					npc_rel['A60'] -= 1
+					gs 'stat'
+					'<center><img <<$set_imgh>> src="images/pc/speak_to_the_hand.jpg"></center>'
+					'You tell Mira that you don''t feel like going to the river right now.'
+
+					act 'Further': gt 'Miroslava', 'Start'
+				end
+			end
+		end
+		
 		if npc_QW['A60'] >= 30 and hour < 19 and month >= 5 and month <= 9 and MiraLoc ! 3:
 			act '<b>Make your third wish</b>':
 				*clr & cla
@@ -689,367 +954,63 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 				end
 			end
 		end
-
-		if npc_rel['A60'] >= 15 and MiraLoc ! 3 and (npc_QW['A63'] < 13 or npc_QW['A60'] >= 10 or mirasex > 1):
-			if mira_guest = 0:
-
-				act 'Invite Mira back to your grandparent''s house':
-					*clr & cla
-					minut += 5
-					mira_guest = 1
-					if npc_rel['A60'] < 30:npc_rel['A60'] += 1
-					gs 'stat'
-					gs 'Miroslava', 'miraclothes'
-					'You are tired of hanging around on the street and you decided to invite Mira to dinner.'
-
-					act'Go home':
-						if ($clothingworntype ! 'nude' and $clothingworntype ! 'swimwear'):
-							minut += 15 & gt'Gadhouse'
-						else
-							*clr & cla
-							minut += 5
-							mira_guest = 1
-							gs 'underwear', 'wear'
-							gs 'clothing', 'wear', $lastwornclothingtype, lastwornclothingnumber
-							'<center><img <<$set_imgh>> src="images/locations/gadukino/river/dressbch.jpg"></center>'
-							'You changed into your regular clothes and went home with Mira.'
-
-							act 'Further': minut += 15 & gt'Gadhouse'
-						end
-					end
-				end
-			end
-			if mira_guest = 1:
-				act 'Watch TV':
-					*clr & cla
-					minut += 60
-					if npc_rel['A60'] < 20:npc_rel['A60'] += 1
-					pcs_mood += 10
-					gs 'stat'
-					'<center><img <<$set_imgh>> src="images/characters/village/mira/mira_tv'+rand(1,12)+'.jpg"></center>'
-					'You and Mira watch TV for an hour.'
-
-					act'Further':gt'Gadhouse'
-				end
-			end
-			if mira_guest = 1 and hour >= 18:
-				act 'Sleep over':
-					*clr & cla
-					minut += 60
-					if npc_rel['A60'] < 20: npc_rel['A60'] += RAND(1,2)
-						gs 'stat'
-						'<center><img <<$set_imgh>> src="images/characters/village/mira/mira_tv'+rand(1,12)+'.jpg"></center>'
-						'You ask your grandparents if Mira can sleep over. They tell you it''s fine with them, so you invite Mira to sleep over.'
-						*nl
-						'You and Mira head over to the huge wardrobe where your clothes are and spend an hour trying on different clothes and underwear.'
-
-						act 'Mira and you raid the kitchen for a late night snack (0:15)': 'You and Mira head to the kitchen to make a quick snack' & gs 'food', 'snack'
-						act 'Go to sleep':'You''re feeling tired. You and Mira head to your bed and crawl under the covers together and get into bed.' & gt 'bed2'
-						act 'Finish': mira_guest = 0 & gt $loc, $metka
-					end
-				end
-			end
-			if mira_guest > 0:
-				act 'Say goodbye to Mira':
-					*clr & cla
-					minut += 5
-					mira_guest = 0
-					MiraLoc = 0
-					gs 'stat'
-					gs 'Miroslava', 'miraclothes'
-					'You say goodbye to Mira, and she went home.'
-					
-					act 'Walk back home':gt'Gadhouse'
-				end
-			end
-		end
 		
-		act 'Leave':gt 'Miroslava','Leave'
-		
-		if npc_rel['A60'] >= 15 and Mira_no = 0 and (npc_QW['A63'] < 13 or npc_QW['A60'] >= 10 or mirasex > 1):
-			if mira_guest = 0 and mira_temp >= 1 and mira_temp <= 2 and mira_go_blok = 0 and MiraLoc ! 3:
-				*clr & cla
-				minut += 1
-				gs 'stat'
-
-				if MiraLoc = 1:gs 'Miroslava', 'mira_river'
-				if MiraLoc ! 1:gs 'Miroslava', 'miraclothes'
-				'"<<$pcs_nickname>>, it''s so boring here," Mira pouts, "I know! Let''s go to your place." Mira suggests brightly.'
-
-				act'Agree':
-					if ($clothingworntype ! 'nude' and $clothingworntype ! 'swimwear'):
-						mira_go_blok = 1
-						mira_guest = 1
-						minut += 15
-						npc_rel['A60'] += 1
-						gt 'Gadhouse'
-					else
-						*clr & cla
-						npc_rel['A60'] += 1
-						mira_go_blok = 1
-						mira_guest = 1
-						if npc_rel['A60'] < 30:npc_rel['A60'] += 1
-						minut += 20
-						gs 'underwear', 'wear'
-						gs 'clothing', 'wear', $lastwornclothingtype, lastwornclothingnumber
-						'<center><img <<$set_imgh>> src="images/locations/gadukino/river/dressbch.jpg"></center>'
-						'You change into your clothes and go home with Mira.'
-
-						act 'Further': gt'Gadhouse'
-					end
-				end
-
-				act'Refuse':
-					*clr & cla
-					minut += 1
-					npc_rel['A60'] -= 1
-					gs 'stat'
-					'<center><img <<$set_imgh>> src="images/pc/speak_to_the_hand.jpg"></center>'
-					'You deny Mira, saying that you don''t want to right now.'
-
-					act 'Further': gt 'Miroslava', 'Start'
-				end
+		if mira_temp = 0 and mira_go_blok = 0 and meadow > 2 and MiraLoc = 0:
+			*clr & cla
+			minut += 5
+			mira_no_home = 0
+			gs 'stat'
+			if MiraLoc = 1:
+				if $clothingworntype ! 'nude':'<center><img <<$set_imgh>> src="images/characters/village/mira/mira_go_home.jpg"></center>'
+				if $clothingworntype = 'nude':'<center><img <<$set_imgh>> src="images/characters/village/mira/mira_go_home_nude.jpg"></center>'
 			end
-			if mira_guest = 1 and mira_temp >= 3 and mira_temp <= 4:
-				*clr & cla
-				minut += 1
-				gs 'stat'
-				gs 'Miroslava', 'miraclothes'
-				'"<<$pcs_nickname>>, come watch TV with me, that''s boring -"  Mira said.'
+			if MiraLoc ! 1:gs 'Miroslava', 'miraclothes'
+			'"<<$pcs_nickname>>, you''re fun to be with, but Dad has chores for me to work on." Mira tells you.'
 
-				act'Agree':
-					*clr & cla
-					minut += 60
-					if npc_rel['A60'] < 20:npc_rel['A60'] += 1
-					pcs_mood += 10
-					mira_go_blok = 1
-					gs 'stat'
-					'<center><img <<$set_imgh>> src="images/characters/village/mira/mira_tv'+rand(1,12)+'.jpg"></center>'
-					'You watch TV with Mira for an hour.'
-
-					act'Further':gt'Gadhouse'
-				end
-
-				act'Refuse':
-					*clr & cla
-					minut += 1
-					npc_rel['A60'] -= 1
-					'<center><img <<$set_imgh>> src="images/pc/speak_to_the_hand.jpg"></center>'
-					'You deny Mira, saying that you don''t want to right now.'
-
-					act 'Further': gt $loc, $metka
-				end
-			end
-			if MiraLoc ! 2 and mira_temp = 5 and (meadow = 3 or meadow = 6) and mira_go_blok = 0 and MiraLoc ! 3 and hour < 19 and sunWeather = 1:
-				*clr & cla
-				minut += 1
-				gs 'stat'
-				gs 'Miroslava', 'miraclothes'
-				'"<<$pcs_nickname>>, can we go to the meadow?" Mira asked you. "Let''s take a walk, get some fresh air."'
-
-				act'Agree':
-					*clr & cla
-					minut += 15
-					if npc_rel['A60'] < 50:npc_rel['A60'] += 1
-					mira_guest = 0
-					MiraLoc = 2
-					mira_go_blok = 1
-					if ($clothingworntype = 'nude' or $clothingworntype = 'swimwear'):
-						gs 'clothing', 'wear', $lastwornclothingtype, lastwornclothingnumber
-						gs 'underwear', 'wear'
-					end
-					gs 'stat'
-					'<center><img <<$set_imgh>> src="images/characters/village/mira/girls_go.jpg"></center>'
-					'You go to Mira through the dense undergrowth to the hidden meadow. Along the way she merrily tells stories from her past city life.'
-
-					act 'Further': gt 'Meadow'
-				end
-
-				act'Refuse':
-					*clr & cla
-					minut += 1
-					npc_rel['A60'] -= 1
-					gs 'stat'
-					'<center><img <<$set_imgh>> src="images/pc/speak_to_the_hand.jpg"></center>'
-					'You deny Mira, saying that you don''t want to right now.'
-
-					act 'Further': gt 'Miroslava', 'Start'
-				end
-			end
-
-			if hour >= 20 and mira_temp > 10 and sunWeather = 1 and mira_go_blok = 0 and npc_QW['A60'] > 0 and MiraLoc ! 3:
-				*clr & cla
-				minut += 1
-				mira_go_blok = 1
-				MiraLoc = 5
-				mira_guest = 0
-				if ($clothingworntype = 'nude' or $clothingworntype = 'swimwear'):
-					gs 'clothing', 'wear', $lastwornclothingtype, lastwornclothingnumber
-					gs 'underwear', 'wear'
-				end
-				gs 'stat'
-				gs 'Miroslava', 'miraclothes'
-				'"<<$pcs_nickname>>, let''s go hang out with those guys and drink a little?" Mira asks you. "I''m bored and want to party."'
-				if npc_QW['A60'] > 15 and npc_QW['A63'] > 15:
-
-					act 'Agree':mira_guest = 0 & MiraLoc = 5 & minut += 15 & temp = 0 & npc_drunk['A60'] = 0 & gt 'mitkabuh_group'
-				else
-
-					act 'Agree':mira_guest = 0 & MiraLoc = 5 & minut += 15 & temp = 0 & npc_drunk['A60'] = 0 & gt 'mitkabuh'
-				end
-
-				act'Refuse':
-					*clr & cla
-					minut += 1
-					npc_rel['A60'] -= 1
-					gs 'stat'
-					'<center><img <<$set_imgh>> src="images/pc/speak_to_the_hand.jpg"></center>'
-					'You deny Mira, saying that you don''t want to right now.'
-
-					act 'Further': gt 'Miroslava', 'Start'
-				end
-			end
-
-			if mira_temp >= 8 and mira_temp <= 9:
-				*clr & cla
-				minut += 1
-				mira_go_blok = 1
-				gs 'stat'
-				gs 'Miroslava', 'miraclothes'
-				'Mira wants to chat with you.'
-				'"<<$pcs_nickname>>, do you want to just chat a little?" Mira asks.'
-
-				act 'Chat':gt 'Miroslava', 'miratalk'
-
-				act'Refuse':
-					*clr & cla
-					minut += 1
-					npc_rel['A60'] -= 1
-					gs 'stat'
-					'<center><img <<$set_imgh>> src="images/characters/village/mira/mira.jpg"></center>'
-					'"Not right now Mira," you said. "I''m not in the mood to talk right now."'
-
-					act 'Further': gt 'Miroslava', 'Start'
-				end
-			end
-			if MiraLoc ! 1 and mira_temp >= 6 and mira_temp <= 7 and sunWeather = 1 and temper >= 15 and month >= 5 and month <= 9 and mira_go_blok = 0 and MiraLoc ! 3 and hour < 18:
-				*clr & cla
-				minut += 1
-				gs 'stat'
-				gs 'Miroslava', 'miraclothes'
-				'"<<$pcs_nickname>>, do you want to go to the river?" - Mira asks. "Let''s go swim and sunbathe."'
-
-				act'Agree':
-					*clr & cla
-					minut += 15
-					if npc_rel['A60'] < 30:npc_rel['A60'] += 1
-					mira_guest = 0
-					MiraLoc = 1
-					mira_go_blok = 1
-					if ($clothingworntype = 'nude' or $clothingworntype = 'swimwear'):
-						gs 'clothing', 'wear', $lastwornclothingtype, lastwornclothingnumber
-						gs 'underwear', 'wear'
-					end
-					gs 'stat'
-					'<center><img <<$set_imgh>> src="images/characters/village/mira/girls_go.jpg"></center>'
-					'You decided to go with Mira to the village beach and all the way she goes, merrily chattering and telling stories.'
-
-					act 'Further': gt'Gadriver', 'Gadbitch'
-				end
-
-				act'Refuse':
-					*clr & cla
-					minut += 1
-					npc_rel['A60'] -= 1
-					gs 'stat'
-					'<center><img <<$set_imgh>> src="images/pc/speak_to_the_hand.jpg"></center>'
-					'You tell Mira that you don''t feel like going to the river right now.'
-
-					act 'Further': gt 'Miroslava', 'Start'
-				end
-			end
+			act 'Go back to the village':mira_guest = 0 & MiraLoc = 0 & gt 'Gadukino'
 		end
-	end
+
+		if mira_temp = 0 and mira_go_blok = 0 and meadow > 2 and MiraLoc ! 0:
+			*clr & cla
+			minut += 5
+			mira_no_home = 0
+			gs 'stat'
+			if MiraLoc = 1:
+				if $clothingworntype ! 'nude':'<center><img <<$set_imgh>> src="images/characters/village/mira/mira_go_home.jpg"></center>'
+				if $clothingworntype = 'nude':'<center><img <<$set_imgh>> src="images/characters/village/mira/mira_go_home_nude.jpg"></center>'
+			end
+			if MiraLoc ! 1:gs 'Miroslava', 'miraclothes'
+			'"<<$pcs_nickname>>, you''re fun to be with, but I gotta get home. Dad has chores for me to work on.," Mira tells you.'
+
+			act 'Go back to the village':mira_guest = 0 & MiraLoc = 0 & gt 'Gadukino'
+		end
+
+		if hour = 23 and MiraLoc = 0:
+			*clr & cla
+			minut += 5
+			mira_no_home = 0
+			gs 'stat'
+			gs 'Miroslava', 'miraclothes'
+			'"<<$pcs_nickname>>, you''re fun to be with, but it''s late. I gotta get to bed. Dad has chores for me to work on tomorrow." Mira tells you.'
+
+			act 'Go back to the village':gt 'Gadukino'
+		end
+
+		if hour = 23 and MiraLoc ! 0:
+			*clr & cla
+			minut += 5
+			mira_no_home = 0
+			gs 'stat'
+			if MiraLoc = 1:
+				if $clothingworntype ! 'nude':'<center><img <<$set_imgh>> src="images/characters/village/mira/mira_go_home.jpg"></center>'
+				if $clothingworntype = 'nude':'<center><img <<$set_imgh>> src="images/characters/village/mira/mira_go_home_nude.jpg"></center>'
+			end
+			if MiraLoc ! 1:gs 'Miroslava', 'miraclothes'
+			'"<<$pcs_nickname>>, you''re fun to be with, but I gotta get home and get to bed. Dad has chores for me to work on tomorrow." Mira tells you.'
 	
-	if mira_temp = 0 and mira_go_blok = 0 and meadow > 2 and MiraLoc = 0:
-		*clr & cla
-		minut += 5
-		mira_no_home = 0
-		gs 'stat'
-		if MiraLoc = 1:
-			if $clothingworntype ! 'nude':'<center><img <<$set_imgh>> src="images/characters/village/mira/mira_go_home.jpg"></center>'
-			if $clothingworntype = 'nude':'<center><img <<$set_imgh>> src="images/characters/village/mira/mira_go_home_nude.jpg"></center>'
-		end
-		if MiraLoc ! 1:gs 'Miroslava', 'miraclothes'
-		'"<<$pcs_nickname>>, you''re fun to be with, but Dad has chores for me to work on." Mira tells you.'
-
-		act 'Go back to the village':mira_guest = 0 & MiraLoc = 0 & gt 'Gadukino'
+			act 'Go back to the village':mira_guest = 0 & MiraLoc = 0 & gt 'Gadukino'
+		end		
 	end
-
-	if mira_temp = 0 and mira_go_blok = 0 and meadow > 2 and MiraLoc ! 0:
-		*clr & cla
-		minut += 5
-		mira_no_home = 0
-		gs 'stat'
-		if MiraLoc = 1:
-			if $clothingworntype ! 'nude':'<center><img <<$set_imgh>> src="images/characters/village/mira/mira_go_home.jpg"></center>'
-			if $clothingworntype = 'nude':'<center><img <<$set_imgh>> src="images/characters/village/mira/mira_go_home_nude.jpg"></center>'
-		end
-		if MiraLoc ! 1:gs 'Miroslava', 'miraclothes'
-		'"<<$pcs_nickname>>, you''re fun to be with, but I gotta get home. Dad has chores for me to work on.," Mira tells you.'
-
-		act 'Go back to the village':mira_guest = 0 & MiraLoc = 0 & gt 'Gadukino'
-	end
-
-	if hour = 23 and MiraLoc = 0:
-		*clr & cla
-		minut += 5
-		mira_no_home = 0
-		gs 'stat'
-		gs 'Miroslava', 'miraclothes'
-		'"<<$pcs_nickname>>, you''re fun to be with, but it''s late. I gotta get to bed. Dad has chores for me to work on tomorrow." Mira tells you.'
-
-		act 'Go back to the village':gt 'Gadukino'
-	end
-
-	if hour = 23 and MiraLoc ! 0:
-		*clr & cla
-		minut += 5
-		mira_no_home = 0
-		gs 'stat'
-		if MiraLoc = 1:
-			if $clothingworntype ! 'nude':'<center><img <<$set_imgh>> src="images/characters/village/mira/mira_go_home.jpg"></center>'
-			if $clothingworntype = 'nude':'<center><img <<$set_imgh>> src="images/characters/village/mira/mira_go_home_nude.jpg"></center>'
-		end
-		if MiraLoc ! 1:gs 'Miroslava', 'miraclothes'
-		'"<<$pcs_nickname>>, you''re fun to be with, but I gotta get home and get to bed. Dad has chores for me to work on tomorrow." Mira tells you.'
-
-		act 'Go back to the village':mira_guest = 0 & MiraLoc = 0 & gt 'Gadukino'
-	end
-end
-
-if $ARGS[0] = 'miraclothes':
-	'<center><B>Mira</B></center>'
-	if npc_QW['A60'] = 0:
-		'<center><img <<$set_imgh>> src="images/characters/village/mira/mira.jpg"></center>'
-	elseif npc_QW['A60'] > 0 and npc_QW['A60'] < 4:
-		'<center><img <<$set_imgh>> src="images/characters/village/mira/mira3.jpg"></center>'
-	elseif npc_QW['A60'] >= 4 and npc_QW['A60'] < 8:
-		'<center><img <<$set_imgh>> src="images/characters/village/mira/mira0,'+rand(0,5)+'.jpg"></center>'
-	elseif npc_QW['A60'] >= 8 and npc_QW['A60'] < 12:
-		'<center><img <<$set_imgh>> src="images/characters/village/mira/mira1,'+rand(0,2)+'.jpg"></center>'
-	elseif npc_QW['A60'] >= 12 and npc_QW['A60'] < 20:
-		'<center><img <<$set_imgh>> src="images/characters/village/mira/mira2,'+rand(0,5)+'.jpg"></center>'
-	elseif npc_QW['A60'] >= 20:
-		'<center><img <<$set_imgh>> src="images/characters/village/mira/mira3,'+rand(0,3)+'.jpg"></center>'
-	end
-end
-
-
-if $ARGS[0] = 'mira_river':
-	if ($clothingworntype ! 'nude' and $clothingworntype ! 'swimwear'):'<center><img <<$set_imgh>> src="images/characters/village/mira/mirarivertalk.jpg"></center>'
-	if $clothingworntype = 'swimwear':'<center><img <<$set_imgh>> src="images/characters/village/mira/mirarivertalkbikini.jpg"></center>'
-	if $clothingworntype = 'nude':'<center><img <<$set_imgh>> src="images/characters/village/mira/mirarivernudetalk.jpg"></center>'
 end
 
 if $ARGS[0] = 'miratalk':
@@ -1221,9 +1182,33 @@ if $ARGS[0] = 'miratalk':
 			'You have ten minutes of fun talking about all sorts of trivia.'
 		end
 
-		act 'Finish':gt $loc, $metka
+		act 'Finish': gt $loc, $metka
 	end
 end
+
+if $ARGS[0] = 'miraclothes':
+	'<center><B>Mira</B></center>'
+	if npc_QW['A60'] = 0:
+		'<center><img <<$set_imgh>> src="images/characters/village/mira/mira.jpg"></center>'
+	elseif npc_QW['A60'] > 0 and npc_QW['A60'] < 4:
+		'<center><img <<$set_imgh>> src="images/characters/village/mira/mira3.jpg"></center>'
+	elseif npc_QW['A60'] >= 4 and npc_QW['A60'] < 8:
+		'<center><img <<$set_imgh>> src="images/characters/village/mira/mira0,'+rand(0,5)+'.jpg"></center>'
+	elseif npc_QW['A60'] >= 8 and npc_QW['A60'] < 12:
+		'<center><img <<$set_imgh>> src="images/characters/village/mira/mira1,'+rand(0,2)+'.jpg"></center>'
+	elseif npc_QW['A60'] >= 12 and npc_QW['A60'] < 20:
+		'<center><img <<$set_imgh>> src="images/characters/village/mira/mira2,'+rand(0,5)+'.jpg"></center>'
+	elseif npc_QW['A60'] >= 20:
+		'<center><img <<$set_imgh>> src="images/characters/village/mira/mira3,'+rand(0,3)+'.jpg"></center>'
+	end
+end
+
+if $ARGS[0] = 'mira_river':
+	if ($clothingworntype ! 'nude' and $clothingworntype ! 'swimwear'):'<center><img <<$set_imgh>> src="images/characters/village/mira/mirarivertalk.jpg"></center>'
+	if $clothingworntype = 'swimwear':'<center><img <<$set_imgh>> src="images/characters/village/mira/mirarivertalkbikini.jpg"></center>'
+	if $clothingworntype = 'nude':'<center><img <<$set_imgh>> src="images/characters/village/mira/mirarivernudetalk.jpg"></center>'
+end
+
 if $ARGS[0] = 'Leave':
 	if MiraLoc = 0: 
 		gt 'MiroslavaHome','start'

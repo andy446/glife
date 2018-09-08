@@ -101,7 +101,7 @@ if $ARGS[0] = 'start':
 					gs 'stat'
 					'Mira isn''t home.'
 					if miraprost > 0 and month >= 5 and month <= 9 and hour >= 18 and hour >= 0 and rand(0,5) >= 4:
-						' You think you know where to find her. Ever since granting your second wish Mira has been earning money as a prostitute on the highway.'
+						'You think you know where to find her. Ever since granting your second wish Mira has been earning money as a prostitute on the highway.'
 						act 'Go to the highway': gt 'gadprostitutes','start'
 					else
 						'She definitely isn''t around here, and you have no idea where she might be. Maybe you should ask her father, or go look around town.'

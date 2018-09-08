@@ -2409,7 +2409,7 @@ if $ARGS[0] = 'records':
 	*nl
 	if workrin = 1:'You are working at the market in Arthur''s tent as clothing saleswoman. Work on Tuesday, Thursday and Saturday, starting at 8 AM. Salary depends on sales.'
 	*nl
-	if maidqw = 1:'You can work in Pavlovsk hotel as a maid. Work is every day from 16 to 19. Salary is 250 us tips.'
+	if maidqw = 1:'You can work in Pavlovsk hotel as a maid. Work is every day from 16 to 19. Salary is 250 plus tips.'
 	*nl
 	if (work = 1 or cheatWork = 1) and gpoliuborka > 1:'You can work part-time as a cleaner in pavlovo clinic. Work is from 16 to 21.'
 	*nl

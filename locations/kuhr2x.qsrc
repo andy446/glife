@@ -40,8 +40,6 @@ if polomka = 100 and santehnikDolg = 0:
 	gt'kuhr2x'
 end
 
-
-
 if posudomashina > 0:
 	dynamic $posudomashina
 end
@@ -92,7 +90,6 @@ end
 dynamic $edaD
 dynamic $fatdel
 dynamic $driwater
-
 
 if husband > 0 and husbanday > 0 and huseatday ! daystart and eda >= 2:
 	act 'Cooking for her husband 1 h (2 Food Unit)':
@@ -333,16 +330,6 @@ if zoo >= 6 and sobaka ! 0:
 		end
 	elseif husband = 0 or husbandrink = 10:
 		act 'Call <<$namesob>>':gt 'soba', 'zoof27'
-	end
-end
-
-if musor > 3:
-	act 'Throw out rubbish':
-		if $clothingworntype = 'nude':
-			'I can''t go to the trash cans naked!'
-		else
-			gt 'trashplace', 'start'
-		end
 	end
 end
 

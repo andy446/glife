@@ -120,7 +120,11 @@ end
 if $ARGS[0] = 'hair':
 	cls
 	'<center><b><font color = maroon>CHARACTER CUSTOMIZATION</font></b></center>'
-	'<center><img <<$set_imgh>> src="images/pre/shared/character_creation_pic1.jpg"></center>'
+	if player_avatar = 1:
+		'<center><img HEIGHT = 478 src="images/avatar.jpg"></center>'
+	else
+		'<center><img <<$set_imgh>> src="images/pre/shared/character_creation_pic1.jpg"></center>'
+	end
 	*nl
 	if pcs_hairlng <= 1:
 		$hair = 'You have <a href="exec:pcs_hairlng = 31 & gs ''begin'', ''hair''">very short</a>,'
@@ -181,7 +185,11 @@ end
 if $ARGS[0] = 'lip':
 	cls
 	'<center><b><font color = maroon>CHARACTER CUSTOMIZATION</font></b></center>'
-	'<center><img <<$set_imgh>> src="images/pre/shared/character_creation_pic1.jpg"></center>'
+	if player_avatar = 1:
+		'<center><img HEIGHT = 478 src="images/avatar.jpg"></center>'
+	else
+		'<center><img <<$set_imgh>> src="images/pre/shared/character_creation_pic1.jpg"></center>'
+	end
 	*nl
 	if pcs_lip = 0:$pcs_lip = 'you have thin<<$pcs_lipbalm>> lips.' & $liptalk = 'thin lips' & $liptalk2 = 'thin lips' & $liptalk3 = 'thin lips'
 	if pcs_lip = 1:$pcs_lip = 'You have normal<<$pcs_lipbalm>> lips.' & $liptalk = 'soft lips' & $liptalk2 = 'delicate lips' & $liptalk3 = 'tender lips'
@@ -201,7 +209,7 @@ if $ARGS[0] = 'eyes':
 	cls
 	'<center><b><font color = maroon>CHARACTER CUSTOMIZATION</font></b></center>'
 	if player_avatar = 1:
-		'<center><img <<$set_imgh>> src="images/pre/shared/character_creation_pic1.jpg"></center>'
+		'<center><img HEIGHT = 478 src="images/avatar.jpg"></center>'
 	else
 		'<center><img <<$set_imgh>> src="<<FUNC(''$face_image'')>>"></center>'
 	end
@@ -258,7 +266,7 @@ if $ARGS[0] = 'birthday':
 	cls
 	'<center><b><font color = maroon>CHARACTER CUSTOMIZATION</font></b></center>'
 	if player_avatar = 1:
-		'<center><img <<$set_imgh>> src="images/pre/shared/character_creation_pic1.jpg"></center>'
+		'<center><img HEIGHT = 478 src="images/avatar.jpg"></center>'
 	else
 		'<center><img <<$set_imgh>> src="<<FUNC(''$face_image'')>>"></center>'
 	end

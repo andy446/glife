@@ -1244,7 +1244,15 @@ if StoryLine = 1:
 	if nerd_night_game = 1 and nerd_night_game_day = daystart and hour > 15 and hour < 21: $stat_msg += '<BR><b>Join nerds at the community center at eight</b>'
 	if InvitationToDimkaNYparty = 1 and month = 12 and day = 31: $stat_msg += '<BR><b>Go to the residential area between 15:00 and 18:00 to go to Dimka''s New Year party.</b>'
 end
-
+	
+if home_owned[1] = 1 and home_owned[4] > 0:
+	$stat_msg += '<BR>You have rented an apartment in the city residential area, which is paid up for <b><<ArendHouseSL>></b> days, and you also have an apartment in Pushkin, which is paid up for <b><<ArendHouseSL4>></b> days. Utilities are due on the 25th of <<$month>>.'
+elseif home_owned[1] = 1:
+	$stat_msg += '<BR>You have rented an apartment in the city residential area, and you''re paid up for <<ArendHouseSL>> days. Utilities are due on the 25th of <<$month>>.'
+elseif home_owned[4] > 0:
+	$stat_msg += '<BR>You have rented an apartment in Pushkin, and you''re paid up for <<ArendHouseSL4>> days. Utilities are due on the 25th of <<$month>>.'
+end
+	
 if model > 0 and model_week = (daystart - week) / 7 and model_job_week >= 2:
 	$stat_msg += '<BR><b>You have no more modelling jobs available this week.</b>'
 elseif model > 0 and model_week < (daystart - week) / 7 and model_job_week = 1:

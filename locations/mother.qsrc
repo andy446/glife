@@ -710,6 +710,7 @@ if $ARGS[0] = 'referral_pass':
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/mother.jpg"></center>'
 	*nl
 	Gspassed = 0
+	npc_rel['A29'] += 10
 	'You hand your mother the referral. She opens it, closes her eyes for a second, and breates a sigh of relief. "I''m not even surprised, you''re a good girl <<$pcs_nickname>>, just as I raised you to be."'
 	act 'Continue': gt 'mother'
 end

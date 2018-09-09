@@ -180,6 +180,7 @@ if $ARGS[0] = 'pavlbar':
 		'"This was not what we agreed to you say, I need more..."'
 		'"Sure, you can have more, but you need to do some extra work for that."'
 		'Pavlin takes your hand and moves it towards his crotch.'
+		
 		act 'Be content with what you have':
 			cls
 			'You wiggle your hand free from his grip, take the money and get up.'
@@ -189,13 +190,14 @@ if $ARGS[0] = 'pavlbar':
 			money += 750
 			act'Go back to the hotel lobby':gt'HotelHole','skip_resepevent'
 		end
+		
 		act 'Do the extra work':
 			cls
-			'"Fine" you say. You open his fly and take out his half-erect penis.'
+			pav_prostitute += 1		
 			if npc_rel['A217'] >= 10:
-
-				'"Why don''t you use your mouth today?"'
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/Pavlin/Pavlin_bj.jpg"></center>'
+				'"Fine" you say. You open his fly and take out his half-erect penis.'
+				'"Why don''t you use your mouth today?"'
 				'You look around to make sure nobody is watching you and then move your head towards his penis.'
 				'After a few minutes he tells you he is coming. You don''t want to make a mess here so you just keep it in your mouth and swallow all the spunk.'
 				'You sit straight again and look at Pavlin.'
@@ -203,9 +205,9 @@ if $ARGS[0] = 'pavlbar':
 				swallow +=1
 			else
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/Pavlin/Pavlin_hj.jpg"></center>'
+				'"Fine" you say. You open his fly and take out his half-erect penis.'
 				'After two minutes of stroking you can feel him coming all over your hand.'
 				gs 'arousal', 'hj', 5, 'prostitution'
-
 			end
 			'With a stupid grin on his face he reaches in his pocket and hands you an extra 250 <b>₽</b>.'
 			money += 1000
@@ -213,8 +215,8 @@ if $ARGS[0] = 'pavlbar':
 			if npc_rel['A217'] <= 15 or npc_rel['A217'] > 19:npc_rel['A217'] += 1
 			act'Go back to the hotel lobby':gt'HotelHole','skip_resepevent'
 		end
-
 	end
+	
 	if npc_rel['A217'] <= 5:
 		'You are sure the money he received from the customer was more than double this amount but you don''t feel like arguing.'
 		'You thank him and go back to the hotel lobby'
@@ -223,6 +225,7 @@ if $ARGS[0] = 'pavlbar':
 		act'Go back to the hotel lobby':gt'HotelHole','skip_resepevent'
 		exit
 	end
+	
 	if npc_rel['A217'] = 6 and pavlevent = 0:
 		'You are sure the money he received from the customer was more than double this amount'
 		'You bring up the issue: "Actually Pavlin I believe I should get more money, I am doing all the work here and I know these guys pay you much more than this."'
@@ -239,6 +242,7 @@ if $ARGS[0] = 'pavlbar':
 			'"Sure <<$pcs_firstname>>, no problem."'
 			act'Go back to the hotel lobby':gt'HotelHole','skip_resepevent'
 		end
+		
 		act 'Follow him outside':
 			minut += 15
 			cls
@@ -249,6 +253,7 @@ if $ARGS[0] = 'pavlbar':
 			'"WHO DO YOU THINK YOU ARE, BITCH? You work for ME, I decide how much money you get. YOU UNDERSTAND ME?"'
 			'He is screaming and after every sentence he hits you in the face again.'
 			!only check for strength and dom at the moment, might change later
+			
 			if pcs_dom > 50 and pcs_stren > 60:
 				PavlinQW = 3
 				'You try to defend yourself and start hitting back. He did not expect this and is startled for a moment.'
@@ -267,11 +272,12 @@ if $ARGS[0] = 'pavlbar':
 				'You quickly crawl on your feet and run away.'
 				PavlinQW = 4
 			end
-				gs 'pain', 8,'head','hit'
-				pavlevent = 1
-				pavldaystart = daystart
-				npc_rel['A217'] = 3
-				fingal = 1
+			
+			gs 'pain', 8,'head','hit'
+			pavlevent = 1
+			pavldaystart = daystart
+			npc_rel['A217'] = 3
+			fingal = 1
 
 			act'Run away':gt'vokzalG'
 		end
@@ -315,7 +321,7 @@ if $ARGS[0] = 'pavgenpros':
 	gs 'arousal', 'vaginal', 30
 	gs 'arousal', 'end'
 	guy += 1
-	pav_prostitute += 2
+	pav_prostitute += rand(2,4)
 	if npc_rel['A217'] = 15:
 		act'Continue':
 		cls

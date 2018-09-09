@@ -17,7 +17,7 @@
 ! if $selobj = '<center>Shoes</center>':menu_page = 5 & gs 'obj_din', 'shoes'
 ! if $selobj = '<center>Tattoos</center>':menu_page = 6 & gs 'obj_din', 'tattoos'
 ! if $selobj = '<center>Piercing</center>':menu_page = 7 & gs 'obj_din', 'piercing'
-! if $selobj = '<center>Purse</center>':dynamic $d_bag
+! if $selobj = '<center>Purse</center>':gs 'din_bad', 'd_bag'
 ! if $selobj = '<center>Phone</center>':gs 'telefon','Phone_menu'
 ! if $selobj = '<center>Notebook</center>':gs 'obj_din', 'records'
 !The old menu: beginning - still using these options for testing, but really aren''t needed for gameplay.

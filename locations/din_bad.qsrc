@@ -86,14 +86,14 @@ $d_salf = {
 	'<center><img <<$set_imgh>> src="<<FUNC(''$purse_image'',	$currentpursetype, currentpursenumber)>>"></center>'
 	'<center><table cellspacing="0" cellpadding="20" valign="top"><tr>'
 	'<td cellspacing="0" cellpadding="0" valign="top">'
-	if cumloc[13] > 0 or cumloc[11] > 0 or cumloc[16] > 0: '<a href="exec:salfetka -= 1 & cumspclnt = 12 & gs ''cum_cleanup'' & cumspclnt = 9 & gs ''cum_cleanup'' & gs ''stat'' & dynamic $d_bag"><b>Wipe your face and hands</b></a>'
-	if cumloc[14] > 0: '<a href="exec:salfetka -= 1 & cumspclnt = 14	& gs ''cum_cleanup'' & gs ''stat'' & dynamic $d_bag"><b>Wipe clean your belly</b></a>'
-	if cumloc[15] > 0: '<a href="exec:salfetka -= 1 & cumspclnt = 16 & gs ''cum_cleanup'' & gs ''stat'' & dynamic $d_bag"><b>Wipe clean your breasts</b></a>'
-	if cumloc[1] > 0 or cumloc[4] > 0: '<a href="exec:salfetka -= 1 & cumspclnt = 15 & gs ''cum_cleanup'' & gs ''stat'' & dynamic $d_bag"><b>Wipe clean your ass and pussy</b></a>'
-	if cumloc[10] > 0 or cumloc[9] > 0: '<a href="exec:salfetka -= 1 & cumspclnt = 17 & gs ''cum_cleanup'' & gs ''stat'' & dynamic $d_bag"><b>Wipe clean your arms and legs</b></a>'
-	if cumloc[2] > 0 or cumloc[5] > 0 or cumloc[6] > 0 or cumloc[7] > 0: '<a href="exec:salfetka -= 1 & cumspclnt = 6 & gs ''cum_cleanup'' & gs ''stat'' & dynamic $d_bag"><b>Clean up clothing</b></a>'
-	if pcs_makeup ! 1: '<a href="exec:salfetka -= 1 & pcs_makeup = 1 & dynamic $d_bag"><b>Wipe cosmetics</b></a>'
-	'<a href="exec:gs ''stat'' & dynamic $d_bag"><br><b>Put tissues away</b></a>'
+	if cumloc[13] > 0 or cumloc[11] > 0 or cumloc[16] > 0: '<a href="exec:salfetka -= 1 & cumspclnt = 12 & gs ''cum_cleanup'' & cumspclnt = 9 & gs ''cum_cleanup'' & gs ''stat'' & gs ''din_bad'', ''d_bag''"><b>Wipe your face and hands</b></a>'
+	if cumloc[14] > 0: '<a href="exec:salfetka -= 1 & cumspclnt = 14	& gs ''cum_cleanup'' & gs ''stat'' & gs ''din_bad'', ''d_bag''"><b>Wipe clean your belly</b></a>'
+	if cumloc[15] > 0: '<a href="exec:salfetka -= 1 & cumspclnt = 16 & gs ''cum_cleanup'' & gs ''stat'' & gs ''din_bad'', ''d_bag''"><b>Wipe clean your breasts</b></a>'
+	if cumloc[1] > 0 or cumloc[4] > 0: '<a href="exec:salfetka -= 1 & cumspclnt = 15 & gs ''cum_cleanup'' & gs ''stat'' & gs ''din_bad'', ''d_bag''"><b>Wipe clean your ass and pussy</b></a>'
+	if cumloc[10] > 0 or cumloc[9] > 0: '<a href="exec:salfetka -= 1 & cumspclnt = 17 & gs ''cum_cleanup'' & gs ''stat'' & gs ''din_bad'', ''d_bag''"><b>Wipe clean your arms and legs</b></a>'
+	if cumloc[2] > 0 or cumloc[5] > 0 or cumloc[6] > 0 or cumloc[7] > 0: '<a href="exec:salfetka -= 1 & cumspclnt = 6 & gs ''cum_cleanup'' & gs ''stat'' & gs ''din_bad'', ''d_bag''"><b>Clean up clothing</b></a>'
+	if pcs_makeup ! 1: '<a href="exec:salfetka -= 1 & pcs_makeup = 1 & gs ''din_bad'', ''d_bag''"><b>Wipe cosmetics</b></a>'
+	'<a href="exec:gs ''stat'' & gs ''din_bad'', ''d_bag''"><br><b>Put tissues away</b></a>'
 	'</td></tr></table></center>'
 }
 
@@ -105,10 +105,10 @@ $d_kosmetitka = {
 	'<td cellspacing="0" cellpadding="0" valign="top">'
 	gs 'stat'
 
-	if kosmetitka >= 1: '<a href="exec:makupskl_exp += rand(1,3) & pcs_makeup = 2 & kosmetitka -= 1 & gs ''stat'' & dynamic $d_bag"><b>Light make-up</b></a>'
-	if kosmetitka >= 2: '<a href="exec:makupskl_exp += rand(1,3) & pcs_makeup = 3 & kosmetitka -= 2 & gs ''stat'' & dynamic $d_bag"><b>Natural make-up</b></a>'
-	if kosmetitka >= 3: '<a href="exec:makupskl_exp += rand(1,3) & pcs_makeup = 4 & kosmetitka -= 3 & gs ''stat'' & dynamic $d_bag"><b>Heavy make-up</b></a>'
-	act 'Close makeup bag':gs 'stat' & dynamic $d_bag
+	if kosmetitka >= 1: '<a href="exec:makupskl_exp += rand(1,3) & pcs_makeup = 2 & kosmetitka -= 1 & gs ''stat'' & gs ''din_bad'', ''d_bag''"><b>Light make-up</b></a>'
+	if kosmetitka >= 2: '<a href="exec:makupskl_exp += rand(1,3) & pcs_makeup = 3 & kosmetitka -= 2 & gs ''stat'' & gs ''din_bad'', ''d_bag''"><b>Natural make-up</b></a>'
+	if kosmetitka >= 3: '<a href="exec:makupskl_exp += rand(1,3) & pcs_makeup = 4 & kosmetitka -= 3 & gs ''stat'' & gs ''din_bad'', ''d_bag''"><b>Heavy make-up</b></a>'
+	act 'Close makeup bag':gs 'stat' & gs 'din_bad', 'd_bag'
 	'</td></tr></table></center>'
 }
 
@@ -125,23 +125,23 @@ $d_mouthwash = {
 	gs 'stat'
 	'Your breath smells minty fresh.'
 	''
-	act 'Done':gs 'stat' & dynamic $d_bag
+	act 'Done':gs 'stat' & gs 'din_bad', 'd_bag'
 	'</td></tr></table></center>'
 }
 
-$d_bag = {
+if $ARGS[0] = 'd_bag':
 	*clr & cla
 	'<center><h1>Purse</h1></center>'
 	'<center><img <<$set_imgh>> src="<<FUNC(''$purse_image'',	$currentpursetype, currentpursenumber)>>"></center>'
 	'<center><table cellspacing="0" cellpadding="20" valign="top"><tr>'
 	'<td cellspacing="0" cellpadding="0" valign="top">'
 	if salfetka > 0: 'You have <<salfetka>> wet wipes left in your purse. <a href="exec:dynamic $d_salf"><b>Use a tissue</b></a>'
-	if pain_timer > totminut - 242 and painkiller > 0: 'Take a <a href="exec:pain[''killer''] = 1 & painkiller -= 1 & pain_timer = totminut & dynamic $d_bag">painkiller</a>. <<painkiller>> painkillers left in your purse.'
+	if pain_timer > totminut - 242 and painkiller > 0: 'Take a <a href="exec:pain[''killer''] = 1 & painkiller -= 1 & pain_timer = totminut & gs 'din_bad', 'd_bag'">painkiller</a>. <<painkiller>> painkillers left in your purse.'
 	if kosmetitka > 0 and pcs_makeup = 1: 'There''s a portable makeup in your purse. <<kosmetitka>> cosmetic applications left. <a href="exec:dynamic $d_kosmetitka"><b>Put on makeup</b></a>'
 	if kosmetitka > 0 and pcs_makeup ! 1: 'There''s a portable makeup in your purse. <<kosmetitka>> cosmetic applications left.'
 	if mouthwash > 0 and (pcs_breath = 0 or cumloc[12] = 1): 'There''s a mouthwash in your purse. <<mouthwash>> uses remaining. <a href="exec:dynamic $d_mouthwash"><b>Use mouthwash</b></a>'
 	if mouthwash > 0 and pcs_breath = 1 and cumloc[12] = 0: 'There''s a mouthwash in your purse. <<mouthwash>> uses remaining.'
-	if greben > 0 and pcs_hairbsh = 0: 'There''s a hairbrush in your purse. <a href="exec:pcs_hairbsh = 1 & gs ''stat'' & dynamic $d_bag"><b>Brush your hair</b></a>'
+	if greben > 0 and pcs_hairbsh = 0: 'There''s a hairbrush in your purse. <a href="exec:pcs_hairbsh = 1 & gs ''stat'' & gs ''din_bad'', ''d_bag''"><b>Brush your hair</b></a>'
 	if greben > 0 and pcs_hairbsh = 1: 'There''s a hairbrush in your purse. Your hair doesn''t need brushing right now.'
 	if prezik + prezikcount + preziksabo > 0:
 		if preziktype = 2 or preziksabo > 0:
@@ -153,7 +153,7 @@ $d_bag = {
 	else
 		'You are out of condoms.'
 	end
-	if amphetamine > 0:	'You have <<amphetamine>> tablets of amphetamine left in your purse. <b><a href="exec:dynamic $use_amphetamines & dynamic $d_bag">Take One</a></b>'
+	if amphetamine > 0:	'You have <<amphetamine>> tablets of amphetamine left in your purse. <b><a href="exec:dynamic $use_amphetamines & gs ''din_bad'', ''d_bag''">Take One</a></b>'
 	if tabletki > 0 and pillsleft[ptype] > 0:
 		'You have <<tabletki>> unopened packages of <a href="exec:dynamic $d_tabletkied">birth control pills</a> and <<pillsleft[ptype]>> pills left in your opened package.</b>'
 	elseif tabletki	= 0 and pillsleft[ptype] > 0:
@@ -163,14 +163,14 @@ $d_bag = {
 	else
 		'You are out of birth control pills.'
 	end
-	if mentats_have > 0:'<a href="exec:dynamic $use_mentats & dynamic $d_bag"><b>Use a neurobooster pill in your purse.</b></a> There are <<mentats_have>> pills left. The warning label says not to take more than one per day.'
-	if steroid_have > 0:'<a href="exec:dynamic $use_steroids & dynamic $d_bag"><b>Use steroids.</b></a> You have <<steroid_have>> steroids left in your purse.'
-	if bcream_have > 0:'<a href="exec:dynamic $use_bcream & dynamic $d_bag"><b>Apply breast cream.</b></a> You have <<bcream_have>> cream left in your purse.'
-	if aphrodisiac_have > 0:'<a href="exec:dynamic $use_aphrodisiac & dynamic $d_bag"><b>Chew aphrodisiac gum.</b></a> You have <<aphrodisiac_have>> gum left in your purse.'
+	if mentats_have > 0:'<a href="exec:dynamic $use_mentats & gs ''din_bad'', ''d_bag''"><b>Use a neurobooster pill in your purse.</b></a> There are <<mentats_have>> pills left. The warning label says not to take more than one per day.'
+	if steroid_have > 0:'<a href="exec:dynamic $use_steroids & gs ''din_bad'', ''d_bag''"><b>Use steroids.</b></a> You have <<steroid_have>> steroids left in your purse.'
+	if bcream_have > 0:'<a href="exec:dynamic $use_bcream & gs ''din_bad'', ''d_bag''"><b>Apply breast cream.</b></a> You have <<bcream_have>> cream left in your purse.'
+	if aphrodisiac_have > 0:'<a href="exec:dynamic $use_aphrodisiac & gs ''din_bad'', ''d_bag''"><b>Chew aphrodisiac gum.</b></a> You have <<aphrodisiac_have>> gum left in your purse.'
 
 	if lubri > 0:'There''s a tube of lubricant in your purse, enough for <<lubri>> applications.'
-	if bottle > 0: 'There''s a bottle of water in your purse. <a href="exec:bottle = 0 & pcs_hydra += 100 & cumspclnt = 2 & gs ''cum_cleanup'' & gs ''stat'' & dynamic $d_bag"><b>Drink</b></a>'
-	if buterbrod > 0: 'There''s a sandwich in your purse. <a href="exec:buterbrod = 0 & pcs_energy += 40 & cumspclnt = 2 & gs ''cum_cleanup'' & fat += 1 & gs ''stat'' & dynamic $d_bag"><b>Eat</b></a>'
+	if bottle > 0: 'There''s a bottle of water in your purse. <a href="exec:bottle = 0 & pcs_hydra += 100 & cumspclnt = 2 & gs ''cum_cleanup'' & gs ''stat'' & gs ''din_bad'', ''d_bag''"><b>Drink</b></a>'
+	if buterbrod > 0: 'There''s a sandwich in your purse. <a href="exec:buterbrod = 0 & pcs_energy += 40 & cumspclnt = 2 & gs ''cum_cleanup'' & fat += 1 & gs ''stat'' & gs ''din_bad'', ''d_bag''"><b>Eat</b></a>'
 	if wine = 1 and alkowine = 0:'There''s a bottle of <a href="exec:dynamic $dinalkowin1">wine</a> in your purse.'
 	if wine = 1 and alkowine = 1:'There''s a half-bottle of <a href="exec:dynamic $dinalkowin2">wine</a> in your purse.'
 	if foto = 1:'Your purse contains a strange photo'
@@ -186,7 +186,7 @@ $d_bag = {
 
 	act 'Return':gt $loc, $metka
 	'</td></tr></table></center>'
-}
+end
 
 $dinalkowin1 = {
 	*clr & cla
@@ -205,7 +205,7 @@ $dinalkowin1 = {
 	'<center><img <<$set_imgh>> src="images/shared/food/alkowin.jpg"></center>'
 	*nl
 	'You take the wine bottle out of your purse and slowly drink half of it. You struggle quite a lot to put the cork back before being able to make it.'
-	act 'Continue':dynamic $d_bag
+	act 'Continue':gs 'din_bad', 'd_bag'
 }
 
 $dinalkowin2 = {
@@ -226,7 +226,7 @@ $dinalkowin2 = {
 	'<center><img <<$set_imgh>> src="images/shared/food/alkowin.jpg"></center>'
 	*nl
 	'You take out the remaining half wine bottle out of your purse, slowly drinking the rest of it. As you finish you throw the empty bottle away.'
-	act 'Continue':dynamic $d_bag
+	act 'Continue':gs 'din_bad', 'd_bag'
 }
 
 $din_Switch_Condom_Menu = {
@@ -252,7 +252,7 @@ $din_Switch_Condom_Menu = {
 		'<a href="exec:dynamic $din_Do_Condom_Counts, 4">Sabotage a condom</a>.'
 	end
 	*nl
-	act 'Return':dynamic $d_bag
+	act 'Return':gs 'din_bad', 'd_bag'
 	'</td></tr></table></center>'
 }
 
@@ -380,7 +380,7 @@ $d_tabletkied = {
 	end
 	'<a href="exec:dynamic $d_tabletkieda, 4">Examine the birth control pills.</b></a>'
 	if tabletkioddk = 1:  '<a href="exec:dynamic $d_tabletkieda, 5">Dump the strange pills.</b></a>'
-	act 'Return':dynamic $d_bag
+	act 'Return':gs 'din_bad', 'd_bag'
 	'</td></tr></table></center>'
 }
 

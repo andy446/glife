@@ -71,12 +71,6 @@ ringA = 0
 ringB = 0
 ringC = 0
 
-if home_owned[1] = 1 and ArendHouseSL <= 0: ArendHouseSL = 0 & home_owned[1] = 0
-if home_owned[4] > 0 and ArendHouseSL4 <= 0: ArendHouseSL4 = 0 & home_owned[4] = 0
-
-if home_owned[1] = 1: ArendHouseSL -= 1
-if home_owned[4] > 0: ArendHouseSL4 -= 1
-
 !!Appearance Age
 vidageday -= 1
 if vidageday <= 0:
@@ -1101,73 +1095,18 @@ if day = 25:
 
 	if stipuha = 1 and stipuhaday = 0:stipuhaday = 1 & karta += 1200 & '<b><font color="green">You have received 1,200 <b>₽</b> scholarship.</font></b>'
 
-	if haday = 0:
-		gs 'housing', 'rent'
-		! Rent for the city apartment
-		if home_owned[1] = 1:
-			if ArendHouseSL < 31:
-				!From bank
-				if bankAccount = 1 and karta >= home_rent[1]:
-					'<b><font color="yellow">Your rent payment of <<home_rent[1]>> <b>₽</b> for your city apartment, has automatically been deducted from your bank account.</font></b>'
-					haday = 1
-					karta -= home_rent[1]
-					ArendHouseSL += ArendHouseSL_due
-				elseif bankAccount = 1 and karta + bankDebtLimit >= home_rent[1]:
-					'<b><font color="yellow">Your rent payment of <<home_rent[1]>> <b>₽</b> for your city apartment, has automatically been deducted from your bank account and overdraw facility. Please contact your bank regarding your overdraw repayment.</font></b>'
-					haday = 1
-					karta -= home_rent[1]
-					ArendHouseSL += ArendHouseSL_due
-				elseif bankAccount = 0:
-					'<b><font color="red">You currently do not have a bank account setup for automatic rent deduction of <<home_rent[1]>> <b>₽</b> for your city apartment.To avoid eviction, please make manual payment as soon as possible.</font></b>'
-				else
-					nl
-					'<b><b><font color="red">Your card was declined during automatic rent deduction of <<home_rent[1]>> <b>₽</b> for your city apartment. To avoid eviction, please rectify as soon as possible.</font></b>'
-				end
-			elseif home_owned[1] = 1 and ArendHouseSL >= 31:
-				'<b><font color="yellow">Your rent for your city apartment is already paid in full for this month.</font></b>'
-				haday = 1
-			end
-		end
-
-		! Rent for the Pushkin apartment
-		if home_owned[4] > 0:
-			if ArendHouseSL4 < 31:
-				!From bank
-				if bankAccount = 1 and karta >= home_rent[4] and ArendHouseSL4 <= 30:
-					'<b><font color="yellow">Your rent payment of <<home_rent[4]>> <b>₽</b> for your Pushkin apartment, has automatically been deducted from your bank account.</font></b>'
-					haday = 1
-					karta -= home_rent[4]
-					ArendHouseSL4 += ArendHouseSL4_due
-				elseif bankAccount = 1 and karta + bankDebtLimit >= home_rent[4] and ArendHouseSL4 <= 30:
-					'<b><font color="yellow">Your rent payment of <<home_rent[4]>> <b>₽</b> for your Pushkin apartment, has automatically been deducted from your bank account and overdraw facility. Please contact your bank regarding your overdraw repayment.</font></b>'
-					haday = 1
-					karta -= home_rent[4]
-					ArendHouseSL4 += ArendHouseSL4_due
-				elseif bankAccount = 0 and ArendHouseSL4 <= 30:
-					'<b><font color="red">You currently do not have a bank account setup for automatic rent deduction of <<home_rent[4]>> <b>₽</b> for your Pushkin apartment.To avoid eviction, please make manual payment as soon as possible.</font></b>'
-				else
-					nl
-					'<b><b><font color="red">Your card was declined during automatic rent deduction of <<home_rent[4]>> <b>₽</b> for your Pushkin apartment. To avoid eviction, please rectify as soon as possible.</font></b>'
-				end
-			elseif home_owned[4] > 0 and ArendHouseSL4 >= 31:
-				'<b><font color="yellow">Your rent for your Pushkin apartment is already paid in full this month.</font></b>'
-				haday = 1
-			end
-		end
-	end
-
 	! Utilities for all apartments.
-	if (home_owned[1] > 0 or home_owned[4] > 0 or home_owned[5] = 2) and electroday = 0:
+	if (home_owned[1] = 1 or home_owned[1] = 2 or home_owned[4] > 0 or home_owned[5] = 2) and electroday = 0:
 		gs 'housing', 'util'
 		if bankAccount = 1 and karta >= elektro:
-			'<b><font color="yellow"> <<elektro>> <b>₽</b> for utilities, has been automatically deducted from your bank account.</font></b>'
+			'<b><font color="green"><<elektro>> <b>₽</b> for utilities, has been automatically deducted from your bank account.</font></b>'
 			electroday = 1
 			if elektro >= 2000:
 				elektro = 2000 + rand(0, 100)
 				karta -= elektro * hcount_util
 			end
 		elseif bankAccount = 1 and karta + bankDebtLimit >= elektro:
-			'<b><font color="yellow"> <<elektro>> <b>₽</b> for utilities, has been automatically deducted from your bank account and overdraw facility. Please contact your bank.</font></b>'
+			'<b><font color="green"><<elektro>> <b>₽</b> for utilities, has been automatically deducted from your bank account and overdraw facility. Please contact your bank.</font></b>'
 			electroday = 1
 			if elektro >= 2000:
 				elektro = 2000 + rand(0, 100)
@@ -1189,12 +1128,12 @@ if day = 25:
 	if kabel > 0 and kabelday = 0:
 		gs 'housing', 'cable'
 		if bankAccount = 1 and karta >= (300 * hcount_cable):
-			'<b><font color="yellow">300 <b>₽</b> has been deducted from your bank account, for you cable TV subscription.</font></b>'
+			'<b><font color="green">300 <b>₽</b> has been deducted from your bank account, for you cable TV subscription.</font></b>'
 			kabelday = 1
 			karta -= 300 * hcount_cable
 			'<b><font color="red">Your card was declined during automatic debit of 300 <b>₽</b> for cable TV subscription.</font></b>'
 		elseif bankAccount = 1 and karta + bankDebtLimit >= (300 * hcount_cable):
-			'<b><font color="yellow">300 <b>₽</b> has been deducted from your bank account and overdraw facility, for you cable TV subscription.</font></b>'
+			'<b><font color="green">300 <b>₽</b> has been deducted from your bank account and overdraw facility, for you cable TV subscription.</font></b>'
 			kabelday = 1
 			karta -= 300 * hcount_cable
 		elseif bankAccount = 0 and money >= (300 * hcount_cable):
@@ -1221,11 +1160,66 @@ if day ! 25:
 	if paydaybistrosec = 1:paydaybistrosec = 0
 end
 
-if sdaday = day and sdamonth = month and home_owned[1] = 0:
+if sdaday = day and sdamonth = month and home_owned[1] = 3:
 	home_owned[1] = 2
 	'<b><font color="red">Your tenants have moved out and your apartment is now vacant.</font></b>'
 	!msg 'Your tenants have moved out and your apartment is now vacant.'
 end
+
+!!----------------------------------------
+!! Rent
+!!----------------------------------------
+
+if home_owned[1] = 1 or home_owned[4] > 0:
+	gs 'housing', 'rent'
+	! Rent for the city apartment
+	if home_owned[1] = 1:
+		if ArendHouseSL <= 2:
+			!From bank
+			if bankAccount = 1 and karta >= home_rent[1]:
+				'<b><font color="green">Your rent payment of <<home_rent[1]>> <b>₽</b> for your city apartment, has automatically been deducted from your bank account.</font></b>'
+				karta -= home_rent[1]
+				ArendHouseSL += ArendHouseSL_due
+			elseif bankAccount = 1 and karta + bankDebtLimit >= home_rent[1]:
+				'<b><font color="green">Your rent payment of <<home_rent[1]>> <b>₽</b> for your city apartment, has automatically been deducted from your bank account and overdraw facility. Please contact your bank regarding your overdraw repayment.</font></b>'
+				karta -= home_rent[1]
+				ArendHouseSL += ArendHouseSL_due
+			elseif bankAccount = 0:
+				'<b><font color="red">You currently do not have a bank account setup for automatic rent deduction of <<home_rent[1]>> <b>₽</b> for your city apartment. To avoid eviction, please make manual payment as soon as possible.</font></b>'
+			else
+				nl
+				'<b><b><font color="red">Your card was declined during automatic rent deduction of <<home_rent[1]>> <b>₽</b> for your city apartment. To avoid eviction, please rectify as soon as possible.</font></b>'
+			end
+		end
+	end
+
+	! Rent for the Pushkin apartment
+	if home_owned[4] > 0:
+		if ArendHouseSL4 <= 2:
+			!From bank
+			if bankAccount = 1 and karta >= home_rent[4]:
+				'<b><font color="green">Your rent payment of <<home_rent[4]>> <b>₽</b> for your Pushkin apartment, has automatically been deducted from your bank account.</font></b>'
+				karta -= home_rent[4]
+				ArendHouseSL4 += ArendHouseSL4_due
+			elseif bankAccount = 1 and karta + bankDebtLimit >= home_rent[4]:
+				'<b><font color="green">Your rent payment of <<home_rent[4]>> <b>₽</b> for your Pushkin apartment, has automatically been deducted from your bank account and overdraw facility. Please contact your bank regarding your overdraw repayment.</font></b>'
+				karta -= home_rent[4]
+				ArendHouseSL4 += ArendHouseSL4_due
+			elseif bankAccount = 0:
+				'<b><font color="red">You currently do not have a bank account setup for automatic rent deduction of <<home_rent[4]>> <b>₽</b> for your Pushkin apartment. To avoid eviction, please make manual payment as soon as possible.</font></b>'
+			else
+				nl
+				'<b><b><font color="red">Your card was declined during automatic rent deduction of <<home_rent[4]>> <b>₽</b> for your Pushkin apartment. To avoid eviction, please rectify as soon as possible.</font></b>'
+			end
+		end
+	end
+end
+
+if home_owned[1] = 1 and ArendHouseSL <= 0: ArendHouseSL = 0 & home_owned[1] = 0
+if home_owned[4] > 0 and ArendHouseSL4 <= 0: ArendHouseSL4 = 0 & home_owned[4] = 0
+
+if home_owned[1] = 1: ArendHouseSL -= 1
+if home_owned[4] > 0: ArendHouseSL4 -= 1
 
 !!------------------------------------------------------------------------------------------------------------
 

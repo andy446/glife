@@ -80,9 +80,7 @@ if $ARGS[0] = 'brows':
 end
 
 if $ARGS[0] = 'sale':
-	cla
-	clr
-	*clr
+	*clr & cla	
 	minut += 60
 	elektro += 3
 	internet -= 1
@@ -111,7 +109,7 @@ if $ARGS[0] = 'sale':
 					sdamonth = month + 1
 					if sdamonth > 12:sdamonth = 1
 					if sdaday > monthsEnd[sdamonth]:sdaday = monthsEnd[sdamonth]
-					home_owned[1] = 0
+					home_owned[1] = 3
 					karta += predsumm
 					gt 'Komp', 'start'
 				end

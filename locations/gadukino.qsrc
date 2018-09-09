@@ -91,7 +91,7 @@ if $ARGS[0] = '':
 !MiraLoc = 5 (Mira with gop)
 !---------------------------------------------
 
-		if hour >= 17 and hour < 20:'Not far from the house is  <a href="exec:GT ''mitka''">Mitka Kingpin</a>'
+		if hour >= 17 and hour < 20:'Not far from the house is <a href="exec:GT ''mitka''">Mitka Kingpin</a>'
 		if hour >= 20 and sunWeather = 1:
 			!MiraLoc = 0
 			'Not far from the house sits a group of country <a href="exec:GT ''mitkabuh''">youths</a>'

@@ -181,6 +181,8 @@ if $ARGS[0] = 'SGStart2':
 				day = 1
 				week = 3
 				kanicont = 92
+				Gspassed = 1
+				dostupindorf = 1
 				gt 'preSYS', 'SGStart3'
 			end
 		end
@@ -653,6 +655,7 @@ if $ARGS[0] = 'charselect':
 				grupvalue[4] = 25
 
 !! Vitek;s relationship
+				Gspassed = 0
 				kotovLoveQW = 1
 				vitekvisit = 5
 				npc_sex['A9'] += 5
@@ -705,6 +708,7 @@ if $ARGS[0] = 'charselect':
 				stat['cuni'] = 3
 				stat['cuni_give'] = 3
 				pav_sex = 40
+				Gspassed = 0
 				npc_rel['A154'] += 10
 				npc_rel['A155'] += 10
 				npc_rel['A156'] += 10
@@ -848,6 +852,7 @@ if $ARGS[0] = 'charselect':
 				pav_sex = 150
 				GspravkaT = 2
 				motherKnowSpravka = 2
+				Gspassed = 0
 				salo = 60
 				stat['hj'] = 50
 				stat['bj'] = 30
@@ -873,7 +878,7 @@ if $ARGS[0] = 'nerd':
 	fantasybook = 5
 	grupTipe=3
 	money += 3000
-	shampoo = 10
+	shampoo = 20
 	if player_avatar = 0:
 		pcs_eyesize = 1
 		pcs_lip = 1
@@ -889,7 +894,6 @@ if $ARGS[0] = 'nerd':
 	grupvalue[6] = 10
 	genbsize = 22
 	salo = 100
-	shampoo = 20
 end
 
 if $ARGS[0] = 'jock':
@@ -902,7 +906,7 @@ if $ARGS[0] = 'jock':
 	pcs_grades = 50
 	kosmetica = 10
 	stanok = 10
-	shampoo = 10
+	shampoo = 20
 	tampon = 20
 	pcs_run = 20
 	pcs_ftbll = 10
@@ -933,7 +937,6 @@ if $ARGS[0] = 'jock':
 	pcs_skin = 60
 	npc_rel['A34'] += 10
 	grupTipe=2
-	shampoo = 20
 end
 
 if $ARGS[0] = 'cool':
@@ -949,6 +952,7 @@ if $ARGS[0] = 'cool':
 	kosmetica = 20
 	shampoo = 20
 	stanok = 20
+	tampon = 20
 	money += 1000
 	gs 'preSYS', 'socialgroup_setting', 25, 15, 0, -10, -20, 0
 	npc_rel['A129'] -= 20
@@ -964,7 +968,6 @@ if $ARGS[0] = 'cool':
 	pcs_skin = 60
 	npc_rel['A33'] += 10
 	grupTipe=1
-	shampoo = 20
 end
 
 if $ARGS[0] = 'gopnik':
@@ -977,7 +980,7 @@ if $ARGS[0] = 'gopnik':
 	pcs_grades = 40
 	pcs_inhib = 25
 	kosmetica = 10
-	shampoo = 10
+	shampoo = 20
 	stanok = 10
 	siga = 20
 	fakepassport = 1
@@ -1007,9 +1010,9 @@ if $ARGS[0] = 'gopnik':
 	stat['hj'] = 10
 	stat['bj'] = 5
 	stat['vaginal'] = 1
+	Gspassed = 0
 	pav_sex = 30
 	grupTipe=4
-	shampoo = 20
 end
 
 if $ARGS[0] = 'outcast':

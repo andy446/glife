@@ -566,9 +566,6 @@
 		<Location name="gopskver"/>
 		<Location name="gskino"/>
 		<Location name="cafe_parco"/>
-		<Location name="EvOtelMan"/>
-		<Location name="EvgopBuh"/>
-		<Location name="EvBoyBuh"/>
 		<Location name="kotovEv"/>
 		<Location name="IvanEv"/>
 		<Location name="FedorEv"/>
@@ -636,6 +633,7 @@
 		<Location name="gdkin"/>
 		<Location name="gdksport"/>
 		<Location name="gdktoilet"/>
+		<Location name="gdksex"/>
 		<Location name="BMloc"/>
 		<Location name="ugel"/>
 		<Location name="Voltrener"/>

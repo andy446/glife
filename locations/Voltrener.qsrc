@@ -81,7 +81,7 @@ if $ARGS[0] = 'Lariska':
 	end
 
 	if LariskaProfi = 1:
-		$npc_notes['A13'] = 'Lariska is an athletic girl, but she is very dependent on other people''s opinions. Lariska has changed a lot; she has a sparkle in her eyes, and is almost always in a good mood.  After joining the team, she quickly got into playing and is now one of the best players.'
+		$npc_notes['A13'] = 'Lariska is an athletic girl, but she is very dependent on other people''s opinions. Lariska has changed a lot; she has a sparkle in her eyes, and is almost always in a good mood. After joining the team, she quickly got into playing and is now one of the best players.'
 		'When you came out of the coach''s office, Lariska hugged you and said,: "Thank you, <<$pcs_nickname>>!"'
 		npc_rel['A13'] += 20
 	end

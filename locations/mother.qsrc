@@ -201,6 +201,7 @@ if $ARGS[0] = '':
 	end
 
 	if npc_rel['A29'] > 65 and mesec > 0 and preg = 0 and tampon = 0 and sanpad = 0:
+	if npc_rel['A29'] > 65 and mesec > 0 and knowpreg = 0 and tampon = 0 and sanpad = 0:
 		act 'Ask for a tampon':
 			cla
 			sanpad += 3
@@ -253,7 +254,7 @@ if $ARGS[0] = '':
 		end
 
 		if mother_go = 0 or ((week < 6 and (hour >= 17 and hour < 21) or (hour >= 7 and hour < 8)) or (week >= 6 and hour >= 7 and hour < 21)):
-			if (week < 6 and (hour >= 17 and hour < 21) or (hour >= 7 and hour < 8)) or (week >= 6 and hour >= 7 and hour < 21 and hour ! 16):
+			if (week < 6 and (hour >= 16 and hour < 21) or (hour >= 7 and hour < 8)) or (week >= 6 and hour >= 7 and hour < 21):
 				! schedule copied from #family - should be identical.
 				act 'Chat':
 					*clr & cla
@@ -611,7 +612,7 @@ if $ARGS[0] = '':
 		end
 	end
 
-	if SchoolAtestat = 0 and motherKnowSpravka = 0 and GspravkaT ! 1:
+	if SchoolAtestat = 0 and motherKnowSpravka = 0 and GspravkaT ! 1 and ((week >= 6 and hour >= 6 and hour <= 21) or (week < 6 and hour >= 16 and hour <= 21)):
 		gt 'mother', 'referral'
 	elseif Gspassed = 1:
 		gt 'mother', 'referral_pass'
@@ -710,6 +711,7 @@ if $ARGS[0] = 'referral_pass':
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/mother.jpg"></center>'
 	*nl
 	Gspassed = 0
+	npc_rel['A29'] += 10
 	'You hand your mother the referral. She opens it, closes her eyes for a second, and breates a sigh of relief. "I''m not even surprised, you''re a good girl <<$pcs_nickname>>, just as I raised you to be."'
 	act 'Continue': gt 'mother'
 end

@@ -239,70 +239,72 @@ if $ARGS[0] = '':
 
 			act 'Leave':gt 'gpoli'
 
-			act 'Be tested for STDs (1,000 <b>₽</b>)':
-				cls
-				money -= 1000
-				minut += 60
-				gs 'stat'
-				'The doctor has you provide some blood and urine, before examining you. Then he sends you out to wait in the waiting room while you wait for the test results to come back.'
-
-				if venera > 0:'The doctor calls you back to his office after a while, and says with a slight frown: "I''m afraid I have some bad news."'
-
-				if GerpesOnce = 1:
-					'He continues: "You have genital herpes. Unfortunately, the complete cure for this disease is very expensive and we can''t cure it here. On the upside, herpes is dormant most of the time and is quite manageable, if you take good care of your body. When it is dormant, taking vitamins regularly will make sure it won''t show itself."'
-
-					if Gerpes >= 3:
-						if GerpesNapr = 0:GerpesNapr = 3 & '"Your herpes is currently active. I''m going to put you on a course of herpes shots, in order to suppress it into its dormant state. You''ll need a total of 3 injections (no more than 1 a day), each injection will cost 450 <b>₽</b>."'
-						if GerpesNapr > 0:'You need to see the nurse for your herpes drug injection.'
-
-					else
-						'Your herpes is currently in a dormant state.'
-					end
-				end
-
-				if SifacOnce = 1:
-					'He continues: "You have syphilis. Unfortunately, the complete cure for this disease is very expensive and we can''t cure it here. It can be suppressed with a recently developed drug therapy, but it won''t cure you completely. It''s also fairly expensive already."'
-
-					if Sifilis < 15:
-						'Your syphilis is in an inactive stage. Nothing more can be done currently.'
-					elseif Sifilis >= 15:
-						if SifNapr = 0:SifNapr = 10 & '"I''m going to put you on a course of syphilis inhibiting drugs. You''ll need a total of 10 injections (no more than 1 a day), each injection will cost 1,000 <b>₽</b>."'
-						if SifNapr > 0:'You need to see the nurse for your syphilis drug injection.'
-					end
-				end
-
-				if TriperOnce = 1:
-					'He continues: "We found gonorrhea. Fortunately, we can cure this disease."'
-					if TriperNapr = 0:TriperNapr = 5 & '"I''m going to put you on a course of gonorrhea injections. You''ll need a total of 5 injections (no more than 1 a day), each injection will cost 750 <b>₽</b>."'
-					if TriperNapr > 0:'You need to see the nurse for your gonorrhea injections.'
-				end
-
-				if KandidozOnce = 1:
-					'He continues: "You have thrush. Unfortunately, the complete cure for this disease is very expensive and we can''t cure it here. On the upside, thrush is not that harmful and can be treated easily to the point where it won''t trouble you. When it is dormant, taking vitamins regularly will make sure it won''t show itself."'
-
-					if KandidNapr = 0:KandidNapr = 1 & '"The pills are available at the pharmacy, across the street."'
-					if Kandidoz < 30:'Your thrush is currently in remission. If you take vitamins daily, it will stay that way.'
-				end
-
-				if venera <= 0:'The doctor is pleased to announce that you do not have a sexually transmitted disease.'
-					act 'Leave':gt 'gpoli'
-				end
-
-			if GerpesNapr > 0 and GerpesUkolDay ! daystart:
-				act 'Get herpes shot (450 <b>₽</b>). You need <<GerpesNapr>> more injections to complete the treatment.':
+			if money >= 1000:
+				act 'Be tested for STDs (1,000 <b>₽</b>)':
 					cls
-					money -= 450
-					minut += 15
-					GerpesUkolDay = daystart
-					GerpesNapr -= 1
+					money -= 1000
+					minut += 60
 					gs 'stat'
-					'You see the nurse and she gives you a painful injection in your ass.'
+					'The doctor has you provide some blood and urine, before examining you. Then he sends you out to wait in the waiting room while you wait for the test results to come back.'
 
-					if GerpesNapr = 0:Gerpes = -10 & 'You have completed the treatment.'
-					act 'Leave':gt 'gpoli'
+					if venera > 0:'The doctor calls you back to his office after a while, and says with a slight frown: "I''m afraid I have some bad news."'
+
+					if GerpesOnce = 1:
+						'He continues: "You have genital herpes. Unfortunately, the complete cure for this disease is very expensive and we can''t cure it here. On the upside, herpes is dormant most of the time and is quite manageable, if you take good care of your body. When it is dormant, taking vitamins regularly will make sure it won''t show itself."'
+
+						if Gerpes >= 3:
+							if GerpesNapr = 0:GerpesNapr = 3 & '"Your herpes is currently active. I''m going to put you on a course of herpes shots, in order to suppress it into its dormant state. You''ll need a total of 3 injections (no more than 1 a day), each injection will cost 450 <b>₽</b>."'
+							if GerpesNapr > 0:'You need to see the nurse for your herpes drug injection.'
+
+						else
+							'Your herpes is currently in a dormant state.'
+						end
+					end
+
+					if SifacOnce = 1:
+						'He continues: "You have syphilis. Unfortunately, the complete cure for this disease is very expensive and we can''t cure it here. It can be suppressed with a recently developed drug therapy, but it won''t cure you completely. It''s also fairly expensive already."'
+
+						if Sifilis < 15:
+							'Your syphilis is in an inactive stage. Nothing more can be done currently.'
+						elseif Sifilis >= 15:
+							if SifNapr = 0:SifNapr = 10 & '"I''m going to put you on a course of syphilis inhibiting drugs. You''ll need a total of 10 injections (no more than 1 a day), each injection will cost 1,000 <b>₽</b>."'
+							if SifNapr > 0:'You need to see the nurse for your syphilis drug injection.'
+						end
+					end
+
+					if TriperOnce = 1:
+						'He continues: "We found gonorrhea. Fortunately, we can cure this disease."'
+						if TriperNapr = 0:TriperNapr = 5 & '"I''m going to put you on a course of gonorrhea injections. You''ll need a total of 5 injections (no more than 1 a day), each injection will cost 750 <b>₽</b>."'
+						if TriperNapr > 0:'You need to see the nurse for your gonorrhea injections.'
+					end
+
+					if KandidozOnce = 1:
+						'He continues: "You have thrush. Unfortunately, the complete cure for this disease is very expensive and we can''t cure it here. On the upside, thrush is not that harmful and can be treated easily to the point where it won''t trouble you. When it is dormant, taking vitamins regularly will make sure it won''t show itself."'
+
+						if KandidNapr = 0:KandidNapr = 1 & '"The pills are available at the pharmacy, across the street."'
+						if Kandidoz < 30:'Your thrush is currently in remission. If you take vitamins daily, it will stay that way.'
+					end
+
+					if venera <= 0:'The doctor is pleased to announce that you do not have a sexually transmitted disease.'
+						act 'Leave':gt 'gpoli'
+					end
+
+				if GerpesNapr > 0 and GerpesUkolDay ! daystart:
+					act 'Get herpes shot (450 <b>₽</b>). You need <<GerpesNapr>> more injections to complete the treatment.':
+						cls
+						money -= 450
+						minut += 15
+						GerpesUkolDay = daystart
+						GerpesNapr -= 1
+						gs 'stat'
+						'You see the nurse and she gives you a painful injection in your ass.'
+
+						if GerpesNapr = 0:Gerpes = -10 & 'You have completed the treatment.'
+						act 'Leave':gt 'gpoli'
+					end
 				end
 			end
-
+				
 			if TriperNapr > 0 and money >= 750 and TriperUkolDay ! daystart:
 				act 'Get gonorrhea shot (750 <b>₽</b>). You need <<TriperNapr>> more injections to complete the treatment.':
 					cls
@@ -319,7 +321,7 @@ if $ARGS[0] = '':
 				end
 			end
 
-			if money >= 5000 and SifNapr > 0 and SifUkolDay ! daystart:
+			if money >= 1000 and SifNapr > 0 and SifUkolDay ! daystart:
 				act 'Get syphilis shot (1,000 <b>₽</b>). You need <<SifNapr>> more injections to complete the treatment.':
 					cls
 					money -= 1000
@@ -335,7 +337,6 @@ if $ARGS[0] = '':
 				end
 			end
 		end
-
 
 		if sick >= 1:
 			act 'Visit the doctor for your sickness':

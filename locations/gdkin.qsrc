@@ -435,18 +435,18 @@ if $ARGS[0] = 'dance_vrp':
 				'The guy told you during the dance "My name is <<$boydesc>>. What''s your name?" You answered "<<$pcs_nickname>>." During the whole dance the drunk guy humped your body and now his face flushed with excitement. He asks you to leave the club and go get some fresh air, socialize, outside.'
 			end
 
-			act 'Go with a guy':gt 'EvBoyBuh'
+			act 'Go with the guy':gt 'gdksex', 'outside', 'nice'
 		elseif DPgrup = 2:
 			if DPtipe = 1:
 				'For the entire dance the guy was grabbing your ass, breasts and kissing you, he was clearly excited. When you would press up against him, you could feel something hard in his pants. Finally the song ended and the guy offers to take you outside for a drink.'
 				gs 'arousal', 'foreplay', 5
 				gs 'stat'
-				act 'Go drink':gt 'EvgopBuh'
+				act 'Go drink':gt 'gdksex', 'outside', 'aggressiv'
 			elseif DPtipe = 2:
 				'For the entire dance the guy was grabbing your ass, breasts and kissing you, he was clearly excited. When you would press up against him, you could feel something hard in his pants. Finally the song ended and the guy offers to take you outside for a drink.'
 				gs 'arousal', 'foreplay', 5
 				gs 'stat'
-				act 'Go drink':gt 'EvgopBuh'
+				act 'Go drink':gt 'gdksex', 'outside', 'aggressiv'
 			end
 		elseif DPgrup = 3:
 			if DPtipe = 1:
@@ -460,7 +460,7 @@ if $ARGS[0] = 'dance_vrp':
 					$boydesc = $npc_nickname[$npclastcalled]
 					'You went outside with the man. As you walked he put his arm around your waist. "My name is <<$boydesc>>. What''s your name?" You answered "<<$pcs_nickname>>." The man continued, "<<$pcs_nickname>>, I''m in town on a business trip. I am staying at a nearby hotel, I live in the city itself. There is virtually nothing to do in this town you know. Come back to my hotel with me and we can drink whiskey, while we sit and have a nice chat."'
 
-					act 'Go to the hotel':gt 'EvOtelMan'
+					act 'Go to the hotel':gt 'gdksex', 'hotel'
 
 					if alko <= 2 or pcs_horny <= 75 or pav_slut <= 25:
 						act 'Refuse':
@@ -475,7 +475,7 @@ if $ARGS[0] = 'dance_vrp':
 				'For the entire dance the drunk man molested you, when the dance ended. He whispered in your ear. "My name is <<$boydesc>>. What''s your name?" You answered "<<$pcs_nickname>>." The man continued, "<<$pcs_nickname>>, I''m not a local, I''m staying in a nearby hotel, let''s take a taxi and go to my room."'
 				gs 'arousal', 'foreplay', 5
 				gs 'stat'
-				act 'Go to the hotel':gt 'EvOtelMan'
+				act 'Go to the hotel':gt 'gdksex', 'hotel'
 			end
 		end
 

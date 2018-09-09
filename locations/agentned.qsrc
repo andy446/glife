@@ -267,7 +267,7 @@ if $ARGS[0] = 'rent_cityres':
 			if money >= home_rent[1]: 
 				money -= home_rent[1]
 			else
-				karta >= -= home_rent[1]
+				karta -= home_rent[1]
 			end
 			home_owned[1] = 1
 			if ARRSIZE('home_owned') = 0: gs 'set_home', 1

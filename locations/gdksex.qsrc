@@ -887,7 +887,7 @@ if $ARGS[0] = 'heating_up':
 					act 'Suck him off for money':
 						*clr & cla
 						money += 400
-						pav_sex += rand(1,3)
+						pav_prostitute += rand(1,3)
 						gs 'stat'
 						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/event/hotel/money.jpg"></center>'
 						'You give a nod and wordlessly extend your hand, and <<$boydesc>> readily gives you the money.'
@@ -913,7 +913,7 @@ if $ARGS[0] = 'heating_up':
 					act 'Suck him off for money':
 						*clr & cla
 						money += 400
-						pav_sex += rand(1,3)
+						pav_prostitute += rand(1,3)
 						gs 'stat'
 						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/event/hotel/money.jpg"></center>'
 						'You give a nod and wordlessly extend your hand, and <<$boydesc>> readily gives you the money.'
@@ -928,7 +928,7 @@ if $ARGS[0] = 'heating_up':
 					*clr & cla
 					sub += 1
 					money += 200
-					pav_sex += rand(0,2)
+					pav_prostitute += rand(0,2)
 					gs 'stat'
 					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/event/hotel/kiska.jpg"></center>'
 					'You shrug and think to yourself: "That''s an easy way to make some money!"'
@@ -942,7 +942,7 @@ if $ARGS[0] = 'heating_up':
 						lose_virginity_event = 1
 						bmSEX[Tboynum] += 1
 						money += 5000
-						pav_sex += rand(2,6)
+						pav_prostitute += rand(2,6)
 						gs 'stat'
 						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/event/hotel/money.jpg"></center>'
 						'"Well... alright", you say softly as you extend your hand. He gives you a hearty handshake and happily says: "Deal!"'

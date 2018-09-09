@@ -200,7 +200,6 @@ if $ARGS[0] = '':
 		''
 	end
 
-	if npc_rel['A29'] > 65 and mesec > 0 and preg = 0 and tampon = 0 and sanpad = 0:
 	if npc_rel['A29'] > 65 and mesec > 0 and knowpreg = 0 and tampon = 0 and sanpad = 0:
 		act 'Ask for a tampon':
 			cla
@@ -614,7 +613,7 @@ if $ARGS[0] = '':
 
 	if SchoolAtestat = 0 and motherKnowSpravka = 0 and GspravkaT ! 1 and ((week >= 6 and hour >= 6 and hour <= 21) or (week < 6 and hour >= 16 and hour <= 21)):
 		gt 'mother', 'referral'
-	elseif Gspassed = 1:
+	elseif Gspassed = 1 and ((week >= 6 and hour >= 6 and hour <= 21) or (week < 6 and hour >= 16 and hour <= 21)):
 		gt 'mother', 'referral_pass'
 	end
 end

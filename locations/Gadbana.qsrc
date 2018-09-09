@@ -132,7 +132,7 @@ if mira = 0:
 			end
 		end
 	end
-	if stanok > 0:'Your razor will last for <b><<stanok>></b> more shavings. <a href="exec:gs ''din_van'', ''shave_options''">Shave Options</a>'
+	if stanok > 0:'Your razor will last for <b><<stanok>></b> more shavings. <a href="exec:gs ''din_van'', ''shave_options''">Shave Options</a>. There''s a small shaving <a href="exec:gt ''mirror'', ''start''">mirror</a> resting on the window sill.'
 
 	!WD: heal chafe
 	if mosolmaz>0:'On a shelf is a tube of ointment for chafing, which will be enough for <b><<mosolmaz>></b> applications.'
@@ -252,6 +252,7 @@ else
 				gs 'stat'
 
 				act 'Get dressed and leave':
+					cla
 					mira = 0
 					minut += 1
 					gs 'clothing', 'wear_last_worn'
@@ -260,6 +261,7 @@ else
 				end
 
 				act 'Go outside naked':
+					*clr & cla
 					mira = 0
 					minut += 1
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/grandparents/Gaddvor_nude.jpg"></center>'

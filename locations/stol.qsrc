@@ -78,10 +78,11 @@ if $ARGS[0] = 'stolPar':
 	'<center><h1>Desk</h1></center>'
 	'<center><img <<$set_imgh>> src="images/shared/home/bedroom/stol.jpg"></center>'
 	*nl
-	'You sat down at his desk.'
-	act 'Check birth control': gt 'stol', 'bc'
-	act 'Get up from the table':gt $loc, $metka
-
+	'You sit down at your desk.'
+	
+	act 'Get up':gt $loc, $metka
+	act 'Check your birth control': gt 'stol', 'bc'
+	
 	if mentats_have > 0:
 		'<a href="exec:dynamic $use_mentats & gt ''stol'', ''stolPar''"><b>Take neurobooster pill.</b></a> Uses left: <<mentats_have>>. Warning on the box says not to take more than one per day.'
 	end
@@ -94,22 +95,55 @@ if $ARGS[0] = 'stolPar':
 
 	if lernHome > 0:
 		act 'Do your homework':
-			cls
-
+			cla & *clr
+			'<center><img <<$set_imgh>> src="images/locations/shared/apartment/homework.jpg"></center>'
 			if lernHome <= 2:
 				minut += 60*lernHome
 				lernHome = 0
 				lern += 1
+				'It takes you one hour to complete your homework.'
 				gs'stat'
 			elseif lernHome > 2:
 				minut += 60*2
 				lernHome = 0
+				'It takes you two hours to complete your homework.'
 				gs'stat'
 			end
-			'<center><img <<$set_imgh>> src="images/locations/shared/apartment/homework.jpg"></center>'
-			'Sitting for a long time you learned yet they were able to learn.'
+			
+			act 'Get up from the table':gt $loc, $metka
+		end
+	end
+	
+	if money > 0:
+		act 'Hide some money in your drawer':
+			cla
+			stolIN = input ("How much money you want to hide in your drawer? (Your purse contains <<money>> <b>₽</b>.)")
 
-		act 'Get up from the table':gt $loc, $metka
+			if stolIN <= 0 or stolIN > money:
+				'You can''t put this amount into the drawer.'
+			else
+				stolmoney += stolIN
+				money -= stolIN
+			end
+
+			gt 'stol', 'stolPar'
+		end
+	end
+
+	if stolmoney > 0:
+		act 'Take some money from your drawer':
+			cla
+			stolOUT = input ("How much money do you want to put in your purse? (There is <<stolmoney>> <b>₽</b> here.)")
+
+			if stolOUT <= 0 or stolOUT > stolmoney:
+				'You can''t take this amount from your drawer.'
+			else
+				stolmoney -= stolOUT
+				money += stolOUT
+				if stolmoney > 0: 'You have <<stolmoney>> <b>₽</b> hiden in your drawer.'
+			end
+
+			gt 'stol', 'stolPar'
 		end
 	end
 end

@@ -65,7 +65,7 @@ if $ARGS[0] = 'real_character':
 	'<center><img <<$set_imgh>> src="images/pre/shared/character_creation.jpeg"></center>'
 	*nl
 	'This game offers you the ability to create your own character.'
-	'To do this, replace the image "<a href="exec:view''images/avatar.jpg''">avatar</a>" in the "images" folder of the game with a file of the same name and format JPEG (.jpg). That''s it!'
+	'To do this, replace the image "avatar" in the "images" folder of the game with a file of the same name and format JPEG (.jpg). That''s it!'
 	'Please note, this choice can only be changed in the cheat menu and in-game changes to hair color, length etc. will not affect the displayed image if you are using a custom one.'
 	'This function is made solely to simplify things for those that want to use a custom image without having to sort through hundreds of pictures.'
 	'Your selected image is your own personal choice, and is based on your personal preferences. By default, the game uses an avatar image from the site wikimedia.org.'
@@ -120,7 +120,7 @@ end
 if $ARGS[0] = 'hair':
 	cls
 	'<center><b><font color = maroon>CHARACTER CUSTOMIZATION</font></b></center>'
-	'<center><img <<$set_imgh>> src="images/pre/shared/character_creation_pic1.jpg"></center>'
+	'<center><img HEIGHT = 478 src="images/avatar.jpg"></center>'
 	*nl
 	if pcs_hairlng <= 1:
 		$hair = 'You have <a href="exec:pcs_hairlng = 31 & gs ''begin'', ''hair''">very short</a>,'
@@ -150,7 +150,7 @@ if $ARGS[0] = 'hair':
 	if pcs_haircol = 1 and curly > 0:$hair += ' <a href="exec:defcurly = 0 & curly = 0 & gs ''begin'', ''hair''">curly</a>, <a href="exec:gs ''begin'', ''pcs_haircol'' & gs ''begin'', ''hair''">brown</a> hair.'& $hair2 = 'curls' & $hair3 = 'brown curls'
 	if pcs_haircol = 2 and curly > 0:$hair += ' <a href="exec:defcurly = 0 & curly = 0 & gs ''begin'', ''hair''">curly</a>, <a href="exec:gs ''begin'', ''pcs_haircol'' & gs ''begin'', ''hair''">red</a> hair.'& $hair2 = 'curls' & $hair3 = 'red hair'
 	if pcs_haircol = 3 and curly > 0:$hair += ' <a href="exec:defcurly = 0 & curly = 0 & gs ''begin'', ''hair''">curly</a>, <a href="exec:gs ''begin'', ''pcs_haircol'' & gs ''begin'', ''hair''">blonde</a> hair.' &$hair2 = 'curls' & $hair3 = 'blond curls'
-	'<center>Adjust your hair to match your <a href="exec:view''images/avatar.jpg''">avatar</a>. Please note that, at present, hair choices are overridden by your starting personality choice (e.g. volleyball players will always have straight blond hair).</center>'
+	'<center>Adjust your hair to match your avatar. Please note that, at present, hair choices are overridden by your starting personality choice (e.g. volleyball players will always have straight blond hair).</center>'
 	*nl
 	nathcol = pcs_haircol
 	if player_avatar = 1:
@@ -181,7 +181,7 @@ end
 if $ARGS[0] = 'lip':
 	cls
 	'<center><b><font color = maroon>CHARACTER CUSTOMIZATION</font></b></center>'
-	'<center><img <<$set_imgh>> src="images/pre/shared/character_creation_pic1.jpg"></center>'
+	'<center><img HEIGHT = 478 src="images/avatar.jpg"></center>'
 	*nl
 	if pcs_lip = 0:$pcs_lip = 'you have thin<<$pcs_lipbalm>> lips.' & $liptalk = 'thin lips' & $liptalk2 = 'thin lips' & $liptalk3 = 'thin lips'
 	if pcs_lip = 1:$pcs_lip = 'You have normal<<$pcs_lipbalm>> lips.' & $liptalk = 'soft lips' & $liptalk2 = 'delicate lips' & $liptalk3 = 'tender lips'
@@ -201,7 +201,7 @@ if $ARGS[0] = 'eyes':
 	cls
 	'<center><b><font color = maroon>CHARACTER CUSTOMIZATION</font></b></center>'
 	if player_avatar = 1:
-		'<center><img <<$set_imgh>> src="images/pre/shared/character_creation_pic1.jpg"></center>'
+		'<center><img HEIGHT = 478 src="images/avatar.jpg"></center>'
 	else
 		'<center><img <<$set_imgh>> src="<<FUNC(''$face_image'')>>"></center>'
 	end
@@ -224,7 +224,7 @@ if $ARGS[0] = 'eyes':
 	if pcs_eyesize = 3:$glaza = 'You have huge <a href="exec:gs ''begin'', ''eye color'' & gs ''begin'', ''eyes''"><<$pcs_eyecol>></a> eyes, <<$pcs_lashes>>.<<$glass>>' & $glaza2 = 'great <<$pcs_eyecol>> eyes' & $glaza3 = 'great <<$glacol2>> eyes'
 
 	if player_avatar = 1:
-		'<center>Adjust your eyes and eyelashes to match your <a href="exec:view''images/avatar.jpg''">avatar</a>. Please note, glasses choice may be overridden by your starting personality choice (e.g. bookworms/nerds will always start with glasses).</center>'
+		'<center>Adjust your eyes and eyelashes to match your avatar. Please note, glasses choice may be overridden by your starting personality choice (e.g. bookworms/nerds will always start with glasses).</center>'
 	else
 		'<center>Please note, glasses choice may be overridden by your starting personality choice (e.g. bookworms/nerds will always start with glasses).</center>'
 	end	
@@ -258,7 +258,7 @@ if $ARGS[0] = 'birthday':
 	cls
 	'<center><b><font color = maroon>CHARACTER CUSTOMIZATION</font></b></center>'
 	if player_avatar = 1:
-		'<center><img <<$set_imgh>> src="images/pre/shared/character_creation_pic1.jpg"></center>'
+		'<center><img HEIGHT = 478 src="images/avatar.jpg"></center>'
 	else
 		'<center><img <<$set_imgh>> src="<<FUNC(''$face_image'')>>"></center>'
 	end

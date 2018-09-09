@@ -110,25 +110,37 @@ if proshotelopen = 1 and proshotelday ! daystart:
 		end
 		cls
 		gs'stat'
+		
 		if pavlevent = 1:
 			'You are too scared of Pavlin at the moment to meet him in a private place.'
 			act 'Step away from the reception desk':gt'HotelHole','skip_resepevent'
 			exit
 		end
+		
+		if pcs_makeup <= 1 or pcs_hairbsh < 1 or pcs_sweat > 26:
+			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/resep.girl0,'+rand(0,10)+'.jpg"></center>'
+			'"Pavlin expects you to be clean, made-up and with your hair looking nice. I can''t let you go up looking like this," she says.'
+			act 'Step away from the reception desk':gt'HotelHole','skip_resepevent'
+			exit
+		end
+		
 		'You approach the receptionist and ask for ''The Peacock''.'
 		if hour >= 12 and hour < 20:
+			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/Pavlin/Pavlin.jpg"></center>'
 			'She nods and waves to Pavlin who is sitting in the lobby'
 			'Pavlin comes over and greets you.'
 			'"Are you ready to do some work <<$pcs_firstname>>?"'
 			'Without bothering to wait for you to respond he takes out his phone and calls a client.'
 			'"OK, let''s go to the room"'
 		else
+			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/resep.girl0,'+rand(0,10)+'.jpg"></center>'
 			'She picks up the phone and says: "Pavlin, there is another one here for you... Sure I''ll send her right up."'
 			'She gives you a subtle smile and tells you Pavlin is waiting for you in room 305'
 		end
 		act 'Go to room 305':
 			cls
 			gs'stat'
+			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/Pavlin/Pavlin.jpg"></center>'
 			if hour >= 12 and hour < 20:
 				'You enter the room with Pavlin.'
 				'"You just sit down on the bed; the client will be here in a few minutes."'
@@ -188,6 +200,7 @@ if $ARGS[0] = 'pavlbar':
 			'Pavlin is not really worried. He is confident you''ll be back.'
 			'He leans back in his chair and checks out your ass while you are leaving.'
 			money += 750
+			gs 'stat'
 			act'Go back to the hotel lobby':gt'HotelHole','skip_resepevent'
 		end
 		
@@ -212,6 +225,7 @@ if $ARGS[0] = 'pavlbar':
 			'With a stupid grin on his face he reaches in his pocket and hands you an extra 250 <b>₽</b>.'
 			money += 1000
 			gs 'arousal', 'end'
+			gs 'stat'
 			if npc_rel['A217'] <= 15 or npc_rel['A217'] > 19:npc_rel['A217'] += 1
 			act'Go back to the hotel lobby':gt'HotelHole','skip_resepevent'
 		end

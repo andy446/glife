@@ -1217,7 +1217,6 @@ if $ARGS[0] = 'reputation':
 	'<center><h1>Renown</h1></center>'
 	'<center><table width="90%" cellspacing="0" cellpadding="20" valign="top">'
 		'<tr><td width="50%" cellspacing="0" cellpadding="0" valign="top">'
-		*nl
 		'<center>Family Renown</center>'
 		if Enable_family_Reputation = 0:
 			'<center><a href="exec:Enable_family_Reputation = 1 & gs ''obj_din'', ''reputation''">Show details</a></center>'

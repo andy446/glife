@@ -1,6 +1,10 @@
 # wardrobe
 
 if $ARGS[0] = 'start':
+	PShoQuality = ShoQuality
+	PShoHeels = ShoHeels
+	PShoCut = ShoCut
+	PShoStyle = ShoStyle
 	$wloc = 'wardrobe'
 	if ward_img_hgt = 0:ward_img_hgt = 250
 	'<h3><center><b><font color="maroon">Wardrobe overview</b></h3><br><center><font color="maroon">These are the clothes you are currently wearing - Click on an item to change it</font></center>'
@@ -117,6 +121,8 @@ if $ARGS[0] = 'default':
 		i += 1
 		if i < ARRSIZE('defclothingnumber'):jump 'loopdefclothing'
 	end
+	*nl
+	'Note: When selecting an outfit you will see the bonus for your shoes applied, this will be removed when you leave and only added when outside.'
 	act 'Return': gt 'wardrobe', 'start'
 end
 

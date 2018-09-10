@@ -79,7 +79,7 @@ if $ARGS[0] = 'view_shoe_list':
 	if $ARGS[1] ! 'sell' :'<center><table border=1><TH><a href="exec:gt ''shoes'', ''view_shoe_list'', ''wardrobe''">Wardrobe </a></TH><TH><a href="exec:gt ''shoes'', ''view_shoe_list'', ''store''">Storage</a></TH><TH><a href="exec:gt ''shoes'', ''view_shoe_list'', ''unwanted''">Unwanted</a></TH></table></center>'
 
 	if $ARGS[1] ! 'sell' :
-		'<center><b>Select shoes to wear</b></center>'
+		'<center><b>Select shoes to wear</b> *Bonus to attractiveness only applied in wardrobe and outdoors.</center>'
 		if $shoeworntype ! 'none':
 			act 'Remove shoes':
 				gs 'shoes', 'strip'

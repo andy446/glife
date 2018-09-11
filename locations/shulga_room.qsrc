@@ -139,31 +139,25 @@ if $ARGS[0] = 'start':
 	!You get fucked for days
 	if $ARGS[1] = 'hall':
 		roomsex_gang = RAND(0,100)
-		if kotovLoveQW < 1 and roomsex_gang <= 2 and pav_slut >= 75 and gangsexroom_count > 0 and week < 6 and hour >= 0 and hour <= 2: 
+		if kotovLoveQW < 1 and roomsex_gang <= 2 and pav_slut >= 75 and gangsexroom_count > 0 and week < 5 and hour >= 20: 
 			gt 'shulga_room', 'gang_sex_room_ev1'
 		end
 
 		!Sonia fuck the boys
-		if roomsex_gang >= 97 and soniaPS >=3 and sexev_sonya_count > 0 and week < 6 and hour >= 0 and hour <= 2:
+		if roomsex_gang >= 97 and soniaPS >=3 and sexev_sonya_count > 0 and week < 5 and hour >= 20:
 			gt 'shulga_room', 'gang_sex_sonya'
 		end
 
 		!Sonya and Vasily
 		roomsex_sonya = RAND(0,100)
-		if roomsex_sonya <= 5 and soniaPS >=1 and sexev_sonya_count > 0 and ((hour >= 10 and hour <= 16) or (hour >= 0 and hour <= 2)) and week > 5:
+		if roomsex_sonya <= 5 and soniaPS >=1 and sexev_sonya_count > 0 and ((week >= 6 and hour >= 10 and hour < 17) or (week = 7 and hour >= 20)):
 			gt 'shulga_room', 'shulv_sex_sonya'
 		end
 
 		!If you came in dressed as a prostitute
-		if PCloStyle = 4 and sh_hooker_count > 0 and week < 6 and hour >= 0 and hour <= 2:
+		if PCloStyle = 4 and sh_hooker_count > 0 and ((week < 5 and hour >= 20) or (week >= 6 and hour >= 10 and hour < 17) or (week = 7 and hour >= 20)):
 			gt 'shulga_room', 'sh_hooker'
 		end 
-		if PCloStyle = 4 and sh_hooker_count > 0 and week >= 6 and hour >= 0 and hour <= 2:
-			gt 'shulga_room', 'sh_hooker'
-		end 
-		if PCloStyle = 4 and sh_hooker_count > 0 and hour >= 10 and hour <= 16:
-			gt 'shulga_room', 'sh_hooker'
-		end
 	end
 end
 

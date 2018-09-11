@@ -897,20 +897,20 @@ if $ARGS[0] = 'clown':
 		cls
 		cla
 		'You hear the lights starting to buzz, but they don''t turn on immediately '
-		wait 4800
+		wait 2400
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/Pavlin/clown1.jpg"></center>'
 		wait 100
 		cls
 		'What was that? You thought you saw something.'
 		'the lights kept buzzing, still not producing any light'
-		wait 5000
+		wait 2500
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/Pavlin/clown1.jpg"></center>'
 		wait 100
 		cls
 		'Again, you think you saw something at the other side of the room.'
 		'You are getting scared.'
 		'The buzzing sound gets louder....'
-		wait 10000
+		wait 5000
 		cls
 		fcolor = rgb(0, 0, 0)
 		bcolor = rgb(255, 255, 255)

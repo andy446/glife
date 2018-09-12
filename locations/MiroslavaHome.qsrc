@@ -21,6 +21,8 @@ if $ARGS[0] = 'start':
 	!!MiraLoc = 5 (Mira with gop)
 	!!---------------------------------------------
 
+	act 'Leave': gt 'gadukino'
+	
 	if hour >= 8 and hour <= 22:
 		if Mira_no > 0 and mirafathertalk = 0 and miraday ! daystart:
 			*clr & cla
@@ -101,7 +103,7 @@ if $ARGS[0] = 'start':
 					gs 'stat'
 					'Mira isn''t home.'
 					if miraprost > 0 and month >= 5 and month <= 9 and hour >= 18 and hour >= 0 and rand(0,5) >= 4:
-						' You think you know where to find her. Ever since granting your second wish Mira has been earning money as a prostitute on the highway.'
+						'You think you know where to find her. Ever since granting your second wish Mira has been earning money as a prostitute on the highway.'
 						act 'Go to the highway': gt 'gadprostitutes','start'
 					else
 						'She definitely isn''t around here, and you have no idea where she might be. Maybe you should ask her father, or go look around town.'
@@ -120,8 +122,8 @@ if $ARGS[0] = 'start':
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mirafather.jpg"></center>'
 					'Mira''s father tells you that she''s not home, she is over at the river.'
 
-					act 'Go to the river':gt 'gadriver','start'
 					act 'Leave':gt 'Gadukino'
+					act 'Go to the river':gt 'gadriver','start'
 				elseif mira_temp >= 10 and sunWeather = 0 and hour < 20 and MiraLoc ! 0 and Mira_no = 0:
 					*clr & cla
 					minut += 2
@@ -142,10 +144,7 @@ if $ARGS[0] = 'start':
 		if hour > 22 or hour < 3: 'It''s late, most of Mira''s family is asleep, no need to them up unnecessarily.' else 'It''s too early, most of Mira''s family is still asleep, no need to wake people up unnecessarily.'
 		act 'Leave': gt 'gadukino'
 	end
-	act 'Leave': gt 'gadukino'
 end
-
-
 
 if $ARGS[0] = 'mirabrother':
 	*clr & cla

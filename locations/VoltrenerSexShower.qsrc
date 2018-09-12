@@ -107,35 +107,33 @@ if $ARGS[0] = '3':
 		$orgasm_or = 'custom'
 		gs 'arousal', 'anal', 10
 		gs 'cum_call', 'anus', 'A3'
+		gs 'arousal', 'end'
 		gs 'stat'
 		act 'Recover':
 		 	cls
+			gs 'stat'
 			'<center><video autoplay loop src="images/locations/pavlovsk/community/gym/volley/sex/voltrenersexshower20.mp4"></video></center>'
 			'Opening your eyes, you see coach standing above you. He quite unceremoniously says: "Spread your bread."'
-        	act 'Comply':
-  				VoltrenerVoyeur+=1
-  				trenerlust += 2
-  				cls
-  				'<center><video autoplay loop src="images/locations/pavlovsk/community/gym/volley/sex/voltrenersexshower11.mp4"></video></center>'
-  				'You have no idea what he means but a simple gesture makes it clear what he wants. You willingly grab your but cheeks stretch them apart giving coach full view of your holes. The coach walks up to you his cock in his hand and with just a few quick jerk sprays his seed over your ass his cum mixing with Ivan''s as it dribbles out of your butt.'
+			act 'Comply':
+				VoltrenerVoyeur+=1
+				trenerlust += 2
+				cls
+				'<center><video autoplay loop src="images/locations/pavlovsk/community/gym/volley/sex/voltrenersexshower11.mp4"></video></center>'
+				'You have no idea what he means but a simple gesture makes it clear what he wants. You willingly grab your but cheeks stretch them apart giving coach full view of your holes. The coach walks up to you his cock in his hand and with just a few quick jerk sprays his seed over your ass his cum mixing with Ivan''s as it dribbles out of your butt.'
 				gs 'arousal', 'flash', 10
+				gs 'arousal', 'end'
 				gs 'stat'
 				act 'Wash your ass':dynamic $showerdin & gt 'gdksport', 'start'
-       		end
-       		act 'Cover up':
-       			cls
-  				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/gym/volley/sex/voltrenersexshower12.jpg"></center>'
-  				'Scared, you cover you ass with your hands and look at him like a deer caught in the headlights.'
+			end
+			act 'Cover up':
+				cls
+				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/gym/volley/sex/voltrenersexshower12.jpg"></center>'
+				'Scared, you cover you ass with your hands and look at him like a deer caught in the headlights.'
 				'Mikhail Nikolaevich gives you an evil look, "Prokhorov fucks your ass and you scream with joy, but your coach just wants to alleviate some tension and you curl up all scared?"'
 				'You can see from the look in his eyes that he''s been at the wine and his slurring and unsteady legs confirm this. "Your ass isn''t that special." He spits on you and stumbles out of the showers.'
-  				gs 'arousal', 'end'
 				gs 'stat'
 				act 'Wash your ass':dynamic $showerdin & gt 'gdksport', 'start'
-        	end
-		gs 'arousal', 'end'
-		gs 'stat'
-		act 'Wash your ass':dynamic $showerdin & gt 'gdksport', 'start'
-
+			end
 		end
 	end
 end
@@ -203,7 +201,7 @@ if $ARGS[0] = '5':
 		cls
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/gym/volley/sex/voltrenersexshower19.jpg"></center>'
 		'Through the glass you see, as Michael strong views approaching the booth, and Vanya nothing, not seeing, pulls your ass, you frantically try to close the booth door on the lock, that Ivan looks like and not closed. But the cock in her ass and pushes Ivan not let you do it, the door abruptly opens, coach growled: "Again fuck. Prokhorov will tell your coach, you honouring mode, and the competitions are preparing". From these words Ivan shrank his penis opal and easily fell out of your ass: "Don''t need Michael to say anything to anyone, please. I will help with the hall, well, there is a grid to hang, girls to hold after departure", - and he, sideways covering his dignity, grabbing your stuff, got out of the shower.'
-     !!Originally 65, but without significant anal experience Ivan will have you in too much pain to get anywhere near that		
+		!!Originally 65, but without significant anal experience Ivan will have you in too much pain to get anywhere near that		
 		if pcs_horny < 30: 
 			act 'Close the shower door':
 				cls

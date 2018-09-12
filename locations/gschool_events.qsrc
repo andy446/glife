@@ -328,7 +328,7 @@ if $ARGS[0] = 'rand_gopnic':
 	end
 end
 
-if $ARGS[o] = 'toilet_bj':
+if $ARGS[0] = 'toilet_bj':
 	cls
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/boysbathroom.jpg"></center>'
 	'You know perfectly well, that the group of boys are not going to let you escape. You meekly let the boys drag you to the men''s room, hoping for a miracle to save you. It never comes. When you arrive at the men''s room, one of the guys drives everyone else out; it''s just you and the Gopniks in there now. He goes outside and keeps watch, while two of the others reach for their pants. Several more came in, to watch.'

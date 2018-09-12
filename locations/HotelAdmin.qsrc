@@ -31,7 +31,7 @@ if GotelWork = 0 and germanqw<2:
 			'Then he says: "Oh by the way, two more things: you will be required to wear a maid uniform during your working hours. Don''t worry, we have them right here. You can change before you start your shift, and your own stuff will be safe in a locker."'
 			'You nod: "Sounds fair... what''s the other thing?"'
 			'Herman continues: "If you want to work a shift, you need to be here between 16:00 and 17:00. There''s no point in you getting changed for just 20 minutes of work."'
-			'That also sounds fair. You give him a handshake as you get ready to leave: "Okay. Thank you sir!"'
+			'"That also sounds fair." You give him a handshake as you get ready to leave: "Okay. Thank you sir!"'
 			act'Return to the lobby':gt'hotelhole'
 		end
 		act'"Sorry, not interested"':

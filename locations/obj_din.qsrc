@@ -409,14 +409,14 @@ if $ARGS[0] = 'stats':
 	end
 	*nl
 
-	if (home_owned[1] = 1 or home_owned[4] > 0) and ArendHouseSL > 0:
+	if (home_owned[1] = 1 and ArendHouseSL > 0) or (home_owned[4] > 0 and ArendHouseSL4 > 0):
 			*nl
 		if home_owned[1] = 1 and home_owned[4] > 0:
-			'You have rented an apartment in the city residential area, which is paid up for <b><<ArendHouseSL>></b> days, and you also have an apartment in Pushkin, which is paid up for <b><<ArendHouseSL4>></b> days.'
+			'You have rented an apartment in the city residential area, which is paid up for <b><<ArendHouseSL>></b> days, and you also have an apartment in Pushkin, which is paid up for <b><<ArendHouseSL4>></b> days. Utilities are due on the 25th of <<$month>>.'
 		elseif home_owned[1] = 1:
-			'You have rented an apartment in the city residential area, and you''re paid up for <<ArendHouseSL>> days.'
+			'You have rented an apartment in the city residential area, and you''re paid up for <<ArendHouseSL>> days. Utilities are due on the 25th of <<$month>>.'
 		elseif home_owned[4] > 0:
-			'You have rented an apartment in Pushkin, and you''re paid up for <<ArendHouseSL>> days.'
+			'You have rented an apartment in Pushkin, and you''re paid up for <<ArendHouseSL4>> days. Utilities are due on the 25th of <<$month>>.'
 		end
 		if home_owned[1] = 1:
 			if karta >= home_rent[1] or money >= home_rent[1] or money + stolmoney >= home_rent[1] or karta + bankDebtLimit >= home_rent[1]:
@@ -442,7 +442,7 @@ if $ARGS[0] = 'stats':
 					*p 'You can make an advance <a href="exec:karta -= home_rent[1] & home_owned[1] = 1 & ArendHouseSL += ArendHouseSL_due & gs ''$menu_obnovit''">payment</a> from your bank account and overdraw facility.'
 					*nl
 				else
-					*p 'You can''t afford to make an advance payment right now, but you should try to have enough money in your account before the 25th of <<month>>, so you don''t get evicted.'
+					*p 'You can''t afford to make an advance payment right now, but you should try to have enough money in your account, so you don''t get evicted.'
 					*nl
 				end
 			end
@@ -472,7 +472,7 @@ if $ARGS[0] = 'stats':
 					*p 'You can make an advance <a href="exec:karta -= home_rent[4] & home_owned[1] = 1 & ArendHouseSL4 += ArendHouseSL_due & gs ''$menu_obnovit''">payment</a> from your bank account and overdraw facility.'
 					*nl
 				else
-					*p 'You can''t afford to make an advance payment right now, but you should try to have enough money in your account before 25th of <<month>>, so you don''t get evicted.'
+					*p 'You can''t afford to make an advance payment right now, but you should try to have enough money in your account, so you don''t get evicted.'
 					*nl
 				end
 			end
@@ -793,14 +793,14 @@ if $ARGS[0] = 'stats_gen':
 	end
 	*nl
 
-	if (home_owned[1] = 1 or home_owned[4] > 0) and ArendHouseSL > 0:
+	if (home_owned[1] = 1 and ArendHouseSL > 0) or (home_owned[4] > 0 and ArendHouseSL4 > 0):
 			*nl
 		if home_owned[1] = 1 and home_owned[4] > 0:
-			'You have rented an apartment in the city residential area, which is paid up for <b><<ArendHouseSL>></b> days, and you also have an apartment in Pushkin, which is paid up for <b><<ArendHouseSL4>></b> days.'
+			'You have rented an apartment in the city residential area, which is paid up for <b><<ArendHouseSL>></b> days, and you also have an apartment in Pushkin, which is paid up for <b><<ArendHouseSL4>></b> days. Utilities are due on the 25th of <<$month>>.'
 		elseif home_owned[1] = 1:
-			'You have rented an apartment in the city residential area, and you are paid up for <<ArendHouseSL>> days.'
+			'You have rented an apartment in the city residential area, and you''re paid up for <<ArendHouseSL>> days. Utilities are due on the 25th of <<$month>>.'
 		elseif home_owned[4] > 0:
-			'You have rented an apartment in Pushkin, and you are paid up for <<ArendHouseSL>> days.'
+			'You have rented an apartment in Pushkin, and you''re paid up for <<ArendHouseSL4>> days. Utilities are due on the 25th of <<$month>>.'
 		end
 		if home_owned[1] = 1:
 			if karta >= home_rent[1] or money >= home_rent[1] or money + stolmoney >= home_rent[1] or karta + bankDebtLimit >= home_rent[1]:
@@ -826,7 +826,7 @@ if $ARGS[0] = 'stats_gen':
 					*p 'You can make an advance <a href="exec:karta -= home_rent[1] & home_owned[1] = 1 & ArendHouseSL += ArendHouseSL_due & gs ''$menu_obnovit''">payment</a> from your bank account and overdraw facility.'
 					*nl
 				else
-					*p 'You can''t afford to make an advance payment right now, but you should try to have enough money in your account before the 25th of <<month>>, so you don''t get evicted.'
+					*p 'You can''t afford to make an advance payment right now, but you should try to have enough money in your account, so you don''t get evicted.'
 					*nl
 				end
 			end
@@ -856,7 +856,7 @@ if $ARGS[0] = 'stats_gen':
 					*p 'You can make an advance <a href="exec:karta -= home_rent[4] & home_owned[1] = 1 & ArendHouseSL4 += ArendHouseSL_due & gs ''$menu_obnovit''">payment</a> from your bank account and overdraw facility.'
 					*nl
 				else
-					*p 'You can''t afford to make an advance payment right now, but you should try to have enough money in your account before 25th of <<month>>, so you don''t get evicted.'
+					*p 'You can''t afford to make an advance payment right now, but you should try to have enough money in your account, so you don''t get evicted.'
 					*nl
 				end
 			end
@@ -1217,7 +1217,6 @@ if $ARGS[0] = 'reputation':
 	'<center><h1>Renown</h1></center>'
 	'<center><table width="90%" cellspacing="0" cellpadding="20" valign="top">'
 		'<tr><td width="50%" cellspacing="0" cellpadding="0" valign="top">'
-		*nl
 		'<center>Family Renown</center>'
 		if Enable_family_Reputation = 0:
 			'<center><a href="exec:Enable_family_Reputation = 1 & gs ''obj_din'', ''reputation''">Show details</a></center>'
@@ -2375,6 +2374,8 @@ if $ARGS[0] = 'records':
 	*nl
 	if home_owned[1] = 2:'You own a two-room apartment, in the city residential area. Utility bills are on the 25th of each month.'
 	*nl
+	if home_owned[1] = 3:'You own a two-room apartment, in the city residential area. It''s currently occupied by your tenants.'
+	*nl
 	if home_owned[2] > 0:'You live in a two-room apartment, in a large apartment comex, with your parents and siblings in Pavlovsk.'
 	*nl
 	if home_owned[3] > 0:'You own small holiday cottage with an adjacent allotment in the communal village.'
@@ -2409,7 +2410,7 @@ if $ARGS[0] = 'records':
 	*nl
 	if workrin = 1:'You are working at the market in Arthur''s tent as clothing saleswoman. Work on Tuesday, Thursday and Saturday, starting at 8 AM. Salary depends on sales.'
 	*nl
-	if maidqw = 1:'You can work in Pavlovsk hotel as a maid. Work is every day from 16 to 19. Salary is 250 us tips.'
+	if maidqw = 1:'You can work in Pavlovsk hotel as a maid. Work is every day from 16 to 19. Salary is 250 plus tips.'
 	*nl
 	if (work = 1 or cheatWork = 1) and gpoliuborka > 1:'You can work part-time as a cleaner in pavlovo clinic. Work is from 16 to 21.'
 	*nl

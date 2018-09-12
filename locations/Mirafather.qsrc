@@ -15,9 +15,12 @@ if npc_QW['A64'] < 10:'<center><b><font color = maroon>Father Miroslava</font></
 if npc_QW['A64'] >= 10:'<center><b><font color = maroon>Afanasiy</font></b></center>'
 '<center><img <<$set_imgh>> src="images/locations/gadukino/village/mirafather.jpg"></center>'
 'Mira''s father, <<boyage>> years old. After his wife died, he drank heavily and looks much older than he actually is. He is still in good shape for a man his age.'
+
+act 'Leave':gt 'miroslavahome', 'start'
+
 if MiraFather ! daystart:
 	MiraFather = daystart
-
+	
 	act 'Greet':
 		*clr & cla
 		if npc_QW['A64'] < 10:npc_QW['A64'] += 1
@@ -185,12 +188,8 @@ if MiraFather ! daystart:
 				act 'Leave': gt 'miroslavahome', 'start'
 			end
 		end
-	end
-
-	act 'Leave':gt 'miroslavahome', 'start'
+	end	
 end
-
-act 'Leave': gt 'miroslavahome', 'start'
 
 --- Mirafather ---------------------------------
 

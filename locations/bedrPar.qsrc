@@ -254,8 +254,6 @@ if breastpump <= 0 and pcs_horny >= temp_var:
 	act 'Massage your breasts': gt 'lact_lib','man_milking'
 end
 
-end
-
 if pcs_sleep <= 80:
 	if $clothingworntype = 'nude':
 		$sleep_txt = 'Go to sleep'

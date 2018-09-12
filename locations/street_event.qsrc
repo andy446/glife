@@ -427,7 +427,7 @@ if $ARGS[1] = 'main':
 
 	streetrand = rand(0, 100)
 
-	if streetrand < streetev_hijack and money >= 1000 and daystart >= 10 and (hour < 6 or hour >= 20) and streetev_day ! daystart and bag = 1:
+	if streetrand < streetev_hijack and money >= 1000 and daystart >= 10 and (hour >= 6 or hour < 20) and streetev_day ! daystart and bag = 1:
 	!!this one takes the place of the above mugging if the hours are 06:00 till 20:00
 		cla
 		*clr

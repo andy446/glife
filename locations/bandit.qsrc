@@ -57,7 +57,7 @@ end
 
 if $args[0] = 'horny':
 	banditfrend = 1
-	if alko => 6 or (alko => 3 and pcs_horny >= 90):
+	if alko => 6 or (alko >= 3 and pcs_horny >= 60):
 		if npc_QW['A66'] < 2:
 			gt 'bandit', '1'
 		elseif npc_QW['A66'] < 6:
@@ -68,11 +68,11 @@ if $args[0] = 'horny':
 			gt 'bandit', '4'
 		elseif npc_QW['A66'] < 18:
 			gt 'bandit', '5'
-		elseif npc_horny['A66'] < 30 and sub >= 90 and npc_QW['A66'] >= 22:
+		elseif npc_horny['A66'] < 30 and sub >= 90 and npc_QW['A66'] >= 18:
 			gt 'bandit', 'lick'
-		elseif npc_QW['A66'] >= 22 and sub >= 50:
+		elseif npc_QW['A66'] >= 18 and sub >= 50:
 			gt 'bandit', '6'
-		elseif npc_QW['A66'] >= 22:
+		elseif npc_QW['A66'] >= 18:
 			gt 'bandit', '5'
 		end
 	else

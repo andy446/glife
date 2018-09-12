@@ -1563,13 +1563,6 @@ $cheatmenu['display'] = {
 		'List friends in table: Currently OFF - <a href="exec:Enable_tablemap = 1 & dynamic $cheatmenu[''display'']">Turn ON</a>'
 	end
 	*nl
-	if Enable_clothwidth<0:Enable_clothwidth=0
-	if Enable_clothwidth > 0:
-		'Set Wardrobe cloth image width: <a href="exec:Enable_clothwidth=input(''Input wardrobe cloth image width'') & dynamic $cheatmenu[''display'']"><<Enable_clothwidth>></a>, Currently ON - <a href="exec:Enable_clothwidth=0 & dynamic $cheatmenu[''display''] & gs ''stat''">Turn OFF</a>'
-	else
-		'Set Wardrobe cloth image width: Currently OFF - <a href="exec:Enable_clothwidth=input(''Input wardrobe cloth image width'') & dynamic $cheatmenu[''display''] & gs ''stat''">Turn ON</a>'
-	end
-	*nl
 	if Enable_Android = 1:
 		'Set Fontsize for Status: Unsupported'
 		'Android Mode:Currently ON - <a href="exec:Enable_Android = 0 & dynamic $cheatmenu[''display'']">Turn OFF</a>'

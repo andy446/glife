@@ -3,6 +3,8 @@
 CLOSE ALL
 $metka = ''
 $loc = 'Gadbana'
+$metkaM = ''
+$locM = 'Gadbana'
 $location_type = 'bathroom'
 frost = 0
 

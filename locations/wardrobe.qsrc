@@ -6,7 +6,7 @@ if $ARGS[0] = 'start':
 	PShoCut = ShoCut
 	PShoStyle = ShoStyle
 	$wloc = 'wardrobe'
-	if ward_img_hgt = 0:ward_img_hgt = 250
+	if ward_img_hgt = 0:ward_img_hgt = 150
 	'<h3><center><b><font color="maroon">Wardrobe overview</b></h3><br><center><font color="maroon">These are the clothes you are currently wearing - Click on an item to change it</font></center>'
 	'<br><center><table border=0 cellspacing=<<ward_img_hgt/25>> cellpadding=5>'
 	*p '<TH>Bra worn</TH><TH>Outfit worn</TH><TH>Coat (only worn outside when cold)</TH>'
@@ -72,7 +72,7 @@ if $ARGS[0] = 'start':
 	end
 	'</center></TD>'
 	'</table></center>'
-	act 'Return': killvar '$wloc' & gt $loc, $metka
+	act 'Close wardrobe': killvar '$wloc' & gt $loc, $metka
 
 	act 'Strip all clothing':
 		gs 'bras', 'remove'
@@ -86,12 +86,12 @@ if $ARGS[0] = 'start':
 
 	act 'Choose a default outfit': gt 'wardrobe', 'default'
 
-	act 'Organise stored clothing': gt 'clothing', 'view_clothing_list', 'store'
+	act 'Organise stored clothing': org_loc = 1 & gt 'clothing', 'view_clothing_list', 'wardrobe'
 
-	act 'Set image height for this view':
-		ward_img_hgt = input("Enter height in pixels you want for images on this page <br>(Default 250, min 100, max 500)")
-		if ward_img_hgt < 100:
-			ward_img_hgt = 250
+	act 'Set image size for this view':
+		ward_img_hgt = input("Enter height in pixels you want for images on this page <br>(Default 150, min 50, max 500)")
+		if ward_img_hgt < 50:
+			ward_img_hgt = 50
 		elseif ward_img_hgt > 500:
 			ward_img_hgt = 500
 		end

@@ -23,24 +23,24 @@ if $ARGS[0] = 'start':
 
 	if unrelated_preg = 1 and knowpreg = 1:
 		''
-		'You are pregnant and they don''t take pregnant candidates' 	
+		'You are pregnant and they don''t take on pregnant candidates.' 	
 	elseif exp_form = 0 and experimentAbsolved = 0 and (knowpreg = 0 or unrelated_preg = 0):
 		''
-		'Hello miss, can I help you?'
-		'I have read an advert that you are looking for people to test some kind of new treatment.. And that you pay for it.'
-		'Yes, that is true. If you want to apply, please read and fill in this form.'
+		'You are warmly welcomed by the woman sitting behind the desk, "Hello miss, can I help you?"'
+		'"I read an advert that you are looking for people to test some kind of new treatment... And that you compensate the subjects for it." you reply.'
+		'"Yes, that is true. If you want to apply, please read and fill in this form." She hands you over the form.'
 
 		act 'Take the form':gt $loc,'form'
 	elseif exp_form = 1 and experimentAbsolved = 0 and (knowpreg = 0 or unrelated_preg = 0): 
 		act 'Go to the area marked in the book to start the experiment':gt $loc,'form:filled'
 	elseif shouted = 1:
 		''
-		'Hello miss <<$pcs_lastname>>, you are not going to shout at me again, will you?'
+		'"Hello miss <<$pcs_lastname>>, you are not going to shout at me again, will you?" the woman behind the desk asks.'
 		act '<i>Angrily shout at her for ruining your life</i>':gt $loc, 'deskTalk:shout'
 		act 'No, I am sorry about that..':gt $loc, 'deskTalk' && shouted = 0
 	else
 		'Hello miss <<$pcs_lastname>>, how is your pregnancy?'
-		if kid = 0 and pregchem > 0:act 'It goes well':gt $loc, 'deskTalk'
+		if kid = 0 and pregchem > 0:act 'It is going well':gt $loc, 'deskTalk'
 		if kid > 0:act 'I already gave birth':gt $loc, 'deskTalk'
 		if kid = 0 and pregchem = 0:act 'I had an abortion':gt $loc, 'deskTalk'
 	end
@@ -53,20 +53,20 @@ if $ARGS[0] = 'deskTalk':
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse2.jpg"></center>'
 	''
 	if kid = 0 and pregchem > 0:
-		'That is good to hear. Can I help you somehow?'
+		'"That is good to hear. Can I help you somehow?"'
 		act 'No':gt 'poli', 'start'
 	elseif kid > 0 and pregchem = 0:
-		'Wonderful! Anyway, can I help you somehow? Are you maybe intersted in rejoining the experiment?'
-		'That is possible?'
-		'Of course it is miss <<$pcs_lastname>>. Already having a child is not a discriminating factor, on the contrary.'
-		'Really?'
-		'Indeed. You are in need of those money, aren''t you? Think about it..'
-		act 'No way going there again!':gt $loc, 'deskTalk:refuse'
+		'"Wonderful! Anyway, can I help you somehow? Are you maybe interested in rejoining the experiment?" she curiously asks.'
+		'"That''s still a possibility?" you surprisingly ask.'
+		'"Of course it is miss <<$pcs_lastname>>. We don''t discriminate if you''ve had a child or not, on the contrary." she re-assures you.'
+		'"Really?" you start to ponder.'
+		'"Indeed. If I remember correctly you were in need of money, weren''t you? Think about it..."'
+		act 'No way I''m going through that again!':gt $loc, 'deskTalk:refuse'
 		act 'Yes, I need the money..':gt $loc, 'deskTalk:volunteer'
 		act 'Leave':gt 'poli', 'start'
 	elseif kid = 0 and pregchem = 0:
-		'Oh, that is unfortunate, but not unexpected. Why are you here again, tell me? Do you want to rejoin the experiment again? Have you changed your mind, or do you need the money? Our doctors would definitely welcome to test on a subject that underwent a pregnancy termination..'
-		act 'No way going there again!':gt $loc, 'deskTalk:refuse'
+		'"Oh, that is unfortunate, but not unexpected. Why are you here again, tell me? Do you want to rejoin the experiment again? Have you changed your mind, or do you need the money? Our doctors would definitely welcome to test on a subject that underwent a pregnancy termination..." she asks.'
+		act 'No way I''m going through that again!':gt $loc, 'deskTalk:refuse'
 		act 'Yes, I need the money..':gt $loc, 'deskTalk:volunteer'
 		act '<i>Angrily shout at her for ruining your life</i>':gt $loc, 'deskTalk:shout'
 		act 'Leave':gt 'poli', 'start'
@@ -77,8 +77,8 @@ if $ARGS[0] = 'deskTalk:shout':
 	shouted = 1
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\shout.jpg"></center>'
 	''
-	'Calm damn miss <<$pcs_lastname>>, or I will be forced to call a security!'
-	'Go to hell, you and your medical experiments!'
+	'"Calm damn miss <<$pcs_lastname>>, or I will be forced to call a security!" the woman yells as she tries to calm you down.'
+	'"You can all go to hell, all of you and your medical experiments!" you yell back.'
 
 	act 'Leave':gt 'poli', 'start'
 end
@@ -86,27 +86,27 @@ end
 if $ARGS[0] = 'deskTalk:refuse':
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse2.jpg"></center>'
 	''
-	'I see miss <<$pcs_lastname>>. I guess being used for those oversized africans is not an experience that a woman would like to go through repeatedly.'
-	'Thank you nurse. You are surprised by her empathy.'
-	'Yet you are not a regular woman, are you? '
-	'What?'
-	'Admit it, you are a slut. I''ve seen you silently enjoy the pounding those africans gave you. I''ve seen your true self. You are a whore, a cumbucket, a slut.'
-	'How dare you?!'
-	'What''s worse, you are not just a whore, you are a big black cock whore, the worst of the worst. A true disgrace of a decent woman!'
+	'"I understand miss <<$pcs_lastname>>. I guess being used by those extra large sized cocks is not an experience that a woman would like to go through repeatedly." she understandingly replies.'
+	'"Thank you nurse." you are surprised by her empathy.'
+	'"Yet you are not a regular woman, are you?" her look and voice changes.'
+	'"What?" you frightfully ask.'
+	'"Admit it, you are a slut. I''ve seen you silently enjoy the pounding those africans gave you. I''ve seen your true self. You are a whore, a cum bucket, a slut." the woman starts attacking you.'
+	'"How dare you?!" you start mouthing back.' 
+	'"What''s worse, you are not just any regular whore, but you are a big black cock whore, the worst of the worst. A true disgrace to all decent women originating from Russia!" she hisses back.'
 
 	act '<i>Angrily shout at her for those lies</i>':gt $loc, 'deskTalk:shout'
-	act 'Admit you are a <i>BBC</i> whore':gt $loc, 'deskTalk:admitWhore'
+	act 'Admit that you love black cocks':gt $loc, 'deskTalk:admitWhore'
 	act 'Leave':gt 'poli', 'start'
 end
 
 if $ARGS[0] = 'deskTalk:admitWhore':
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse2.jpg"></center>'
 	''
-	'You see miss <<$pcs_lastname>>, acceptance is the first step. Now do you want to rejoin the experiment, or not?'
-	'I am not sure nurse..'
-	'Just think about all those big black cocks, ready to fill you with their cum.. And all the orgasms!'
+	'"You see miss <<$pcs_lastname>>, acceptance is the first step. Now do you want to rejoin the experiment, or not?" she grins as she asks.'
+	'"I am not sure, nurse..." you hesitantly answer.'
+	'"Just think about all those big black cocks, ready to fill you up... And all the orgasms you would be experiencing!" she is trying her best to tempt you.'
 
-	act 'Yes, I need it..':gt $loc, 'deskTalk:volunteer'
+	act 'Yes, I need it...':gt $loc, 'deskTalk:volunteer'
 	act 'No, I have to fight this..':gt 'poli', 'start'
 end
 
@@ -117,7 +117,7 @@ if $ARGS[0] = 'deskTalk:volunteer':
 	expVolunteerExam = 0
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse2.jpg"></center>'
 	''
-	'Great! No need to go through the regular procedures again. Go directly to the changing romm and then come back to me.'
+	'"Great! No need to go through the regular procedures again. Go directly to the changing room and then come back to me." she points you towards the direction of the changing room.'
 	act 'Go change':gt $loc, 'testarea:lockeroom:locker'
 end
 
@@ -125,15 +125,13 @@ if $ARGS[0] = 'deskTalk:volunteer:start':
 	minut += 3
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse2.jpg"></center>'
 	''
-	'Very well miss <<$pcs_lastname>>, now follow me, I will show you to your room.'
+	'"Very well miss <<$pcs_lastname>>, now follow me, I will show you to your room." she begins to lead you towards the room.'
 	'As you follow her, she turns your head to you, saying:'
-	'Please mind that the regular restrictions still apply to you, even though you have volunteered again.'
-	'Regular restrictions?'
-	'Yes - you will be restricted to your room and not allowed to leave until the experiment is completed.'
-	'Will the men be so rough to me again? Can''t they be a bit more gentle if I have volunteered?'
-	'I am afraid they will be the same. You can''t changed the men, girl..You should already know that.'
-	''
-	'<i>Well, that''s bad..bud no way back I guess..</i>'
+	'"Please mind that the regular restrictions still apply to you, even though you are volunteering again."'
+	'"Regular restrictions?" you ask.'
+	'"Yes" she nods her head, "You will be restricted to your room and not allowed to leave until the experiment is completed, just as last time."'
+	'"Will the men be rough with me again? Can''t they be a bit more gentle now that I''ve volunteered once again?" you ask.'
+	'The nurse shakes her head, "I am afraid they will be the same. You can''t change men, girl... You should already know that."'
 	act 'Follow her':gt $loc, 'testarea:treatment:room'
 end
 
@@ -154,10 +152,10 @@ if $ARGS[0] = 'form':
 	'Men in age between 35 and 70, with further conditions applied case to case by a supervising doctor.'
 
 	'<h4>Payment</h4>'
-	'A compensation will be paid at the end of the treatment, in value of <b>50.000 RUB.</b>'
+	'A compensation will be paid at the end of the treatment, a value of 50.000 <b>₽</b>.'
 	
 	if age <= 40:
-		act 'Fill in the form and hand it to the desk attendant':gt $loc,'form:filled'
+		act 'Fill in the form and hand it over to the desk attendant':gt $loc,'form:filled'
 		act 'Leave it be':gt 'poli', 'start'
 	else
 		act 'Leave it be (you are too old)':gt 'poli', 'start'
@@ -169,8 +167,8 @@ if $ARGS[0] = 'form:filled':
 	minut += 3
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\desk.jpg"></center>'
 	''
-	'Thank you miss. You can start at any time, this project is ongoing and you do not have to wait for other people.'
-	'She gives you a confirmed copy of the form and a guide book with instructions.'
+	'As you hand the form back the nurse, she begins to talk, "Thank you miss. You can start at any time, this project is ongoing and you do not have to wait for other people."'
+	'She hands you over a confirmed copy of the form and a guide book with instructions.'
 
 	act 'Go to the area marked in the guide to start the experiment':gt $loc,'testarea:start'
 	act 'Leave for now':gt 'poli', 'start'
@@ -180,9 +178,9 @@ if $ARGS[0] = 'testarea:start':
 	minut += 1
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse2.jpg"></center>'
 	''
-	'Hello miss, you are here for the experimental treatment?'
-	'Yes, I have the confirmed form right here.'
-	'OK, very well. Before we start, we need to have some facts checked, if you dont mind.'
+	'"Hello miss, you are here for the experimental treatment?" an other nurse asks you.'
+	'"Yes, I have the confirmed form right here." you hand over the form.'
+	'"Okay, very well. But before we start, we need to double check a couple of facts, if you don''t mind." she tells you.'
 	'She brings up a new form and begins to ask you questions, taking notes:'
 	act 'Start the questionare':gt $loc,'testarea:questionare:0'
 end
@@ -192,14 +190,14 @@ if $ARGS[0] = 'testarea:questionare:0':
 	minut += 1
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse2.jpg"></center>'
 	''
-	'Are you pregnant?'
+	'"Are you pregnant?"'
 	
 	if knowpreg = 1:
 		act 'Yes': 
 			cla
 			''
 			'"Yes", you answer truthfully.'
-			'"Oh, I''m sorry, but we can''t sign you up for the experiment when you are pregnant.'
+			'"Oh, I''m sorry, but we can''t sign you up for the experiment when you are pregnant." she disappointingly replies.'
 			unrelated_preg = 1
 			act 'Leave': gt $loc,'start'
 		end
@@ -209,7 +207,7 @@ if $ARGS[0] = 'testarea:questionare:0':
 			cla
 			''
 			'"Yes", you lie.'
-			'"Oh, I''m sorry, but we can''t sign you up for the experiment when you are pregnant.'
+			'"Oh, I''m sorry, but we can''t sign you up for the experiment when you are pregnant." she disappointingly replies.'
 			unrelated_preg = 1
 			act 'Leave': gt $loc,'start'
 		end
@@ -222,7 +220,7 @@ if $ARGS[0] = 'testarea:questionare:1':
 	minut += 1
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse2.jpg"></center>'
 	''
-	'How old are you?'
+	'"How old are you?"'
 	
 	if age < 18:act '18 years (lie)':underage = 1 && gt $loc,'testarea:questionare:2'
 	if age >= 18:act age+' years':gt $loc,'testarea:questionare:2'
@@ -233,7 +231,7 @@ if $ARGS[0] = 'testarea:questionare:2':
 	minut += 1
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse2.jpg"></center>'
 	''
-	'Do you have regular period?'
+	'"Are you having regular periods?"'
 	
 	if tabletkicheck = 2:
 		act 'No, I am on the pill.':regper = 3 && gt $loc,'testarea:questionare:3'
@@ -251,8 +249,7 @@ if $ARGS[0] = 'testarea:questionare:3':
 	minut += 1
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse2.jpg"></center>'
 	''
-	'How many sexual partners did you have so far?'
-	'<i>Weird question..</i>'
+	'"How many sexual partners have you had so far?"'
 	
 	if guy = 0 and pcs_vag = 0:act 'None, I am a virgin.':virg = 1 && gt $loc,'testarea:questionare:5'
 	if guy > 0:act 'None, I am a virgin. (lie)':virg = 0 && gt $loc,'testarea:questionare:5'
@@ -272,8 +269,7 @@ if $ARGS[0] = 'testarea:questionare:4':
 	minut += 1
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse2.jpg"></center>'
 	''
-	'How many times a week do you have sex?'
-	'<i>Why does she need to know THAT?</i>'
+	'"How many times a week do you have sex?"'
 	
 	act 'None or rarely':sexfreq = 1 &&  gt $loc,'testarea:questionare:5'
 	act 'A few times':sexfreq = 2 && gt $loc,'testarea:questionare:5'
@@ -286,15 +282,16 @@ if $ARGS[0] = 'testarea:questionare:5':
 	minut += 1
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse2.jpg"></center>'
 	''
-	'What size of your partners penis do you prefer?'
-	'<i>These questions are really starting to be suspiciously related to sexual nature!</i>'
+	'"What size of your partners penis do you prefer?"'
+	'"I''m sorry, but these questions are really starting to be suspiciously related to sexual nature?" you start to question her intentions.'
+	'The nurse smiles, "No need to worry, we''ll be shortly done..."'
 
 	if virg <= 1:
 		act 'I do not know, I am a virgin after all.':gt $loc,'testarea:questionare:6'
 	else
 		act 'A small one, it is more comfortable and painless.':dick_pref = 1 && prude = 1 &&gt $loc,'testarea:questionare:6'
 		act 'A medium one, balance between pleasure and comfort.':dick_pref = 2 && gt $loc,'testarea:questionare:6'
-		act 'A big one, the feeling of fullness exceedes the occasional discomfort.':dick_pref = 3 && slut = 1 && gt $loc,'testarea:questionare:6'
+		act 'A big one, the feeling of fullness exceeds the occasional discomfort.':dick_pref = 3 && slut = 1 && gt $loc,'testarea:questionare:6'
 	end
 end
 
@@ -303,8 +300,7 @@ if $ARGS[0] = 'testarea:questionare:6':
 	minut += 1
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse2.jpg"></center>'
 	''
-	'Did you ever had sex with someone other than of Russian native origin?'
-	'<i>Why would I do that? I am decent Russian girl!</i>'
+	'"Have you ever had sex with anyone other than of Russian native origin?"'
 
 	if virg <= 1:
 		act 'I already told you I am a virgin':gt $loc,'testarea:questionare:7'
@@ -322,10 +318,10 @@ if $ARGS[0] = 'testarea:questionare:7':
 	minut += 1
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse2.jpg"></center>'
 	''
-	'Thank you miss. Now that we have this paperwork taken care for, we can proceed.'
-	'Do you have any questions?'
+	'"Thank you miss. Now that we have this paperwork taken care for, we can proceed with the experiment."'
+	'"Do you have any questions?" the nurse asks you.'
 
-	act 'Yes - why such weird questions?':gt $loc,'testarea:questionare:8'
+	act 'Yes, why did you ask such weird questions?':gt $loc,'testarea:questionare:8'
 	act 'No, we can proceed.':gt $loc,'testarea:questionare:9'
 end
 
@@ -334,11 +330,11 @@ if $ARGS[0] = 'testarea:questionare:8':
 	minut += 1
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse2.jpg"></center>'
 	''
-	'Yes - what such weird questions? I thought this was a medical experiment. It is weird!'
-	'Don''t worry miss, it is a standard procedure meant to asess potential risks of sexually transimitted diseases.'
+	'"Why were you asking such weird questions? I thought this was a medical experiment. They were really weird!" you ask.'
+	'"Don''t worry miss, it is a standard procedure meant to assess potential risks of sexually transmitted diseases." the nurse is trying to re-assure you.'
 
-	act 'Sounds genuine - proceed':gt $loc,'testarea:questionare:9'
-	act 'Something''s wrong - go away and leave':gt 'poli', 'start'
+	act 'Sounds genuine, we can proceed':gt $loc,'testarea:questionare:9'
+	act 'Something''s wrong, I want to leave':gt 'poli', 'start'
 end
 
 ! questionare end
@@ -346,10 +342,10 @@ if $ARGS[0] = 'testarea:questionare:9':
 	minut += 1
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse2.jpg"></center>'
 	''
-	'I am glad that you understand. Now please go to the locker room, put all your things into locker No 54. It will be stored for you until you finish the treatment.'
-	'You will find a patient gown inside - put in on and come back to me.'
+	'"I am glad you are pleased. Now please head over to the locker room, put all your things in locker No 54. It will be stored for you until you finish the treatment."'
+	'"You will find a patient gown inside there, put in on and come back to me." she tells you.'
 
-	act 'Go to the locker room':gt $loc,'testarea:lockeroom:locker:meetAfrican'
+	act 'Head over to the locker room':gt $loc,'testarea:lockeroom:locker:meetAfrican'
 end
 
 if $ARGS[0] = 'testarea:lockeroom:locker:meetAfrican':
@@ -357,13 +353,13 @@ if $ARGS[0] = 'testarea:lockeroom:locker:meetAfrican':
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\africanMeet.jpg"></center>'
 	''
 	'As you walk down the hall, you notice a room with open doors.'
-	'You don''t know why but you carefully step behind the door, as if you didn''t want to be seen or heard.'
-	'An african man is standing in the middle, smoking a cigarette - and <b>naked</b>!'
-	'Obviously he didn''t see you. Maybe he is just ignoring you.'
-	'You turn your look from his face, looking down to his crotch...your lips open wide in shock and disbelief:'
-	if pcs_vag = 0:'<i>I have seen a few penis pictures so far, but none has ever been so big, not nearly! They say africans have big ones, but so much?</i>'
-	if pcs_vag > 0 and pcs_vag <= 10:'<i>I have seen a few penises so far, but none has ever been so big, not nearly! They say africans have big ones, but so much?</i>'
-	if pcs_vag > 10:'<i>I have seen many penises already, but none has ever been so big, not nearly! They say africans have big ones, but so much?</i>'
+	'You don''t know why but you quietly step behind the door, as if you didn''t want to be seen or heard.'
+	'A black man is standing in the middle of the room, smoking a cigarette, and he''s completely <b>naked</b>!'
+	'He doesn''t notice you. It could be that he is just ignoring you.'
+	'Your curiosity gets the best of you as you stray your eyes away from his face, and continue down his body to stop by his crotch... You open your mouth wide in shock and disbelief:'
+	if pcs_vag = 0:'<i>I have seen a few penis pictures so far, but none has ever been so big, not nearly! I''ve heard stories about black men, but to be this big?</i>'
+	if pcs_vag > 0 and pcs_vag <= 10:'<i>I have seen a few penises so far, but none has ever been so big, not nearly! I''ve heard stories about black men, but to be this big?</i>'
+	if pcs_vag > 10:'<i>I have seen many penises already, but none has ever been so big, not nearly! I''ve heard stories about black men, but to be this big?</i>'
 
 
 	act 'Stare at him':gt $loc,'testarea:lockeroom:locker:stareAfrican'
@@ -374,22 +370,22 @@ if $ARGS[0] = 'testarea:lockeroom:locker:stareAfrican':
 	minut += 2
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\africanMeet.jpg"></center>'
 	''
-	'The african finishes his cigarette, suddenly looking at you.'
-	'<b>You are new white cunt here to be knocked up? Why you not bound? Come here!</b>'
-	'He makes a move towards you, his giant penis bounces between his legs.'
-	'This wakes you from the shock, realizing who is standing before you and what is he saying.'
-	'Frightened by him you step back.'
+	'The man finishes his cigarette, and all of a sudden turns over and is hungrily looking at you.'
+	'"<b>Haven''t seen you before, you are new? Can''t wait to knock you up... Why you not bound? Come here!</b>" he yells out.'
+	'He makes a move towards you, his giant penis swinging freely between the legs.'
+	'This wakes you from the shock, realizing that he is standing in front of you and what is he implying.'
+	'Frightened, you take a step back.'
 
 	act 'Step back and continue down the hall':gt $loc,'testarea:lockeroom:locker'
-	act 'Something''s wrong - run away':gt 'poli', 'start'
+	act 'Something''s wrong, run away':gt 'poli', 'start'
 end
 
 if $ARGS[0] = 'testarea:lockeroom:locker':
 	minut += 2
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\lockerRoom.jpg"></center>'
 	''
-	'A room full of old rusty steel lockers. Each one has code lock.'
-	'No. 54 is about in the middle.'
+	'A room full of old rusty steel lockers. Each one has a code lock.'
+	'You find locker No. 54 in the middle of the room.'
 
 	$pantyworntype = 'none'
 	$braworntype = 'none'
@@ -398,15 +394,15 @@ if $ARGS[0] = 'testarea:lockeroom:locker':
 	analplugin = 0
 
 	gs 'clothing', 'strip'
-	act 'Strip down and wear the gown':gt $loc,'testarea:lockeroom:gown'
+	act 'Strip down and put on the gown':gt $loc,'testarea:lockeroom:gown'
 end
 
 if $ARGS[0] = 'testarea:lockeroom:gown':
 	minut += 3
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\gown.jpg"></center>'
 	''
-	'You wear nothing but the long, plain white gown. It is secured behind your back by a strap, leaving your back and asscheeks barely covered.'
-	'You feel as if naked, somehow insecure.'
+	'You wear nothing but the long, plain white gown. It is secured behind your back by a strap, leaving your back and ass cheeks barely covered.'
+	'You feel as if you were naked, and a insecurity comes over you...'
 
 	if expVolunteer = 0:act 'Leave the room and go back to nurse':gt $loc,'testarea:start:treatment:ask1'
 	if expVolunteer = 1:act 'Leave the room and go back to nurse':gt $loc,'deskTalk:volunteer:start'
@@ -417,15 +413,12 @@ if $ARGS[0] = 'testarea:start:treatment:ask1':
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse2.jpg"></center>'
 	''
 	'Back in the entry hall, you feel a sudden cold breeze running through your back.'
-	'The unexpected meeting with the african man gives you a tremor.'
+	'The unexpected meeting with the black man made you tremble as you remember the things he said to you...'
 	''
-	'<b><i>What was the man doing there? Why was he naked? And why did he said I am another white cunt to be fucked? And not bound or what?</i></b>'
-	''
-	'Meanwhile the nurse comes back, looking at you.'
-	'So miss <<$pcs_lastname>>, everything alright? Can we proceed?'
+	'Meanwhile the nurse comes back, and takes a look at you, "So miss <<$pcs_lastname>>, everything alright? Can we proceed?"'
 		
-	act 'Yes - we can proceed':gt $loc,'testarea:start:treatmentStart'
-	act 'No - I have a question':gt $loc,'testarea:start:treatment:ask2'
+	act 'Yes, we can proceed':gt $loc,'testarea:start:treatmentStart'
+	act 'No, I have a question':gt $loc,'testarea:start:treatment:ask2'
 end
 
 if $ARGS[0] = 'testarea:start:treatment:ask2':
@@ -436,21 +429,21 @@ if $ARGS[0] = 'testarea:start:treatment:ask2':
 	if ask2 = 2 and ask3 = 2 and ask4 = 2:lvl = 2
 
 	if lvl = 0:
-		'<b>I have a question.</b>'
-		'Very well miss <<$pcs_lastname>>, ask away.'
+		'"I have a question." you swallow hard.'
+		'"Very well, miss <<$pcs_lastname>>, ask away." the nurse is awaiting your question.'
 	else
-		'Do you have another question, miss <<$pcs_lastname>>?'
+		'"Do you have another question, miss <<$pcs_lastname>>?"'
 	end
 
 		
-	if lvl = 0 and ask1 = 0:act 'Who was this african man I just''ve seen?':ask1 = 1 && gt $loc,'testarea:start:treatment:ask3'
+	if lvl = 0 and ask1 = 0:act 'Who was that black man I just encountered?':ask1 = 1 && gt $loc,'testarea:start:treatment:ask3'
 
 	if lvl = 1 and ask2 = 0:act 'Why did he have such enormous penis?':ask2 = 1 && gt $loc,'testarea:start:treatment:ask3'
-	if lvl = 1 and ask3 = 0:act 'Why did he call me white cunt to be knocked up?':ask3 = 1 && gt $loc,'testarea:start:treatment:ask3'
-	if lvl = 1 and ask4 = 0:act 'He said something about me being not bound?':ask4 = 1 && gt $loc,'testarea:start:treatment:ask3'
+	if lvl = 1 and ask3 = 0:act 'Why did he call me a whore waiting to be knocked up?':ask3 = 1 && gt $loc,'testarea:start:treatment:ask3'
+	if lvl = 1 and ask4 = 0:act 'He mentioned something about me being not bound?':ask4 = 1 && gt $loc,'testarea:start:treatment:ask3'
 
 	if lvl = 2 and ask5 = 0:act 'What exactly will be tested on me?':ask5 = 1 && gt $loc,'testarea:start:treatment:ask3'
-	if lvl = 2 and ask6 = 0:act 'Will I get in touch with the african male subjects?':ask6 = 1 && gt $loc,'testarea:start:treatment:ask3'
+	if lvl = 2 and ask6 = 0:act 'Will I be meeting these black male subjects?':ask6 = 1 && gt $loc,'testarea:start:treatment:ask3'
 	if lvl > 0:act 'No, we can proceed':gt $loc, 'testarea:start:treatmentStart'
 	if lvl > 0:act 'I think I''ve changed my mind about this':gt $loc, 'testarea:start:changeMind'
 end
@@ -461,61 +454,57 @@ if $ARGS[0] = 'testarea:start:treatment:ask3':
 	''
 	if ask1 = 1:
 		ask1 = 2
-		'<b>Who was this african man I just''ve seen?</b>'
-		'I see you have witnessed something you shouldn''t have. Allright, no use hiding it before you anymore, I will tell you. He is one of our male subjects.'
-		'An african? Are all your males subjects like him?'
-		'Yes miss <<$pcs_lastname>>, they are all of african descent.'
-		'But..why?'
-		'It is a part of the research. The males are africans, the females are caucasians.'
+		'"<b>Who was that black man I just encountered?</b>" you ask.'
+		'"I see, you have witnessed something you shouldn''t have. Alright, no use hiding it before you anymore, I will tell you. He is one of our male subjects." the nurse starts explaining.'
+		'"A black male? Are all the subjects like him?" you impatiently ask.'
+		'"Yes miss <<$pcs_lastname>>, they are all of african descent." the nurse replies.'
+		'"But... Why?" you frightfully question.'
+		'"It is a part of the research. The males are africans, the females are caucasians." she tells you without a further explanation.'
 		act 'Continue':gt $loc, 'testarea:start:treatment:ask2'
 	elseif ask2 = 1:
 		ask2 = 2
-		'<b>Why did he have so enormous penis?</b>'
-		'He was administered an experimental treatment for penis enlargment.'
-		'What? That is possible?'
-		'Yes miss <<$pcs_lastname>>, it is one of the drugs we research here.'
-		''
-		'<i>Why would they research something like this in a mixed group of males and females?</i>'
+		'"<b>How come did he have such an enormous penis?</b>" you ask.'
+		'"Oh, he was administered an experimental treatment for penis enlargement." the nurse explains.'
+		'"What? That is possible?" you gasp.'
+		'The nurse nods, "Yes miss <<$pcs_lastname>>, it is one of the drugs we research here." she shortly explains.'
 		act 'Continue':gt $loc, 'testarea:start:treatment:ask2'
 	elseif ask3 = 1:
 		ask3 = 2
-		'<b>Why did he call me white cunt to be knocked up?</b>'
-		'You see miss <<$pcs_lastname>>, the drug has a side effects. The subjects can be confused, higher brain functions limited.'
-		'That is horrible!'
-		'We do our best to remove such weakpoints. But it takes time.'
-		'And they don''t mind being in such a state?'
-		'They have taken part in this project knowing all the risks.'
+		'"<b>Why did he want to knock me up?</b>" you ask.'
+		'"You see miss <<$pcs_lastname>>, the drug has side effects. The subjects can end up confused, in some cases their brain function gets limited." she says.'
+		'"That is horrible!" you reply.'
+		'"We do our best to remove such side effects. But it takes time to correct." the nurse does her best to explain.'
+		'"And they don''t mind being in such a state?" you curiously ask.'
+		'"They have taken part in this project knowing all the risks." the nurse sighs.'
 		act 'Continue':gt $loc, 'testarea:start:treatment:ask2'
 	elseif ask4 = 1:
 		ask4 =2
-		'<b>He said something about me being not bound?</b>'
-		'Indeed miss <<$pcs_lastname>>, we have to restrict the movement of some of our patients from time to time.'
-		'Why?'
-		'To prevent them from harming themselves. The side effects vary, you know..'
-		'Will you restrict me too?'
-		'It is possible, yes. But only for your good and if neccessary.'
+		'"<b>He mentioned something about me being not bound?</b>" you ask.'
+		'"Indeed miss <<$pcs_lastname>>, we have to restrict the movement of some of our patients from time to time." she explains.'
+		'"Why?" you frightfully ask.'
+		'"To prevent them from harming themselves. The side effects vary, you know..." the nurse continues on.'
+		'"Will you restrict me too?" you question the nurse.'
+		'"There''s a risk for that, yes. But only for your good and if necessary." she re-assures you.'
 		act 'Continue':gt $loc, 'testarea:start:treatment:ask2'
 	elseif ask5 = 1:
 		ask5 = 2
-		'<b>What exactly will be tested on me?</b>'
-		'I cannot tell you even if I wanted to.'
-		'Why?'
-		'Firstly you shouldn''t know that. It may be placebo or it may not.'
-		'And secondly?'
-		'Secondly it will be decided when we run the tests. You will be assigned a schedule best fitting for you.'
-		''
-		'You notice a whitish stain on the nurses clothes. An old, dried yoghurt perhaps?</i>'
+		'"<b>What exactly will be tested on me?</b>" you ask.'
+		'"I cannot tell you even if I wanted to." the nurse replies.'
+		'"Why?" you ask.'
+		'"Firstly, you shouldn''t know what to expect. It may be a placebo or not." the nurse explains.'
+		'"There''s more?" you continue on pressing.'
+		'"Secondly, it will be decided when we run the tests. You will be assigned a schedule best fitting for you." the nurse annoyingly answers.'
 		act 'Continue':gt $loc, 'testarea:start:treatment:ask2'
 	elseif ask6 = 1:
 		ask6 = 2
-		'<b>Will I get in touch with the african male subjects?</b>'
-		'Well, it is likely.'
-		'How?'
-		'A regular interaction is required in order to do the research.'
-		'How regular? What kind of interaction?'
-		'Several times a day. I cannot tell you more, it will be decided when we run the tests and once you will be assigned to a specific test group.'
+		'"<b>Will I be meeting these black male subjects?</b>" you ask.'
+		'"Most certainly." the nurse replies.'
+		'"In what way?" you pry on.'
+		'"A regular interaction is required in order to do the research." the nurse explains.'
+		'"What do you mean regular? What kind of interaction?" you angrily ask.'
+		'"Several times a day. I cannot tell you more, it will be decided when we run the tests and once you will be assigned to a specific test group." the nurse vaguely explains.'
 		''
-		'As if from afar, you hear a male''s grunts and heavy breathing, getting more and more intensive, while it suddenly stops with a more loud grunt.'
+		'As if from afar, you hear a male''s grunts and heavy breathing, getting more and more intensive, when it suddenly stops with just one last loud grunt.'
 		act 'Continue':gt $loc, 'testarea:start:treatment:ask2'
 	end
 end
@@ -523,12 +512,12 @@ end
 if $ARGS[0] = 'testarea:start:changeMind':
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse2.jpg"></center>'
 	''
-	'<b>I think I changed my mind.</b>'
-	'What do you mean miss <<$pcs_lastname>>?'
-	'Everything here is too suspicious. Questions regarding sex, africans with giant penises calling me a white cunt, restricting your test subjects, not telling me what actually will I go through.'
-	'I think you are overreacting, miss <<$pcs_lastname>>. This is an official research project. There is nothing to be afraid of. Are you sure you want to leave?'
+	'"<b>I think I changed my mind.</b>" you tell the nurse.'
+	'"What do you mean miss <<$pcs_lastname>>?" she is confusingly looking at you.'
+	'"Everything here is too suspicious. Questions regarding sex, black males with giant penises wanting to impregnate me, restricting your test subjects, not telling me what actually will I go through." you explain.'
+	'"I think you are over-thinking it, miss <<$pcs_lastname>>. This is an official research project. There is nothing to be afraid of. Are you sure you want to leave?" the nurse asks.'
 
-	act 'Tell her you changed your mind and proceed':gt $loc, 'testarea:start:treatmentStart'
+	act 'Tell her you changed your mind and want to continue on':gt $loc, 'testarea:start:treatmentStart'
 	act 'Tell her yes, dress up and leave':gs 'clothing', 'wear_last_worn' && gt 'poli', 'start'
 end
 
@@ -538,18 +527,18 @@ if $ARGS[0] = 'testarea:start:treatmentStart':
 	''
 	'Back in the entry hall, you feel a sudden cold breeze running through your back.'
 	''
-	'Allright nurse, I am ready.'
-	'Have you secured the locker?'
-	'Yes, I have.'
-	'Good. Now please follow me, we will start.'
+	'"Alright nurse, I am ready." you tell her.'
+	'"Have you secured the locker?" she asks.'
+	'"Yes, I have." you reply.'
+	'"Good. Now please follow me, it''s time to start." she commands you.'
 	''
-	'She leads you through a long hallway in a room that looks like any other doctors room.'
+	'She leads you through a long hallway to a room that looks like any other doctor room.'
 	''
-	'Please sit down, I will inject you vitamins before the doctors come and start the actual treatment.'
+	'The nurse points towards a chair, "Please sit down, I need to inject some vitamins before the doctors come and start the actual treatment."'
 	''
-	'She brings up an injection, pushing the remaining air bubbles out. Holding you by the arm she is about to inject it into you..'
+	'She takes out a syringe, pushing the remaining air bubbles out. Holding you by the arm she is about to inject it into you...'
 	
-	act 'Brace for the jab':
+	act 'Brace for the pinch':
 		if preg = 0: gt $loc,'testarea:start:treatmentStart:injection'
 		if preg > 0: 
 			cla & *clr
@@ -558,7 +547,7 @@ if $ARGS[0] = 'testarea:start:treatmentStart':
 			unrelated_preg = 1
 			'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse2.jpg"></center>'
 			''
-			'You wake up in a hospital bed the nurse standing beside you. "I''m sorry but you are pregnant and we can''t sign up pregnant woman for the experiment."'
+			'You wake up in a hospital bed the nurse standing beside you, "I''m sorry but you are pregnant and we can''t sign up pregnant woman for the experiment."'
 			
 			act 'Leave': gt $loc, 'start'
 		end
@@ -569,44 +558,40 @@ if $ARGS[0] = 'testarea:start:treatmentStart:injection':
 	minut += 3
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\injection.jpg"></center>'
 	''
-	'It does not hurt as much as you were afraid.'
+	'"See, it didn''t hurt at all." the nurse smiles.'
 	''
-	'What are these vitamins for anyway?'
-	'To make you strong and healthy for the upcoming treatment, miss.'
-	'Will the treatment hurt, nurse?'
-	'Well, some girls say that. You will see..'
+	'"What are these vitamins for anyway?" you ask.'
+	'"To make you strong and healthy for the upcoming treatment, miss <<$pcs_lastname>>." the nurse explains.'
+	'"Will the treatment hurt, nurse?" you curiously ask.'
+	'"Well, some girls say that it does. You will notice..." she shortly replies.'
 	''
-	'With her last words, you start to feel very, very sleepy.'
+	'Hearing that, you start to feel very, very sleepy.'
 	''
-	'I.. I don''t feel entirely fine, nur...'
-	''
-	'You don''t even finish the last word, falling unconscious on the medical table.'
-	
+	'"I... I don''t feel entirely fine, nur..." you don''t even finish the sentence before you''re fast asleep.'
 	minut += 60
-	act 'Dreaming or real?':gt $loc,'testarea:start:treatmentStart:dream1'
+	act 'Am I dreaming or is this reality?':gt $loc,'testarea:start:treatmentStart:dream1'
 end
 
 if $ARGS[0] = 'testarea:start:treatmentStart:dream1':
 	minut += 3
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\doctorsBlurred.jpg"></center>'
 	''
-	'Confused and disoriented, you but slowly realize your whereabouts. A clinic.. experimental treatment.. nurse.. weird questions.. vitamin injection..'
-	'It all seems as a dream you are unable to wake up from. You desperately try to, but it just won''t let you wake up!'
+	'You wake up confused and disoriented, but you''re slowly getting to it, remembering your whereabouts. A clinic... experimental treatment... nurse... weird questions... vitamin injection...'
+	'It all seems as a dream that you are unable to wake up from. You desperately try to, but it just won''t let you wake up!'
 	''
-	'Struggling like this for a while, trying to make your mind right, you hear voices as is from afar.'
+	'Struggling like this for a while, trying to clear your mind, you hear voices from afar...'
 	''
-	'<<$doc1>>: So we''ve got another subject, I see.'
-	'<<$doc2>>: Yes, this one looks promising.'
+	'<<$doc1>>: "So we''ve got another subject, I see."'
+	'<<$doc2>>: "Yes, this one looks promising."'
 	if age < 18:
-		'<<$doc1>>: She looks very young. What''s in her form?'
-		'<<$doc2>>: 18 years.'
-		'<<$doc1>>: Really? I don''t believe that. Let me check in the system.'
-		'It takes him a while to find what he needs..'
-		'<<$doc1>>: Indeed. Her medical record says she is '+age+' years old.'
-		'<<$doc2>>: Hmm, I guess we can still work with her. It is her problem that she is hiding her actual age.'
+		'<<$doc1>>: "She looks very young. What did she put down on the form?"'
+		'<<$doc2>>: "18 years."'
+		'<<$doc1>>: "Really? I don''t believe that. Let me check with the system."'
+		'<<$doc1>>: "Indeed. Her medical record says she is '+age+' years old."'
+		'<<$doc2>>: "Hmm, I guess we can still work with her. It is her problem she is hiding her actual age."'
 	end
 
-	act 'What the..?':gt $loc,'testarea:start:treatmentStart:dream2'
+	act 'What the...?':gt $loc,'testarea:start:treatmentStart:dream2'
 end
 
 if $ARGS[0] = 'testarea:start:treatmentStart:dream2':
@@ -615,86 +600,86 @@ if $ARGS[0] = 'testarea:start:treatmentStart:dream2':
 	''
 	'<i>What is this all about? Such a weird dream..</i>'
 	''
-	'<<$doc1>>: What''s next in the form?'
+	'<<$doc1>>: "What''s next in the form?"'
 	if regper = 3 or regper = 4:
-		'<<$doc2>>: She claims that she is using some kind of anticonception pill.'
-		'<<$doc1>>: Well, not exactly desireable, but we will manage.'
+		'<<$doc2>>: "She claims that she is using some kind of anti-conception pill."'
+		'<<$doc1>>: "Well, not exactly desirable, but we will manage."'
 	elseif	regper = 1 or regper = 2:
-		'<<$doc2>>: She claims that her period is regular.'
-		'<<$doc1>>: Very good, but we need to run tests to confirm it.'
+		'<<$doc2>>: "She claims that her period is regular."'
+		'<<$doc1>>: "Very good, but we need to run tests to confirm it."'
 	elseif regper = -1 or regper = -2:
-		'<<$doc2>>: She claims that her period is not very regular.'
-		'<<$doc1>>: Well, not exactly desireable, but we will manage.'
+		'<<$doc2>>: "She claims that her period is not very regular."'
+		'<<$doc1>>: "Well, not exactly desirable, but we will manage."'
 	end
 	''
 
 	if virg <= 1:
-		'<<$doc2>>: She claims to be a virgin.'
-		'<<$doc1>>: Hm, we will check that later.'
-		'<<$doc2>>: Because of that there are no data regarding her sexual experience, racial experience or penis preferences.'
-		'<<$doc1>>: Come on dear colleague, just look at her lying on the bed. You can still believe she''s not a liar?'
+		'<<$doc2>>: "She claims to be a virgin."'
+		'<<$doc1>>: "Hmm, we will have to check that."'
+		'<<$doc2>>: "Because of that there is no data regarding her sexual experience, racial experience or penis preferences."'
+		'<<$doc1>>: "Come on dear colleague, just look at her lying on the bed. She can''t be lying?"'
 	else
 		if slut = 0:
-			'<<$doc2>>: She claims to had few sexual partners.'
-			'<<$doc1>>: Barely used I see. We can work with that.'
+			'<<$doc2>>: "She claims to had few sexual partners."'
+			'<<$doc1>>: "Barely used I see. We can work with that."'
 			if sexfreq = 1:
 				''
-				'<<$doc2>>: She claims to not have almost no sex during a regular week.'
-				'<<$doc1>>: Probably long time without a boyfriend.'
+				'<<$doc2>>: "She claims to not have almost no sex during a regular week."'
+				'<<$doc1>>: "Probably long time without a boyfriend."'
 			elseif	sexfreq = 2:
 				''
-				'<<$doc2>>: She claims to have sex few times a week.'
-				'<<$doc1>>: Quite regular giving her so far sexual experience.'
+				'<<$doc2>>: "She claims to have sex few times a week."'
+				'<<$doc1>>: "Quite regular giving her so far sexual experience."'
 			elseif	sexfreq = 3:
 				''
-				'<<$doc2>>: She claims to have sex daily.'
-				'<<$doc1>>: Really? What a slut. Or her boyfriend must be really horny bastard.'
+				'<<$doc2>>: "She claims to have sex daily."'
+				'<<$doc1>>: "Really? What a slut. Or her boyfriend must be really horny bastard."'
 			end
 		elseif slut = 1 or slut = 2:
-			'<<$doc2>>: She claims to had a lot of sexual partners.'
-			'<<$doc1>>: Another slut? At least she''ll endure the treatment more easily.'
+			'<<$doc2>>: "She claims to had a lot of sexual partners."'
+			'<<$doc1>>: "Another slut? At least she''ll endure the treatment more easily."'
 			if sexfreq = 1:
 				''
-				'<<$doc2>>: She claims to not have almost no sex during a regular week.'
-				'<<$doc1>>: What? I don''t believe her. Just look at her other answers, she IS a slut.'
+				'<<$doc2>>: "She claims to not have almost no sex during a regular week."'
+				'<<$doc1>>: "What? I don''t believe her. Just look at her other answers, she IS a slut."'
 			elseif	sexfreq = 2:
 				''
-				'<<$doc2>>: She claims to have sex few times a week.'
-				'<<$doc1>>: With such high number of sexual partners? She must be lying.'
+				'<<$doc2>>: "She claims to have sex few times a week."'
+				'<<$doc1>>: "With such high number of sexual partners? She must be lying."'
 			elseif	sexfreq = 3:
 				''
-				'<<$doc2>>: She claims to have sex daily.'
-				'<<$doc1>>: Well, even her other answers implicate she is a slut.'
+				'<<$doc2>>: "She claims to have sex daily."'
+				'<<$doc1>>: "Well, even her other answers implicate she is a slut."'
 			end
 		end
 		''
 		!black and asian
 		if interr = 3:
-			'<<$doc2>>: She claims to have sexual experience with a partner of causaian, african and asian origin.'
-			'<<$doc1>>: A multicultural, isn''t she? Very good.'
+			'<<$doc2>>: "She claims to have sexual experience with a partner of causaian, african and asian origin."'
+			'<<$doc1>>: "A multicultural slut, isn''t she? Very good."'
 		!black
 		elseif interr = 2:
-			'<<$doc2>>: She claims to have sexual experience with a partner of african origin.'
-			'<<$doc1>>: A black man? Perfect! Exactly what we need.'
+			'<<$doc2>>: "She claims to have sexual experience with a partner of african origin."'
+			'<<$doc1>>: "Only africans?! Perfect! Exactly what we need."'
 		!asian
 		elseif interr = 1:
-			'<<$doc2>>: She claims to have sexual experience with a partner of asian origin.'
-			'<<$doc1>>: An asian? Interesting.'		
+			'<<$doc2>>: "She claims to have sexual experience with a partner of asian origin."'
+			'<<$doc1>>: "Asians?! That''s interesting."'		
 		!none
 		else
-			'<<$doc2>>: She claims to have no other sexual experience but with a partner of caucasian origin.'
-			'<<$doc1>>: Untouched by any other but a Russian? That will change very soon.'	
+			'<<$doc2>>: "She claims to have no other sexual experience but with a partner of caucasian origin."'
+			'<<$doc1>>: "Untouched by any other but a Russian? That will change very soon."'	
 		end
 		''
 		if dick_pref = 1:
-			'<<$doc2>>: She claims to prefer small penises, accenting her comfort and painless experience.'
-			'<<$doc1>>: Such a prude. We will fix that approach.'		
+			'<<$doc2>>: "She claims to prefer small penises, accenting her comfort and painless experience."'
+			'<<$doc1>>: "Such a prude. We need to fix that as we start the experiment."'		
 		elseif dick_pref = 2:
-			'<<$doc2>>: She claims to prefer regular size penises, accenting balance between pleasure and comfort.'
-			'<<$doc1>>: Like most of our subjects.'
+			'<<$doc2>>: "She claims to prefer regular size penises, accenting balance between pleasure and comfort."'
+			'<<$doc1>>: "Like most of our subjects."'
 		elseif dick_pref = 3:
-			'<<$doc2>>: She claims to prefer large size penises, accenting her enjoyment of fullness before comfort and pain.'
-			'<<$doc1>>: A big cock lover? A good test candidate indeed.'
+			'<<$doc2>>: "She claims to prefer large size penises, accenting her enjoyment of fullness before comfort and pain."'
+			'<<$doc1>>: "A big cock lover? A good test candidate indeed."'
 		end
 	end
 		
@@ -715,76 +700,68 @@ if $ARGS[0] = 'testarea:start:treatmentStart:dream3':
 	''
 
 	if virg <= 1:
-		'<<$doc1>>: So my dear colleague, we''ve got a '+age+' years old '+$title+'.'
-		'<<$doc2>>: So it seems.'
-		'<<$doc1>>: We should better check it. You never know, these times.'
+		'<<$doc1>>: "So my dear colleague, we''ve got a '+age+' years old '+$title+'."'
+		'<<$doc2>>: "So it seems."'
+		'<<$doc1>>: "We should better check everything is correct. You never know, these days."'
 	else
-		'<<$doc1>>: So my dear colleague, we''ve got a '+age+' years old '+$title+' who prefers '+$dick_pref_t+' sized cocks.'
-		if regper = 3 or regper = 4:'<<$doc2>>: And she is using anticonception.'
-		if regper = 1 or regper = 2:'<<$doc2>>: And her period is regular.'
-		if regper = -1 or regper = -2:'<<$doc2>>: And her period is irregular.'
-		if interr = 0:'<<$doc1>>: Indeed. And she never coppulated with an african or asian.'
-		if interr = 1:'<<$doc1>>: Indeed. And she coppulated with asian.'
-		if interr = 2:'<<$doc1>>: Indeed. And she coppulated with african.'
-		if interr = 3:'<<$doc1>>: Indeed. And she coppulated with asian AND african.'
+		'<<$doc1>>: "So my dear colleague, we''ve got a '+age+' years old '+$title+' who prefers '+$dick_pref_t+' sized cocks."'
+		if regper = 3 or regper = 4:'<<$doc2>>: "And she is using anti-conception."'
+		if regper = 1 or regper = 2:'<<$doc2>>: "And her period is regular."'
+		if regper = -1 or regper = -2:'<<$doc2>>: "And her period is irregular."'
+		if interr = 0:'<<$doc1>>: "Indeed. And she has never had sex with an african nor an asian male."'
+		if interr = 1:'<<$doc1>>: "Indeed. And she has had sex with an asian male."'
+		if interr = 2:'<<$doc1>>: "Indeed. And she has had sex with an african male."'
+		if interr = 3:'<<$doc1>>: "Indeed. And she has had sex with both an asian AND an african male."'
 	end
 	''
-	'Unable to remain at your senses anymore you fade out back to the world of unknowing..'
+	'Unable to stay awake anymore you fade out back to the world of unknowing...'
 	
 	act '(Fade out)':minut += 300 && gt $loc, 'testarea:start:treatmentStart:wakeup1'
 end
 
 if $ARGS[0] = 'testarea:start:treatmentStart:wakeup1':
 	minut += 1
-	
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\lights.jpg"></center>'
 	''
-	'You finally wake up for real, feeling as if you''ve slept for days.'
-	'Your eyes slowly adjust to the light coming from the ceiling lamps. It looks as if there are no windows at all and only artifical light illuminates the room.'
-	'But something is wrong...'
+	'You''re finally awake, feeling as if you''ve slept for days.'
+	'Your eyes slowly adjust to the light coming from the ceiling lamps. It looks as if there are no windows at all and only artificial light illuminates the room.'
+	'But you feel something is off...'
 	''
 	'You can''t move! <i>Oh my god, I''m paralyzed!</i>'
-	'As you move your head to the side, you can see it is not a paralysis - your hands and legs are bound to the bed!'
-	'In horror you struggle to raise your head, only to see that the medical gown is gone and..'
-	
+	'As you move your head to the side, you can feel it is not paralysis, but your hands and legs are bound to the bed!'
+	'In horror you struggle to raise your head, only to see that the medical gown is gone and...'
 	act 'And what???':gt $loc,'testarea:start:treatmentStart:wakeup2'
 end
 
 if $ARGS[0] = 'testarea:start:treatmentStart:wakeup2':
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\bedBound1.jpg"></center>'
 	''
-	'..you are not just bound, but bound entirely naked!'
-	'<i>Oh no, WHAT IS GOING ON!</i>'
+	'...you are not just bound, but also completely naked!'
+	'You start panicking, hoping to somehow break free.'
 	''
-	''
-	'You try to struggle free, but your body feels very weak, as if all your strength has left you.'
-	'<i>The nurse.. The doctors.. They must have injected me with some kind of paralysis drug. But why would they strip me and bind me?</i>'
+	'You continue on trying to struggle yourself free, but your body feels very weak, as if all your strength has been sucked out of you...'
 	act 'Footsteps, someone is coming!':gt $loc,'testarea:start:treatmentStart:wakeup3'
 end
 
 if $ARGS[0] = 'testarea:start:treatmentStart:wakeup3':
 	minut += 5
-	
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\doc1.jpg"></center>'
 	''
 	'A doctor, who you barely recognize from your half-dream, stands above you.'
 	'Your eyes widen as you realize he is watching your naked, exposed body.'
-	'<<$doc1>>: You are awake I see. Are you confused?'
-	'You want to answer him, shout at thim to release you. But it is as if your body was not your own - not a sound goes out of your mouth..'
-	'<<$doc1>>: Perfect. Our drug worked very well once again. I guess I own you at least an explanation?'
+	'<<$doc1>>: "You are awake I see. Are you confused?"'
+	'You want to answer him, shout at him to release you. But it is as if your body was not your own, you''re not able to form a single sound...'
+	'<<$doc1>>: "Perfect. Our drug worked very well once again. I guess I owe you at least an explanation."'
 	'You manage to nod your head in response, both eager and afraid to hear what is going on.'
-	'<<$doc1>>: So you signed up to this experimental treatment. Completely voluntary with all the paperwork in perfect order. But we are in mother Russia, as you know. Nobody cares what is going inside here, as long as the papers are fine and pockets are full. Don''t worry my dear, you will be released in the end. But first we will do for what you came here - experiment on you.'
-	'<i>Experiment on me? Oh no, I don''t want them to hurt me, please!</i>'
-	'<<$doc1>>: You see, this is a combined experiment. We are testing a drug for male fertility, drug for a female ovulation and also an impact of both drugs to interracial intercourse.'
-	'You stare at him, confused even more.'
-	'<<$doc1>>: You appear to have slow mind. Do you want a simple version?'
+	'<<$doc1>>: "So you signed up to this experimental treatment. Completely voluntary with all the paperwork in perfect order. And as you know, we''re in Russia and nobody cares what is going inside here, as long as the papers are fine and pockets are full. Don''t worry my dear, you will be released at the end. But first we will do for what you came here for, to perform an experiment on you."'
+	'You swallow anxiously and you can feel a few sweat drops form on your head as you wait for the doctor to continue on...'
+	'<<$doc1>>: "You see, this is a combined experiment. We are testing a drug for male fertility, drug for a female ovulation and also an impact of both drugs to interracial intercourse."'
+	'You stare at him, even more confused than before...'
+	'<<$doc1>>: "You appear to be a bit slow... Do you want me to tell you the simple version?"'
 	'This time he does not wait for you to nod.'
-	'<<$doc1>>: We will use a drug to induce an ovulation, afterwards you will be repeatedly inseminated by a drug fertilized african males until you get pregnant.'
-	'<i>Preg..pregnant?!!</i> Your eyes widen in disbelief..'
-	'<<$doc1>>: Good, I see you have some wits left at the very least.'
-	''
-	'<i>How is that possible? How did I deserve such a fate? I don''t want this!!!</i>'
-	''
+	'<<$doc1>>: "We will use a drug to induce an ovulation, afterwards you will be repeatedly have intercourse with a drug induced african male until you get pregnant."'
+	'Your eyes widen in disbelief...'
+	'<<$doc1>>: "Good, I see you have some wits left at the very least."'
 	
 	gs 'cum_cleanup', 'cleandeposit'	
 	
@@ -815,11 +792,11 @@ if $ARGS[0] = 'testarea:start:treatmentStart:wakeup3':
 	else
 		'Either from the drug or from the shock of your situation, you start to fade out once again.'
 		'The doctor walks out, leaving you to your fate. As if from afar, already half asleep, you hear him say:'
-		'<<$doc1>>: Oh, and I forgot to mention that we also test the impact of extremely oversized penises to success rate of human fertilization.'
-		if dick_pref = 1:'<<$doc1>>: And since you said you enjoy small penises because of the pain...we are doctors after all. We will cure this weakness of yours. When we are done with you, no size will be painful for you, rest assured! But the curement...let''s say it will be, ehm, abnormally extensive!'
-		if dick_pref = 2:'<<$doc1>>: And since you said you enjoy regular penises, it will at least EXPAND your...horizons!'
-		if dick_pref = 3:'<<$doc1>>: And since you said you enjoy big penises, it will surely be a walk in park for you!'
-		'Good luck!'
+		'<<$doc1>>: "Oh, and I forgot to mention that we also test what success rate of having an extremely large penis has to human fertilization."'
+		if dick_pref = 1:'<<$doc1>>: "And since you said you enjoy small penises because of the pain... we are doctors after all. We will cure this weakness of yours. When we are done with you, no size will be painful for you, rest assured!"'
+		if dick_pref = 2:'<<$doc1>>: "And since you said you enjoy regular penises, this will at least EXPAND your... horizons!"'
+		if dick_pref = 3:'<<$doc1>>: "And since you said you enjoy big penises, it will surely be a walk in park for you!"'
+		'"Best of luck!" the doctor scoffs.'
 		act '(fade out again)':gt $loc,'testarea:treatment:bed'
 	end
 	act '(struggle hard to remain awake)':gt $loc, 'testarea:treatment:struggleEscape1'
@@ -829,10 +806,9 @@ if $ARGS[0] = 'testarea:treatment:struggleEscape1':
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\bedBound1.jpg"></center>'
 	''
 	'<<$doc1>> walks out, leaving you alone, bound on the bed.'
-	'The drug you''ve been injected is heavily restricting your abilities, you feel very tired. But what you heard, what they plan for you - is what is keeping you at bay!'
-	'<i>I cannot let them do that to me! NO WAY!</i>'
+	'The drug you''ve been injected is heavily restricting your abilities, you feel very tired. But from what you heard, and what they plan for you, there''s no way you can remain here!'
 	''
-	act 'Focuse your willpower as much as possible':gt $loc, 'testarea:treatment:struggleEscape2'
+	act 'Focus your willpower as much as possible':gt $loc, 'testarea:treatment:struggleEscape2'
 	if pcs_vag = 0:
 		act 'Succumb to the drug':gt $loc,'testarea:start:treatmentStart:wakeup:virgin1'
 	elseif pcs_vag > 0 and virg = 0: 
@@ -845,13 +821,10 @@ end
 if $ARGS[0] = 'testarea:treatment:struggleEscape2':
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\bedBound1.jpg"></center>'
 	''
-	'As you focus your willpower, like some kind of jedi, you feel that your body is starting to respond. Your right hand pulls the rope so strongly that it slips!'
-	'With one hand free, your mind gets a strong positive signal, your body responds. Untying the rest of your binds is a matter of seconds.'
-	''
-	'<i>I have to run now!</i>'
-	''
+	'As you focus your willpower, you feel that your body starting to respond. Your right hand pulls the rope so strongly that your arm breaks free!'
+	'With one hand free, your mind gets a strong positive signal and your body responds. Untying the rest of the binds is a matter of seconds.'
 	'You get up, naked as you are and run through the hall.'
-	'Your heart beats like it should explode but finally you find the backdoor to the clinic hall!'
+	'Your heart beats like it will explode but finally after running around you manage to locate the back-door to the clinic hall!'
 	''
 	act 'Escape':gt 'poli', 'start'
 end
@@ -859,26 +832,23 @@ end
 if $ARGS[0] = 'testarea:start:treatmentStart:wakeup:liedVirgin':
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\doc2.jpg"></center>'
 	''
-	'You must have faded again..now you slowly regain consciousness, cold and confused.'
-	'Someone is standing above you - it''s one of the doctors..'
-	'<<$doc2>>: Nurse, give her 2 ml, I want to speak to her.'
-	'The nurse comes, injecting you with some drug. Several seconds later you can feel as if your body was returning back to you..'
-	'.'
-	'..'
-	'...'
-	'<<$doc2>>: So my little test subject, an examination has confirmed that you have lied to us and that you are not a virgin after all.'
-	'You take a while to catch up with your situation..'
-	'And? So I lied! Let me go! You are almost surprised that that you are able to speak again.'
-	'<<$doc2>>: Oh no, you have signed for this, you have to finish it. Tell me <<$pcs_firstname>>, obviously you had vaginal sex before, what size do you prefer?'
-	'Huh?'
-	'<<$doc2>>: A small, barely noticable penis? A regular cock? Or do you prefer, which I doubt, an above average phallus?'
-	'I won''t tell, not YOU anyway!'
-	'<<$doc2>>: Actually it does not matter. Here you won''t get neither of those three. We are testing a penis enlargment drug with quite a success.'
-	'What do you mean?!'
-	'<<$doc2>>: Thanks to our drug all our males have bigger penises than the largest ones ever measured.'
-	'That cannot be true!'
-	'<<$doc2>>: It can, miss <<$pcs_lastname>>, and you will find out very soon. Nurse, administer her the drug again.'
-	'He gets up and leaves the way he came. The nurse injects you something and the world darkens as you fade off once again..'
+	'You must have faded out again... You are slowly regaining consciousness, feeling cold and confused.'
+	'Someone is standing above you, it''s one of the doctors..'
+	'<<$doc2>>: "Nurse, give her 2 ml, I want to speak to her."'
+	'The nurse quickly comes over and injects you with some drug. Several seconds later you can feel your body return back to normal...'
+	'<<$doc2>>: "So my little test subject, an examination has confirmed that you have lied to us and that you are not a virgin after all."'
+	'You take a while to catch up with your situation...'
+	'"And? So I lied! Let me go!" you are almost surprised that that you are able to speak again.'
+	'<<$doc2>>: "Oh no, you have signed up for this, you have to go through it. Tell me <<$pcs_firstname>>, obviously you had vaginal sex before, what size do you prefer?"'
+	'"Why do you ask that?" you ask.'
+	'<<$doc2>>: "A small, barely noticeable penis? A regular cock? Or do you prefer, which I doubt, an above average phallus?"'
+	'"I won''t tell, not YOU anyway!" you defiantly reply.'
+	'<<$doc2>>: "Actually it does not matter. Here you won''t get neither of those three. We are testing a penis enlargement drug with quite a success."'
+	'"What do you mean?!" you yell out.'
+	'<<$doc2>>: "Thanks to our drug all our males have bigger penises than the largest ones ever measured."'
+	'"That cannot be true!" you swallow hard.'
+	'<<$doc2>>: "Believe me, miss <<$pcs_lastname>>, and you''ll shortly find out..."'
+	'He gets up and leaves the same way he entered. The nurse injects you with something and the world darkens as you fade off once again...'
 
 	act '(fade out)':gt $loc,'testarea:treatment:bed'
 end
@@ -886,54 +856,49 @@ end
 if $ARGS[0] = 'testarea:start:treatmentStart:wakeup:virgin1':
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\doc2.jpg"></center>'
 	''
-	'You must have faded again..now you slowly regain consciousness, cold and confused.'
-	'Someone is standing above you - it''s one of the doctors..'
-	'<<$doc2>>: Nurse, give her 2 ml, I want to speak to her.'
-	'The nurse comes, injecting you with some drug. Several seconds later you can feel as if your body was returning back to you..'
-	'.'
-	'..'
-	'...'
-	if virg = 2:'<<$doc2>>: So my little test subject, an examination has confirmed that you lied to us and that you ARE a virgin!'
-	if virg = 1:'<<$doc2>>: So my little test subject, an examination has confirmed that you are a virgin after all.'
+	'You must have faded out again... You are slowly regaining consciousness, feeling cold and confused.'
+	'Someone is standing above you, it''s one of the doctors..'
+	'<<$doc2>>: "Nurse, give her 2 ml, I want to speak to her."'
+	'The nurse quickly comes over and injects you with some drug. Several seconds later you can feel your body return back to normal...'
+	if virg = 2:'<<$doc2>>: "So my little test subject, an examination has confirmed that you lied to us and that you ARE a virgin!"'
+	if virg = 1:'<<$doc2>>: "So my little test subject, an examination has confirmed that you are a virgin after all."'
 	'You take a while to catch up with your situation..'
-	'Of course I am! I am a decent girl! Let me go! You are almost surprised that that you are able to speak again.'
-	'<<$doc2>>: Oh no, you have signed for this, you have to finish it. Tell me <<$pcs_firstname>>, how did you imagine your first time?'
-	'Oh god I don''t know!'
-	'<<$doc2>>: In a warm hands of your lover? With your boyfriend, first time for you both? With older, experienced gentle man?'
-	'I won''t tell, not YOU anyway!'
-	'<<$doc2>>: Well, whatever your ideas were, you can forget them now. I have arranged a special occasion for you.'
+	'"Of course I am! I am a decent girl! Let me go!" you are almost surprised that that you are able to speak again.'
+	'<<$doc2>>: "Oh no, you have signed up for this, you have to go through it now. Tell me <<$pcs_firstname>>, how did you imagine your first time would be?"'
+	'"There''s no way I would tell you that!" you defiantly answer.'
+	'<<$doc2>>: "In warm hands of your lover? With your boyfriend, first time for the both of you? With an older, experienced gentleman?"'
+	'"I won''t tell, not YOU anyway!" you yell back.'
+	'<<$doc2>>: "Well, whatever your ideas was, you can forget about it. I have arranged a special occasion for you."'
 
 	act 'What occasion?':gt $loc,'testarea:start:treatmentStart:wakeup:virgin2'
 end
 
 if $ARGS[0] = 'testarea:start:treatmentStart:wakeup:virgin2':
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\doc2.jpg"></center>'
-	''
-	'<b>What occasion?</b>'
-	'<<$doc2>>: Did I already mention that we also test for another experimental drug?'
-	'Uhm..another?'
-	'<<$doc2>>: Yes. The penis enlargment drug. It works fairly well, most times that is..'
-	'And what is it to me?'
-	'<<$doc2>>: To you? I have picked our most successful subject to be the one to deflower you.'
-	'Oh my god no, please no! It will hurt!'
-	'<<$doc2>>: Yes it will. Jamall has so far more than doubled his initial size. He is 37 cm long and almost 25 cm in perimeter.'
-	'An intense feeling of fear runs through your entire body, making you tremble..'
+	'"What occasion?" you frightfully ask.'
+	'<<$doc2>>: "Did I already mention that we also test for another experimental drug?"'
+	'"Uhm... another drug?" you ask.'
+	'<<$doc2>>: "Yes. A penis enlargement drug. It works fairly well, most of the times that is..."'
+	'"And what does it have to do with me?" you ask the doctor.'
+	'<<$doc2>>: "You should feel proud! I have picked out our most successful subject to be the one to deflower you."'
+	'"Oh my god no, please no! It will hurt!" you plead with him.'
+	'<<$doc2>>: "Yes it will. Jamal has so far more than doubled his initial size. He is 37 cm long and almost 25 cm in circumference.'
+	'An intense feeling of fear runs through your entire body, making you tremble...'
 
 	act 'Why? Why are you doing this to me??':gt $loc,'testarea:start:treatmentStart:wakeup:virgin3'
 end
 
 if $ARGS[0] = 'testarea:start:treatmentStart:wakeup:virgin3':
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\doc2.jpg"></center>'
+	'Why? Why are you doing this to me?" you plead.'
+	'<<$doc2>>: "Medical reasons..."'
+	'"Liar! You are a sadist! A pervert!" you yell out.'
+	'<<$doc2>>: "Maybe I am, maybe I am not. It makes no difference for you."'
+	'"Go to hell!" you curse him...'
+	'<<$doc2>>: "Concept of hell exists only for those who believe in it. For you, a living hell will come in a few minutes. Enjoy it miss <<$pcs_lastname>>, it is your first time after all."'
 	''
-	'<b>Why? Why are you doing this to me??</b>'
-	'<<$doc2>>: Medical reasons.'
-	'Liar! You are a sadist! A pervert!'
-	'<<$doc2>>: Maybe I am, maybe I am not. It makes no difference for you.'
-	'Go to hell!'
-	'<<$doc2>>: Concept of hell exists only for those who believe in it. For you, a living hell will come in a few minutes. Enjoy it miss <<$pcs_lastname>>, it is your first time after all.'
-	''
-	'He turns away from you, slowly walking back from where he came. You shout at him, throwing his way both swears and pleas, but he leaves without another word or any reaction at all.'
-	'You are left to your fate, tied to a bed, helpless and vulnerable. The effect of the antidote seems to fade and you slowly start to feel tired, weak and sleepy..'
+	'He turns away from you, slowly walking back towards where he came from. You shout at him, throwing both swears and pleas his way, but he leaves without another word or any reaction at all.'
+	'You are left to your fate, tied to a bed, helpless and vulnerable. The effect of the antidote seems to fade and you slowly start to feel tired, weak and sleepy...'
 
 	act '(fade out again)':deflower = 1 && gt $loc, 'testarea:treatment:bed'
 end
@@ -942,14 +907,12 @@ if $ARGS[0] = 'testarea:treatment:bed':
 	minut += 5
 	'<center><h3>Experiment public room</h3></center>'
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\bedBound2.jpg"></center>'
-	''
-	'You are lying bound to a medical bed, completely naked. Your legs are secured high behind your head.'
-	'This position is designed to prevent the sperm from pouring out, to support the impregnation process.'
-	if plugIn = 1:'<b>A cold, metal plug is stuffed securely inside your vagina, preventing the superfluous ejaculate to spur out of you.</b>'
-	'You still cannot say a word or make any meaningful sound, nor move too much. You can just turn your head one or the other way and stare around you.'
-	'There are several more beds, most of them occupied by young girls secured in similar positions such as yourself.'
-	''
-	'The only thing you are able to do is helplessly wait what happens, or try to sleep if you feel tired enough.'
+	'You wake up bound to the medical bed, completely naked, with your legs are secured high behind your head.'
+    '"This position is designed to prevent the sperm from pouring out, to support the impregnation process," the nurse explains.'
+    if plugIn = 1:'<b>A cold, metal plug is stuffed securely inside your vagina, preventing the superfluous ejaculate to spur out of you.</b>'
+    'You try to respond but you can''t manage to say a word, your throat feeling dry and a bit sore. You struggle weakly against the straps holding you down before realizing the only thing you can do is move your head left or right.'
+    'Looking beside you, you see there are several more beds, most of them occupied by young girls secured in similar positions such as yourself.'
+    'Eventually you give up and relax against the bed as best you can. The only thing you are able to do now is helplessly await what happens, or try to sleep if you feel tired enough.'
 	gs 'stat'
 
 	! custom vagina state
@@ -1009,11 +972,11 @@ if $ARGS[0] = 'testarea:treatment:impreg:lead':
 	if plugIn = 0:'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\bedBound3.jpg"></center>'
 	if plugIn = 1:'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\bedBound5.jpg"></center>'
 	''
-	'You hear some coming to your bed once again. You tremble which horrible african with giant cock is going to tear your pussy again.'
-	'But this time it is one of the nurses - she unbinds your ankles, finally enabling you to retain human position.'
-	'A pain runs through your body as you are not used to normal position..'
-	'She does not give you much time to recover: Come with me.'
-	'She leads you to a room: Sit down and wait.'
+	'You hear someone approaching your bed once again. You tremble at the thought which black male is going to pound your pussy again.'
+	'This time you''re in luck, it is one of the nurses, she unbinds your ankles, finally enabling you to retain a normal position.'
+	'A pain runs through your body as you''ve forgot about how it is to be in a normal position.'
+	'You don''t get much time to recover, "Follow me."'
+	'She leads you to a room, "Sit down and wait."'
 
 	act 'Follow her':gt $loc, 'testarea:treatment:impreg'
 end
@@ -1026,34 +989,33 @@ if $ARGS[0] = 'testarea:treatment:bed:wait:event':
 	if actionType >= 1 and actionType <= 3 and pcs_health >= 100 and pain['vaginal'] < 50:
 		if plugIn = 0:'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\bedBound4.jpg"></center>'
 		if plugIn = 1:'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\bedBound5.jpg"></center>'
+		'A naked black male with huge erect penis enters the room, followed by a nurse.'
+		'You tremble in fear... But you let out a sigh of relief as he passes your bed and goes to one of the other girls instead.'
+		'You turn your head and watch what is about to happen.'
 		''
-		'A naked african with huge erection enters the room, followed by a nurse.'
-		'You tremble in fear..but he passes your bed and goes to one of the ther girls instead.'
-		'You turn your head and watch what is happenning:'
+		'He begins fucking the girl as is, bound and helpless, burying his phallus deeper with each stroke.'
+		'The girl screams, either in horror or pain... You can''t tell which one...'
+		'Not wanting to watch the onslaught you turn your head, shut your eyes and try to zone out the terrifying deed.'
 		''
-		'He fucks the girl as she is, bound and helpless, burrying his phallus deeper with each stroke.'
-		'The girls screams, either in horror or pain.. you can''t tell.'
-		'You rather turn your head, shut your eyes and try to not hear the terrifying deed.'
-		''
-		'When you open your eyes, no one else but the other bound girls are there anymore.'
-		'<i>I must have passed out again.. maybe it is a side effect of that experimental drug of theirs?</i>'
+		'When you open your eyes, no one else but the other bound girl is there...'
+		
 		act 'Continue':gt $loc,'testarea:treatment:bed'
 	! fuck Sveta
 	elseif actionType >= 4 and actionType <= 8 and pcs_health >= 100 and pain['vaginal'] < 50:
 		coitVagCount += 1
-		'A naked african with huge erection enters the room, followed by a nurse.'
-		'You tremble in fear..and it comes true. He stops by your bed, looking down at your helpless body.'
+		'A naked black male with huge erect penis enters the room, followed by a nurse.'
+		'You tremble in fear... your worse fear might come true. He stops by your bed, hungrily observing your helpless body.'
 		'The nurse spats a large portion of lubricant on the brim of your vagina.'
-		'The african climbs the bed, crouching above you. He grabs his giant, veiny cock, pointing it directly at the entry of your <b>'+$vagState+'</b> hole.'
+		'He climbs the bed, crouching above you. He grabs his giant, veiny cock, pointing it directly at the entry of your <b>'+$vagState+'</b> hole.'
 
-		'Your eyes widen the moment he starts pushing..'
+		'Your eyes widen at the moment he starts pushing inside of you...'
 		''
 		if coitVagCount = 1:
 			'<i>Oh no, oh no, I don''t want him to put THAT THING inside of me!</i>'
 		elseif coitVagCount >= 2 and coitVagCount <= 3:
 			'<i>No, not again, please!!!</i>'
 		elseif coitVagCount >= 4 and coitVagCount <= 5:
-			'<i>I''m already so full of cum.. there is no space anymore!</i>'
+			'<i>I''m already so full of cum... there is no space anymore!</i>'
 		else
 			'<i>More...dick...more...cum...</i>'
 		end
@@ -1072,26 +1034,20 @@ if $ARGS[0] = 'testarea:treatment:bed:wait:event':
 
 		'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse1.jpg"></center>'
 		''
-		'A nurse comes, heading directly towards your bed.'
+		'A nurse comes in, and heads directly towards your bed.'
 		''
 		if cumPlugCheck = 1:
-			'<i>What does she wants? Maybe she is coming to release me?</i>'
-			''
-			'She is not here to release you. Instead she takes a small ampule of blood, checking your health and insemination status.'
+			'She stops in front of you and takes a small sample of blood, checks your health and insemination status.'
 			''
 		elseif cumPlugCheck >= 2:
-			'<i>Maybe this time she will really release me?</i>'
-			''
-			'Once again, she is not here to release you. Instead she takes a small ampule of blood, checking your health and insemination status.'
+			'Once again she stops in front of you and takes a small sample of blood, checks your health and insemination status.'
 			''
 		elseif cumPlugCheck >= 4:
-			'<i>Oh, another inspection. Great...</i>'
-			''
-			'She takes a small ampule of blood, checking your health and insemination status.'
+			'By now you already know the process, the nurse takes a small sample of blood, checks your health and insemination status.'
 		end
 
 		if pain['vaginal'] > 30: 
-			'And she gives you something against the pain.'
+			'She gives you something against the vaginal pain.'
 			pain['vaginal'] -= rand(9,18)
 		end
 
@@ -1100,27 +1056,25 @@ if $ARGS[0] = 'testarea:treatment:bed:wait:event':
 		if plugIn = 1:
 			if coitVagCount >= 6 and refusal = 0:
 				''
-				'The nurse pulls the plug out of your pussy.'
-				'Hmm, yes, it is time.'
+				'The nurse pulls the plug out of your pussy, "Hmm, yes, it is time."'
 				'<i>Time for what??</i> you think to yourself, still unable to speak.'
-				'The nurse leaves. Your pussy, finally unplugged after long hours and '+coitVagCount+' voluminous doses of african cum, starts dripping clots of white sticky juice.'
+				'The nurse leaves. Your pussy, finally unplugged after long hours and '+coitVagCount+' voluminous doses of cum, starts dripping clots of white sticky juice.'
 				act 'Continue':gt $loc,'testarea:treatment:bed:doctor1'
 			else
 				if pregchem > 30:
 					pregTalkPC = 1
 					impreg = 1
 					''
-					'Very well you little cumbucket, you have finally managed to finish the impregnation process. You will proceed to the final stage in a short time.'
+					'"Very well you little cum bucket, you have finally managed to finish the impregnation process. You will proceed to the final stage in a short time." the doctor tells you.'
 				else
 					''
-					'The nurse pulls the plug out of your pussy.'
-					'Hm, it seems you''ll need a fresh dose of sperm soon. The old one has been almost absorbed.'
+					'The nurse pulls the plug out of your pussy, "Hmm, it seems you''ll need a fresh dose of sperm soon. The old one has been almost absorbed."'
 					'With these words she rams the plug back in.'
 					if cycle <= 1 or cycle > 2 and fertEgg = 0 and pregchem = 0:
 						cycle = 2
 						ovulate = 24+rand(24,48)
 						EggRH = 320+rand(160, 320)
-						'Also it seems you need a refresh of the ovulation drug. She injects you with another dose.'
+						'"It seems you need a fresh dose of the ovulation drug." as she injects you with another dose.'
 					end
 				end
 				act 'Continue':gt $loc,'testarea:treatment:bed'
@@ -1135,7 +1089,7 @@ if $ARGS[0] = 'testarea:treatment:sex1':
 	minut += 3
 	imgRand = rand(1, 3)
 	'<center><img <<$set_imgh>> src="images\shared\sex\vag\miss\AfricanMis'+imgRand+'.jpg"></center>'
-	'The african is setting himself to position above you. He holds his giant cock in one hand, forcing it down.. the grey tip, big as apple, now touches the brim of your vagina, making you shake both in fear and expectation.'
+	'One of the men is setting himself into a position above you. He holds his giant cock in one hand, forcing it down... the grey tip, big as an apple, now touches the brim of your vagina, making you shake both in fear and expectation.'
 	'The previously applied lube does its job as he lowers his entire body down, pushing the tip inside you.'
 	''
 	if coitVagCount = 1:'<i>Nonono..this can''t be true!</i>'
@@ -1151,19 +1105,19 @@ if $ARGS[0] = 'testarea:treatment:sex2':
 	imgRand = rand(3, 7)
 	minut += 9
 	'<center><video autoplay loop src="images\shared\sex\vag\miss\AfricanMis'+imgRand+'.mp4"></video></center>'
-	'The few first strokes are enough for him to get comfortable. he is already burrying his long black cock more than halfway down your aching vagina.'
+	'The few first thrusts are enough for him to get comfortable. He is already burying his long black cock more than halfway down your aching vagina.'
 	if coitVagCount = 1:
-			'<i>Aaarghh..I''m being sodomized, please help! It hurts! If I could at least scream!</i>'
+			'<i>Aaarghh... I''m being sodomized, please help! It hurts! If I could at least scream!</i>'
 		elseif coitVagCount >= 2 and coitVagCount <= 3:
-			'<i>Ouch..ouch..he is tearing me apart!!</i>'
+			'<i>Ouch... ouch... he is tearing me apart!!</i>'
 		elseif coitVagCount >= 4 and coitVagCount <= 5:
-			'<i>No no.. not so deep please..not so dee..ouch!</i>'
+			'<i>No no... not so deep please... not so dee... ouch!</i>'
 		else
 			'<i>Another..Ouch..hit..ouch..to my..ouch..cervix..ouch..</i>'
 	end
-	'A relentless, beast-like pounding is what you have to endure. His stamina seems without limits, as he keeps the furious pace steady for what seems as long minutes..'
+	'A relentless, beast-like pounding is what you have to endure. His stamina seems without limits, as he keeps the furious pace steady for what seems as long minutes...'
 	''
-	if coitVagCount >= 3:'The several doses of cum you have been pumped with whiles ago are still inside you. With his giant dick filling all of your insides, the cums squirts out of you with each stroke.'
+	if coitVagCount >= 3:'The several doses of cum you have been pumped with whiles ago are still inside you. With his giant dick filling all of your insides, the cums squirts out of you with each thrust.'
 	''
 	gs 'pain', 2, 'vaginal', 'tear'
 	gs 'arousal', 'vaginal', 9, 'bound', 'sub', 'rough', 'humiliation'
@@ -1178,17 +1132,17 @@ if $ARGS[0] = 'testarea:treatment:sex3':
 	'<center><video autoplay loop src="images\shared\sex\cum\vagcreampie\AfricanCreampie'+imgRand+'.mp4"></video></center>'
 	'Finally he reaches his orgasm, but not before he increases the pace even more.'
 	'Your pussy already feels like on fire, your back hurts from his full weight falling down on your bound and exposed body.'
-	'Burried all the way inside you, tip of his cock surely pushed to your cervix, he ejaculates.'
+	'Buried all the way inside you, with the tip of his cock surely pushed all the way to your cervix, he ejaculates.'
 	'Wave after wave a fresh dose of hot, thick sperm is pumped into you. It may be your imagination, but it seems as your belly is bulging more and more with each dose.'
-	'There seems to be no end to his waves - he must have emptied his load at least ten times.'
+	'There seems to be no end to his waves, he must have emptied his load at least ten times.'
 	if coitVagCount = 1:
-			'<i>..please don''t cum in me..please don''t cum in me..please don''t..oh no....ugh!</i>'
+			'<i>...please don''t cum in me, please don''t cum in me, please don''t... oh no... ugh!</i>'
 		elseif coitVagCount >= 2 and coitVagCount <= 3:
-			'Ugh..I can feel it gushing into my womb..is that even possible?<i></i>'
+			'Ugh... I can feel it gushing into my womb... is that even possible?<i></i>'
 		elseif coitVagCount >= 4 and coitVagCount <= 5:
-			'<i>Ugh..ugh..ugh..ugh..oh god, he is cumming for like a minute in a row, stop already! ..ugh..ugh..</i>'
+			'<i>Ugh... ugh... ugh... ugh... oh god, he has been cumming for like a minute in a row, stop already! ugh... ugh...</i>'
 		else
-			'<i>..I..feel...so...full....</i>'
+			'<i>I... feel... so... full...</i>'
 	end
 	''
 	gs 'pain', 2, 'cervix', 'slam'
@@ -1196,7 +1150,7 @@ if $ARGS[0] = 'testarea:treatment:sex3':
 	gs 'cum_call', '', 'Some african male', 0, '', 100000, 75
 	gs 'stat'
 	''
-	'At last his ejaculation ends. He does not pull immediately out - instead he signals for the nurse. When she comes, he finally pulls his sticky, cum covered cock out. And you don''t feel empty for too long..'
+	'At last his ejaculation ends. He does not pull immediately out, instead he signals for the nurse. As she arrives, he finally pulls his sticky, cum covered cock out. And you don''t feel empty for too long...'
 	act 'Continue':gt $loc,'testarea:treatment:plugIn'
 end
 
@@ -1205,11 +1159,10 @@ if $ARGS[0] = 'testarea:treatment:deflower':
 		minut += 2
 		'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\africanDeflowerer.jpg"></center>'
 		''
-		'Waiting for some time, a footsteps can be heard, closing to you.'
-		'Turning your head you see a black man, african, naked, with something tremendous hanging between his legs.'
-		'It''s his penis.. with each step the giant, heavy device swings from side to side..'
-		'You start to tremble again..<i>alot</i>.'
-		'<i>This can''t be real! He cannot be even human! This is a dream, a dream, a nightmare!!! Please wake up, wake up.. Please!</i>'
+		'Waiting for some time, you hear some footsteps nearing you.'
+		'Turning your head you see a black man, naked, with something tremendous hanging between his legs.'
+		'You finally figure out what it is, his penis! With each step the giant, heavy device swings from side to side...'
+		'You start to tremble again as the man is approaching you...'
 		act '(tremble in fear)':stage = 1 && gt $loc,'testarea:treatment:deflower'
 	
 	elseif stage = 1:
@@ -1219,21 +1172,21 @@ if $ARGS[0] = 'testarea:treatment:deflower':
 		''
 		'You are still bound to your bed, both hands and legs secured behind your head.'
 		'Your ass is lifted in the air, exposing your virgin holes to anyone who comes near the bed.'
-		'The african comes to you: Doctor said your pussy virgin is. I come to remove it.' 
-		'As he touches your asscheeks, you loose your last hope: <i>Oh no, this is not a dream.. He is gonna sodomize me! Oh god!</i>'
-		'He climbs your bed, stroking his giant, inhumanly enormous penis by his hands, making it thicker and harder, using a lot of lubricant.'
-		'You have no choice but to watch him inflate his giant penis right above your head..'
+		'One of the male participants approaches you, "Doctor said your pussy virgin is. I come to remove it."' 
+		'As he touches your ass cheeks, you begin to panic as it slowly dawns on you what is about to happen...'
+		'He climbs your bed, stroking his giant, inhumanly enormous penis with his hands, making it thicker and harder, using a lot of lubricant.'
+		'You have no choice but to watch him inflate his giant penis right above your head...'
 		act '(watch him)':stage = 2 && gt $loc,'testarea:treatment:deflower'
 	
 	elseif stage = 2:
 		minut += 5
 		'<center><video autoplay loop src="images\shared\sex\vag\miss\AfricanMis8.mp4"></video></center>'
 		''
-		'Few minutes and his penis gets to its full size. The doctor was not exaggerating, it is huge and super thick!'
-		'He lowers the phallus with his hands, pointing at the virgin membrane still present in your innocent pussy..'
-		'Prepare for my black cock white virgin cunt. Now I go in.'
+		'Within few minutes his penis gets to its full size. The doctor was not exaggerating, it is huge and super thick!'
+		'He lowers the phallus with his hands, pointing at the virgin membrane still present in your pure pussy...'
+		'"Prepare for my black cock white virgin whore. Now I go in." he whispers...'
 		'With these words, he starts to push, penetrating your virgin pussy slowly but steadily, deflowering you in a brutal and painful way.'
-		'<i>Ouuuuu! No no no.. Ouuuuuu...</i> if you could scream, you would.. but you cannot say a sound.. the damn drug..'
+		'If you could scream, you would... but thanks to the drugs you''re not able to make a single noise...'
 		''
 		gs 'arousal', 'vaginal', 5, 'bound', 'sub', 'rough', 'humiliation'
 		gs 'pain', 5, 'vaginal', 'tear'
@@ -1244,14 +1197,13 @@ if $ARGS[0] = 'testarea:treatment:deflower':
 		minut += 15
 		'<center><video autoplay loop src="images\shared\sex\vag\miss\AfricanMis9.mp4"></video></center>'
 		''
-		'As he goes deeper and deeper, a stream of blood starts pouring out of your deflowered pussy..'
-		'Yet he does not mind - his only aim is to penetrate you as deep as possible, using his superior strength.'
-		'White cunt have nice small pussy. Now I go deep more.'
-		'He pushes in even more..'
-		'<i>He must be hitting my very stomach, oh god! Stop it!</i>'
-		'Finally he stops pushing, but instead starts pounding you. It is probably even worse.. His pace is fast and his strokes are still very deep..'
+		'As he goes deeper and deeper, a stream of blood starts pouring out of your deflowered pussy...'
+		'Yet he does not mind, his only aim is to penetrate you as deep as possible, using his superior strength.'
+		'"White whore have nice small pussy. Now I go deep more." he says as he pushes in even further...'
+		'You''re barely able to take it, you''re fully stretched and it feels like he''s entered your stomach...'
+		'Finally he stops thrusting in what you think will offer some respite, but to your dismay the man instead starts pounding you. It is even worse than before... His pace is fast and his strokes are still very deep...'
 		'His pace is furious, it seems he has to fuck intensively to reach an orgasm.'
-		'You have no choice but to endure it until the end..'
+		'You have no choice but to endure it until the end...'
 		''
 		gs 'arousal', 'vaginal', 15, 'bound', 'sub', 'rough', 'humiliation'
 		gs 'pain', 2, 'vaginal', 'stretch'
@@ -1262,12 +1214,11 @@ if $ARGS[0] = 'testarea:treatment:deflower':
 		minut += 5
 		'<center><video autoplay loop src="images\shared\sex\cum\vagcreampie\AfricanCreampie4.mp4"></video></center>'
 		''
-		'Finally he starts to grunt - he''s reaching his finale.'
-		'White cunt now get reward, lot cum.'
-		'His strokes get slower but more intensive, hitting you to your very cervix!'
+		'Finally he starts to grunt, he''s reaching the edge...'
+		'"White whore now will get reward, lot cum." he lets out between his grunts.'
+		'His strokes get slower but more intensive, reaching your very cervix!'
 		'Fortunately after several such painful strokes, he ejaculates!'
-		'<i>Oh no, he''s cumming inside me! That''s so gross! Ughh!</i>'
-		'His 37 cm cock is burried almost all the way inside you, pumping his ejaculate into you..'
+		'His 37 cm cock is buried almost all the way inside you, pumping his cum into you...'
 		''
 		gs 'pain', 3, 'cervix', 'slam'
 		gs 'arousal', 'vaginal', 5, 'bound', 'sub', 'rough', 'humiliation'
@@ -1281,12 +1232,11 @@ if $ARGS[0] = 'testarea:treatment:deflower':
 		gs 'stat'
 		'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\africanDeflowerer.jpg"></center>'
 		''
-		'When he is done, he removes his cock from your battered, deflowered vagina.'
-		'A stream of cum mixed with blood pours out of it..'
-		'He stands beside your bed, looking first at your gaping, leaking pussy..than to your face:'
-		'White cunt now big girl is. See you soon, we fuck more will.'
-		'Then he leaves you as you are..'
-		'Still bound and helpless, you fade out again. From the drug or this terrible experience, who knows..'
+		'As he finishes, he pulls out his cock from your battered, deflowered vagina.'
+		'A stream of cum mixed with blood pours out of it...'
+		'He stands beside your bed, looking first at your gaping, leaking pussy... than turns his gaze towards your face...'
+		'"White whore now big girl is. See you soon, we fuck more will." with that he leaves you as you are...'
+		'Still bound and helpless, you fade out again. Who knows, if it''s from the drugs or the terrible experience...'
 		act '(fade out again)':stage = 0 && gt $loc,'testarea:treatment:bed'
 	
 	end
@@ -1299,10 +1249,9 @@ if $ARGS[0] = 'testarea:treatment:plugIn':
 	plugIn = 1
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\pussyPlug.jpg"></center>'
 	''
-	'Right after his giant cock leaves your pussy, the nurse pushes big, round plug down to your cum filled hole.'
-	'She manages it so quickly that almost no cum has a chance to slop out.'
-	'Without a word she leaves you as you are, plugged like some kind of cattle.'
-	'<i>From her face you can see that in her eyes, you ARE just a cattle.</i>'
+	'Right after he pulls out his giant cock, the nurse grabs hold of a big, round plug and shoves it down your cum-filled hole.'
+	'She manages it so quickly that almost no cum manages to slop out.'
+	'Without a word she leaves you as you are, plugged like some kind of cattle...'
 	act 'Continue':gt $loc,'testarea:treatment:bed'
 end
 
@@ -1310,18 +1259,15 @@ if $ARGS[0] = 'testarea:treatment:bed:doctor1':
 	minut += 5
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\doc2.jpg"></center>'
 	''
-	'After few minutes the nurse gets back, followed by one of the doctrs you have seen during your initial ''test''.'
-	'<<$doc2>>: Hello miss <<$pcs_lastname>>. Nurse informed you you have made some progress.'
-	'The doctor watches you, as if he''s thinking what comes to your mind..:'
-	'<i>Oh Jesus, am I already pregnant? No no no, please, no. What will I do..?</i> your mind drifts toward the worst scenario..'
-	'<<$doc2>>: Nurse, give her a dose, I want to speak to her.'
+	'After few minutes the nurse gets back, followed by one of the doctors you have seen during the initial ''test''.'
+	'<<$doc2>>: "Hello miss <<$pcs_lastname>>. The nurse here has informed me that you''ve made some progress."'
+	'The doctor is observing you, as if he''s trying to figure out what''s on your mind...'
+	'Your eyes widen as your mind drifts toward the worst case scenario...'
+	'<<$doc2>>: "Nurse, give her a dose, I want to speak to her."'
 	'The nurse empties an already prepared injection to your arm.'
-	'.'
-	'..'
-	'...'
 	'You can slowly feel as if your body turns once again to your own control.'
-	'..uhm...uhm..I..I..can..speak?'
-	'<<$doc2>>: Yes miss, we have given you an antidote. It is now up to you if you will get back to that vegetative state, or if you will cooperate and retain your full consciousness.'
+	'"Uhm... uhm... I... I... can... speak?" you manage to whimper.'
+	'<<$doc2>>: "Yes miss <$pcs_lastname>>, we have given you an antidote. It is now up to you if you will get back to that vegetative state, or if you will cooperate and retain your full consciousness."'
 
 	act 'Up to me?':gt $loc,'testarea:treatment:bed:doctor2'
 end
@@ -1330,15 +1276,15 @@ if $ARGS[0] = 'testarea:treatment:bed:doctor2':
 	minut += 3
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\doc2.jpg"></center>'
 	''
-	'<<$doc2>>: Yes miss <<$pcs_lastname>>. You have shown a good ability to receive an oversized member. Your sperm absorbation ability is also above average.'
-	'..that..is..good..I guess?'
-	'<<$doc2>>: It is. We would like to extent an offer not every subject here gets.'
-	'An offer? You will let me go? Really? I need to.. I want to, please!'
-	'<<$doc2>>: No, we definitely don''t want to let you go. You are legally bound to finish this treatment, you have no choice in that anymore.'
-	'But.. You start to sob as the sudden glimpse of hope gets crushed again.'
-	'<<$doc2>>: But you have SOME choice. To remain half awake, bound to a bed like an animal and be used like an animal.'
-	'..or? You raise your eyes to meet his.'
-	'<<$doc2>>: Or you can continue under more, let''s say, cooperative conditions.'
+	'<<$doc2>>: "Yes miss <<$pcs_lastname>>, you have shown a great ability to experience an over-sized member. Your sperm absorption ability is also above average."'
+	'"That... is... good... I guess?" you frightfully ask...'
+	'<<$doc2>>: "It is. We would like to extent an offer not every subject here gets."'
+	'"An offer? You will let me go? Really? I need to... I want to, please!" you eagerly say.'
+	'<<$doc2>>: "No, we definitely don''t want to let you go. You are legally bound to finish this treatment, you have no say in that."'
+	'"But..." you start to sob as the sudden glimpse of hope gets crushed again.'
+	'<<$doc2>>: "But you have SOME choice. To remain half awake, bound to a bed like an animal and be used like an animal."'
+	'"...or?" you raise your eyes to meet his.'
+	'<<$doc2>>: "Or you can continue under more, let''s say, cooperative conditions."'
 
 	act 'That means what?':gt $loc,'testarea:treatment:bed:doctor3'
 end
@@ -1347,21 +1293,18 @@ if $ARGS[0] = 'testarea:treatment:bed:doctor3':
 	minut += 3
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\doc2.jpg"></center>'
 	''
-	'<<$doc2>>: That means that for the remainder of the experiment, you will be provided with a private room, regular nutritions and hygienical equipment.'
-	'..that sounds good..<i>too good</i>'
-	'<<$doc2>>: Indeed. However you will have to fully cooperate in all matters.'
-	'..which are?'
-	'<<$doc2>>: Well, the ones you already familiar with. You will still be inseminated regularly until you get impregnated. You will also be used by our top subjects.'
-	'..top subjects?'
-	'<<$doc2>>: Few of our first subjects, african males, who have been subjected to the Penis oversizement project and Male fertillity project for the longest time.'
-	'He looks down on you, still bound with your arse higher than your head. It is probably the weirdest style of conversation you could ever think of.'
-	'<<$doc2>> awaits your answer..but you don''t know what to say.'
-	'<<$doc2>>: You are a bit dull, are you? Let me translate it to a slut language then. You will have all the comfort, but you will also be fucked by males with the largest cocks ever seen, size of a horse, who ejaculate as much as a horse. You will have to do it willingly. They will use you any way they want. Such are the conditions. Yes or no?'
-	''
-	'<i>What kind of choice is that? Tied to a bed and fucked by big black cocks, or being unbound but fucked by a horse sized black cocks?</i>'
+	'<<$doc2>>: "It means that for the remainder of the experiment, you will be provided with a private room, regular nutritions and hygienically equipment."'
+	'You''re a bit surprised by that offer, "That sounds good... a little too good..."'
+	'<<$doc2>>: "Indeed. However you will have to fully cooperate in all matters."'
+	'"Which are?" you ask.'
+	'<<$doc2>>: "Well, the ones you are already familiar with. You will still be inseminated regularly until you get impregnated. You will also be used by our top subjects."'
+	'"Top subjects?" you curiously ask.'
+	'<<$doc2>>: "Few of our first subjects, african males, who have been subjected to the Penis over-sizement project and members of the male fertility project for the longest time."'
+	'He looks down on you, still bound with your ass higher than your head. It is probably the weirdest style of conversation you could ever think of.'
+	'Still awaiting your answer the doctor grows impatient, "You are a bit slow, aren''t you? Well let me translate it so a slut can understand. You will have all the comfort, but you will also be fucked by males with the largest cocks ever seen, size of a horse, who ejaculate as much as a horse. You will have to do it willingly. They will use you any way they want. Those are the conditions. Yes or no?"'
 
-	act 'I DO accept to cooperate':gt $loc,'testarea:treatment:bed:doctor5'
-	act 'I DON''T accept to cooperate':gt $loc,'testarea:treatment:bed:doctor4'
+	act 'I accept':gt $loc,'testarea:treatment:bed:doctor5'
+	act 'I refuse':gt $loc,'testarea:treatment:bed:doctor4'
 end
 
 if $ARGS[0] = 'testarea:treatment:bed:doctor4':
@@ -1369,16 +1312,16 @@ if $ARGS[0] = 'testarea:treatment:bed:doctor4':
 	refusal = 1
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\doc2.jpg"></center>'
 	''
-	'<<$doc2>>: Well, not what I hoped for, but it''s your choice. Nurse, do what you have to do. Goodbye miss <<$pcs_lastname>>. And enjoy..'
+	'<<$doc2>>: Well, that''s disappointing, not at all what I hoped for, but it''s your choice. Nurse, do what you have to do. Goodbye miss <<$pcs_lastname>>. And enjoy..."'
 
-	act 'Fall back to vegetative state..':gt $loc,'testarea:treatment:bed'
+	act 'Return to a vegetative state...':gt $loc,'testarea:treatment:bed'
 end
 
 if $ARGS[0] = 'testarea:treatment:bed:doctor5':
 	minut += 3
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\doc2.jpg"></center>'
 	''
-	'<<$doc2>>: Very good. Nurse, untie her and lead her to her new room. Goodbye miss <<$pcs_lastname>>. And enjoy..'
+	'<<$doc2>>: "Very good! Nurse, untie her and lead her to her new room. Goodbye miss <<$pcs_lastname>>. And enjoy..."'
 
 	act 'Continue':gt $loc,'testarea:treatment:room'
 end
@@ -1391,10 +1334,10 @@ if $ARGS[0] = 'testarea:treatment:room':
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\room.jpg"></center>'
 	''
 	'The room you are locked in is not a big one, but has all what you might need. Everything is however somehow adjusted to provide for more or less violent sexual acts.'
-	'The bed has arm and leg cuffs. A hook is hanging from the ceiling. A large box in the far corner is locked by a code lock - you can just guess what''s inside.'
-	'What strikes fear to your heart is a first aid kit on of the walls - what can happen here so terrible that it would be needed?.'
+	'The bed has arm and leg cuffs. A hook is hanging from the ceiling. A large box in the far corner is locked by a code lock, you can only guess what''s inside.'
+	'What strikes fear in your heart is a first aid kit on one of the walls, what just might happen here is so terrible that a first aid kit would be needed...'
 	'The <a href="exec:gt ''<<$loc>>'', ''testarea:treatment:room:shower''">shower room</a> has, in addition to regular equipment, also an enema kit.'
-	'The exit door have a safety glass window. You are able to leave the room, but the only way you can go is the <a href="exec:gt ''<<$loc>>'', ''testarea:treatment:room:social''">social room</a>. Other doors are all secured and locker.'
+	'The exit door has a safety glass window. You are able to leave the room, but the only way you can go is the <a href="exec:gt ''<<$loc>>'', ''testarea:treatment:room:social''">social room</a>. All the other doors are securely locked.'
 
 	act 'Wait for some time':gt $loc, 'testarea:treatment:room:wait'
 	act 'Go to shower':gt $loc, 'testarea:treatment:room:shower'
@@ -1414,6 +1357,7 @@ if $ARGS[0] = 'testarea:treatment:room':
 		frost = 0
 		gs 'stat'
 		'<center><img src="images\locations\shared\clinic\experiment\meal.jpg"></center>'
+		'You ate a pretty stale hospital meal...'
 		act 'Get back':gt $loc, $this
 	end
 	act 'Drink water (0:05)':
@@ -1426,7 +1370,7 @@ if $ARGS[0] = 'testarea:treatment:room':
 		
 		gs 'stat'
 		'<center><img src="images\shared\food\waterbottle1.jpg"></center>'
-		'You drank the whole bottle.'
+		'You drank the whole bottle...'
 		act 'Get back':gt $loc, $this
 	end
 	if pcs_sleep < 50:
@@ -1438,7 +1382,7 @@ end
 if $ARGS[0] = 'testarea:treatment:room:sleep':
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\sleep.jpg"></center>'
 	''
-	'You fall asleep on the bed, barely covered by any sheets..'
+	'You fall asleep on the bed, barely covered by the sheets...'
 	pcs_hairbsh = 0
 	cloth_vid = 0
 	pain['killer'] = 0
@@ -1457,7 +1401,7 @@ if $ARGS[0] = 'testarea:treatment:room:shower':
 	'<center><h3>Experiment private room - shower</h3></center>'
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\roomShower.jpg"></center>'
 	''
-	'Small, hospital-like shower, a toilet and a sink with mirror.'
+	'The bathroom has a small, hospital-like shower, a toilet and a sink with mirror.'
 
 	dynamic $shower
 	gs 'stat'
@@ -1479,7 +1423,7 @@ if $ARGS[0] = 'testarea:treatment:room:shower':
 				'You feel really awkward, never having done this before as a guy. Luckily, you had more than enough experience with shaving your face and technically this isn''t really all that different. So in the end you get a pretty decent job done.'
 			elseif daystart < 30 and StoryLine = 0:
 				pcs_mood += 10
-				'With a newfound routine you lather up your legs and start shaving, careful not to miss a spot. After washing away the foam you softly glide your hands over your smooth legs, feeling good to know that you don''t need to hide your legs in pants. Maybe you should wear a skirt tomorrow?'
+				'With a newfound routine you lather up your legs and start shaving, careful not to miss a spot. After washing away the foam you softly glide your hands over your smooth legs.'
 			else
 				'You lather up your legs and crotch and then start carefully shaving them. Once you''re finished you gently glide your hands over your smooth pussy and legs, enjoying the smooth feeling and getting slightly more aroused by the touch.'
 			end
@@ -1588,7 +1532,7 @@ if $ARGS[0] = 'testarea:treatment:room:social':
 	''
 	if G1 = 0 and G2 = 0 and G3 = 0:
 		waitTime = rand (30, 60)
-		'Currently you are alone in the room.'
+		'You are currently alone in the room.'
 	else
 		if G1 = 1:'A young, <a href="exec:gt ''<<$loc>>'', ''testarea:treatment:room:social:girls:G1''">blonde girl</a> is sitting on one of the couches.'
 		if G2 = 1:'A thin, <a href="exec:gt ''<<$loc>>'', ''testarea:treatment:room:social:girls:G2''">brunette girl</a> is leaning by the wall.'
@@ -1597,15 +1541,15 @@ if $ARGS[0] = 'testarea:treatment:room:social':
 
 	''
 	if soundR <= 20:
-		'<i>A loud wetly pattering sound can be heard, coming from one of the rooms, along with male grunts and female moaning..</i>'
+		'A loud wetly pattering sound can be heard, coming from one of the rooms, along with male grunts and female moaning...'
 	elseif soundR > 20 and soundR <= 40:
-		'<i>A rhytmic painful female screams resonate through the hallway, along with harsh male grunts..</i>'
+		'A rhythmic painful female screams resonate through the hallway, along with harsh male grunts...'
 	elseif soundR > 40 and soundR <= 60:
-		'<i>A quiet yet noticable sobbing of some girl can be heard through the silent hallway..</i>'
+		'A quiet yet noticeable sobbing of some girl can be heard through the silent hallway...'
 	elseif soundR > 60 and soundR <= 80:
-		'<i>A period sound of whip landing on a skin resonates through the hallway, along with female sobbing.</i>'
+		'A period sound of whip landing on a skin resonates through the hallway, along with female sobbing...'
 	else
-		'<i>A rare silence wanders through the hallways..</i>'
+		'A rare silence wanders through the hallways...'
 	end
 
 	fuckCh = rand (0, 100)
@@ -1618,12 +1562,11 @@ if $ARGS[0] = 'testarea:treatment:room:social':
 end
 
 if $ARGS[0] = 'testarea:treatment:room:social:gofuck':
-	'While you are reading, suddenly a strong hand grabs you by the neck.'
+	'While you are reading, all of a sudden a strong hand grabs you by the neck.'
+	'"White whore stop reading! Too much cum in balls I have, I need to empty them!" you hear a deep voice say.'
 	''
-	'White cunt stop reading! Too much cum in balls I have, I need to empty it!'
-	''
-	'One of the africans came up for you directly to the social room! You have no choice but to be led by him.. like some kind of pet.'
-	'He leads you to your room, throwing you down between the bedsheets..'
+	'One of the men approached you directly in the social room! You have no choice but to submit to him... like some kind of pet.'
+	'He leads you to your room, throwing you down between the bedsheets...'
 	coitusType = rand (1, 8)
 	act 'Continue':gt $loc, 'testarea:treatment:room:event:sex'
 end
@@ -1633,7 +1576,7 @@ if $ARGS[0] = 'testarea:treatment:room:social:girls:G1':
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\G1.jpg"></center>'
 	''
-	'A petite young girl - she must be freshly eighteen. She is obviously in a bad mood, closed to herself.'
+	'A petite young girl, she must''ve just turned eighteen. She is obviously in a bad mood, keeping to herself.'
 	act 'Talk to her':gt $loc, 'testarea:treatment:room:social:girls:G1:talk'
 	act 'Go back':gt $loc, 'testarea:treatment:room:social'
 end
@@ -1644,12 +1587,12 @@ if $ARGS[0] = 'testarea:treatment:room:social:girls:G1:talk':
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\G1.jpg"></center>'
 	''
-	'As you approach her, she looks up to you, but her face is still very sad.'
+	'As you approach her, she looks up at you with a saddened look.'
 	
 	act 'Why are you so sad?':G1Q = 1 && gt $loc, $subloc
 	act 'Why did you join this experiment?':G1Q = 2 && gt $loc, $subloc
 	act 'What will you do once you finish the experiment?':G1Q = 3 && gt $loc, $subloc
-	act 'You don''t mind the way we are treaten by the men?':G1Q = 4 && gt $loc, $subloc
+	act 'You don''t mind the way we are treated by the men?':G1Q = 4 && gt $loc, $subloc
 	act 'Leave her be':gt $loc, 'testarea:treatment:room:social'
 end
 
@@ -1659,19 +1602,18 @@ if $ARGS[0] = 'testarea:treatment:room:social:girls:G1:talk:question':
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\G1.jpg"></center>'
 	''
 	if G1Q = 1:
-		'<b>Why are you so sad?</b>'
-		'I have been tricked into joining this experimental treatment! How could I be not sad?'
+		'"Why are you so sad?" you ask.'
+		'"I have been tricked into joining this experiment! How could I be not sad?" she responds.'
 
 	elseif G1Q = 2:
-		'<b>Why did you join this experiment??</b>'
-		'For money that is. For stupid money! I was so desperate when I ran from home and my boyfriend kicked me out from his apartment. I had nowhere to go, no money for food.. But this, this is worse than living under the bridge! What will I do afterwards? I will have 50 000 RUB but a baby in my belly..'
+		'"Why did you join this experiment?" you ask.'
+		'"For money! Only for the stupid money! I was so desperate when I ran away from home and my boyfriend kicked me out from his apartment. I had nowhere to go, no money for food... But this, this is worse than living under the bridge! What will I do afterwards? I will receive 50.000 <b>₽</b> but also a baby in my belly..." she responds.'
 	elseif G1Q = 3:
-		'<b>What will you do once you finish the experiment?</b>'
-		'Well, I will be pregnant, that''s for sure. But..But I don''t really know. I was sure I will go for a termination but.. It''s a tiny life inside you, you know? Would you kill it?'
+		'"What will you do once you finish the experiment?" you ask.'
+		'"Well, I will be pregnant, that''s for sure. But... But I don''t really know. I was sure I was going to do an abortion but... It''s a tiny life inside you, you know? Would you kill it?" she replies.'
 	elseif G1Q = 4:
-		'<b>You don''t mind the way we are treaten by the men?</b>'
-		'Of course I mind! I hate it! I was a virgin when I signed up for this hell.. They.. they deflowered me. The biggest man did it. He tore me.. Had to stitch me up.. It hurts every time.. I guess I am too tight, too small, for a regular men, even more for those drugged oversized beasts!'
-
+		'"You don''t mind the way we are treated by the men?" you ask.'
+		'"Of course I do mind! I hate it! I was a virgin when I signed up for this hell... They... they deflowered me. The biggest man did it. He tore me... They had to stitch me up... It hurts every time... I guess I am too tight, too small, for a regular men, even more for those drugged over-sized beasts!" she replies with tears in her eyes.'
 	end
 
 	act 'Continue':gt $loc, 'testarea:treatment:room:social:girls:G1:talk'
@@ -1682,7 +1624,7 @@ if $ARGS[0] = 'testarea:treatment:room:social:girls:G2':
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\G2.jpg"></center>'
 	''
-	'A thin but lively girl. She is watching everyone else in the room, probably looking for a disraction from the usual boredom.'
+	'A thin but lively girl. She is observing everyone else in the room, probably looking for a distraction from the usual boredom.'
 	act 'Talk to her':gt $loc, 'testarea:treatment:room:social:girls:G2:talk'
 	act 'Go back':gt $loc, 'testarea:treatment:room:social'
 end
@@ -1695,10 +1637,10 @@ if $ARGS[0] = 'testarea:treatment:room:social:girls:G2:talk':
 	''
 	'As you approach her, her face brightens as she gets some attention.'
 	
-	act 'How can you have such a good mood?':G2Q = 1 && gt $loc, $subloc
+	act 'How can you be in such a good mood?':G2Q = 1 && gt $loc, $subloc
 	act 'Why did you join this experiment?':G2Q = 2 && gt $loc, $subloc
 	act 'What will you do once you finish the experiment?':G2Q = 3 && gt $loc, $subloc
-	act 'You don''t mind the way we are treaten by the men?':G2Q = 4 && gt $loc, $subloc
+	act 'You don''t mind the way we are treated by the men?':G2Q = 4 && gt $loc, $subloc
 	act 'Leave her be':gt $loc, 'testarea:treatment:room:social'
 end
 
@@ -1708,19 +1650,18 @@ if $ARGS[0] = 'testarea:treatment:room:social:girls:G2:talk:question':
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\G2.jpg"></center>'
 	''
 	if G2Q = 1:
-		'<b>How can you have such a good mood?</b>'
-		'Why wouldnt I? It is so much fun in here. Where else would you get so many orgasms? And those giant dicks! I love it!'
+		'"How can you have such a good mood?" you ask.'
+		'"Why wouldn''t I? It is so much fun in here. Where else would you get so many orgasms? And those giant dicks! I love them!" she replies.'
 
 	elseif G2Q = 2:
-		'<b>Why did you join this experiment??</b>'
+		'"Why did you join this experiment?" you ask.'
 		'First I was attracted by the money. But when I heard what is it about, I didn''t wait a second! I love fucking black men! There are so few of them in Russia, but here.. it''s like a fairytale!'
 	elseif G2Q = 3:
-		'<b>What will you do once you finish the experiment?</b>'
-		'I''ll be pregnant! I hope they will keep me around for some time at least. You can safely have sex almost until the end, did you know that?'
+		'"What will you do once you finish the experiment?" you ask.'
+		'"I''ll be pregnant! I hope they will keep me around for some time at least. You can safely have sex almost until the end of the pregnancy, did you know that?" she happily replies.'
 	elseif G2Q = 4:
-		'<b>You don''t mind the way we are treaten by the men?</b>'
-		'I love it! It is true their cocks are big and it hurts sometimes, but those orgasms I get! It is the reason I am here!'
-
+		'"You don''t mind the way we are treated by the men?" you ask.'
+		'"I love it! It is true their cocks are big and it hurts sometimes, but those orgasms I get! It is the reason I am here!" she eagerly replies.'
 	end
 
 	act 'Continue':gt $loc, 'testarea:treatment:room:social:girls:G2:talk'
@@ -1745,7 +1686,7 @@ if $ARGS[0] = 'testarea:treatment:room:social:girls:G3:talk':
 	act 'Why are you not talking to anyone?':G3Q = 1 && gt $loc, $subloc
 	act 'Why did you join this experiment?':G3Q = 2 && gt $loc, $subloc
 	act 'What will you do once you finish the experiment?':G3Q = 3 && gt $loc, $subloc
-	act 'You don''t mind the way we are treaten by the men?':G3Q = 4 && gt $loc, $subloc
+	act 'You don''t mind the way we are treated by the men?':G3Q = 4 && gt $loc, $subloc
 	act 'Leave her be':gt $loc, 'testarea:treatment:room:social'
 end
 
@@ -1755,19 +1696,18 @@ if $ARGS[0] = 'testarea:treatment:room:social:girls:G3:talk:question':
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\G3.jpg"></center>'
 	''
 	if G3Q = 1:
-		'<b>Why are you not talking to anyone?</b>'
-		'Why would I? It''s all you ungrateful younglings whimpering about being tricked and all. You don''t appreciate the opportunity you have been given.'
+		'"Why are you not talking to anyone?" you ask.'
+		'"Why would I? It''s all you ungrateful youngsters whimpering about being tricked and all. You don''t appreciate the opportunity you have been given." she snarly answers.'
 
 	elseif G3Q = 2:
-		'<b>Why did you join this experiment??</b>'
-		'A woman has to eat you know? I was working hard as a waitress but the money was tight, work was hard and everything sucked. Then I got this opportunity. I am here already for the fifth time.'
+		'"Why did you join this experiment?" you ask.'
+		'"A woman has to eat you know? I was working hard as a waitress but the money was tight, work was hard and everything sucked. Then I got this opportunity. I am here already for the fifth time." she answers.'
 	elseif G3Q = 3:
-		'<b>What will you do once you finish the experiment?</b>'
-		'I''ll head directly for a termination. Then I will rest for a six weeks and then I will get back here.'
+		'"What will you do once you finish the experiment?" you ask.'
+		'"I''ll head directly to an abortion clinic. Then I will rest for a six weeks and then I will get back here." she answers.'
 	elseif G3Q = 4:
-		'<b>You don''t mind the way we are treaten by the men?</b>'
-		'As a waitress you live through a lot. I have done it for almost 15 years. It''s true some of them are rough but it is a walk through a rose garden compared to what the those crime bossess do to a lonely girl serving drinks.'
-
+		'"You don''t mind the way we are treated by the men?" you ask.'
+		'"As a waitress you live through a lot. I have done it for almost 15 years. It''s true some of them are rough but it is a walk through a rose garden compared to what the those crime bosses do to a lonely girl serving drinks." she answers.'
 	end
 
 	act 'Continue':gt $loc, 'testarea:treatment:room:social:girls:G3:talk'
@@ -1783,8 +1723,7 @@ if $ARGS[0] = 'testarea:treatment:room:event':
 			$africanN = 'africanMaleDark'
 			africanMaleDarkC += 1
 			'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\africanMaleDark.jpg"></center>'
-			''
-			'The door open and a tall man enters your room. His skin is dark as a night''s sky. A huge, almost horse-like cock is heavily hanging between his legs.'
+			'The door opens and a tall man enters your room. His skin is dark as the night''s sky. A huge, almost horse-like cock is heavily hanging between his legs.'
 			act 'Kneel down':gt $loc, 'testarea:treatment:room:event:positionKneel'
 			act 'Get in position to get fucked':gt $loc, 'testarea:treatment:room:event:positionDoggy'
 			act 'Signal him you want him in your pussy':gt $loc, 'testarea:treatment:room:event:positionVag'
@@ -1795,10 +1734,8 @@ if $ARGS[0] = 'testarea:treatment:room:event':
 			$africanN = 'africanMaleMuscular'
 			africanMaleMuscularC += 1
 			'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\africanMaleMuscular.jpg"></center>'
-			''
-			'You can hear the door open as a muscular african male enters to your room.'
-			''
-			'<i>I''d rather not resist this one..he looks he would crush my skull with one hand..I..I better bend over right away..</i>'
+			'You can hear the door open as a muscular man enters to your room.'
+			'Afraid by his posture you have no other choice than to offer yourself to him...'
 			act 'Kneel down':gt $loc, 'testarea:treatment:room:event:positionKneel'
 			act 'Get in position to get fucked':gt $loc, 'testarea:treatment:room:event:positionDoggy'
 			act 'Signal him you want him in your pussy':gt $loc, 'testarea:treatment:room:event:positionVag'
@@ -1808,27 +1745,25 @@ if $ARGS[0] = 'testarea:treatment:room:event':
 			$africanN = 'africanMaleFat'
 			africanMaleFatC += 1
 			'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\africanMaleFat.jpg"></center>'
+			'A somewhat old and fat man enters your room, locking the door behind him. He is very hairy and smells terribly.'
 			''
-			'Somewhat old and fat african man enters your room, locking the door behind him. He is very hairy and smells terribly.'
-			''
-			if africanMaleFatC > 0:'<i>Oh god, not this one again! I hate him.. he is so repugnant..and violent..please no..I..I just can''t..</i>'
+			if africanMaleFatC > 0:'<i>Oh god, not this one again! I hate him... he is so repugnant... and violent... please no... I... I just can''t...</i>'
 
 			panicCh = rand (0, 100)
-			if (africanMaleFatC > 0 and panicCh >= 50):act 'Do nothing and wait what happens':coitusType = rand (1, 8) && gt $loc, 'testarea:treatment:room:event:sex'
+			if (africanMaleFatC > 0 and panicCh >= 50):act 'Do nothing and wait to see what happens':coitusType = rand (1, 8) && gt $loc, 'testarea:treatment:room:event:sex'
 			act 'Beg him not to abuse you':gt $loc, 'testarea:treatment:room:event:beg'
 			act 'Resist him':gt $loc, 'testarea:treatment:room:event:resist'
 		end
 	
 	! NOTHING
 	elseif actionType >= 7 and actionType <= 10 and pain['asshole'] < 50 and pain['vagina'] < 50 and pcs_health >= 100:
-		'You wait and wait, but it seems nothing is going to happen this time.'
+		'You wait and wait, but it seems nothing is going to happen this time...'
 		act 'Continue':gt $loc,'testarea:treatment:room'
 	
 	! NURSE
 	else
 		'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse1.jpg"></center>'
-		''
-		'A nurse enters your room, looking at you very strictly: Lay down, hands behind head, legs wide spread, don''t move.'				
+		'A nurse enters your room, looking at you very strictly, "Lay down, hands behind head, spread your legs wide and don''t move."'				
 		act 'Do as told':gt $loc, 'testarea:treatment:room:event:nurse:check'
 		if nurseTalk = 0:act 'Try to talk to her':gt $loc, 'testarea:treatment:room:event:nurse:talkTry'
 		if nurseTalk = 1:act 'Talk to her':gt $loc, 'testarea:treatment:room:event:nurse:talk'
@@ -1839,21 +1774,19 @@ if $ARGS[0] = 'testarea:treatment:room:event:positionDoggy':
 	minut += 2
 	i = rand(1, 3)
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\positionDoggy'+i+'.jpg"></center>'
-	''
-	'You position yourself to his liking, lifting your ass in the air, inviting the african to do what he has come to do..'
+	'You position yourself to his liking, lifting your ass in the air, inviting his to do whatever he pleases...'
 	
 	posR = rand(1, 2)
 	if posR = 1:pos = 1
 	if posR = 2:pos = 5
-	act 'Close eyes and wait':coitusType = pos && gt $loc, 'testarea:treatment:room:event:sex'
+	act 'Close your eyes and wait':coitusType = pos && gt $loc, 'testarea:treatment:room:event:sex'
 end
 
 if $ARGS[0] = 'testarea:treatment:room:event:positionVag':
 	minut += 2
 	i = rand(1, 3)
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\positionVag'+i+'.jpg"></center>'
-	''
-	'You position yourself to his liking, lifting your ass in the air, inviting the african to do whatever he has come to do..'
+	'You position yourself to his liking, lifting your ass in the air, inviting him to do whatever he pleases...'
 	posR = rand(1, 2)
 	if posR = 1:pos = 4
 	if posR = 2:pos = 6
@@ -1864,8 +1797,7 @@ if $ARGS[0] = 'testarea:treatment:room:event:positionKneel':
 	minut += 2
 	i = rand(1, 3)
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\positionKneel'+i+'.jpg"></center>'
-	''
-	'Kneeling down before him you shut your eyes, awaiting what is going to do to you..'
+	'Kneeling down before him you shut your eyes, awaiting what he is going to do to you...'
 	posR = rand(1, 3)
 	if posR = 1:pos = 7
 	if posR = 2:pos = 8
@@ -1876,9 +1808,8 @@ end
 if $ARGS[0] = 'testarea:treatment:room:event:beg':
 	minut += 2
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\beg.jpg"></center>'
-	''
-	'You beg him to not abuse anymore.. you are so sore!'
-	'But it seems it has no efect on him.. on the contrary!'
+	'You beg him to not abuse anymore... you are very sore!'
+	'But your begging seems to has no effect on him... on the contrary!'
 	posR = rand(1, 2)
 	if posR = 1:pos = 8
 	if posR = 2:pos = 9
@@ -1889,8 +1820,8 @@ if $ARGS[0] = 'testarea:treatment:room:event:resist':
 	minut += 2
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\resist.jpg"></center>'
 	''
-	'You start hitting his chest as he''s grabbing your hair'
-	'There is no chance against his superior strengh..'
+	'You start hitting his chest as he''s grabbing your hair.'
+	'There is no chance against his superior strength...'
 	act 'Resist him':coitusType = 9 && gt $loc, 'testarea:treatment:room:event:sex'
 end
 
@@ -1902,10 +1833,9 @@ if $ARGS[0] = 'testarea:treatment:room:event:sex':
 		minut += 20
 		imgRand = rand(1, 5)
 		'<center><video autoplay loop src="images\shared\sex\vag\doggy\AfricanDoggy'+imgRand+'.mp4"></video></center>'
-		''
 		'Holding you by your neck, he pushes you on the bed, lifting your hips with his strong hands.'
-		'Kneeling like that you brace for the entry of his giant cock.'
-		'It hurts, but at least your pussy is still lubed from the last fuck, so it is not as bad as it could be. Yet his cock is so thick that the whole time you feel your pussy spreading to its limits.'
+		'Having your ass up you brace for the entry of his giant cock.'
+		'It hurts, but at least your pussy is still lubed from the last fuck, so it is not as bad as it could be. Yet his cock is so thick that the whole time you feel your pussy stretching to its limits.'
 		'After several minutes he increases his pace, climaxing in long and voluminous ejaculation into your insides.'
 		gs 'pain', 2, 'vaginal', 'tear'
 		gs 'arousal', 'vaginal', 20, 'sub', 'rough', 'humiliation'
@@ -1917,12 +1847,12 @@ if $ARGS[0] = 'testarea:treatment:room:event:sex':
 		minut += 30
 		imgRand = rand(1, 3)
 		'<center><video autoplay loop src="images\shared\sex\mmf\AfricanDoggyDouble'+imgRand+'.mp4"></video></center>'
-		'When he''s about to penetrate you, the door open and another man comes in.'
-		'Confused you expect what is going to happen, but the other man just comes around and grabs your head, pushing the tip of his cock to your yet closed lips.'
-		'Before you realize what''s happening, the first african penetrates your vagina..'
-		'Ouch! The sound goes automatically out of your mouth..and the second african uses the open lips and sticks his cock inside your unprepared mouth!'
-		'You gag but he does not mind, continuing to fuck your throat.'
-		'<i>As if one giant black cock is not enough..</i> You have no choice but to satisfy them both at once.'
+		'As he''s about to penetrate you, the door opens and another man walks in.'
+		'Confused you await what is going to happen, but the other man just causally walks around and grabs your head, and pushes the tip of his cock to your yet closed lips.'
+		'Before you realize what''s happening, the other man penetrates your vagina...'
+		'"Ouch!" the penetration makes your mouth open automatically, while the second man takes the opportunity and sticks his cock inside your unprepared mouth!'
+		'You gag but he does not mind, as he begins to fuck your throat.'
+		'You have no choice but to satisfy them both at once.'
 		gs 'pain', 3, 'vaginal', 'tear'
 		gs 'arousal', 'vaginal', 30, 'sub', 'rough', 'humiliation'
 		gs 'cum_call', '', 'Some african male', 0, '', 250000, 100
@@ -1934,12 +1864,10 @@ if $ARGS[0] = 'testarea:treatment:room:event:sex':
 		minut += 45
 		imgRand = rand(1, 3)
 		'<center><video autoplay loop src="images\shared\sex\vag\cowgirl\AfricanCowgirl'+imgRand+'.mp4"></video></center>'
-		''
-		'He lies down on the bed, relaxed and already with a huge erection: Do your job white slut, or I make sure it hurts even more.'
-		'<i>I don''t want to risk him getting angry..</i>'
-		'You climb the bed, wrap your legs around his wide strong hips and carefuly insert the tremendous tip inside your vagina.'
-		'Push after push you manage to bury it deeper and deeper, until it is somehow comfortable to ride him.'
-		'He truly enjoys it and after several minutes a tremendous delivery of sperm fills you.'
+		'The man lies down on the bed, relaxed and already with a huge erection, "Do your job white slut, or I make sure it hurts even more."'
+		'Not wanting to upset him, you climb the bed, wrap your legs around his wide strong hips and carefully insert the tremendous tip inside your vagina.'
+		'You slowly manage to bury yourself deeper and deeper, until it is somehow comfortable to ride him.'
+		'He truly enjoys it and after several minutes a tremendous delivery of sperm fills you up.'
 		gs 'pain', 1, 'vaginal', 'tear'
 		gs 'pain', 1, 'armL', 'bind'
 		gs 'pain', 1, 'armR', 'bind'
@@ -1952,10 +1880,9 @@ if $ARGS[0] = 'testarea:treatment:room:event:sex':
 		minut += 15
 		imgRand = rand(1, 3)
 		'<center><video autoplay loop src="images\shared\sex\vag\miss\AfricanMis'+imgRand+'.mp4"></video></center>'
-		''
 		'Holding you by your neck, he pushes you on the bed, spreading your legs to get better access to your pink, wetly pussy.'
-		'Shaking a bit you expect him to penetrate you.'
-		'It hurts, but at least your pussy is still lubed from the last fuck, so it is not as bad as it could. Yet his cock is so thick that the whole time you feel your pussy spreading to its limits.'
+		'You stiffen a bit as he penetrates you.'
+		'It hurts, but at least your pussy is still lubed from the last fuck, so it is not as bad as it could. Yet his cock is so thick that the whole time you feel your pussy stretching to its limits.'
 		'After several minutes he increases his pace, climaxing in long and voluminous ejaculation into your insides.'
 		'As you watch him ejaculate, you can feel your abdomen bulking, as if the cum entered your very cervix.'
 		gs 'pain', 1, 'throat', 'stretch'
@@ -1969,12 +1896,11 @@ if $ARGS[0] = 'testarea:treatment:room:event:sex':
 		imgRand = rand(1, 5)
 		'<center><video autoplay loop src="images\shared\sex\anal\doggy\AfricanAnalDoggy'+imgRand+'.mp4"></video></center>'
 		'Holding you by your neck, he pushes you on the bed, lifting your hips with his strong hands.'
-		'Kneeling like that you expect him to penetrate your pussy..'
-		'..but suddenly a sharp pain runs through your lower parts! Ouuch!! He pushed it inside my ass!'
+		'With your ass up you expect him to penetrate your pussy...'
+		'But all of a sudden a sharp pain runs through your lower parts! You yell out as he starts penetrating your ass!'
 		'He either did not realize it, or maybe it was his intention.'
 		'As he fucks you, beside all the pain can feel as if he''s bumping to your very stomach from inside!'
 		'After several minutes he increases his pace, climaxing in long and voluminous ejaculation into your intestines.'
-		'<i>He''s done at last..but this way he surely wont''t impregnate me..</i>'
 		gs 'pain', 2, 'anal', 'tear'
 		gs 'arousal', 'anal', 20, 'sub', 'rough', 'humiliation'
 		gs 'cum_call', 'anus', 'Some african male', 0, '', 250000, 100
@@ -1986,12 +1912,11 @@ if $ARGS[0] = 'testarea:treatment:room:event:sex':
 		imgRand = rand(1, 4)
 		'<center><video autoplay loop src="images\shared\sex\anal\mis\AfricanAnalMis'+imgRand+'.mp4"></video></center>'
 		'Holding you by your neck, he pushes you on the bed, spreading your legs to get better access to your pink, wetly pussy.'
-		'Shaking a bit you expect him to penetrate your pussy..'
-		'..but suddenly a sharp pain runs through your lower parts! Ouuch!! He pushed it inside my ass!'
+		'You stiffen a bit as you expect him to penetrate your pussy..'
+		'But all of a sudden a sharp pain runs through your lower parts! You yell out as he starts penetrating your ass!'
 		'He either did not realize it, or maybe it was his intention.'
 		'As he fucks you, beside all the pain you feel as if he''s bumping to your very stomach from inside!'
 		'After several minutes he increases his pace, climaxing in long and voluminous ejaculation into your intestines.'
-		'<i>He''s done at last..but this way he surely wont''t impregnate me..</i>'
 		gs 'pain', 2, 'anal', 'tear'
 		gs 'arousal', 'anal', 30, 'sub', 'rough', 'humiliation'
 		gs 'cum_call', 'anus', 'Some african male', 0, '', 250000, 100
@@ -2002,15 +1927,14 @@ if $ARGS[0] = 'testarea:treatment:room:event:sex':
 		minut += 30
 		imgRand = rand(1, 5)
 		'<center><video autoplay loop src="images\shared\sex\blowjob\AfricanBlowjob'+imgRand+'.mp4"></video></center>'
-		''
 		'Holding you by your neck, he forcefully pushes you to the ground, making you kneel before him.'
-		'His giant black cock is hanging just before your face..'
-		'Suck my black cock white cunt. Suck deep, or I make you.'
+		'His giant black cock is hanging in front of your face...'
+		'"Suck my black cock white white. Suck deep, or I make you." he commands.'
 		'Taking his cock in your hands, almost unable to wrap your whole hand around it, you start to suck the tip.'
-		'Making the way down your throat the horselike cock makes you gag and almost suffocate.'
-		'Labouring like that after several long minutes he grunts and finally ejaculates.'
-		'Part of his cum lands around your mouth and face - as he sees you are not swallowing he forces your head - almost whole length of his cock is now burried inside your throat.'
-		'You can feel the hot cum flowing directly to your stomach with each wave of cum..'
+		'You slowly make way down your throat, while the horselike cock makes you gag and almost suffocate.'
+		'After working on his cock for what feels like an eternity he grunts and finally ejaculates.'
+		'Part of his cum lands around your mouth and face, as he sees you are not swallowing he forces your head, almost whole length of his cock is now buried inside your throat.'
+		'You can feel the hot cum flowing directly to your stomach with each wave of cum...'
 		gs 'pain', 2, 'throat', 'stretch'
 		gs 'arousal', 'bj', 30, 'sub', 'rough', 'humiliation'
 		gs 'cum_call', 'mouth', 'Some african male', 0, '', 250000, 70
@@ -2022,12 +1946,12 @@ if $ARGS[0] = 'testarea:treatment:room:event:sex':
 		minut += 30
 		imgRand = rand(1, 3)
 		'<center><video autoplay loop src="images\shared\sex\anal\bdsm\AfricanAnalBDSM'+imgRand+'.mp4"></video></center>'
-		'White cunt, I have no patience now. Turn around.'
-		'As you do it he holds your hands together and binds them.'
-		'Then he positions you to his likes - you are unable to move, with all your holes at his mercy.'
-		'He seems happy to see you helpless like that - and penetrates your anus with his giant device!'
-		'Ouuuch! Not my ass, please, it hurts! Ouuch!'
-		'Regardless of your please, he''s fucking you like that for some time until he finally ejaculates, filling you with his immense amount of cum.'
+		'"White whore, I have no patience now. Turn around." he commands.'
+		'As you do it he brings your hands together and binds them.'
+		'He then positions you to his likes, you are unable to move, with all your holes at his mercy.'
+		'He seems happy to see you helpless like that, and begins penetrating your anus with his giant cock!'
+		'"Not my ass, please, it hurts! Ouuch!" you yell out...'
+		'Disregarding your pleads, he fucks you like that for some time until he finally ejaculates, filling you with his immense amount of cum.'
 		gs 'pain', 1, 'anal', 'tear'
 		gs 'pain', 1, 'armL', 'bind'
 		gs 'pain', 1, 'armR', 'bind'
@@ -2040,20 +1964,19 @@ if $ARGS[0] = 'testarea:treatment:room:event:sex':
 		minut += 30
 		imgRand = rand(1, 5)
 		'<center><video autoplay loop src="images\locations\shared\clinic\experiment\whip'+imgRand+'.mp4"></video></center>'
-		'White cunt deserve to be punished. Turn around.'
-		'As you do it he holds your hands together and binds them, securing you in a position.'
-		'From the box in the corner he takes a long leather whip.'
-		'Without another word, regardless of your begs and pleads, he whips your asscheeks.'
-		'Ouch! Ouch! Ouch! With each stroke you let out a scream, like small girl that is punished by her bad behaviour.'
-		'When you finally believe it is over, he goes around you - and dooes the same to your tender tities!'
-		'Ouuuch! Not my breasts, please, it hurts! My nipple, ouuch! Ayyiiee!'
-		'After he is really over, both your asscheeks and breasts burn like hell, being red and bruised by the punishment.'
+		'"White whore deserve to be punished. Turn around." he commands you.'
+		'As you do it he brings your hands together and binds them, securing you in a position.'
+		'From the box in the corner he takes out a long leather whip.'
+		'Without saying another word, regardless of your pleads, he starts whipping your ass cheeks.'
+		'With each stroke you let out a scream, like small girl that is punished by her bad behavior.'
+		'When you finally believe it is over, he walks to the front, and does the same to your tender breasts!'
+		'"Not my breasts, please, it hurts! My nipples! you yell out.'
+		'After he is really over, both your ass cheeks and breasts burn like hell, being red and bruised by the punishment.'
 		gs 'pain', 2, 'breasts', 'spank'
 		gs 'pain', 2, 'asscheeks', 'spank'
 		gs 'pain', 1, 'armL', 'bind'
 		gs 'pain', 1, 'armR', 'bind'
 		gs 'stat'
-
 	end
 
 	act 'Wait until he leaves':gt $loc, 'testarea:treatment:room'
@@ -2070,21 +1993,19 @@ if $ARGS[0] = 'testarea:treatment:room:event:african:talk':
 		act 'Let him be':gt $loc, 'testarea:treatment:room'
 
 	elseif talkChance > 20 and talkChance <= 40:
-		'You try to talk to him. Looking at you he slowly opens his mouth. The white teeth shine in his mouth:'
-		'..must..fuck..white..pussy..must..fuck..'
-		'<i>What the hell is with him?</i>'
+		'You try to talk to him. Looking at you he slowly opens his mouth, "Must... fuck... many... white... women..."'
 		'He speaks as if he wasn''t even aware of himself. Maybe he is under some kind of drug, or even hypnotized?'
 		act 'Let him be':gt $loc, 'testarea:treatment:room'
 
 	elseif talkChance > 40 and talkChance <= 60:
-		'You try to talk to him. He finally looks to your face.'
-		'Shut your mouth white cunt. I must not talk, only to cum inside.'
-		'<i>He looks angry, I should probably be quiet now..</i>'
-		'The african leaves, looking at you with angry face while closing the door. You just hope he will not be back before his anger fades, otherwise..'
+		'You try to talk to him. He finally looks at you...'
+		'"Shut your mouth white whore. I must not talk, only to cum inside." he angrily replies.'
+		'Not wanting to upset him further, you keep quiet...'
+		'It doesn''t take long before he leaves, looking at you with angry face while closing the door. You just hope he will not be back before his anger fades, otherwise...'
 		act 'Continue':gt $loc, 'testarea:treatment:room'
 	else
-		'You try to talk to him. He finally looks to your face, this time looking a bit friendlier than before.'
-		'What you want white cunt?'
+		'You try to talk to him. He finally pays attention to you, this time looking a bit friendlier than before.'
+		'"What you want white whore?" he asks...'
 
 		act 'Why are you here?':gt $loc, 'testarea:treatment:room:event:african:talk:Q1'
 		if expVolunteer = 0:act 'Are you also a prisoner like me?':gt $loc, 'testarea:treatment:room:event:african:talk:Q2'
@@ -2101,15 +2022,12 @@ if $ARGS[0] = 'testarea:treatment:room:event:african:talk:Q1':
 	minut += 5
 	pcs_mood += 20
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\<<$africanN>>.jpg"></center>'
-	''
-	'<b>Why are you here?</b>'
-	'White cunt you can guess.'
-	'For money?'
-	'Money too.'
-	'Too? What else?'
-	'Fun. Doctor gave me pills so my cock bigger is. And free white cunts to fuck.'
-	'..oh'
-	'I like white cunts. Money good is but fuck better is.'
+	'"Why are you here?" you ask...'
+	'"Guess why, you white whore." he replies.'
+	'"For money?" you guess.'
+	'"That too." he quickly replies.'
+	'"Too? What else?" you continue on.'
+	'"For fun. Doctor gave me pills so my cock bigger is. And free white whores to fuck." he smirks, "I like white whores. Money good is but fuck better is."'
 
 	act 'Continue':gt $loc, 'testarea:treatment:room'
 end
@@ -2118,15 +2036,14 @@ if $ARGS[0] = 'testarea:treatment:room:event:african:talk:Q2':
 	minut += 5
 	pcs_mood += 20
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\<<$africanN>>.jpg"></center>'
-	''
-	'<b>Are you also a prisoner like me?</b>'
-	'No! I am never slave as you white cunt are.'
-	'So you entered the experiment voluntarily?'
-	'Yes, I come for money but I stay for cunts.'
-	'I see..'
-	'And for pills. Pills make my cock big, as big as horse. Horse cock, white cunts, alot fun.'
-	'Not for me, it hurts so much!'
-	'Horse cock is good for white cunt. Bigger fun when it hurts white cunt. Bigger fun when white cunt can not say no.'
+	'"Are you also a prisoner like me?" you ask.'
+	'"No! I am never slave as you white whore are." he replies.'
+	'"So you entered the experiment voluntarily?" you press on.'
+	'"Yes, I come for money but I stay for whores." he smiles.'
+	'"I see..." you comment.'
+	'"And for pills. Pills make my cock big, as big as horse. Horse cock, white whores, a lot fun." his grin is getting even bigger.'
+	'"Not for me, it hurts so much!" you moan.'
+	'"Horse cock is good for white whore. The bigger the more fun when it hurts. It''s fun more when white whore can not say no." he laughs loudly.'
 	'You just gulp, in disgust, unable to say anything more.'
 	'He gets up, slaps your face with his almost flaccid cock and leaves.'
 
@@ -2137,16 +2054,12 @@ if $ARGS[0] = 'testarea:treatment:room:event:african:talk:Q3':
 	minut += 5
 	pcs_mood += 20
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\<<$africanN>>.jpg"></center>'
-	''
-	'<b>Where are you from?</b>'
-	'Africa. But I come out of Germany. White man not let me stay.'
-	'Why?'
-	'German man is racist. German cunts went for police. I must go out.'
-	'..uhm..'
-	'You are shocked. He is some kind of criminal who probably abused girls in Europe before.'
-	'<i>Better not to provoke him further..</i>'
-	''
-	'My balls full again are. White cunt get ready, I come soon again.'
+	'"Where are you from?" you ask.'
+	'"From the start, a country in Africa. But I come out of Germany. White man not let me stay." he sadly answers.'
+	'"Why?" you curiously ask.'
+	'"German man is racist. German cunts went for police. I must go out." he replies.'
+	'You are in shock. Is he some kind of criminal? Better not make him upset...'
+	'Before you''re able to say anything he speaks up, "My balls are getting full again are. White whore get ready, I come soon again."'
 
 	act 'Continue':gt $loc, 'testarea:treatment:room'
 end
@@ -2154,83 +2067,74 @@ end
 if $ARGS[0] = 'testarea:treatment:room:event:african:talk:Q4':
 	minut += 5
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\<<$africanN>>.jpg"></center>'
-	''
-	'<b>Why are you so violent??</b>'
-	'White cunt should not talk.'
-	'Huh?'
-	'White cunt should know we treat white cunt as she deserve.'
-	'This can''t be true!'
-	'White cunt should shut mouth or I stuff my fist inside her.'
-	'You are shocked. He seem to feel no remorse about what he''s doing to you - he''s probably used to treat women as a rightless slaves who require nothing else than punishment and abuse.'
-	'<i>Better not to provoke him further..</i>'
+	'"Why are you so violent?" you ask.'
+	'"White whore should keep quiet." he annoyingly answers.'
+	'"What do you mean?" you push on.'
+	'"White whore should know we treat as the whores they are." he explains.'
+	'"What are you saying!" you tell him off.'
+	'"White whore should shut mouth or I stuff my fist inside her." he threatens you.'
+	'You are shocked. He seem to feel no remorse about what he''s doing to you, he''s probably used to treat women as slaves who require nothing else than punishment and abuse.'
+	
 	act 'Continue':gt $loc, 'testarea:treatment:room'
 end
 
 if $ARGS[0] = 'testarea:treatment:room:event:african:talk:Q5':
 	minut += 5
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\<<$africanN>>.jpg"></center>'
-	''
-	'<b>How can your cock be so enormous??</b>'
-	'My cock was not so big before.'
-	'Before what?'
-	'Before doctor came and give me chance.'
-	'A chance?'
-	'Yes, doctor gave me pills. My cock now is double big as before.'
-	'..I see.'
-	'Double dick but also balls are more full. So doctor give me white cunts to fuck.'
-	''
-	'<i>Uhm, so he was hired based solely on a promise of cock enlargment? Men are really weird creatures..</i>'
+	'"How can your cock be so enormous?" you ask.'
+	'"My cock was not so big before." he begins to explain.'
+	'"Before what?" you pry further.'
+	'"Before doctor came and give me chance." he continues on.'
+	'"A chance?" you look confusedly at him.'
+	'"Yes, doctor gave me pills. My cock now is double big as before." he proudly says.'
+	'"I understand..." you say.'
+	'"Double dick size but also balls are more full. So doctor give me white whores to fuck." he smiles.'
+	
 	act 'Continue':gt $loc, 'testarea:treatment:room'
 end
 
 if $ARGS[0] = 'testarea:treatment:room:event:african:talk:Q6':
 	minut += 5
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\<<$africanN>>.jpg"></center>'
-	''
-	'<b>Are you legally in Russia?</b>'
-	'Doctor promised. I do eat pills, I get passport.'
-	'So you will receive citizenship for being part of this medical research?'
-	'Doctor promised. I will not go back.'
-	'Why?'
-	'War.'
-	'Oh, there is a war in your country?'
-	'Yes, war. And no white cunts to fuck, boredom. But Russia good is.'
-	''
-	'<i>So he came to flee before a war, but in truth he is staying here because he wants to fuck white women?</i>'
+	'"Are you legally in Russia?" you ask.'
+	'"Doctor promised. I do eat pills, I get passport." he explains.'
+	'"So you will receive citizenship for being part of this medical research?" you continue on.'
+	'"Doctor promised. I will not go back." he''s pretty resolute in his answer.'
+	'"Why, if you don''t mind me asking?" you pry.'
+	'"Because, war." you replies as his eyes sadden.'
+	'"Oh, there is a war in your country?" you continue on.'
+	'But he waves it away, "Yes, war. And no white whores to fuck, boredom. But Russia good is."'
+	
 	act 'Continue':gt $loc, 'testarea:treatment:room'
 end
 
 if $ARGS[0] = 'testarea:treatment:room:event:african:talk:Q7':
 	minut += 5
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\<<$africanN>>.jpg"></center>'
-	''
-	'<b>Why do you crave to fuck white women so much?</b>'
-	'White woman is not woman. She cunt is.'
-	'What?'
-	'Black woman is good woman. She decent is. Not provoke, not slut.'
-	'And white is a slut or what?'
-	'Yes. White woman is slut. She ask for sex, for rape. She show skin, so she want fuck.'
-	'That is not true!'
-	'It true is. Look yourself. You here are for black cock. You let be fucked by black man. You slut are.'
-	''
-	'<i>Oh god, he thinks if we wear short skirt or whatever, that we are literally asking to be raped?</i>'
+	'"Why do you crave to fuck white women so much?" you ask.'
+	'"White woman is not woman. She whore is." he replies in broken russian.'
+	'"Excuse me?!" you yell out.'
+	'"Black woman is good woman. She decent is. Not provoke, not slut." he starts explaining.'
+	'"And white is a slut or what?" annoyed, you ask.'
+	'"Yes, white woman is slut. She show too much skin... She wants cock..." he says.'
+	'"That is not true!" you start to explain.'
+	'"It true is. Look yourself. You here are for cock. You let be fucked by black man. You slut are." and with that he finishes the discussion.'
+	
 	act 'Continue':gt $loc, 'testarea:treatment:room'
 end
 
 if $ARGS[0] = 'testarea:treatment:room:event:african:talk:Q8':
 	minut += 5
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\<<$africanN>>.jpg"></center>'
-	''
-	'<b>How can you enjoy hurting women in such a way?</b>'
-	'I do not hurt women. No.'
-	'But you just abused me in very aggressive and painful way!'
-	'You no woman are. You white cunt are.'
-	'What? Me being white makes me not a woman?'
-	'Yes. White woman slut is. She only to fuck wants. All africa knows well.'
-	'Huh? Africa knows what?'
-	'Every man in Africa knows white cunt only for sex is. White woman slut is and want sex.'
-	''
-	'<i>I am not a human being to him.. just a set of holes to be used to his liking. Ugh..</i>'
+	'"How can you enjoy hurting women in such a way?" you ask.'
+	'"I do not hurt women. No." he confidently answers.'
+	'"But you just abused me in very aggressive and painful way!" you begin to explain.'
+	'"You no woman are. You white whore are." he angrily replies.'
+	'"What? Me being a whore makes me not a woman?" you try to reason with him.'
+	'"Yes, white whore not woman. She only to fuck wants. All Africa knows well." he''s almost shouting.'
+	'"What? Everyone in Africa knows what?" you''re irritated by now.'
+	'"Every man in Africa knows white whores only for sex is. All white whore is and want sex." he continues on.'
+	
 	act 'Continue':gt $loc, 'testarea:treatment:room'
 end
 
@@ -2238,17 +2142,16 @@ if $ARGS[0] = 'testarea:treatment:room:event:nurse:check':
 	minut += 5
 	! STATUS CHECK: nurse
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse1.jpg"></center>'
-	''
 	'She takes a sample of your blood, measures your temperature, blood pressure and proceeds to examine insides of your vagina.'
 	
 	if pain['vaginal'] > 30 or pain['asshole'] > 30: 
-		'And she gives you something against the pain.'
+		'She gives you something against the pain.'
 		if pain['vaginal'] > 30: pain['vaginal'] -= rand(9,18)
 		if pain['asshole'] > 30: pain['asshole'] -= rand(9,18)
 	end
 
-	'<i>The cold medical mirror is nothing compared to abuse endured by the giant black cocks.</i>'
-	'When she''s done, she packs up her equipment and says: '
+	'<i>The cold medical mirror is nothing compared to the abuse endured by the giant black cocks.</i>'
+	'When she''s done, she packs up her equipment and says,'
 	if pregchem > 30:
 		pregTalkPC = 1
 		impreg = 1
@@ -2270,8 +2173,7 @@ end
 if $ARGS[0] = 'testarea:treatment:room:event:nurse:talkTry':
 	minut += 1
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse1.jpg"></center>'
-	''
-	'You decided to try to talk to her.. '
+	'You decide to try to talk to her...'
 	act 'Please nurse, please talk to me!':gt $loc, 'testarea:treatment:room:event:nurse:talk'
 end
 
@@ -2284,13 +2186,13 @@ if $ARGS[0] = 'testarea:treatment:room:event:nurse:talk':
 		'The nurse does not seem to be interested in talking with you.'
 		act 'Let her be':gt $loc, 'testarea:treatment:room:event:nurse:check'
 	elseif nurseRel >= 3 and nurseRel <= 4:
-		'The nurse stil does not want to talk to you, yet you can see she looks to your face occasionaly.'
+		'The nurse still does not want to talk to you, yet you can see that she looks compassionately at your face occasionally.'
 		act 'Let her be':gt $loc, 'testarea:treatment:room:event:nurse:check'
 	else
 		nurseTalk = 1
-		'The nurse looks at you: What do you want to talk about miss <<$pcs_lastname>>?'
-		'I''m so glad you decided to speak to me. Everyone here just comes, fucks me like doll and leaves without a word.'
-		'Well, that''s what you signed for after all. Do you have some questions or not?'
+		'The nurse looks at you, "What do you want to talk about miss <<$pcs_lastname>>?"'
+		'"I''m so glad you decided to speak to me. Everyone here just comes, fucks me like a doll and leaves without saying a word." you explain.'
+		'"Well, that''s what you signed for after all. Do you have some questions or not?" she answers cold hearteningly.'
 		act 'When will you let me go?':gt $loc, 'testarea:treatment:room:event:nurse:talk:Q1'
 		if expVolunteer = 0:act 'Why are you doing this to me?':gt $loc, 'testarea:treatment:room:event:nurse:talk:Q2'
 		if expVolunteer = 0:act 'Is this experiment even legal?':gt $loc, 'testarea:treatment:room:event:nurse:talk:Q3'
@@ -2304,13 +2206,12 @@ end
 if $ARGS[0] = 'testarea:treatment:room:event:nurse:talk:Q1':
 	minut += 3
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse1.jpg"></center>'
-	''
-	'<b>When will you let me go?</b>'
-	'You will be released from the experimental research once you finish it.'
-	'And when I will finish it?'
-	'Once you get impregnated.'
-	'But what will I do with a child afterwards?'
-	'I don''t know miss <<$pcs_lastname>>. You can do whatever you want I guess. I must go, I have to get back to work.'
+	'"When will you let me go?" you ask.'
+	'"You will be released from the experimental research once you finish it." the nurse explains.'
+	'"And when I will finish it?" you continue asking.'
+	'"Once you get impregnated." she shortly answers.'
+	'"But what will I do with a child afterwards?" you hesitantly ask.'
+	'The nurse nonchalantly looks at you, "I don''t know miss <<$pcs_lastname>>. You can do whatever you want I guess. I must go, I have to get back to work."'
 
 	act 'Continue':gt $loc, 'testarea:treatment:room:event:nurse:check'
 end
@@ -2318,17 +2219,16 @@ end
 if $ARGS[0] = 'testarea:treatment:room:event:nurse:talk:Q2':
 	minut += 3
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse1.jpg"></center>'
-	''
-	'<b>Why are you doing this to me?</b>'
-	'Me? I am doing just my job.'
-	'But I was tricked! I did not know the experiment will be like this!'
-	'You believe this yourself? I think there is just enough information to catch up with the actual nature of this research.'
-	'But.. but..'
-	'But what?'
-	'I don''t want this anymore!'
-	'That is unfortunate, but I cannot do anything about it. I am just a wheel in a large machine, you know.'
-	'But.. but..'
-	'I have to go now miss <<$pcs_lastname>>. See you later.'
+	'"Why are you doing this to me?" you ask.'
+	'"Me? I am doing just my job." she answers.'
+	'"But I was tricked! I did not know the experiment will be like this!" you try to reason with her.'
+	'"You believe this yourself? I think there is just enough information to catch up with the actual nature of this research." she answers.'
+	'"But... but..." you start...'
+	'"But what?" she annoyingly looks at you...'
+	'"I don''t want this anymore!" your eyes tear up.'
+	'"That is unfortunate, but I cannot do anything about it. I am just a cog in a large machine, you know." she explains.'
+	'"But... but..." you try...'
+	'She interrupts you, "I have to go now miss <<$pcs_lastname>>. See you later."'
 
 	act 'Continue':gt $loc, 'testarea:treatment:room:event:nurse:check'
 end
@@ -2336,11 +2236,10 @@ end
 if $ARGS[0] = 'testarea:treatment:room:event:nurse:talk:Q3':
 	minut += 3
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse1.jpg"></center>'
-	''
-	'<b>Is this experiment even legal?</b>'
-	'Of course it is. You have filed the paperwork, stating your attendance as entirely voluntary and willing.'
-	'Voluntary? That means I can leave when I want?'
-	'Almost. You will be released while your contract obligations are fulfilled. Not until the goal is accomplished.'
+	'"Is this experiment even legal?" you ask.'
+	'"Of course it is. You have filed out the paperwork, stating your attendance as entirely voluntary and willing." the nurse smirks.'
+	'"Voluntary? That means I can leave when I want?" you feel getting the upper hand.'
+	'The nurse quickly shuts you down, "Almost. You will be released while your contract obligations are fulfilled. Not until the goal is accomplished."'
 
 	act 'Continue':gt $loc, 'testarea:treatment:room:event:nurse:check'
 end
@@ -2348,13 +2247,12 @@ end
 if $ARGS[0] = 'testarea:treatment:room:event:nurse:talk:Q4':
 	minut += 3
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse1.jpg"></center>'
-	''
-	'<b>Did you also gone through the experiment?</b>'
-	'What do you mean?'
-	'Well.. have you been also..you know..in my place?'
-	'What??? Do I look like so miserable to sell my own body?'
-	'I did not..'
-	'Shut up you stupid black cock whore, you are a disgrace of the Russian people.'
+	'"Did you also gone through the experiment?" you ask.'
+	'"What do you mean?" the nurse is confusingly looking at you.'
+	'"Well... have you been also... you know... in my place?" you pry on.'
+	'The nurse takes offense, "What??? Do I look like so miserable to sell my own body?"'
+	'"I did not..." you begin to explain yourself...'
+	'But the nurse quickly interrupts you, "Shut up you stupid black cock loving whore, you are a disgrace of the Russian people."'
 	nurseRel -= 3
 	nurseTalk = 0
 	act 'Continue':gt $loc, 'testarea:treatment:room:event:nurse:check'
@@ -2363,12 +2261,10 @@ end
 if $ARGS[0] = 'testarea:treatment:room:event:nurse:talk:Q5':
 	minut += 3
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse1.jpg"></center>'
-	''
-	'<b>How can you let them do this to me?</b>'
-	'Me? I am doing just my own job. I did not force anyone to do anything.'
-	'But you see what they do to me and do nothing!'
-	'And what should I do? Go to authorities or police? They are bribed. I would end up without a job, and that would be even the best outcome.'
-	'NO! No..'
+	'"How can you let them do this to me?" you ask.'
+	'"Me? I am doing just my own job. I did not force anyone to do anything." she explains.'
+	'"But you see what they do to me and do nothing about it!" you yell out.'
+	'Annoyed she replies, "And what should I do? Go to authorities or police? They are bribed. I would end up without a job, and that would be even the best outcome."'
 	nurseTalk = 0
 	act 'Continue':gt $loc, 'testarea:treatment:room:event:nurse:check'
 end
@@ -2376,33 +2272,31 @@ end
 if $ARGS[0] = 'testarea:treatment:room:event:nurse:talk:Q6':
 	minut += 3
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse1.jpg"></center>'
-	''
-	'<b>Why do you use the africans?</b>'
-	'Well, it''s an idea of the doctors. Something about multiple areas to test.'
-	'Multiple areas?'
-	'Yes, apparently they wanted to use this opportunity to their best. They can test the ovulation drug, the male fertility drug and in addition they can test it in interracial environment.'
-	'..I see.'
-	'But I believe there is also a more practical reason.'
-	'What reason?'
-	'Well if they hired male Russians, word about the experiment would get out sooner or later. So they hired those africans instead, who barely speak Russian, and even if they would, nobody would believe them a single word. And when this is finished, they can dispose of them very quietly..'
+	'Why do you use the black males?" you ask.'
+	'"Well, it''s an idea of the doctors. Something about several areas to test." she explains.'
+	'"Several areas?" you ask.'
+	'"Yes, apparently they wanted to use this opportunity to their best. They can test the ovulation drug, the male fertility drug and in addition they can test it in interracial environment." she tries to explain.'
+	'"I understand..." you quietly answer.'
+	'"But I believe there is also a more practical reason." she smirks.'
+	'"What reason?" you quickly ask.'
+	'"Well if they hired male Russians, word about the experiment would get out sooner or later. So they hired those black males instead, who barely speak Russian, and even if they would, nobody would believe them a single word. And when this is finished, they can dispose of them very quietly..." she tells you before leaving.'
 	nurseTalk = 0
 	act 'Continue':gt $loc, 'testarea:treatment:room:event:nurse:check'
 end
 
 if $ARGS[0] = 'testarea:treatment:room:event:nurse:talk:Q7':
 	minut += 3
-	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse1	.jpg"></center>'
-	''
-	'<b>Why do the africans have such unnaturally oversized penises?</b>'
-	'It''s the other drug that is tested here. Experimental penis enlargment.'
-	'It really works? I thought it is only a fake..'
-	'What they sell online is a fake. But what we test here is not. But..'
-	'But what?.'
-	'It has side effects. Sometimes their bodies fail to keep up with the enlargment process, and..'
-	'..and?'
-	'They don''t survive it. Better said, their ''devices'' don''t survive it, and they afterwards.'
-	'Men died because what, because their cocks..fell off?'
-	'Crudely said, yes. It can cause a incurable gangrene that in the end causes the victim to die. That is another reason why doctors use these africans, people without documents, without connection to reality. People who are missed by nobody.. Until they finally fix this side effect, that is.'
+	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse1.jpg"></center>'
+	'"Why do the africans have such unnaturally over-sized penises?" you ask.'
+	'"It''s the other drug that is tested here. Experimental penis enlargement." she explains.'
+	'"It really works? I thought it was only a placebo..." you say.'
+	'She nears you and starts whispering, "What they sell on-line is a fake. But what we test here is not. But..."'
+	'"But what?" you curiously ask.'
+	'"It has side effects. Sometimes their bodies fail to keep up with the enlargement process, and..." she keeps telling you.'
+	'"And?" the excitement is killing you...'
+	'"They don''t survive it. Better said, their ''devices'' don''t survive it, and they slowly follow afterwards." she explains.'
+	'You gasp, "They died because why, their cocks... fell off?"'
+	'The nurse nods, "Crudely said, yes. It can cause a incurable gangrene that in the end causes the victim to die. That is another reason why doctors use these africans, people without documents, without connection to reality. People who are missed by nobody... Until they finally fix this side effect, that is."'
 	nurseTalk = 0
 	act 'Continue':gt $loc, 'testarea:treatment:room:event:nurse:check'
 end
@@ -2410,13 +2304,8 @@ end
 if $ARGS[0] = 'testarea:treatment:impreg':
 	minut += 3
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\positionDoggy2.jpg"></center>'
-	''
-	'Lying on the bed you hear the door open once again. You have lost count of how many times you have been abused, how many ejaculations have you taken inside you..'
-	'You do not even wait to see who is coming in - automatically you turn around on the bed, sticking your ass up, getting ready to be fucked once again.'
-	'.'
-	'..'
-	'...'
-	'<i>What''s taking so long? By this time I am already stuffed like a bunny..</i>'
+	'Lying on the bed you hear the door open once again. You have lost count of how many times you have been abused, how many ejaculations have you taken inside you...'
+	'You do not even watch to see who is coming in, you automatically turn around on the bed, sticking your ass up, getting ready to be fucked once again...'
 
 	act 'Await penetration':gt $loc, 'testarea:treatment:impreg:doctor'
 	if expVolunteer = 1:act 'Await penetration':gt $loc, 'testarea:treatment:impreg:doctor:volunteer'
@@ -2427,19 +2316,18 @@ if $ARGS[0] = 'testarea:treatment:impreg:doctor:volunteer':
 	knowpreg = 1
 	unrelated_preg = 0
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\doc1.jpg"></center>'
+	'<<$doc1>>: "Miss <<$pcs_lastname>>?"'
 	''
-	'<<$doc1>>: Miss <<$pcs_lastname>>?'
-	''
-	'Huh? You realize it is not another african coming to abuse you, but one of the doctors!'
+	'Hearing that voice you realize it is not another black male coming to abuse you, but one of the doctors!'
 	'You quickly turn around on the bed to be able to look at him. He is watching you with weird interest.'
-	'What do you want from me?'
-	'<<$doc1>>: I have come to inform you about your progress.'
-	'Progress?'
-	'<<$doc1>>: Yes. The insemination has finally been processed.'
-	'Already?'
-	'<<$doc1>>: Indeed miss <<$pcs_lastname>>, you are pregnant. Congratulations!'
-	'Thank you, I guess.?'
-	'<<$doc1>>: Both our ovulation drug and male fertillity drug worked very efficiently in your case. It is a valuable input to our experiment.'
+	'"What do you want from me?" you ask.'
+	'<<$doc1>>: "I have come to inform you about your progress."'
+	'"Progress?" you look strangely at him.'
+	'<<$doc1>>: "Yes, the insemination has finally been processed."'
+	'"Already?" you disappointingly ask.'
+	'<<$doc1>>: "Indeed miss <<$pcs_lastname>>, you are pregnant. Congratulations!"'
+	'"Thank you, I guess...?" you don''t really know how to act.'
+	'<<$doc1>>: "Both our ovulation drug and male fertility drug worked very efficiently in your case. It was a valuable input to our experiment."'
 	
 	act 'Follow him':gt $loc, 'testarea:treatment:impreg:dressup'
 end
@@ -2449,19 +2337,18 @@ if $ARGS[0] = 'testarea:treatment:impreg:doctor':
 	knowpreg = 1
 	unrelated_preg = 0
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\doc1.jpg"></center>'
+	'<<$doc1>>: "Miss <<$pcs_lastname>>?"'
 	''
-	'<<$doc1>>: Miss <<$pcs_lastname>>?'
-	''
-	'Huh? You realize it is not another african coming to abuse you, but one of the doctors!'
+	'Hearing that voice you realize it is not another black male coming to abuse you, but one of the doctors!'
 	'You quickly turn around on the bed to be able to look at him. He is watching you with weird interest.'
-	'What do you want from me?'
-	'<<$doc1>>: I have come to inform you about your progress.'
-	'Progress?'
-	'<<$doc1>>: Yes. The insemination has finally been processed.'
-	'I..I''m..?'
-	'<<$doc1>>: Indeed miss <<$pcs_lastname>>, you are pregnant. Congratulations!'
-	'Oh no..pregnant..by one of..them?'
-	'<<$doc1>>: Of course, who else? Both our ovulation drug and male fertillity drug worked very efficiently in your case. It is a valuable input to our experiment.'
+	'"What do you want from me?" you ask.'
+	'<<$doc1>>: "I have come to inform you about your progress."'
+	'"Progress?" you look strangely at him.'
+	'<<$doc1>>: "Yes. The insemination has finally been processed."'
+	'You gasp, "I... I''m...?"'
+	'<<$doc1>>: "Indeed miss <<$pcs_lastname>>, you are pregnant. Congratulations!"'
+	'You shake your head in disbelief, "Oh no... pregnant... by one of... them?"'
+	'<<$doc1>>: "Of course, who else? Both our ovulation drug and male fertility drug worked very efficiently in your case. It was a valuable input to our experiment."'
 	
 	act 'Collapse and cry':gt $loc, 'testarea:treatment:impreg:cry'
 	act 'Get angry and shout at him':gt $loc, 'testarea:treatment:impreg:shout'
@@ -2470,11 +2357,9 @@ end
 if $ARGS[0] = 'testarea:treatment:impreg:cry':
 	minut += 3
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\cry.jpg"></center>'
-	''
-	'<<$doc1>>: Do not cry miss <<$pcs_lastname>>. You should be proud of yourself - you helped the medicine move one step forward.'
-	'Forward? My life is ruined! I''m expecting a black bastard! How will I explain this to my friends? To my family!'
-	'<<$doc1>>: That is a problem you should have thought about before signing the form. Now follow me, I will show you to the exit.'
-	'..oh no..oh no..why?'
+	'<<$doc1>>: "Do not cry miss <<$pcs_lastname>>. You should be proud of yourself, you helped the medical field progress."'
+	'With tears running down your cheeks, "Progress?! My life is ruined! I''m expecting a black bastard! How will I explain this to my friends? To my family?!"'
+	'<<$doc1>>: "That is a problem you should have thought about before signing the form. Now follow me, I will show you to the exit."'
 
 	act 'Follow him crying':gt $loc, 'testarea:treatment:impreg:dressup'
 end
@@ -2482,10 +2367,8 @@ end
 if $ARGS[0] = 'testarea:treatment:impreg:dressup':
 	minut += 8
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse1.jpg"></center>'
-	''
-	'So miss <<$pcs_lastname>>, here are your things from the locker, please dress up.'
-	''
-	'<i>I don''t even remember what is it like to wear clothing!</i> You eagerly put on the clothing you have came here days, maybe weeks, but definitely dozens of ejaculations ago.'
+	'The nurse enters the room, "So miss <<$pcs_lastname>>, here are your things from the locker, please dress up."'
+	'You eagerly put on the clothing that you left in the locker before getting locked up for days, maybe weeks, but definitely dozens of ejaculations ago.'
 	gs 'clothing', 'wear_last_worn'
 	gs 'stat'
 
@@ -2497,36 +2380,32 @@ if $ARGS[0] = 'testarea:treatment:impreg:leave':
 	money += 50000
 	experimentAbsolved += 1
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse1.jpg"></center>'
-	''	
-	'Last matter to be settled is your payment.'
-	if expVolunteer = 0:'<i>At least I will get paid for this sodomy..</i>'
-	'She handes you several bills. You count them, it is 50.000 RUB.'
-	'Now follow me, I will show you the way out.'
-	if expVolunteer = 0:'<i>Finally!</i>'
+	'The nurse speaks up, "And the last matter to be settled is your payment."'
+	if expVolunteer = 0:'<i>At least I will get paid for the abuse I''ve been through...</i>'
+	'She hands you several bills. You count them, it is 50.000 <b>₽</b>, "Now follow me, I will show you the way out."'
+	if expVolunteer = 0:'<i>Finally, freedom!</i>'
 
-	if expVolunteer = 1:act 'Uhm..nurse?':gt $loc, 'testarea:treatment:impreg:shout:punish:volunteer1'
+	if expVolunteer = 1:act 'Uhm... nurse?':gt $loc, 'testarea:treatment:impreg:shout:punish:volunteer1'
 	act 'Get out':gt 'poli', 'start'
 end
 
 if $ARGS[0] = 'testarea:treatment:impreg:shout:punish:volunteer1':
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse1.jpg"></center>'
-	''
-	'What is it miss <<$pcs_lastname>>?'
-	'Uhm..I..'
-	'Just tell me what you want, I have to get back to paperwork.'
+	'"What is it miss <<$pcs_lastname>>?" the nurse asks.'
+	'"Uhm... I..." you hesitate.'
+	'The nurse is growing inpatient, "Just tell me what you want, I have to get back to paperwork."'
 
-	act 'I''ts nothing.. (thank her and leave)':gt 'poli', 'start'
+	act 'It''s nothing... (thank her and leave)':gt 'poli', 'start'
 	act 'Can I get one last fuck?':gt $loc, 'testarea:treatment:impreg:shout:punish:volunteer2'
 end
 
 if $ARGS[0] = 'testarea:treatment:impreg:shout:punish:volunteer2':
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\nurse1.jpg"></center>'
-	''
-	'Miss <<$pcs_lastname>>, you don''t have enough?'
-	'Uhm..you know..'
-	'After so many days, being stuffed by those africans, and you ask me for another fuck?'
-	'..well..I..'
-	'Someone here needs to punished. Abdul, come over here!'
+	'The nurse is a bit shocked by your request, "Miss <<$pcs_lastname>>, haven''t you had enough?"'
+	'You look down at the ground, "Uhm... you know..."'
+	'The nurse crosses her arms, "After so many days, being stuffed by those black cocks, and you ask me for another fuck?"'
+	'"Well... I..." you shyly speak.'
+	'With a stern look the nurse begins to speak, "Someone here needs to punished. Abdul, come over here!"'
 
 	act '(change your mind and quickly leave)':gt 'poli', 'start'
 	act '(sit down and wait)':gt $loc, 'testarea:treatment:impreg:shout:punish'
@@ -2535,19 +2414,16 @@ end
 if $ARGS[0] = 'testarea:treatment:impreg:shout':
 	minut += 3
 	'<center><img <<$set_imgh>> src="images\shout\pc.jpg"></center>'
+	'"My life is ruined! You have forced upon this me! I was raped at least million times!" you angrily yell out.'
+	'<<$doc1>>: "Calm down miss <<$pcs_lastname>>. You should be proud of yourself, you helped the medical field progress.'
+	'"Go to hell! You and your medicine!" you keep on yelling.'
+	'<<$doc1>>: "Calm down or I will have you forcefully led out!"'
+	'"Fuck you!" with these words you jump off the bed and start slapping him with your hands.'
+	'As if from nowhere a pair of strong black hands grab you, lifting you in the air. You''re kicking with your legs like a beetle, but resistance is futile.'
 	''
-	'My life is ruined! You have forced upon this me! I was raped at least milion times!!!'
-	'<<$doc1>>: Calm down miss <<$pcs_lastname>>. You should be proud of yourself - you helped the medicine move one step forward.'
-	'Go to hell! You and your medicine!'
-	'<<$doc1>>: Calm down or I will have you forcefully led out!'
-	'Devil take you! With these words you jump off the bed and start slapping him with your hands.'
-	'As if from nowhere a pair of strong black hands grab you, lifting you in the air. You''re kicking with your legs like a beetle, but your resistance is futile.'
+	'<<$doc1>>: "Thank you Abdul. Show this stubborn girl her place and then kick her out."'
 	''
-	'<<$doc1>>: Thank you Abdul. Show this stubborn lady her place and then kick her out. The doctor leaves.'
-	''
-	'You heard doctor we job have to do. With these words he looks at you with a mean smile.'
-	''
-	'<i>Oh no, not again!</i>'
+	'"You heard doctor we job have to do." with these words he looks at you with a mean smile.'
 
 	act 'Continue':gt $loc, 'testarea:treatment:impreg:shout:punish'
 end
@@ -2555,11 +2431,10 @@ end
 if $ARGS[0] = 'testarea:treatment:impreg:shout:punish':
 	minut += 30
 	'<center><video autoplay loop src="images\shared\sex\group\AfricanGroup1.mp4"></video></center>'
-	''
-	'Several africans, most of them you have ''met'' before, start entering the room.'
-	'The one called Abdul is holding you while the other africans grab your legs, making their way to your battered groin.'
-	'Even more violently than before, all of them at once, they abuse you. In every hole a big black cock is rammed deep.'
-	'You cry, you beg, but they are relentless - as if no human pity is left inside them. It may be caused by the fertillity drug, who knows..'
+	'Several black men, most of them you have ''met'' before, start entering the room.'
+	'The one called Abdul is holding you while the other men grab your legs, making their way to your battered groin.'
+	'Even more violently than before, all of them at once, abuse you. A big black cock is rammed deep in every free hole.'
+	'You cry, you beg, but they are relentless, as if no human pity is left inside them. Might be caused by the fertility drug, but who really knows anymore...'
 
 	gs 'pain', 2, 'breasts', 'spank'
 	gs 'pain', 2, 'asscheeks', 'spank'
@@ -2586,24 +2461,21 @@ end
 
 if $ARGS[0] = 'testarea:treatment:impreg:shout:punish:kickout':
 	minut += 5
-	'When they are finally done with you, one by one they leave the room, letting you crumbled on the ground, filled with and covered by thick layer of sperm.'
-	'You just breath, unable to move..'
-	'Get up white slut! Now time is to kick you back to real world! He grabs you by your hair, forcing you to get up.'
-	'Like this he drags you naked and cum covered through the hallway to the reception.'
-	''
-	'Nurse get her junk. I order have to kick her out! The nurse looks down at you, yet no pity is seen from her eyes. More likely a despise.'
-	'In a few minutes she comes back, carrying a plastic bag with your clothing inside.'
-	'Miss <<$pcs_lastname>>, in this bag are your things and the payment. Take it and get out.'
-	'No! Give me that, doctor give me order so I kick her out! He takes the bag from the nurse and drags you to the entry door.'
-	''
-	'<i>He will kick me to the clinic hall like this? Naked and covered in cum? Really?</i>'
-	''
-	'You did not believe he would do it, but he did. He opened the door and pushed you out. You fell on the cold pavement of the clinic hallway.'
-	'Here your slut suit and payment for black cock whoring! Abdul throws the bag on you, shutting the door behind him.'
-	'At least you are free once again..'
+	'When they are finally done with you, one by one they leave the room and you crumble to the ground, filled with and covered by thick layers of jizz.'
+    'Far too exhausted, you can barely move, much less say anything. The only thing heard in the room for a moment is your hard, shaky breathing.'
+    '"Filthy whore, get up! We''re done with you, to the real world back you go!" He grabs you by your hair, forcing you to get up. Like this he drags you naked and cum covered through the hallway to the reception.'
+    ''
+    '"Nurse get her junk. I order have to kick her out!" The nurse nods to him before looking down at you. You expected to see pity in her eyes, but she looks at you with disgust and disdain. She quickly shuffles off behind a door and in a few minutes returns carrying a plastic bag with your clothing inside.'
+    '"Miss <<$pcs_lastname>>, in this bag are your things and payment for you...services. Take it and get out." the nurse starts explaining.'
+    '"No! Give me that," he says before snatching the bag from her. With a twisted smile, he looks down at you, "Doctor give me order so I kick her out!" and without another word, he grabs you and drags you to the entrance.'
+    ''
+    '<i>He''s going to kick me out of the clinic hall like this? Naked and covered in cum? Really?!</i>'
+    ''
+    'You didn''t believe he would do it, but he did. He opens the door and pushes you out. You fall onto the cold pavement of the clinic hallway.'
+    'Abdul watches you for a moment as you squirm and try to cover yourself. "Here your slut suit and payment for black cock whoring!" He laughs and throws the bag on you before shutting the door behind him.'
+    'At least you are free once again...'
 	money += 50000
 	experimentAbsolved += 1
-
 
 	act 'Get up':gt 'poli', 'start'
 end

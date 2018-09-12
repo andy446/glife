@@ -72,7 +72,7 @@ if $ARGS[0] = 'start':
 	end
 	'</center></TD>'
 	'</table></center>'
-	act 'Return': killvar '$wloc' & gt $loc, $metka
+	act 'Close wardrobe': killvar '$wloc' & gt $loc, $metka
 
 	act 'Strip all clothing':
 		gs 'bras', 'remove'
@@ -86,9 +86,9 @@ if $ARGS[0] = 'start':
 
 	act 'Choose a default outfit': gt 'wardrobe', 'default'
 
-	act 'Organise stored clothing': gt 'clothing', 'view_clothing_list', 'store'
+	act 'Organise stored clothing': org_loc = 1 & gt 'clothing', 'view_clothing_list', 'wardrobe'
 
-	act 'Set image height for this view':
+	act 'Set image size for this view':
 		ward_img_hgt = input("Enter height in pixels you want for images on this page <br>(Default 150, min 50, max 500)")
 		if ward_img_hgt < 50:
 			ward_img_hgt = 50

@@ -17,7 +17,7 @@ $clothing_list_line = {
 	if Enable_clothwidth > 0:
 		clothing_temp = Enable_clothwidth - 1
 	else
-		clothing_temp = 75 & !clothing widdefault to 75
+		clothing_temp = 150 & !clothing widdefault to 150
 	end
 	$RESULT +='<TD><a href="exec:gt ''clothing'', ''view_clothing_item'', ''<<$ARGS[0]>>'', ''<<$ARGS[1]>>'', <<ARGS[2]>>"><img src="<<FUNC(''$clothing_image'', $ARGS[1], ARGS[2])>>" width="<<clothing_temp>>"></a></TD>'
 	killvar 'clothing_temp'
@@ -58,22 +58,22 @@ $clothing_list_line = {
 
 	if $ARGS[0] ! 'sell' and $ARGS[0] ! 'resize':
 		if StoryLine = 1 and SchoolAtestat = 0 and SchoolBlock = 0 and $ARGS[1] = 'school' and ARGS[2] = 6:
-			$RESULT += ' <a href="exec:gs ''clothing'', ''wear'', ''<<$ARGS[1]>>'', <<ARGS[2]>> & gt ''clothing'', ''view_clothing_list'', ''wardrobe''">Wear</a></TD>'
+			$RESULT += ' <a href="exec:gs ''clothing'', ''wear'', ''<<$ARGS[1]>>'', <<ARGS[2]>> & gt ''clothing'', ''view_clothing_list'', ''wardrobe'', ''<<$ward_list_store>>''">Wear</a></TD>'
 		elseif ($ARGS[1] ! 'coat' and $ARGS[1] ! 'swimwear') and dyneval('RESULT = <<$ARGS[1]>>H[<<ARGS[2]>>]') > 0:
 			if $ARGS[1] ! 'exercise' and CloStyle ! 5 and (dyneval('RESULT = <<$ARGS[1]>>B[<<ARGS[2]>>]') < (pcs_hips - 8) or dyneval('RESULT = <<$ARGS[1]>>B[<<ARGS[2]>>]') > (pcs_hips + 8)) or (ARRPOS('$CloLosTyp', $ARGS[1]) ! -1 and ARRPOS('CloLosNum',ARGS[2]) ! -1):
 				$RESULT += '</TD>'
 			else
-				$RESULT += ' <a href="exec:gs ''clothing'', ''wear'', ''<<$ARGS[1]>>'', <<ARGS[2]>> & gt ''clothing'', ''view_clothing_list'', ''wardrobe''">Wear</a></TD>'
+				$RESULT += ' <a href="exec:gs ''clothing'', ''wear'', ''<<$ARGS[1]>>'', <<ARGS[2]>> & gt ''clothing'', ''view_clothing_list'', ''wardrobe'', ''<<$ward_list_store>>''">Wear</a></TD>'
 			end
 		else
 			$RESULT += '</TD>'
 		end
 
 		$RESULT += '<TD>'
-		if cloc ! 1:$RESULT += ' <a href="exec:gt ''clothing'', ''dest1'', ''<<$ARGS[0]>>'', ''<<$ARGS[1]>>'', <<ARGS[2]>>">Storage</a><BR>'
-		if cloc ! 0:$RESULT += ' <a href="exec:gt ''clothing'', ''dest0'', ''<<$ARGS[0]>>'', ''<<$ARGS[1]>>'', <<ARGS[2]>>">Wardrobe</a><BR>'
+		if cloc ! 1:$RESULT += ' <a href="exec:gt ''clothing'', ''dest1'', ''<<$ARGS[0]>>'', ''<<$ARGS[1]>>'', <<ARGS[2]>> ">Storage</a><BR>'
+		if cloc ! 0:$RESULT += ' <a href="exec:gt ''clothing'', ''dest0'', ''<<$ARGS[0]>>'', ''<<$ARGS[1]>>'', <<ARGS[2]>> ">Wardrobe</a><BR>'
 		if $ARGS[1] ! 'school' or ARGS[2] ! 6:
-			if cloc ! 2:$RESULT += ' <a href="exec:gt ''clothing'', ''dest2'', ''<<$ARGS[0]>>'', ''<<$ARGS[1]>>'', <<ARGS[2]>>">Unwanted</a>'
+			if cloc ! 2:$RESULT += ' <a href="exec:gt ''clothing'', ''dest2'', ''<<$ARGS[0]>>'', ''<<$ARGS[1]>>'', <<ARGS[2]>> ">Unwanted</a>'
 		end
 		$RESULT += '</TD>'
 	end
@@ -85,19 +85,19 @@ $clothing_list_line = {
 if $ARGS[0] = 'dest0':
 	*clr
 	dynamic '<<$ARGS[2]>>S[<<ARGS[3]>>] = 0'
-	gt 'clothing', 'view_clothing_list', $ARGS[1]
+	gt 'clothing', 'view_clothing_list', '<<$ward_list_page>>', '<<$ward_list_store>>'
 end
 
 if $ARGS[0] = 'dest1':
 	*clr
 	dynamic '<<$ARGS[2]>>S[<<ARGS[3]>>] = 1'
-	gt 'clothing', 'view_clothing_list', $ARGS[1]
+	gt 'clothing', 'view_clothing_list', '<<$ward_list_page>>', '<<$ward_list_store>>'
 end
 
 if $ARGS[0] = 'dest2':
 	*clr
 	dynamic '<<$ARGS[2]>>S[<<ARGS[3]>>] = 2'
-	gt 'clothing', 'view_clothing_list', $ARGS[1]
+	gt 'clothing', 'view_clothing_list', '<<$ward_list_page>>', '<<$ward_list_store>>'
 end
 
 
@@ -106,10 +106,13 @@ if $ARGS[0] = 'view_clothing_list':
 	!! ARGS 1 - action type (wardrobe, sell, resize, store, unwanted)
 	!! ARGS 2 - Shop name (kats, moncheri, gm, fashionista, sexshop, exhibitshop, dolls, sports)
 	if $ARGS[1] = 'wardrobe':
+		$ward_list_page = $ARGS[1]
 		'<h3><center><b><font color="maroon">Wardrobe list</font></b></center></h3>'
 	elseif $ARGS[1] = 'store':
+		$ward_list_page = $ARGS[1]
 		'<h3><center><b><font color="maroon">Stored clothing list</font></b></center></h3>'
 	elseif $ARGS[1] = 'unwanted':
+		$ward_list_page = $ARGS[1]
 		'<h3><center><b><font color="maroon">Unwanted clothing list</font></b></center></h3>'
 	end
 
@@ -139,15 +142,21 @@ if $ARGS[0] = 'view_clothing_list':
 		'<center><img src="images/locations/city/citycenter/mall/sports.png"></center>'
 	else
 		'<center><b><font color="maroon">Click on a shop name to view clothes from that shop</font></b></center>'
+
+		if $wloc = 'wardrobe':
+			act 'Return': killvar '$ward_list_store' & gt 'wardrobe', 'start'
+		elseif $ARGS[1] = 'sell':
+			act 'Leave': killvar '$ward_list_store' & gt $loc, $metka
+		end
 	end
 	*nl
 
 	if $ARGS[1] ! 'sell':
 		$clothing_header = '<center><table border=1>'
-		if $ARGS[1] ! 'wardrobe': $clothing_header += '<TH><a href="exec:gt ''clothing'', ''view_clothing_list'', ''wardrobe'', ''<<$ARGS[2]>>''">Switch to wardrobe list</a></TH>'
-		if $ARGS[1] ! 'store': $clothing_header += '<TH><a href="exec:gt ''clothing'', ''view_clothing_list'', ''store'', ''<<$ARGS[2]>>''">Switch to stored clothing list</a></TH>'
-		if $ARGS[1] ! 'unwanted': $clothing_header += '<TH><a href="exec:gt ''clothing'', ''view_clothing_list'', ''unwanted'', ''<<$ARGS[2]>>''">Switch to unwanted clothing list</a></TH>'
-		$clothing_header += '<TH><a href="exec:gt ''clothing_QV'', ''list''">Switch to icons</a></TH></center>'
+		if $ARGS[1] ! 'wardrobe': $clothing_header += '<TH><a href="exec:gt ''clothing'', ''view_clothing_list'', ''wardrobe'', ''<<$ward_list_store>>''">Switch to wardrobe list</a></TH>'
+		$clothing_header += '<TH><a href="exec:gt ''clothing_QV'', ''list'', ''<<$ward_list_store>>''">Switch to icons</a></TH>'
+		if $ARGS[1] ! 'store': $clothing_header += '<TH><a href="exec:gt ''clothing'', ''view_clothing_list'', ''store'', ''<<$ward_list_store>>''">Switch to stored clothing list</a></TH>'
+		if $ARGS[1] ! 'unwanted': $clothing_header += '<TH><a href="exec:gt ''clothing'', ''view_clothing_list'', ''unwanted'', ''<<$ward_list_store>>''">Switch to unwanted clothing list</a></TH></center>'
 
 		$clothing_header
 		if $ARGS[1] = 'wardrobe':
@@ -159,33 +168,22 @@ if $ARGS[0] = 'view_clothing_list':
 		end
 	end
 
-	! if $ARGS[1] = 'wardrobe':
-		! cloc = 0
-		! if $clothingworntype ! 'nude':act 'Strip':gs 'clothing', 'strip' & gt $loc, $metka
-	! end
-
-	if $wloc = 'wardrobe':
-		act 'Return': gt 'wardrobe', 'start'
-	else
-		act 'Leave': gt $loc, $metka
-	end
-
 	if $ARGS[2] = '':
-		'<center><a href="exec:gt ''clothing'', ''view_clothing_list'', ''<<$ARGS[1]>>'', ''gm''"><img src="images/locations/city/citycenter/mall/GM.png"></a></center>'
+		'<center><a href="exec:$ward_list_store = ''gm'' & gt ''clothing'', ''view_clothing_list'', ''<<$ARGS[1]>>'', ''gm''"><img src="images/locations/city/citycenter/mall/GM.png"></a></center>'
 
-		if ARRSIZE('average') > 0:'<center><a href="exec:gt ''clothing'', ''view_clothing_list'', ''<<$ARGS[1]>>'', ''kats''"><img src="images/locations/city/citycenter/mall/pussycat.png"></a></center>'
+		if ARRSIZE('average') > 0:'<center><a href="exec:$ward_list_store = ''kats'' & gt ''clothing'', ''view_clothing_list'', ''<<$ward_list_page>>'', ''kats''"><img src="images/locations/city/citycenter/mall/pussycat.png"></a></center>'
 
-		if ARRSIZE('expensive') > 0:'<center><a href="exec:gt ''clothing'', ''view_clothing_list'', ''<<$ARGS[1]>>'', ''fashionista''"><img src="images/locations/city/citycenter/mall/fashionistat.png"></a></center>'
+		if ARRSIZE('expensive') > 0:'<center><a href="exec:$ward_list_store = ''fashionista'' & gt ''clothing'', ''view_clothing_list'', ''<<$ward_list_page>>'', ''fashionista''"><img src="images/locations/city/citycenter/mall/fashionistat.png"></a></center>'
 
-		if ARRSIZE('formal') > 0:'<center><a href="exec:gt ''clothing'', ''view_clothing_list'', ''<<$ARGS[1]>>'', ''moncheri''"><img src="images/locations/city/citycenter/mall/moncheri.png"></a></center>'
+		if ARRSIZE('formal') > 0:'<center><a href="exec:$ward_list_store = ''moncheri'' & gt ''clothing'', ''view_clothing_list'', ''<<$ward_list_page>>'', ''moncheri''"><img src="images/locations/city/citycenter/mall/moncheri.png"></a></center>'
 
-		if ARRSIZE('fetish') > 0 or ARRSIZE('burlesque') > 0:'<center><a href="exec:gt ''clothing'', ''view_clothing_list'', ''<<$ARGS[1]>>'', ''sexshop''"><img src="images/locations/city/citycenter/sexshop/shop_name.png"></a></center>'
+		if ARRSIZE('fetish') > 0 or ARRSIZE('burlesque') > 0:'<center><a href="exec:$ward_list_store = ''sexshop'' & gt ''clothing'', ''view_clothing_list'', ''<<$ward_list_page>>'', ''sexshop''"><img src="images/locations/city/citycenter/sexshop/shop_name.png"></a></center>'
 
-		if ARRSIZE('exhibit') > 0:'<center><a href="exec:gt ''clothing'', ''view_clothing_list'', ''<<$ARGS[1]>>'', ''exhibitshop''"><img src="images/locations/oldtown/exhibitshop/shop_name.png"></a></center>'
+		if ARRSIZE('exhibit') > 0:'<center><a href="exec:$ward_list_store = ''exhibitshop'' & gt ''clothing'', ''view_clothing_list'', ''<<$ward_list_page>>'', ''exhibitshop''"><img src="images/locations/oldtown/exhibitshop/shop_name.png"></a></center>'
 
-		if ARRSIZE('alternative') > 0:'<center><a href="exec:gt ''clothing'', ''view_clothing_list'', ''<<$ARGS[1]>>'', ''dolls''"><img src="images/locations/city/island/dolls.png"></a></center>'
+		if ARRSIZE('alternative') > 0:'<center><a href="exec:$ward_list_store = ''dolls'' & gt ''clothing'', ''view_clothing_list'', ''<<$ward_list_page>>'', ''dolls''"><img src="images/locations/city/island/dolls.png"></a></center>'
 
-		if ARRSIZE('exercise') > 0:'<center><a href="exec:gt ''clothing'', ''view_clothing_list'', ''<<$ARGS[1]>>'', ''sports''"><img src="images/locations/city/citycenter/mall/sports.png"></a></center>'
+		if ARRSIZE('exercise') > 0:'<center><a href="exec:$ward_list_store = ''sports'' & gt ''clothing'', ''view_clothing_list'', ''<<$ward_list_page>>'', ''sports''"><img src="images/locations/city/citycenter/mall/sports.png"></a></center>'
 
 	else
 
@@ -207,6 +205,7 @@ if $ARGS[0] = 'view_clothing_list':
 		end
 
 		if $ARGS[2] = 'gm':
+			$ward_list_store = $ARGS[2]
 
 			if StoryLine = 1 and SchoolAtestat = 0 and SchoolBlock = 0 and schoolS[6] = cloc and ($clothingworntype ! 'school' or clothingwornnumber ! 6):*P dyneval($clothing_list_line, $ARGS[1], 'school', 6)
 
@@ -241,51 +240,56 @@ if $ARGS[0] = 'view_clothing_list':
 				i += 1
 			if i <= ARRSIZE('swimwear'):jump 'loopswimwear'
 
-			act 'Choose a different store': gt 'clothing', 'view_clothing_list', $ARGS[1]
+			act 'Return': killvar '$ward_list_store' & gt 'clothing', 'view_clothing_list', '<<$ward_list_page>>'
+			gs 'clothing', 'clothwidth'
 		end
 
 		if $ARGS[2] = 'kats':
-
+			$ward_list_store = $ARGS[2]
 			i = 1
 			:loopaverage
 				if average[i] = 1 and averageS[i] = cloc and ($clothingworntype ! 'average' or clothingwornnumber ! i):*P dyneval($clothing_list_line, $ARGS[1], 'average', i)
 				i += 1
 			if i <= ARRSIZE('average'):jump 'loopaverage'
 
-			act 'Choose a different store': gt 'clothing', 'view_clothing_list', $ARGS[1]
+			act 'Return': killvar '$ward_list_store' & gt 'clothing', 'view_clothing_list', '<<$ward_list_page>>'
+			gs 'clothing', 'clothwidth'
 		end
 
 		if $ARGS[2] = 'fashionista':
-
+			$ward_list_store = $ARGS[2]
 			i = 1
 			:loopexpensive
 				if expensive[i] = 1 and expensiveS[i] = cloc and ($clothingworntype ! 'expensive' or clothingwornnumber ! i):*P dyneval($clothing_list_line, $ARGS[1], 'expensive', i)
 				i += 1
 			if i <= ARRSIZE('expensive'):jump 'loopexpensive'
 
-			act 'Choose a different store': gt 'clothing', 'view_clothing_list', $ARGS[1]
+			act 'Return': killvar '$ward_list_store' & gt 'clothing', 'view_clothing_list', '<<$ward_list_page>>'
+			gs 'clothing', 'clothwidth'
 		end
 
 		if $ARGS[2] = 'moncheri':
-
+			$ward_list_store = $ARGS[2]
 			i = 1
 			:loopformal
 				if formal[i] = 1 and formalS[i] = cloc and ($clothingworntype ! 'formal' or clothingwornnumber ! i):*P dyneval($clothing_list_line, $ARGS[1], 'formal', i)
 				i += 1
 			if i <= ARRSIZE('formal'):jump 'loopformal'
 
-			act 'Choose a different store': gt 'clothing', 'view_clothing_list', $ARGS[1]
+			act 'Return': killvar '$ward_list_store' & gt 'clothing', 'view_clothing_list', '<<$ward_list_page>>'
+			gs 'clothing', 'clothwidth'
 		end
 
 		if $ARGS[2] = 'sexshop':
-
+			$ward_list_store = $ARGS[2]
 			i = 1
 			:loopfetish
 				if fetish[i] = 1 and fetishS[i] = cloc and ($clothingworntype ! 'fetish' or clothingwornnumber ! i):*P dyneval($clothing_list_line, $ARGS[1], 'fetish', i)
 				i += 1
 			if i <= ARRSIZE('fetish'):jump 'loopfetish'
 
-			act 'Choose a different store': gt 'clothing', 'view_clothing_list', $ARGS[1]
+			act 'Return': killvar '$ward_list_store' & gt 'clothing', 'view_clothing_list', '<<$ward_list_page>>'
+			gs 'clothing', 'clothwidth'
 
 			i = 1
 			:loopburlesque
@@ -293,43 +297,60 @@ if $ARGS[0] = 'view_clothing_list':
 				i += 1
 			if i <= ARRSIZE('burlesque'):jump 'loopburlesque'
 
-			act 'Choose a different store': gt 'clothing', 'view_clothing_list', $ARGS[1]
+			act 'Return': killvar '$ward_list_store' & gt 'clothing', 'view_clothing_list', '<<$ward_list_page>>'
+			gs 'clothing', 'clothwidth'
 		end
 
 		if $ARGS[2] = 'exhibitshop':
-
+			$ward_list_store = $ARGS[2]
 			i = 1
 			:loopexhibit
 				if exhibit[i] = 1 and exhibitS[i] = cloc and ($clothingworntype ! 'exhibit' or clothingwornnumber ! i):*P dyneval($clothing_list_line, $ARGS[1], 'exhibit', i)
 				i += 1
 			if i <= ARRSIZE('exhibit'):jump 'loopexhibit'
 
-			act 'Choose a different store': gt 'clothing', 'view_clothing_list', $ARGS[1]
+			act 'Return': killvar '$ward_list_store' & gt 'clothing', 'view_clothing_list', '<<$ward_list_page>>'
+			gs 'clothing', 'clothwidth'
 		end
 
 		if $ARGS[2] = 'dolls':
-
+			cla
+			$ward_list_store = $ARGS[2]
 			i = 1
 			:loopalternative
 				if alternative[i] = 1 and alternativeS[i] = cloc and ($clothingworntype ! 'alternative' or clothingwornnumber ! i):*P dyneval($clothing_list_line, $ARGS[1], 'alternative', i)
 				i += 1
 			if i <= ARRSIZE('alternative'):jump 'loopalternative'
 
-			act 'Choose a different store': gt 'clothing', 'view_clothing_list', $ARGS[1]
+			act 'Return': killvar '$ward_list_store' & gt 'clothing', 'view_clothing_list', '<<$ward_list_page>>'
+			gs 'clothing', 'clothwidth'
 		end
 
 		if $ARGS[2] = 'sports':
-
+			$ward_list_store = $ARGS[2]
 			i = 1
 			:loopexercise
 				if exercise[i] = 1 and exerciseS[i] = cloc and ($clothingworntype ! 'exercise' or clothingwornnumber ! i):*P dyneval($clothing_list_line, $ARGS[1], 'exercise', i)
 				i += 1
 			if i <= ARRSIZE('exercise'):jump 'loopexercise'
 
-			act 'Choose a different store': gt 'clothing', 'view_clothing_list', $ARGS[1]
+			act 'Return': killvar '$ward_list_store' & gt 'clothing', 'view_clothing_list', '<<$ward_list_page>>'
+			gs 'clothing', 'clothwidth'
 		end
 
 		'</table>'
+	end
+end
+
+if $ARGS[0] = 'clothwidth':
+	act 'Set image size for this view': 
+		Enable_clothwidth = input("Enter height in pixels you want for images on this page <br>(Default 150, min 50, max 500)")
+		if Enable_clothwidth < 50:
+			Enable_clothwidth = 50
+		elseif Enable_clothwidth > 500:
+			Enable_clothwidth = 500
+		end
+		gt 'clothing', 'view_clothing_list', '<<$ward_list_page>>', '<<$ward_list_store>>'
 	end
 end
 
@@ -439,7 +460,7 @@ if $ARGS[0] = 'view_clothing_item':
 			end
 		end
 	elseif $ARGS[1] = 'wardrobe':
-		act 'Leave in closet':gt 'clothing', 'view_clothing_list', $ARGS[1]
+		act 'Return':gt 'clothing', 'view_clothing_list', '<<$ward_list_page>>', '<<$ward_list_store>>'
 
 		if $ARGS[2] ! 'school' or ARGS[3] ! 6:
 			!! if the clothing is worn out
@@ -455,17 +476,17 @@ if $ARGS[0] = 'view_clothing_item':
 							minut += 30
 							dynamic $ARGS[2] + 'H[<<ARGS[3]>>] += 30'
 							'You spend 30 minutes fixing the outfit.'
-							act 'Return':gt 'clothing', 'view_clothing_list', $ARGS[1]
+							act 'Return':gt 'clothing', 'view_clothing_list', '<<$ward_list_page>>', '<<$ward_list_store>>'
 						else
 							cla
 							tkan += 3
 							minut += 30
 							dynamic $ARGS[2] + '[<<ARGS[3]>>] = 0'
 							'Despite your skill with a needle, this outfit has proved beyond repair. All that is left of it is only good for your cloth pile.'
-							act 'Return':gt 'clothing', 'view_clothing_list', $ARGS[1]
+							act 'Return':gt 'clothing', 'view_clothing_list', '<<$ward_list_page>>'
 						end
 					end
-					act 'Leave in closet': gt 'clothing', 'view_clothing_list', $ARGS[1]
+					act 'Return': gt 'clothing', 'view_clothing_list', '<<$ward_list_page>>', '<<$ward_list_store>>'
 				end
 			exit
 
@@ -491,10 +512,10 @@ if $ARGS[0] = 'view_clothing_item':
 							minut += 30
 							dynamic $ARGS[2] + 'B[<<ARGS[3]>>] = pcs_hips'
 							'You spend 30 minutes resizing the outfit.'
-							act 'Return':gt 'clothing', 'view_clothing_list', $ARGS[1]
+							act 'Return':gt 'clothing', 'view_clothing_list', '<<$ward_list_page>>', '<<$ward_list_store>>'
 						end
 
-						act 'Leave in closet': gt 'clothing', 'view_clothing_list', $ARGS[1]
+						act 'Return': gt 'clothing', 'view_clothing_list', '<<$ward_list_page>>', '<<$ward_list_store>>'
 					end
 				exit
 
@@ -512,22 +533,23 @@ if $ARGS[0] = 'view_clothing_item':
 				act 'Wear':
 					gs 'clothing', 'wear', $ARGS[2], ARGS[3]
 
-					gt 'clothing', 'view_clothing_list', $ARGS[1]
+					gt 'clothing', 'view_clothing_list', '<<$ward_list_page>>', '<<$ward_list_store>>'
 				end
 			end
 		end
 	elseif $ARGS[1] = 'store' or $ARGS[1] = 'unwanted':
-		act 'Return':gt 'clothing', 'view_clothing_list', $ARGS[1]
+		act 'Return':gt 'clothing', 'view_clothing_list', '<<$ward_list_page>>', '<<$ward_list_store>>'
 
 		if $ARGS[2] ! 'coat':
 			act 'Move back to wardrobe':
 				dynamic $ARGS[2] + 'S[<<ARGS[3]>>] = 0'
-				gt 'clothing', 'view_clothing_list', $ARGS[1]
+				gt 'clothing', 'view_clothing_list', '<<$ward_list_page>>', '<<$ward_list_store>>'
 			end
 		end
 
 	elseif $ARGS[1] = 'sell':
-		act 'Keep item':gt 'clothing', 'view_clothing_list', $ARGS[1]
+		$ward_list_page = $ARGS[1]
+		act 'Keep item':gt 'clothing', 'view_clothing_list', '<<$ward_list_page>>', '<<$ward_list_store>>'
 
 		!! value is based on the strength remaining
 		dynamic 'RESULT = <<$ARGS[2]>>H[<<ARGS[3]>>]'
@@ -536,31 +558,31 @@ if $ARGS[0] = 'view_clothing_item':
 			act 'Sell':
 				dynamic '<<$ARGS[2]>>[<<ARGS[3]>>] = 0'
 				money += 500
-				gt 'clothing', 'view_clothing_list', $ARGS[1]
+				gt 'clothing', 'view_clothing_list', '<<$ward_list_page>>', '<<$ward_list_store>>'
 			end
 		elseif RESULT > 30:
 			'You can sell this item for 300 <b>₽</b>.'
 			act 'Sell':
 				dynamic '<<$ARGS[2]>>[<<ARGS[3]>>] = 0'
 				money += 300
-				gt 'clothing', 'view_clothing_list', $ARGS[1]
+				gt 'clothing', 'view_clothing_list', '<<$ward_list_page>>', '<<$ward_list_store>>'
 			end
 		elseif RESULT > 0:
 			'You can sell this item for 100 <b>₽</b>.'
 			act 'Sell':
 				dynamic '<<$ARGS[2]>>[<<ARGS[3]>>] = 0'
 				money += 100
-				gt 'clothing', 'view_clothing_list', $ARGS[1]
+				gt 'clothing', 'view_clothing_list', '<<$ward_list_page>>', '<<$ward_list_store>>'
 			end
 		else
 			'This item is too worn to have any sale value.'
 			act 'Throw it away':
 				dynamic '<<$ARGS[2]>>[<<ARGS[3]>>] = 0'
-				gt 'clothing', 'view_clothing_list', $ARGS[1]
+				gt 'clothing', 'view_clothing_list', '<<$ward_list_page>>', '<<$ward_list_store>>'
 			end
 		end
 	elseif $ARGS[1] = 'resize':
-		act 'Leave item alone':gt 'clothing', 'view_clothing_list', $ARGS[1]
+		act 'Leave item alone':gt 'clothing', 'view_clothing_list', '<<$ward_list_page>>', '<<$ward_list_store>>'
 
 		if $ARGS[2] ! 'exercise' and $ARGS[2] ! 'coat' and CloStyle ! 5:
 			if dyneval('RESULT = <<$ARGS[2]>>B[<<ARGS[3]>>]') ! pcs_hips and money >= 500:
@@ -568,7 +590,7 @@ if $ARGS[0] = 'view_clothing_item':
 				act 'Resize':
 					money -= 500
 					dynamic '<<$ARGS[2]>>B[<<ARGS[3]>>] = pcs_hips'
-					gt 'clothing', 'view_clothing_list', $ARGS[1]
+					gt 'clothing', 'view_clothing_list', '<<$ward_list_page>>', '<<$ward_list_store>>'
 				end
 			end
 		end

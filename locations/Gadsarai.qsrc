@@ -7,13 +7,13 @@ if $ARGS[0] = '':
 
 	temp = RAND(1,20)
 
-	if npc_QW['A66'] >= 35 and temp <= 3:
+	if npc_QW['A66'] >= 30 and temp <= 3:
 		gs 'boyStat', 'A66'
 		sexpartkno = 1
 		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/locations/gadukino/village/leghump.jpg"></center>'
 		'Bandit pounces on you and pins your thigh between his front legs. He begins to persistently and significantly put pressure on you, growling menacingly...'
-		if pcs_dom > 0:
+		if pcs_dom > 0 and alko < 6:
 			act 'Push off': minut += 1 & gt 'Gaddvor'
 		else
 			act 'Submit':

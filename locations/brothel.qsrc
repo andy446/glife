@@ -24,7 +24,7 @@ $rec_font = '585858'
 	prob_hardCh = 60
 
 	! chance to get abducted to a hotel room when alko wasted
-	prob_abdCh = 20
+	prob_abdCh = 25
 
 	! chance that client agrees to 100% bonus for above rules practices
 	prob_agreeCh = 33
@@ -88,9 +88,11 @@ if $ARGS[0] = 'lobby:toilet':
 	dynamic $tampon
 	dynamic $quickwash
 	dynamic $basin
+	gs 'stat'
 end
 
 if $ARGS[0] = 'bar':
+	*clr & cla
 	'<h3>Hotel Bar</h3>'
 	*nl
 	if alko <= 3:
@@ -118,18 +120,30 @@ if $ARGS[0] = 'bar':
 end
 
 if $ARGS[0] = 'bar:sit':
+	*clr & cla
 	'<h3>Hotel Bar</h3>'
 	*nl
 	'<center><img <<$set_imgh>> src="images/locations/shared/brothel/bar.jpg"></center>'
 	*nl
-	'You take a seat behind the bar, looking around at the few guests sitting around the dining room.'
-	'There''s nothing of importance, as far as you can see.'
 	minut += 15
 	gs 'stat'
-	act 'Continue':gt 'brothel', 'bar'
+	if alko > 6 and abdCh <= prob_abdCh and hotelWhore = 0:
+		'You take a seat behind the bar, looking around at the few guests sitting around the dining room.'
+		'You are too drunk to sit up straight, instead, you rest your head on the bar, mumbling incoherently'
+		'The barman was obviously waiting for this moment.'
+		'He walks out of the bar, taking you in his arms and carrying away.'
+		'On the way you briefly regain consciousness from time to time, realizing that you are carried somewhere upstairs to what seems as one of the hotel rooms.'
+		act 'Continue':gt 'brothel', 'abducted'
+	else
+		'You take a seat behind the bar, looking around at the few guests sitting around the dining room.'
+		'There''s nothing of importance, as far as you can see.'
+		act 'Continue':gt 'brothel', 'bar'
+	end
 end
 
 if $ARGS[0] = 'bar:order':
+	*clr & cla
+	gs 'stat'
 	$loc = 'brothel'
 	$metka = 'bar:order'
 	abdCh = rand (0, 100)
@@ -159,11 +173,12 @@ if $ARGS[0] = 'bar:order':
 		end
 		act 'Order a snack': gs 'food_menu', 'pub'
 		act 'Order a drink': gs 'beverage_menu', 'pub'
+		act 'Return':gt 'brothel', 'bar'
 	end
-	act 'Continue':gt 'brothel', 'bar'
 end
 
 if $ARGS[0] = 'abducted':
+	*clr & cla
 	$this = 'abducted'
 	'<h3>Hotel Room</h3>'
 	'You wasted yourself in the bar and now you suffer the consequences.'
@@ -362,6 +377,7 @@ if $ARGS[0] = 'abducted':
 end
 
 if $ARGS[0] = 'bar:order:password':
+	*clr & cla
 	'<h3>Hotel Bar</h3>'
 	'<h5>Ordering a drink: The Blue Blooded Russian</h5>'
 	*nl
@@ -374,6 +390,7 @@ if $ARGS[0] = 'bar:order:password':
 end
 
 if $ARGS[0] = 'brothel:elevator':
+	*clr & cla
 	'<h3>Elevator</h3>'
 	*nl
 	'<center><img <<$set_imgh>> src="images/locations/shared/brothel/hotelElevator.jpg"></center>'
@@ -385,6 +402,7 @@ if $ARGS[0] = 'brothel:elevator':
 end
 
 if $ARGS[0] = 'brothel:reception':
+	*clr & cla
 	'<h3>Brothel Reception</h3>'
 	*nl
 	'<center><img <<$set_imgh>> src="images/locations/shared/brothel/receptionist.jpg"></center>'
@@ -400,6 +418,7 @@ if $ARGS[0] = 'brothel:reception':
 end
 
 if $ARGS[0] = 'brothel:leave':
+	*clr & cla
 	'<h3>Brothel Reception</h3>'
 	*nl
 	'<center><img <<$set_imgh>> src="images/locations/shared/brothel/receptionist.jpg"></center>'
@@ -423,7 +442,7 @@ end
 if $ARGS[0] = 'brothel:getPaid':
 	hours = custTime / 60
 	pay = custTime * payRate / 60
-	money += pay
+	money += pay / 2
 	gs 'stat'
 	'<h3>Brothel Reception</h3>'
 	'The Receptionist checks something in his book. Probably counting the time you spent working.'
@@ -481,7 +500,7 @@ if $ARGS[0] = 'brothel:section1:girlroom':
 	' 3) The Slave will not be injured in such way that requires hospitalisation or leaves a lasting injury, unless the Slave agrees to such practice voluntarily.'
 	' 4) Each session is for safety purposes recorded on a camera. The record is ownership of the Organization.'
 	' 5) The Master can hide his/her identity by wearing a mask.'
-	' 6) The Slave earns a pay of '+payRate+' RUB for every started hour of a session.'
+	' 6) The Slave earns a pay of '+payRate+' RUB for every started hour of a session. The house takes 50% for expenses.'
 	*nl
 	'To begin your work, clean yourself, put on at least vibrant makeup, lip balm, brush your hair and strip of all clothes, then go to the lobby and lock yourself in a cage.'
 	*nl

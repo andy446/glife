@@ -37,7 +37,7 @@ if $ARGS[0] = '':
 	!count-bottles of beer in a day
 	if beer_day ! daystart: beer_count = 2
 	!count-of glasses in a bottle of vodka
-	if vodka_day ! daystart: vodka_count = 3
+	if vodka_day ! daystart: vodka_count = 5
 	!count-in soup plates in kostryule
 	if sup_day ! daystart: sup_count = 2
 

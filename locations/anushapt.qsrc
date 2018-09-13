@@ -1402,7 +1402,7 @@ if $ARGS[0] = 'holodilnik':
 	minut += 1
 	if anushfood_day ! daystart:
 		anushbeer_count = 2
-		anushvodka_count = 3
+		anushvodka_count = 5
 		anushsup_count = 1
 	end
 	gs 'stat'

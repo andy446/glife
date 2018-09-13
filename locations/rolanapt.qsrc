@@ -83,10 +83,10 @@ if $ARGS[0] = 'hallway':
 	elseif RolanLoc[hour] = 9:
 		'The weather is nice, Rolan is likely at the park or the courtyard.'
 	!RolanLoc = 9 (Rolan not home park)
-    elseif RolanLoc[hour] = 10:
+	elseif RolanLoc[hour] = 10:
 		'The weather is nice, Rolan is likely at the courtyard or the park.'
-    !RolanLoc = 10 (Rolan not home coutyard)
-    else
+	!RolanLoc = 10 (Rolan not home coutyard)
+	else
 		'Where is Rolan?'
 	end
 
@@ -188,18 +188,18 @@ if $ARGS[0] = 'kitchen':
 	minut += 1
 	$locclass = 'kitr'
 	gs 'stat'
-    '<center><b><font color = maroon>Kitchen</font></b></center>'
-    '<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/aptrolan/kitchen.jpg"></center>'
-    if rolancooklesson > 1 and rolancooklesson =< 5 and rolan_cooklesson_day = daystart:
-        '"What the...I just washed them today...."'
+	'<center><b><font color = maroon>Kitchen</font></b></center>'
+	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/aptrolan/kitchen.jpg"></center>'
+	if rolancooklesson > 1 and rolancooklesson =< 5 and rolan_cooklesson_day = daystart:
+		'"What the...I just washed them today...."'
 	elseif rolancooklesson = 6 and rolan_cooklesson_day = daystart:
-        '"That''s it. This is the last time."'
+		'"That''s it. This is the last time."'
 	else
-        'This room appears the most modern in the house. However, like the rest it is not clean. You wonder, "how long have the plates been sitting in the sink?"'
+		'This room appears the most modern in the house. However, like the rest it is not clean. You wonder, "how long have the plates been sitting in the sink?"'
 	end
 !!	'This room appears the most modern in the house. However, like the rest it is not clean. You wonder, "how long have the plates been sitting in the sink?"'
 !!  RolanLoc[hour] = 3  rolanpantyQW = 8
-    if RolanLoc[hour] = 4:
+	if RolanLoc[hour] = 4:
 		'Rolan is here.'
 		if rand(1,100) < 50:
 			'When you enter the kitchen, <a href="exec:gt ''rolanapt'',''kuh_buh''">Rolan</a> gives you a friendly nod. He''s sitting at the table, eating an apple.'
@@ -291,7 +291,7 @@ if $ARGS[0] = 'kitchen':
 	!!count-bottles of beer in a day
 	if guavacoco_day ! daystart: guavacoco_count = 2
 	!!count-of glasses in a bottle of vodka
-	if kvass_day ! daystart: kvass_count = 3
+	if kvass_day ! daystart: kvass_count = 5
 	!!count-in soup plates in kostryule
 	if sup_day ! daystart: sup_count = 2
 end
@@ -307,9 +307,9 @@ if $ARGS[0] = 'holodil':
 	else
 		$r_guavacoco = ''
 	end
-	if kvass_count = 3:
+	if kvass_count = 5:
 		$r_kvass = ' a full bottle of homemade kvass beer,'
-	elseif kvass_count = 2:
+	elseif kvass_count = 3:
 		$r_kvass = ' a half-empty bottle of homemade kvass beer,'
 	elseif kvass_count = 1:
 		$r_kvass = ' a nearly empty bottle of homemade kvass beer,'
@@ -481,11 +481,11 @@ if $ARGS[0] = 'grandmaroom':
 	else
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/aptrolan/grandmaroom.jpg"></center>'
 		'This is the only room in good condition. It seems no one lives here... but this room is regularly cleaned.'
-    end
+	end
 
-    if RolanLoc[hour] = 6: 'Rolan is here.'
+	if RolanLoc[hour] = 6: 'Rolan is here.'
 
-    if rolanworker = 4 and rolanknow = 1:
+	if rolanworker = 4 and rolanknow = 1:
 		act 'Talk to Rolan':
 			*clr & cla
 			minut += 5
@@ -520,9 +520,9 @@ if $ARGS[0] = 'grandmaroom':
 				end
 			end
 		end
-    end
-    act 'Leave the room': gt 'rolanapt','hallway'
-    if RolanLoc[hour] ! 6 and workertool ! 1:
+	end
+	act 'Leave the room': gt 'rolanapt','hallway'
+	if RolanLoc[hour] ! 6 and workertool ! 1:
 		act 'Look around':
 			*clr & cla
 			minut += 5
@@ -730,7 +730,7 @@ if $ARGS[0] = 'drawer':
 end
 
 if $ARGS[0] = 'mypanty':
-    if pcs_inhib > 35 and pcs_intel > 35 and rolanpantyconfession ! 1:
+	if pcs_inhib > 35 and pcs_intel > 35 and rolanpantyconfession ! 1:
 		cla
 		*clr
 		minut += 1

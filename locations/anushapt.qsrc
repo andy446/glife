@@ -1402,7 +1402,7 @@ if $ARGS[0] = 'holodilnik':
 	minut += 1
 	if anushfood_day ! daystart:
 		anushbeer_count = 2
-		anushvodka_count = 3
+		anushvodka_count = 5
 		anushsup_count = 1
 	end
 	gs 'stat'
@@ -1414,9 +1414,9 @@ if $ARGS[0] = 'holodilnik':
 		$anush_beer = ''
 	end
 
-	if anushvodka_count = 3:
+	if anushvodka_count = 5:
 		$anush_vodka = ' a full bottle of vodka,'
-	elseif anushvodka_count = 2:
+	elseif anushvodka_count = 3:
 		$anush_vodka = ' a half-empty bottle of vodka,'
 	elseif anushvodka_count = 1:
 		$anush_vodka = ' a nearly empty bottle of vodka,'
@@ -1494,7 +1494,7 @@ if $ARGS[0] = 'holodilnik':
 			pcs_health += 10
 			pcs_mood += 20
 			fat += 2
-			pcs_energy += 20
+			pcs_energy += 50
 			water += 40
 			cumspclnt = 2
 			gs 'cum_cleanup'

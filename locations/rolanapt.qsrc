@@ -307,9 +307,9 @@ if $ARGS[0] = 'holodil':
 	else
 		$r_guavacoco = ''
 	end
-	if kvass_count = 3:
+	if kvass_count = 5:
 		$r_kvass = ' a full bottle of homemade kvass beer,'
-	elseif kvass_count = 2:
+	elseif kvass_count = 3:
 		$r_kvass = ' a half-empty bottle of homemade kvass beer,'
 	elseif kvass_count = 1:
 		$r_kvass = ' a nearly empty bottle of homemade kvass beer,'

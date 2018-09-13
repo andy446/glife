@@ -404,6 +404,8 @@ if $ARGS[0] = 'breastfeedthebaby':
 								end
 							end
 							act 'Continue':
+								*clr
+								cla
 								'You unlatch the baby and hand it to the father, then you cover yourself up. The man thanks you for the help and for the delicious snack.'
 								milkedvolume = 0
 								act 'Leave':gt $loc, $metka

@@ -1,6 +1,9 @@
 # vanrPar
 
 if $ARGS[0] = '':
+	$menu_loc = 'vanrPar'
+	$menu_arg = ''
+	menu_off = 0
 	CLOSE ALL
 	if vanr_lock = 0:
 		act'<font size = 1>Close the latch on the door</font>':vanr_lock = 1 & gt'vanrPar'
@@ -38,6 +41,7 @@ if $ARGS[0] = '':
 end
 
 if $ARGS[0] = 'peek':
+	menu_off = 1
 
 	if ((week < 6 and hour >= 16 and hour < 18) or (week >= 6 and hour >= 7 and hour < 18)) and indorf = 0 and father_go = 0 and stepdadqw_day ! daystart and iif(stepdadqw>0,1,rand(0,1)) = 1:
 		cla
@@ -84,6 +88,7 @@ if $ARGS[0] = 'peek':
 end
 
 if $ARGS[0] = 'stepdad_nosex':
+	menu_off = 1
 	'<center><video autoplay loop src="images/characters/pavlovsk/resident/vladimir/sex/bath_voyer_2.mp4"></video></center>'
 	'You hear movement at the door and turn around. It''s your stepfather, it looks like he passed by and accidentally peeked in. Catching his glance, you feel mischievous and excited, so you blow him a kiss. Without a word, he disappears, yet you can''t help smiling and giggling as you continue wiping your hair clean.'
 	stepdadqw += 1
@@ -91,6 +96,7 @@ if $ARGS[0] = 'stepdad_nosex':
 end
 
 if $ARGS[0] = 'stepdad_sex':
+	menu_off = 1
 	cla
 	*clr
 	gs 'boyStat', 'A28'
@@ -157,6 +163,7 @@ if $ARGS[0] = 'stepdad_sex':
 end
 
 if $ARGS[0] = 'stepdad_sex_end':
+	menu_off = 1
 	npc_sex['A28']+=1
 	pcs_willpwr += 15
 	

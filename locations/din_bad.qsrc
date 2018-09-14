@@ -184,7 +184,7 @@ if $ARGS[0] = 'd_bag':
 	end
 	killvar 'tt'
 
-	act 'Return':gt $loc, $metka
+	act 'Return':gt 'obj_din', 'menu_exit'
 	'</td></tr></table></center>'
 end
 

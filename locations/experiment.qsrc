@@ -1302,7 +1302,7 @@ if $ARGS[0] = 'testarea:treatment:bed:doctor1':
 	'The nurse empties an already prepared injection to your arm.'
 	'You can slowly feel as if your body turns once again to your own control.'
 	'"Uhm... uhm... I... I... can... speak?" you manage to whimper.'
-	'<<$doc2>>: "Yes miss <$pcs_lastname>>, we have given you an antidote. It is now up to you if you will get back to that vegetative state, or if you will cooperate and retain your full consciousness."'
+	'<<$doc2>>: "Yes miss <<$pcs_lastname>>, we have given you an antidote. It is now up to you if you will get back to that vegetative state, or if you will cooperate and retain your full consciousness."'
 
 	act 'Up to me?':gt 'experiment', 'testarea:treatment:bed:doctor2'
 end

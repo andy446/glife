@@ -11,16 +11,18 @@ if fullmorrout = 1:
 	end
 end
 
-	act 'Return to the hallway':
-		killvar 'fullmorrout'
-		gt 'korrPar'
-		
-	end
+act 'Return to the hallway':
+	killvar 'fullmorrout'
+	gt 'korrPar'
+	
+end
 
-
-$metka = $ARGS[0]
-$loc = $CURLOC
+$loc = 'kuhrPar'
+$metka = ''
 $locclass = 'kitr'
+$menu_loc = 'kuhrPar'
+$menu_arg = ''
+menu_off = 0
 clr
 minut += 1
 gs 'stat'

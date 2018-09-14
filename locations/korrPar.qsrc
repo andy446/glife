@@ -9,6 +9,9 @@ $locM = 'korrPar'
 $metka = ''
 $loc = 'korrPar'
 $location_type = 'private'
+$menu_loc = 'korrPar'
+$menu_arg = ''
+menu_off = 0
 killvar '$locclass'
 clr
 popolaini = 0

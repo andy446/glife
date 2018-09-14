@@ -4,6 +4,9 @@ act 'Leave the room':gt 'korrPar'
 
 $metka = ''
 $loc = 'sitrPar'
+$menu_loc = 'sitrPar'
+$menu_arg = ''
+menu_off = 0
 $location_type = 'private'
 $locclass = 'livingr'
 clr

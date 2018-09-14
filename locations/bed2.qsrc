@@ -37,9 +37,9 @@ if $ARGS[0] = '':
 	end
 
 	if budilnikOn = 0:
-		'You lie on the bed. Alarm set for <<timer>> hours <<timerM>> minutes and currently turned <a href="exec: budilnikOn = 1 & GT ''bed2''">off</a>.'
+		'You lie on the bed. Your alarm is set to <<timer>>:<<timerM>> and is currently turned <a href="exec: budilnikOn = 1 & GT ''bed2''">off</a>.'
 	else
-		'You lie on the bed. Alarm set for <<timer>> hours <<timerM>> minutes and currently turned <a href="exec: budilnikOn = 0 & GT ''bed2''">on</a>.'
+		'You lie on the bed. Your alarm is set to <<timer>>:<<timerM>> and is currently turned <a href="exec: budilnikOn = 0 & GT ''bed2''">on</a>.'
 	end
 
 	if pcs_makeup ! 1:'<b><font color="red">You need to wash off your makeup before going to bed.</font></b>'

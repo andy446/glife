@@ -1507,7 +1507,7 @@ $cheatmenu['setting'] = {
 	'<B>Difficulty Setting</B>'
 	'At the moment it only improves rate of skill gain'
 
-	'Difficulty: Currenty at <<func(''_difficulty'',''getdifficulty'')>>'
+	'Difficulty: Currently at <<func(''_difficulty'',''getdifficulty'')>>'
 	'<ul><li>set to <a href="exec:FUNC(''_difficulty'',''setdifficulty'',''easy peasy'') & dynamic $cheatmenu[''setting'']">easy peasy</a></li>'
 	'<li>set to <a href="exec:FUNC(''_difficulty'',''setdifficulty'',''relaxed'') & dynamic $cheatmenu[''setting'']">relaxed</a></li>'
 	'<li>set to <a href="exec:FUNC(''_difficulty'',''setdifficulty'',''realistic'') & dynamic $cheatmenu[''setting'']">realistic</a></li>'

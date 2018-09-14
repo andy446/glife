@@ -32,7 +32,7 @@ if $ARGS[0] = 'Three':
 	'<center><img <<$set_imgh>> src="images/pre/alt/altstart2.jpg"></center>'
 	gs 'outdoors', 'weather'
 	if yearlefttemp = 1:
-		'Your 13th year began like it did for most other girls in your class: you occasionally got sick, you started to grow breasts, armpit and pubic hair. Your skin became very greasy and you have a pretty bad case of acne. You did your best in school, and managed to get very decent results. Only one more year of school left before you graduate!'
+		'Your 13th year began like it did for most other girls in your class: you occasionally got sick, you started to grow breasts, armpit and pubic hair. Your skin became very greasy and you had a pretty bad case of acne. You did your best in school, and managed to get very decent results. Only one more year of school left before you graduate!'
 		'But first: it''s time for a well-deserved holiday!'
 	else
 		'As with all girls, you reached the milestone of puberty two years ago. Like it does for most girls, it started for you when you were 13 years old. You had your first period, which sucked... but that was the start of your changes.'
@@ -74,13 +74,13 @@ end
 
 if $ARGS[0] = 'Cursed Schoolgirl Start':
 	'<center><img <<$set_imgh>> src="images/pre/alt/gadukino.jpg"></center>'
-	'You are on summer holiday with your parents and have been stuck here weeks. Good thing this evening you''re finally able to go home, there is nothing to do here but watch animals graze.'
+	'You are on summer holiday with your parents and have been stuck here for weeks. Good thing this evening you''re finally able to go home, there is nothing to do here but watch animals graze.'
 
 	act 'Take a walk':
 		*clr
 		cla
 		'<center><img <<$set_imgh>> src="images/pre/alt/woodspre.jpg"></center>'
-		'While taking a walk and playing with your phone, you look up you realize you are lost!'
+		'While taking a walk and playing with your phone. You look up and suddenly realize that you are lost.'
 		act 'Find a way back':
 			*clr
 			cla
@@ -90,12 +90,12 @@ if $ARGS[0] = 'Cursed Schoolgirl Start':
 				*clr
 				cla
 				'<center><img <<$set_imgh>> src="images/pre/alt/tunnel1pre.jpg"></center>'
-				'You sit down on a large stone in the ruins and take a breather. You are starting to get hungry. If its not one thing its another. You stomp your foot in frustration and the floor gives way. You desperately try to hold on to something but everything in reach comes loose and falls down the hole with you. You feel slightly dazed but after a quick check you seem to be uninjured. You seem to be in an underground chamber of some sort. Looking up you see that climbing out is not an option, there is an old gate here but its either locked or rusted shut. Looks like the only way out is the tunnel on the other side of the chamber.'
+				'You sit down on a large stone in the ruins and take a breath. You are starting to get hungry. If its not one thing its another. You stomp your foot in frustration and the floor gives way. You desperately try to hold on to something but everything in reach comes loose and falls down the hole with you. You feel slightly dazed but after a quick check you seem to be uninjured. You seem to be in an underground chamber of some sort. Looking up you see that climbing out is not an option, there is an old gate here but its either locked or rusted shut. Looks like the only way out is the tunnel on the other side of the chamber.'
 				act 'Follow the tunnel':
 					*clr
 					cla
 					'<center><img <<$set_imgh>> src="images/pre/alt/tunnel2pre.jpg"></center>'
-					'Tunnel goes on for what feels like miles. You start to worry your phone battery will die.'
+					'The tunnel goes on for what feels like miles. You start to worry that your phone battery will die.'
 					act 'Further':
 						*clr
 						cla
@@ -148,9 +148,9 @@ end
 if $ARGS[0] = 'Cursed Schoolgirl Start 2':
 	clr
 	'<center><img <<$set_imgh>> src="images/pre/alt/karinpre.jpg"></center>'
-	'You wake up in in an unfamiliar room. Standing near you is the a red-haired girl.'
+	'You wake up in an unfamiliar room. Standing near you is a red-haired girl.'
 	'"Ah, you woke up," she chirped. "We found you half-dead, you know. You almost didnt make it. You shouldn''t be fondling ancient amulets you know nothing about."'
-	'"I did some research on what happened to you. Turns out the Amulet of Power passed to you, which should only happen if touched by a male mage. Unfortunately, I got some bad news for you. Reinhold, this really powerful mage. He''s been tracking down this amulet for a while now and if he realizes that the amulet''s power has passed to you he might think you pose a risk."'
+	'"I did some research on what happened to you. Turns out the Amulet of Power passed to you, which should only happen if touched by a male mage. Unfortunately, I got some bad news for you. Reinhold, who''s a really powerful mage. He''s been tracking down this amulet for a while now and if he realizes that the amulet''s power has passed to you he might think you pose a risk."'
 
 	act 'What''s going on?':
 		cla
@@ -158,12 +158,12 @@ if $ARGS[0] = 'Cursed Schoolgirl Start 2':
 		'<center><img <<$set_imgh>> src="images/pre/alt/karinpre.jpg"></center>'
 		'"What the hell is going on?" you respond. You try to move your hands, but you''re tied to the bed.'
 		'"Um, okay, I''ll start from the beginning," the girl says. "Magic exists and is real. Ages ago the world was not the same, the fae creatures who possess natural magic lived in balance but the succubus were free to breed with whom ever they wished."'
-		'"They breed with humans with that human magicians were born. The Sidhe as the most powerful of the fae feared the increasing numbers of human magicians and cast a very powerful spell to bind the succubus to them, this prevented either from being able to reproduce without the other."'
-		'"All magicians have some of that original fae blood in there bodies and it is through that that they are able to connect with the world of magic."'
+		'"They bred with humans and so human magicians were born. The Sidhe as the most powerful of the fae feared the increasing numbers of human magicians and cast a very powerful spell to bind the succubus to them, this prevented one from being able to reproduce without the other."'
+		'"All magicians have some of that original fae blood in their bodies and it is through that that they are able to connect with the world of magic."'
 		*nl
-		'The redhead adjusts her glasses. "Most of the world simply ignore magic or are protected from it by magic''s natural desire to remain hidden."'
+		'The redhead adjusts her glasses. "Most of the world simply ignores magic or are protected from it by magic''s natural desire to remain hidden."'
 		'"But last night there was a powerful burst of magical energy, strong enough to be clearly seen by any with magical connections. Can you guess where this surge came from? Yeah, that cave you found. Apparently the surge occurred when you opened the seal to the archive. Anyway, that was when we started to search, that source of power is desired by many, but it is extremely dangerous and in the wrong hands could do untold horrors."'
-		'She stops for a few seconds for you process that information. It seems really far fetched.'
+		'She stops for a few seconds for you to process that information. It seems really far fetched.'
 		'"Reinhold wants to prevent the amulet being misused, he is tasked with maintaining order and will search for you."'
 
 		act 'So, the whole world is just an illusion?':
@@ -172,7 +172,7 @@ if $ARGS[0] = 'Cursed Schoolgirl Start 2':
 			clr
 			'<center><img <<$set_imgh>> src="images/pre/alt/karinpre.jpg"></center>'
 			'"So magic exists and is used by all these people and creatures, but the rest of us just don''t see it, or convince ourselves it didn''t happen?" You ask.'
-			'The girl nods. "Yes. You''re a quick study. Machines, apartments, television and the Internet, all this really does exist and is in the form in which people see it. But if I say, hurl a fireball, then people might see that I threw a grenade or shot from a flamethrower. The human mind can''t process magic, so it blocks it as a way to protect the person from going crazy."'
+			'The girl nods. "Yes. You''re a quick student. Machines, apartments, television and the Internet, all this really does exist and is in the form in which people see it. But if I say, hurl a fireball, then people might see that I threw a grenade or shot from a flamethrower. The human mind can''t process magic, so it blocks it as a way to protect the person from going crazy."'
 			'"Hence such things as little green men, UFOs, poltergeists, spontaneous combustion, are when people encounter a difficult to hide phenomenon and the conclusion is flawed. In some cases, if someone''s mind can not cope with the spell they witness, they can be driven crazy and then no one believes them."'
 
 			act 'And who are you?':
@@ -181,7 +181,7 @@ if $ARGS[0] = 'Cursed Schoolgirl Start 2':
 				clr
 				'<center><img <<$set_imgh>> src="images/pre/alt/karinpre.jpg"></center>'
 				'"And who are you?" you ask.'
-				'The girl smiled. "Me? I''m Tatiana, a young mage with an keen interest in magical phenomenon. I specialize in the treatment of mutations, and magic relating to the body. I have little combat skill, so I rely on the services of Gustav to provide some muscle. He''s a Mutant, his mutation is due to magical exposure and it gives him unmatched physical strength and he is a great tracker."'
+				'The girl smiled. "Me? I''m Tatiana, a young mage with a keen interest in magical phenomenon. I specialize in the treatment of mutations, and magic relating to the body. I have little combat skill, so I rely on the services of Gustav to provide some muscle. He''s a Mutant, his mutation is due to magical exposure and it gives him unmatched physical strength and he is a great tracker."'
 				'"The two of us run a detective agency for cover and money, but our real objective is studying magic and its effects."'
 
 				act 'What do you want from me?':

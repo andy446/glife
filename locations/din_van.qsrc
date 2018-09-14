@@ -1160,7 +1160,7 @@ if $ARGS[0] = 'prvt_pee':
 		elseif rand_pee = 5:
 			'You nearly piss yourself as you rush to seat yourself onto the toilet. Unable to hold back the flood anymore, your body releases a seemingly endless stream as you moan quietly in relief, thankful that you made it in time.'
 		elseif rand_pee = 6:
-			'After situating yourself on the toilet, you relax and begin peeing. The unine tickles your labia as it sprays out of you into the toilet bowl.'
+			'After situating yourself on the toilet, you relax and begin peeing. The urine tickles your labia as it sprays out of you into the toilet bowl.'
 		else
 			'As you begin to sit down you nearly jump back to your feet as the cold toilet seat stings your bare bottom. You shake your head and sigh before settling back onto the icy seat and doing your business.'
 		end

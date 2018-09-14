@@ -67,7 +67,7 @@ end
 *nl
 'This is the small bedroom you share with your sister, Anya. On one side of the room is a <a href="exec:gt ''wardrobe'', ''start''">wardrobe</a> where you can choose outfits and organise your clothing.'
 *nl
-'Your <a href="exec:gt ''bed2''">bed</a> is in the corner across from the wardrobe, and your <a href="exec:gt ''stol'' ,''stolPar''">desk</a> is next to it. Your sister''s bed is in the other corner.'
+'Your <a href="exec:gt ''bed2''">bed</a> stands opposite the wardrobe, and your <a href="exec:gt ''stol'' ,''stolPar''">desk</a> is next to it. Your sister''s bed is in the other corner.'
 *nl
 if popugai2 = 1:
 	'<a href="exec:GT ''popu'',''start2''"><<$namepopu2>></a> is sitting in his cage'
@@ -96,9 +96,9 @@ if popugai2 = 1:
 	*nl
 end
 if budilnikOn = 0:
-	'Your <a href="exec:gt ''budilnik'', ''start''">alarm clock</a> is set for <<timer>> hours <<timerM>> minutes and currently turned <a href="exec: budilnikOn = 1 & GT ''<<$loc>>''">off</a>.'
+	'Your <a href="exec:gt ''budilnik'', ''start''">alarm clock</a> is set to <<timer>>:<<timerM>> and is currently turned <a href="exec: budilnikOn = 1 & GT ''<<$loc>>''">off</a>.'
 else
-	'Your <a href="exec:gt ''budilnik'', ''start''">alarm clock</a> is set for <<timer>> hours <<timerM>> minutes and currently turned <a href="exec: budilnikOn = 0 & GT ''<<$loc>>''">on</a>.'
+	'Your <a href="exec:gt ''budilnik'', ''start''">alarm clock</a> is set to <<timer>>:<<timerM>> and is currently turned <a href="exec: budilnikOn = 0 & GT ''<<$loc>>''">on</a>.'
 end
 
 if tabletki > 0 and prezik + prezikcount + preziksabo > 0:

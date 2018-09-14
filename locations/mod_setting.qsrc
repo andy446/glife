@@ -4,7 +4,7 @@
 *nl '<center><h1>MODs</h1></center>'
 
 '<center>'
-'WARNING: install too much mods, or some bad-structure mod, may cause seirous lag!'
+'WARNING: Installing too much mods or some mods with bad structures may cause serious lag.'
 if mod_list > 0:
 
 	'<table border=1><tr><td>id</td><td>Name</td><td>Version</td><td>Author</td><td>Description</td></tr>'
@@ -31,7 +31,7 @@ if mod_list > 0:
 	killvar 'mod_info'	
 	'</table>'
 else
-	'<br>No Mod actived.'
+	'<br>You have no Mods activated.'
 end
 '</center>'
 act 'Install new mod':

@@ -40,7 +40,7 @@ if $ARGS[0] = 'Time':
 	if timer > 23:timer = 0
 	if timerM > 60:timerM = 0
 
-	'Alarm set for <<timer>> hours <<timerM>> minutes.'
+	'The alarm is set to <<timer>>:<<timerM>>.'
 
 	act 'Confirm':
 		cla

@@ -185,7 +185,7 @@ if $ARGS[0] = 'modite_pha':
 	gs 'preSYS2', 'modrel_setup2', 'pregtest', 'Pregnancy tests'
 	gs 'preSYS2', 'modrel_setup2', 'tabletki', 'Birth control pills'
 	gs 'preSYS2', 'modrel_setup2', 'lekarstvo', 'Antibiotics'
-	gs 'preSYS2', 'modrel_setup2', 'vitamin', 'Vitmains'
+	gs 'preSYS2', 'modrel_setup2', 'vitamin', 'Vitamins'
 	gs 'preSYS2', 'modrel_setup2', 'painkiller', 'Painkillers'
 	gs 'preSYS2', 'modrel_setup2', 'mosolmaz', 'Ointment for chafing'
 	gs 'preSYS2', 'modrel_setup2', 'lubri', 'Lubricants'

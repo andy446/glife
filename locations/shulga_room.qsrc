@@ -10,8 +10,10 @@
 !>= 100 - Very close friends, he offers to arrange a webcam show together at his house ----------------------!
 !============================================================================================================!
 $location_type = 'private'
-if $ARGS[0] = '': gt 'shulga_room', 'start'
-if $ARGS[0] = 'start':
+if $ARGS[0] = 'start' or $ARGS[0] = '':
+	$menu_loc = 'shulga_room'
+	$menu_arg = 'start'
+	menu_off = 0
 	$metka = 'start'
 	$loc = 'shulga_room'
 	$locclass = 'livingr'
@@ -103,12 +105,37 @@ if $ARGS[0] = 'start':
 		act 'Look around the room': gt 'shulga_room', 'start'
 
 		act 'Take an hour long nap':
+			cla
 			if pcs_sleep < 90:
-				pcs_sleep += 10
+				if pcs_sleep >= 80:
+					pcs_sleep = 100
+				else
+					pcs_sleep += 10
+				end
 				pcs_health += 5
 				minut += 60
 				gs 'stat'
 				'You sleep about an hour.'
+				act 'Get up': gt 'shulga_room', 'start'
+			else
+				minut += 5
+				gs 'stat'
+				'You are not tired enough to sleep, even for a short nap.'
+				act 'Stand up': gt 'shulga_room', 'start'
+			end
+		end
+		act 'Sleep for a few hours':
+			cla
+			if pcs_sleep < 90:
+				if pcs_sleep >= 60:
+					pcs_sleep = 100
+				else
+					pcs_sleep += 40
+				end
+				pcs_health += 5
+				minut += 240
+				gs 'stat'
+				'You sleep about four hours.'
 				act 'Get up': gt 'shulga_room', 'start'
 			else
 				minut += 5
@@ -163,6 +190,7 @@ end
 
 !clothed as a prostitute: day and night
 if $ARGS[0] = 'sh_hooker':
+	menu_off = 1
 	sh_hooker_day = daystart
 	sh_hooker_count -= 1
 	gs 'stat'
@@ -206,6 +234,7 @@ end
 !Event Vasily and Sonya in the big room
 
 if $ARGS[0] = 'shulv_sexev1_sonya':
+	menu_off = 1
 	sexev_sonya_day = daystart
 	sexev_sonya_count -= 1
 	sh_sonya_sexev +=1
@@ -227,6 +256,7 @@ if $ARGS[0] = 'shulv_sexev1_sonya':
 end
 
 if $ARGS[0] = 'shulv_sexev2_sonya':
+	menu_off = 1
 	sexev_sonya_day = daystart
 	sexev_sonya_count -= 1
 	sh_sonya_sexev +=1
@@ -268,6 +298,7 @@ if $ARGS[0] = 'shulv_sexev2_sonya':
 end
 
 if $ARGS[0] = 'shulv_sex_sonya':
+	menu_off = 1
 	shulv_sexev_sonya = RAND(0,100)
 	if shulv_sexev_sonya <= 40: 
 		gt 'shulga_room', 'shulv_sexev1_sonya'
@@ -280,6 +311,7 @@ end
 !Event with Sonia #1
 
 if $ARGS[0] = 'gang_sexev1_sonya':
+	menu_off = 1
 	sexev_sonya_day = daystart
 	sexev_sonya_count -= 1
 	sh_sonya_sexev +=1
@@ -321,6 +353,7 @@ end
 
 !Event with Sonia #2
 if $ARGS[0] = 'gang_sexev2_sonya':
+	menu_off = 1
 	sexev_sonya_day = daystart
 	sexev_sonya_count -= 1
 	sh_sonya_sexev +=1
@@ -333,6 +366,7 @@ end
 
 !Event with Sonia #3
 if $ARGS[0] = 'gang_sexev3_sonya':
+	menu_off = 1
 	sexev_sonya_day = daystart
 	sexev_sonya_count -= 1
 	sh_sonya_sexev +=1
@@ -345,6 +379,7 @@ end
 
 !the choice of the opening event 3
 if $ARGS[0] = 'gang_sex_sonya':
+	menu_off = 1
 	gang_sexev_sonya = RAND(0,100)
 	if RAND(0,100) < 40: 
 		gt 'shulga_room', 'gang_sexev1_sonya'
@@ -361,6 +396,7 @@ end
 !Fucked for days by the boys
 
 if $ARGS[0] = 'gang_sex_room_ev1':
+	menu_off = 0
 	minut += 2
 	gangsexroom_day = daystart
 	gangsexroom_count -= 1
@@ -389,6 +425,7 @@ if $ARGS[0] = 'gang_sex_room_ev1':
 end
 
 if $ARGS[0] = 'gang_sex_room_ev1_1':
+	menu_off = 1
 	gs 'arousal','foreplay',5,'group','gangbang'
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/shulginhome/bigroom/sex/1_4.jpg"></center>'
@@ -397,6 +434,7 @@ if $ARGS[0] = 'gang_sex_room_ev1_1':
 end
 
 if $ARGS[0] = 'gang_sex_room_ev1_2':
+	menu_off = 1
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/shulginhome/bigroom/sex/1_5.jpg"></center>'
 	gs 'boyStat', 'A9','3'
 	gs 'boyStat', 'A10','1'
@@ -565,6 +603,7 @@ end
 !consent to sex if you get drunk years
 
 if $ARGS[0] = 'drunken_sex_yes':
+	menu_off = 1
 	minut += 5 
 	pcs_horny +=10
 	gs 'stat'
@@ -581,6 +620,7 @@ end
 !Present your ass
 
 if $ARGS[0] = 'drunken_body_popa':
+	menu_off = 1
 	gs 'arousal','flash',5,'group','gangbang','exhibitionism'
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/shulginhome/bigroom/drunk_ev/popa'+rand(1,11)+'.jpg"></center>'
@@ -595,6 +635,7 @@ end
 !Show them your pussy
 
 if $ARGS[0] = 'drunken_body_piz':
+	menu_off = 1
 	gs 'arousal','flash',5,'group','gangbang','exhibitionism'
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/shulginhome/bigroom/drunk_ev/piz'+rand(1,10)+'.jpg"></center>'
@@ -606,6 +647,7 @@ end
 !Shake your tits
 
 if $ARGS[0] = 'drunken_body_sisi':
+	menu_off = 1
 	gs 'arousal','flash',5,'group','gangbang','exhibitionism'
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/shulginhome/bigroom/drunk_ev/sisi'+rand(1,11)+'.jpg"></center>'
@@ -617,6 +659,7 @@ end
 !Finger yourself
 
 if $ARGS[0] = 'drunken_body_mast':
+	menu_off = 1
 	gs 'arousal','masturbate',5,'group','gangbang','exhibitionism'
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/shulginhome/bigroom/drunk_ev/mast'+rand(1,10)+'.jpg"></center>'
@@ -630,6 +673,7 @@ end
 !drunk sex
 
 if $ARGS[0] = 'drunken_sex':
+	menu_off = 1
 	gang +=1
 	gs 'boyStat', 'A9','3'
 	gs 'boyStat', 'A10','1'
@@ -698,6 +742,7 @@ end
 !abstaining from sex if you get drunk turnip years: pav_slut < 75 (If turnips >= 3, the failure will not be accessible)
 
 if $ARGS[0] = 'drunken_sex_no':
+	menu_off = 1
 	minut += 5 
 	pcs_dom +=1
 	pcs_health -= 10
@@ -711,6 +756,7 @@ if $ARGS[0] = 'drunken_sex_no':
 end
 
 if $ARGS[0] = 'drunken_sleep':
+	menu_off = 1
 	minut += 180 
 	if pcs_sleep < 75:
 		pcs_sleep += 25
@@ -729,6 +775,7 @@ if $ARGS[0] = 'drunken_sleep':
 end	
 
 if $ARGS[0] = 'shulga_beer':
+	menu_off = 1
 	if alko < 6: 
 		minut += 5 
 		alko += RAND(1,2)
@@ -762,6 +809,7 @@ end
 !====================================! 
 !watch porn TV
 if $ARGS[0] = 'view_pornotv':
+	menu_off = 1
 	act 'Flip to the porn channel':
 		*clr & cla
 		gs 'arousal','porn',20
@@ -775,6 +823,7 @@ if $ARGS[0] = 'view_pornotv':
 end
 !Group Event with porn hours 0 to 2 weekdays, when gopota hang out...
 if $ARGS[0] = 'view_pornotv_evgr':
+	menu_off = 1
 	act 'Watch some porn':
 		*clr & cla
 		gs 'arousal','porn',10
@@ -883,6 +932,7 @@ end
 
 !Event viewing porn channel with Vasily
 if $ARGS[0] = 'view_pornotv_vasya':
+	menu_off = 1
 	act 'Watch porn channel':
 		*clr & cla
 		pcs_mood += 4
@@ -976,6 +1026,7 @@ end
 !TV in the living room with Vasily!
 !==================================! 
 if $ARGS[0] = 'shultv':
+	menu_off = 1
 	rndtvs=rand(1,100)
 	*clr & cla
 	if rndtvs>10: minut += 30
@@ -1023,6 +1074,7 @@ end
 !Bazaar night with Vasily, Vitek, and Dan. On Weekdays hours: 0 to 2!
 !======================================! 
 if $ARGS[0] = 'shulga_bazar_night':
+	menu_off = 1
 	rnd_rebyata = RAND(0,1)
 	if rnd_rebyata = 0:$rnd_rebyata = 'Dan'
 	if rnd_rebyata = 1:$rnd_rebyata = 'Vitek'
@@ -1112,6 +1164,7 @@ end
 !Bazaar night with Dan. Monday - Thurstday hours: 20:00 - 24:00!
 !============================================! 
 if $ARGS[0] = 'den_bazar':
+	menu_off = 1
 	minut += 1
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/dan/dan.jpg"></center>'
@@ -1178,6 +1231,7 @@ end
 !Bazaar with Vitek(Kotov) Monday - Thurstday hours: 20:00 - 24:00!
 !=============================================! 
 if $ARGS[0] = 'vitek_bazar':
+	menu_off = 1
 	minut += 1
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/vitek/vitek.jpg"></center>'
@@ -1250,6 +1304,7 @@ end
 
 !Do homework with Vasily
 if $ARGS[0] = 'shulga_lern':
+	menu_off = 1
 	!choice of set pictures
 	lern_imgset = RAND(1,7)
 	if lernHome ! 0:
@@ -1294,6 +1349,7 @@ end
 
 !Consent to sex
 if $ARGS[0] = 'shulga_lern_sex_yes':
+	menu_off = 1
 	shulga_lern_day = daystart
 	shulga_lern_count -= 1
 	npc_sex['A11'] += 1
@@ -1384,6 +1440,7 @@ end
 
 !Abstaining from sex
 if $ARGS[0] = 'shulga_lern_sex_no':
+	menu_off = 1
 	minut += 2
 	shulga_lern_day = daystart
 	shulga_lern_count -= 1
@@ -1461,14 +1518,15 @@ end
 !You nap with Vasilt!
 !---------------------------------------!
 if $ARGS[0] = 'sleep_vasya_bed':
+	menu_off = 1
 	cla
 	npc_rel['A11'] += 1
-	if pcs_sleep > 75:
-		pcs_sleep += 25
-	else
+	if pcs_sleep >= 60:
 		pcs_sleep = 100
+	else
+		pcs_sleep += 40
 	end
-	minut += 180
+	minut += 240
 	'You lay down and sleep for a few hours.'
 	act 'Get up': gt 'shulga_room'
 	gs 'stat'
@@ -1477,6 +1535,7 @@ end
 !He refuses to let you sleep next to him!
 !--------------------!
 if $ARGS[0] = 'sleep_vasya_otkaz':
+	menu_off = 1
 	cla
 	minut += 2
 	npc_rel['A11'] -=1
@@ -1490,6 +1549,7 @@ end
 !He allows you to sleep next to him!
 !---------------------!
 if $ARGS[0] = 'sleep_vasya_soglasie':
+	menu_off = 1
 	cla
 	minut += 2
 	gs 'stat'
@@ -1521,6 +1581,7 @@ end
 !-----Vasily sleeps-----!
 !---------------------!
 if $ARGS[0] = 'shulga_bazar_sleep':
+	menu_off = 1
 	*clr & cla
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/vasya/vasya_sleep.jpg"></center>'
 	'Vasily fast asleep'

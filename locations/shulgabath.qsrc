@@ -21,6 +21,9 @@ minut += 1
 gs 'stat'
 
 if $ARGS[0] = 'start':
+	$menu_loc = 'shulgabath'
+	$menu_arg = 'start'
+	menu_off = 0
 	!Sonia opening event in the bathroom
 	if soniaPS >= 2:
 		if RAND(0,100) >= 90 and sh_sonya_sexev > 2 and sonya_bazar_count > 0 and ev_sonya_count > 0 and hour <= 23 and ((week < 6 and hour >= 14) or (week >= 6 and hour >= 10)):
@@ -34,57 +37,20 @@ if $ARGS[0] = 'start':
 
 	'<center><b><font color = maroon>Bathroom</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/shulginhome/vanna.jpg"></center>'
-	'Uncle Sergey''s bathroom is small and very unpretentious. Nevertheless, it has everything a bathroom needs. There is a <a href="exec:GT ''mirror'',''start''">mirror</a> above the sink.'
+	*nl
+	'Uncle Sergey''s bathroom is small and very unpretentious. Nevertheless, it has everything a bathroom needs. There is a <a href="exec:GT ''mirror'',''start''">mirror</a> above the sink, where you can ' + iif(pcs_hairbsh = 0,'<a href="exec:GT ''mirror'',''brush''">brush</a>','brush') + ' your hair, a shower and bath tub.'
+	*nl
 
 	act 'Return to the hallway': gt'shulgahall'
 
-	dynamic $shower
-	gs 'din_van', 'prvt_pee'
-	dynamic $bteeth
-	dynamic $tampon
-	dynamic $quickwash
-	dynamic $wearpan
-	dynamic $removepan
-	dynamic $basin
+	gs 'din_van', 'private'
 
-	if (cumloc[6] = 1 or cumloc[7] = 1):
-		act 'Clean semen stains from your clothing':
-			*clr & cla
-			cumspclnt = 6
-			gs 'cum_cleanup'
-			minut = minut + 15
-			gs 'stat'
-
-			'<center><img <<$set_imgh>> src="images/shared/sex/cum/frotsp.jpg"></center>'
-			'You take fifteen minutes to thoroughly rinse the semen stains out of your clothes. By the time you''re done, all the evidence that remains of them are some quickly drying damp spots.'
-			act 'Finish': gt 'shulgabath', 'start'
-		end
-	end
-
-	dynamic $toymanage
-	dynamic $enema
-
-	if pregtest > 0 and (abortionbirthdate = 0 or daystart - abortionbirthdate > 100):
-		act 'Do a pregnancy test':
-			cla
-			pregtest -= 1
-			gs 'stat'
-			if pregchem > 120:
-				knowpreg = 1
-				thinkpreg = 1
-				'The test shows the two strips: you''re pregnant!'
-			else
-				knowpreg = 0
-				'The test shows one band: you''re not pregnant.'
-			end
-
-			act 'Finish':gt 'shulgabath', 'start'
-		end
 	end
 end
 
 !Bathroom, Sonia choice opening event:
 if $ARGS[0] = 'sexev':
+	menu_off = 1
 	if RAND(0,100) < 50: 
 		gt 'shulgabath', 'sexev1'
 	else 
@@ -94,6 +60,7 @@ end
 
 !Bath Sonia Event 1:
 if $ARGS[0] = 'sexev1':
+	menu_off = 1
 	*clr & cla
 	sexev_sonya_day = daystart
 	sexev_sonya_count -= 1
@@ -108,6 +75,7 @@ end
 
 !Bathtub, Sonia Event 2:
 if $ARGS[0] = 'sexev2':
+	menu_off = 1
 	*clr & cla
 	sexev_sonya_day = daystart
 	sexev_sonya_count -= 1
@@ -160,6 +128,7 @@ if $ARGS[0] = 'sexev2':
 end
 
 if $ARGS[0] = 'ev':
+	menu_off = 1
 	if RAND(0,100) <= 80:
 		gt 'shulgabath', 'ev1'
 	else
@@ -169,6 +138,7 @@ end
 
 !Sonia suggests marafet
 if $ARGS[0] = 'ev1':
+	menu_off = 1
 	*clr & cla
 	minut += 2
 	gs 'stat'
@@ -188,6 +158,7 @@ end
 
 !Sonya is sitting on the toilet
 if $ARGS[0] = 'ev2':
+	menu_off = 1
 	*clr & cla
 	minut += 2
 	gs 'stat'
@@ -199,6 +170,7 @@ end
 
 !Gossip with Sonia, If burned her sex a couple of times in this hut.
 if $ARGS[0] = 'bazar':
+	menu_off = 1
 	*clr & cla
 	ev_sonya_day = daystart
 	ev_sonya_count -= 1
@@ -240,6 +212,7 @@ end
 
 !gg and Sonia take a bath
 if $ARGS[0] = 'lesb':
+	menu_off = 1
 	*clr & cla
 	minut += 5
 	npc_sex['A25'] += 1
@@ -297,6 +270,7 @@ if $ARGS[0] = 'lesb':
 end
 
 if $ARGS[0] = 'serg_sex':
+	menu_off = 1
 	*clr & cla
 	gs 'boyStat', 'A112'
 	npc_sex[$boy] += 1

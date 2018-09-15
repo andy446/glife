@@ -214,6 +214,9 @@ end
 end
 
 if $ARGS[0]='sofa':
+	$menu_loc = 'family'
+	$menu_arg = 'sofa'
+	menu_off = 0
 	$metka = 'sofa'
 	$loc = 'family'
 	*clr & cla

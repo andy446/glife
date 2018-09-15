@@ -6,6 +6,7 @@
 CLOSE ALL
 $metka = ''
 $loc = 'shulgahome'
+menu_off = 1
 $location_type = 'event'
 !Vasily/Shulga''s dynamic name is randomly chosen in "gopsex"
 gs 'stat'

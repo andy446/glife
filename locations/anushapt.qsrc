@@ -22,6 +22,9 @@
 
 !!this is the text and chances anyone is at Anushka''s apartment.
 if $ARGS[0] = 'home':
+	$menu_loc = 'anushapt'
+	$menu_arg = 'home'
+	menu_off = 0
 	$track_loop = ''
 	CLOSE ALL
 	if sound = 0:PLAY 'sound/korr.mp3',30
@@ -138,6 +141,9 @@ if $ARGS[0] = 'home':
 end
 
 if $ARGS[0] = 'hallway':
+	$menu_loc = 'anushapt'
+	$menu_arg = 'hallway'
+	menu_off = 0
 	killvar '$locclass'
 	CLOSE ALL
 	if sound = 0:PLAY 'sound/korr.mp3',30
@@ -176,6 +182,9 @@ if $ARGS[0] = 'hallway':
 end
 
 if $ARGS[0] = 'bathroom':
+	$menu_loc = 'anushapt'
+	$menu_arg = 'bathroom'
+	menu_off = 0
 	CLOSE ALL
 	cla
 	*clr
@@ -261,6 +270,9 @@ if $ARGS[0] = 'bathroom':
 end
 
 if $ARGS[0] = 'anushroom':
+	$menu_loc = 'anushapt'
+	$menu_arg = 'anushroom'
+	menu_off = 0
 	$locclass = 'bedr'
 	CLOSE ALL
 	$track_loop = ''
@@ -280,6 +292,7 @@ if $ARGS[0] = 'anushroom':
 end
 
 if $ARGS[0] = 'computer':
+	menu_off = 1
 	if AnushkaLoc = 2 and AnushkaCompUse = 0:
 		AnushkaCompUse = 1
 		*clr & cla
@@ -555,6 +568,7 @@ if $ARGS[0] = 'computer':
 end
 
 if $ARGS[0] = 'guitar':
+	menu_off = 1
 	if AnushkaLoc = 2:
 		*clr & cla
 		music_loop = 0
@@ -599,6 +613,9 @@ if $ARGS[0] = 'guitar':
 end
 	
 if $ARGS[0] = 'bed':
+	$menu_loc = 'anushapt'
+	$menu_arg = 'bed'
+	menu_off = 0
 	cla
 	*clr
 	gs 'stat'
@@ -615,6 +632,7 @@ if $ARGS[0] = 'bed':
 end
 
 if $ARGS[0] = 'chat':
+	menu_off = 1
 	*clr & cla
 	minut += 5
 	gs 'stat'
@@ -1007,6 +1025,7 @@ if $ARGS[0] = 'chat':
 end
 
 if $ARGS[0] = 'snack':
+	menu_off = 1
 	cla
 	*nl
 	'She gets up and heads out of her room and to the kitchen, the two of you are talking and laughing as you enter the kitchen.'
@@ -1069,6 +1088,9 @@ if $ARGS[0] = 'snack':
 end
 
 if $ARGS[0] = 'brotherroom':
+	$menu_loc = 'anushapt'
+	$menu_arg = 'brotherroom'
+	menu_off = 0
 	CLOSE ALL
 	*clr & cla
 	minut += 1
@@ -1226,6 +1248,9 @@ if $ARGS[0] = 'brotherroom':
 end 
 	
 if $ARGS[0] = 'livingroom':
+	$menu_loc = 'anushapt'
+	$menu_arg = 'livingroom'
+	menu_off = 0
 	CLOSE ALL
 	*clr & cla
 	$locclass = 'livingr'
@@ -1385,6 +1410,9 @@ if $ARGS[0] = 'livingroom':
 end
 
 if $ARGS[0] = 'kitchen':
+	$menu_loc = 'anushapt'
+	$menu_arg = 'kitchen'
+	menu_off = 0
 	CLOSE ALL
 	*clr & cla
 	minut += 1
@@ -1398,6 +1426,7 @@ if $ARGS[0] = 'kitchen':
 end
 
 if $ARGS[0] = 'holodilnik':
+	menu_off = 1
 	*clr & cla
 	minut += 1
 	if anushfood_day ! daystart:
@@ -1507,6 +1536,9 @@ if $ARGS[0] = 'holodilnik':
 end 
 	
 if $ARGS[0] = 'anushparents':
+	$menu_loc = 'anushapt'
+	$menu_arg = 'anushparents'
+	menu_off = 0
 	CLOSE ALL
 	*clr & cla
 	minut += 1
@@ -1543,6 +1575,7 @@ if $ARGS[0] = 'anushparents':
 end
 
 if $ARGS[0] = 'band':
+	menu_off = 1
 	*clr
 	cla
 	nush_band = 1
@@ -1578,6 +1611,7 @@ if $ARGS[0] = 'band':
 end
 
 if $ARGS[0] = 'album':
+	menu_off = 1
 	*clr & cla
 	nush_album = 1
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/anushapt/parroom.jpg"></center>'
@@ -1608,6 +1642,7 @@ if $ARGS[0] = 'album':
 end
 
 if $ARGS[0] = 'Alyona_ask':
+	menu_off = 1
 	*clr & cla
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/anushapt/parroom.jpg"></center>'
 	'You are curious and decided to ask Valeria about Anushka''s friend Alyona. Valeria looks at you as if you''ve crossed some invisible line and instantly gets hostile towards you.'
@@ -1631,6 +1666,7 @@ if $ARGS[0] = 'Alyona_ask':
 end
 
 if $ARGS[0] = 'firstvisit':
+	menu_off = 1
 	*clr & cla
 	minut += 1
 	gs 'stat'
@@ -1640,6 +1676,7 @@ if $ARGS[0] = 'firstvisit':
 end
 
 if $ARGS[0] = 'night_stand':
+	menu_off = 1
 	if AnushkaLoc = 2:
 		*clr & cla
 		minut += 2
@@ -1666,6 +1703,7 @@ if $ARGS[0] = 'night_stand':
 end
 
 if $ARGS[0] = 'nushshower':
+	menu_off = 1
 	CLOSE ALL
 	cla
 	*clr
@@ -1771,6 +1809,7 @@ if $ARGS[0] = 'nushshower':
 end
 
 if $ARGS[0] = 'shower_wait':
+	menu_off = 1
 	CLOSE ALL
 	cla
 	*clr

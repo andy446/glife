@@ -27,6 +27,7 @@ rnd_money_sex = $rnd_money_sex
 !================================================================================================!
 !housemates
 if $ARGS[0] = 'housemates':
+	menu_off = 1
 	*clr & cla
 	minut +=1
 	gs 'stat'
@@ -42,6 +43,9 @@ end
 
 !!locked in Pavlovsk, floor 1
 if $ARGS[0] = 'etaj_1':
+	$menu_loc = 'pavComplexb2'
+	$menu_arg = 'etaj_1'
+	menu_off = 0
 	CLOSE ALL
 	if sound = 0:PLAY 'sound/podezd.mp3',30
 	minut +=1
@@ -62,6 +66,9 @@ end
 
 !floor 2
 if $ARGS[0] = 'etaj_2':
+	$menu_loc = 'pavComplexb2'
+	$menu_arg = 'etaj_2'
+	menu_off = 0
 	minut +=1
 	gs 'stat'
 	'<center>2nd floor of the apartment building</center>'
@@ -74,6 +81,9 @@ end
 
 !floor 3
 if $ARGS[0] = 'etaj_3':
+	$menu_loc = 'pavComplexb2'
+	$menu_arg = 'etaj_3'
+	menu_off = 0
 	minut +=1
 	gs 'stat'
 	'<center>3rd floor of the apartment building</center>'
@@ -86,6 +96,9 @@ end
 
 !floor 4
 if $ARGS[0] = 'etaj_4':
+	$menu_loc = 'pavComplexb2'
+	$menu_arg = 'etaj_4'
+	menu_off = 0
 	minut +=1
 	gs 'stat'
 	'<center>4th floor of the apartment building</center>'
@@ -101,6 +114,9 @@ end
 
 !floor 5
 if $ARGS[0] = 'etaj_5':
+	$menu_loc = 'pavComplexb2'
+	$menu_arg = 'etaj_5'
+	menu_off = 0
 	minut +=1
 	gs 'stat'
 	'<center>Floor #5</center>'
@@ -113,6 +129,9 @@ end
 
 !!roof
 if $ARGS[0] = 'roof':
+	$menu_loc = 'pavComplexb2'
+	$menu_arg = 'roof'
+	menu_off = 0
 	minut +=1
 	gs 'stat'
 	'<center>Roof</center>'
@@ -138,6 +157,7 @@ end
 !================================================================================================!
 !the lift
 if $ARGS[0] = 'lift':
+	menu_off = 1
 	*clr & cla
 	minut +=1
 	gs 'stat'
@@ -189,6 +209,7 @@ end
 	
 !!new scene for going to this complex if Sveta has a friendship of 50 > and has not been to Anushka''s apartment. Once she has been once this doesn''t show up again. This is a temporary way to start Anushka''s story with out having to go to detention first. 
 if $ARGS[0] = 'anushkaFirst':
+	menu_off = 1
 	'<center><img src="images\locations\pavlovsk\school\head\45.jpg"></center>'
 	'As you walk into the building you nearly run into Anushka. "Hey <<$pcs_nickname>> whats up?"'
 	'A bit surprised to see her but not disappointed, you was just wandering around for the hell of it. "Just killing time, kinda bored you know?"'

@@ -543,6 +543,7 @@ if $ARGS[0] = 'fin':
 	killvar '$makeupHeavy'
 	killvar '$routine'
 	killvar '$mirrorloc'
+	menu_off = 0
 	gt $locM, $metkaM
 end &! --- fin ----
 

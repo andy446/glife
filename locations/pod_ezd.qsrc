@@ -27,6 +27,7 @@ rnd_money_sex = $rnd_money_sex
 
 !sex game events with all the guys in the stairwell (2,3 floors)
 if $ARGS[0] = 'sex_ev1':
+	menu_off = 1
 !act 'Smer':
 	minut += 2
 	if pav_slut >= 150 and podwhoreQW < 3: podwhoreQW += 1
@@ -91,6 +92,7 @@ if $ARGS[0] = 'sex_ev1':
 end
 
 if $ARGS[0] = 'sex_ev1_anal':
+	menu_off = 1
 	gs 'arousal', 'anal', 3,'dick[2]','sub'
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/event/sex/sex_ev1_4.jpg"></center>'
@@ -128,6 +130,7 @@ if $ARGS[0] = 'sex_ev1_anal':
 end
 
 if $ARGS[0] = 'sex_ev1_anal1':
+	menu_off = 1
 	gs 'cum_call','mouth',$boy[2],1
 	gs 'cum_call','anus',$boy[1],1
 	gs 'arousal', 'bj', 3,'dick[1]','sub'
@@ -146,6 +149,7 @@ if $ARGS[0] = 'sex_ev1_anal1':
 end
 
 if $ARGS[0] = 'sex_ev1_bj':
+	menu_off = 1
 	gs 'arousal', 'bj', 2,'dick[2]'
 	gs 'arousal', 'bj', 1,'dick[1]'
 	gs 'cum_call','face',$boy[1],1,'','',20 
@@ -164,6 +168,7 @@ if $ARGS[0] = 'sex_ev1_bj':
 end
 
 if $ARGS[0] = 'sex_ev2':
+	menu_off = 1
 	if pav_slut >= 150 and podwhoreQW < 3: podwhoreQW +=1
 	minut +=2
 	gs 'stat'
@@ -249,6 +254,7 @@ if $ARGS[0] = 'sex_ev2':
 end
 
 if $ARGS[0] = 'sex_ev3':
+	menu_off = 1
 	if pav_slut >= 150 and podwhoreQW < 3: podwhoreQW +=1
 	minut +=2
 	gs 'stat'
@@ -357,6 +363,7 @@ end
 !mini game events on 2 floor
 !boys smoking
 if $ARGS[0] = 'etaj2_smoke':
+	menu_off = 1
 	siga += 1
 	gs 'shortgs','smoker'
 	minut += 5
@@ -402,6 +409,7 @@ end
 
 !Misha smokes, second floor
 if $ARGS[0] = 'smoke_misha':
+	menu_off = 1
 	minut +=5
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/misha/misha.jpg" ></center>'
@@ -456,6 +464,7 @@ end
 !game events 3 floor
 !Event Julia Milova, 3rd floor stairwell
 if $ARGS[0] = 'juliamil':
+	menu_off = 1
 	gs 'boyStat', 'A12'
 	minut +=5
 	gs 'stat'
@@ -546,6 +555,7 @@ end
 
 !boys smoking
 if $ARGS[0] = 'smoke_r':
+	menu_off = 1
 	siga += 1
 	gs 'shortgs','smoker'
 	minut += 5
@@ -594,6 +604,7 @@ end
 
 !Event bj Shulga
 if $ARGS[0] = 'bj_smoke_shulga':
+	menu_off = 1
 	minut +=3
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/vasya/vasya.jpg"></center>'
@@ -631,6 +642,7 @@ end
 
 !Shulga smoking
 if $ARGS[0] = 'etaj3_smoke_shulga':
+	menu_off = 1
 	*clr & cla
 	siga += 1
 	gs 'shortgs','smoker'
@@ -655,6 +667,7 @@ end
 
 !Shulga and Dan smoking
 if $ARGS[0] = 'etaj3_smoke_shulga_den':
+	menu_off = 1
 	*clr & cla
 	siga += 1
 	gs 'shortgs','smoker'
@@ -687,6 +700,7 @@ end
 
 !game events in the attic (fifth floor)
 if $ARGS[0] = 'etaj5_cherdak_ev1':
+	menu_off = 1
 	gs 'arousal', 'voyeur', 5
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/event/sex/ev1_1.jpg"></center>'
@@ -715,6 +729,7 @@ if $ARGS[0] = 'etaj5_cherdak_ev1':
 end
 
 if $ARGS[0] = 'etaj5_cherdak_ev2':
+	menu_off = 1
 	gs 'arousal', 'voyeur', 4
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/event/sex/ev2_1.jpg"></center>'
@@ -797,6 +812,7 @@ if $ARGS[0] = 'etaj5_cherdak_ev2':
 end
 
 if $ARGS[0] = 'etaj5_cherdak_ev3':
+	menu_off = 1
 	gs 'arousal', 'voyeur', 4
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/event/sex/ev3_1.jpg"></center>'
@@ -842,6 +858,7 @@ if $ARGS[0] = 'etaj5_cherdak_ev3':
 end
 
 if $ARGS[0] = 'etaj5_cherdak_ev4':
+	menu_off = 1
 	gs 'arousal', 'voyeur', 5
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/event/sex/ev4_1.jpg"></center>'
@@ -897,6 +914,7 @@ end
 
 !game events with spying on different floors
 if $ARGS[0] = 'event_1':
+	menu_off = 1
 	*clr & cla
 	gs 'arousal', 'voyeur', 2
 	gs 'stat'
@@ -915,6 +933,7 @@ if $ARGS[0] = 'event_1':
 end
 
 if $ARGS[0] = 'event_2':
+	menu_off = 1
 	*clr & cla
 	gs 'arousal', 'voyeur', 7
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/event/sex/ev3.jpg"></center>'
@@ -927,6 +946,7 @@ if $ARGS[0] = 'event_2':
 end
 
 if $ARGS[0] = 'event_3':
+	menu_off = 1
 	*clr & cla
 	gs 'arousal', 'voyeur', 3
 	gs 'stat'
@@ -983,6 +1003,7 @@ if $ARGS[0] = 'event_3':
 end
 
 if $ARGS[0] = 'event_4':
+	menu_off = 1
 	gs 'arousal', 'voyeur', 3
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/event/ev5_1.jpg"></center>'
@@ -1053,6 +1074,7 @@ if $ARGS[0] = 'event_4':
 end
 
 if $ARGS[0] = 'event_5':
+	menu_off = 1
 	gs 'arousal', 'voyeur', 5
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/luda/event/ev2.jpg"></center>'
@@ -1091,6 +1113,7 @@ pod_ev_rnd = RAND(1,100)
 !================================================================================================!
 !housemates
 $housemates = {
+	menu_off = 1
 	*clr & cla
 	minut +=1
 	gs 'stat'
@@ -1105,6 +1128,9 @@ $housemates = {
 
 !!locked in Pavlovsk, floor 1
 if $ARGS[0] = 'etaj_1' or $ARGS[0] = '':
+	$menu_loc = 'pod_ezd'
+	$menu_arg = 'etaj_1'
+	menu_off = 0
 	CLOSE ALL
 	if sound = 0:PLAY 'sound/podezd.mp3',30
 	minut +=1
@@ -1136,6 +1162,7 @@ end
 
 !floor 2
 $etaj2_paint = {
+	menu_off = 1
 	*clr & cla
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/etaj2_whore.jpg"></center>'
@@ -1158,6 +1185,9 @@ $etaj2_paint = {
 }
 
 if $ARGS[0] = 'etaj_2':
+	$menu_loc = 'pod_ezd'
+	$menu_arg = 'etaj_2'
+	menu_off = 0
 	minut +=1
 	gs 'stat'
 	'<center>2nd floor of the apartment building</center>'
@@ -1206,6 +1236,9 @@ end
 
 !floor 3
 if $ARGS[0] = 'etaj_3':
+	$menu_loc = 'pod_ezd'
+	$menu_arg = 'etaj_3'
+	menu_off = 0
 	minut +=1
 	gs 'stat'
 	'<center>3rd floor of the apartment building</center>'
@@ -1226,6 +1259,9 @@ end
 
 !floor 4
 if $ARGS[0] = 'etaj_4':
+	$menu_loc = 'pod_ezd'
+	$menu_arg = 'etaj_4'
+	menu_off = 0
 	minut +=1
 	gs 'stat'
 	'<center>4th floor of the apartment building</center>'
@@ -1266,6 +1302,9 @@ end
 
 !floor 5
 if $ARGS[0] = 'etaj_5':
+	$menu_loc = 'pod_ezd'
+	$menu_arg = 'etaj_5'
+	menu_off = 0
 	minut +=1
 	gs 'stat'
 	'<center>Floor #5</center>'
@@ -1282,6 +1321,9 @@ end
 
 !!roof
 if $ARGS[0] = 'roof':
+	$menu_loc = 'pod_ezd'
+	$menu_arg = 'roof'
+	menu_off = 0
 	minut +=1
 	gs 'stat'
 	'<center>Roof</center>'
@@ -1307,6 +1349,7 @@ end
 !================================================================================================!
 !the lift
 if $ARGS[0] = 'lift':
+	menu_off = 1
 	*clr & cla
 	minut +=1
 	gs 'stat'
@@ -1349,6 +1392,7 @@ end
 
 !locked ads
 if $ARGS[0] = 'pod_objava':
+		menu_off = 1
 		*clr & cla
 		minut +=1
 		gs 'stat'

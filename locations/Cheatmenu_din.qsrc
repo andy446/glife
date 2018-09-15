@@ -1089,6 +1089,18 @@ $cheatmenu['reputation'] = {
 				'Your sister knows that you sleep around. <a href="exec:sisterknowslut = 0 & dynamic $cheatmenu[''reputation'']">Clear</a>'
 			end
 		end
+		if home_owned[2] = 0 or ParHomeBlock = 1:
+			'<a href="exec:home_owned[2] = 1 & ParHomeBlock = 0 & dynamic $cheatmenu[''reputation'']">Restore</a> access to your parent''s apartment.'
+		end
+		if momKnowsKolka = 1:
+			'Your mother knows Kolka is the father. <a href="momKnowsKolka = 0 & dynamic $cheatmenu[''reputation'']">Clear</a>.'
+		end
+		if momKnowsVladimir = 1:
+			'Your mother knows Vladimir is the father. <a href="exec:momKnowsVladimir = 0 & dynamic $cheatmenu[''reputation'']">Clear</a>.'
+		end
+		if schoolPredupr = 3 or SchoolBlock = 1:
+			'You''ve been expelled from school. <a href="exec:SchoolBlock = 0 & schoolPredupr = 0 & schoolprogul = 0 & pcs_grades = 50 & dynamic $cheatmenu[''reputation'']">Clear</a>.'
+		end
 	end
 	'</td></tr></table></center>'
 }

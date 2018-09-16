@@ -1,12 +1,12 @@
 # dimaHome
 
 if $ARGS[0] = 'home':
-	'<center><img <<$set_imgh>>  src="images/locations/pavlovsk/resident/dimkahome/house.jpg"></center>'
+	'<center><img <<$set_imgh>>	 src="images/locations/pavlovsk/resident/dimkahome/house.jpg"></center>'
 	'You walk up the path from the street to a relatively large, nice looking two-story house. You notice balconies on the front and side of the home. You exhale a deep breathe as you wonder what it would be like to live in such a nice place. You approach the front door and knock.'
 	if SchoolAtestat = 1 and kanikuli > 0:
 !!20% chance that mom answers saying he isn''t home. Just to show Dimka does other stuff.
 		if ((week < 6 and (hour > 15 or (hour = 15 and minut >= 30)) and hour < 19) or (week >= 6 and hour >= 9 and hour < 19)) and rand(0,4) ! 0:
-			'A few moments later Dimka''s mom answers the door. "Oh, you must be one of Dimka''s friends. Maybe more than friends." She says with a sly smile as she invites you in. "He is in his room, feel free to go on upstairs."' 
+			'A few moments later Dimka''s mom answers the door. "Oh, you must be one of Dimka''s friends. Maybe more than friends." She says with a sly smile as she invites you in. "He is in his room, feel free to go on upstairs."'
 			act 'Enter': gt 'dimaHome','hallway'
 !!On Fridays after 19 the mother won''t answer the door.
 		elseif (hour >= 8 and hour < 14) or (week ! 5 and hour >= 19 and hour < 24):
@@ -19,7 +19,7 @@ if $ARGS[0] = 'home':
 	else
 !!20% chance that mom answers saying he isn''t home. Just to show Dimka does other stuff.
 		if hour >= 9 and hour < 19 and rand(0,4) ! 0:
-			'A few moments later Dimka''s mom answers the door. "Oh, you must be one of Dimka''s friends. Maybe more than friends." She says with a sly smile as she invites you in. "He is in his room, feel free to go on upstairs."' 
+			'A few moments later Dimka''s mom answers the door. "Oh, you must be one of Dimka''s friends. Maybe more than friends." She says with a sly smile as she invites you in. "He is in his room, feel free to go on upstairs."'
 			act 'Enter': gt 'dimaHome','hallway'
 !!On Fridays after 19 the mother won''t answer the door.
 		elseif (hour >= 8 and hour < 14) or (week ! 5 and hour >= 19 and hour < 24):
@@ -79,13 +79,13 @@ if $ARGS[0] = 'livingroom':
 end
 
 if $ARGS[0] = 'kitchen':
-    *clr & cla
-    minut += 1
+	*clr & cla
+	minut += 1
 	$locclass = 'kitr'
-    gs 'stat'
-    '<center><b><font color = maroon>Kitchen</font></b></center>'
-    '<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/dimkahome/kitchen.jpg"></center>'
-    'You enter the kitchen, finding that it matches the decor and cleanliness of the rest of the home. All the granite and glass surfaces are polished to a reflective gleam. A large chandelier hangs above the kitchen table, while the tiled floor glints in the light.'
+	gs 'stat'
+	'<center><b><font color = maroon>Kitchen</font></b></center>'
+	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/dimkahome/kitchen.jpg"></center>'
+	'You enter the kitchen, finding that it matches the decor and cleanliness of the rest of the home. All the granite and glass surfaces are polished to a reflective gleam. A large chandelier hangs above the kitchen table, while the tiled floor glints in the light.'
 !!Dimkas mother will be here 50% of the time from 06:00 to 22:00 on all days but Fridays then from 06:00 to 19:00
 	if (hour >= 6 and hour <= 22 and rand (0,1) = 1) or (hour >= 6 and hour <= 19 and week = 5):
 		'You see Dimka''s mother Olya is in the kitchen, drinking tea. She is finely dressed with flawless makeup. You don''t think she has noticed you yet.'
@@ -159,7 +159,7 @@ if $ARGS[0] = 'bathroom2':
 	'You can do your hair and makeup in the <a href="exec:gt ''mirror'', ''start''">mirror</a> above the sink.'
 	*nl
 	if pirsA + pirsB + pirsC + pirsD + pirsE + pirsF + pirsN + pirsG + pirsGL > 0:'<a href="exec:dynamic $pirManage">Manage Piercings</a>'
-	
+
 	act 'Take a shower (0:15)':
 		cls
 		minut += 15
@@ -168,10 +168,10 @@ if $ARGS[0] = 'bathroom2':
 		'<center><h4><font color="maroon">Upstairs bathroom</font></h4></center>'
 		'<center><video autoplay loop src="images/characters/pavlovsk/school/boy/igor/mitsa.mp4"></center>'
 		'You decide to take advantage of the luxury shower. As the warm water flows over your entire body from the massive shower head, you feel your whole body relax in the comforting stream.'
-		
+
 		act 'Get out and dry off': gt 'dimaHome','bathroom2'
 	end
-	
+
 	act 'Soak in the bath (0:30)':
 		cls
 		minut += 30
@@ -186,7 +186,7 @@ if $ARGS[0] = 'bathroom2':
 		'<center><img src="images/shared/home/bathroom/wash4.jpg"></center>'
 		'You smile to yourself as you draw a bath in the impressive tub. You relish the feeling as you slowly glide into steamy water and relax.'
 		'Then you begin to lather your body, gently gliding your soft hands over your smooth curves, and wash yourself thoroughly.'
-		
+
 		act '"Wash" your pussy':
 			cla
 			*clr
@@ -285,8 +285,8 @@ if $ARGS[0] = 'dimkaparents':
 			'<center><h4><font color="maroon">Bathroom</font></h4></center>'
 			'<center><img  src="images/characters/pavlovsk/school/boy/igor/mitsa.gif"></center>'
 			'You take a quick shower.'
-			act 'Get out of the shower': 
-				'You get out of the shower and dry off.' 
+			act 'Get out of the shower':
+				'You get out of the shower and dry off.'
 				act 'Get dressed': gt 'dimaHome','Go into master bath'
 			end
 		end
@@ -298,8 +298,8 @@ if $ARGS[0] = 'dimkaparents':
 			'<center><h4><font color="maroon">Bathroom</font></h4></center>'
 			'<center><img  src="images/shared/home/bathroom/wash4.jpg"></center>'
 			'You take a quick bath.'
-			act 'Get out of the bath': 
-				'You get out of the bath and dry off.' 
+			act 'Get out of the bath':
+				'You get out of the bath and dry off.'
 				act 'Get dressed': gt 'dimaHome','Go into master bath'
 			end
 		end
@@ -313,7 +313,7 @@ if $ARGS[0] = 'dimkaparents':
 end
 
 if $ARGS[0] = 'guest':
-	cls
+	*clr & cla
 	minut += 1
 	$locclass = 'bedr'
 	gs 'stat'
@@ -321,7 +321,7 @@ if $ARGS[0] = 'guest':
 	'<center><img  src="images/locations/pavlovsk/resident/dimkahome/guestroom.jpg"></center>'
 	'You enter the guest bedroom and it just as clean and neat as the rest of the home. The furniture is all highly polished wood. You feel almost overwhelmed by how beautifully the room is decorated.'
 	act 'Look around':
-		*clr
+		*clr & cla
 		minut += 10
 		'<center><h4><font color="maroon">Guest Room</font></h4></center>'
 		'<center><img  src="images/locations/pavlovsk/resident/dimkahome/guestroom.jpg"></center>'
@@ -332,14 +332,14 @@ if $ARGS[0] = 'guest':
 end
 
 if $ARGS[0] = 'basement':
-	cls
+	*clr & cla
 	minut += 1
 	'<center><h4><font color="maroon">Basement</font></h4></center>'
 	'<center><img  src="images/locations/pavlovsk/resident/dimkahome/basement.jpg"></center>'
 	'You walk down the stairs into the basement, even the basement in this place is nice. A door leads off to the utility room and another leads off to what looks like a fairly large part of the basement.'
 	act 'Go back upstairs': gt 'dimaHome','hallway'
 	act 'Try the door':
-		cls
+		*clr & cla
 		minut += 1
 		'<center><h4><font color="maroon">Basement</font></h4></center>'
 		'<center><img  src="images/locations/pavlovsk/resident/dimkahome/basement.jpg"></center>'
@@ -349,11 +349,11 @@ if $ARGS[0] = 'basement':
 end
 
 if $ARGS[0] = 'kitchen1':
-    *clr & cla
-    minut += 1
-    gs 'stat'
-    '<center><b><font color = maroon>Kitchen</font></b></center>'
-    '<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/dimkahome/olya.jpg"></center>'
+	*clr & cla
+	minut += 1
+	gs 'stat'
+	'<center><b><font color = maroon>Kitchen</font></b></center>'
+	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/dimkahome/olya.jpg"></center>'
 	'As soon as she notices that you''ve entered she jumps up, quite frightened.'
 	'"Oh, I''m sorry! I didn''t mean to startle you." you tell her.'
 	'She manages to let out a somewhat fake smile, "No no, don''t worry! It''s completely my fault. I wasn''t aware we had guests."'
@@ -383,13 +383,13 @@ if $ARGS[0] = 'kitchen1':
 		end
 	end
 end
-		
+
 if $ARGS[0] = 'kitchen2':
-    *clr & cla
-    minut += 1
-    gs 'stat'
-    '<center><b><font color = maroon>Kitchen</font></b></center>'
-    '<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/dimkahome/olya.jpg"></center>'
+	*clr & cla
+	minut += 1
+	gs 'stat'
+	'<center><b><font color = maroon>Kitchen</font></b></center>'
+	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/dimkahome/olya.jpg"></center>'
 	'Noticing you, Olya smiles and greets you, "Hello <<$pcs_nickname>>, I''m glad to see you again. Do you want some tee?"'
 	'You look worryingly at her, "I would like to but I have to talk to you about something."'
 	'Olya looks at you in fear, "What''s wrong <<$pcs_nickname>>? Did anything happen to you?"'
@@ -422,8 +422,8 @@ if $ARGS[0] = 'kitchen2':
 			act 'Goodbye':gt 'dimaHome','hallway'
 		end
 	end
-end	
-	
+end
+
 if $ARGS[0] = 'study1':
 	cls
 	minut += 1
@@ -455,9 +455,9 @@ if $ARGS[0] = 'study1':
 		end
 	end
 end
-			
+
 if $ARGS[0] = 'study2':
-	cls
+	*clr & cla
 	minut += 1
 	gs 'stat'
 	'<center><h4><font color="maroon">Study</font></h4></center>'
@@ -466,7 +466,7 @@ if $ARGS[0] = 'study2':
 	'You''re taken a back a little by his brashness, "H-Hi, I didn''t mean to bother you, I was looking for Dimka."'
 	'The man let''s out a loud sigh, "You won''t find him here. He''s probably somewhere else around. As you should be."'
 	act 'Sorry to have bothered you':
-		cls
+		*clr & cla
 		minut += 1
 		gs 'stat'
 		'<center><h4><font color="maroon">Study</font></h4></center>'
@@ -478,9 +478,9 @@ if $ARGS[0] = 'study2':
 	end
 end
 
-	
+
 if $ARGS[0] = 'study3':
-	cls
+	*clr & cla
 	minut += 1
 	gs 'stat'
 	'<center><h4><font color="maroon">Study</font></h4></center>'
@@ -489,7 +489,7 @@ if $ARGS[0] = 'study3':
 	'Smiling, "No not at all, I''ve just been busy with school and Dimka." you reply.'
 	'"I understand, bet you and Dimka have been having fun with each other?" Leonid asks.'
 	act 'How come?':
-		cls
+		*clr & cla
 		minut += 1
 		gs 'stat'
 		'<center><h4><font color="maroon">Study</font></h4></center>'
@@ -498,7 +498,7 @@ if $ARGS[0] = 'study3':
 		'He smiles as he explains himself, "Nothing in particular, I just wanted to know what my boy has been up to. I don''t want him to take advantage of someone beautiful as you."'
 		'You blush as you hear him go on, "Nothing to worry about Leonid. Dimka and I are having a great time with each other."'
 		act 'Keep on talking':
-			cls
+			*clr & cla
 			minut += 1
 			gs 'stat'
 			'<center><h4><font color="maroon">Study</font></h4></center>'
@@ -507,7 +507,7 @@ if $ARGS[0] = 'study3':
 			'You''re taken aback by his question as you begin to stutter, "W-Why do you want to know that?"'
 			'He begins to laugh, "I''m just curious, and would like to know."'
 			act 'Say yes':
-				cls
+				*clr & cla
 				minut += 1
 				gs 'stat'
 				'<center><h4><font color="maroon">Study</font></h4></center>'
@@ -520,7 +520,7 @@ if $ARGS[0] = 'study3':
 				act 'Goodbye':gt 'dimaHome','hallway'
 			end
 			act 'Say no':
-				cls
+				*clr & cla
 				minut += 1
 				gs 'stat'
 				'<center><h4><font color="maroon">Study</font></h4></center>'
@@ -532,7 +532,7 @@ if $ARGS[0] = 'study3':
 				act 'Goodbye':gt 'dimaHome','hallway'
 			end
 			act 'Not his business':
-				cls
+				*clr & cla
 				minut += 1
 				gs 'stat'
 				'<center><h4><font color="maroon">Study</font></h4></center>'
@@ -545,10 +545,10 @@ if $ARGS[0] = 'study3':
 			end
 		end
 	end
-end		
-			
+end
+
 if $ARGS[0] = 'study4':
-	cls
+	*clr & cla
 	minut += 1
 	gs 'stat'
 	'<center><h4><font color="maroon">Study</font></h4></center>'
@@ -557,7 +557,7 @@ if $ARGS[0] = 'study4':
 	'You nod, "Yes, he did but..."'
 	'The father frowns as he continues on, "So what do you want? I don''t have time to deal with your issues..."'
 	act 'Never mind':
-		cls
+		*clr & cla
 		minut += 1
 		gs 'stat'
 		'<center><h4><font color="maroon">Study</font></h4></center>'
@@ -609,7 +609,7 @@ if $ARGS[0] = 'dimka_chat':
 					'<center><h4><font color="maroon">Dimka''s Room</font></h4></center>'
 					'<center><img src="images/locations/pavlovsk/resident/dimkahome/talk.jpg"></center>'
 					'You shake your head and speak calmly, trying to get him to see from Igor''s point of view. "We weren''t trying to trick you. I was just helping Igor come to terms with how he feels and who he really is. I know the last thing he wanted was to hurt you."'
-					'"Then the sick little faggot should have told me then and there. Not agree to go out on a date with me. Did he tell you what happened on our first date?"' 
+					'"Then the sick little faggot should have told me then and there. Not agree to go out on a date with me. Did he tell you what happened on our first date?"'
 					'Without even waiting for a reply he continues ranting. "We come back here and he fucking sucks my dick! Swallowed the whole load without hesitation! How fucking disgusting is that!"'
 					*nl
 					'"He was even eager to go out again, but I found out the truth. I nearly beat him to death, but then I had a thought. I figured that if the little sissy slut wants to be my bitch so bad, I''ll show him what it really takes. I gave him just what he thought he wanted. I fucked him like the faggy cunt he is." You can tell he is pissed, perhaps it is best to change the subject before he takes it out on Igor or maybe even you.'
@@ -984,7 +984,7 @@ if $ARGS[0] = 'dimka_makeout':
 			act 'Leave Dimka''s home': gt 'pavResidential'
 		end
 	end
-	act 'To your knees': gt 'dimaHome', 'dimka_knees' 
+	act 'To your knees': gt 'dimaHome', 'dimka_knees'
 end
 
 if $ARGS[0] = 'dimka_seduce':
@@ -1075,7 +1075,7 @@ if $ARGS[0] = 'dimka_knees':
 			gs 'panties', 'remove'
 			dimka_pantycheck = 1
 			'Finally he pulls his dick out of your mouth and kicks his pants off. You sputter and spit as he pulls you up to your feet. He sits down on the couch, reaches over and pulls your soaking panties down around your ankles before helping you step out of them. He turns you around and then pulls you back towards him.'
-		else 
+		else
 			'Finally he pulls his dick out of your mouth and kicks his pants off. You sputter and spit as he pulls you up to your feet. He sits down on the couch, then he turns you around and then pulls you back towards him.'
 		end
 		gs 'arousal', 'bj', 5, 'deepthroat',  'rough'

@@ -1404,6 +1404,7 @@ end
 if $ARGS[0] = 'returncell':
 	*clr & cla
 	minut += 180
+	courtletter_date = daystart + 7
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/police/cityhold.jpg"></center>'
 	'As you''re brought back to the holding cell by the detective you notice that the sobbing woman is gone and has been replaced by a dangerous looking woman.'
@@ -1456,7 +1457,6 @@ if $ARGS[0] = 'returncell':
 				'"Go on before they change their mind," she smiles.'
 				'You say good bye to each other and the officer leads you towards the entrance and as the police station doors open you can feel the fresh wind breeze against your face.'
 
-				courtletter_date = daystart + 7
 				act 'Walk outside':gt 'down'
 
 			end
@@ -1473,7 +1473,6 @@ if $ARGS[0] = 'returncell':
 		'Some time passes by and the cell door opens, "<<$pcs_lastname>>, it''s your time to get released."'
 		'You quickly jump up and hurry out from the holding cell. The officer leads you towards the entrance and as the police station doors open you can feel the fresh wind breeze against your face.'
 
-		courtletter_date = daystart + 7
 		act 'Walk outside':gt 'down'
 	end
 end

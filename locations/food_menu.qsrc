@@ -48,7 +48,7 @@ if $ARGS[0] = 'gcafe':
 	*clr & cla
 	act 'Back':gt $loc, $metka
 	killvar '$_eat'
-	$_eat['0,name'] = 'Vegatarian Piroshki'
+	$_eat['0,name'] = 'Vegetarian Piroshki'
 	$_eat['0,type'] = 'pirosh'
 	$_eat['0,price'] = 0
 	$_eat['1,name'] = 'Herring Blini'
@@ -82,7 +82,7 @@ if $ARGS[0] = 'cafe':
 	*clr & cla
 	act 'Back':gt $loc, $metka
 	killvar '$_eat'
-	$_eat['0,name'] = 'Vegatarian Piroshki'
+	$_eat['0,name'] = 'Vegetarian Piroshki'
 	$_eat['0,type'] = 'pirosh'
 	$_eat['0,price'] = 100
 	$_eat['1,name'] = 'Herring Blini'

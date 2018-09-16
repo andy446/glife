@@ -248,7 +248,7 @@ $brit = {
 					elseif pubestyle = 1:
 						'You lather up your legs and crotch and carefully shave them. Once you''re finished you gently glide your hands over your smooth pussy and legs, enjoying the smooth feeling and getting slightly more aroused by the touch.'
 					elseif pubestyle >= 2 and pubestyle <=7:
-						'You lather up your legs and carefully shave them. Once you''re finished gliding your hands over your smooth legs, ensuring you didn''t miss a spot, you spend some time cleaning up the area around your neatly trimed and styled patch of pussy hair as well.'
+						'You lather up your legs and carefully shave them. Once you''re finished gliding your hands over your smooth legs, ensuring you didn''t miss a spot, you spend some time cleaning up the area around your neatly trimmed and styled patch of pussy hair as well.'
 					elseif pubestyle = 8:
 						'You lather up your legs and carefully shave them. Once you''re finished gliding your hands over your smooth legs, ensuring you didn''t miss a spot, you spend some time shaving off the stubble around your small patch of hair tidy as well.'
 					elseif pubestyle >= 9:

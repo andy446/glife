@@ -170,7 +170,7 @@ if $ARGS[0] = 'homework':
 		else
 			cla
 			pcs_horny += RAND(5,10)
-			'As you explain the material, Kolka suddenly began to slowly stroke your leg with his hand. You freeze in surprise, not knowing what to do.'
+			'As you explain the material, Kolka suddenly begins to slowly stroke your leg with his hand. You freeze in surprise, not knowing what to do.'
 			act'Ignore and continue':
 				cla
 				if npc_QW['A34'] < 3: npc_QW['A34'] = 3

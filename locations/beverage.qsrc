@@ -362,7 +362,7 @@ end
 if $ARGS[0] = 'afterdrink':
 
 	if pcs_hydra > 100:
-		$mtxt = ' you while your thirst is quenched, you are starting to feel bloated, with your belly full of liquids.'
+		$mtxt = ' while your thirst is quenched, you are starting to feel bloated, with your belly full of liquids.'
 	elseif pcs_hydra >= 80:
 		$mtxt = ' it was sufficant enough to quench your thirst.'
 	elseif pcs_hydra >= 60:

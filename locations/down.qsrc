@@ -147,7 +147,7 @@ if hour >= 8 and hour <= 22:
 else
 	$desc_txt3 = '<a href="exec:msg ''Babel is closed and will reopen at 8:00''">Babel</a>'
 end
-'A few buildings away is <<$desc_txt1>> and <<$desc_txt2>>, a place for cheap fast food. For a more lavish dining experience, <<$desc_txt3>> is a available.'
+'A few buildings away is <<$desc_txt1>> and <<$desc_txt2>>, a place for cheap fast food. For a more lavish dining experience, <<$desc_txt3>> is available.'
 *nl
 if week >= 4 and hour >= 18:
 	$desc_txt3 = '<a href="exec:gt ''club'', ''start''">the nightclub</a>'

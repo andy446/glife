@@ -711,7 +711,7 @@ if $ARGS[0] = 'referral_pass':
 	*nl
 	Gspassed = 0
 	npc_rel['A29'] += 10
-	'You hand your mother the referral. She opens it, closes her eyes for a second, and breates a sigh of relief. "I''m not even surprised, you''re a good girl <<$pcs_nickname>>, just as I raised you to be."'
+	'You hand your mother the referral. She opens it, closes her eyes for a second, and breathes a sigh of relief. "I''m not even surprised, you''re a good girl <<$pcs_nickname>>, just as I raised you to be."'
 	act 'Continue': gt 'mother'
 end
 

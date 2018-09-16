@@ -27,6 +27,7 @@ rnd_money_sex = $rnd_money_sex
 !================================================================================================!
 !housemates
 $housemates = {
+	menu_off = 1
 	*clr & cla
 	minut +=1
 	gs 'stat'
@@ -41,6 +42,9 @@ $housemates = {
 
 !!locked in Pavlovsk, floor 1
 if $ARGS[0] = 'etaj_1':
+	$menu_loc = 'pavComplexb3'
+	$menu_arg = 'etaj1'
+	menu_off = 0
 	CLOSE ALL
 	if sound = 0:PLAY 'sound/podezd.mp3',30
 	minut +=1
@@ -64,6 +68,9 @@ end
 
 !floor 2
 if $ARGS[0] = 'etaj_2':
+	$menu_loc = 'pavComplexb3'
+	$menu_arg = 'etaj_2'
+	menu_off = 0
 	minut +=1
 	gs 'stat'
 	'<center>2nd floor of the apartment building</center>'
@@ -76,6 +83,9 @@ end
 
 !floor 3
 if $ARGS[0] = 'etaj_3':
+	$menu_loc = 'pavComplexb3'
+	$menu_arg = 'etaj_3'
+	menu_off = 0
 	minut +=1
 	gs 'stat'
 	'<center>3rd floor of the apartment building</center>'
@@ -88,6 +98,9 @@ end
 
 !floor 4
 if $ARGS[0] = 'etaj_4':
+	$menu_loc = 'pavComplexb3'
+	$menu_arg = 'etaj_4'
+	menu_off = 0
 	minut +=1
 	gs 'stat'
 	'<center>4th floor of the apartment building</center>'
@@ -105,6 +118,9 @@ end
 
 !floor 5
 if $ARGS[0] = 'etaj_5':
+	$menu_loc = 'pavComplexb3'
+	$menu_arg = 'etaj_5'
+	menu_off = 0
 	minut +=1
 	gs 'stat'
 	'<center>Floor #5</center>'
@@ -117,6 +133,9 @@ end
 
 !!roof
 if $ARGS[0] = 'roof':
+	$menu_loc = 'pavComplexb3'
+	$menu_arg = 'roof'
+	menu_off = 0
 	minut +=1
 	gs 'stat'
 	'<center>Roof</center>'
@@ -142,6 +161,7 @@ end
 !================================================================================================!
 !the lift
 if $ARGS[0] = 'lift':
+	menu_off = 1
 	*clr & cla
 	minut +=1
 	gs 'stat'
@@ -184,6 +204,7 @@ end
 
 !locked ads
 if $ARGS[0] = 'pod_objava':
+		menu_off = 1
 		*clr & cla
 		minut +=1
 		gs 'stat'

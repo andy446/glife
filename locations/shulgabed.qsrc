@@ -6,6 +6,9 @@ $location_type = 'private'
 $locclass = 'bedr'
 
 if $ARGS[0] = '' or $ARGS[0] = 'wakeup':
+	$menu_loc = 'shulgabed'
+	$menu_arg = ''
+	menu_off = 0
 	*clr & cla
 	minut = minut + 1
 	gs 'stat'
@@ -25,6 +28,7 @@ if $ARGS[0] = '' or $ARGS[0] = 'wakeup':
 end
 
 if $ARGS[0] = 'sonya':
+	menu_off = 1
 	sexev_sonya_day = daystart
 	sexev_sonya_count -= 1
 	sh_sonya_sexev +=1
@@ -72,13 +76,14 @@ end
 
 !sleep when the bed is empty
 if $ARGS[0] = 'sleep':
-	act 'Lie down and take a nap (1:00)':
+	menu_off = 1
+	act 'Lie down and take a nap (4:00)':
 		cla
-		pcs_sleep += 10
+		pcs_sleep += 40
 		pcs_health += 5
-		minut += 60
+		minut += 240
 		gs 'stat'
-		'Since Sergey isn''t using his bed, you''re sure he won''t mind if you take a nap here. You lie down under the covers and snooze for an hour, feeling a bit less tired when you wake up again.'
+		'Since Sergey isn''t using his bed, you''re sure he won''t mind if you take a nap here. You lie down under the covers and snooze for a few hours, feeling a less tired when you wake up again.'
 		act 'Get out of bed': gt 'shulgabed','wakeup'
 	end
 end

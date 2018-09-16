@@ -169,6 +169,9 @@ end
 
 ! accomodation advert
 if $ARGS[0] = 'advertNo30':
+	$menu_loc = 'pavSharedApt'
+	$menu_arg = 'advertNo30'
+	menu_off = 1
 	minut += 2
 	seenAd = 1
 	gs 'stat'
@@ -180,6 +183,9 @@ end
 
 ! door No 3 - shared
 if $ARGS[0] = 'doorNo30':
+	$menu_loc = 'pavSharedApt'
+	$menu_arg = 'doorNo30'
+	menu_off = 1
 	if pavSharedAptEnabled = 1:
 		'<center><img <<$set_imgh>> src="images/locations/shared/apartment/podezdhr.jpg"></center>'
 		'<br>You stand before the entry door to apartment No 30. The apartment you share with three others'
@@ -194,6 +200,9 @@ end
 
 ! apt hall
 if $ARGS[0] = 'start':
+	$menu_loc = 'pavSharedApt'
+	$menu_arg = 'start'
+	menu_off = 0
 	$metka = 'start'
 	$goBack = $metka
 	$metkaM = 'start'
@@ -318,6 +327,7 @@ if $ARGS[0] = 'start':
 end
 
 if $ARGS[0] = 'payCash':
+	menu_off = 1
 	minut += 2
 	cash = rentLeft
 	if money >= cash:
@@ -333,6 +343,7 @@ if $ARGS[0] = 'payCash':
 end
 
 if $ARGS[0] = 'payService':
+	menu_off = 1
 	minut += 1
 	'The amount '+price+' <b>₽</b> was taken in account of your weekly rent.'
 	servicePaid += price
@@ -340,6 +351,7 @@ if $ARGS[0] = 'payService':
 end
 
 if $ARGS[0] = 'rentSetup':
+	menu_off = 1
 	minut += 2
 	'You get a list of paper, saying the weekly rent fee is <<rentWeekly>> rubles.'
 	rentPaid = 1
@@ -349,6 +361,7 @@ if $ARGS[0] = 'rentSetup':
 end
 
 if $ARGS[0] = 'intro':
+	menu_off = 1
 	gs 'pavSharedApt', 'update'
 	if step > 0:
 		'<center><img border="5" bordercolor="<<$sp_font>>" height="150" src="images/locations/pavlovsk/resident/sharedapt/sp/sp.jpg"> <img height="150" src="images/locations/pavlovsk/resident/sharedapt/gp/gp.jpg"> <img height="150" src="images/locations/pavlovsk/resident/sharedapt/nd/nd.jpg"></center>'
@@ -520,6 +533,7 @@ end
 
 ! the pricelist
 if $ARGS[0] = 'list':
+	menu_off = 1
 	$metka = 'list'
 	minut += 2
 	$goBack = $metka
@@ -553,6 +567,7 @@ end
 
 ! paying with money
 if $ARGS[0] = 'payRent':
+	menu_off = 1
 	minut += 1
 	'You decided to give the guys money, instead of serving them.'
 	'You just spent <<paid_rent>> cash.'
@@ -562,6 +577,9 @@ if $ARGS[0] = 'payRent':
 end
 
 if $ARGS[0] = 'bathroom':
+	$menu_loc = 'pavSharedApt'
+	$menu_arg = 'bathroom'
+	menu_off = 0
 	minut += 1
 	$location_type = 'bathroom'
 	$loc = 'pavSharedApt'
@@ -571,15 +589,19 @@ if $ARGS[0] = 'bathroom':
 
 	'<center><h3>Bathroom</h3></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/home/vanrpar.jpg"></center>'
+	*nl
 	'Modest bathroom, containing all that young people need for their daily life, such as:'
 	'A Shower, toilet, <a href="exec:GT ''mirror'',''start''">mirror</a>, where you can ' + iif(pcs_hairbsh = 0,'<a href="exec:GT ''mirror'',''brush''">brush</a>','brush') + ' your hair, a sink and even a bath tub.'
-
+	*nl
 	gs 'din_van', 'private'
 	gs 'stat'
 	act 'Leave':gt 'pavSharedApt', 'start'
 end
 
 if $ARGS[0] = 'kitchen':
+	$menu_loc = 'pavSharedApt'
+	$menu_arg = 'kitchen'
+	menu_off = 0
 	*clr & cla
 	minut += 2
 	$loc = 'pavSharedApt'
@@ -622,7 +644,6 @@ if $ARGS[0] = 'kitchen':
 	act 'Drink some water (0:05)':gs 'beverage', 'bev_wat'
 
 	act 'Have a cup of tea (0:05)':
-		cls
 		minut += 5
 		if pcs_hydra >= 100:
 			'You don''t need any more tea.'
@@ -640,148 +661,17 @@ if $ARGS[0] = 'kitchen':
 
 	if pranik > 0:
 		'You have <<pranik>> tea biscuits.'
-
-		act 'Drink tea with biscuits (0:05)':
-			cla
-			*clr
-			minut += 5
-			pranik -= 1
-			pcs_health += 30
-			pcs_mood += 20
-			pcs_energy += 20
-			if pcs_hydra >= 100:
-				pcs_hydra += 30
-			else
-				pcs_hydra += 60
-			end
-			cumspclnt = 2
-			gs 'cum_cleanup'
-			pcs_breath = 0
-			fat += 4
-			frost = 0
-			gs 'stat'
-			'<center><img <<$set_imgh>> src="images/shared/food/food.jpg"></center>'
-			'You drank tea and enjoyed the tea biscuits. You know they''re too sweet and can''t be good for your figure, but they taste so good!'
-
-			act 'Get up from the table':gt 'pavSharedApt', 'kitchen'
-		end
+		dynamic $pranik
 	end
-
-	if edaD > 0:
-		act 'Eat diet food (0:30)':
-			cla
-			*clr
-			frost = 0
-			minut += 30
-			pcs_health += 10
-			pcs_mood += 20
-			edaD -= 1
-			'<center><img <<$set_imgh>> src="images/shared/food/food.jpg"></center>'
-			if pcs_energy >= 100:
-				'You prepare a diet meal and try to eat it, but you''re really not hungry at all. You can''t finish the meal.'
-			elseif pcs_energy >= 80:
-				pcs_energy += 40
-				'You try to enjoy the diet meal, but half-way in you realize you weren''t all that hungry yet. You manage to finish the meal, but feel like it was kind of wasted.'
-			else
-				pcs_energy += 80
-				'The diet meal is tasty, and you enjoy eating it.'
-			end
-
-			if pcs_hydra >= 80:
-				'You don''t need any more tea.'
-			else
-				pcs_hydra += 100
-				cumspclnt = 2
-				gs 'cum_cleanup'
-				pcs_breath = 0
-				gs 'stat'
-				'You have a cup of tea, quenching your thirst.'
-			end
-
-			act 'Get up from the table':gt 'pavSharedApt', 'kitchen'
-		end
-	end
-
-	if fatdel > 0:
-		act 'Consume fat burners':
-			cla
-			*clr
-			fatdel -= 1
-			if pcs_hydra >= 100:
-				pcs_hydra += 25
-			else
-				pcs_hydra += 50
-			end
-			salo -= 20
-			if salo < 11: salo = 11
-			gs 'stat'
-			gs 'body_shape', 'softreset'
-
-			'You throw the capsule of fat burners in a glass, add some water and drink it. You''re amazed at how fast the capsule works, feeling your body slim down almost immediately.'
-
-			act 'Get up from the table':gt 'pavSharedApt', 'kitchen'
-		end
-	end
-
-	if lekarstvo > 0:
-		'You have <<lekarstvo>> tablet(s).'
-
-		if sick > 0 and lekarday ! daystart:
-			act 'Take a pill (0:05)':
-				cla
-				*clr
-				minut += 5
-				lekarday = daystart
-				lekarstvo -= 1
-				sick -= sick * 20 / 100
-				if pcs_hydra >= 100:
-					pcs_hydra += 25
-				else
-					pcs_hydra += 50
-				end
-				picrand = rand(1,9)
-				gs 'stat'
-				'<center><img <<$set_imgh>> src="images/locations/shared/apartment/event/sick/lekr<<picrand>>.jpg"></center>'
-				'You swallow the pill, and shortly after you feel a bit better.'
-
-				act 'Continue':gt 'pavSharedApt', 'kitchen'
-			end
-		end
-	end
-
-	if vitamin > 0:
-		'You have <<vitamin>> vitamin pills.'
-
-		if vitaminday ! daystart:
-			act 'Take vitamins (0:05)':
-				cla
-				*clr
-				minut += 5
-				vitaminday = daystart
-				vitamin -= 1
-				frost = 0
-				if pcs_hydra >= 100:
-					pcs_hydra += 25
-				else
-					pcs_hydra += 50
-				end
-				if KandidozOnce = 1:Kandidoz -= 2
-				if GerpesOnce = 1:Gerpes -= 2
-				if SifacOnce = 1 and Sifilis >= 10:Sifilis -= rand(0, 1)
-				pcs_skin += 1
-				gs 'stat'
-
-				'You take some vitamins to stay healthy.'
-
-				act 'Continue':gt 'pavSharedApt', 'kitchen'
-			end
-		end
-	end
+	dynamic $edaD
+	dynamic $fatdel
+	dynamic $lekarstvo
 
 	act 'Leave':gt 'pavSharedApt', 'start'
 end
 
 if $ARGS[0] = 'cookForGuys':
+	menu_off = 1
 	cla
 	*clr
 	$loc = 'pavSharedApt'
@@ -799,6 +689,7 @@ if $ARGS[0] = 'cookForGuys':
 end
 
 if $ARGS[0] = 'cleanForGuys':
+	menu_off = 1
 	cla
 	*clr
 	minut += 60
@@ -818,6 +709,9 @@ end
 
 ! living room & pc bedroom
 if $ARGS[0] = 'pcsRoom':
+	$menu_loc = 'pavSharedApt'
+	$menu_arg = 'pcsRoom'
+	menu_off = 0
 	$loc = 'pavSharedApt'
 	$metka = 'pcsRoom'
 	$location_type = 'private'
@@ -990,6 +884,9 @@ if $ARGS[0] = 'pcsRoom':
 end
 
 if $ARGS[0] = 'sofabed':
+	$menu_loc = 'pavSharedApt'
+	$menu_arg = 'sofabed'
+	menu_off = 0
 	$loc = 'pavSharedApt'
 	$metka = 'sofabed'
 	*clr & cla
@@ -1027,6 +924,9 @@ if $ARGS[0] = 'sofabed':
 end
 
 if $ARGS[0] = 'ndRoom':
+	$menu_loc = 'pavSharedApt'
+	$menu_arg = 'ndRoom'
+	menu_off = 0
 	$loc = 'pavSharedApt'
 	$metka = 'ndRoom'
 	minut += 2
@@ -1058,6 +958,9 @@ if $ARGS[0] = 'ndRoom':
 end
 
 if $ARGS[0] = 'gpRoom':
+	$menu_loc = 'pavSharedApt'
+	$menu_arg = 'gpRoom'
+	menu_off = 0
 	$loc = 'pavSharedApt'
 	$metka = 'gpRoom'
 	minut += 2
@@ -1088,6 +991,9 @@ if $ARGS[0] = 'gpRoom':
 end
 
 if $ARGS[0] = 'spRoom':
+	$menu_loc = 'pavSharedApt'
+	$menu_arg = 'spRoom'
+	menu_off = 0
 	$loc = 'pavSharedApt'
 	$metka = 'spRoom'
 	minut += 2

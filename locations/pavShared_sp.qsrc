@@ -1,7 +1,7 @@
 # pavShared_sp
 
-
 if $ARGS[0] = 'sp':
+	menu_off = 1
 	$metka = 'sp'
 	minut += 2
 	'<h3><font color=#<<$sp_font>>><<$sp_name>></font></h3>'
@@ -35,6 +35,7 @@ if $ARGS[0] = 'sp':
 end
 
 if $ARGS[0] = 'spChat':
+	menu_off = 1
 	$metka = 'spChat'
 	'<h3><font color=#<<$sp_font>>><<$sp_name>></font></h3>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/sharedapt/sp/sp.jpg"></center>'
@@ -184,6 +185,7 @@ if $ARGS[0] = 'spChat':
 end
 
 if $ARGS[0] = 'spDick':
+	menu_off = 1
 	minut += 2
 	'<h3><font color=#<<$sp_font>>><<$sp_name>></font></h3>'
 	if set_imgh < 250:
@@ -233,6 +235,7 @@ if $ARGS[0] = 'spDick':
 end
 
 if $ARGS[0] = 'spServe':
+	menu_off = 1
 	$boy = $sp_name
 	gs 'npcgeneratec', 0, $boy, 19
 	gs 'boyStat', $npclastgenerated

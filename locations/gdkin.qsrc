@@ -593,17 +593,19 @@ if $ARGS[0] = 'too_drunk_dance':
 		'Katja Meynold approached you. "<<$pcs_nickname>>, are you too drunk? Let''s go home, I''ll take you."'
 
 		act 'Go with Katja':
-			cls
+			*clr
+			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_dance.jpg"></center>'
 			minut += 15
 			npc_rel['A14'] = 100
-
 			if meynoldQW = 0:meynoldQW = 1
-
 			gs 'stat'
-			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_dance.jpg"></center>'
-			'Katja took you by the arm and helped you get home.'
-
-			act 'Go home':gt 'korrPar'
+			if home_owned[2] = 1:
+				'Katja took you by the arm and helped you get home.'
+				act 'Go home':gt 'korrPar'
+			else
+				'Katja took you by the hand and helped you get back to the apartment complex'
+				act 'Continue': gt 'pavComplex', 'start'
+			end
 		end
 
 		exit

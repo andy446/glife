@@ -2,6 +2,7 @@
 
 
 if $ARGS[0] = 'gp':
+	menu_off = 1
 	$metka = 'gp'
 	minut += 2
 	'<h3><center><font color=#<<$gp_font>>><<$gp_name>></font></h3></center>'
@@ -35,6 +36,7 @@ if $ARGS[0] = 'gp':
 end
 
 if $ARGS[0] = 'gpDick':
+	menu_off = 1
 	minut += 2
 	'<h3><font color=#<<$gp_font>>><<$gp_name>></font></h3>'
 	if set_imgh < 250:
@@ -74,6 +76,7 @@ if $ARGS[0] = 'gpDick':
 end
 
 if $ARGS[0] = 'gpChat':
+	menu_off = 1
 	$metka = 'gpChat'
 	'<h3><font color=#<<$gp_font>>><<$gp_name>></font></h3>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/sharedapt/gp/gp.jpg"></center>'
@@ -223,6 +226,7 @@ if $ARGS[0] = 'gpChat':
 end
 
 if $ARGS[0] = 'gpServe':
+	menu_off = 1
 	$boy = $gp_name
 	gs 'npcgeneratec', 0, $boy, 23
 	gs 'boyStat', $npclastgenerated

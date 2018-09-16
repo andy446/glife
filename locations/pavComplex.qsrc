@@ -1,7 +1,9 @@
 # pavComplex
 
 if $ARGS[0] = 'start':
-	music_loop = 0
+	$menu_loc = 'pavComplex'
+	$menu_arg = 'start'
+	menu_off = 0
 	CLOSE ALL
 	$metka = 'start'
 	$loc = 'pavcomplex'
@@ -115,6 +117,9 @@ if $ARGS[0] = 'start':
 end
 
 if $ARGS[0] = 'courtyard':
+	$menu_loc = 'pavComplex'
+	$menu_arg = 'courtyard'
+	menu_off = 0
 	music_loop = 0
 	CLOSE ALL
 	$metka = 'courtyard'
@@ -170,6 +175,9 @@ if $ARGS[0] = 'courtyard':
 end
 
 if $ARGS[0] = 'garages':
+	$menu_loc = 'pavComplex'
+	$menu_arg = 'garages'
+	menu_off = 0
 	*clr & cla
 	'<center>Garage array</center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/garages.jpg"></center>'

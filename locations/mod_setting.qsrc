@@ -4,7 +4,7 @@
 *nl '<center><h1>MODs</h1></center>'
 
 '<center>'
-'WARNING: Installing too much mods or some mods with bad structures may cause serious lag.'
+'<b>WARNING</b>: Game slowdown may occur when installing too many mods, or mods with bad structure.'
 if mod_list > 0:
 
 	'<table border=1><tr><td>id</td><td>Name</td><td>Version</td><td>Author</td><td>Description</td></tr>'

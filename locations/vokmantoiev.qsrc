@@ -17,7 +17,7 @@ if $ARGS[0] = 'female':
 	$locM = $CURLOC
 	$metka = $ARGS[0]
 	$loc = $CURLOC
-    $location_type = 'bathroom'
+	$location_type = 'bathroom'
 	cls
 	vokzalToilet = 1
 	gs 'stat'
@@ -26,9 +26,9 @@ if $ARGS[0] = 'female':
 	'You open the door to the ladies'' room and go in.'
 
 	act 'Leave':minut += 1 & gt 'vokmantoiev', 'start'
-	
+
 	act 'Look in the mirror': gt 'mirror', 'start'
-	
+
 	dynamic $tampon
 	dynamic $quickwash
 	dynamic $basin
@@ -40,7 +40,7 @@ if $ARGS[0] = 'male':
 	$locM = $CURLOC
 	$metka = $ARGS[0]
 	$loc = $CURLOC
-    $location_type = 'bathroom'
+	$location_type = 'bathroom'
 	cls
 	vokzalToilet = 2
 	gs 'stat'
@@ -49,14 +49,14 @@ if $ARGS[0] = 'male':
 	'You open the door to the men''s room and go in.'
 
 	act 'Leave':minut += 1 & gt 'vokmantoiev', 'start'
-	
+
 	if bimbolevel >= 1:
 		act 'Wait and see if someone finds you':gt 'vokBimbo', 'pos1'
 		act 'Quickly enter a stall':gt 'vokBimbo', 'pos5'
 	end
-	
+
 	act 'Look in the mirror':gt 'mirror', 'start'
-	
+
 	dynamic $tampon
 	dynamic $quickwash
 	dynamic $basin
@@ -69,7 +69,7 @@ if $ARGS[0] = 'toilet_event':
 		vokmantoitipev = rand(0, 3)
 
 		if vokmantoitipev = 0:
-			
+
 			!!if gloryholeVokzal = 9:gloryholeVokzal = 10 & ''
 			!!if gloryholeVokzal = 8:gloryholeVokzal = 9 & ''
 			!!if gloryholeVokzal = 6:gloryholeVokzal = 7 & ''
@@ -77,7 +77,7 @@ if $ARGS[0] = 'toilet_event':
 			!!if gloryholeVokzal = 4:gloryholeVokzal = 5 & ''
 			!!if gloryholeVokzal = 3:gloryholeVokzal = 4 & ''
 			!!if gloryholeVokzal = 2:gloryholeVokzal = 3 & ''
-			
+
 			if gloryholeVokzal = 1:gloryholeVokzal = 2 & 'You notice that there is a puddle of a strange white liquid on the floor, near the hole in the wall between two stalls. When you take a piece of cloth and attempt to clean it, you realize it''s sperm. Suddenly the hole in the wall makes sense to you.'
 			if gloryholeVokzal = 0:gloryholeVokzal = 1 & 'You notice that in the wall between two of the toilet stalls, there is a circular hole around waist height. The edges of the hole are smooth. You shrug and keep cleaning, not thinking anything of it.'
 		elseif vokmantoitipev = 1:
@@ -100,8 +100,8 @@ if $ARGS[0] = 'toilet_event':
 					gs 'arousal', 'voyeur', 3
 					gs 'arousal', 'end'
 					gs 'stat'
-					
-					act 'Leave':minut += 1 & gt 'vokzalGin'
+
+					act 'Leave':minut += 1 & gt 'vokzalGin', 'work'
 				end
 			end
 		elseif vokmantoitipev = 2:
@@ -124,8 +124,8 @@ if $ARGS[0] = 'toilet_event':
 					gs 'arousal', 'voyeur', 3
 					gs 'arousal', 'end'
 					gs 'stat'
-					
-					act 'Leave':minut += 1 & gt 'vokzalGin'
+
+					act 'Leave':minut += 1 & gt 'vokzalGin', 'work'
 				end
 			end
 		elseif vokmantoitipev = 3:
@@ -148,8 +148,8 @@ if $ARGS[0] = 'toilet_event':
 					gs 'arousal', 'voyeur', 3
 					gs 'arousal', 'end'
 					gs 'stat'
-					
-					act 'Leave':minut += 1 & gt 'vokzalGin'
+
+					act 'Leave':minut += 1 & gt 'vokzalGin', 'work'
 				end
 			end
 		end

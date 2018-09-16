@@ -6,6 +6,9 @@ $location_type = 'private'
 $locclass = 'kitr'
 
 if $ARGS[0] = '':
+	$menu_loc = 'shulgakuh'
+	$menu_arg = ''
+	menu_off = 0
 	minut += 1
 	gs 'stat'
 	gs 'kit_din'
@@ -45,6 +48,7 @@ if $ARGS[0] = '':
 end
 
 if $ARGS[0] = 'holodil':
+	menu_off = 1
 	*clr & cla
 	minut += 1
 	gs 'stat'
@@ -173,6 +177,7 @@ end &!--- holodil ----
 
 !Event in the kitchen with gopotoy:
 if $ARGS[0] = 'gang_sex_ev1':
+	menu_off = 1
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/shulginhome/kuh/event/gang1.jpg"></center>'
 	gs 'boyStat', 'A9','3'
 	gs 'boyStat', 'A10','1'

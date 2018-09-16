@@ -368,24 +368,24 @@ $cheatmenu['state'] = {
 	'<center><table cellspacing="0" cellpadding="20" valign="top"><tr>'
 	'<td width="400" cellspacing="0" cellpadding="20" valign="top">'
 	'Set alcohol levels:'
-	'<a href="exec:alko = 0 & dynamic $cheatmenu[''state'']">Sober</a> <a href="exec:alko = 2 & dynamic $cheatmenu[''state'']">Tipsy</a> <a href="exec:alko = 4 & dynamic $cheatmenu[''state'']">Drunk</a> <a href="exec:alko = 7 & dynamic $cheatmenu[''state'']">Wasted</a> <a href="exec:alko = 11 & dynamic $cheatmenu[''state'']">Barely coherent</a>'
+	'<a href="exec:alko = 0 & dynamic $cheatmenu[''state''] & gs ''stat''">Sober</a> <a href="exec:alko = 2 & dynamic $cheatmenu[''state''] & gs ''stat''">Tipsy</a> <a href="exec:alko = 4 & dynamic $cheatmenu[''state''] & gs ''stat''">Drunk</a> <a href="exec:alko = 7 & dynamic $cheatmenu[''state''] & gs ''stat''">Wasted</a> <a href="exec:alko = 11 & dynamic $cheatmenu[''state''] & gs ''stat''">Barely coherent</a>'
 	*nl
-	'<a href="exec:pcs_horny = 100 & dynamic $cheatmenu[''state'']">Max arousal</a>'
-	'<a href="exec:pcs_horny = 0 & dynamic $cheatmenu[''state'']">Min arousal</a>'
+	'<a href="exec:pcs_horny = 100 & dynamic $cheatmenu[''state''] & gs ''stat''">Max arousal</a>'
+	'<a href="exec:pcs_horny = 0 & dynamic $cheatmenu[''state''] & gs ''stat''">Min arousal</a>'
 	'<a href="exec:dynamic $cheatmenu[''bodyMod'']">Body Modification</a>'
 	*nl
-	'<a href="exec:pcs_health = pcs_vital*10 + pcs_stren*5+1000 & pcs_willpwr = pcs_intel*5 + will*5+1000 & pcs_manna = (pcs_intel*pcs_magik) + pcs_magik*100 + pcs_vital*10 + rikudo & vgape = 0 & agape = 0 & nippain = 0 & dynamic $cheatmenu[''state'']">Full restoration of Health, Manna, Reason.</a>'
-	'<a href="exec:pcs_sleep = 100 & pcs_stam = stammax & pcs_mood = 100 & dynamic $cheatmenu[''state'']">Full restoration of Sleep, Stamina, Mood.</a>'
-	'<a href="exec:pcs_energy = 200 & pcs_hydra = 200 & dynamic $cheatmenu[''state'']">Full restoration of Hunger and Water.</a>'
-	'<a href="exec:dynamic $cheatmenu[''money'']">Change money</a>'
-	'<a href="exec:money = 0 & dynamic $cheatmenu[''state'']">Zero money</a>'
-	'<a href="exec:dynamic $cheatmenu[''std_cure'']">Cure all stds</a>'
-	'<a href="exec:vgape = 0 & agape = 0 & nippain = 0 & painpub = 0 & pirs_pain_ton = 0 & mesec = 0 & spanked = 0 & SLomka = 0 & Narkoman = 0 & strongnark = 0 & SNarkTimes = 0 & nark = 0 & fingal = 0 & mosol = 0 & frost = 0 & sick = 0 & hypnoAddict = 0 & hypnoWithdrawal = 0 & dynamic $cheatmenu[''std_cure''] & dynamic $cheatmenu[''pain_killer'']">Cure all ailments.</a>'
+	'<a href="exec:pcs_health = pcs_vital*10 + pcs_stren*5+1000 & pcs_willpwr = pcs_intel*5 + will*5+1000 & pcs_manna = (pcs_intel*pcs_magik) + pcs_magik*100 + pcs_vital*10 + rikudo & vgape = 0 & agape = 0 & nippain = 0 & dynamic $cheatmenu[''state''] & gs ''stat''">Full restoration of Health, Manna, Reason.</a>'
+	'<a href="exec:pcs_sleep = 100 & pcs_stam = stammax & pcs_mood = 100 & dynamic $cheatmenu[''state''] & gs ''stat''">Full restoration of Sleep, Stamina, Mood.</a>'
+	'<a href="exec:pcs_energy = 200 & pcs_hydra = 200 & dynamic $cheatmenu[''state''] & gs ''stat''">Full restoration of Hunger and Water.</a>'
+	'<a href="exec:dynamic $cheatmenu[''money''] & gs ''stat''">Change money</a>'
+	'<a href="exec:money = 0 & dynamic $cheatmenu[''state''] & gs ''stat''">Zero money</a>'
+	'<a href="exec:dynamic $cheatmenu[''std_cure''] & gs ''stat''">Cure all stds</a>'
+	'<a href="exec:vgape = 0 & agape = 0 & nippain = 0 & painpub = 0 & pirs_pain_ton = 0 & mesec = 0 & spanked = 0 & SLomka = 0 & Narkoman = 0 & strongnark = 0 & SNarkTimes = 0 & nark = 0 & fingal = 0 & mosol = 0 & frost = 0 & sick = 0 & hypnoAddict = 0 & hypnoWithdrawal = 0 & dynamic $cheatmenu[''std_cure''] & dynamic $cheatmenu[''pain_killer''] & gs ''stat''">Cure all ailments.</a>'
 	*nl
-	'<a href="exec:dynamic $cheatmenu[''force_preg'']">Force random pregnancy</a>'
-	'<a href="exec:dynamic $cheatmenu[''remove_preg'']">Remove pregnancy</a>'
-	'<a href="exec:gs''cum_cleanup'',''reset'' & dynamic $cheatmenu[''state'']">Remove all cum</a>'
-	'<a href="exec:dynamic $cheatmenu[''cycle'']">Set stage of menstrual cycle</a>'
+	'<a href="exec:dynamic $cheatmenu[''force_preg''] & gs ''stat''">Force random pregnancy</a>'
+	'<a href="exec:dynamic $cheatmenu[''remove_preg''] & gs ''stat''">Remove pregnancy</a>'
+	'<a href="exec:gs''cum_cleanup'',''reset'' & dynamic $cheatmenu[''state''] & gs ''stat''">Remove all cum</a>'
+	'<a href="exec:dynamic $cheatmenu[''cycle''] & gs ''stat''">Set stage of menstrual cycle</a>'
 	*nl
 	
 	if lactate <= 0:
@@ -1088,6 +1088,18 @@ $cheatmenu['reputation'] = {
 			elseif sisterknowslut > 0:
 				'Your sister knows that you sleep around. <a href="exec:sisterknowslut = 0 & dynamic $cheatmenu[''reputation'']">Clear</a>'
 			end
+		end
+		if home_owned[2] = 0 or ParHomeBlock = 1:
+			'<a href="exec:home_owned[2] = 1 & ParHomeBlock = 0 & dynamic $cheatmenu[''reputation'']">Restore</a> access to your parent''s apartment.'
+		end
+		if momKnowsKolka = 1:
+			'Your mother knows Kolka is the father. <a href="momKnowsKolka = 0 & dynamic $cheatmenu[''reputation'']">Clear</a>.'
+		end
+		if momKnowsVladimir = 1:
+			'Your mother knows Vladimir is the father. <a href="exec:momKnowsVladimir = 0 & dynamic $cheatmenu[''reputation'']">Clear</a>.'
+		end
+		if schoolPredupr = 3 or SchoolBlock = 1:
+			'You''ve been expelled from school. <a href="exec:SchoolBlock = 0 & schoolPredupr = 0 & schoolprogul = 0 & pcs_grades = 50 & dynamic $cheatmenu[''reputation'']">Clear</a>.'
 		end
 	end
 	'</td></tr></table></center>'

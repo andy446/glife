@@ -25,7 +25,7 @@ if $ARGS[0] = 'food':
 	act 'Order food':gs 'food_menu', 'diner'
 	act 'Order drinks':gs 'beverage_menu', 'diner'
 	if stallionQ = 2:
-		if FocH > FocH > (Foch_Max - 10): 
+		if FocH > (Foch_Max - 10): 
 			stallionQ = 3
 			FocH = Foch_Max
 			EggRH += 300

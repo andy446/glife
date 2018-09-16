@@ -55,7 +55,7 @@ if $ARGS[0] = 'start':
 		act 'Go upstairs to the hobby clubs': gt 'gdkkru'
 	end
 
-	if hour >= 16 and hour <= 20:
+	if hour >= 14 and hour <= 20:
 		act 'Go to the gym': gt 'gdksport', 'start'
 	end
 	

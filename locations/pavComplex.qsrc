@@ -117,10 +117,10 @@ end
 if $ARGS[0] = 'courtyard':
 	music_loop = 0
 	CLOSE ALL
-	$metka = 'start'
-	$loc = 'pavComplex'
-	$metkaStreet = 'start'
-	$locStreet = 'pavComplex'
+	$metka = 'courtyard'
+	$loc = 'pavcomplex'
+	$metkaStreet = 'courtyard'
+	$locStreet = 'pavcomplex'
 	$location_type = 'public_outdoors'
 	if sound = 0:
 		if month >=11 and month <= 12 or month >=1 and month <=3:
@@ -134,6 +134,9 @@ if $ARGS[0] = 'courtyard':
 	*clr
 	cla
 	gs 'stat'
+!!each time you go to the courtyard have a 1 in 10 chance a event triggers and a 1 in 5 at night, events1 for day time and events2 for night
+	!!if rand (1,5) = 1 and hour >= 8 and hour <= 20: gt 'pavaptcourtev', 'events1'
+	!!if rand (1,10) = 1 and hour < 8 and hour > 21: gt 'pavaptcourtev', 'events2'
 	'<center>Courtyard</center>'
 	if month >= 11 or month <= 3:
 		if hour >= 8 and hour <= 21:
@@ -148,8 +151,9 @@ if $ARGS[0] = 'courtyard':
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/playgroundn.jpg"></center>'
 		end
 	end
-	'The courtyard is between the three apartment buildings and the communal buildings, storage buildings, and garages along the back alley. The courtyard looks more like a small unkept park than anything, there is a few benches and tables scattered about for the residents of the complex to use and a small children''s playground, near the edge of the courtyard, closest to the communal and storage buildings near the garages.'
+	'The courtyard is between the three apartment buildings and the communal buildings, storage buildings, and garages along the back alley. The courtyard looks more like a small unkempt park than anything, there are a few benches and tables scattered about for the residents of the complex to use and a small children''s playground, near the edge of the courtyard, closest to the communal and storage buildings near the garages.'
 	if home_owned[2] = 1: act '<b>GO HOME</b> (Parents'' Apartment)': minut += 5 & GT 'korrPar'
+	!!act 'Sit on a bench':gt 'pavaptcourtev', 'bench'
 	act 'Return to the residential street':minut += 1 & gt 'pavResidential'
 	act 'Go to your apartment building':minut += 3 & gt 'pod_ezd', 'etaj_1'
 	act 'Go to the Eastern apartment building':

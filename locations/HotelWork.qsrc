@@ -579,15 +579,15 @@ if $ARGS[0] = 'maid':
 					gs 'arousal', 'end'
 					'Just when you were about to leave the room you notice that the man is sitting on the edge of the bed and is on the verge of tears. He doesn''t know what to do now. Then you get an idea how to cheer him up a little bit.'
 					if stat['hj'] < 5:
-						'You move to the bed and gently place your hand on his bare chest. You push him down on the bed. Then you move your hand down to his waist and take his flaccid penis in your hand. You slowly start moving your hand up and down. The man groans a little bit and you see he was already semi-erect.'
 						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/sex/maidhj.jpg"></center>'
+						'You move to the bed and gently place your hand on his bare chest. You push him down on the bed. Then you move your hand down to his waist and take his flaccid penis in your hand. You slowly start moving your hand up and down. The man groans a little bit and you see he was already semi-erect.'
 						'You kept stroking for a few minutes but your technique was not sufficient enough to make him cum. Maybe if you had some more experience with your hands you could have given him a happy ending.'
 						'"Thanks for trying," he says, but I guess I am not really in the mood right now. He holds his head in his hands and shows a defeated look. Leaving the man like this does not make you feel very happy.'
 						pcs_mood -=10
 					end
 					if stat['hj'] >= 5:
-						'You move to the bed and gently place your hand on his bare chest. You push him down on the bed. Then you move your hand down to his waist and take his flaccid penis in your hand. You slowly start moving your hand up and down. It only takes a few strokes for the dick to become rock hard.'
 						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/sex/maidhj.jpg"></center>'
+						'You move to the bed and gently place your hand on his bare chest. You push him down on the bed. Then you move your hand down to his waist and take his flaccid penis in your hand. You slowly start moving your hand up and down. It only takes a few strokes for the dick to become rock hard.'
 						'The man watches you but doesn''t say anything.'
 						'After stroking him for a few minutes he starts moaning loudly and suddenly his cum starts splashing all over your hand.'
 						'You give him a little smile and he smiles back at you. You are happy you were able to cheer him up. Then you stand up, go wash your hands in the bathroom and leave the room to continue your work.'
@@ -603,8 +603,8 @@ if $ARGS[0] = 'maid':
 					gs 'arousal', 'end'
 					'Just when you were about to leave the room you notice that the man is standing at the edge of the bed and is on the verge of tears. He doesn''t know what to do now. Then you get an idea how to cheer him up a little bit.'
 					if stat['bj'] < 5:
-						'You move to the bed and crawled on it. You grab the man by the hip and turn him towards you. Then you moved your head down to his crotch and take his flacid penis in your hand. You place your mouth over the man''s penis and slowly start sucking on it. The man groans a little bit and you feel his dick becoming harder in your mouth.'
 						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/sex/maid_blow.jpg"></center>'
+						'You move to the bed and crawled on it. You grab the man by the hip and turn him towards you. Then you moved your head down to his crotch and take his flacid penis in your hand. You place your mouth over the man''s penis and slowly start sucking on it. The man groans a little bit and you feel his dick becoming harder in your mouth.'
 						'You kept blowing him for a few minutes but your technique was not sufficient enough to make him cum. Maybe if you had some more experience with your mouth you could have given him a happy ending.'
 						'"Thanks for trying" he says, but I guess I am not really in the mood right now. He holds his head in his hands and shows a defeated look. Leaving the man like this does not make you feel very happy.'
 						pcs_mood -=10
@@ -612,8 +612,8 @@ if $ARGS[0] = 'maid':
 						act'Continue':gt 'hotelwork', 'maid'
 					end
 					if stat['bj'] => 5:
-						'You move to the bed and crawled on it. You grab the man by the hip and turn him towards you. Then you moved your head down to his crotch and take his flacid penis in your hand. You place your mouth over the man''s penis and slowly start sucking on it. The man groans a little bit and you feel his dick becoming harder in your mouth.'
 						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/sex/maid_blow.jpg"></center>'
+						'You move to the bed and crawled on it. You grab the man by the hip and turn him towards you. Then you moved your head down to his crotch and take his flacid penis in your hand. You place your mouth over the man''s penis and slowly start sucking on it. The man groans a little bit and you feel his dick becoming harder in your mouth.'
 						'The man watches you but doesn''t say anything'
 						'After blowing him for a few minutes the man suddenly stands up, takes your head in his hands and starts moving your head up and down his dick. After 1 minute the man moaned loadly and suddenly you could feel he was about to cum.'
 						act 'Let him cum in your mouth':

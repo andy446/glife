@@ -88,7 +88,7 @@ if $ARGS[0] = 'lobby:toilet':
 	*nl
 
 	act 'Leave':gt 'brothel', 'lobby'
-	
+
 	act 'Look into the mirror': gt 'mirror', 'start'
 	if pcs_hairbsh = 0: act 'Brush your hair': gt 'mirror', 'brush'
 
@@ -160,8 +160,8 @@ if $ARGS[0] = 'bar:order':
 	$loc = 'brothel'
 	$metka = 'bar:order'
 	abdCh = rand (0, 100)
-	'<h3>Hotel Bar</h3>'
-	'<h5>Ordering a drink</h5>'
+	'<center><h3>Hotel Bar</h3></center>'
+	'<center><h5>Ordering a drink</h5></center>'
 	*nl
 	if alko <= 3:
 		'<center><img <<$set_imgh>> src="images/locations/shared/brothel/barorder.jpg"></center>'
@@ -184,8 +184,8 @@ if $ARGS[0] = 'bar:order':
 		if hotelWhore = 1:
 			act 'Order a Blue-blooded Russian.':gt 'brothel','bar:order:password'
 		end
-		act 'Order a snack': gs 'food_menu', 'pub'
-		act 'Order a drink': gs 'beverage_menu', 'pub'
+		act 'Order a snack': gs 'food_menu'
+		act 'Order a drink': gs 'beverage_menu'
 		act 'Return':gt 'brothel', 'bar'
 	end
 end
@@ -676,7 +676,7 @@ if $ARGS[0] = 'brothel:section1:session:play':
 	if rageMeter = 100:
 		gt 'brothel', '<<$base>>:ragefinish'
 	end
-	
+
 	!too much pain - Sveta pushes out the anal plug by accident
 	if (pain['total'] > 50 and analplugIN = 1):
 		chPlug = rand(0, 100)

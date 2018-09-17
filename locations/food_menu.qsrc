@@ -1,4 +1,5 @@
 # food_menu
+menu_off = 1
 
 if night_mode = 1:
 	$fcolor1 = '#FFFFFF'
@@ -10,10 +11,14 @@ else
 	$bcolor2 = '#e6f2ff'
 end
 
-if $ARGS[0] = 'diner':
-	*clr & cla
-	act 'Back':gt $loc, $metka
-	killvar '$_eat'
+*clr & cla
+act 'Back':gt $loc, $metka
+killvar '$_eat'
+if $loc = 'burger':
+	'<center><b><font color="maroon">Diner Bystroeshka</font></b></center>'
+	*nl
+	!'<center><img <<$set_imgh>> src="images/shared/food/dinerfood.jpg"</center><br>'
+	'<center><img <<$set_imgh>> src="images/shared/food/dinerfood.jpg"</center><br>'
 	$_eat['0,name'] = 'Onion Rings'
 	$_eat['0,type'] = 'onring'
 	$_eat['0,price'] = 80
@@ -29,59 +34,42 @@ if $ARGS[0] = 'diner':
 	$_eat['4,name'] = 'Cheeseburger & Fries'
 	$_eat['4,type'] = 'cheburg'
 	$_eat['4,price'] = 310
-	$_str = '<table border="0" width="400" cellpadding="0" cellspacing="1">'
-	i = 0
-	:loop_diner_food
-	$_str += '<tr bgcolor='+iif(i mod 2 = 0,'<<$bcolor1>>','<<$bcolor2>>')+'><td height="30" width="80%" align="center"><font color="<<$fcolor1>>">'+$_eat['<<i>>,name']+'</td><td height="30" width="20%" align="right">'+iif(money >= val($_eat['<<i>>,price']),'<a href="exec:gt''food'',$_eat[''<<i>>,type''],<<i>>">'+$_eat['<<i>>,price']+'</a>',$_eat['<<i>>,price'])+'<font color="<<$fcolor1>>"><b> ₽. </b></td></tr>'
-	i += 1
-	if i < arrsize('$_eat')/3:jump 'loop_diner_food'
-	$_str += '</table></center></font>'
-	'<center><img <<$set_imgh>> src="images/shared/food/dinerfood.jpg"</center><br>'
-	'Your food order:<br><br>'+$_str
-	killvar '$_str'
-	killvar '$fcolor1'
-	killvar '$bcolor1'
-	killvar '$bcolor2'
 end
-
-if $ARGS[0] = 'gcafe':
-	*clr & cla
-	act 'Back':gt $loc, $metka
-	killvar '$_eat'
+if $loc = 'gkafe':
+	'<center><b><font color="maroon">Borislav''s cafe</font></b></center>'
+	*nl
+	'<center><img <<$set_imgh>> src="images/shared/food/cafefood.jpg"</center><br>'
 	$_eat['0,name'] = 'Vegatarian Piroshki'
 	$_eat['0,type'] = 'pirosh'
-	$_eat['0,price'] = 0
+	$_eat['0,price'] = 'Free'
 	$_eat['1,name'] = 'Herring Blini'
 	$_eat['1,type'] = 'blini'
-	$_eat['1,price'] = 0
+	$_eat['1,price'] = 'Free'
 	$_eat['2,name'] = 'Golubtsy'
 	$_eat['2,type'] = 'golub'
-	$_eat['2,price'] = 0
+	$_eat['2,price'] = 'Free'
 	$_eat['3,name'] = 'Pozharsky Cutlets'
 	$_eat['3,type'] = 'pozhar'
-	$_eat['3,price'] = 0
+	$_eat['3,price'] = 'Free'
 	$_eat['4,name'] = 'Rueben Sandwich'
 	$_eat['4,type'] = 'reuben'
-	$_eat['4,price'] = 0
-	$_str = '<table border="0" width="400" cellpadding="0" cellspacing="1">'
-	i = 0
-	:loop_gcafe_food
-	$_str += '<tr bgcolor='+iif(i mod 2 = 0,'<<$bcolor1>>','<<$bcolor2>>')+'><td height="30" width="80%" align="center"><font color="<<$fcolor1>>">'+$_eat['<<i>>,name']+'</td><td height="30" width="20%" align="center"><a href="exec:gt''food'',$_eat[''<<i>>,type''],<<i>>">Free</a><font color="<<$fcolor1>>"><b></b></td></tr>'
-	i += 1
-	if i < arrsize('$_eat')/3:jump 'loop_gcafe_food'
-	$_str += '</table></center></font>'
-	'<center><img <<$set_imgh>> src="images/shared/food/cafefood.jpg"</center><br>'
-	'Your food order:<br><br>'+$_str
-	killvar '$_str'
-	killvar '$fcolor1'
-	killvar '$bcolor1'
-	killvar '$bcolor2'
+	$_eat['4,price'] = 'Free'
 end
-
-if $ARGS[0] = 'cafe':
-	*clr & cla
-	act 'Back':gt $loc, $metka
-	killvar '$_eat'
+if $loc = 'brothel':
+	'<center><h3>Hotel Bar</h3></center>'
+	*nl
+	'<center><img <<$set_imgh>> src="images/shared/food/barfood.jpg"</center><br>'
+	$_eat['0,name'] = 'Toasted rye snacks'
+	$_eat['0,type'] = 'ryesna'
+	$_eat['0,price'] = 30
+	$_eat['1,name'] = 'Bowl of flavoured crisps'
+	$_eat['1,type'] = 'crisps'
+	$_eat['1,price'] = 40
+end
+if $loc = 'cafe_parco':
+	'<center><h4><font color="maroon">Cafe "Del Parco"</font></h4></center>'
+	*nl
+	'<center><img <<$set_imgh>> src="images/shared/food/cafefood.jpg"</center><br>'
 	$_eat['0,name'] = 'Vegatarian Piroshki'
 	$_eat['0,type'] = 'pirosh'
 	$_eat['0,price'] = 100
@@ -97,25 +85,102 @@ if $ARGS[0] = 'cafe':
 	$_eat['4,name'] = 'Rueben Sandwich'
 	$_eat['4,type'] = 'reuben'
 	$_eat['4,price'] = 340
-	$_str = '<table border="0" width="400" cellpadding="0" cellspacing="1">'
-	i = 0
-	:loop_cafe_food
-	$_str += '<tr bgcolor='+iif(i mod 2 = 0,'<<$bcolor1>>','<<$bcolor2>>')+'><td height="30" width="80%" align="center"><font color="<<$fcolor1>>">'+$_eat['<<i>>,name']+'</td><td height="30" width="20%" align="right">'+iif(money >= val($_eat['<<i>>,price']),'<a href="exec:gt''food'',$_eat[''<<i>>,type''],<<i>>">'+$_eat['<<i>>,price']+'</a>',$_eat['<<i>>,price'])+'<font color="<<$fcolor1>>"><b> ₽. </b></td></tr>'
-	i += 1
-	if i < arrsize('$_eat')/3:jump 'loop_cafe_food'
-	$_str += '</table></center></font>'
-	'<center><img <<$set_imgh>> src="images/shared/food/cafefood.jpg"</center><br>'
-	'Your food order:<br><br>'+$_str
-	killvar '$_str'
-	killvar '$fcolor1'
-	killvar '$bcolor1'
-	killvar '$bcolor2'
 end
-
-if $ARGS[0] = 'fancy':
-	*clr & cla
-	act 'Back':gt $loc, $metka
-	killvar '$_eat'
+if $loc = 'kafe':
+	'<center><b><font color="maroon">The Roadhouse</font></b></center>'
+	*nl
+	'<center><img <<$set_imgh>> src="images/shared/food/dinerfood.jpg"</center><br>'
+	$_eat['0,name'] = 'Onion Rings'
+	$_eat['0,type'] = 'onring'
+	$_eat['0,price'] = 80
+	$_eat['1,name'] = 'Vegie Burger'
+	$_eat['1,type'] = 'vegburg'
+	$_eat['1,price'] = 240
+	$_eat['2,name'] = 'Turkey Burger'
+	$_eat['2,type'] = 'turburg'
+	$_eat['2,price'] = 260
+	$_eat['3,name'] = 'Battered Fish & Fries'
+	$_eat['3,type'] = 'batfish'
+	$_eat['3,price'] = 290
+	$_eat['4,name'] = 'Cheeseburger & Fries'
+	$_eat['4,type'] = 'cheburg'
+	$_eat['4,price'] = 310
+end
+if $loc = 'lakecafe':
+	'<center><B><font color=maroon>The Lake Cafe</font></B></center>'
+	*nl
+	'<center><img <<$set_imgh>> src="images/shared/food/cafefood.jpg"</center><br>'
+	$_eat['0,name'] = 'Vegatarian Piroshki'
+	$_eat['0,type'] = 'pirosh'
+	$_eat['0,price'] = 100
+	$_eat['1,name'] = 'Herring Blini'
+	$_eat['1,type'] = 'blini'
+	$_eat['1,price'] = 190
+	$_eat['2,name'] = 'Golubtsy'
+	$_eat['2,type'] = 'golub'
+	$_eat['2,price'] = 210
+	$_eat['3,name'] = 'Pozharsky Cutlets'
+	$_eat['3,type'] = 'pozhar'
+	$_eat['3,price'] = 290
+	$_eat['4,name'] = 'Rueben Sandwich'
+	$_eat['4,type'] = 'reuben'
+	$_eat['4,price'] = 340
+end
+if $loc = 'liamelkafe':
+	'<center><B><font color=maroon>Tiny Cafe</font></B></center>'
+	*nl
+	'<center><img <<$set_imgh>> src="images/shared/food/dinerfood.jpg"</center><br>'
+	$_eat['0,name'] = 'Onion Rings'
+	$_eat['0,type'] = 'onring'
+	$_eat['0,price'] = 80
+	$_eat['1,name'] = 'Vegie Burger'
+	$_eat['1,type'] = 'vegburg'
+	$_eat['1,price'] = 240
+	$_eat['2,name'] = 'Turkey Burger'
+	$_eat['2,type'] = 'turburg'
+	$_eat['2,price'] = 260
+	$_eat['3,name'] = 'Battered Fish & Fries'
+	$_eat['3,type'] = 'batfish'
+	$_eat['3,price'] = 290
+	$_eat['4,name'] = 'Cheeseburger & Fries'
+	$_eat['4,type'] = 'cheburg'
+	$_eat['4,price'] = 310
+end
+if $loc = 'ParkKafe':
+	'<center><B><font color=maroon>Park Cafe</font></B></center>'
+	*nl
+	'<center><img <<$set_imgh>> src="images/shared/food/cafefood.jpg"</center><br>'
+	$_eat['0,name'] = 'Vegatarian Piroshki'
+	$_eat['0,type'] = 'pirosh'
+	$_eat['0,price'] = 100
+	$_eat['1,name'] = 'Herring Blini'
+	$_eat['1,type'] = 'blini'
+	$_eat['1,price'] = 190
+	$_eat['2,name'] = 'Golubtsy'
+	$_eat['2,type'] = 'golub'
+	$_eat['2,price'] = 210
+	$_eat['3,name'] = 'Pozharsky Cutlets'
+	$_eat['3,type'] = 'pozhar'
+	$_eat['3,price'] = 290
+	$_eat['4,name'] = 'Rueben Sandwich'
+	$_eat['4,type'] = 'reuben'
+	$_eat['4,price'] = 340
+end
+if $loc = 'qwBarPolet':
+	'<center><b><font color="maroon">Bar "Rabotnik"</font></b></center>'
+	*nl
+	'<center><img <<$set_imgh>> src="images/shared/food/barfood.jpg"</center><br>'
+	$_eat['0,name'] = 'Toasted rye snacks'
+	$_eat['0,type'] = 'ryesna'
+	$_eat['0,price'] = 30
+	$_eat['1,name'] = 'Bowl of flavoured crisps'
+	$_eat['1,type'] = 'crisps'
+	$_eat['1,price'] = 40
+end
+if $loc = 'restoran':
+	'<center><b><font color="maroon">Babel</font></b></center>'
+	*nl
+	'<center><img <<$set_imgh>> src="images/shared/food/fancyfood.jpg"</center><br>'
 	$_eat['0,name'] = 'Vareniki with Potatoes'
 	$_eat['0,type'] = 'varenfan'
 	$_eat['0,price'] = 760
@@ -131,45 +196,19 @@ if $ARGS[0] = 'fancy':
 	$_eat['4,name'] = 'Red Caviar Blinchiki'
 	$_eat['4,type'] = 'blifan'
 	$_eat['4,price'] = 1360
-	$_str = '<table border="0" width="400" cellpadding="0" cellspacing="1">'
-	i = 0
-	:loop_fancy_food
-	$_str += '<tr bgcolor='+iif(i mod 2 = 0,'<<$bcolor1>>','<<$bcolor2>>')+'><td height="30" width="80%" align="center"><font color="<<$fcolor1>>">'+$_eat['<<i>>,name']+'</td><td height="30" width="20%" align="right">'+iif(money >= val($_eat['<<i>>,price']),'<a href="exec:gt''food'',$_eat[''<<i>>,type''],<<i>>">'+$_eat['<<i>>,price']+'</a>',$_eat['<<i>>,price'])+'<font color="<<$fcolor1>>"><b> ₽. </b></td></tr>'
-	i += 1
-	if i < arrsize('$_eat')/3:jump 'loop_fancy_food'
-	$_str += '</table></center></font>'
-	'<center><img <<$set_imgh>> src="images/shared/food/fancyfood.jpg"</center><br>'
-	'Your food order:<br><br>'+$_str
-	killvar '$_str'
-	killvar '$fcolor1'
-	killvar '$bcolor1'
-	killvar '$bcolor2'
 end
-
-if $ARGS[0] = 'pub':
-	*clr & cla
-	act 'Back':gt $loc, $metka
-	killvar '$_eat'
-	$_eat['0,name'] = 'Toasted rye snacks'
-	$_eat['0,type'] = 'ryesna'
-	$_eat['0,price'] = 30
-	$_eat['1,name'] = 'Bowl of flavoured crisps'
-	$_eat['1,type'] = 'crisps'
-	$_eat['1,price'] = 40
-	$_str = '<table border="0" width="400" cellpadding="0" cellspacing="1">'
-	i = 0
-	:loop_pub_food
-	$_str += '<tr bgcolor='+iif(i mod 2 = 0,'<<$bcolor1>>','<<$bcolor2>>')+'><td height="30" width="80%" align="center"><font color="<<$fcolor1>>">'+$_eat['<<i>>,name']+'</td><td height="30" width="20%" align="right">'+iif(money >= val($_eat['<<i>>,price']),'<a href="exec:gt''food'',$_eat[''<<i>>,type''],<<i>>">'+$_eat['<<i>>,price']+'</a>',$_eat['<<i>>,price'])+'<font color="<<$fcolor1>>"><b> ₽. </b></td></tr>'
-	i += 1
-	if i < arrsize('$_eat')/3:jump 'loop_pub_food'
-	$_str += '</table></center></font>'
-	'<center><img <<$set_imgh>> src="images/shared/food/barfood.jpg"</center><br>'
-	'Your food order:<br><br>'+$_str
-	killvar '$_str'
-	killvar '$fcolor1'
-	killvar '$bcolor1'
-	killvar '$bcolor2'
-end
+$_str = '<table border="0" width="400" cellpadding="0" cellspacing="1">'
+i = 0
+:loop_diner_food
+$_str += '<tr bgcolor='+iif(i mod 2 = 0,'<<$bcolor1>>','<<$bcolor2>>')+'><td height="30" width="80%" align="center"><font color="<<$fcolor1>>">'+$_eat['<<i>>,name']+'</td><td height="30" width="20%" align="right">'+iif(money >= val($_eat['<<i>>,price']),'<a href="exec:gt''food'',$_eat[''<<i>>,type''],<<i>>">'+$_eat['<<i>>,price']+'</a>',$_eat['<<i>>,price'])+'<font color="<<$fcolor1>>"><b> ₽. </b></td></tr>'
+i += 1
+if i < arrsize('$_eat')/3:jump 'loop_diner_food'
+$_str += '</table></center></font>'
+'Your food order:<br><br>'+$_str
+killvar '$_str'
+killvar '$fcolor1'
+killvar '$bcolor1'
+killvar '$bcolor2'
 
 --- food_menu ---------------------------------
 

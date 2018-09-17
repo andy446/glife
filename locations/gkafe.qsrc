@@ -2,8 +2,11 @@
 
 if $ARGS[0] = '':
 	CLOSE ALL
-	$metka = gkafe
-	$loc = $curloc
+	$metka = ''
+	$loc = 'gkafe'
+	$menu_loc = 'gkafe'
+	$menu_arg = ''
+	menu_off = 0
 	$location_type = 'public_indoors'
 	gs 'stat'
 	if night_mode = 1:
@@ -15,7 +18,7 @@ if $ARGS[0] = '':
 		bcolor = rgb(255, 255, 255)
 		lcolor = rgb(106, 90, 205)
 	end
-	'<center><b><font color="maroon">Pavlovsk''s train station cafe</font></b></center>'
+	'<center><b><font color="maroon">Borislav''s cafe</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/trainstation/cafe/gkafe.jpg"></center>'
 	'A small cafe, attached to the train station. It looks rather shabby.'
 	'The cafe is closed right now, it''s usually open between 8:00 and 20:00.'
@@ -75,7 +78,7 @@ if $ARGS[0] = '':
 					'The bar owner <a href="exec:GT ''gkafe'', ''boris''">Borislav</a> is currently taking orders in the bar. Most people call him Slava.'
 				end
 			end
-				
+
 				razvrand = rand(1, 10)
 
 				! WD: Allpw event to trigger even after talking to mum about fucking her boss
@@ -102,13 +105,16 @@ if $ARGS[0] = '':
 end
 
 if $ARGS[0] = 'menu':
+	menu_off = 1
 	$loc = 'gkafe'
 	$metka = ''
-	act 'Order food':gs 'food_menu', 'gcafe'
-	act 'Order drinks':gs 'beverage_menu', 'gcafe'
+	act 'Order food':gs 'food_menu'
+	act 'Order drinks':gs 'beverage_menu'
 end
 
 if $ARGS[0] = 'boris':
+	menu_off = 1
+	'<center><b><font color="maroon">Borislav''s cafe</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/cafe/Borislav.jpg"></center>'
 	'The owner of the cafe, called Borislav. He is a tall, thin man in his forties. Most people call him Slava.'
 

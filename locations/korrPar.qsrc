@@ -219,30 +219,58 @@ if hour >= 16 and hour <= 20 and indorf = 0:
 			act 'Leave':gt 'kuhrPar'
 
 			exit
-		elseif schoolPredupr = 2:
-			schoolPredupr = 3
-			SchoolBlock = 1
-			ParHomeBlock = 1
-			home_owned[2] = 0
-			schoolprogul = 0
-			pcs_grades = 0
-			if $clothingworntype = 'school' and clothingwornnumber = 6:gs 'clothing', 'strip'
-			'As you enter the hallway, you find your mother there waiting for you. You have never seen her this furious. "<<$pcs_nickname>>? I just got off the phone with the school, they told me you didn''t show up yet again and expelled you. I''ve had it with you! I''ve warned you so many times! Go ahead, live your irresponsible life the way you want. You''re no longer welcome here." She already packed up all your things from your room before you got home, and roughly shoves the bag into your hands. After that, she pushes you out the door and slams it shut in your face.'
+		elseif npc_rel['A29'] >= 40:
+			if schoolPredupr = 2:
+				schoolPredupr = 3
+				npc_rel['A29'] = 0
+				SchoolBlock = 1
+				schoolprogul = 0
+				pcs_grades = 0
+				if $clothingworntype = 'school' and clothingwornnumber = 6:gs 'clothing', 'strip'
+				'As you enter the hallway, you find your mother there waiting for you. You have never seen her this furious. "<<$pcs_nickname>>? I just got off the phone with the school, they told me you didn''t show up yet again and expelled you. I''m exrememly disappointed with you! I''ve warned you so many times! If you want to remain living in this house, you best start pulling your weight around here!". Right now I want you out of the house, go out and find some work! After that, she pushes you out the door and slams it shut in your face.'
 
-			act 'Leave':gt 'pavResidential'
+				act 'Leave':gt 'pavResidential'
+				exit
+			elseif schoolPredupr = 1:
+				schoolPredupr = 2
+				npc_rel['A29'] = 0
+				schoolprogul = 0
+				pcs_grades -= 40
+				'As you enter the hallway, you find your mother there waiting for you. She seems very angry with you. "School called, they said you didn''t show up for class again. They wanted to expel you! I had to go over there and beg the principal to give you one last chance. I''ve never felt so humiliated! This is the last straw for me, <<$pcs_nickname>>. You will not embarrass me any further. If you miss one more day of school, they will kick you out. And if you get kicked out of school, life is going to get a lot tougher for you, especially around here!" Having said her piece, your mother turns around and leaves.'
+			elseif schoolPredupr = 0:
+				schoolPredupr = 1
+				npc_rel['A29'] = 0
+				schoolprogul = 0
+				pcs_grades -= 20
+				'As you enter the hallway, you find your mother there waiting for you. "<<$pcs_nickname>>? The school called, they said you weren''t at school today. You know they''re very unforgiving when it comes to absenteeism, they said they would expel you if it happens again. What are you doing with your life? Get it together!" Your mother angrily leaves the room, leaving you to your thoughts.'
+			end
+		elseif npc_rel['A29'] < 40:
+			if schoolPredupr = 2:
+				schoolPredupr = 3
+				npc_rel['A29'] = 0
+				SchoolBlock = 1
+				ParHomeBlock = 1
+				home_owned[2] = 0
+				schoolprogul = 0
+				pcs_grades = 0
+				if $clothingworntype = 'school' and clothingwornnumber = 6:gs 'clothing', 'strip'
+				'As you enter the hallway, you find your mother there waiting for you. You have never seen her this furious. "<<$pcs_nickname>>? I just got off the phone with the school, they told me you didn''t show up yet again and expelled you. I''ve had it with you! I''ve warned you so many times! Go ahead, live your irresponsible life the way you want. You''re no longer welcome here." She already packed up all your things from your room before you got home, and roughly shoves the bag into your hands. After that, she pushes you out the door and slams it shut in your face.'
 
-			exit
-		elseif schoolPredupr = 1:
-			schoolPredupr = 2
-			schoolprogul = 0
-			pcs_grades -= 40
-			'As you enter the hallway, you find your mother there waiting for you. She seems very angry with you. "School called, they said you didn''t show up for class again. They wanted to expel you! I had to go over there and beg the principal to give you one last chance. I''ve never felt so humiliated! This is the last straw for me, <<$pcs_nickname>>. You will not embarrass me any further. If you miss one more day of school, they will kick you out. And if you get kicked out of school, I will personally kick you out of the house. If you cannot be responsible and behave like a normal person, then get out, no one is forcing you to stay." Having said her piece, your mother turns around and leaves.'
-		elseif schoolPredupr = 0:
-			schoolPredupr = 1
-			npc_rel['A29'] = 0
-			schoolprogul = 0
-			pcs_grades -= 20
-			'As you enter the hallway, you find your mother there waiting for you. "<<$pcs_nickname>>? The school called, they said you weren''t at school today. You know they''re very unforgiving when it comes to absenteeism, they said they would expel you if it happens again. What are you doing with your life? Get it together!" Your mother angrily leaves the room, leaving you to your thoughts.'
+				act 'Leave':gt 'pavResidential'
+				exit
+			elseif schoolPredupr = 1:
+				schoolPredupr = 2
+				npc_rel['A29'] = 0
+				schoolprogul = 0
+				pcs_grades -= 40
+				'As you enter the hallway, you find your mother there waiting for you. She seems very angry with you. "School called, they said you didn''t show up for class again. They wanted to expel you! I had to go over there and beg the principal to give you one last chance. I''ve never felt so humiliated! This is the last straw for me, <<$pcs_nickname>>. You will not embarrass me any further. If you miss one more day of school, they will kick you out. And if you get kicked out of school, I will personally kick you out of the house. If you cannot be responsible and behave like a normal person, then get out, no one is forcing you to stay." Having said her piece, your mother turns around and leaves.'
+			elseif schoolPredupr = 0:
+				schoolPredupr = 1
+				npc_rel['A29'] = 0
+				schoolprogul = 0
+				pcs_grades -= 20
+				'As you enter the hallway, you find your mother there waiting for you. "<<$pcs_nickname>>? The school called, they said you weren''t at school today. You know they''re very unforgiving when it comes to absenteeism, they said they would expel you if it happens again. What are you doing with your life? Get it together!" Your mother angrily leaves the room, leaving you to your thoughts.'
+			end
 		end
 
 		act 'Continue':gt $curloc

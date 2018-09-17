@@ -1098,7 +1098,7 @@ $cheatmenu['reputation'] = {
 		if momKnowsVladimir = 1:
 			'Your mother knows Vladimir is the father. <a href="exec:momKnowsVladimir = 0 & dynamic $cheatmenu[''reputation'']">Clear</a>.'
 		end
-		if schoolPredupr = 3 or SchoolBlock = 1:
+		if SchoolBlock = 1:
 			'You''ve been expelled from school. <a href="exec:SchoolBlock = 0 & schoolPredupr = 0 & schoolprogul = 0 & pcs_grades = 50 & dynamic $cheatmenu[''reputation'']">Clear</a>.'
 		end
 	end

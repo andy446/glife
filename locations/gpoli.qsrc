@@ -230,6 +230,8 @@ if $ARGS[0] = '':
 
 		act 'Go to the sexual health clinic':
 			cls
+			minut += 1
+			gs 'stat'
 			'In the waiting room, a large sign dominates one of the walls:'
 			*nl
 			'<center><b>Sexual Health Clinic</b></center>'
@@ -799,6 +801,11 @@ end
 if $ARGS[0] = 'gynoblow':
 	cls
 	if gpoli_doctorhavesex = 0:gpoli_doctorhavesex = 1 & guy += 1
+	if $ARGS[1] = 'referral_blow':
+		Gspravka = 30
+		GspravkaT = 1
+		Gspassed = 1
+	end
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/sex/gpoli_7.jpg"></center>'
 	'When you try to move your head, it has nowhere to go. The doctor''s erection is in front of you, about half-way in your mouth now. Behind you, his powerful arm is keeping you in place. You decide to give him what he wants and stop resisting, slowly feeling him thrust his cock further and further into your mouth. At first it''s easy, but his thick cock makes breathing more difficult the further it goes down.'
@@ -899,6 +906,7 @@ if $ARGS[0] = 'spravka_arrange':
 		act 'Give him a blowjob':
 			cls
 			if gpoli_doctorhavesex = 0:gpoli_doctorhavesex = 1 & guy += 1
+			if venera > 0:gt 'gpoli', 'gynoblow', 'referral_blow'
 			gs 'stat'
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/sex/gpoli_7.jpg"></center>'
 			'You want to move back, but there is nowhere to go. His stiff cock is in front of you, and his powerful hand on the back of your head pulling you in closer. The masculine smell of his throbbing cock fills your nose as you breathe and you have to admit, it excites you!'

@@ -193,7 +193,7 @@ if $ARGS[1] = 'main':
 		streetev_day = daystart
 		'<<$streetev_title>>'
 		'<center><img src="images/locations/shared/street/rapist.jpg"></center>'
-		'As you walk down the street, a man jumps out of the shadows and suddenly grabs you, as you''re caught off-guard he manages to drag you into a nearby alleyway. You try to scream but his strong hand covers you mouth. You attempt to get free but his other arm wraps around your waists and lifts you off the grounds, as he drags you further down the alleyway. Once in the alley he throws you violently to the ground, knocking the wind out of you, stunning you for a moment. "You better not scream bitch or I will make this a lot worse."'
+		'As you walk down the street, a man jumps out of the shadows and suddenly grabs you, as you''re caught off-guard he manages to drag you into a nearby alleyway. You try to scream but his strong hand covers your mouth. You attempt to get free but his other arm wraps around your waist and lifts you off the grounds, as he drags you further down the alleyway. Once in the alley he throws you violently to the ground, knocking the wind out of you, stunning you for a moment. "You better not scream bitch or I will make this a lot worse."'
 		gs 'npcgeneratec', 0, 'Rapist', rand(18,45)
 		gs 'boyStat', $npclastgenerated
 		act 'Submit to the rape':

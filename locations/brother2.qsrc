@@ -107,7 +107,7 @@ if $ARGS[0] = 'kiss2':
 	gs 'arousal', 'foreplay', rand(1,3)
 	gs 'stat'
 	'<center><video autoplay loop src="images/shared/sex/kiss/kiss_lips.mp4"></video></center>'
-	'You continue make out with your brother. His hands gently feel up your body, inciting pleasure and excitement wherever they go.'
+	'You continue making out with your brother. His hands gently feel up your body, inciting pleasure and excitement wherever they go.'
 	act'Finish':gt'brother2','kiss_end'
 	act'Give him a handjob':gt'brother2','hj'
 	if brotherSex >= 5:

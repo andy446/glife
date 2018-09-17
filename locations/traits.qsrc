@@ -85,7 +85,7 @@ end
 if $ARGS[0] = 'hourly':
 	if swallow >= 10 and trt_cumeater = 0:
 		trt_cumeater = 1
-		msg 'You have gained the trait "Cumeater"'
+		msg 'You have gained the trait "cum-eater"'
 	end
 end
 

@@ -26,7 +26,7 @@ if $ARGS[0] = 'pirosh':
 	pcs_breath = 0
 	gs 'food', 'aftermeal'
 	'<center><img <<$set_imgh>> src="images/shared/food/pirozhki.jpg"></center>'
-	'You enjoy some vegatarian Piroshki, and <<$mtxt>>'
+	'You enjoy some vegetarian Piroshki, and <<$mtxt>>'
 	gs 'stat'
 	killvar '$_eat'
 

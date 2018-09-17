@@ -43,8 +43,7 @@ if $ARGS[0] = 'table':
 	'Sitting at one end of the bar, you see <a href="exec:gt ''kafe'', ''vlad''">the owner</a> of the diner, busy with paperwork.'
 	*nl
 	'They serve American style meals'
-	act 'Order food':gs 'food_menu'
-	act 'Order drinks':gs 'beverage_menu'
+	act 'See the menu':gs 'food_menu'
 	if rand(1, 10) > 5:
 		gs 'boy'
 		'A man comes over to your table <<$boybody>> <<$boybod>> <<$boyface>> introducing himself as <<$boydesc>>.'

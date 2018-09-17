@@ -181,11 +181,10 @@ if $ARGS[0] = 'bar:order':
 		'On the way you briefly regain consciousness from time to time, realizing that you are carried somewhere upstairs to what seems as one of the hotel rooms.'
 		act 'Continue':gt 'brothel', 'abducted'
 	else
-		if hotelWhore = 1:
-			act 'Order a Blue-blooded Russian.':gt 'brothel','bar:order:password'
-		end
-		act 'Order a snack': gs 'food_menu'
-		act 'Order a drink': gs 'beverage_menu'
+		! if hotelWhore = 1:
+			! act 'Order a Blue-blooded Russian.':gt 'brothel','bar:order:password'
+		! end
+		act 'See the menu': gs 'food_menu'
 		act 'Return':gt 'brothel', 'bar'
 	end
 end

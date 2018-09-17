@@ -12,8 +12,7 @@ if $ARGS[0] = 'start':
 	*nl
 	'<center><img <<$set_imgh>> src="images/locations/city/centralpark/parkcafe.jpg"></center>'
 
-	act 'Order food':gs 'food_menu'
-	act 'Order drinks':gs 'beverage_menu'
+	act 'See the menu':gs 'food_menu'
 	'Whilst sitting and eating in the summer cafe. You take a moment and enjoy the beautiful scenery.'
 
 	arand = rand(1, 7)

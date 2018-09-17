@@ -32,8 +32,7 @@ if $ARGS[0] = 'food':
 	'<center><B><font color=maroon>Tiny Cafe</font></B></center>'
 	*nl
 	'<center><img <<$set_imgh>> src="images/locations/oldtown/cafe/larek.jpg" ></center>'
-	act 'Order food':gs 'food_menu'
-	act 'Order drinks':gs 'beverage_menu'
+	act 'See the menu':gs 'food_menu'
 	if stallionQ = 2:
 		if FocH > (Foch_Max - 10): 
 			stallionQ = 3

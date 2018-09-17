@@ -213,7 +213,6 @@
 		<Location name="bed1"/>
 		<Location name="bed2"/>
 		<Location name="beverage"/>
-		<Location name="beverage_menu"/>
 		<Location name="dreams"/>
 		<Location name="budilnik"/>
 		<Location name="divan"/>

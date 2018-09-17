@@ -24,8 +24,7 @@ if $args[0]= 'inner':
 	$loc = 'cafe_parco'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/park/cafe/caffe_del_parco_in.jpg"></center>'
 
-	act 'Order food':gs 'food_menu'
-	act 'Order drinks':gs 'beverage_menu'
+	act 'See the menu':gs 'food_menu'
 
 	act 'Go back outside': gt 'gskver', 'start'
 

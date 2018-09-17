@@ -400,14 +400,14 @@ if $ARGS[0] = 'Ordering':
 			'At the very least, it seems like Martin is willing to return to that, because he says, "Welcome back."'
 			'It''s probably going to take a while to recover from this, but the first big step is done.'
 			'"Now, what shall I bring you?" The bartender asks.'
-			gs 'beverage_menu'
+			gs 'food_menu'
 
 		elseif fakepassport = 1 or age >= 18:
 			orderDrink = 1
 			*nl
 			'Nodding, you take out your ID and show it to him. He eyes it suspiciously and gives you a stern look... but then nods and hands it back to you.'
 			'"What can I bring you?"'
-			gs 'beverage_menu'
+			gs 'food_menu'
 
 		else
 			*nl
@@ -422,7 +422,7 @@ if $ARGS[0] = 'Ordering':
 	else
 		'Martin nods. "Sure. What are you having?"'
 		orderDrink = 1
-		gs 'beverage_menu'
+		gs 'food_menu'
 	end
 end
 

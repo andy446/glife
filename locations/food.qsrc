@@ -30,7 +30,11 @@ if $ARGS[0] = 'pirosh':
 	gs 'stat'
 	killvar '$_eat'
 
-	act 'Finish': gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'golub':
@@ -56,7 +60,11 @@ if $ARGS[0] = 'golub':
 	gs 'stat'
 	killvar '$_eat'
 
-	act 'Finish':  gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'pozhar':
@@ -82,7 +90,11 @@ if $ARGS[0] = 'pozhar':
 	gs 'stat'
 	killvar '$_eat'
 
-	act 'Finish':  gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'reuben':
@@ -108,7 +120,11 @@ if $ARGS[0] = 'reuben':
 	gs 'stat'
 	killvar '$_eat'
 
-	act 'Finish':  gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'blini':
@@ -134,7 +150,11 @@ if $ARGS[0] = 'blini':
 	gs 'stat'
 	killvar '$_eat'
 
-	act 'Finish':  gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'varenfan':
@@ -159,7 +179,11 @@ if $ARGS[0] = 'varenfan':
 	gs 'stat'
 	killvar '$_eat'
 
-	act 'Finish':  gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'salfan':
@@ -185,7 +209,11 @@ if $ARGS[0] = 'salfan':
 	gs 'stat'
 	killvar '$_eat'
 
-	act 'Finish':gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'strofan':
@@ -211,7 +239,11 @@ if $ARGS[0] = 'strofan':
 	gs 'stat'
 	killvar '$_eat'
 
-	act 'Finish':  gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'borfan':
@@ -237,7 +269,11 @@ if $ARGS[0] = 'borfan':
 	gs 'stat'
 	killvar '$_eat'
 
-	act 'Finish':  gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'blifan':
@@ -263,7 +299,11 @@ if $ARGS[0] = 'blifan':
 	gs 'stat'
 	killvar '$_eat'
 
-	act 'Finish':  gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'ryesna':
@@ -289,7 +329,11 @@ if $ARGS[0] = 'ryesna':
 	gs 'stat'
 	killvar '$_eat'
 
-	act 'Finish':  gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'crisps':
@@ -315,7 +359,11 @@ if $ARGS[0] = 'crisps':
 	gs 'stat'
 	killvar '$_eat'
 
-	act 'Finish':  gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'onring':
@@ -341,7 +389,11 @@ if $ARGS[0] = 'onring':
 	gs 'stat'
 	killvar '$_eat'
 
-	act 'Finish':  gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'vegburg':
@@ -367,7 +419,11 @@ if $ARGS[0] = 'vegburg':
 	gs 'stat'
 	killvar '$_eat'
 
-	act 'Finish':  gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'turburg':
@@ -393,7 +449,11 @@ if $ARGS[0] = 'turburg':
 	gs 'stat'
 	killvar '$_eat'
 
-	act 'Finish':  gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'batfish':
@@ -419,7 +479,11 @@ if $ARGS[0] = 'batfish':
 	gs 'stat'
 	killvar '$_eat'
 
-	act 'Finish':  gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'cheburg':
@@ -445,7 +509,11 @@ if $ARGS[0] = 'cheburg':
 	gs 'stat'
 	killvar '$_eat'
 
-	act 'Finish':  gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'snack':
@@ -465,7 +533,11 @@ if $ARGS[0] = 'snack':
 	gs 'stat'
 	killvar '$_eat'
 
-	act 'Return':gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'f_food':
@@ -490,7 +562,11 @@ if $ARGS[0] = 'f_food':
 	gs 'stat'
 	killvar '$_eat'
 
-	act 'Finish':gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 's_meal':
@@ -515,7 +591,11 @@ if $ARGS[0] = 's_meal':
 	gs 'stat'
 	killvar '$_eat'
 
-	act 'Finish':gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'm_meal':
@@ -541,7 +621,11 @@ if $ARGS[0] = 'm_meal':
 	gs 'stat'
 	killvar '$_eat'
 
-	act 'Finish':gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'l_meal':
@@ -567,7 +651,11 @@ if $ARGS[0] = 'l_meal':
 	killvar '$_eat'
 	if plcooked = 1: killvar 'plcooked'
 
-	act 'Finish':  gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'bag_lunch':
@@ -592,7 +680,11 @@ if $ARGS[0] = 'bag_lunch':
 	gs 'stat'
 	killvar '$_eat'
 
-	act 'Finish':  gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'h_food':
@@ -619,7 +711,11 @@ if $ARGS[0] = 'h_food':
 	gs 'stat'
 	killvar '$_eat'
 
-	act 'Finish':gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'h_meal':
@@ -644,7 +740,11 @@ if $ARGS[0] = 'h_meal':
 	gs 'stat'
 	killvar '$_eat'
 
-	act 'Finish': gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'aftermeal':

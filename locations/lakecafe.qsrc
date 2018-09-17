@@ -66,8 +66,7 @@ if $ARGS[0] = 'main':
 
 		'The diner has a single <a href="exec:gt ''laketoilet'', ''main''">toilet</a> available, for both males and females.'
 
-		act 'Order food':gs 'food_menu'
-		act 'Order drinks':gs 'beverage_menu'
+		act 'See the menu':gs 'food_menu'
 	end
 
 	if LCwork2 >= 1 and LCwork2day ! daystart and hour = 18:

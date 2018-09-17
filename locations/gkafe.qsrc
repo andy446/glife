@@ -108,8 +108,7 @@ if $ARGS[0] = 'menu':
 	menu_off = 1
 	$loc = 'gkafe'
 	$metka = ''
-	act 'Order food':gs 'food_menu'
-	act 'Order drinks':gs 'beverage_menu'
+	act 'See the menu':gs 'food_menu'
 end
 
 if $ARGS[0] = 'boris':

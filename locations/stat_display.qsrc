@@ -617,7 +617,7 @@ if smoker >= 20:
 		if siga > 0:
 			$stat_msg += '<BR><a href="exec:gs ''shortgs'',''smoker''"><font color="red"><b>You want to smoke. You have <<siga>> cigarettes left.</b></font></a><BR>'
 		else
-			$stat_msg += '<BR><a href="exec:gs ''shortgs'',''smoker''"><font color="red"><b>You want to smoke, but you have no cigarettes left.</b></font></a><BR>'
+			$stat_msg += '<BR><font color="red"><b>You want to smoke, but you have no cigarettes left.</b></font><BR>'
 		end
 	else
 		if siga > 0:

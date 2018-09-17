@@ -636,7 +636,7 @@ if $ARGS[0] = 'Disco Chat':
 			gs'stat'
 			'<center><b><h4><font color=#E400FF><<"Nikolai [Niko] Volkov">></font></h4></b></center>'
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/niko/nikoev/avatars/<<week>>.jpg"></center>'
-			'You tell Niko. "I would love to stay, but I need to head home early today, or my mom will freak out." He responds "I know how parents can be, I will always be around, if you even have a few minutes to spare." You give Niko a warm smile, as you wave goodbye.'
+			'You tell Niko. "I would love to stay, but I need to head home early today, or my mum will freak out." He responds "I know how parents can be, I will always be around, if you even have a few minutes to spare." You give Niko a warm smile, as you wave goodbye.'
 					
 			act 'Step away':gt 'gdkin'
 		end

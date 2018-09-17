@@ -1135,7 +1135,7 @@ if $ARGS[0] = 'hide':
 		rnd_namemom_text = rand(1,6)
 		if rnd_namemom_text = 1:$rnd_namemom_text = 'Mother'
 		if rnd_namemom_text = 2:$rnd_namemom_text = 'Mo'
-		if rnd_namemom_text = 3:$rnd_namemom_text = 'Mommy'
+		if rnd_namemom_text = 3:$rnd_namemom_text = 'Mummy'
 		if rnd_namemom_text = 4:$rnd_namemom_text = 'Mum'
 		if rnd_namemom_text = 5:$rnd_namemom_text = 'Mama'
 		if rnd_namemom_text = 6:$rnd_namemom_text = 'Mummy'
@@ -1207,7 +1207,7 @@ if $ARGS[0] = 'hide':
 		Okay! let it be, I''ll do it myself. In your purse? Take out the dick out of your mouth, when an elder inquires you! In your pocket? Ok, I found them. ... 
 		If you go into bathroom, clean it all with powder. The last thing I need is being after you by Holy Ghost knocked up."'
 		if rnd_caught_sister = 4 and pav_slut < 150:$rnd_caught_sister = '<<$rnd_rodnya_text>> your <<$rnd_namesis_text>>, <<$rnd_viewgg_text>> and <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
-		"<<$pcs_nickname>>, Mom is looking for her, and she is being fucked here. How long yet?"
+		"<<$pcs_nickname>>, Mum is looking for her, and she is being fucked here. How long yet?"
 		"Oh sis, it''s so enjoyable ... another ten minutes they fuck me and then I''ll come right."'
 		if rnd_caught_sister = 4 and pav_slut >= 150:$rnd_caught_sister = '<<$rnd_rodnya_text>> your <<$rnd_namesis_text>>, <<$rnd_viewgg_text>> and <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
 		"<<$pcs_nickname>>, you are with clients? How long yet? You''ve to wake up early tomorrow."
@@ -1283,7 +1283,7 @@ if $ARGS[0] = 'hide':
 		if rnd_caught_othernpc = 9:$rnd_caught_othernpc = '<<$rnd_rodnya_text>>, Aunt Luda <<$rnd_viewgg_text>> <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
 		"Hey, <<$pcs_nickname>>, how is your sex life? Just think, it was only recently, when a tweeny, bows in her hair, blushing and stuttering, bought pads in my pharmacy for the first time. And now her lap squelches here all around so one can hear even on the street. You grew up very early. You better not stand like doggie here, fool. Do you know, what distinguishes sluts from decent girls? Scraped knees. Come for Green, I''ll give it to you for a half price, goof!"'
 		if rnd_caught_othernpc = 10:$rnd_caught_othernpc = '<<$rnd_rodnya_text>>, a mum with her little daughter notice you. The mother takes daughter by the hand and tells her:
-		"Turn away and don''t watch! This girl just did not obey her mommy and that''s why she''s punished. Do you hear her calling her mum now? Obey mum and you''ll never end up like her!"
+		"Turn away and don''t watch! This girl just did not obey her mummy and that''s why she''s punished. Do you hear her calling her mum now? Obey mum and you''ll never end up like her!"
 		She turns to you: "Couldn''t you wait, until you get home, slut? Do you have to shake buttocks just here? By the way, children walk here."'
 		if rnd_caught_othernpc = 11 and pav_slut < 150:$rnd_caught_othernpc = '<<$rnd_rodnya_text>>, '+func('gopsex','hide','Shulga_var_name')+' notices you and stops. He asked you:
 		"<<$pcs_nickname>>, why do you go with these tadpoles?"
@@ -1306,7 +1306,7 @@ if $ARGS[0] = 'hide':
 
 		!NPC choose which fuse years
 		rnd_caughtgg_npc = rand(1,5)
-		!mom
+		!mum
 		if rnd_caughtgg_npc = 1:$rnd_caughtgg_npc = '<<$rnd_caught_mom>>'
 		!different NPCs (Uncle Misha, Shulga, Aunt Luda , etc..d.)
 		if rnd_caughtgg_npc = 2:$rnd_caughtgg_npc = '<<$rnd_caught_othernpc>>'

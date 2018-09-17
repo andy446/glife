@@ -531,7 +531,7 @@ if $ARGS[0] = 'Phone_call':
 	clr
 	pl '<center><b><<$mid(100+hour,2,2)>>:<<$mid(100+minut,2,2)>></b></center>'
 	pl '<center><TABLE cellspacing="0" width="80%"><TR><TD><img src="images/system/icon/icon_statusbar_left.png"></TD><TD></TD><TD align="right"><img src="images/system/icon/icon_statusbar_right.png"></TD></TR></TABLE></center>'
-	pl'<center><font size=6>Calling Mom</font></center>'
+	pl'<center><font size=6>Calling Mum</font></center>'
 	pl'<center><img src="images/system/phone/icons/icon_npc1.png"><br></center>'
 	pl'<center><a href="exec:gs ''telefon'', ''Phone_contactlist'' "><img src="images/system/phone/decline.png"></a></center>'
 	wait 1500

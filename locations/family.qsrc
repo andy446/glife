@@ -114,7 +114,7 @@ if StoryLine = 1:
 	if indorf = 0:
 		if $loc = 'bedrPar2':
 			if hour < 6 or hour >= 21:
-				'Your mom and stepfather are sleeping on the bed.'
+				'Your mum and stepfather are sleeping on the bed.'
 				if hour = 21:parsexrand = rand(0, 5)
 			end
 		end

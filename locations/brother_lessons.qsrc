@@ -131,7 +131,7 @@ if $ARGS[0] = 'homework':
 								gs 'cum_call', 'hands', 'A34', 1
 								'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/hj_cum.jpg"></center>'
 								'Picking up the pace for a quick burst of speed, you feel his hot cum burst all over your hand. Pulling back, you smile at the look of bliss on his face before leaning in for one more loving kiss.'
-								'"I think we''ll have to call the session early if that''s alright with you," you say, purposefully looking down at the sticky cum covering your hands. "I''m gonna go get cleaned up. You should soon too unless you want mom to catch you with your dick out like that."'
+								'"I think we''ll have to call the session early if that''s alright with you," you say, purposefully looking down at the sticky cum covering your hands. "I''m gonna go get cleaned up. You should soon too unless you want mum to catch you with your dick out like that."'
 								'"Y-yeah..." he mumbles back, still dazed from his orgasm.'
 								act'Finish and get up':gt 'sitrPar'
 							end
@@ -362,7 +362,7 @@ if $ARGS[0] = 'anatomylesson1':
 					'	"You''re the best sister ever!" he cries.'
 					'	You hug him back, feeling the warmth of your bare skin spreading into his shirt. "Aww, thanks Kolka."'
 					'	He pulls back from the hug, eagerly sitting in front of you. "Will you help me with this again sometime?"'
-					'	"Of course I will. But you need to let me get dressed before mom or dad sees me helping you out like this. I don''t think they''d approve. Do you?" He twists his mouth up and shakes his head. "I didn''t think so. So make sure you don''t tell anyone else about this. But if you need more help, just ask me and I''ll see what I can do," you say, giving him a sweet smile before getting dressed again.'
+					'	"Of course I will. But you need to let me get dressed before mum or dad sees me helping you out like this. I don''t think they''d approve. Do you?" He twists his mouth up and shakes his head. "I didn''t think so. So make sure you don''t tell anyone else about this. But if you need more help, just ask me and I''ll see what I can do," you say, giving him a sweet smile before getting dressed again.'
 					act'Get dressed':
 						gs 'underwear', 'wear'
 						gs 'stat'
@@ -481,7 +481,7 @@ if $ARGS[0] = 'anatomylesson3':
 					'	"How does it get torn?" Kolka quickly asks while continuing to stare at yours in wonder.'
 					'	"Well, it can get torn in a number of ways but the most common is when a girl loses her virginity. We''ll talk about this more next time, but when a boy and a girl have sex, the boy sticks his penis inside the girl''s vagina. The only way to get the penis all the way inside is to push through the hymen and break it. It usually causes a small amount of bleeding. That''s why they call it ''popping a cherry,''" you smile.'
 					'	He takes note of your clear lack of a hymen and asks, "So... does this mean you''ve... you know...?"'
-					'	"That I''ve had sex? Yeah. Someone already took my v-card," You say somewhat proudly. "But don''t tell mom!"'
+					'	"That I''ve had sex? Yeah. Someone already took my v-card," You say somewhat proudly. "But don''t tell mum!"'
 					'	He nods in acknowledgement while writing down some more notes.'
 					'	After a couple more questions, you continue on with the lesson.'
 					act'Continue':gt'brother_lessons', 'anatomylesson4'
@@ -492,7 +492,7 @@ if $ARGS[0] = 'anatomylesson3':
 					'	"How does it get torn?" Kolka quickly asks while continuing to stare at yours in wonder.'
 					'	"Well, it can get torn in a number of ways but the most common is when a girl loses her virginity. We''ll talk about this more next time, but when a boy and a girl have sex, the boy sticks his penis inside the girl''s vagina. The only way to get the penis all the way inside is to push through the hymen and break it. It usually causes a small amount of bleeding. That''s why they call it ''popping a cherry,''" you smile.'
 					'	He takes note of your clear lack of a hymen and asks, "So... does this mean you''ve... you know...?"'
-					'	"That I''ve had sex? Yeah. Someone already took my v-card," You say somewhat proudly. "But don''t tell mom!"'
+					'	"That I''ve had sex? Yeah. Someone already took my v-card," You say somewhat proudly. "But don''t tell mum!"'
 					'	He nods in acknowledgement while writing down some more notes.'
 					'	"Is it supposed to look this loose?" he asks, causing you to blush hard.'
 					act'"I''ve had a lot of sex"':
@@ -516,7 +516,7 @@ if $ARGS[0] = 'anatomylesson3':
 					'	"How does it get torn?" Kolka quickly asks while continuing to stare at yours in wonder.'
 					'	"Well, it can get torn in a number of ways but the most common is when a girl loses her virginity. We''ll talk about this more next time, but when a boy and a girl have sex, the boy sticks his penis inside the girl''s vagina. The only way to get the penis all the way inside is to push through the hymen and break it. It usually causes a small amount of bleeding. That''s why they call it ''popping a cherry,''" you smile.'
 					'	He takes note of your clear lack of a hymen and asks, "So... does this mean you''ve... you know...?"'
-					'	"That I''ve had sex? Yeah. Someone already took my v-card," You say somewhat proudly. "But don''t tell mom!"'
+					'	"That I''ve had sex? Yeah. Someone already took my v-card," You say somewhat proudly. "But don''t tell mum!"'
 					'	He nods in acknowledgement while writing down some more notes.'
 					'<br>	"Woah! It''s like a cave in there! Are they all this wide?" he exclaims. You blush harder than you think you''ve ever blushed in your life.'
 					act'"I''ve had a lot of sex"':
@@ -644,7 +644,7 @@ if $ARGS[0] = 'anatomylesson4':
 						'	"Really?" he says, grinning. "I did good?"'
 						'	Your smile gets a bit more strength when you reply, "Good? Kolka you blew my fucking mind!"'
 						'	"Well, I had a great teacher didn''t I?" he says before starting to lick your pussy again.'
-						'	"Ohhh! Kolka~!" you say, pushing his head away with more than a small amount of regret. "As much as I''d love to let you keep going, we have to stop now. We don''t want mom or dad to catch us."'
+						'	"Ohhh! Kolka~!" you say, pushing his head away with more than a small amount of regret. "As much as I''d love to let you keep going, we have to stop now. We don''t want mum or dad to catch us."'
 						'	"Yeah I know..." he says in a disappointed tone. "You just taste so good I want more!"'
 						'	You''re so tempted but your fear outweighs your temptation right now. "Maybe some other time kiddo," you say before you find the strength to put your clothes on while Kolka packs up his schoolwork.'
 						act'End the lesson':

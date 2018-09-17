@@ -40,7 +40,7 @@ if $ARGS[0] = 'showertalk1':
 	'<center><img <<$set_imgh>> src="images/shared/home/bathroom/brothertalk1.jpg"></center>'
 	'	Through the crack in the door you make eye contact with your brother.'
 	'	"Hey Kolka!"'
-	'	You see the shock in his eyes as he realizes he''s been caught and moves away, trying to close the door. "Wait! Come in here a sec!" you say, a bright and good-humored smile on your face. "And shut the door behind you! Quick! Before mom or dad see!"'
+	'	You see the shock in his eyes as he realizes he''s been caught and moves away, trying to close the door. "Wait! Come in here a sec!" you say, a bright and good-humored smile on your face. "And shut the door behind you! Quick! Before mum or dad see!"'
 
 	act'Continue':
 		*clr & cla
@@ -125,9 +125,9 @@ if $ARGS[0] = 'showertalk2':
 	if brothershowertalk > 1 and brothershowertalk <= 5:
 		'	He nods shyly at you. "Okay, come on in! Don''t forget to close the door!"'
 	elseif brothershowertalk > 5 and brothershowerlook >= 1:
-		'	He nods enthusiastically, unable to hide his eager grin. "Well hurry up then!" you say with a smile to match his. "Quick! Before mom catches us!"'
+		'	He nods enthusiastically, unable to hide his eager grin. "Well hurry up then!" you say with a smile to match his. "Quick! Before mum catches us!"'
 	elseif brothershowertalk > 5 and brothershowerlook < 1:
-		'	He nods eagerly. You can''t help but smile at his resemblance to a begging puppy. "Well hurry up then!" you say. "Quick! Before mom catches you coming in!"'
+		'	He nods eagerly. You can''t help but smile at his resemblance to a begging puppy. "Well hurry up then!" you say. "Quick! Before mum catches you coming in!"'
 	end
 
 	act'Continue':
@@ -177,12 +177,12 @@ if $ARGS[0] = 'showertalk2':
 					act'Continue':gt'brother_voyeur','shave'
 
 				elseif brothershowerdaytalk = 2:
-					'	"... so, yeah. Mom wants me to clean up my stuff on the couch, but if I''m going to sleep there anyways, why does it matter?" he asks, snapping you out of your idle thoughts and bringing you back to the room.'
+					'	"... so, yeah. Mum wants me to clean up my stuff on the couch, but if I''m going to sleep there anyways, why does it matter?" he asks, snapping you out of your idle thoughts and bringing you back to the room.'
 					*nl
 					if npc_rel['A29'] >= 40:
-						'	"I know it seems pointless but you should listen to mom. You''ll get in trouble otherwise," you admonish him.'
+						'	"I know it seems pointless but you should listen to mum. You''ll get in trouble otherwise," you admonish him.'
 					elseif npc_rel['A29'] < 40:
-						'	"Ugh, I know! Mom is always nagging me about everything! She can be such a pain in the ass sometimes!" you '
+						'	"Ugh, I know! Mum is always nagging me about everything! She can be such a pain in the ass sometimes!" you '
 					end
 					act'Continue':gt'brother_voyeur','shave'
 
@@ -263,10 +263,10 @@ if $ARGS[0] = 'showertalk2':
 					act'Continue':gt'brother_voyeur','shave'
 
 				elseif brothershowerfriendtalk = 3:
-					'	"... I wish I had more time to play football with Zhendos and Mishan though," he says, snapping you out of your idle thoughts and bringing you back to the room. "I can''t do anything with them when mom is dragging us to Gadukino every other weekend."'
+					'	"... I wish I had more time to play football with Zhendos and Mishan though," he says, snapping you out of your idle thoughts and bringing you back to the room. "I can''t do anything with them when mum is dragging us to Gadukino every other weekend."'
 					*nl
 					if seepornofut = 0:
-						'	"It''s okay Kolka," you console him. "Just enjoy the time you have with them. In a couple years mom might not force you to go anymore but you all might end up too busy to hang out."'
+						'	"It''s okay Kolka," you console him. "Just enjoy the time you have with them. In a couple years mum might not force you to go anymore but you all might end up too busy to hang out."'
 						act'Continue':gt'brother_voyeur','shave'
 					elseif seepornofut >= 1:
 						'	"Pfft! More like you want more time to watch porn with them!" you laugh scoffingly.'
@@ -323,10 +323,10 @@ if $ARGS[0] = 'brothershowerlook':
 			end
 
 		elseif brothershowerdaytalk = 2:
-			'	"... so, yeah. Mom wants me to clean up my stuff on the couch, but if I''m going to sleep there anyways, why does it matter?" he asks, snapping you out of your idle thoughts and bringing you back to the room.'
+			'	"... so, yeah. Mum wants me to clean up my stuff on the couch, but if I''m going to sleep there anyways, why does it matter?" he asks, snapping you out of your idle thoughts and bringing you back to the room.'
 			*nl
-			if npc_rel['A29'] >= 40:'	"I know it seems pointless but you should listen to mom. You''ll get in trouble otherwise," you admonish him. "Believe me, my ass has seen the business end of her cooking ladle," you say causing the both of you to burst into suppressed laughter.'
-			if npc_rel['A29'] < 40:'	"Ugh, I know! Mom is always nagging me about everything! She can be such a pain in the ass sometimes!" you grumble in agreement.'
+			if npc_rel['A29'] >= 40:'	"I know it seems pointless but you should listen to mum. You''ll get in trouble otherwise," you admonish him. "Believe me, my ass has seen the business end of her cooking ladle," you say causing the both of you to burst into suppressed laughter.'
+			if npc_rel['A29'] < 40:'	"Ugh, I know! Mum is always nagging me about everything! She can be such a pain in the ass sometimes!" you grumble in agreement.'
 			act'Continue':
 				bro_ass_compliment = rand(1,3)
 				if bro_ass_compliment = 1:
@@ -454,10 +454,10 @@ if $ARGS[0] = 'brothershowerlook':
 			end
 
 		elseif brothershowerfriendtalk = 3:
-			'	"... I wish I had more time to play football with Zhendos and Mishan though," he says, snapping you out of your idle thoughts and bringing you back to the room. "I can''t do anything with them when mom is dragging us to Gadukino every other weekend."'
+			'	"... I wish I had more time to play football with Zhendos and Mishan though," he says, snapping you out of your idle thoughts and bringing you back to the room. "I can''t do anything with them when mum is dragging us to Gadukino every other weekend."'
 			*nl
 			if seepornofut = 0:
-				'	"It''s okay Kolka," you console him. "Just enjoy the time you have with them. In a couple years mom might not force you to go anymore but you all might end up too busy to hang out."'
+				'	"It''s okay Kolka," you console him. "Just enjoy the time you have with them. In a couple years mum might not force you to go anymore but you all might end up too busy to hang out."'
 				act'Continue':
 					bro_ass_compliment = rand(1,3)
 					if bro_ass_compliment = 1:
@@ -511,7 +511,7 @@ if $ARGS[0] = 'brother_shower_together_ask':
 	'	"Why don''t we save some water? Want to jump in with me while we talk?"'
 	'	Kolka''s eyes go wide at your suggestion. "Woah... R-really...?" he asks in disbelief.'
 	'	"What, a girl can''t take shower with her younger brother?" you grin. "What is the world coming to?"'
-	'	"But what if mom finds out?" he asks hesitantly.'
+	'	"But what if mum finds out?" he asks hesitantly.'
 	act'Maybe he''s right, it''s risky':gt'brother_voyeur','brothershowerlook'
 
 	act'Just close the latch':
@@ -536,10 +536,10 @@ if $ARGS[0] = 'brother_shower_together_ask':
 		end
 	end
 
-	act'Fuck mom!':
+	act'Fuck mum!':
 		*clr & cla
 		'<center><img <<$set_imgh>> src="images/shared/home/bathroom/brothertalkbusy.jpg"></center>'
-		'	"Fuck mom!" you scoff. "I don''t care if she finds you in here with your cock up my ass, I''ll do what I want! Now are you going to get in here with me or what?"'
+		'	"Fuck mum!" you scoff. "I don''t care if she finds you in here with your cock up my ass, I''ll do what I want! Now are you going to get in here with me or what?"'
 		'	He hesitates for a moment and you can see he''s still conflicted but in the end his baser instincts win and he starts to undress, already sporting a fine erection from your description of anal sex with him.'
 		act'Let him get in':gt'brother_voyeur','brother_shower_together_first'
 	end
@@ -2857,7 +2857,7 @@ if $ARGS[0] = 'dryoff':
 		act'Dry off and stay to use the mirror':
 			cla & *clr
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/home/vanrpar.jpg"></center>'
-			'	"I don''t mean to kick you out Kolka but I''ve gotta brush my hair and stuff. I don''t want mom and dad to start wondering where you are so why don''t you go on out ahead?"'
+			'	"I don''t mean to kick you out Kolka but I''ve gotta brush my hair and stuff. I don''t want mum and dad to start wondering where you are so why don''t you go on out ahead?"'
 			'	"Okay. I''ll see you later <<$pcs_nickname>>!" he says before slipping out the door and closing it behind him.'
 			'	You smile faintly and go back to making sure you''re wiped dry.'
 			minut += 10

@@ -604,7 +604,7 @@ if $ARGS[0] = '13':
 	'"Hi, <<$pcs_firstname>>! What can I do for you?" Sergey says, giving you a confident smile. "Oh, you deliver mail nowadays, right?"'
 	'You tell him you do, and give him his mail in exchange for a signature. He waves you off, and slowly closes the door behind him.'
 	if momslut >= 1:
-		'Just before he closes the door completely, you''d swear you saw your mom walking through Sergey''s apartment wearing nothing but a towel! Her hair looked rather disheveled, too...'
+		'Just before he closes the door completely, you''d swear you saw your mum walking through Sergey''s apartment wearing nothing but a towel! Her hair looked rather disheveled, too...'
 	elseif soniaPS >= 1:
 		'When the door is half closed, you catch a glimpse of Sonia walking through his apartment completely naked!'
 		'"Oh hi, <<$pcs_nickname>>!" she says cheerfully and gives you a little wave, right before the door closes.'
@@ -639,7 +639,7 @@ if $ARGS[0] = '14':
 		cla
 		father -= 5
 		gs 'stat'
-		'"I am, mom! I was just delivering a pac-" you say, but your stepfather quickly puts his hand over your mouth out of your mother''s view.'
+		'"I am, mum! I was just delivering a pac-" you say, but your stepfather quickly puts his hand over your mouth out of your mother''s view.'
 		'"S-uhh... She forgot her phone!" he says quickly. You hear your mother laugh from the hallway.'
 		'"Silly <<$pcs_nickname>>, she can be such a scatterbrain sometimes!" she says, and goes back to the kitchen.'
 		'"I said ssssh! Your mother doesn''t know I bought her this, and I want to surprise her! What''s wrong with you!?" he sighs, definitely unhappy about you nearly ruining his surprise.'

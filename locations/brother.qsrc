@@ -424,7 +424,7 @@ if $ARGS[0] = 'start':
 				'When you get close, He turns to you and says,:'
 				if sub > 0 or (evgenQW >= 4 and pav_slut >= 75):
 					gs 'boyStat', 'A34'
-					'"<<$pcs_nickname>>, come on you have work to do. And be quiet! You don''t want to wake up mom and dad." Then he drops his pants, and you see his hard <<dick>> cm dick.'
+					'"<<$pcs_nickname>>, come on you have work to do. And be quiet! You don''t want to wake up mum and dad." Then he drops his pants, and you see his hard <<dick>> cm dick.'
 					brotherSexCount -= 1
 					brotherEvSex = daystart
 
@@ -1501,7 +1501,7 @@ end
 if $ARGS[0] = 'pregreact':
 	if pregTalkbrother = 0 and knowpreg = 1:
 		if $clothingworntype = 'nude' and pregchem > 2000 and brotherSex < 7 and kid = 0:
-			'Surprised, your brother looks at your tummy. "<<$pcs_nickname>>, are you pregnant? Mom and dad are going to be pissed!" After a moments pause he adds "You do still look good pregnant, though."'
+			'Surprised, your brother looks at your tummy. "<<$pcs_nickname>>, are you pregnant? Mum and dad are going to be pissed!" After a moments pause he adds "You do still look good pregnant, though."'
 			pregTalkbrother = 1
 
 			act 'Continue' :gt 'sitrPar'
@@ -1561,7 +1561,7 @@ if $ARGS[0] = 'brotherknows1':
 	pregTalkbrother = 1
 	*nl
 	'Yeah, this baby is yours," you say, rubbing your belly. "And after it''s born, I might let you help me make another one," you add before giving your brother a kiss. You start to leave your brother alone, still visibly erect. '
-	'"Wait! You''re not going to tell mom I got you pregnant, are you?"'
+	'"Wait! You''re not going to tell mum I got you pregnant, are you?"'
 
 	act 'No':
 		cla
@@ -1592,7 +1592,7 @@ if $ARGS[0] = 'brotherknows2':
 	'"Yes, it is and you''re going to take responsibility. I am not going to be a single mother raising this child on my own."'
 	'Kolka stares at you in shock. "But I don''t know anything about raising children."'
 	'"Then you should have thought of that before knocking me up! You''re going to have to figure it out." Your brother is clearly crestfallen as you walk away.'
-	'"Wait!" Kolka yells after you. "You''re not going to tell mom I got you pregnant, right?"'
+	'"Wait!" Kolka yells after you. "You''re not going to tell mum I got you pregnant, right?"'
 
 	act 'No (Blackmail him)':
 		cla
@@ -1604,7 +1604,7 @@ if $ARGS[0] = 'brotherknows2':
 
 	act 'Yes':
 		cla
-		'You glare at Kolka. "Fuck off! Can you think about anything other than yourself for one second? I''m not protecting you. Mom is going to find out, and you''ll just have to deal with that!"'
+		'You glare at Kolka. "Fuck off! Can you think about anything other than yourself for one second? I''m not protecting you. Mum is going to find out, and you''ll just have to deal with that!"'
 		'You storm away from Kolka, leaving him to squirm in discomfort.'
 
 		act 'Continue' :gt 'sitrPar'
@@ -1660,7 +1660,7 @@ if $ARGS[0] = 'brotherknows6':
 		'"Every moment that we’re together is fantastic, and I love that this baby is yours, but I don''t know if I want any more children after this. So, when we have sex after this baby is born, please try to control yourself." He nods.'
 		if momKnowsKolka = 1 and home_owned[2] = 1:
 			cla
-			'"Since mom already knows I''ve gotten you pregnant before, we probably don''t need to keep this one secret, do we?"'
+			'"Since mum already knows I''ve gotten you pregnant before, we probably don''t need to keep this one secret, do we?"'
 			'"No, I don''t think we do. Even though she freaked she fuck out the first time, I''m actually looking forward to her reaction this time. She''s had plenty of time to come to terms with our… special relationship."'
 			'"God, I hope you''re right. I don''t think I could handle that again. I didn''t know she could be so scary." You both laugh.'
 			'You never dreamed that you would be building a family with your own brother, but now you wouldn''t want it any other way.'
@@ -1669,8 +1669,8 @@ if $ARGS[0] = 'brotherknows6':
 			act 'Continue':minut += 10 & gt 'KatjaHomeTalk'
 		elseif momKnowsKolka = 1 and home_owned[2] = 0:
 			cla
-			'"Since mom already knows I''ve gotten you pregnant before, we probably don''t need to keep this one secret, do we?"'
-			'You scowl. "I don''t give a fuck what mom knows. She''s not speaking to me and I really don''t care to say anything to her"'
+			'"Since mum already knows I''ve gotten you pregnant before, we probably don''t need to keep this one secret, do we?"'
+			'You scowl. "I don''t give a fuck what mum knows. She''s not speaking to me and I really don''t care to say anything to her"'
 			'Kolka softly caresses your cheek. "Sorry, I shouldn''t have brought her up. I wasn''t thinking."'
 			'You smile. "It''s alright. The only thing that matters right now is us and our baby."'
 			'Once you''re finished speaking, your brother covers your <<$liptalk3>> with his own and you joyfully reciprocate his kiss.'
@@ -1679,7 +1679,7 @@ if $ARGS[0] = 'brotherknows6':
 			act 'Continue':minut += 10 & gt 'sitrPar'
 		elseif momKnowsKolka = 0 and brotherBlackmail = 0:
 			cla
-			'"Since mom still doesn''t know I’ve gotten you pregnant before, we''re going to keep it a secret still, right?"'
+			'"Since mum still doesn''t know I’ve gotten you pregnant before, we''re going to keep it a secret still, right?"'
 			'"Don''t worry, I''m not going to tell her the truth. I don''t want my little brother to face any consequences for something that we both enjoyed. I don''t think the same lie will work more than once, but I''ll think of something."'
 			'Kolka sighs in relief. "Thanks, sis, you''re the best."'
 			'"I know." You smile and kiss your brother one more time before getting up from his lap. Now you just need to decide what to tell your mother.'
@@ -1700,7 +1700,7 @@ if $ARGS[0] = 'brotherknows6':
 		'"You shut your god damn mouth. You don''t have to walk around with a baby inside you. I do. So yeah, I have every right to be pissed and you’re just going to sit back and deal with it."'
 		if momKnowsKolka = 1 and home_owned[2] = 1:
 			cla
-			'"Mom already knows you got me pregnant before. I am not looking forward to telling her about this."'
+			'"Mum already knows you got me pregnant before. I am not looking forward to telling her about this."'
 
 			act 'Continue':minut += 10 & gt 'KatjaHomeTalk'
 		elseif momKnowsKolka = 1 and home_owned[2] = 0:

@@ -69,7 +69,7 @@ if $ARGS[0] = '':
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/trainstation/cafe/gkafe2.jpg"></center>'
 			'A small cafe, attached to the train station. It looks rather shabby.'
 
-			if StoryLine > 0:'Since your mom works here, you can eat here for free.'
+			if StoryLine > 0:'Since your mum works here, you can eat here for free.'
 
 			if week < 6:
 				if hour >= 6 and hour < 16 and StoryLine > 0:

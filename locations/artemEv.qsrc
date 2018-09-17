@@ -155,7 +155,7 @@ if $ARGS[0] = 'learn':
 					'You tell him: "But if you do not keep your promise, I know some guys that will break your nose. And that''d be just the beginning. Are we clear?"'
 					'You see him gulp, but he''s still interested in seeing you nude. You continue: "Now, about the service... Dimka Nosov has some video footage of me. I need it to disappear. I need you to break into his computer and remove it. Can you do that for me?"'
 					'Artem looks a bit unsure, but says: "Yea... I think I can do that. What''s on the recording?"'
-					'You smile at him and tell him a lie while you take off your clothes: "Oh, don''t worry about it. It''s just me dancing after I had a few drinks in the disco. My mom doesn''t know I sometimes drink alcohol, and he threatened to show her."'
+					'You smile at him and tell him a lie while you take off your clothes: "Oh, don''t worry about it. It''s just me dancing after I had a few drinks in the disco. My mum doesn''t know I sometimes drink alcohol, and he threatened to show her."'
 					*pl
 					'Once you''re naked, Artem unbuttons his pants and looks at you expectantly: "You know our deal, <<$pcs_nickname>>. If you want my help, I want your mouth."'
 					minut += 5

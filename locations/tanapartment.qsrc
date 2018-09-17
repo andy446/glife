@@ -137,7 +137,7 @@ if tanpred < 2:
 		'<center><b>Tanya''s Apartment</b></center>'
 		'<center><img <<$set_imgh>> src="images/locations/city/shared/house.jpg"></center>'
 		'When you look into Tanya''s eyes, they seem to be sparkling with excitement, and her entire face lights up as she smiles at you.'
-		'"<<$pcs_nickname>>, I have the best idea ever! Mom just fired our maid yesterday, and I could suggest <b>you</b> to my stepfather as a replacement! He pays really well, and all you gotta do is tidy up a bit, but you would be able to live right here with us!"'
+		'"<<$pcs_nickname>>, I have the best idea ever! Mum just fired our maid yesterday, and I could suggest <b>you</b> to my stepfather as a replacement! He pays really well, and all you gotta do is tidy up a bit, but you would be able to live right here with us!"'
 		'Tanya is so giddy that you almost don''t dare to voice your concerns: "And where do you get the idea that your stepfather would employ me? I''ve never worked as a maid before and I''m sure that, with his kind of money, he could get a much better one."'
 		'"Believe me, if I ask him <i>nicely</i>, he will hire you", Tanya smiles lasciviously.'
 

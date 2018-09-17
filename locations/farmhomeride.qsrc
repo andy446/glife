@@ -2,7 +2,7 @@
 onceridePerDay=daystart
 indorf = 0
 if month = 6 or month = 7 or month = 8:
-'Mom asks you "Well, <<$pcs_nickname>>, do you want to come home with us or spend summer in the village?"'
+'Mum asks you "Well, <<$pcs_nickname>>, do you want to come home with us or spend summer in the village?"'
      act'Go home with your parents':
      cls
 	if hour < 20: hour = 20 & minut = 0

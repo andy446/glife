@@ -1556,7 +1556,7 @@ if $ARGS[0] = 'pos51':
 			act '<<$pcs_nickname>>':
 				cls
 				gs 'stat'
-				'<font color="magenta">"My name is <<$pcs_nickname>>,"</font> you say. He nodded his head and began to get the key to open the door of the apartment 68. "Very nice. I live in the next apartment." The guy opened the door and on the threshold appeared the curious face of an elderly woman. She pointed her sharp nose at you and began to curiously look you. Timothy entered the apartment and said irritably, "Mom, stop hanging around the front door!" and closed the door.'
+				'<font color="magenta">"My name is <<$pcs_nickname>>,"</font> you say. He nodded his head and began to get the key to open the door of the apartment 68. "Very nice. I live in the next apartment." The guy opened the door and on the threshold appeared the curious face of an elderly woman. She pointed her sharp nose at you and began to curiously look you. Timothy entered the apartment and said irritably, "Mum, stop hanging around the front door!" and closed the door.'
 
 				act '....':gt 'etoexhib', 'pos51'
 			end

@@ -18,7 +18,7 @@ if $ARGS[0] = 'main':
 		fcolor = rgb(0, 0, 0)
 		bcolor = rgb(255, 255, 255)
 	end
-	'<center><B><font color=maroon>Barbeque Cafe</font></B></center>'
+	'<center><B><font color=maroon>The Lake Cafe</font></B></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/industrial/bbq/lakecafe.jpg"></center>'
 	'An old-fashioned BBQ café/diner near the lake, known for offering relatively cheap but tasty meals. Russia is littered with these.'
 	'Opening hours: 14:00 to 04:00'

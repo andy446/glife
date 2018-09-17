@@ -39,7 +39,7 @@ if $loc = 'gkafe':
 	'<center><b><font color="maroon">Borislav''s cafe</font></b></center>'
 	*nl
 	'<center><img <<$set_imgh>> src="images/shared/food/cafefood.jpg"</center><br>'
-	$_eat['0,name'] = 'Vegatarian Piroshki'
+	$_eat['0,name'] = 'Vegetarian Piroshki'
 	$_eat['0,type'] = 'pirosh'
 	$_eat['0,price'] = 'Free'
 	$_eat['1,name'] = 'Herring Blini'
@@ -70,7 +70,7 @@ if $loc = 'cafe_parco':
 	'<center><h4><font color="maroon">Cafe "Del Parco"</font></h4></center>'
 	*nl
 	'<center><img <<$set_imgh>> src="images/shared/food/cafefood.jpg"</center><br>'
-	$_eat['0,name'] = 'Vegatarian Piroshki'
+	$_eat['0,name'] = 'Vegetarian Piroshki'
 	$_eat['0,type'] = 'pirosh'
 	$_eat['0,price'] = 100
 	$_eat['1,name'] = 'Herring Blini'
@@ -110,7 +110,7 @@ if $loc = 'lakecafe':
 	'<center><B><font color=maroon>The Lake Cafe</font></B></center>'
 	*nl
 	'<center><img <<$set_imgh>> src="images/shared/food/cafefood.jpg"</center><br>'
-	$_eat['0,name'] = 'Vegatarian Piroshki'
+	$_eat['0,name'] = 'Vegetarian Piroshki'
 	$_eat['0,type'] = 'pirosh'
 	$_eat['0,price'] = 100
 	$_eat['1,name'] = 'Herring Blini'
@@ -150,7 +150,7 @@ if $loc = 'ParkKafe':
 	'<center><B><font color=maroon>Park Cafe</font></B></center>'
 	*nl
 	'<center><img <<$set_imgh>> src="images/shared/food/cafefood.jpg"</center><br>'
-	$_eat['0,name'] = 'Vegatarian Piroshki'
+	$_eat['0,name'] = 'Vegetarian Piroshki'
 	$_eat['0,type'] = 'pirosh'
 	$_eat['0,price'] = 100
 	$_eat['1,name'] = 'Herring Blini'

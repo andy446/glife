@@ -1699,17 +1699,34 @@ $cheatmenu['theme'] = {
 	*clr & cla
 	gs 'obj_din', 'settingtabs'
 	'<center><h1>Phone Theme Menu</h1></center>'
-	'<center><table cellspacing="0" cellpadding="20" valign="top"><tr>'
-	'<td cellspacing="0" cellpadding="20" valign="top">'
+	'<center><table width="90%" cellspacing="0" cellpadding="20" valign="top"><tr>'
+	''
 	'Current theme: <<$phonetheme_name[pcs_phonetheme]>>'
 	*nl
 	'Choose from the available themes'
 	*nl
 	i = 0
 	:phonethemeloop
-	if phonetheme[i] = 1:'<a href="exec: pcs_phonetheme = <<i>> & dynamic $cheatmenu[''theme'']"><img src="images/system/phone/theme/' + $phonetheme_name[i] + '/icon_call.png"></a>'
+	if phonetheme[i] = 1:'<td align="center" valign="top"><a href="exec: pcs_phonetheme = <<i>> & gs ''telefon'',''Phone_menu'' & dynamic $cheatmenu[''theme'']"><img height="100" width="100" src="images/system/phone/theme/' + $phonetheme_name[i] + '/icon_call.png"></a></td>'
 	i += 1
-	if i <= ARRSIZE('phonetheme'):jump 'phonethemeloop'
+	if i <= ARRSIZE('phonetheme') and i <= 3:
+		jump 'phonethemeloop'
+	elseif i <= ARRSIZE('phonetheme') and i = 4:
+		'</tr><tr>'
+		jump 'phonethemeloop'
+	elseif i <= ARRSIZE('phonetheme') and i > 4 and i <= 7:
+		jump 'phonethemeloop'
+	elseif i <= ARRSIZE('phonetheme') and i = 8:
+		'</tr><tr>'
+		jump 'phonethemeloop'
+	elseif i <= ARRSIZE('phonetheme') and i > 8 and i <= 11:
+		jump 'phonethemeloop'
+	elseif i <= ARRSIZE('phonetheme') and i = 12:
+		'</tr><tr>'
+		jump 'phonethemeloop'
+	elseif i <= ARRSIZE('phonetheme') and i > 12 and i <= 15:
+		jump 'phonethemeloop'
+	end
 	'</tr></table></b></center>'
 }
 

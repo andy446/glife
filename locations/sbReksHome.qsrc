@@ -5,7 +5,7 @@ if (indorf = 0) and ((sisboyparty_day + 2 = daystart) or (hour > 21)):
 	'<center><b><font color = maroon>Rex''s Apartment</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/rekshome/party/sisboyqwparty_6_' + rand(1,5) + '.jpg"></center>'
 	*nl 'Drunk and disheveled, Anya bursts into the room. You noticed that her hair, and all over her clothes she is smeared in sticky sperm. Anya stopped you and said:' 
-	'"We should move our asses and go home <<$pcs_nickname>>, or mommy will kill us both, if you don''t come home tonight."'
+	'"We should move our asses and go home <<$pcs_nickname>>, or mummy will kill us both, if you don''t come home tonight."'
 	if Rex_save =1 and Rex_Love =0:'As you leave the apartment, you gently kiss Rex on the cheek, thanking for the evening.'
 	if Rex_Love =1:'As you leave the apartment, you passionate kiss Rex on the lips, "Thank you for a lovely evening."'
 	if party_boys_in >=1:'As you leave the apartment, some drunk guys tell you they will miss you and sleep well, while laughing to each other.'

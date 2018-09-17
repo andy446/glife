@@ -811,7 +811,7 @@ if $ARGS[0] = '18':
 	kira = 1
 	'<b><center><font size="4"><font color="black">Parents just don''t understand</font></center></b>'
 	'Twenty minutes before the end of your shift, a lady approaches you with a glamorous looking girl beside her. The girl seems somewhat upset.'
-	'"Mom, this isn''t necessary. Let''s not shop in this store..."'
+	'"Mum, this isn''t necessary. Let''s not shop in this store..."'
 	'"Stop acting up! Your classmates are wearing these styles of clothes. You want to be popular right? You don''t want the others to make fun of you, do you?"'
 	'"Hello, may I help you?" You ask with a smile on your face.'
 	'The mother inspects you, appraising your appearance before turning to her daughter.'
@@ -864,7 +864,7 @@ if $ARGS[0] = '18':
 					'You gently run your fingers through Kira''s hair. "You know the saying, "<b>if you''ve got it, flaunt it,</b>" right? Well you, Kira, have <i>definitely</i> got <b>it</b>," you say to her with a wink and a smile.'
 					'You take Kira back from the locker room and give the panties to her mother.'
 					'"This is awkward, but can I leave them here, or let you throw them away? I want to wean my daughter from underwear, so that these purchases won''t be wasted. I will hide her other panties and bras from her until she gets used to it."'
-					'You decide to leave the panties with her and shove them in her purse. The mom is paying at the cash register and takes her daughter, all dressed up in her new blouse and mini-skirt, outside.'
+					'You decide to leave the panties with her and shove them in her purse. The mum is paying at the cash register and takes her daughter, all dressed up in her new blouse and mini-skirt, outside.'
 					'Kira looks back at you and smiles, saying goodbye. She then leaves, her bare bottom flashing with every breeze.'
 
 					act 'Finish your shift':gt 'young_shop', 'endwork'
@@ -895,7 +895,7 @@ if $ARGS[0] = '18':
 		*clr
 		'You shrug, "Sorry, but it''s too soon for her to wear such clothes. Maybe in a few more years she will understand."'
 		'"Really? I''ve seen on TV that young girls everywhere are wearing this style!" The woman looks at you with disbelief. She obviously couldn''t imagine that you would be arguing against a potential sale.'
-		'<i>"Mom clearly wants her daughter to look like a whore,"</i> you think to yourself as you look the woman in the eyes.'
+		'<i>"Mum clearly wants her daughter to look like a whore,"</i> you think to yourself as you look the woman in the eyes.'
 		act 'Dissuade the woman':
 			cla
 			delact 'Dissuade the woman'

@@ -215,7 +215,7 @@ $sischecks = {
 	
 	if cumloc[11] = 1 or (cumloc[6] = 1 or cumloc[7] = 1) and pav_slut < 75:
 		sisterknowslut = 1
-		'Your Sister looks at you, "<<$pcs_nickname>>, what is that?". Suddenly, her eyes narrow, "<<$pcs_nickname>>, yes it''s sperm! My little sister, well, well! It''s a good thing I noticed, what if it had been Mom?!"'
+		'Your Sister looks at you, "<<$pcs_nickname>>, what is that?". Suddenly, her eyes narrow, "<<$pcs_nickname>>, yes it''s sperm! My little sister, well, well! It''s a good thing I noticed, what if it had been Mum?!"'
 	elseif cumloc[11] = 1 or (cumloc[6] = 1 or cumloc[7] = 1) and pav_slut >= 75 and sisterknowslut = 0:
 		sisterknowslut = 1
 		'Your Sister looks at you, "<<$pcs_nickname>>, so the rumours are true, you are <<$gnikname>>"'
@@ -288,7 +288,7 @@ $d_sister[3]={
 	
 	if trfatherQW = 0 and rand(0,2) = 0:
 		trfatherQW = 1
-		'You ask about your real father, Anya grins, "<<$pcs_nickname>>, I was 4 years old when they broke up. I don''t even remember what he looks like. Mom does not like to talk about him, but as you know, our real father went to live in another town. I also remember, he worked as a long-distance truck driver, maybe sometimes he passes through Pavlovsk."'
+		'You ask about your real father, Anya grins, "<<$pcs_nickname>>, I was 4 years old when they broke up. I don''t even remember what he looks like. Mum does not like to talk about him, but as you know, our real father went to live in another town. I also remember, he worked as a long-distance truck driver, maybe sometimes he passes through Pavlovsk."'
 	else 
 		sisterTalk = rand (1,18)
 		if sisterTalk = 1:

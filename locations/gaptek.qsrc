@@ -43,14 +43,14 @@ if $ARGS[0] = 'start' or gaptek_loc = 1 or $message ! '':
 	end
 	'</center>'
 	*pl '<center><table align="center" width=80%>'
-	*P FUNC ('$stock_item', 5, 'condoms', 500, 'prezikcount', $CURLOC, $ARGS[0], StoryLine, 'Aunt will tell mom!')
-	*P FUNC ('$stock_item', 1, 'pregnancy test', 530, 'pregtest', $CURLOC, $ARGS[0], StoryLine, 'Aunt will tell mom!')
-	*P FUNC ('$stock_item', 1, 'birth control pills', 1870, 'tabletki', $CURLOC, $ARGS[0], StoryLine, 'Aunt will tell mom!')
+	*P FUNC ('$stock_item', 5, 'condoms', 500, 'prezikcount', $CURLOC, $ARGS[0], StoryLine, 'Aunt will tell mum!')
+	*P FUNC ('$stock_item', 1, 'pregnancy test', 530, 'pregtest', $CURLOC, $ARGS[0], StoryLine, 'Aunt will tell mum!')
+	*P FUNC ('$stock_item', 1, 'birth control pills', 1870, 'tabletki', $CURLOC, $ARGS[0], StoryLine, 'Aunt will tell mum!')
 	*P FUNC ('$stock_item', 10, 'antibiotics', 580, 'lekarstvo', $CURLOC, $ARGS[0])
 	*P FUNC ('$stock_item', 30, 'vitamins', 130, 'vitamin', $CURLOC, $ARGS[0])
 	*P FUNC ('$stock_item', 50, 'painkillers', 435, 'painkiller', $CURLOC, $ARGS[0])
 	*P FUNC ('$stock_item', 10, 'ointments for chafing', 372, 'mosolmaz', $CURLOC, $ARGS[0])
-	*P FUNC ('$stock_item', 1, 'lubricant', 145, 'lubri', $CURLOC, $ARGS[0], StoryLine, 'Aunt will tell mom!')
+	*P FUNC ('$stock_item', 1, 'lubricant', 145, 'lubri', $CURLOC, $ARGS[0], StoryLine, 'Aunt will tell mum!')
 	*P FUNC ('$stock_item', 30, 'lip balm', 127, 'lipbalm', $CURLOC, $ARGS[0])
 	*P FUNC ('$stock_item', 12, 'weight loss pill', 248, 'fatdel', $CURLOC, $ARGS[0])
 	*P FUNC ('$stock_item', 20, 'Tampons', 200, 'tampon', $CURLOC, $ARGS[0])
@@ -87,7 +87,7 @@ if $ARGS[0] = 'start' or gaptek_loc = 1 or $message ! '':
 					'"Hi <<$pcs_nickname>>, are you looking for something?"'
 					'You take a deep breath and say: "Erm... yes aunt. My mother needs some things for her ''garden''?" putting extra emphasis on the word.'
 					'Your aunt pretends to be confused, and teases you: "<<$pcs_nickname>>, are you sure you''re in the right store? This is a pharmacy, not a gardening center!"'
-					'You''re slightly confused now, and try again: "I know, aunt... my mom said I should say ''garden''."'
+					'You''re slightly confused now, and try again: "I know, aunt... my mum said I should say ''garden''."'
 					'She just laughs: "Just teasing, <<$pcs_nickname>>. Your mother has such green thumbs, she comes here all the time! Come on, I''ll show you what we have." She takes you by the hand and takes you to the counter holding the contraceptives.'
 					'"Here you go. All of your gardening needs, right here. What can I get you?"'
 
@@ -96,8 +96,8 @@ if $ARGS[0] = 'start' or gaptek_loc = 1 or $message ! '':
 					minut += rand(5, 15)
 					if gaprezikday ! daystart or gatabletkiday ! daystart:
 						'You wait until the last customer leaves the pharmacy, and quickly dart over to the counter.'
-						'"Hi aunt Luda, my mom needs a few more items for her garden."'
-						'"Your mom, huh? Sure, sure... it''s right here, take your pick!" she chuckles, as you try to hide your blush.'
+						'"Hi aunt Luda, my mum needs a few more items for her garden."'
+						'"Your mum, huh? Sure, sure... it''s right here, take your pick!" she chuckles, as you try to hide your blush.'
 						'You intently stare at the items, avoiding her gaze as you mutter: "Thank you, Aunt..."'
 						'"No problem, <<$pcs_nickname>>. But seriously, tell Natasha she shouldn''t spend so much time gardening. We keep running low on stock."'
 

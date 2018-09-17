@@ -12,6 +12,9 @@ end
 
 if $ARGS[0] = '':
 	$metka = ''
+	$menu_loc = 'qwBarPolet'
+	$menu_arg = ''
+	menu_off = 0
 	$loc = 'qwBarPolet'
 	$location_type = 'public_indoors'
 	alko_temp = alko
@@ -136,7 +139,7 @@ if $ARGS[0] = '':
 				act 'Step away from the counter': gt 'qwBarPolet'
 			else
 				'"What do you want?" The bartender asks.'
-				gs 'food_menu', 'pub'
+				gs 'food_menu'
 			end
 		end
 
@@ -234,6 +237,7 @@ if $ARGS[0] = '':
 end
 
 if $ARGS[0] = 'DrinkingBooze':
+	menu_off = 1
 	cls
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/city/industrial/bar/bar.jpg"></center>'
@@ -293,6 +297,7 @@ if $ARGS[0] = 'DrinkingBooze':
 end
 
 if $ARGS[0] = 'Ordering':
+	menu_off = 1
 	cls
 	'<center><img <<$set_imgh>> src="images/locations/city/industrial/bar/bar.jpg"></center>'
 	!Different Picture/s?!
@@ -318,7 +323,7 @@ if $ARGS[0] = 'Ordering':
 			'It''s kinda sexy to know that he noticed it. Your belly tingles at the thought that seeing the sperm must have made Martin imagine you having sex.'
 			'Still... You should probably go to the bathroom and wash it off.'
 		end
-		
+
 		act 'Step away from the counter': gt 'qwBarPolet'
 
 	elseif alko >= 6:
@@ -395,14 +400,14 @@ if $ARGS[0] = 'Ordering':
 			'At the very least, it seems like Martin is willing to return to that, because he says, "Welcome back."'
 			'It''s probably going to take a while to recover from this, but the first big step is done.'
 			'"Now, what shall I bring you?" The bartender asks.'
-			gs 'beverage_menu','pub'
+			gs 'food_menu'
 
 		elseif fakepassport = 1 or age >= 18:
 			orderDrink = 1
 			*nl
 			'Nodding, you take out your ID and show it to him. He eyes it suspiciously and gives you a stern look... but then nods and hands it back to you.'
 			'"What can I bring you?"'
-			gs 'beverage_menu','pub'
+			gs 'food_menu'
 
 		else
 			*nl
@@ -417,11 +422,12 @@ if $ARGS[0] = 'Ordering':
 	else
 		'Martin nods. "Sure. What are you having?"'
 		orderDrink = 1
-		gs 'beverage_menu','pub'
+		gs 'food_menu'
 	end
 end
 
 if $ARGS[0] = 'RandomDrinkEvents':
+	menu_off = 1
 	*nl
 	!DrinkingRand ALWAYS NEEDS TO BE ADJUSTED FOR NEW EVENTS!!!
 	DrinkingRand = RAND(1,14)
@@ -686,7 +692,7 @@ if $ARGS[0] = 'RandomDrinkEvents':
 		'"Easy for him to say. He''d probably change his mind if he had been there with us..."'
 		*nl
 		'Whoever this Vanya is, his fate makes you think that you should probably aim higher than assembly-line work.'
-		
+
 		act 'Finish your drink': gt 'qwBarPolet'
 
 !Template for infos	the NPCs give on events, stories and other points of interest in the game

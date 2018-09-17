@@ -712,7 +712,7 @@ if hour >= 7 and hour < 24:
 				if Twin2QW ! 1:
 					'"Sis, I have a confession to make.... I have been selling my body in the Pavlovsk hotel." You wince inwardly as the admission leaves your mouth, worried what your sister will think.'
 					'Your sister''s face turns to shock and she shakes her head. "<<$pcs_nickname>>, really? Why would you do something like that? If people find out you''ll be ruined! I know I sleep around, but there''s a big difference between being a slut and being a whore."'
-					'You roll your eyes at her. "Please. That''s just mom talking. If you''re going to sleep around, you might as well get paid for it while you''re still hot! Besides, nobody will find out, there is a guy there who takes care of everything. And look at all the money I have been making!"'
+					'You roll your eyes at her. "Please. That''s just mum talking. If you''re going to sleep around, you might as well get paid for it while you''re still hot! Besides, nobody will find out, there is a guy there who takes care of everything. And look at all the money I have been making!"'
 					'You open your wallet and show your sister all the cash you have on you, <<money>><b>₽</b>.'
 				elseif TwinQW = 1:
 					'You bring up your prostitution job again to your sister and show off your wallet.'
@@ -845,7 +845,7 @@ if $ARGS[0] = 'pargone':
 	*pl $sisterLocationTitle
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/anya/sister2.jpg"></center>'
 	*nl
-	'"<<$pcs_nickname>>, you have to get rid of your bird. Have you heard what he has been saying lately. If mom ever heard this she would kick us both out of the house"'
+	'"<<$pcs_nickname>>, you have to get rid of your bird. Have you heard what he has been saying lately. If mum ever heard this she would kick us both out of the house"'
 	'You have become quite attached to your bird and really don''t want to get rid of him. " Wait, there must be another solution. Give me a few days, I will go to the pet store and ask if they have a remedy for this"'
 	if npc_rel['A33'] > 75:
 		'"Fine you have 3 days, if there is no solution by then , I will release him myself"'

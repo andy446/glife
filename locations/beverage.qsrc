@@ -23,7 +23,11 @@ if $ARGS[0] = 'bev_kva':
 	gs 'stat'
 	killvar '$_drink'
 
-	act 'Finish':gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'bev_jui':
@@ -50,7 +54,11 @@ if $ARGS[0] = 'bev_jui':
 	gs 'stat'
 	killvar '$_drink'
 
-	act 'Finish':gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'bev_mil':
@@ -76,7 +84,11 @@ if $ARGS[0] = 'bev_mil':
 	gs 'stat'
 	killvar '$_drink'
 
-	act 'Finish':gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'bev_wat':
@@ -100,7 +112,11 @@ if $ARGS[0] = 'bev_wat':
 	gs 'stat'
 	killvar '$_drink'
 
-	act 'Finish':gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'bev_cof':
@@ -126,7 +142,11 @@ if $ARGS[0] = 'bev_cof':
 	gs 'stat'
 	killvar '$_drink'
 
-	act 'Finish':gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'bev_tea':
@@ -152,7 +172,11 @@ if $ARGS[0] = 'bev_tea':
 	gs 'stat'
 	killvar '$_drink'
 
-	act 'Finish':gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'bev_vod':
@@ -179,7 +203,11 @@ if $ARGS[0] = 'bev_vod':
 	gs 'stat'
 	killvar '$_drink'
 
-	act 'Finish':gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'bev_bla':
@@ -206,7 +234,11 @@ if $ARGS[0] = 'bev_bla':
 	gs 'stat'
 	killvar '$_drink'
 
-	act 'Finish':gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'bev_sco':
@@ -233,7 +265,11 @@ if $ARGS[0] = 'bev_sco':
 	gs 'stat'
 	killvar '$_drink'
 
-	act 'Finish':gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'bev_win':
@@ -260,7 +296,11 @@ if $ARGS[0] = 'bev_win':
 	gs 'stat'
 	killvar '$_drink'
 
-	act 'Finish':gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'bev_mar':
@@ -287,7 +327,11 @@ if $ARGS[0] = 'bev_mar':
 	gs 'stat'
 	killvar '$_drink'
 
-	act 'Finish':gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'bev_cha':
@@ -314,7 +358,11 @@ if $ARGS[0] = 'bev_cha':
 	gs 'stat'
 	killvar '$_drink'
 
-	act 'Finish':gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
 end
 
 if $ARGS[0] = 'bev_bee':
@@ -341,7 +389,15 @@ if $ARGS[0] = 'bev_bee':
 	gs 'stat'
 	killvar '$_drink'
 
-	act 'Finish':gt $loc, $metka
+	if food_loc = 1:
+		act 'Finish': gt 'food_menu'
+	else
+		act 'Finish':gt $loc, $metka
+	end
+end
+
+if $ARGS[0] = 'bev_bbr':
+	food_loc = 0 & gt 'brothel','bar:order:password'
 end
 
 if $ARGS[0] = 'afteralcohol':

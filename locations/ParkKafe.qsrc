@@ -2,13 +2,17 @@
 
 if $ARGS[0] = 'start':
 	minut = +5
-	$metka = $ARGS[0]
-	$loc = $CURLOC
+	$metka = 'start'
+	$loc = 'ParkKafe'
+	$menu_loc = 'ParkKafe'
+	$menu_arg = 'start'
+	menu_off = 0
 	$location_type = 'public_indoors'
+	'<center><B><font color=maroon>Park Cafe</font></B></center>'
+	*nl
 	'<center><img <<$set_imgh>> src="images/locations/city/centralpark/parkcafe.jpg"></center>'
-	
-	act 'Order food':gs 'food_menu', 'cafe'
-	act 'Order drinks':gs 'beverage_menu', 'cafe'
+
+	act 'See the menu':gs 'food_menu'
 	'Whilst sitting and eating in the summer cafe. You take a moment and enjoy the beautiful scenery.'
 
 	arand = rand(1, 7)
@@ -101,6 +105,7 @@ if $ARGS[0] = 'guys':
 end
 
 if $ARGS[0] = 'klof 1':
+	menu_off = 1
 	cla
 	*clr
 	minut += 5
@@ -189,6 +194,7 @@ if $ARGS[0] = 'Armenians':
 end
 
 if $ARGS[0] = 'man':
+	menu_off = 1
 	cla
 
 	if rand(0, 1) = 0:
@@ -234,6 +240,7 @@ if $ARGS[0] = 'man':
 end
 
 if $ARGS[0] = 'woman':
+	menu_off = 1
 	cla
 	'You stealthily glance at the imperious woman, but it doesn''t look like she noticed you.'
 
@@ -274,7 +281,7 @@ if $ARGS[0] = 'youth':
 					gs 'stat'
 
 					if studentsex = 0:studentsex = 1 & guy += 6
-					
+
 					i = 0
 					:partybj
 					gs 'npcgeneratec', 0, 'Youth', rand(16,20)
@@ -306,6 +313,7 @@ if $ARGS[0] = 'youth':
 end
 
 if $ARGS[0] = 'negros':
+	menu_off = 1
 	cla
 
 	if rand(0, 1) = 0 or afra >= 1:
@@ -321,6 +329,7 @@ if $ARGS[0] = 'negros':
 end
 
 if $ARGS[0] = 'the_boy':
+	menu_off = 1
 	cla
 
 	if rand(0, 1) = 0 and gosh = 0:

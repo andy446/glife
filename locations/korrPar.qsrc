@@ -93,7 +93,7 @@ if nodimkaK >= rand(7,10) and DimkaWarnedToday = 0:
 	if hour >= 9 and hour < 24 and week >=6 and DimkaWarnedToday = 0: gt 'dimaEv', 'Dimka_warning'
 end
 
-$korrParMomHeader = '<center><h1><font color="maroon">Mom</font></h1></center><center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/mother.jpg"></center><br />'
+$korrParMomHeader = '<center><h1><font color="maroon">Mum</font></h1></center><center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/mother.jpg"></center><br />'
 
 if hour >= 16 and hour <= 20 and indorf = 0:
 	if artemvbrosvid = 1 and artemhakday ! daystart and npc_QW['A29'] < 2 and mothervideotalk = 0 or BrotherNo = 1 and BrotherNoDay ! daystart:
@@ -114,7 +114,7 @@ if hour >= 16 and hour <= 20 and indorf = 0:
 			sub += 5
 			gs 'stat'
 			*nl
-			'You burst into tears: "Mommy, please forgive me! It will will never happen again! I made a stupid mistake, I''m sorry... I didn''t mean to... please... I don''t... sorry..." You fall to your knees sobbing uncontrollably, hoping she will have mercy on you. Your mother looks down at you, still angry but not quite sure what to do. She lets out an exasperated gasp, shakes her head and walks away.'
+			'You burst into tears: "Mummy, please forgive me! It will will never happen again! I made a stupid mistake, I''m sorry... I didn''t mean to... please... I don''t... sorry..." You fall to your knees sobbing uncontrollably, hoping she will have mercy on you. Your mother looks down at you, still angry but not quite sure what to do. She lets out an exasperated gasp, shakes her head and walks away.'
 
 			act 'Get back on your feet':gt $curloc
 		end
@@ -127,7 +127,7 @@ if hour >= 16 and hour <= 20 and indorf = 0:
 			spank += 1
 			gs 'pain', 5, 'asscheeks', 'spank'
 			gs 'stat'
-			'<center><h1><font color="maroon">Mom</font></h1></center>'
+			'<center><h1><font color="maroon">Mum</font></h1></center>'
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/spank.jpg"></center>'
 			*nl
 			'You stand in the hallway staring at the floor, too embarrassed to say anything. What is there to say, anyway?'
@@ -146,7 +146,7 @@ if hour >= 16 and hour <= 20 and indorf = 0:
 				minut += 5
 				gs 'stat'
 				*nl
-				'You slap away her hand with a defiant look in your eyes. "Oh, really? You''re no angel yourself either, Mom... does Dad know what YOU have been up to lately? Why don''t we go ask him, while we''re on this subject?"'
+				'You slap away her hand with a defiant look in your eyes. "Oh, really? You''re no angel yourself either, Mum... does Dad know what YOU have been up to lately? Why don''t we go ask him, while we''re on this subject?"'
 				'Your mother looks at you furiously, but is at a loss for words. After a few seconds of awkward silence she storms off, slamming the door shut behind her.'
 
 				act 'Continue':gt $curloc
@@ -171,7 +171,7 @@ if hour >= 16 and hour <= 20 and indorf = 0:
 			npc_rel['A29'] -= 40
 			gs 'stat'
 			*nl
-			'"I don''t know what to say, mom... I''m really sorry."'
+			'"I don''t know what to say, mum... I''m really sorry."'
 			'Your mother is clearly very upset with you. After a short discussion, she walks away.'
 
 			act 'Continue':gt $curloc
@@ -191,8 +191,8 @@ if hour >= 16 and hour <= 20 and indorf = 0:
 			GspravkaT = 2
 			motherKnowSpravka = 1
 			'"Oh, my darling, where have you been? We have been so worried."'
-			'You go into the kitchen with your mom and spend some time explaining what happened to you. Many of the details are difficult to talk about, and you cry and hug your mom as you tell your story.'
-			'Your mom tells you she will sort out everything with the school and makes you a bowl of chicken soup.'
+			'You go into the kitchen with your mum and spend some time explaining what happened to you. Many of the details are difficult to talk about, and you cry and hug your mum as you tell your story.'
+			'Your mum tells you she will sort out everything with the school and makes you a bowl of chicken soup.'
 			if pcs_energy >= 30:
 				'You are too full to eat it.'
 			elseif pcs_energy >= 20 and pcs_energy < 30:

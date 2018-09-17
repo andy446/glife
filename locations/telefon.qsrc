@@ -531,7 +531,7 @@ if $ARGS[0] = 'Phone_call':
 	clr
 	pl '<center><b><<$mid(100+hour,2,2)>>:<<$mid(100+minut,2,2)>></b></center>'
 	pl '<center><TABLE cellspacing="0" width="80%"><TR><TD><img src="images/system/icon/icon_statusbar_left.png"></TD><TD></TD><TD align="right"><img src="images/system/icon/icon_statusbar_right.png"></TD></TR></TABLE></center>'
-	pl'<center><font size=6>Calling Mom</font></center>'
+	pl'<center><font size=6>Calling Mum</font></center>'
 	pl'<center><img src="images/system/phone/icons/icon_npc1.png"><br></center>'
 	pl'<center><a href="exec:gs ''telefon'', ''Phone_contactlist'' "><img src="images/system/phone/decline.png"></a></center>'
 	wait 1500
@@ -998,7 +998,7 @@ if $ARGS[0] = 'Phone_menu':
 	pl'<center><a href="exec:gs ''telefon'', ''Phone_camera'' "><img src="<<FUNC(''$phone_theme'')>>icon_camera.png" height="80" width="80"></a><a href="exec:gs ''telefon'', ''Phone_calendar'' "><img src="<<FUNC(''$phone_theme'')>>icon_calendar.png" height="80" width="80"></a><a href="exec:gs ''telefon'', ''Phone_pictures'' "><img src="<<FUNC(''$phone_theme'')>>icon_pictures.png" height="80" width="80"></a></center>'
 	pl'<center><a href="exec:gs ''telefon'', ''Phone_media'' "><img src="<<FUNC(''$phone_theme'')>>icon_music.png" height="80" width="80"></a><a href="exec:gs ''telefon'', ''Phone_notebook'' "><img src="<<FUNC(''$phone_theme'')>>icon_notebook.png" height="80" width="80"></a><a href="exec:gs ''telefon'', ''Phone_wheather'' "><img src="<<FUNC(''$phone_theme'')>>icon_weather.png" height="80" width="80"></a></center>'
 	pl'<center><a href="exec:gs ''telefon'', ''Phone_contactlist'' "><img src="<<FUNC(''$phone_theme'')>>icon_call.png" height="80" width="80"></a><a href="exec:gs ''telefon'', ''Phone_sms'' "><img src="<<FUNC(''$phone_theme'')>>icon_sms.png" height="80" width="80"></a><a href="exec:gs ''telefon'', ''Phone_megafon'' "><img src="<<FUNC(''$phone_theme'')>>icon_megafon.png" height="80" width="80"></a></center>'
-	pl''+iif(menu_off = 1, '<center><a href="exec:gs ''obj_din'', ''menu_disabled''"><img src="<<FUNC(''$phone_theme'')>>icon_settings.png" height="80" width="80"></a></center>', '<center><a href="exec:gs ''Cheatmenu_din'' & dynamic $cheatmenu[''setting'']"><img src="<<FUNC(''$phone_theme'')>>icon_settings.png" height="80" width="80"></a></center>')+''
+	pl''+iif(menu_off = 1, '<center><a href="exec:gs ''obj_din'', ''menu_disabled''"><img src="<<FUNC(''$phone_theme'')>>icon_settings.png" height="80" width="80"></a></center>', '<center><a href="exec:killvar ''menu_page'' & gs ''Cheatmenu_din'' & dynamic $cheatmenu[''setting'']"><img src="<<FUNC(''$phone_theme'')>>icon_settings.png" height="80" width="80"></a></center>')+''
 	pl'<center><a href="exec:clr & gs''stat''"><img src="images/system/icon/back.png"></a></center>'
 end &! --- Phone_menu ---
 

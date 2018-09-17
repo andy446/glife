@@ -1,10 +1,13 @@
 # burger
 
 if $ARGS[0] = 'start':
-	$metka = $ARGS[0]
-	$loc = $CURLOC
+	$metka = 'start'
+	$loc = 'burger'
+	$menu_loc = 'burger'
+	$menu_arg = 'start'
+	menu_off = 0
 	cls
-    $location_type = 'public_indoors'
+	$location_type = 'public_indoors'
 	CLOSE ALL
 	gs 'stat'
 	if night_mode = 1:
@@ -29,9 +32,8 @@ if $ARGS[0] = 'start':
 		gt 'down'
 	end
 
-	act 'Order food':gs 'food_menu', 'diner'
-	act 'Order drinks':gs 'beverage_menu', 'diner'
-		
+	act 'See the menu':gs 'food_menu'
+
 	if IvanPodstavaQW = 2:
 		act 'Go into the office to Anatoly Borisovich':gt 'burger', 'office'
 	end
@@ -41,17 +43,20 @@ if $ARGS[0] = 'start':
 	elseif posuda >= 3 and posudaA = 0:
 		act 'Go to the manager':gt 'burger', 'manager'
 	end
-	
+
 	if posuda >= 1 and posudaday ! daystart and NoBistroWork = 0 and PersSecWork = 0:
 		act 'Wash the dishes for 70 <b>₽</b> (1:00)':gt 'burger', 'dishes'
 	end
-	
+
 	if posudaA >= 1 and posudaAday ! daystart and hour < 10 and NoBistroWork = 0 and PersSecWork = 0:
 		act 'Wash the floor for 70 <b>₽</b> (1:00)':gt 'burger', 'floor'
 	end
 end
 
 if $ARGS[0] = 'office':
+	$menu_loc = 'burger'
+	$menu_arg = 'office'
+	menu_off = 0
 	cls
 	gs 'stat'
 	minut += 5
@@ -88,6 +93,9 @@ if $ARGS[0] = 'office':
 end
 
 if $ARGS[0] = 'apply':
+	$menu_loc = 'burger'
+	$menu_arg = 'apply'
+	menu_off = 0
 	cla
 	minut += 5
 	'You go into the manager''s office where you meet a smart girl. She begins to tell you, that you can work almost every day, "Come in any time, run the snack bar and wash the dishes for 1:00. You will get 70 <b>₽</b> immediately on hand."'
@@ -104,6 +112,9 @@ if $ARGS[0] = 'apply':
 end
 
 if $ARGS[0] = 'manager':
+	$menu_loc = 'burger'
+	$menu_arg = 'manager'
+	menu_off = 0
 	cla
 	minut += 5
 	'You go to the office of the manager. The girl tells the manager that you are doing good work and offers you another part-time job, "You can wash the floors in the morning, from 8 to 9. 1 hour of cleaning floors will get you 70 <b>₽</b> immediately on hand."'
@@ -122,6 +133,7 @@ if $ARGS[0] = 'manager':
 end
 
 if $ARGS[0] = 'dishes':
+	menu_off = 1
 	cls
 	posudaday = daystart
 	minut += 60
@@ -200,7 +212,7 @@ if $ARGS[0] = 'dishes':
 
 						gs 'arousal', 'bj', 15, 'sub'
 						gs 'stat'
-						
+
 						act 'Exit from the boutique':
 							cls
 							minut += 15
@@ -210,7 +222,7 @@ if $ARGS[0] = 'dishes':
 
 							gs 'arousal', 'end'
 							gs 'stat'
-							
+
 							act 'Out of the car':gt 'street'
 						end
 					end
@@ -248,7 +260,7 @@ if $ARGS[0] = 'dishes':
 
 									gs 'arousal', 'bj', 2, 'sub', 'deepthroat'
 									gs 'stat'
-						
+
 									act 'Suck his dick':
 										cls
 										minut += 2
@@ -269,7 +281,7 @@ if $ARGS[0] = 'dishes':
 
 										gs 'arousal', 'bj', 2, 'sub'
 										gs 'stat'
-						
+
 										act 'Sit on the floor':
 											cls
 											minut += 2
@@ -295,7 +307,7 @@ if $ARGS[0] = 'dishes':
 
 													gs 'arousal', 'end'
 													gs 'stat'
-													
+
 													act 'Out of the car':gt 'street'
 												end
 											end
@@ -421,7 +433,7 @@ if $ARGS[0] = 'dishes':
 
 					gs 'arousal', 'bj', 3, 'sub'
 					gs 'stat'
-						
+
 					act 'Swallow cum and clean his cock':
 						cls
 						minut += 2
@@ -439,7 +451,7 @@ if $ARGS[0] = 'dishes':
 
 						gs 'arousal', 'end'
 						gs 'stat'
-						
+
 						act 'Leave':gt 'burger', 'start'
 					end
 				end
@@ -466,7 +478,7 @@ if $ARGS[0] = 'dishes':
 
 						gs 'arousal', 'bj', 3, 'sub', 'deepthroat'
 						gs 'stat'
-						
+
 						act 'Swallow his cum and clean his cock':
 							cls
 							minut += 2
@@ -484,7 +496,7 @@ if $ARGS[0] = 'dishes':
 
 							gs 'arousal', 'end'
 							gs 'stat'
-							
+
 							act 'Leave':gt 'burger', 'start'
 						end
 					end
@@ -517,7 +529,7 @@ if $ARGS[0] = 'dishes':
 				gs 'arousal', 'bj', 3, 'sub'
 				gs 'arousal', 'end'
 				gs 'stat'
-						
+
 				act 'Leave':gt 'burger', 'start'
 			end
 		end
@@ -548,7 +560,7 @@ if $ARGS[0] = 'dishes':
 				gs 'arousal', 'bj', 3, 'sub'
 				gs 'arousal', 'end'
 				gs 'stat'
-				
+
 				act 'Leave':gt 'burger', 'start'
 			end
 
@@ -572,7 +584,7 @@ if $ARGS[0] = 'dishes':
 					gs 'arousal', 'hj', 3, 'sub', 'group'
 					minut -= 3
 					gs 'stat'
-				
+
 					act 'Let them cum on you':
 						cls
 						gs 'boyStat', 'A75'
@@ -591,7 +603,7 @@ if $ARGS[0] = 'dishes':
 
 						gs 'arousal', 'end'
 						gs 'stat'
-						
+
 						act 'Leave':gt 'burger', 'start'
 					end
 				end
@@ -612,7 +624,7 @@ if $ARGS[0] = 'dishes':
 			gs 'arousal', 'hj', 3, 'sub'
 			minut -= 3
 			gs 'stat'
-					
+
 			act '...':
 				cls
 				gs 'boyStat', 'A75'
@@ -629,7 +641,7 @@ if $ARGS[0] = 'dishes':
 
 				gs 'arousal', 'end'
 				gs 'stat'
-				
+
 				act 'Leave':gt 'burger', 'start'
 			end
 		end
@@ -651,6 +663,7 @@ if $ARGS[0] = 'dishes':
 end
 
 if $ARGS[0] = 'floor':
+	menu_off = 1
 	cla
 	*clr
 	posudaAday = daystart
@@ -666,6 +679,9 @@ if $ARGS[0] = 'floor':
 end
 
 if $ARGS[0] = 'boss':
+	$menu_loc = 'burger'
+	$menu_arg = 'boss'
+	menu_off = 0
 
 	!!Podyablonskaya
 	!!Calvin Broadus Kaldazar
@@ -805,7 +821,7 @@ if $ARGS[0] = 'boss':
 					gs 'arousal', 'bj', 5, 'sub'
 					gs 'arousal', 'end'
 					gs 'stat'
-					
+
 					act 'Leave':gt 'burger', 'start'
 				end
 			end
@@ -836,7 +852,7 @@ if $ARGS[0] = 'boss':
 			gs 'arousal', 'bj', 5, 'sub'
 			gs 'arousal', 'end'
 			gs 'stat'
-					
+
 			act 'Leave':gt 'burger', 'start'
 		end
 	end

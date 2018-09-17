@@ -130,7 +130,7 @@ if $ARGS[0] = 'inside':
 			act 'Lie to him':
 				*clr & cla
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/2.jpg"></center>'
-				'You lie to him: "I got very drunk in the disco, a few nights ago. He made a video of it and threatened to tell my mom. My mom would kill me!"'
+				'You lie to him: "I got very drunk in the disco, a few nights ago. He made a video of it and threatened to tell my mum. My mum would kill me!"'
 				'Artem nods: "Alright, I''ll see what I can do."'
 				minut += 5
 				artemhakday = daystart

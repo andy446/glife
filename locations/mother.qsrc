@@ -15,8 +15,8 @@ if $ARGS[0] = '':
 
 	if (motherKnowWhore > 0 or motherKnowSpravka > 0) and npc_QW['A29'] = 0:npc_QW['A29'] = 1
 	if npc_QW['A29'] = 1 and npc_rel['A29'] > 40:npc_rel['A29'] = 40
-	if npc_rel['A29'] < 20:'Your relationship with your mom is terrible.'
-	if npc_rel['A29'] >= 20 and npc_rel['A29'] < 40:'Your relationship with your mom is tense.'
+	if npc_rel['A29'] < 20:'Your relationship with your mum is terrible.'
+	if npc_rel['A29'] >= 20 and npc_rel['A29'] < 40:'Your relationship with your mum is tense.'
 	if npc_rel['A29'] >= 40 and npc_rel['A29'] < 60:'You have a normal relationship with your mother.'
 	if npc_rel['A29'] >= 60 and npc_rel['A29'] < 80:'You have a good relationship with your mother.'
 	if npc_rel['A29'] >= 80:'You have a great relationship with your mother.'
@@ -39,7 +39,7 @@ if $ARGS[0] = '':
 	!!while at work at the train station cafe
 	if $loc = 'gkafe':
 		cla
-		'Your mom sees you and frowns: "<<$pcs_nickname>>, how many times have I told you: don''t come visit me at work! I have no time for you right now, and there is nothing to do here for young girls like you."'
+		'Your mum sees you and frowns: "<<$pcs_nickname>>, how many times have I told you: don''t come visit me at work! I have no time for you right now, and there is nothing to do here for young girls like you."'
 		act 'Move away from her':gt 'gkafe'
 		exit
 	end
@@ -143,7 +143,7 @@ if $ARGS[0] = '':
 			'Your mother sees the glimmer of metal in your mouth and asks: "<<$pcs_nickname>>, what''s that in your mouth? I thought I saw something shiny..."'
 			act'Nothing!':
 				cla
-				'You shake my head: "N-nothing mom! Just a piece of gum I guess, I accidentally swallowed it". You quickly turn and walk away, before your mother has time to second guess you.'
+				'You shake my head: "N-nothing mum! Just a piece of gum I guess, I accidentally swallowed it". You quickly turn and walk away, before your mother has time to second guess you.'
 
 				act 'Move away':gt $loc, $metka
 			end
@@ -246,7 +246,7 @@ if $ARGS[0] = '':
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/mother.jpg"></center>'
 				'You tell your mother about the time you saw her in the back room of the cafe with her boss. Your mother got noticeably pale and sat down on a stool. With her head cast down in shame, she softly asks: "And what exactly did you see?", hoping you didn''t see anything too bad.'
 				'You tell her about how you saw her on her knees deepthroating her boss, and then getting roughly fucked from behind. You decide to leave out the part about how she willingly licked him clean and seemed to be very much into it, when you notice the distraught look on her face. Your mother sits on the stool, speechless. After carefully mulling over her words at least a dozen times in her mind, she confesses: "Well yes, I sleep with Slava. Times are tough, you know? I really need that job and he likes me. But please <<$pcs_nickname>>, don''t try to blackmail me. If any of this comes out, it would destroy our family."'
-				'You''ve never seen your mother this devastated before. She''s really afraid of the consequences. You understand and nod reassuringly: "Don''t worry Mom, your secret is safe with me." She smiles at you gratefully and returns to what she was doing.'
+				'You''ve never seen your mother this devastated before. She''s really afraid of the consequences. You understand and nod reassuringly: "Don''t worry Mum, your secret is safe with me." She smiles at you gratefully and returns to what she was doing.'
 
 				act 'Move away':gt $loc, $metka
 			end
@@ -264,7 +264,7 @@ if $ARGS[0] = '':
 					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/mother.jpg"></center>'
 					'Your mother Natasha is still quite young and attractive. She''s only <<motherAge>> years. She works at the station cafe.'
 					if npc_rel['A29']<20:'Your mother can''t stand you, and she avoids you as much as she can.'
-					if npc_rel['A29']>=20 and npc_rel['A29']<40:'You and mom have a tense relationship.'
+					if npc_rel['A29']>=20 and npc_rel['A29']<40:'You and mum have a tense relationship.'
 					if npc_rel['A29']>=40 and npc_rel['A29']<60:'You have a normal relationship with your mother.'
 					if npc_rel['A29']>=60 and npc_rel['A29']<80:'You have a good relationship with your mother.'
 					if npc_rel['A29']>=80:'You have a great relationship with your mother.'
@@ -389,10 +389,10 @@ if $ARGS[0] = '':
 					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/mother.jpg"></center>'
 
 					if npc_rel['A29'] < 80:
-						'You barely have any memories of your real father, and are curious about him. When you see your mother in the kitchen you decide to ask: "Mom... about my real father... what was he like? What happened between you two?"'
+						'You barely have any memories of your real father, and are curious about him. When you see your mother in the kitchen you decide to ask: "Mum... about my real father... what was he like? What happened between you two?"'
 						'You seem to have struck a sore spot. Your mother''s face saddens, and after a few seconds she replies: "<<$pcs_nickname>>, I don''t want to talk about him, it brings back too many bad memories. Just know that Vladimir, your stepfather, raised you and Anya as if they were his own daughters."'
 					elseif npc_rel['A29'] >= 80:
-						'You barely have any memories of your real father, and are curious about him. When you see your mother in the kitchen you decide to ask: "Mom... about my real father... what was he like? What happened between you two?"'
+						'You barely have any memories of your real father, and are curious about him. When you see your mother in the kitchen you decide to ask: "Mum... about my real father... what was he like? What happened between you two?"'
 						'You seem to have struck a sore spot. Your mother''s face saddens, and after a few seconds she replies: "I have no idea where Mikhail is and what he does now, I haven''t seen him in many years. We went to the same school when we were young, and were dating back then... nothing serious. Things weren''t great between us, but then I got pregnant with your sister Anya. Our parents forced us to get married. We tried to make the most of it, and for a while things didn''t seem so bad. A few months after I had you, we got into a huge argument though. We decided we couldn''t live together any more, and got divorced." You can''t help but notice she won''t tell you what the argument was about, but you don''t interrupt her. It''s rare enough to get her to talk about your real father as it is.'
 						'"A year later I married Vladimir, your stepfather. We had Kolka together, but Vladimir always treated you and Anya as if they were his own daughters too. He looked after you, bathed you, told you stories at night and took you for walks whenever he could." Those memories seem to have cheered her up, and she has a serene smile on her face. "Vladimir really is a wonderful man..." she adds, while you thank her for the story.'
 					end
@@ -405,7 +405,7 @@ if $ARGS[0] = '':
 					gs 'stat'
 					'<center><b><font color="maroon">Your mother, Natasha <<$pcs_lastname>></font></b></center>'
 					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/mother.jpg"></center>'
-					'You wait until your mother is in a good mood, and then quickly swoop in: "Mom, I have nothing nice to wear. Can I please have some new clothes?"'
+					'You wait until your mother is in a good mood, and then quickly swoop in: "Mum, I have nothing nice to wear. Can I please have some new clothes?"'
 					if pav_prostitute >= 100 and motherKnowWhore >= 1:
 						'Your mother is outraged by the suggestion. "Really <<$pcs_nickname>>? You have lots of customers, and you''re still asking me for clothes? You should have plenty of whore money, you can afford them yourself. Besides, I don''t know where to buy clothes for a whore."'
 
@@ -414,7 +414,7 @@ if $ARGS[0] = '':
 						if SchoolAtestat = 0:
 							if npc_rel['A29'] >= 80:
 								if motherClotheMonth ! month:
-									'Your mother lets out an exasperated sigh, and throws her hands in the air. "Here we go again... "Mommy, I have nothing to wear!"" he says, mocking your voice in a high pitch. You both laugh. "Alright then <<$pcs_nickname>>, let''s go see if we can find something."'
+									'Your mother lets out an exasperated sigh, and throws her hands in the air. "Here we go again... "Mummy, I have nothing to wear!"" he says, mocking your voice in a high pitch. You both laugh. "Alright then <<$pcs_nickname>>, let''s go see if we can find something."'
 
 									act 'Go to the store':
 										cla
@@ -501,7 +501,7 @@ if $ARGS[0] = '':
 					elseif MomPom = 7:
 						'Your mother asks you to go to the pharmacy, to get some medicine. Your mother''s sister, Lyudmila, works there and always gives your family the medicine you need for free. Your mother gave you a list of the items you need, and when you enter the pharmacy you see your aunt Luda behind the counter as always. She smiles when she recognizes you. "Hi <<$pcs_nickname>>! How are you? I hope everything is okay?"'
 						'"Hello aunt!" You greet her back, and have a chat with her before you give her list your mother made. Aunt Luda quickly gathers the items your mother wrote down, gathers them in a paper bag and hands the bag over to you. "Here you go, <<$pcs_nickname>>! Have a nice day, tell your mother I said hi!"'
-						'You say you will and wave her goodbye. When you come home, you give your mother the bag. After a few minutes you realize you forgot to pass on aunt Luda''s regards to your mom, but decide to not bother now.'
+						'You say you will and wave her goodbye. When you come home, you give your mother the bag. After a few minutes you realize you forgot to pass on aunt Luda''s regards to your mum, but decide to not bother now.'
 					elseif MomPom = 8:
 						MomPom = 1
 					end
@@ -746,7 +746,7 @@ if $ARGS[0] = 'pregreact':
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/mother.jpg"></center>'
 				'You tell your mother you''re pregnant. Your mother gasps and nearly falls on the ground, managing to sit down on a stool right on time. Tears are slowly forming in her eyes. "<<$pcs_nickname>>, oh no... I was afraid this would happen... Why did this happen..."'
 				'She stares at you for a good ten seconds through her tears, trying to think of what to say next. She then realizes that you need her to be on your side, and remembered how difficult it was for her when she was in your situation. "I know it will be difficult, but you must have this child <<$pcs_nickname>>. If you have an abortion now, it will be much more difficult to have children in the future. You can''t risk ending up barren, do you understand?"'
-				'You''re not quite sure about that just yet, but you see the concern on her face and figure the best thing you can do right now is just nod and give her a hug. "I understand, Mom... is it okay if I come to you for advice from time to time?"'
+				'You''re not quite sure about that just yet, but you see the concern on her face and figure the best thing you can do right now is just nod and give her a hug. "I understand, Mum... is it okay if I come to you for advice from time to time?"'
 				'"Of course you can sweetie, we''ll get through this together", she reassures you, returning your hug. Despite her supportive attitude, you can tell she''s very disappointed in you. You''ll have to put in some work if you want to get back on her good side.'
 				'"So, who''s the father?"'
 
@@ -766,7 +766,7 @@ if $ARGS[0] = 'pregreact':
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/mother.jpg"></center>'
 				'You tell your mother you''re pregnant. Your mother gasps and nearly falls on the ground, managing to sit down on a stool right on time. Tears are slowly forming in her eyes. "<<$pcs_nickname>>, oh no... I was afraid this would happen... Why did this happen..."'
 				'She stares at you for a good ten seconds through her tears, trying to think of what to say next. She then realizes that you need her to be on your side, and remembered how difficult it was for her when she was in your situation. "I know it will be difficult, but you must have this child <<$pcs_nickname>>. If you have an abortion now, it will be much more difficult to have children in the future. You can''t risk ending up barren, do you understand?"'
-				'You''re not quite sure about that just yet, but you see the concern on her face and figure the best thing you can do right now is just nod and give her a hug. "I understand, Mom... is it okay if I come to you for advice from time to time?"'
+				'You''re not quite sure about that just yet, but you see the concern on her face and figure the best thing you can do right now is just nod and give her a hug. "I understand, Mum... is it okay if I come to you for advice from time to time?"'
 				'"Of course you can sweetie, we''ll get through this together", she reassures you, returning your hug. Despite her supportive attitude, you can tell she''s very disappointed in you. You''ll have to put in some work if you want to get back on her good side.'
 
 				'"And go put on some clothes and then come back to talk to me. I need you to tell me who the father is."'
@@ -785,7 +785,7 @@ if $ARGS[0] = 'pregreactnude':
 	act 'Return to mother':gt 'mother', 'pregreact1'
 end
 
-!!Mom should have more pregnancy reactions than other characters.
+!!Mum should have more pregnancy reactions than other characters.
 !!Add shorter reactions inside this array. If longer, link to another array in the format of 'pregreactbrother'
 if $ARGS[0] = 'pregreact1':
 	*nl
@@ -827,7 +827,7 @@ if $ARGS[0] = 'pregreact1':
 		elseif stepdadSecret = 1 and pcs_intel < 60:
 			cla
 			'"Wow, I can''t believe that worked. I was for certain that you would figure out I was lying and I would have to tell you that Vladimir''s the true father."'
-			'Your mother stops in her tracks and looks at you stunned as you realize your mistake. "I was only... I was only joking mom." Your mother is not moving an inch and is still looking at you with wide-opened eyes. "Shit." you mumble under your breath.'
+			'Your mother stops in her tracks and looks at you stunned as you realize your mistake. "I was only... I was only joking mum." Your mother is not moving an inch and is still looking at you with wide-opened eyes. "Shit." you mumble under your breath.'
 
 			act 'Continue':gt 'mother', 'pregreactstepdad'
 		end
@@ -862,16 +862,16 @@ if $ARGS[0] = 'pregreact1':
 	end
 end
 
-!!When Sveta has another place to stay in Pav, there will be a follow-up to this conversation that restores access to the family apartment, if mom relationship is high enough.
+!!When Sveta has another place to stay in Pav, there will be a follow-up to this conversation that restores access to the family apartment, if mum relationship is high enough.
 if $ARGS[0] = 'pregreactbrother':
 	if npc_rel['A29'] < 60 and pregtalkbrother = 1 and brothersecret = 0:
 		'As soon as your brother''s name crosses your lips, your mother''s face visibly reddens. Her mouth curls into a snarl and she reaches up and grips you by your hair. '
 		'"What the fuck is wrong with you?" she screams in your face. "I knew you were a worthless whore, but this? Even I didn''t think you’d go so far as to try corrupting your brother, too."'
-		'Kolka tries to speak up. "Mom, <<$pcs_nickname>>-"'
+		'Kolka tries to speak up. "Mum, <<$pcs_nickname>>-"'
 		'Your mother quickly cuts him off. "Kolka, shut the fuck up and go to the living room. I''ll deal with you later."'
 		'He shuffles out of the room, stopping in the doorway for a moment to look at you sympathetically.'
 		'Your mother releases your hair as tears begin to stream down your face.'
-		'"Mom, I''m s-"'
+		'"Mum, I''m s-"'
 		'She slaps you hard across the face before you can finish the sentence.'
 		'"No, I don''t want to hear it. I can''t deal with you anymore. You need to leave this apartment right now! I don''t ever want to see you here again!"'
 		'She can''t really just toss you out, can she?'
@@ -915,7 +915,7 @@ if $ARGS[0] = 'pregreactbrother':
 		'"How could you?" She gasps. "What were you thinking?"'
 		'You start to reply before you mother cuts you off.'
 		'"It doesn''t matter; you can''t stay here. You have to leave."'
-		'Your brother grabs your hand before rising to your defense. "Mom, that''s not fair. You can’t just kick <<$pcs_nickname>> out."'
+		'Your brother grabs your hand before rising to your defense. "Mum, that''s not fair. You can’t just kick <<$pcs_nickname>> out."'
 		'"Kolka, sweetheart. Let go of your sister''s hand right now and shut up. Now is not the time."'
 		'Your brother reluctantly releases your hand, and in that moment you want nothing more than to feel the warmth of his skin against yours again. His hand''s departure from your own makes you feel more alone and terrified than you ever have.'
 		'Still, you can''t fault Kolka for that. There isn''t much else he could have done in that situation. If you survive this, you fully intend to reward your brother for his moment of bravery.'
@@ -940,7 +940,7 @@ if $ARGS[0] = 'pregreactbrother':
 		'As soon as your brother''s name crosses your lips, your mother''s face visibly reddens. Her mouth curls into a snarl and she reaches up and grips you by your hair. '
 		'"What the fuck is wrong with you?" she screams in your face. "I knew you were a worthless whore, but this? Even I didn''t think you’d go so far as to try corrupting your brother, too."'
 		'Your mother releases your hair as tears begin to stream down your face.'
-		'"Mom, I''m s-"'
+		'"Mum, I''m s-"'
 		'She slaps you hard across the face before you can finish the sentence.'
 		'"No, I don''t want to hear it. I can''t deal with you anymore. You need to leave this apartment right now! I don''t ever want to see you here again!"'
 		'She can''t really just toss you out, can she?'
@@ -1001,7 +1001,7 @@ if $ARGS[0] = 'pregreactbrother':
 	end
 end
 
-!!When Sveta has another place to stay in Pav, there will be a follow-up to this conversation that restores access to the family apartment, if mom relationship is high enough.
+!!When Sveta has another place to stay in Pav, there will be a follow-up to this conversation that restores access to the family apartment, if mum relationship is high enough.
 if $ARGS[0] = 'pregreactstepdad':
 	if npc_rel['A29'] < 60 and pregtalkstepdad = 1 and stepdadSecret = 0:
 		'As soon as your step-father''s name crosses your lips, your mother''s face visibly reddens. Her mouth curls into a snarl and she reaches up and grips you by your hair and starts draging you around.'
@@ -1011,7 +1011,7 @@ if $ARGS[0] = 'pregreactstepdad':
 		'Knowing he''s in deep trouble, he hurries out of the room, only to stop by the doorway as he looks at you sympathetically for a moment...'
 		'Your mother lets go of your hair as tears begin to stream down your face.'
 		*nl
-		'"Mom, I''m s-"'
+		'"Mum, I''m s-"'
 		'You feel a hard slap across the face before you even begin explaining yourself.'
 		'"I don''t care what you have to say, there''s nothing that makes this okay. I... I can''t deal with you anymore. I want you out of this apartment right now! I don''t ever want to see you or that filthy child you''re bearing ever here again!"'
 		'You panic a little as you think that she won''t go through it, throwing you to fend on your own.'
@@ -1082,7 +1082,7 @@ if $ARGS[0] = 'pregreactstepdad':
 		'Knowing he''s in deep trouble, he hurries out of the room, only to stop by the doorway as he looks at you sympathetically for a moment...'
 		'Your mother lets go of your hair as tears begin to stream down your face.'
 		*nl
-		'"Mom, I''m s-"'
+		'"Mum, I''m s-"'
 		'You feel a hard slap across the face before you even begin explaining yourself.'
 		'"I don''t care what you have to say, there''s nothing that makes this okay. I... I can''t deal with you anymore. I want you out of this apartment right now! I don''t ever want to see you or that filthy child you''re bearing ever here again!"'
 		'You panic a little as you think that she won''t go through it, throwing you to fend on your own.'

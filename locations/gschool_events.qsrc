@@ -370,6 +370,7 @@ end
 
 !!this should be a random event that can happen at lunch if I recall correctly.
 if $ARGS[0] = 'rand_scoolboy':
+	:scoolboy_loop
 	scoolboy = rand(1,5)
 	*clr & cla
 	if scoolboy = 1:
@@ -396,7 +397,7 @@ if $ARGS[0] = 'rand_scoolboy':
 		if pav_sex >= 50 and kotovLoveQW <= 0: 
 			gt 'gschool_events', 'rand_gopnic'
 		else
-			gs 'gschool_events', 'rand_boy_arg', 0, 1, 0, 0, 1, 0
+			jump 'scoolboy_loop'
 		end
 	else
 		gs 'gschool_events', 'rand_boy_arg', 0, 1, 0, 0, 1, 0

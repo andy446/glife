@@ -1492,9 +1492,9 @@ if $ARGS[1] = 'main':
 						'<<$streetev_title>>'
 						'<center><img <<$set_imgh>> src="images/locations/shared/street/town/nakedmarket.jpg"></center>'
 						'You walk over and look over several of the items she has for sale.'
+						
 						tovpay1 = rand(3, 8) * 100
 						'She has some cosmetics for <<tovpay1>> <b>₽</b>.'
-
 						if money >= tovpay1:
 							act 'Buy the cosmetics (<<tovpay1>> <b>₽</b>)':
 								cls
@@ -1505,9 +1505,9 @@ if $ARGS[1] = 'main':
 								gt $loc
 							end
 						end
+						
 						tovpay2 = rand(3, 9) * 10
 						'She has lip balm for <<tovpay2>> <b>₽</b>.'
-
 						if money >= tovpay2:
 							act 'Buy the lipbalm (<<tovpay2>> <b>₽</b>)':
 								cls
@@ -1517,9 +1517,9 @@ if $ARGS[1] = 'main':
 								gt $loc
 							end
 						end
+						
 						tovpay3 = rand(2, 5) * 100
 						'She has some vitamins for <<tovpay3>> <b>₽</b>.'
-
 						if money >= tovpay3:
 							act 'Buy the vitamins for (<<tovpay3>> <b>₽</b>)':
 								cls
@@ -1529,21 +1529,18 @@ if $ARGS[1] = 'main':
 								gt $loc
 							end
 						end
+						
 						'She has a romance novel (300 <b>₽</b>)'
-
 						if money >= 300:
 							act 'Buy the romance novel (300 <b>₽</b>)':
 								cls
 								minut += 15
 								money -= 300
 								w_book += 1
-								gs 'stat'
-								'You bought a romance novel for 300 <b>₽</b>.'
-
-								act 'Leave':gt 'Grinok', 'start'
+								gt $loc
 							end
 						end
-						act 'leave':gt $loc
+						act 'Leave':gt $loc
 					end
 				else
 					gt $loc
@@ -1561,9 +1558,9 @@ if $ARGS[1] = 'main':
 						'<<$streetev_title>>'
 						'<center><img <<$set_imgh>> src="images/locations/shared/street/town/nakedmarket.jpg"></center>'
 						'You walk over and look over several of the items they have for sale.'
+						
 						tovpay1 = rand(3, 8) * 100
 						'They have some cosmetics for <<tovpay1>> <b>₽</b>.'
-
 						if money >= tovpay1:
 							act 'Buy the cosmetics (<<tovpay1>> <b>₽</b>)':
 								cls
@@ -1574,9 +1571,9 @@ if $ARGS[1] = 'main':
 								gt $loc
 							end
 						end
+						
 						tovpay2 = rand(3, 9) * 10
 						'They have lip balm for <<tovpay2>> <b>₽</b>.'
-
 						if money >= tovpay2:
 							act 'Buy the lipbalm (<<tovpay2>> <b>₽</b>)':
 								cls
@@ -1586,9 +1583,9 @@ if $ARGS[1] = 'main':
 								gt $loc
 							end
 						end
+						
 						tovpay3 = rand(2, 5) * 100
 						'They have some vitamins for <<tovpay3>> <b>₽</b>.'
-
 						if money >= tovpay3:
 							act 'Buy the vitamins for (<<tovpay3>> <b>₽</b>)':
 								cls
@@ -1598,21 +1595,18 @@ if $ARGS[1] = 'main':
 								gt $loc
 							end
 						end
+						
 						'They have a romance novel (300 <b>₽</b>)'
-
 						if money >= 300:
 							act 'Buy the romance novel (300 <b>₽</b>)':
 								cls
 								minut += 15
 								money -= 300
 								w_book += 1
-								gs 'stat'
-								'You bought a romance novel for 300 <b>₽</b>.'
-
-								act 'Leave':gt 'Grinok', 'start'
+								gt $loc
 							end
 						end
-						act 'leave':gt $loc
+						act 'Leave': gt $loc
 					end
 				else
 					gt $loc

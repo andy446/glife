@@ -300,14 +300,15 @@ if $ARGS[0] = 'pavlbar':
 end
 
 if $ARGS[0] = 'pavgenpros':
-	cla
+	*clr & cla
 	proshotelday = daystart
 	pavproscount += 1
-	cls
+	guy += 1
+	pav_prostitute += rand(2,4)
 	gs'stat'
 	gs 'npcgeneratec', '0'
 	gs 'boyStat', $npclastgenerated
-	'The customer was <<$npc_notes[$npclastgenerated]>> and introduced himself as <<$boydesc>>.'
+	'The customer introduced himself as <<$boydesc>>.'
 	'Then you both got undressed and you started doing your job.'
 	picrand = rand(0, 14)
 	'<center><video autoplay loop src="images/shared/sex/blowjob/bj<<picrand>>.mp4"></video></center>'
@@ -321,11 +322,9 @@ if $ARGS[0] = 'pavgenpros':
 
 		'The man started laughing and tells you he paid to fuck you ''raw'' so that''s what he was going to do.'
 		dynamic $venerasiak
-
 	else
 		'The man started arguing but you could convince him that using a condom would be safer for both of you.'
 		gs 'dinsex', 'boy_puts_his_condom'
-
 	end
 	gs 'dinsex','vaginal_sex'
 	picrand = rand(1, 5)
@@ -334,26 +333,24 @@ if $ARGS[0] = 'pavgenpros':
 	dynamic $venerasiakOral
 	gs 'arousal', 'vaginal', 30
 	gs 'arousal', 'end'
-	guy += 1
-	pav_prostitute += rand(2,4)
+	gs 'stat'
 	if npc_rel['A217'] = 15:
 		act'Continue':
-		cls
-		cla
-			'"Wow your pussy is good but I really want to try out this sweet little asshole." <<$boydesc>> says.'
-			'"No way, we did not agree to this."'
+			*clr & cla
+			'"Wow your pussy is great, but I really want to try out this sweet little asshole." <<$boydesc>> says.'
+			'"No way, we didn''t agree to this."'
 			'"I don''t care bitch <<$npc_firstname[''A217'']>> still owes me a favor, so you are going to lie there and take it."'
-			'You try to get away but <<$boydesc>> pins you down and guides his cock towards your ass'
+			'You try to get away but <<$boydesc>> pins you down and guides his cock towards your ass.'
 			'<center><video autoplay loop src="images/shared/sex/anal/doggy/anal1.mp4"></video></center>'
-			'"at least use some lube..."'
+			'"At least use some lube..."'
 			'Before you can finish your sentence <<$boydesc>> has already penetrated your anus and is thrusting with all his might.'
-			'You were not ready for it and start screaming your longs out.'
-			'Luckily he did not last long and after 30 seconds he blew his load in your ass'
+			'You were not ready for it and start screaming your lungs out.'
+			'Luckily he did not last long and after 30 seconds he blew his load in your ass.'
 			gs 'arousal', 'anal', 30, 'prostitution','sub','rough'
 			gs 'arousal', 'end'
+			gs 'stat'
 			act'Go to the bar':gt 'hotel_resep','pavlbar'
 		end
-
 	else
 		gs 'dinsex','sexcum'
 		act'Go to the bar':gt 'hotel_resep','pavlbar'

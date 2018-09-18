@@ -9,12 +9,12 @@ if $ARGS[0] = 'chat':
 	*nl
 	brotherchat = rand(1,8)
 	if brotherchat = 1:
-		'"... so, yeah. Mum wants me to clean up my stuff on the couch, but if I''m going to sleep there anyways, why does it matter?" he asks, snapping you out of your idle thoughts and bringing you back to the room.'
+		'"... so, yeah. <<$npc_nickname[''A29'']>> wants me to clean up my stuff on the couch, but if I''m going to sleep there anyways, why does it matter?" he asks, snapping you out of your idle thoughts and bringing you back to the room.'
 		*nl
 		if npc_rel['A29'] >= 40:
-			'"I know it seems pointless but you should listen to mum. You''ll get in trouble otherwise," you admonish him.'
+			'"I know it seems pointless but you should listen to <<$npc_nickname[''A29'']>>. You''ll get in trouble otherwise," you admonish him.'
 		elseif npc_rel['A29'] < 40:
-			'"Ugh, I know! Mum is always nagging me about everything! She can be such a pain in the ass sometimes!" you '
+			'"Ugh, I know! <<$npc_nickname[''A29'']>> is always nagging me about everything! She can be such a pain in the ass sometimes!" you '
 		end
 
 	elseif brotherchat = 2:
@@ -63,10 +63,10 @@ if $ARGS[0] = 'chat':
 		end
 
 	elseif brotherchat = 8:
-		'"... I just want more time to play football with Zhendos and Mishan though," he moans. "I can''t do anything with them when mum is dragging us to boring old Gadukino every other weekend."'
+		'"... I just want more time to play football with Zhendos and Mishan though," he moans. "I can''t do anything with them when <<$npc_nickname[''A29'']>> is dragging us to boring old Gadukino every other weekend."'
 		*nl
 		if seepornofut = 0:
-			'"It''s okay Kolka," you console him. "Just enjoy the time you have with them. In a couple years mum might not force you to go anymore but you all might end up too busy to hang out."'
+			'"It''s okay Kolka," you console him. "Just enjoy the time you have with them. In a couple years <<$npc_nickname[''A29'']>> might not force you to go anymore but you all might end up too busy to hang out."'
 		elseif seepornofut >= 1:
 			'"Pfft! More like you want more time to watch porn with them!" you laugh scoffingly.'
 			*nl
@@ -195,7 +195,7 @@ if $ARGS[0] = 'bj':
 		'<center><video autoplay loop src="images/characters/pavlovsk/resident/kolka/event/homework/swallow.mp4"></video></center>'
 		'You diligently continue to blow him until you feel his hot cum spurting into your mouth. Gathering it all up, your remove your lips from Kolka''s cock, tilting your head back and swallowing at the same time.'
 		'"I can''t believe you just swallowed like that," he says, breathless.'
-		'"We shouldn''t leave a mess for mum and dad to find, right?" you say, giving him a clean smile.'
+		'"We shouldn''t leave a mess for <<$npc_nickname[''A29'']>> and dad to find, right?" you say, giving him a clean smile.'
 		'After licking his cock a little bit more to make sure it''s clean, you finish up by helping him put it back in his trousers, lest your mother suddenly walk in and wonder what you''re doing together.'
 		act'Finish':gt'sitrPar'
 	end
@@ -243,7 +243,7 @@ if $ARGS[0] = 'wakeup':
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/kolka/brother.jpg"></center>'
 	'"Hey, it''s time to get up Kolka."'
 	'"Mrph. Lemme alone," he mutters, eyes squeezing tight in annoyance.'
-	'"Come on Kolka. Mum''s gonna be mad if you''re late for breakfast again."'
+	'"Come on Kolka. <<$npc_nickname[''A29'']>>''s gonna be mad if you''re late for breakfast again."'
 	'He doesn''t respond except to grumble again, turning over and pulling his blanket tighter.'
 	*nl
 	act'Leave him alone':
@@ -266,24 +266,24 @@ if $ARGS[0] = 'wakeup':
 		if brotherSex >= 7:
 			'"You know, it''s a good thing that you put out or I might not like you as much."'
 			'Rolling your eyes, you toss your brother''s blanket into the corner.'
-			'"Yeah, well lucky for you, I happen to go above and beyond the qualities of a good sister. Including getting her annoying little brother out of bed when he needs to be getting ready for school. Now go get dressed before mum comes out and yells at you!"'
+			'"Yeah, well lucky for you, I happen to go above and beyond the qualities of a good sister. Including getting her annoying little brother out of bed when he needs to be getting ready for school. Now go get dressed before <<$npc_nickname[''A29'']>> comes out and yells at you!"'
 		elseif brotherSex = 6:
 			'"You''re lucky that you give me blowjobs or I might actually get mad at you."'
 			'You throw your brother''s blanket into the corner.'
-			'"You''re lucky I decide to give you blowjobs at all! Keep this up and that might change. You might end up having to get your own rocks off," you sneer, miming a jerk-off motion at him. "Now go get dressed before mum comes out and yells at you too!"'
+			'"You''re lucky I decide to give you blowjobs at all! Keep this up and that might change. You might end up having to get your own rocks off," you sneer, miming a jerk-off motion at him. "Now go get dressed before <<$npc_nickname[''A29'']>> comes out and yells at you too!"'
 		elseif brotherSex = 5:
 			npc_rel['A34'] -= 1
 			'"Not even handjobs are worth this," he mutters.'
-			'"Yeah well I can always stop if you''re gonna be a little baby about it," you say, throwing your brother''s blanket into the corner. "Now go get dressed before mum comes out here and yells at you."'
+			'"Yeah well I can always stop if you''re gonna be a little baby about it," you say, throwing your brother''s blanket into the corner. "Now go get dressed before <<$npc_nickname[''A29'']>> comes out here and yells at you."'
 		elseif $clothingworntype = 'nude':
 			npc_rel['A34'] -= 1
 			'"At least you have the decency to give me a good view when you ruin my sleep in the morning."'
 			'You roll your eyes in exasperation and throw his blanket into the corner.'
-			'"Shut the fuck up and get dressed for school Kolka. Before mum comes out here and yells at the both of us."'
+			'"Shut the fuck up and get dressed for school Kolka. Before <<$npc_nickname[''A29'']>> comes out here and yells at the both of us."'
 		else
 			npc_rel['A34'] -= 1
 			'"I hate you."'
-			'"Oh stop being so melodramatic," you say, rolling your eyes and tossing his blanket into the corner. "Now get ready for school before mum yells at you."'
+			'"Oh stop being so melodramatic," you say, rolling your eyes and tossing his blanket into the corner. "Now get ready for school before <<$npc_nickname[''A29'']>> yells at you."'
 		end
 		act'Move away':gt $loc, $metka
 	end
@@ -419,7 +419,7 @@ if $ARGS[0] = 'wakeup':
 					if brotherwaketrick = 1:
 						'"Pretty happy, yeah. Especially since you actually kept your promise this time."'
 						'You gently lower your top again, not really sure what to say to that. He is right. You didn''t keep your promise last time.'
-						'"Well, I followed through this time. Hopefully you''ll forgive me. Now go get dressed Kolka. Mum will kill you if you''re late for school."'
+						'"Well, I followed through this time. Hopefully you''ll forgive me. Now go get dressed Kolka. <<$npc_nickname[''A29'']>> will kill you if you''re late for school."'
 						brotherwaketrick = 2
 					else
 						'"Very. Not that I''m complaining, but how come you showed me your boobs too? I only asked to see your pussy."'
@@ -462,7 +462,7 @@ if $ARGS[0] = 'wakeup':
 			cla
 			brotherMorningSex = daystart
 			brotherwakeup += 1
-			'"I''ll tell you what Kolka, if you get up now, I''ll help you deal with your morning wood before mum and dad come out of their room."'
+			'"I''ll tell you what Kolka, if you get up now, I''ll help you deal with your morning wood before <<$npc_nickname[''A29'']>> and dad come out of their room."'
 			'His eye cracks open to look at you, seemingly intrigued.'
 			'"How?"'
 			'"With a handjob of course!"'
@@ -475,7 +475,7 @@ if $ARGS[0] = 'wakeup':
 				'<center><img <<$set_imgh>> src="images/shared/sex/handjob/kotovhj.jpg"></center>'
 				'Pulling down Kolka''s pants, you get started immediately, gently working his member with your hand.'
 				'Within just a few minutes he groans, ejaculating as his warm cum coats your fingers.'
-				'Your duty done, you pull your now sticky hand back, saying, "Alright Kolka. A deal''s a deal. Now clean up and get dressed before mum comes out here and sees you like this."'
+				'Your duty done, you pull your now sticky hand back, saying, "Alright Kolka. A deal''s a deal. Now clean up and get dressed before <<$npc_nickname[''A29'']>> comes out here and sees you like this."'
 				'"Alright!" he says cheerfully, waddling away with his pants around his ankles to find some tissues to clean himself up.'
 				gs 'arousal', 'end'
 				act'Move away':gt $loc, $metka
@@ -488,7 +488,7 @@ if $ARGS[0] = 'wakeup':
 			brotherMorningSex = daystart
 			brotherwakeup += 1
 			npc_rel['A34'] += 5
-			'"Okay Kolka, if you get up now, before mum and dad come out of their room, I''ll give you a blowjob."'
+			'"Okay Kolka, if you get up now, before <<$npc_nickname[''A29'']>> and dad come out of their room, I''ll give you a blowjob."'
 			'His eye cracks open to look at you, seemingly intrigued.'
 			'"How does that sound?"'
 			'"Sounds pretty good to me," he says, throwing off his blanket and leaning back as he pulls his <<dick>> cm cock out.'
@@ -507,7 +507,7 @@ if $ARGS[0] = 'wakeup':
 				'Kneeling down, you lean forward and wrap your lips around Kolka''s cock. You suck on it gently, but move your head forward and backward with quick bobbing motions.'
 				'Several minutes go by before you feel hot viscous liquid shooting into your mouth without warning and hear your brother sighing loudly in satisfaction. You pull back as he finishes cumming and realizing there''s nowhere else for you to deposit his sperm, swallow it in one gulp.'
 				'"Thanks sis," he says. "That was pretty refreshing. Actually makes me want to get up in the morning if you''re gonna give me great head like that!"'
-				'"Glad I could help I guess," you reply, giving his cock a few more licks to make sure it''s clean. "Now go get dressed for school. Before mum comes out and yells at you for having your dick hanging out."'
+				'"Glad I could help I guess," you reply, giving his cock a few more licks to make sure it''s clean. "Now go get dressed for school. Before <<$npc_nickname[''A29'']>> comes out and yells at you for having your dick hanging out."'
 				'"Okay, okay," he says, getting up and tidying up the couch from where he was sleeping.'
 				gs 'arousal', 'end'
 				act'Move away':gt $loc, $metka

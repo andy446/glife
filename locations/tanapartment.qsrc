@@ -40,7 +40,7 @@ if tanpred < 2:
 					'She used to be a housekeeper, cleaning and cooking for several different people over the years - Tanya suspects that one of them was her father but her mother doesn''t like to talk about it. She came to Nicholas as his employee a few years ago, when he was still building up his company, but she managed to wrap him around her finger and now, a few years later, she is living the life!'
 				elseif tan_apartment_rand = 3 and ntstart = 1:
 					'Tanya asks you about your family.' 
-					'You tell her how your Mum tried to run your life and that you haven''t talked to her since you left. You talk for a while about your former life but are still a bit cagey and gloss over many details.'
+					'You tell her how your <<$npc_nickname[''A29'']>> tried to run your life and that you haven''t talked to her since you left. You talk for a while about your former life but are still a bit cagey and gloss over many details.'
 				elseif tan_apartment_rand = 3 and storyline = 0:
 					'Tanya asks you about your family.' 
 					'Of course, you can''t tell her that, really, you are a married middle-aged man and father, trapped in the body of a young woman, so you say that you and your family are estranged, that you left home a while ago and have been avoiding thinking about them ever since. She seems to be buying your story, if her sympathetic look is any indication.'
@@ -137,7 +137,7 @@ if tanpred < 2:
 		'<center><b>Tanya''s Apartment</b></center>'
 		'<center><img <<$set_imgh>> src="images/locations/city/shared/house.jpg"></center>'
 		'When you look into Tanya''s eyes, they seem to be sparkling with excitement, and her entire face lights up as she smiles at you.'
-		'"<<$pcs_nickname>>, I have the best idea ever! Mum just fired our maid yesterday, and I could suggest <b>you</b> to my stepfather as a replacement! He pays really well, and all you gotta do is tidy up a bit, but you would be able to live right here with us!"'
+		'"<<$pcs_nickname>>, I have the best idea ever! <<$npc_nickname[''A29'']>> just fired our maid yesterday, and I could suggest <b>you</b> to my stepfather as a replacement! He pays really well, and all you gotta do is tidy up a bit, but you would be able to live right here with us!"'
 		'Tanya is so giddy that you almost don''t dare to voice your concerns: "And where do you get the idea that your stepfather would employ me? I''ve never worked as a maid before and I''m sure that, with his kind of money, he could get a much better one."'
 		'"Believe me, if I ask him <i>nicely</i>, he will hire you", Tanya smiles lasciviously.'
 

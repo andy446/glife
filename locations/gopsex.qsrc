@@ -1132,14 +1132,6 @@ if $ARGS[0] = 'hide':
 		if rnd_talkgg2_text = 13:$rnd_talkgg2_text = 'drowsily'
 		if rnd_talkgg2_text = 14:$rnd_talkgg2_text = 'wickedly'
 
-		rnd_namemom_text = rand(1,6)
-		if rnd_namemom_text = 1:$rnd_namemom_text = 'Mother'
-		if rnd_namemom_text = 2:$rnd_namemom_text = 'Mo'
-		if rnd_namemom_text = 3:$rnd_namemom_text = 'Mummy'
-		if rnd_namemom_text = 4:$rnd_namemom_text = 'Mum'
-		if rnd_namemom_text = 5:$rnd_namemom_text = 'Mama'
-		if rnd_namemom_text = 6:$rnd_namemom_text = 'Mummy'
-		
 		if rand(0,1) = 1:
 			$rnd_namesis_text = 'Sister'
 		else
@@ -1150,41 +1142,41 @@ if $ARGS[0] = 'hide':
 		!----
 		!Mother:
 		rnd_mom_txt1 = rand(1,2)
-		if rnd_mom_txt1 = 1:$rnd_mom_txt1 = '" It''s all, <<$rnd_namemom_text>>, I''ll come right away."'
-		if rnd_mom_txt1 = 2:$rnd_mom_txt1 = '" <<$rnd_namemom_text>>, one more to be served and I''ll come right away."'
+		if rnd_mom_txt1 = 1:$rnd_mom_txt1 = '" It''s all, <<$npc_nickname[''A29'']>>, I''ll come right away."'
+		if rnd_mom_txt1 = 2:$rnd_mom_txt1 = '" <<$npc_nickname[''A29'']>>, one more to be served and I''ll come right away."'
 !---->
 		rnd_caught_mom = rand(1,6)
 		if pav_slut >= 150:
 			if rand(0,1) = 0:
-				$rnd_caught_mom = '<<$rnd_rodnya_text>> your <<$rnd_namemom_text>>, <<$rnd_viewgg_text>> and <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>: - <<$rnd_telogg2_text>>'
+				$rnd_caught_mom = '<<$rnd_rodnya_text>> your <<$npc_nickname[''A29'']>>, <<$rnd_viewgg_text>> and <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>: - <<$rnd_telogg2_text>>'
 			else
-				$rnd_caught_mom = '<<$rnd_rodnya_text>> your <<$rnd_namemom_text>>, <<$rnd_viewgg_text>> and <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
+				$rnd_caught_mom = '<<$rnd_rodnya_text>> your <<$npc_nickname[''A29'']>>, <<$rnd_viewgg_text>> and <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
 				"Well, <<$pcs_nickname>>, you found a place, where customers take."'
 			end
 		elseif momslut >= 1:
-			$rnd_caught_mom = '<<$rnd_rodnya_text>> your <<$rnd_namemom_text>>, <<$rnd_viewgg_text>> and <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
+			$rnd_caught_mom = '<<$rnd_rodnya_text>> your <<$npc_nickname[''A29'']>>, <<$rnd_viewgg_text>> and <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
 			"When you''ve served the boys, don''t forget to <<$rnd_domdela_text>>"'
 		elseif pcs_vag >= 30:
-			$rnd_caught_mom = '<<$rnd_rodnya_text>> your <<$rnd_namemom_text>>, <<$rnd_viewgg_text>> and <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
+			$rnd_caught_mom = '<<$rnd_rodnya_text>> your <<$npc_nickname[''A29'']>>, <<$rnd_viewgg_text>> and <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
 			"Girl, you shoud have a rest and not to fuck for a while - your cunny is like a bucket, it isn''t closing."'
 		else
 			if rnd_caught_mom = 1:
-				$rnd_caught_mom = '<<$rnd_rodnya_text>> your <<$rnd_namemom_text>>, <<$rnd_viewgg_text>> and <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>: - <<$rnd_telogg_text>>'
+				$rnd_caught_mom = '<<$rnd_rodnya_text>> your <<$npc_nickname[''A29'']>>, <<$rnd_viewgg_text>> and <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>: - <<$rnd_telogg_text>>'
 			elseif rnd_caught_mom = 2:
-				$rnd_caught_mom = '<<$rnd_rodnya_text>> your <<$rnd_namemom_text>>, <<$rnd_viewgg_text>> and <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
+				$rnd_caught_mom = '<<$rnd_rodnya_text>> your <<$npc_nickname[''A29'']>>, <<$rnd_viewgg_text>> and <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
 				"You are naughty again <<$pcs_nickname>>? I begged you not to fuck at every corner, you got fully out of hand, slut!"'
 			elseif rnd_caught_mom = 3:
-				$rnd_caught_mom = '<<$rnd_rodnya_text>> your <<$rnd_namemom_text>>, <<$rnd_viewgg_text>> and <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
+				$rnd_caught_mom = '<<$rnd_rodnya_text>> your <<$npc_nickname[''A29'']>>, <<$rnd_viewgg_text>> and <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
 				"Well, <<$pcs_nickname>>, I can see you''ve found a place to spread your legs for guys ... horribly unsanitary."
 				"It''s not my fault, the idea, to go here, occurred to the boys. As soon as they finish, I''ll come home and I''ll take a bath." You replied being on your knees and cleaning your messy holes with wet wipes.'
 			elseif rnd_caught_mom = 4:
-				$rnd_caught_mom = '<<$rnd_rodnya_text>> your <<$rnd_namemom_text>>, <<$rnd_viewgg_text>> and <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
+				$rnd_caught_mom = '<<$rnd_rodnya_text>> your <<$npc_nickname[''A29'']>>, <<$rnd_viewgg_text>> and <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
 				"<<$pcs_nickname>>, instead of fucking the whole town, you should do your homework."
-				"Yes mum, I''ve done it!"'
+				"Yes <<$npc_nickname[''A29'']>>, I''ve done it!"'
 			elseif rnd_caught_mom = 5:
-				$rnd_caught_mom = '<<$rnd_rodnya_text>> your <<$rnd_namemom_text>>, <<$rnd_viewgg_text>> and <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>: - "Girl, you shoud have a break and not to fuck for a while."'
+				$rnd_caught_mom = '<<$rnd_rodnya_text>> your <<$npc_nickname[''A29'']>>, <<$rnd_viewgg_text>> and <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>: - "Girl, you shoud have a break and not to fuck for a while."'
 			elseif rnd_caught_mom = 6:
-				$rnd_caught_mom = '<<$rnd_rodnya_text>> your <<$rnd_namemom_text>>, <<$rnd_viewgg_text>> and <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>: - "Girl, how come they bitched you so? .. Will you be home soon?"
+				$rnd_caught_mom = '<<$rnd_rodnya_text>> your <<$npc_nickname[''A29'']>>, <<$rnd_viewgg_text>> and <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>: - "Girl, how come they bitched you so? .. Will you be home soon?"
 				<<$rnd_mom_txt1>>'
 			end
 		end
@@ -1194,7 +1186,7 @@ if $ARGS[0] = 'hide':
 		rnd_caught_sister = rand(1,4)
 
 		if rnd_caught_sister = 1 and pav_slut < 150:$rnd_caught_sister = '<<$rnd_rodnya_text>> your <<$rnd_namesis_text>>, <<$rnd_viewgg_text>> and <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
-		"<<$rnd_namemom_text>> asked me to tell you, not forget to <<$rnd_domdela_text>>, when you''ve finished."'
+		"<<$npc_nickname[''A29'']>> asked me to tell you, not forget to <<$rnd_domdela_text>>, when you''ve finished."'
 		if rnd_caught_sister = 1 and pav_slut >= 150:$rnd_caught_sister = '<<$rnd_rodnya_text>> your <<$rnd_namesis_text>>, <<$rnd_viewgg_text>> and <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
 		"You''re such slut, <<$pcs_nickname>>"'
 		if rnd_caught_sister = 2 and pav_slut < 150:$rnd_caught_sister = '<<$rnd_rodnya_text>> your <<$rnd_namesis_text>>, <<$rnd_viewgg_text>> and <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
@@ -1203,11 +1195,11 @@ if $ARGS[0] = 'hide':
 		<<$rnd_telogg2_text>>'
 		if rnd_caught_sister = 3:$rnd_caught_sister = '<<$rnd_rodnya_text>> your <<$rnd_namesis_text>>, <<$rnd_viewgg_text>> and <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
 		"I''m running about and searching her high and low ... and it emerges that she is being fucked here. Put a bell on your neck or something, so I could find you easier next time.
-		Give me your keys, filthy slut, I forgot my keys at home. ... 
-		Okay! let it be, I''ll do it myself. In your purse? Take out the dick out of your mouth, when an elder inquires you! In your pocket? Ok, I found them. ... 
+		Give me your keys, filthy slut, I forgot my keys at home. ...
+		Okay! let it be, I''ll do it myself. In your purse? Take out the dick out of your mouth, when an elder inquires you! In your pocket? Ok, I found them. ...
 		If you go into bathroom, clean it all with powder. The last thing I need is being after you by Holy Ghost knocked up."'
 		if rnd_caught_sister = 4 and pav_slut < 150:$rnd_caught_sister = '<<$rnd_rodnya_text>> your <<$rnd_namesis_text>>, <<$rnd_viewgg_text>> and <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
-		"<<$pcs_nickname>>, Mum is looking for her, and she is being fucked here. How long yet?"
+		"<<$pcs_nickname>>, <<$npc_nickname[''A29'']>> is looking for you, and you are being fucked right here! How long do you need?"
 		"Oh sis, it''s so enjoyable ... another ten minutes they fuck me and then I''ll come right."'
 		if rnd_caught_sister = 4 and pav_slut >= 150:$rnd_caught_sister = '<<$rnd_rodnya_text>> your <<$rnd_namesis_text>>, <<$rnd_viewgg_text>> and <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
 		"<<$pcs_nickname>>, you are with clients? How long yet? You''ve to wake up early tomorrow."
@@ -1220,7 +1212,7 @@ if $ARGS[0] = 'hide':
 		rnd_caught_brother = rand(1,3)
 
 		if rnd_caught_brother = 1 and momslut >= 1:$rnd_caught_brother = '<<$rnd_rodnya_text>>, your brother <<$rnd_viewgg_text>> <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
-		"<<$rnd_namemom_text>> asked me to tell you, not forget to <<$rnd_domdela_text>>, when you''ve finished."'
+		"<<$npc_nickname[''A29'']>> asked me to tell you, not forget to <<$rnd_domdela_text>>, when you''ve finished."'
 		if rnd_caught_brother = 1 and momslut < 1:$rnd_caught_brother = '<<$rnd_rodnya_text>>, your brother <<$rnd_viewgg_text>> <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
 		"You''re such slut, <<$pcs_nickname>>"'
 		if rnd_caught_brother = 2 and pav_slut < 150:$rnd_caught_brother = '<<$rnd_rodnya_text>>, your brother <<$rnd_viewgg_text>> <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
@@ -1238,7 +1230,7 @@ if $ARGS[0] = 'hide':
 		!Stepfather:
 		rnd_caught_stepfather = rand(1,2)
 		if rnd_caught_stepfather = 1 and momslut >= 1:$rnd_caught_stepfather = '<<$rnd_rodnya_text>>, your stepfather <<$rnd_viewgg_text>> <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
-		"<<$rnd_namemom_text>> asked me to tell you, not forget to <<$rnd_domdela_text>>, when you''ve finished."'
+		"<<$npc_nickname[''A29'']>> asked me to tell you, not forget to <<$rnd_domdela_text>>, when you''ve finished."'
 		if rnd_caught_stepfather = 1 and momslut < 1:$rnd_caught_stepfather = '<<$rnd_rodnya_text>>, your stepfather <<$rnd_viewgg_text>> <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
 		"You''re such slut, <<$pcs_nickname>>"'
 		if rnd_caught_stepfather = 2 and pav_slut < 150:$rnd_caught_stepfather = '<<$rnd_rodnya_text>>, your stepfather <<$rnd_viewgg_text>> <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
@@ -1275,20 +1267,20 @@ if $ARGS[0] = 'hide':
 		if rnd_caught_othernpc = 7 and evgenQW < 4:$rnd_caught_othernpc = '<<$rnd_rodnya_text>>, uncle Misha <<$rnd_viewgg_text>> <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
 		"Oh dear! What kind of people! Like mother, like daughter! Exactly the same! Boobs exposed, legs apart. And the eyes are so cunning ... Come to me then, we need to talk."'
 		if rnd_caught_othernpc = 7 and evgenQW >= 4:$rnd_caught_othernpc = 'Your brother''s football buddies notice you, when they are walking past you. They stop and start talking about you intensively:
-		"Oh, my fuck, we treat her like a princess: only in her mouth .. thank you .. please .. see you! It turns out that she is quite a prostitute. Oh shit, if we had known it then, we would have '+func('gopsex','hide','gop_sextext2')+' that ripper in one gate all three of us, as we had wanted always. Well .. Svetochka .. It isn''t hard for you to help us, is it? ... After all, you are Kolya''s sister .. moreover older. Cavaliers, fuck ... Now we get all. After all, they don''t ask whores, they bang them right with their cocks, do they? Am I right, <<$pcs_nickname>>?" ... 
+		"Oh, my fuck, we treat her like a princess: only in her mouth .. thank you .. please .. see you! It turns out that she is quite a prostitute. Oh shit, if we had known it then, we would have '+func('gopsex','hide','gop_sextext2')+' that ripper in one gate all three of us, as we had wanted always. Well .. Svetochka .. It isn''t hard for you to help us, is it? ... After all, you are Kolya''s sister .. moreover older. Cavaliers, fuck ... Now we get all. After all, they don''t ask whores, they bang them right with their cocks, do they? Am I right, <<$pcs_nickname>>?" ...
 		"Hurrah, she nodded! Oooh, you''re such our sweetie! Fuck yeah! We''re lucky: We have got our cum dumpster now. See you soon, fuckhole! Prepare your butt hole! Let''s delight Kolya. He has been always jacking off dreaming about her. ... I call dibs on her ass!"
 		"Can she hold three at once in her mouth? We should try it long ago. Fuck, we were too shy to suggest it, frigging gentlemen!"'
 		if rnd_caught_othernpc = 8:$rnd_caught_othernpc = 'You are approached by a charwoman in the stairwell:
 		"Well boys, step back and let your toy have a rest for a while. Don''t throw away bottle, just put them on window sill when you''re done. I''ll take them away. Don''t make a mess with scumbags everywhere! I gather up after you on half a bucket each day! Better, don''t use them at all: it will be much pleasurable for you and your smasher without them or stack them neatly into her purse: she can take her trophies home with her, when she is done. Oi! Oi!!! Fuckbunny! Swallow, don''t spit on the floor! Did you understand? Washing the floor after every whore, I would ruin my health. Don''t drain your pussy onto the floor otherwise I''ll make you lick all the scum!"'
 		if rnd_caught_othernpc = 9:$rnd_caught_othernpc = '<<$rnd_rodnya_text>>, Aunt Luda <<$rnd_viewgg_text>> <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
 		"Hey, <<$pcs_nickname>>, how is your sex life? Just think, it was only recently, when a tweeny, bows in her hair, blushing and stuttering, bought pads in my pharmacy for the first time. And now her lap squelches here all around so one can hear even on the street. You grew up very early. You better not stand like doggie here, fool. Do you know, what distinguishes sluts from decent girls? Scraped knees. Come for Green, I''ll give it to you for a half price, goof!"'
-		if rnd_caught_othernpc = 10:$rnd_caught_othernpc = '<<$rnd_rodnya_text>>, a mum with her little daughter notice you. The mother takes daughter by the hand and tells her:
-		"Turn away and don''t watch! This girl just did not obey her mummy and that''s why she''s punished. Do you hear her calling her mum now? Obey mum and you''ll never end up like her!"
+		if rnd_caught_othernpc = 10:$rnd_caught_othernpc = '<<$rnd_rodnya_text>>, a mother with her little daughter notice you. The mother takes daughter by the hand and tells her:
+		"Turn away and don''t watch! This girl just did not obey her mama and that''s why she''s punished. Do you hear her calling her mama now? Obey mama and you''ll never end up like her!"
 		She turns to you: "Couldn''t you wait, until you get home, slut? Do you have to shake buttocks just here? By the way, children walk here."'
 		if rnd_caught_othernpc = 11 and pav_slut < 150:$rnd_caught_othernpc = '<<$rnd_rodnya_text>>, '+func('gopsex','hide','Shulga_var_name')+' notices you and stops. He asked you:
 		"<<$pcs_nickname>>, why do you go with these tadpoles?"
 		You smirks and reply: "Frankly, I go with everybody."'
-		if rnd_caught_othernpc = 11 and pav_slut >= 150:$rnd_caught_othernpc = '<<$rnd_rodnya_text>>, '+func('gopsex','hide','Shulga_var_name')+' notices you and stops. He asks you: -"<<$pcs_nickname>>, do you have a session of beneficence today, or something?" 
+		if rnd_caught_othernpc = 11 and pav_slut >= 150:$rnd_caught_othernpc = '<<$rnd_rodnya_text>>, '+func('gopsex','hide','Shulga_var_name')+' notices you and stops. He asks you: -"<<$pcs_nickname>>, do you have a session of beneficence today, or something?"
 		You are taken aback and you reply: "Why on earth? I don''t go with strangers for free."'
 		if rnd_caught_othernpc = 12 and pav_slut < 150:$rnd_caught_othernpc = '<<$rnd_rodnya_text>>, uncle Misha <<$rnd_viewgg_text>> and <<$rnd_talkgg_text>> <<$rnd_talkgg2_text>>:
 		"<<$pcs_nickname>>, you are already hyped up, could you gratify the old boy?"
@@ -1306,7 +1298,7 @@ if $ARGS[0] = 'hide':
 
 		!NPC choose which fuse years
 		rnd_caughtgg_npc = rand(1,5)
-		!mum
+		!mother
 		if rnd_caughtgg_npc = 1:$rnd_caughtgg_npc = '<<$rnd_caught_mom>>'
 		!different NPCs (Uncle Misha, Shulga, Aunt Luda , etc..d.)
 		if rnd_caughtgg_npc = 2:$rnd_caughtgg_npc = '<<$rnd_caught_othernpc>>'
@@ -1331,7 +1323,6 @@ if $ARGS[0] = 'hide':
 		killvar '$rnd_viewgg_text'
 		killvar '$rnd_talkgg_text'
 		killvar '$rnd_talkgg2_text'
-		killvar '$rnd_namemom_text'
 		killvar '$rnd_namesis_text'
 		killvar '$rnd_mom_txt1'
 		killvar '$rnd_caught_mom'

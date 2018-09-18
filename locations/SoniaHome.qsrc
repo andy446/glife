@@ -186,7 +186,7 @@ if $ARGS[0] = 'Cupcake Time':
 		gs'stat'
 		'<center><b><h4><font color=#ff0090><<"Katja Meynold">></font></h4></b></center>'
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/niko/nikomisc/soniahome/bedroom/katja2.jpg"></center>'
-		'After you all finish your cupcakes, Katja stands up and says, "I had a great time but it''s getting late. I better get going. I''m going to use the restroom before I go." Katja walks out of the room as she waves at everyone. Julia gets up next and says, "We should get going too <<$pcs_firstname>>. Sonia''s mum should be coming home soon, and we''d only disturb her." Sonia nods, as she responds, "I''ll be waiting by the front door when you are ready to go, and before you go, can you do me a favor and make sure that Katja doesn''t use all my hair care products. I told her she can use some, but that girl keeps "Sampling" each one." Julia adds, "When you have a moment please see me in the living room. I have something I would like to ask you." You nod at Julia, as she, and Sonia walk out of the kitchen.'
+		'After you all finish your cupcakes, Katja stands up and says, "I had a great time but it''s getting late. I better get going. I''m going to use the restroom before I go." Katja walks out of the room as she waves at everyone. Julia gets up next and says, "We should get going too <<$pcs_firstname>>. Sonia''s mother should be coming home soon, and we''d only disturb her." Sonia nods, as she responds, "I''ll be waiting by the front door when you are ready to go, and before you go, can you do me a favor and make sure that Katja doesn''t use all my hair care products. I told her she can use some, but that girl keeps "Sampling" each one." Julia adds, "When you have a moment please see me in the living room. I have something I would like to ask you." You nod at Julia, as she, and Sonia walk out of the kitchen.'
 		'<center><b><h4><font color=#FF00FF><<"Sonia Ivanko">></font></h4></b></center>'
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/niko/nikomisc/soniahome/soniasmile.jpg"></center>'
 
@@ -333,7 +333,7 @@ if $ARGS[0] = 'Katja Chat':
 		*pl '<center><img <<$set_imgh>> src="<<FUNC(''$face_image'')>>"></center>'
 		act 'Walk away':VKKatjaChat = 1 & gt 'SoniaHome', 'Bedroom'
 	else
-		'You approach Katja and she continues tweezing her eyebrow as she tells you, "You should talk to Julia then shower before Sonia''s mum gets home. You also check up on Sonia. I''m sure that she will be glad to see you walking around." You nod as you walk toward the hallway.'
+		'You approach Katja and she continues tweezing her eyebrow as she tells you, "You should talk to Julia then shower before Sonia''s mother gets home. You also check up on Sonia. I''m sure that she will be glad to see you walking around." You nod as you walk toward the hallway.'
 		act 'Walk away':gt 'SoniaHome', 'Hallway'
 	end
 end

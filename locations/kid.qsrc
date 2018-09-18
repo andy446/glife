@@ -24,6 +24,9 @@ $breastfeed = {
 	end
 	'You gently lay <<$kidname[ks]>> back <<$babyloc>>.'
 	act 'Done':
+		if pcs_mothername = '':
+			$pcs_mothername = input("What name do you wish your children to call you by?")
+		end
 		gt 'kid', 'start'
 	end
 }
@@ -50,7 +53,7 @@ $totplay = {
 	gs 'stat'
 	'<center><b><font color="maroon"><<$kidname[ks]>> <<$pcs_lastname>></font></b></center>'
 	'<center><img <<$set_imgh>> src="images/pc/activities/tot_play.jpg"></center>'
-	'"Mum! Mum! Mum! Mum!" Yells <<$kidname[ks]>>, "Come play with me!"'
+	'"<<$pcs_mothername>>! <<$pcs_mothername>>! <<$pcs_mothername>>! <<$pcs_mothername>>!" Yells <<$kidname[ks]>>, "Come play with me!"'
 	'"Ok <<$kidname[ks]>>!" You reply.'
 	'You pull out a bin of blocks and spend a period of time playing and building with your child.'
 	'After a short time, <<$kidname[ks]>> pushes over the small tower you have built, snickers and runs off'
@@ -82,7 +85,7 @@ $kidtv = {
 	'<center><b><font color="maroon"><<$kidname[ks]>> <<$pcs_lastname>></font></b></center>'
 	'<center><img <<$set_imgh>> src="images/shared/home/tv/kid_tv2.jpg"></center>'
 	'You attempt to curl up on the couch with <<$kidname[ks]>>'
-	'"Mum! I''m trying to watch TV!" <<$kidname[ks]>> says.'
+	'"<<$pcs_mothername>>! I''m trying to watch TV!" <<$kidname[ks]>> says.'
 	'"Well I am gonna watch with you." You reply, followed by tickling <<$kidname[ks]>> to open up a spot on the couch for you to sit.'
 	'You watch a kids TV show about two American teenagers that barely catches your interest.'
 	minut += 60
@@ -103,8 +106,8 @@ $homework = {
 	'<center><b><font color="maroon"><<$kidname[ks]>> <<$pcs_lastname>></font></b></center>'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/homework1.jpg"></center>'
 	'You see that <<$kidname[ks]>> is working on a pile of homework. They give kids so much homework now days.'
-	'"Can mummy help you with some of that?" you ask'
-	'<<$kidname[ks]>> replies, "Mummy?!... Mum stop treating me like a baby... but yes, I would like some help."'
+	'"Does my little darling want <<$pcs_mothername>> to help you with some of that?" you ask'
+	'<<$kidname[ks]>> replies, "<<$pcs_mothername>>?!... <<$pcs_mothername>> stop treating me like a baby... but yes, I would like some help."'
 	'<br>'
 	'You sit down at the table next to <<$kidname[ks]>> and begin to help <<$kidPosPronn[ks]>> with the homework'
 	if pcs_grades > 50:
@@ -121,6 +124,9 @@ $homework = {
 
 if $ARGS[0] = 'start':
 	gs 'stat'
+	if pcs_mothername = '':
+		$pcs_mothername = input("What name do you wish your children to call you by?")
+	end
 	if kid > 0:
 		k = 0
 		end

@@ -130,7 +130,7 @@ if $ARGS[0] = 'igorroom':
 			*clr & cla
 			'<center><h4><font color="maroon">Igor''s Room</font></h4></center>'
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/talkgf.jpg"></center>'
-			'Igor looks at his watch. "If you stay any later, my mum will come in and make a fuss and talk about how unseemly it is for a boy to have a girl in his room this late."'
+			'Igor looks at his watch. "If you stay any later, my mother will come in and make a fuss and talk about how unseemly it is for a boy to have a girl in his room this late."'
 			'You nod to him. "I understand, then I guess I will see you later."'
 			act 'Say goodbye and go home': gt 'pavResidential'
 			act 'Kiss':
@@ -1139,7 +1139,7 @@ if $ARGS[0] = 'home':
 			'A few moments later Igor answers the door and invites you in.'
 			act 'Enter': gt 'igorhome','hallway'
 		elseif hour >= 18 and hour < 22:
-			'A few moments later Igor''s mum answers the door and invites you in.'
+			'A few moments later Igor''s mother answers the door and invites you in.'
 			act 'Enter': gt 'igorhome','hallway'
 		else
 			'After knocking several times, no one answers. It seems no one is home or everyone is asleep.'
@@ -1151,7 +1151,7 @@ if $ARGS[0] = 'home':
 			'A few moments later Igor answers the door and invites you in.'
 			act 'Enter': gt 'igorhome','hallway'
 		elseif hour >= 18 and hour < 22:
-			'A few moments later Igor''s mum answers the door and invites you in.'
+			'A few moments later Igor''s mother answers the door and invites you in.'
 			act 'Enter': gt 'igorhome','hallway'
 		else
 			'After knocking several times, no one answers. It seems no one is home or everyone is asleep.'

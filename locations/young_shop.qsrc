@@ -811,14 +811,14 @@ if $ARGS[0] = '18':
 	kira = 1
 	'<b><center><font size="4"><font color="black">Parents just don''t understand</font></center></b>'
 	'Twenty minutes before the end of your shift, a lady approaches you with a glamorous looking girl beside her. The girl seems somewhat upset.'
-	'"Mum, this isn''t necessary. Let''s not shop in this store..."'
+	'"Mother, this isn''t necessary. Let''s not shop in this store..."'
 	'"Stop acting up! Your classmates are wearing these styles of clothes. You want to be popular right? You don''t want the others to make fun of you, do you?"'
 	'"Hello, may I help you?" You ask with a smile on your face.'
-	'The mother inspects you, appraising your appearance before turning to her daughter.'
+	'The woman inspects you, appraising your appearance before turning to her daughter.'
 	'"You see, Kira, this girl is only a little older than you, and dressed..." She does not have time to finish the sentence before Kira starts complaining again.'
 	'"Well, hardly anyone can see her here! I can''t wear this outside, especially without a bra; people will be able to see me!"'
 	'"And why shouldn''t they?" The woman throws up her hands in surprise, "You are growing up! It would be a shame not to show off your body! So, that''s enough, I''m tired of arguing with you."'
-	'The mother returns her gaze to you with a haughty smile.'
+	'The woman returns her gaze to you with a haughty smile.'
 	'"Girl, tell me, would clothes like yours fit my Kira?" she says with a little nod clearly just waiting for a positive response.'
 
 	act 'Yes, of course':
@@ -838,11 +838,11 @@ if $ARGS[0] = '18':
 			*clr
 			'"You know, with a mini-skirt the outfit will be 100% more revealing. Look at this model, imagine how great it will look on your daughter!"'
 			'"What, do I have to really bare everything?" Kira sighs, not expecting a positive outcome for herself.'
-			'The mother takes the skirt in her hand, twirls it, inspects it for defects, and with a confident expression, leads her daughter back towards the dressing room.'
+			'The woman takes the skirt in her hand, twirls it, inspects it for defects, and with a confident expression, leads her daughter back towards the dressing room.'
 			'"Girls usually don''t wear underwear with these types of skirts, correct?" the woman asks, looking back at you.'
 			'"It is highly desirable," you say, nodding.'
 			'"Alright."'
-			'After a few minutes, you can hear the two arguing again. The mother exits the booth.'
+			'After a few minutes, you can hear the two arguing again. The woman exits the booth.'
 			'"She always resists, can you do something about it?"'
 			'Fearing that you might lose this sale if you don''t act now, you respond, "Of course, let me speak with her."'
 			'As you step into the booth, you can''t help but notice how <i>stunning</i> Kira appears in her new outfit, despite her rather tearful face. You just need to find a way to remove her panties. Maybe she can be persuaded?'
@@ -857,14 +857,14 @@ if $ARGS[0] = '18':
 					*clr
 					$ImageNeededPlacholder
 					! WD: IMAGE NEEDED ~ '<center><img <<$set_imgh>> src="images/pictures/characters/photo_dressed_[$vika]_13.src="></center>'
-					'Fortunately Kira is a very trusting girl, and your leadership qualities are apparent. You manage to convince her that there is no reason to be embarrassed and that the mother only wants the best for her.'
+					'Fortunately Kira is a very trusting girl, and your leadership qualities are apparent. You manage to convince her that there is no reason to be embarrassed and that her mother only wants the best for her.'
 					'Kira slowly puts her hands under her skirt and pulls off her panties.'
 					'"Doesn''t the air feel good on your pussy? Imagine how nice it would be walking like this outside."'
 					'She eyes you questioningly, "But won''t people stare?"'
 					'You gently run your fingers through Kira''s hair. "You know the saying, "<b>if you''ve got it, flaunt it,</b>" right? Well you, Kira, have <i>definitely</i> got <b>it</b>," you say to her with a wink and a smile.'
 					'You take Kira back from the locker room and give the panties to her mother.'
 					'"This is awkward, but can I leave them here, or let you throw them away? I want to wean my daughter from underwear, so that these purchases won''t be wasted. I will hide her other panties and bras from her until she gets used to it."'
-					'You decide to leave the panties with her and shove them in her purse. The mum is paying at the cash register and takes her daughter, all dressed up in her new blouse and mini-skirt, outside.'
+					'You decide to leave the panties with her and shove them in her purse. Her mother is paying at the cash register and takes her daughter, all dressed up in her new blouse and mini-skirt, outside.'
 					'Kira looks back at you and smiles, saying goodbye. She then leaves, her bare bottom flashing with every breeze.'
 
 					act 'Finish your shift':gt 'young_shop', 'endwork'
@@ -879,7 +879,7 @@ if $ARGS[0] = '18':
 						'Sighing loudly, you huff, "Looks like I have no choice." You grab Kira by the waist and spin her around, her back now facing you.'
 						'"W-what are you d-doing?" Kira tries to object, but she puts forth no resistance. Your hands move towards the bottom of her skirt, lifting it up slightly before slipping your fingers into the top of her panties. Through the mirror you see a slight blush cross her face. You slowly begin pulling down the girl''s underwear.'
 						'You hear her breath hitch, her face growing redder. Kira raises a leg, then the other as you remove her underwear. You notice a damp spot in the center of her panties, something comes over you and you move the panties to your face, smelling her wetness as she turns back to face you.'
-						'A few minutes later, you exit the booth. "I made her see our way," you gloat to her a mother, a coy smile etched on your face.'
+						'A few minutes later, you exit the booth. "I made her see our way," you gloat to her, a coy smile etched on your face.'
 						'"Oh, how wonderful, wonderful," the woman examines her daughter and quickly decides to buy the blouse and mini-skirt.'
 						'Before leaving Kira thanks you, and you wink at her. You receive a very pleasant smile in return.'
 
@@ -895,11 +895,11 @@ if $ARGS[0] = '18':
 		*clr
 		'You shrug, "Sorry, but it''s too soon for her to wear such clothes. Maybe in a few more years she will understand."'
 		'"Really? I''ve seen on TV that young girls everywhere are wearing this style!" The woman looks at you with disbelief. She obviously couldn''t imagine that you would be arguing against a potential sale.'
-		'<i>"Mum clearly wants her daughter to look like a whore,"</i> you think to yourself as you look the woman in the eyes.'
+		'<i>"The woman clearly wants her daughter to look like a whore,"</i> you think to yourself as you look the woman in the eyes.'
 		act 'Dissuade the woman':
 			cla
 			delact 'Dissuade the woman'
-			'She can''t do that! You decide you need to dissuade this strange mother.'
+			'She can''t do that! You decide you need to dissuade this strange woman.'
 
 			if pcs_intel >= 60:
 				$ImageNeededPlacholder
@@ -912,7 +912,7 @@ if $ARGS[0] = '18':
 			else
 				$ImageNeededPlacholder
 				! WD: IMAGE NEEDED ~ '<center><img <<$set_imgh>> src="images/pictures/characters/photo_dressed_[$vika]_13.png"></center>'
-				'The mother refuses to listen to you. "Fine, if you won''t help us, I''ll find another clerk who will!"'
+				'The woman refuses to listen to you. "Fine, if you won''t help us, I''ll find another clerk who will!"'
 				'Before leaving, the girl thanks you for trying to save her and runs back towards her mother.'
 
 				act 'Finish your shift':gt 'young_shop', 'endwork'

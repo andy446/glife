@@ -4166,7 +4166,7 @@ if $ARGS[0] = 'Igor':
 					end
 					if hantersIgorQw > 45:
 						'-<<$pcs_nickname>>, I want to be the first man inside you. It will only hurt you a little and I promise to be gentle.'
-						'-<<$boydesc>>, honey, I really want to, but if mum finds out, she is going to kill me.'
+						'-<<$boydesc>>, honey, I really want to, but if <<$npc_nickname[''A29'']>> finds out, she is going to kill me.'
 						'-Well... you know? I will say that we''re serious, that we''re in love and everything else...'
 					end
 
@@ -4336,8 +4336,8 @@ if $ARGS[0] = 'Andrei':
 			'<center><video autoplay loop src="images/pc/kotovotkaz.mp4"></video></center>'
 			'You, blushing, whisper to him that you''re still a virgin.'
 			'-<<$pcs_nickname>>, I want to be your first, and I''m not gonna hurt you, I promise.'
-			'-<<$boydesc>>, honey, I really want to, but if my mum finds out, she is going to kill me, you reply.'
-			'-Well, you know what? In short, it''s either your mum or me...'
+			'-<<$boydesc>>, honey, I really want to, but if my <<$npc_nickname[''A29'']>> finds out, she is going to kill me, you reply.'
+			'-Well, you know what? In short, it''s either your <<$npc_nickname[''A29'']>> or me...'
 
 			act 'To lose innocence':gt 'HanterLoveSex', 'din_hanters_first_sex'
 			act 'Part with a guy':
@@ -4487,7 +4487,7 @@ if $ARGS[0] = 'Sergei':
 					end
 					if hantersSergeiQw > 35:
 						'-<<$pcs_nickname>>, I want to be your first, I won''t hurt you.'
-						'-<<$boydesc>>, honey, I really want to, but if  my mum finds out, she is going to kill me.'
+						'-<<$boydesc>>, honey, I really want to, but if  my <<$npc_nickname[''A29'']>> finds out, she is going to kill me.'
 						'-Well, if she does just tell her that we love eachother'
 					end
 

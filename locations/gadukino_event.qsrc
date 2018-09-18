@@ -794,7 +794,7 @@ if $ARGS[0] = 'go_home':
 				*clr & cla
 				'<center><b><font color="maroon">Your mother, Natasha <<$pcs_lastname>></font></b></center>'
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/mother.jpg"></center>'
-				'Mum asks you "Well, <<$pcs_nickname>>, are you coming home with us or are you going to stay in the village with your grandparents?"'
+				'<<$npc_nickname[''A29'']>> asks you "Well, <<$pcs_nickname>>, are you coming home with us or are you going to stay in the village with your grandparents?"'
 				act 'Stay':
 					staygad = daystart
 					gadstay = 1 & !Flag to monthly pay scene

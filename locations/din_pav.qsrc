@@ -85,7 +85,7 @@ $pavser2 = {
     'And silence. Dead to silence tinnitus,'
     ' - No, it does not happen,that''s bullshit. Anytime and anywhere, at least some, but the sounds, and then silence - Thought you - As in the coffin.'
     'You once visited a chill, prbezhav skin. Dark and empty, that even sounds left this place. A dust lying everywhere talked about, that people do not live here a long time.'
-    'Definitely someone here-he died, - We think you - and I''ll find a mummy. No, Well this is my delirium, inflamed imagination.'
+    'Definitely someone here-he died, - We think you - and I''ll find a mother. No, Well this is my delirium, inflamed imagination.'
     'All these thoughts and still spinning in your head, and you were hesitating to do at least step.'
     act 'Leave':pavserhom = 3 & psiha = 1 & gt'dvor'
     

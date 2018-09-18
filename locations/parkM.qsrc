@@ -57,7 +57,7 @@ end
 
 if $ARGS[0] = 'kiss':
 	loverrelation[lover_number] += 1
-	'<<$loverdesc[lover_number]>> kisses you and reaches around to gently massage your ass. His touch excites you and  <<$loverdesc[lover_number]>> takes you by the hand and drags you into the bushes.'
+	'<<$loverdesc[lover_number]>> kisses you and reaches around to gently massage your ass. His touch excites you and <<$loverdesc[lover_number]>> takes you by the hand and drags you into the bushes.'
 
 	gs 'arousal', 'kiss', 15
 	gs 'stat'

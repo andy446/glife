@@ -242,7 +242,7 @@ end
 if $ARGS[0] = 'woman':
 	menu_off = 1
 	cla
-	'You stealthily glance at the imperious woman, but it doesn''t look like she noticed you.'
+	'You stealthily glance at the imperious woman, but she doesn''t seem to noticed you.'
 
 	act 'Leave': minut += 5 & gt 'park', 'start'
 end

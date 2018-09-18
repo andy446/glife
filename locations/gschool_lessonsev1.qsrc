@@ -71,7 +71,7 @@ if $ARGS[0] = 'fiz_rand':
 				cla
 				grupvalue[4] +=5
 				demerit += 20
-				'You your first kick catches him on the shin, causing him to hop around on one leg. Not expecting any more his attention wanders and he doesn''t see you charging him. You run into him and knock him to the floor, where your''re quickly on top of him, sitting on his chest and starting to punch him straight in the face.'
+				'You your first kick catches him on the shin, causing him to hop around on one leg. Not expecting any more his attention wanders and he doesn''t see you charging him. You run into him and knock him to the floor, where you''re quickly on top of him, sitting on his chest and starting to punch him straight in the face.'
 				'He is a bit stunned by this sudden attack and at first he just covers up to try and block some of your punches, before he finally starts to fight back. For him, the coach arrives just in time. The coach grabs you by the back of the neck and with one powerful yank, pulls you off <<$rand_boy>> and nearly tosses you on your back. He steps between the two of you, stopping <<$rand_boy>> and you from going at it again. He turns to you and says, "Go to the principal''s office, NOW!" You try and protest but he doesn''t want to hear it and points at the door.'
 				act 'Go to the principals offices': gt 'gschool_office', 'principal'
 			end
@@ -182,7 +182,7 @@ if $ARGS[0] = 'biology':
 					act 'Come get some more':
 						cla
 						npc_rel['A10'] += 3
-						'You pinch your lips together, trying to silence another moan as you feel your molester''s fingers give your still sensitive nipple another quick pinch before retreating again. After the hand is gone, you move your hand to one side of your face, as if to scratch an itch and simultaneously glance over your shoulder until your''re looking sidelong at Dan who has been groping you. You lift the corner of your mouth in a small smile, making a "Come here!" motion with your index finger, winking at him before you scoot your chair back a few inches. His eyes fill with surprise and excitement and a few seconds after you''ve turned back towards the teacher, you feel his hand massaging your breast again.'
+						'You pinch your lips together, trying to silence another moan as you feel your molester''s fingers give your still sensitive nipple another quick pinch before retreating again. After the hand is gone, you move your hand to one side of your face, as if to scratch an itch and simultaneously glance over your shoulder until you''re looking sidelong at Dan who has been groping you. You lift the corner of your mouth in a small smile, making a "Come here!" motion with your index finger, winking at him before you scoot your chair back a few inches. His eyes fill with surprise and excitement and a few seconds after you''ve turned back towards the teacher, you feel his hand massaging your breast again.'
 						gs 'arousal', 'foreplay', 10, 'exhibitionism'
 						act 'Enjoy more':
 							cla
@@ -567,7 +567,7 @@ if $ARGS[0] = 'computer':
 					act 'Come get some more':
 						cla
 						npc_rel['A11'] += 3
-						'You pinch your lips together, trying to silence another moan as you feel your molester''s fingers give your still sensitive nipple another quick pinch before retreating again. After the hand is gone, you move your hand to one side of your face, as if to scratch an itch and simultaneously glance over your shoulder until your''re looking sidelong at Vasily who has been groping you. You lift the corner of your mouth in a small smile, making a "Come here!" motion with your index finger, winking at him before you scoot your chair back a few inches. His eyes fill with surprise and excitement and a few seconds after you''ve turned back towards the teacher, you feel his hand massaging your breast again.'
+						'You pinch your lips together, trying to silence another moan as you feel your molester''s fingers give your still sensitive nipple another quick pinch before retreating again. After the hand is gone, you move your hand to one side of your face, as if to scratch an itch and simultaneously glance over your shoulder until you''re looking sidelong at Vasily who has been groping you. You lift the corner of your mouth in a small smile, making a "Come here!" motion with your index finger, winking at him before you scoot your chair back a few inches. His eyes fill with surprise and excitement and a few seconds after you''ve turned back towards the teacher, you feel his hand massaging your breast again.'
 						gs 'arousal', 'foreplay', 10, 'exhibitionism'
 						act 'Enjoy more':
 							cla
@@ -871,7 +871,7 @@ if $ARGS[0] = 'russian':
 					act 'Come get some more':
 						cla
 						npc_rel['A10'] += 3
-						'You pinch your lips together, trying to silence another moan as you feel your molester''s fingers give your still sensitive nipple another quick pinch before retreating again. After the hand is gone, you move your hand to one side of your face, as if to scratch an itch and simultaneously glance over your shoulder until your''re looking sidelong at Svyatoslav who has been groping you. You lift the corner of your mouth in a small smile, making a "Come here!" motion with your index finger, winking at him before you scoot your chair back a few inches. His eyes fill with surprise and excitement and a few seconds after you''ve turned back towards the teacher, you feel his hand massaging your breast again.'
+						'You pinch your lips together, trying to silence another moan as you feel your molester''s fingers give your still sensitive nipple another quick pinch before retreating again. After the hand is gone, you move your hand to one side of your face, as if to scratch an itch and simultaneously glance over your shoulder until you''re looking sidelong at Svyatoslav who has been groping you. You lift the corner of your mouth in a small smile, making a "Come here!" motion with your index finger, winking at him before you scoot your chair back a few inches. His eyes fill with surprise and excitement and a few seconds after you''ve turned back towards the teacher, you feel his hand massaging your breast again.'
 						gs 'arousal', 'foreplay', 10, 'exhibitionism'
 						act 'Enjoy more':
 							cla
@@ -1045,7 +1045,7 @@ if $ARGS[0] = 'russian':
 			end
 			act 'Ignore them and wait for the end of the lesson': gt 'gschool_lessons', 'short_break'
 		elseif scooltiperand = 18:
-			'While your''re busy doing an assignment, you hear some whispering coming from behind you. Turning around to try and tell your classmates to keep it quiet, you see Pauline showing off a part of her bra to Svyatoslav.'
+			'While you''re busy doing an assignment, you hear some whispering coming from behind you. Turning around to try and tell your classmates to keep it quiet, you see Pauline showing off a part of her bra to Svyatoslav.'
 			'He sits there in total amazement, closely looking at what Pauline is doing. Obviously enjoying catching his attention, she spreads her legs, showing off her panties while Svyatoslav starts rubbing at the crotch of his pants. They still haven''t noticed you.'
 			'You quietly clear your throat and they snap out of their little scene, looking back at you and smiling. <i>"They''re not even ashamed."</i> you think to yourself, <i>"The rumors about them must be true."</i> as you turn back and focus on your assignment.'
 			act 'Wait for the end of the lesson': gt 'gschool_lessons', 'short_break'

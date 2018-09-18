@@ -133,7 +133,7 @@ if $ARGS[0] = 'Cursed Schoolgirl Start':
 		showobjs 1
 		gs 'obj_din', 'old'
 		'<center><img <<$set_imgh>> src="images/system/magicschoolgirl.jpg"></center>'
-		'Welcome to the Cursed Schoolgirl version! Guide <<$pcs_nickname>> through her school life, relationships and myriad other issues that might pop up and all with the added spice of magic to keep things interesting!'
+		'Welcome to the Cursed Schoolgirl version! Guide <<$pcs_nickname>> through her school life, relationships and myriad of other issues that might pop up and all with the added spice of magic to keep things interesting!'
 		act 'Begin':
 			close all
 			if $month = 'June':

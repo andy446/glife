@@ -6,7 +6,7 @@ if $ARGS[0] = 'empty':
 	gs 'stat'
 	'You take a relaxing and refreshing walk through the park, trying to figure out the meaning of life.'
 
-	act 'Complete walk':gt 'park', 'start'
+	act 'Finish your walk':gt 'park', 'start'
 
 	exit
 end
@@ -221,7 +221,7 @@ end
 if $ARGS[0] = '3':
 	cls
 	gs 'stat'
-	'As you walk through the park, you hear moans and groans coming out of bush close to one of the paths.'
+	'As you walk through the park, you hear moans and groans coming out of the bush close to one of the paths.'
 
 	act 'Continue walking':gt 'park', 'start'
 
@@ -454,7 +454,7 @@ if $ARGS[0] = '5':
 	gs 'stat'
 	!!'You take a relaxing and refreshing walk through the park, trying to figure out the meaning of life.'
 
-	act 'Complete walk':gt 'park', 'start'
+	act 'Finish your walk':gt 'park', 'start'
 
 	if yaq = 0 and student > 0:
 		cls
@@ -719,7 +719,7 @@ if $ARGS[0] = '8':
 			stopboy = 0
 			'<<$loverdesc[lover_number]>> writes it in his phone and walks away from you all smiling.'
 
-			act 'Complete walk':gt 'park', 'start'
+			act 'Finish your walk':gt 'park', 'start'
 		end
 
 		act 'Leave':gt 'park', 'start'
@@ -747,7 +747,7 @@ if $ARGS[0] = '9':
 				minut += 15
 				'<<$loverdesc[lover_number]>> is happy about meeting you randomly and gives you a big hug. You have a nice short talk and kiss goodbye as you part ways again.'
 
-				act 'Complete walk':gt 'park', 'start'
+				act 'Finish your walk':gt 'park', 'start'
 			end
 		elseif boyonce[lover_number] = 1 and SUB > 0:
 			'<<$loverdesc[lover_number]>> is happy to see you, quickly grabbing you by the hand leading you into a more secluded area of the park.'
@@ -776,7 +776,7 @@ if $ARGS[0] = '9':
 				minut += 15
 				'<<$loverdesc[lover_number]>> is happy about meeting you randomly and gives you a big hug. You have a nice short talk and kiss goodbye as you part ways again.'
 
-				act 'Complete walk':gt 'park', 'start'
+				act 'Finish your walk':gt 'park', 'start'
 			end
 		end
 
@@ -1051,7 +1051,7 @@ if $ARGS[0] = 'find_baby':
             !!    act 'Take him with you':
             !!end
         end
-        act 'Complete walk':gt 'park', 'start'
+        act 'Finish your walk':gt 'park', 'start'
     else
         gt 'parkivent', 'empty'
     end

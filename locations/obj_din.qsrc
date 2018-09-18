@@ -117,7 +117,7 @@ if $ARGS[0] = 'description':
 	gs 'obj_din','chartabs'
 	gs 'body'
 	!'<center><img src="images/system/icon/description.png"><br></center>'
-	'<center><h1>Character Desciption</h1></center>'
+	'<center><h1>Character Description</h1></center>'
 
 	'<center><table width="90%" cellspacing="0" cellpadding="20" valign="top"><tr><td>'
 	'Your name is <<$pcs_firstname>> <<$pcs_lastname>>.'

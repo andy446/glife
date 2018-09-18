@@ -662,7 +662,7 @@ if $ARGS[0] = 'gpSuck':
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/sharedapt/sex/faint.jpg"></center>'
 		''
 		'You wake up being slapped in your face: <font color=#<<$gp_font>>>"<<$pcs_firstname>>! <<$pcs_firstname>>! Wake up!"</font>'
-		'Slowly normal sight goes back to you, but still you are very confused.  <font color=#<<$pcs_font>>>"Wh..what happened?</font>'
+		'Slowly normal sight goes back to you, but still you are very confused. <font color=#<<$pcs_font>>>"Wh..what happened?</font>'
 		'<font color=#<<$gp_font>>>"I guess you took somehow bigger portion than you can stand, <<$pcs_firstname>>!"</font> He is obviously entertained by this, even though you were unable to finish him.'
 		gp_rel += 1
 		step = 0

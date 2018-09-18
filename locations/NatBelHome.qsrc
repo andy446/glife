@@ -160,7 +160,7 @@ elseif lernHome = 0:
 			end
 		
 		elseif natotrab > 0 and NatDolg > 0:
-			'Natasha still doesn''t  have the <<NatDolg>> <b>₽</b>.'
+			'Natasha still doesn''t have the <<NatDolg>> <b>₽</b>.'
 
 			act 'On your knees! Open your mouth!':
 				cls
@@ -475,48 +475,48 @@ elseif lernHome = 0:
 end
 
 if pregTalkNat = 0 and kid = 0:
-    if natpregday > 0 and (daystart-natpregday) > 84 and (daystart-natpregday) < 200 and pregtime >= 90:
-        cls
-        gs 'stat'
-        '"<<$pcs_nickname>>, are you pregnant, too? Well, I guess I don''t have to worry about being the only pregnant girl at school," she giggles.'
+	if natpregday > 0 and (daystart-natpregday) > 84 and (daystart-natpregday) < 200 and pregtime >= 90:
+		cls
+		gs 'stat'
+		'"<<$pcs_nickname>>, are you pregnant, too? Well, I guess I don''t have to worry about being the only pregnant girl at school," she giggles.'
 
-        act 'Next':gt 'NatBelhome', 'natknows'
-    elseif natpregday > 0 and (daystart-natpregday) > 84 and (daystart-natpregday) < 200 and knowpreg = 1 and pregtime > 0 and pregtime < 90:
-        act 'Tell her you''re pregnant':
-           cls
-           '"If you were worried about being the only pregnant girl at school, that won''t be a problem anymore." You smirk while rubbing your midriff. "It looks like I got myself knocked up as well."'
-           'Natasha smiles at you excitedly. "Really? Congratulations!"'
-            *nl
-            act 'Next':gt 'NatBelhome', 'natknows'
-        end
-    elseif pregtime > 0 and knowpreg = 1 and natsub = 0 and (daystart-natpregday) < 84:
-        act 'Tell her you''re pregnant':
+		act 'Next':gt 'NatBelhome', 'natknows'
+	elseif natpregday > 0 and (daystart-natpregday) > 84 and (daystart-natpregday) < 200 and knowpreg = 1 and pregtime > 0 and pregtime < 90:
+		act 'Tell her you''re pregnant':
+			cls
+			'"If you were worried about being the only pregnant girl at school, that won''t be a problem anymore." You smirk while rubbing your midriff. "It looks like I got myself knocked up as well."'
+			'Natasha smiles at you excitedly. "Really? Congratulations!"'
+			*nl
+			act 'Next':gt 'NatBelhome', 'natknows'
+		end
+	elseif pregtime > 0 and knowpreg = 1 and natsub = 0 and (daystart-natpregday) < 84:
+		act 'Tell her you''re pregnant':
 			cla
-            *nl
-            '"<<$pcs_nickname>>, you''re," she pauses momentarily before continuing in a tone of shock mixed with disgust, "pregnant? Have you been sleeping around? This will definitely impact your studies."'
+			*nl
+			'"<<$pcs_nickname>>, you''re," she pauses momentarily before continuing in a tone of shock mixed with disgust, "pregnant? Have you been sleeping around? This will definitely impact your studies."'
 			act 'Continue' :gt 'NatBelhome'
-            pregTalkNat = 1
-        end
-    elseif pregtime > 0 and knowpreg = 1 and natsub > 0 and (daystart-natpregday) < 84:
-        act 'Tell her you''re pregnant':
-            cla
-            *nl
-            '"You''re pregnant? Who''s the father?"'
-            *nl
-            if $wombthfath = '':
-               '"Honestly, I don''t even know."'
-               '"Really? That''s crazy." Natasha whispers, rubbing her midriff longingly.'
-               act 'Continue' :gt 'NatBelhome'
-               pregTalkNat = 1
-            else
-               'You tell her that <<$wombthfath>> is the father and then give her brief details as to how you got pregnant, without getting too explicit.'
-               *nl
-               '"Really? That''s crazy." Natasha whispers, rubbing her midriff longingly.'
-               act 'Continue' :gt 'NatBelhome'
-               pregTalkNat = 1
-            end
-        end
-    end
+			pregTalkNat = 1
+		end
+	elseif pregtime > 0 and knowpreg = 1 and natsub > 0 and (daystart-natpregday) < 84:
+		act 'Tell her you''re pregnant':
+			cla
+			*nl
+			'"You''re pregnant? Who''s the father?"'
+			*nl
+			if $wombthfath = '':
+				'"Honestly, I don''t even know."'
+				'"Really? That''s crazy." Natasha whispers, rubbing her midriff longingly.'
+				act 'Continue' :gt 'NatBelhome'
+				pregTalkNat = 1
+			else
+				'You tell her that <<$wombthfath>> is the father and then give her brief details as to how you got pregnant, without getting too explicit.'
+				*nl
+				'"Really? That''s crazy." Natasha whispers, rubbing her midriff longingly.'
+				act 'Continue' :gt 'NatBelhome'
+				pregTalkNat = 1
+			end
+		end
+	end
 end
 
 if pregTalkNat = 0 and kid > 0:

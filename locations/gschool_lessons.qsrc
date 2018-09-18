@@ -1895,7 +1895,7 @@ if $ARGS[0] = 'science':
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/classroom/classsci.jpg"></center>'
 	'You go to your biology class and find a seat at your lab station. Before long all of your fellow students file in and takes their seats as well. Once the bell rings Miss Orlov takes roll call, you say here when your name is called. With that done, she gets up and starts writing on the blackboard, she is wearing a fairly short skirt that nearly rides to high when she reaches up to write at the top of the blackboard. Which the boys often encourage by asking her questions about what ever it is she has written at the top of the blackboard that day.'
 	*nl
-	'She occasionally asks questions and those that get them right, she heaps praise upon them. Those that get them wrong, she takes the time to explain why they was wrong and what the correct answer is. Then making sure the student understands, once she is sure the student understands their mistake she moves on with her lesson. She is always quick to help anyone with a problem or answer questions about class, always with that shy smile of hers.'
+	'She occasionally asks questions and those that get them right, she heaps praise upon them. Those that get them wrong, she takes the time to explain why they were wrong and what the correct answer is. Then making sure the student understands, once she is sure the student understands their mistake she moves on with her lesson. She is always quick to help anyone with a problem or answer questions about class, always with that shy smile of hers.'
 	act 'Listen attentively to Miss Orlov':
 		*clr & cla
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/classroom/attention.jpg"></center>'
@@ -2400,7 +2400,7 @@ if $ARGS[0] = 'shop':
 	act 'Don''t pay attention in class':
 		*clr & cla
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/classroom/bored.jpg"></center>'
-		'Mr. Kuznetsov''s lecture on safety which is keeps giving is more boring than normal, you look around for something to fill the time, desperate for any kid of distraction.'
+		'Mr. Kuznetsov''s is lecturing on safety, but it keeps getting more and more boring. You look around for something to pass the time, desperate for any kid of distraction.'
 		act 'Wait for the end of the lesson': gs 'gschool_lessonsev2', 'shop'
 	end
 	act'Daydream':

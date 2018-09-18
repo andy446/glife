@@ -1,6 +1,6 @@
 # FedorMisc
 
-if $ARGS[0] =  'Fedor Intro':
+if $ARGS[0] = 'Fedor Intro':
 	cls
 	FedorIntro = 1
 	gs'stat'
@@ -19,7 +19,7 @@ if $ARGS[0] =  'Fedor Intro':
 	end
 end
 
-if $ARGS[0] =  'Fedor Chat':
+if $ARGS[0] = 'Fedor Chat':
 	cls
 	$metka = 'Fedor Chat'
 	$loc = 'FedorMisc'
@@ -85,9 +85,9 @@ if $ARGS[0] =  'Fedor Chat':
 		if npc_rel['A5'] < 20:
 			'You speak to Fedor about a number of random experiences you had. Fedor listens to you with a moderate amount of interest.'
 		elseif npc_rel['A5'] < 80 and npc_rel['A5'] >= 20:
-			'You chat with Fedor, sharing mulitple stories as Fedor happily listens and shares some thoughts on a number of them.'
+			'You chat with Fedor, sharing multiple stories as Fedor happily listens and shares some thoughts on a number of them.'
 		elseif npc_rel['A5'] >= 80:
-			'You chat with Fedor, sharing mulitple stories as Fedor happily listens while sharing several new stories of his own.'
+			'You chat with Fedor, sharing multiple stories as Fedor happily listens while sharing several new stories of his own.'
 		end
 
 		if $loc ! 'gdkin':
@@ -110,7 +110,7 @@ if $ARGS[0] =  'Fedor Chat':
 	end
 end
 
-if $ARGS[0] =  'Fedor Chat 2':
+if $ARGS[0] = 'Fedor Chat 2':
 	cls
 	minut += 5
 	gs'stat'
@@ -133,7 +133,7 @@ if $ARGS[0] =  'Fedor Chat 2':
 	end
 end
 
-if $ARGS[0] =  'Fedor Hate':
+if $ARGS[0] = 'Fedor Hate':
 	cls
 	minut += 5
 	gs'stat'
@@ -148,7 +148,7 @@ if $ARGS[0] =  'Fedor Hate':
 	end
 end
 
-if $ARGS[0] =  'Comb':
+if $ARGS[0] = 'Comb':
 	cls
 	pcs_hairbsh = 1
 	minut += 5
@@ -167,7 +167,7 @@ if $ARGS[0] =  'Comb':
 	act 'Move away':gt $loc, $metka
 end
 
-if $ARGS[0] =  'Locker Room':
+if $ARGS[0] = 'Locker Room':
 	cls
 	npc_rel['A5'] += 10
 	minut += 5
@@ -188,7 +188,7 @@ if $ARGS[0] =  'Locker Room':
 	end
 end
 
-if $ARGS[0] =  'Locker Room 1':
+if $ARGS[0] = 'Locker Room 1':
 	cls
 	minut -= 5
 	gs 'boyStat', 'A5'
@@ -258,7 +258,7 @@ if $ARGS[0] =  'Locker Room 1':
 	end
 end
 
-if $ARGS[0] =  'Locker Room 2':
+if $ARGS[0] = 'Locker Room 2':
 	cls
 	minut -= 5
 	gs 'boyStat', 'A5'
@@ -327,7 +327,7 @@ if $ARGS[0] =  'Locker Room 2':
 	end
 end
 
-if $ARGS[0] =  'Locker Room 3':
+if $ARGS[0] = 'Locker Room 3':
 	cls
 	minut += 5
 	gs 'boyStat', 'A5'
@@ -400,7 +400,7 @@ if $ARGS[0] =  'Locker Room 3':
 	end
 end
 
-if $ARGS[0] =  'Hall':
+if $ARGS[0] = 'Hall':
 	cls
 	npc_rel['A5'] += 10
 	minut -= 5
@@ -479,7 +479,7 @@ if $ARGS[0] =  'Hall':
 	end
 end
 
-if $ARGS[0] =  'Restroom':
+if $ARGS[0] = 'Restroom':
 	cls
 	$metka = 'Restroom'
 	$loc = 'FedorMisc'
@@ -495,7 +495,7 @@ if $ARGS[0] =  'Restroom':
 	act 'Leave restroom':gt 'gschool_lessons', 'short_break'
 end
 
-if $ARGS[0] =  'Quick Wash':
+if $ARGS[0] = 'Quick Wash':
 	cls
 	EndMovie = 0
 	WithFedor = 0
@@ -515,7 +515,7 @@ if $ARGS[0] =  'Quick Wash':
 	act 'Dry off':gt 'gschool_lessons', 'short_break'
 end
 
-if $ARGS[0] =  'Smoke':
+if $ARGS[0] = 'Smoke':
 	cls
 	npc_rel['A5'] += 5
 	siga += 1
@@ -533,7 +533,7 @@ if $ARGS[0] =  'Smoke':
 	act 'Finish smoking':gt 'gschool_lessons', 'short_break'
 end
 
-if $ARGS[0] =  'Smoke 2':
+if $ARGS[0] = 'Smoke 2':
 	cls
 	npc_rel['A5'] += 5
 	siga += 1
@@ -551,7 +551,7 @@ if $ARGS[0] =  'Smoke 2':
 	act 'Finish smoking':gt 'FedorMisc', 'Outcast'
 end
 
-if $ARGS[0] =  'Fedor Workout':
+if $ARGS[0] = 'Fedor Workout':
 	cls
 	minut += 5
 	gs'stat'
@@ -624,7 +624,7 @@ if $ARGS[0] =  'Fedor Workout':
 	act 'I can''t right now but maybe later':gt 'gdksport', 'start'
 end
 
-if $ARGS[0] =  'Fedor Workout 2':
+if $ARGS[0] = 'Fedor Workout 2':
 	cls
 	minut += 5
 	gs'stat'
@@ -646,7 +646,7 @@ if $ARGS[0] =  'Fedor Workout 2':
 	end
 end
 
-if $ARGS[0] =  'Strength':
+if $ARGS[0] = 'Strength':
 	cla
 	*clr
 	minut += 30
@@ -689,7 +689,7 @@ if $ARGS[0] =  'Strength':
 	end
 end
 
-if $ARGS[0] =  'Agility':
+if $ARGS[0] = 'Agility':
 	cla
 	*clr
 	minut += 30
@@ -733,7 +733,7 @@ if $ARGS[0] =  'Agility':
 	end
 end
 
-if $ARGS[0] =  'Endurance':
+if $ARGS[0] = 'Endurance':
 	cla
 	*clr
 	minut += 30
@@ -777,7 +777,7 @@ if $ARGS[0] =  'Endurance':
 	end
 end
 
-if $ARGS[0] =  'Vitek Event':
+if $ARGS[0] = 'Vitek Event':
 	cls
 	minut += 5
 	gs'stat'
@@ -791,7 +791,7 @@ if $ARGS[0] =  'Vitek Event':
 	act 'Walk away':gt 'gdksport', 'start'
 end
 
-if $ARGS[0] =  'Outcast Intro':
+if $ARGS[0] = 'Outcast Intro':
 	cls
 	minut += 5
 	gs'stat'
@@ -870,7 +870,7 @@ if $ARGS[0] =  'Outcast Intro':
 	act 'Walk away':gt 'gskver', 'start'
 end
 
-if $ARGS[0] =  'Outcast':
+if $ARGS[0] = 'Outcast':
 	cls
 	minut += 5
 	gs'stat'
@@ -948,7 +948,7 @@ if $ARGS[0] =  'Outcast':
 	act 'Walk away':gt 'gskver', 'start'
 end
 
-if $ARGS[0] =  'Fedor Vs Dimka':
+if $ARGS[0] = 'Fedor Vs Dimka':
 	cls
 	minut += 5
 	gs'stat'
@@ -1060,7 +1060,7 @@ if $ARGS[0] =  'Fedor Vs Dimka':
 	act 'I''m not ready yet':gt 'gschool_grounds', 'main'
 end
 
-if $ARGS[0] =  'Dimka Party':
+if $ARGS[0] = 'Dimka Party':
 	cls
 	minut += 5
 	gs'stat'
@@ -1075,7 +1075,7 @@ if $ARGS[0] =  'Dimka Party':
 	act 'Leave':gt 'pavResidential'
 end
 
-if $ARGS[0] =  'Dimka Party 2':
+if $ARGS[0] = 'Dimka Party 2':
 	cls
 	minut += 5
 	gs'stat'
@@ -1092,7 +1092,7 @@ if $ARGS[0] =  'Dimka Party 2':
 	act 'Leave':gt 'pavResidential'
 end
 
-if $ARGS[0] =  'VKwip':
+if $ARGS[0] = 'VKwip':
 	cls
 	minut += 5
 	gs'stat'
@@ -1137,7 +1137,7 @@ if $ARGS[0] =  'VKwip':
 	end
 end
 
-if $ARGS[0] =  'Workout Time':
+if $ARGS[0] = 'Workout Time':
 	cls
 	gs'stat'
 	'<center><b><h4><font color="blue"><<"Fyodor [Fedor] Kozlov">></font></h4></b></center>'

@@ -5,10 +5,12 @@ if night_mode = 1:
 	$fcolor1 = '#FFFFFF'
 	$bcolor1 = '#202020'
 	$bcolor2 = '#303030'
+	$bcolor3 = '#000000'
 else
 	$fcolor1 = '#000000'
 	$bcolor1 = '#FFFFFF'
 	$bcolor2 = '#e6f2ff'
+	$bcolor3 = '#FFFFFF'
 end
 
 *clr & cla
@@ -17,7 +19,9 @@ act 'Back':killvar 'food_loc' & gt $loc, $metka
 killvar '$_drink'
 killvar '$_eat'
 if $loc = 'burger':
-	act 'Eat and run (0:20) (100₽)':gt 'food', 'f_food'
+	if money >= 100:
+		act 'Eat and run (0:20) (100₽)':gt 'food', 'f_food'
+	end
 	'<center><b><font color="maroon">Diner Bystroeshka</font></b></center>'
 	*nl
 	!'<center><img <<$set_imgh>> src="images/shared/menus/burger.png"</center><br>'
@@ -62,40 +66,77 @@ if $loc = 'gkafe':
 	'<center><b><font color="maroon">Borislav''s cafe</font></b></center>'
 	*nl
 	'<center><img <<$set_imgh>> src="images/shared/drinks/cafedrinks.jpg"</center><br>'
-	$_eat['0,name'] = 'Vegetarian Piroshki'
-	$_eat['0,type'] = 'pirosh'
-	$_eat['0,price'] = 'Free'
-	$_eat['1,name'] = 'Herring Blini'
-	$_eat['1,type'] = 'blini'
-	$_eat['1,price'] = 'Free'
-	$_eat['2,name'] = 'Golubtsy'
-	$_eat['2,type'] = 'golub'
-	$_eat['2,price'] = 'Free'
-	$_eat['3,name'] = 'Pozharsky Cutlets'
-	$_eat['3,type'] = 'pozhar'
-	$_eat['3,price'] = 'Free'
-	$_eat['4,name'] = 'Rueben Sandwich'
-	$_eat['4,type'] = 'reuben'
-	$_eat['4,price'] = 'Free'
+	if home_owned[2] = 1 or SchoolBlock = 1:
+		$_eat['0,name'] = 'Vegetarian Piroshki'
+		$_eat['0,type'] = 'pirosh'
+		$_eat['0,price'] = 'Free'
+		$_eat['1,name'] = 'Herring Blini'
+		$_eat['1,type'] = 'blini'
+		$_eat['1,price'] = 'Free'
+		$_eat['2,name'] = 'Golubtsy'
+		$_eat['2,type'] = 'golub'
+		$_eat['2,price'] = 'Free'
+		$_eat['3,name'] = 'Pozharsky Cutlets'
+		$_eat['3,type'] = 'pozhar'
+		$_eat['3,price'] = 'Free'
+		$_eat['4,name'] = 'Rueben Sandwich'
+		$_eat['4,type'] = 'reuben'
+		$_eat['4,price'] = 'Free'
 
-	$_drink['0,name'] = 'Water'
-	$_drink['0,type'] = 'bev_wat'
-	$_drink['0,price'] = 'Free'
-	$_drink['1,name'] = 'Kvass'
-	$_drink['1,type'] = 'bev_kva'
-	$_drink['1,price'] = 'Free'
-	$_drink['2,name'] = 'Juice'
-	$_drink['2,type'] = 'bev_jui'
-	$_drink['2,price'] = 'Free'
-	$_drink['3,name'] = 'Spiced Tea'
-	$_drink['3,type'] = 'bev_tea'
-	$_drink['3,price'] = 'Free'
-	$_drink['4,name'] = 'Black Coffee'
-	$_drink['4,type'] = 'bev_cof'
-	$_drink['4,price'] = 'Free'
-	$_drink['5,name'] = 'Milkshake'
-	$_drink['5,type'] = 'bev_mil'
-	$_drink['5,price'] = 'Free'
+		$_drink['0,name'] = 'Water'
+		$_drink['0,type'] = 'bev_wat'
+		$_drink['0,price'] = 'Free'
+		$_drink['1,name'] = 'Kvass'
+		$_drink['1,type'] = 'bev_kva'
+		$_drink['1,price'] = 'Free'
+		$_drink['2,name'] = 'Juice'
+		$_drink['2,type'] = 'bev_jui'
+		$_drink['2,price'] = 'Free'
+		$_drink['3,name'] = 'Spiced Tea'
+		$_drink['3,type'] = 'bev_tea'
+		$_drink['3,price'] = 'Free'
+		$_drink['4,name'] = 'Black Coffee'
+		$_drink['4,type'] = 'bev_cof'
+		$_drink['4,price'] = 'Free'
+		$_drink['5,name'] = 'Milkshake'
+		$_drink['5,type'] = 'bev_mil'
+		$_drink['5,price'] = 'Free'
+	else
+		$_eat['0,name'] = 'Vegetarian Piroshki'
+		$_eat['0,type'] = 'pirosh'
+		$_eat['0,price'] = 100
+		$_eat['1,name'] = 'Herring Blini'
+		$_eat['1,type'] = 'blini'
+		$_eat['1,price'] = 190
+		$_eat['2,name'] = 'Golubtsy'
+		$_eat['2,type'] = 'golub'
+		$_eat['2,price'] = 210
+		$_eat['3,name'] = 'Pozharsky Cutlets'
+		$_eat['3,type'] = 'pozhar'
+		$_eat['3,price'] = 290
+		$_eat['4,name'] = 'Rueben Sandwich'
+		$_eat['4,type'] = 'reuben'
+		$_eat['4,price'] = 340
+
+		$_drink['0,name'] = 'Water'
+		$_drink['0,type'] = 'bev_wat'
+		$_drink['0,price'] = 'Free'
+		$_drink['1,name'] = 'Kvass'
+		$_drink['1,type'] = 'bev_kva'
+		$_drink['1,price'] = 60
+		$_drink['2,name'] = 'Juice'
+		$_drink['2,type'] = 'bev_jui'
+		$_drink['2,price'] = 80
+		$_drink['3,name'] = 'Spiced Tea'
+		$_drink['3,type'] = 'bev_tea'
+		$_drink['3,price'] = 120
+		$_drink['4,name'] = 'Black Coffee'
+		$_drink['4,type'] = 'bev_cof'
+		$_drink['4,price'] = 130
+		$_drink['5,name'] = 'Milkshake'
+		$_drink['5,type'] = 'bev_mil'
+		$_drink['5,price'] = 200
+	end
 end
 if $loc = 'brothel':
 	'<center><h3>Hotel Bar</h3></center>'
@@ -217,7 +258,6 @@ if $loc = 'lakecafe':
 	'<center><B><font color=maroon>The Lake Cafe</font></B></center>'
 	*nl
 	'<center><img <<$set_imgh>> src="images/shared/drinks/cafedrinks.jpg"</center><br>'
-
 	$_eat['0,name'] = 'Vegetarian Piroshki'
 	$_eat['0,type'] = 'pirosh'
 	$_eat['0,price'] = 100
@@ -402,19 +442,23 @@ if $loc = 'restoran':
 	$_drink['5,type'] = 'bev_cha'
 	$_drink['5,price'] = 900
 end
+
 $_str = '<table border="0" width="800" cellpadding="0" cellspacing="1">'
 food_loop = 0
 :loop_diner_drinks
-$_str += '<tr><td bgcolor='+iif(food_loop mod 2 = 0,'<<$bcolor1>>','<<$bcolor2>>')+' height="30" width="40%" align="center"><font color="<<$fcolor1>>">'+$_eat['<<food_loop>>,name']+'</td><td bgcolor='+iif(food_loop mod 2 = 0,'<<$bcolor1>>','<<$bcolor2>>')+' height="30" width="10%" align="right">'+iif(money >= val($_eat['<<food_loop>>,price']),'<a href="exec:gt''food'',$_eat[''<<food_loop>>,type''],<<food_loop>>">'+$_eat['<<food_loop>>,price']+'</a>',$_eat['<<food_loop>>,price'])+''+iif($_eat['<<food_loop>>,price'] ! '','<font color="<<$fcolor1>>"><b> ₽. </b>','')+'</td><td bgcolor='+iif(night_mode = 1,'#000000','#FFFFFF')+' border="0" width="50" cellpadding="0" cellspacing="0" ></td><td bgcolor='+iif(food_loop mod 2 = 0,'<<$bcolor1>>','<<$bcolor2>>')+' height="30" width="40%" align="center"><font color="<<$fcolor1>>">'+$_drink['<<food_loop>>,name']+'</td><td bgcolor='+iif(food_loop mod 2 = 0,'<<$bcolor1>>','<<$bcolor2>>')+' height="30" width="10%" align="right">'+iif(money >= val($_drink['<<food_loop>>,price']),'<a href="exec:gt''beverage'',$_drink[''<<food_loop>>,type''],<<food_loop>>">'+$_drink['<<food_loop>>,price']+'</a>',$_drink['<<food_loop>>,price'])+'<font color="<<$fcolor1>>"><b> ₽. </b></td></tr>'
+$_str += '<tr><td bgcolor='+iif(food_loop mod 2 = 0,'<<$bcolor1>>','<<$bcolor2>>')+' height="30" width="40%" align="center"><font color="<<$fcolor1>>">'+$_eat['<<food_loop>>,name']+'</td><td bgcolor='+iif(food_loop mod 2 = 0,'<<$bcolor1>>','<<$bcolor2>>')+' height="30" width="10%" align="right">'+iif(money >= val($_eat['<<food_loop>>,price']),'<a href="exec:gt''food'',$_eat[''<<food_loop>>,type''],<<food_loop>>">'+$_eat['<<food_loop>>,price']+'</a>',$_eat['<<food_loop>>,price'])+''+iif($_eat['<<food_loop>>,price'] ! '','<font color="<<$fcolor1>>"><b> ₽. </b>', '')+'</td><td bgcolor=<<$bcolor3>> border="0" width="50" cellpadding="0" cellspacing="0" ></td><td bgcolor='+iif(food_loop mod 2 = 0,'<<$bcolor1>>','<<$bcolor2>>')+' height="30" width="40%" align="center"><font color="<<$fcolor1>>">'+$_drink['<<food_loop>>,name']+'</td><td bgcolor='+iif(food_loop mod 2 = 0,'<<$bcolor1>>','<<$bcolor2>>')+' height="30" width="10%" align="right">'+iif(money >= val($_drink['<<food_loop>>,price']),'<a href="exec:gt''beverage'',$_drink[''<<food_loop>>,type''],<<food_loop>>">'+$_drink['<<food_loop>>,price']+'</a>',$_drink['<<food_loop>>,price'])+''+iif($_drink['<<food_loop>>,price'] ! '','<font color="<<$fcolor1>>"><b> ₽. </b>', '')+'</td></tr>'
 food_loop += 1
 if food_loop < arrsize('$_drink')/3:jump 'loop_diner_drinks'
 $_str += '</table></center></font>'
 'Please place your order:<br><br>'+$_str
+
+
 killvar '$_str'
 killvar 'food_loop'
 killvar '$fcolor1'
 killvar '$bcolor1'
 killvar '$bcolor2'
+killvar '$bcolor3'
 
 --- food_menu ---------------------------------
 

@@ -16,13 +16,13 @@ $enddrive = {
 	if cardrive = 13:gt 'dachi'	
 	if cardrive = 14:gt 'liam'
 	if cardrive = 18:gt 'youplace'
-	if cardrive = 19:gt'vokzal'
+	if cardrive = 19:gt 'nordtrain', 'outside'
 	if cardrive = 20:gt 'pavResidential'
-	if cardrive = 21:gt'zaprF','start'
-	if cardrive = 22:gt'road'
-	if cardrive = 23:gt'gadukino'
-	if cardrive = 24:gt'pavCommercial'
-	if cardrive = 25:gt'island'
+	if cardrive = 21:gt 'zaprF','start'
+	if cardrive = 22:gt 'road'
+	if cardrive = 23:gt 'gadukino'
+	if cardrive = 24:gt 'pavCommercial'
+	if cardrive = 25:gt 'island'
 }
 
 if $ARGS[0] = 'start':

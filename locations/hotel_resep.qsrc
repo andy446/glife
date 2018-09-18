@@ -293,7 +293,7 @@ if $ARGS[0] = 'pavlbar':
 			npc_rel['A217'] = 3
 			fingal = 1
 
-			act'Run away':gt'vokzalG'
+			act'Run away':gt'pavtrain'
 		end
 	end
 	exit

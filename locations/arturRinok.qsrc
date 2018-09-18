@@ -24,7 +24,7 @@ if $ARGS[0] = 'start':
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/arthur/artur.jpg"></center>'
 				'Sensing the man has "other" intentions, you start to refuse and back away from the Armenian. He puts his hand out to stop your retreat and says "Hey, I mean no offense. Perhaps my Russian is no good. Nothing bad will happen I swear! I''ll even give you <<$arturgift>> if you come and spend some time with me."'
 
-				act 'Leave':gt 'Grinok', 'start'
+				act 'Leave':gt 'pavtrain_market', 'start'
 
 				act 'Show interest':
 					cls
@@ -33,7 +33,7 @@ if $ARGS[0] = 'start':
 					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/arthur/artur.jpg"></center>'
 					'You can''t help but show interested in the gift the unfamiliar Armenian is offering. Suddenly another Armenian comes up to you and leans in with an equally friendly smile. "Do not fear girl, Uncle Arturik does not bite. He is good man." The second stranger insists.'
 
-					act 'Leave':gt 'Grinok', 'start'
+					act 'Leave':gt 'pavtrain_market', 'start'
 					act 'Go with Arthur':gt 'arturHome'
 				end
 			end
@@ -55,12 +55,12 @@ if $ARGS[0] = 'start':
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/arthur/artur.jpg"></center>'
 				'Arthur smile amiably you. "There is much work to do, I''m sorry."'
 
-				act 'Leave':gt 'Grinok', 'start'
+				act 'Leave':gt 'pavtrain_market', 'start'
 			end
 		end
 	end
 
-	act 'Leave':gt 'Grinok', 'start'
+	act 'Leave':gt 'pavtrain_market', 'start'
 end
 if $ARGS[0] = 'work_1':
 	cls
@@ -93,7 +93,7 @@ if $ARGS[0] = 'work_1':
 				'"Well, you know, the sight of your beautiful eyes nearly overwhelm me every time I see them. So does your tight ass." He says, smiling lecherously at you'
 				'You turn and give him a quick shake of your rump before departing.'
 
-				act 'Leave':gt 'Grinok', 'start'
+				act 'Leave':gt 'pavtrain_market', 'start'
 			end
 		end
 	end
@@ -131,7 +131,7 @@ if $ARGS[0] = 'work_2':
 			'"Now let''s go eat barbecue and drink Chacha brandy. Then I can grab you by that fine ass of yours." Arthur suggests as he walks over and begins roughly palming your ass.'
 
 			act 'Go with Arthur':gt 'arturHome'
-			act 'Leave':gt 'Grinok', 'start'
+			act 'Leave':gt 'pavtrain_market', 'start'
 		end
 	end
 end

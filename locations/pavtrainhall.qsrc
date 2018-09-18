@@ -1,15 +1,14 @@
-# vokzalGin
+# pavtrainhall
 
 if $ARGS[0] = '':
 	$metka = ''
-	$loc = 'vokzalGin'
+	$loc = 'pavtrainhall'
 	$location_type = 'public_indoors'
 	CLOSE ALL
 	if sound = 0:PLAY 'sound/vokzal2.mp3',30
 	clr
 	frost = 0
 	poezddalsled = 0
-	gs 'vokdin'
 	gs 'stat'
 	if night_mode = 1:
 		fcolor = rgb(255, 255, 255)
@@ -23,7 +22,7 @@ if $ARGS[0] = '':
 
 	'<center><h4>Pavlovsk train station interior</h4></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/trainstation/vokzal.jpg"></center>'
-	'The center of the station building is a large waiting room, where passengers can wait until their train arrives. Opposite to that you can find the <a href="exec:dynamic $din_vokzalg_kabinet">station manager''s office</a>, and the <a href="exec:minut += 1 & gt ''vokmantoiev'', ''start''">toilets</a> on the other end of the building.'
+	'The center of the station building is a large waiting room, where passengers can wait until their train arrives. Opposite to that you can find the <a href="exec: gt ''pavtrainhall_events'', ''manager''">station manager''s office</a>, and the <a href="exec:minut += 1 & gt ''pavtrainhall'', ''toilet''">toilets</a> on the other end of the building.'
 	'The long-distance trains are at the station platforms between 11:00-11:30 and 18:00-18:30.'
 
 	*nl
@@ -39,16 +38,17 @@ if $ARGS[0] = '':
 	if podbros = 0:
 		podrand = rand(0, 1)
 
-		if money >= 1000 and hour >= 8 and hour <= 20 and podrand = 0:'As you walk through the station building, you notice a man''s thick <a href="exec:dynamic $din_vokzalg_podbros">wallet</a> dropping from his pocket, not far away from you.'
+		if money >= 1000 and hour >= 8 and hour <= 20 and podrand = 0:'As you walk through the station building, you notice a man''s thick <a href="exec: gt ''pavtrainhall_events'', ''wallet1''">wallet</a> dropping from his pocket, not far away from you.'
 		*nl
 	end
 
-	act 'Leave the station building':minut += 3 & gt 'vokzalG'
+	act 'Leave the station building':minut += 3 & gt 'pavtrain'
+	
 	if Trainpass_day > daystart:
 		'You have <<Trainpass_day - daystart>> days left on your train pass.'
-		act 'Go to the platforms': gt 'vokzalperG', 'start'
+		act 'Go to the platforms': gt 'pavtrainhall', 'platform'
 	else
-		act 'Go to the ticket office': gt 'vokzalGin', 'ticket'
+		act 'Go to the ticket office': gt 'pavtrainhall', 'ticket'
 	end
 
 	if snarkozak = 1 and narkossista = 0 and narkozakday!day:
@@ -59,7 +59,7 @@ if $ARGS[0] = '':
 	
 	if vokzalVork >= 1:
 		if cleZalDay ! daystart or cleMTDay ! daystart or cleWTDay ! daystart:
-			act 'Work': gt 'vokzalGin', 'work'
+			act 'Work': gt 'pavtrainhall', 'work'
 		elseif cleZarplatDay ! daystart:
 			act 'Collect your salary':
 				*clr & cla
@@ -71,7 +71,7 @@ if $ARGS[0] = '':
 				minut += 3
 				gs 'stat'
 				'When you are done cleaning all the places you were told to clean, you go to the cashier and collect your well-earned salary.'
-				act 'Continue':minut += 1 & gt 'vokzalGin'
+				act 'Continue':minut += 1 & gt 'pavtrainhall'
 			end
 		end
 	end
@@ -101,11 +101,48 @@ if $ARGS[0] = '':
 		'The platform is bustling with passengers that are entering or leaving the currently waiting train, carrying their heavy bags with them. Several police officers are patrolling the platforms while the train is here, keeping an eye out for any unruly activities.'
 
 		if tovarL > 0:
-			act 'Sell your goods to passengers':gt 'vokzaltorg'
+			act 'Sell your goods to passengers':gt 'pavtrainhall_events', 'trinkets'
 		end
 	end
 	
 	act 'Wait':gs 'obj_din', 'wait'
+end
+
+if $ARGS[0] = 'platform':
+	$metka = $ARGS[0]
+	$loc = $CURLOC
+	$location_type = 'public_outdoors'
+	CLOSE ALL
+	if sound = 0:
+		if month >=11 and month <= 12 or month >=1 and month <=3:
+			if hour >= 8 and hour <= 23: PLAY 'sound/street2.mp3',30 & PLAY 'sound/zima.mp3',30
+			if hour >= 0 and hour <= 7: PLAY 'sound/street_night.mp3',30 & PLAY 'sound/zima.mp3',30
+		else
+			if hour >= 8 and hour <= 23: PLAY 'sound/street2.mp3',30 & PLAY 'sound/street_leto.mp3',30
+			if hour >= 0 and hour <= 7:PLAY 'sound/street_night.mp3',30
+		end
+	end
+
+	*clr & cla
+	gs'stat'
+
+	'<center><H4>Pavlovsk station platforms</H4></center>'
+	'<center><img <<$set_imgh>> src="images/locations/shared/train/pavplat.jpg"></center>'
+	'Because Pavlovsk is a place that attracts a fair amount of tourists, the station can be quite busy at times. The busiest times on the platforms are between 11:00 and 11:30, and between 18:00 and 18:30 when the long-distance trains are ready for boarding.'
+
+	act 'Return to the station building': gt'pavtrainhall'
+
+	if Trainpass_day > daystart:
+		act 'Take a train to the old town': gt 'pavtrainhall', 'oldtown'
+	
+		act 'Take a train to the village of Gadukino': gt 'pavtrainhall', 'village'
+	
+		act 'Take a train to the the communal village': gt 'pavtrainhall', 'communal'
+
+		act 'Take a train to city industrial area': gt 'pavtrainhall', 'ind'
+
+		act 'Take a train to city center': gt 'pavtrainhall', 'centre'
+	end
 end
 
 if $ARGS[0] = 'work':
@@ -122,7 +159,7 @@ if $ARGS[0] = 'work':
 			'<center><img <<$set_imgh>> src="images/locations/city/residential/office/clener1.jpg"></center>'
 			'You take some cleaning supplies from the maintenance closet, pour some water and soap into a bucket and wash the floor in the waiting room.'
 
-			act 'Continue':minut += 1 & gt 'vokzalGin', 'work'
+			act 'Continue':minut += 1 & gt 'pavtrainhall', 'work'
 		end
 	end
 
@@ -135,10 +172,10 @@ if $ARGS[0] = 'work':
 			gs 'stat'
 			'<center><img <<$set_imgh>> src="images/locations/city/residential/office/clener1.jpg"></center>'
 			'You take some cleaning supplies from the maintenance closet, pour some water and soap into a bucket and go to the men''s room.'
-			gs 'vokmantoiev', 'toilet_event'
+			gs 'pavtrainhall_events', 'toilet_event'
 			!!'You began to wash the floor in the men''s room, and then began to scrub toilets.'
 
-			act 'Leave restroom':minut += 1 & gt 'vokzalGin', 'work'
+			act 'Leave restroom':minut += 1 & gt 'pavtrainhall', 'work'
 		end
 	end
 
@@ -151,12 +188,12 @@ if $ARGS[0] = 'work':
 			gs 'stat'
 			'<center><img <<$set_imgh>> src="images/locations/city/residential/office/clener1.jpg"></center>'
 			'You take some cleaning supplies from the maintenance closet, pour some water and soap into a bucket and scrub the toilets in the ladies'' room before mopping the floor.'
-			gs 'vokdinvera'
+			gs 'pavtrainhall_events', 'vera'
 
-			act 'Leave restroom':minut += 1 & gt 'vokzalGin', 'work'
+			act 'Leave restroom':minut += 1 & gt 'pavtrainhall', 'work'
 		end
 	end
-	act 'Return': gt 'vokzalGin'
+	act 'Return': gt 'pavtrainhall'
 end
 
 if $ARGS[0] = 'ticket':
@@ -165,72 +202,72 @@ if $ARGS[0] = 'ticket':
 	'<center><h4>Ticket office</h4></center>'
 	'<center><img <<$set_imgh>> src="images/locations/shared/train/kassa.jpg"></center>'
 
+	act 'Leave the ticket office':minut += 1 & gt 'pavtrainhall'
+	
 	if money >= 50:
 		act 'Buy a ticket':
 			cla
-			gs 'vokzalGin', 'buy_ticket'
+			gs 'pavtrainhall', 'buy_ticket'
 		end
 	end
 
 	if money >= 1500 and Trainpass_day <= daystart:
-		act 'Buy a weekly pass  (7 days - 1500 <b>₽</b>) ':
+		act 'Buy a weekly pass (7 days - 1500 <b>₽</b>) ':
 			cla
 			money -= 1500
 			Trainpass_day = daystart + 7
-			act 'Return': gt 'vokzalGin'
+			act 'Return': gt 'pavtrainhall'
 		end
 	end
 
 	if money >= 5500 and Trainpass_day <= daystart:
-		act 'Buy a monthly pass (30day -  5500 <b>₽</b>)':
+		act 'Buy a monthly pass (30day - 5500 <b>₽</b>)':
 			cla
 			money -= 5500
 			Trainpass_day = daystart + 30
-			act 'Return': gt 'vokzalGin'
+			act 'Return': gt 'pavtrainhall'
 		end
 	end
-
-
-	act 'Leave the ticket office':minut += 1 & gt 'vokzalGin'
 end
 
 if $ARGS[0] = 'buy_ticket':
+	
+	act 'Leave the ticket office':minut += 1 & gt 'pavtrainhall'
+	
 	if money >= 50:
 		act 'Buy a ticket to the old town (50 <b>₽</b>)':
 			money -= 50
-			gt 'vokzalGin', 'oldtown'
+			gt 'pavtrainhall', 'oldtown'
 		end
 	end
 
 	if money >= 75:
 		act 'Buy a ticket to the village of Gadukino (75 <b>₽</b>)':
 			money -= 75
-			gt 'vokzalGin', 'village'
+			gt 'pavtrainhall', 'village'
 		end
 	end
 
 	if money >= 100:
 		act 'Buy a ticket to the the communal village (100 <b>₽</b>)':
 			money -= 100
-			gt 'vokzalGin', 'communal'
+			gt 'pavtrainhall', 'communal'
 		end
 	end
 
 	if money >= 125:
 		act 'Buy a ticket to city industrial area (125 <b>₽</b>)':
 			money -= 125
-			gt 'vokzalGin', 'ind'
+			gt 'pavtrainhall', 'ind'
 		end
 	end
 
 	if money >= 150:
 		act 'Buy a ticket to city center (150 <b>₽</b>)':
 			money -= 150
-			gt 'vokzalGin', 'centre'
+			gt 'pavtrainhall', 'centre'
 		end
 	end
-
-	act 'Leave the ticket office':minut += 1 & gt 'vokzalGin'
 end
 
 if $ARGS[0] = 'oldtown':
@@ -278,8 +315,8 @@ if $ARGS[0] = 'communal':
 end
 
 if $ARGS[0] = 'ind':
-	$loc = 'vokzalholle'
-	$metka = ''
+	$loc = 'nordtrain'
+	$metka = 'platform'
 	minut += 35
 	if rand(1, 100) < 15: gt 'train', 'private'
 	if rand(1, 100) < 30: gt 'train', 'Gopnik'
@@ -290,7 +327,7 @@ if $ARGS[0] = 'ind':
 	'After 35 minutes, the train stops at the St. Petersburg city industrial area station.'
 	act 'Get off the train':
 		if rand(1, 100) <= 5: gt 'train_incidental', 'end'
-		gt 'vokzalholle'
+		gt 'nordtrain', 'platform'
 	end
 end
 
@@ -311,5 +348,67 @@ if $ARGS[0] = 'centre':
 	end
 end
 
---- vokzalGin ---------------------------------
+if $ARGS[0] = 'toilet':
+	cls
+	vokzalToilet = 0
+	gs 'stat'
+
+	'<center><h4>Pavlovsk train station interior</h4></center>'
+	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/trainstation/vokzal.jpg"></center>'
+	'You are at the station''s restrooms, you can find the <a href="exec:minut += 1 & gt ''pavtrainhall'', ''female''">ladies'' room</a> and <a href="exec:minut += 1 & gt ''pavtrainhall'', ''male''">men''s room</a> here.'
+
+	act 'Return to the station':minut += 1 & gt 'pavtrainhall'
+end
+
+if $ARGS[0] = 'female':
+	$metkaM = $ARGS[0]
+	$locM = $CURLOC
+	$metka = $ARGS[0]
+	$loc = $CURLOC
+	$location_type = 'bathroom'
+	cls
+	vokzalToilet = 1
+	gs 'stat'
+	'<center><h4>The ladies'' room</h4></center>'
+	'<center><img <<$set_imgh>> src="images/locations/shared/bathroom/publictoilet.jpg"></center>'
+	'You open the door to the ladies'' room and go in.'
+
+	act 'Leave':minut += 1 & gt 'pavtrainhall', 'toilet'
+
+	act 'Look in the mirror': gt 'mirror', 'start'
+
+	dynamic $tampon
+	dynamic $quickwash
+	dynamic $basin
+	dynamic $removepan
+end
+
+if $ARGS[0] = 'male':
+	$metkaM = $ARGS[0]
+	$locM = $CURLOC
+	$metka = $ARGS[0]
+	$loc = $CURLOC
+	$location_type = 'bathroom'
+	cls
+	vokzalToilet = 2
+	gs 'stat'
+	'<center><h4>The men''s room</h4></center>'
+	'<center><img <<$set_imgh>> src="images/locations/shared/bathroom/publictoilet.jpg"></center>'
+	'You open the door to the men''s room and go in.'
+
+	act 'Leave':minut += 1 & gt 'pavtrainhall', 'toilet'
+
+	if bimbolevel >= 1:
+		act 'Wait and see if someone finds you':gt 'trainbimbo', 'pos1'
+		act 'Quickly enter a stall':gt 'trainbimbo', 'pos5'
+	end
+
+	act 'Look in the mirror':gt 'mirror', 'start'
+
+	dynamic $tampon
+	dynamic $quickwash
+	dynamic $basin
+end
+
+--- pavtrainhall ---------------------------------
 

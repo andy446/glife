@@ -1,4 +1,4 @@
-# vokBimbo
+# trainbimbo
 
 if $ARGS[0] = 'pos1':
 	cla
@@ -18,33 +18,33 @@ if $ARGS[0] = 'pos1':
 
 	if temp > 8:
 		'The restroom door opens and a young man comes in. He is taken aback by surprise, when he see''s you in the men''s room.'
-		act 'Pretend to straighten your hair.':gt 'vokBimbo', 'pos4'
+		act 'Pretend to straighten your hair.':gt 'trainbimbo', 'pos4'
 		if pcs_horny > 50:
 			act 'You look at him and smile.':
 				gs 'npcgeneratec', 0, 'young man', rand(18,25)
 				gs 'boyStat', $npclastgenerated
-				gt 'vokBimbo', 'pos2'
+				gt 'trainbimbo', 'pos2'
 			end
 		end
 	elseif temp < 3:
 		'The restroom door opens and a older man in his fifties comes in. He is taken aback by surprise, when he see''s you in the men''s room.'
-		act 'Pretend to straighten your hair.':gt 'vokBimbo', 'pos4'
+		act 'Pretend to straighten your hair.':gt 'trainbimbo', 'pos4'
 		if pcs_horny > 50:
 			act 'You look at him and smile.':
 				gs 'npcgeneratec', 0, 'fifty year old man', rand(50,59)
 				gs 'boyStat', $npclastgenerated
-				gt 'vokBimbo', 'pos3'
+				gt 'trainbimbo', 'pos3'
 			end
 		end
 	elseif temp = 5:
 		'The restroom door opens and a group of drunk guys come in. They are taken aback by surprise, when they see you in the men''s room.'
-		act 'Pretend to straighten your hair.':gt 'vokBimbo', 'pos4'
+		act 'Pretend to straighten your hair.':gt 'trainbimbo', 'pos4'
 		if pcs_horny > 70:
-			act 'You look at them and smile.':gt 'vokBimbo', 'pos6'
+			act 'You look at them and smile.':gt 'trainbimbo', 'pos6'
 		end
 	end
-	act 'Wait for men':gt 'vokBimbo', 'pos1'
-	act 'Leave':gt 'vokmantoiev', 'male'
+	act 'Wait for men':gt 'trainbimbo', 'pos1'
+	act 'Leave':gt 'pavtrainhall', 'male'
 end
 
 if $ARGS[0] = 'pos2':
@@ -55,8 +55,8 @@ if $ARGS[0] = 'pos2':
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/trainstation/vokbimbo2.jpg"></center>'
 	'A unfamiliar man blushed and went into a stall.'
-	act 'Follow him into the stall.':gt 'vokBimbo', 'pos22'
-	act 'Leave':gt 'vokmantoiev', 'male'
+	act 'Follow him into the stall.':gt 'trainbimbo', 'pos22'
+	act 'Leave':gt 'pavtrainhall', 'male'
 end
 
 if $ARGS[0] = 'pos22':
@@ -91,7 +91,7 @@ if $ARGS[0] = 'pos22':
 			'You keep sucking his dick and you are rewarded with hots spurts of cum shooting into your mouth and filling it. There was some much sperm that some of it leaks from the corner of your lips as you keep sucking his cock as he cums.'
 			'Once he finally stops spurting sperm in your mouth, you stand up swallowing his cum. You wipe the cum off the corners of your lips and sucks your fingers clean, as you smile at him.'
 
-			act 'Leave the stall':gt'vokBimbo','pos1'
+			act 'Leave the stall':gt'trainbimbo','pos1'
 		end
 
 		act 'Jerk him off':
@@ -105,7 +105,7 @@ if $ARGS[0] = 'pos22':
 			'You pull your mouth off his cock and sit back with your face tilted up, he gets the idea and starts jerking off.'
 			'Soon hot spurt of cum is splashing across your face and into your hair. You squeezed her eyes shut to keep the sperm out of your eyes, as feel as another jet of hot cum landed on your face.'
 
-			act 'leave the stall':gt'vokBimbo','pos1'
+			act 'leave the stall':gt'trainbimbo','pos1'
 		end
 			
 	end
@@ -129,10 +129,10 @@ if $ARGS[0] = 'pos22':
 			pcs_horny = 0 & orgasm += 1 & 'When you feel him cumming, your own orgasm sweeps through you.'
 		end	
 
-		act 'Leave the stall.':gt 'vokBimbo', 'pos1'
+		act 'Leave the stall.':gt 'trainbimbo', 'pos1'
 	end
 	
-	act 'Leave':gt 'vokmantoiev', 'male'
+	act 'Leave':gt 'pavtrainhall', 'male'
 end
 
 
@@ -149,8 +149,8 @@ if $ARGS[0] = 'pos3':
 	cla
 	'<center><img <<$set_imgh>> src="images/shared/sex/blowjob/bimbo.knees'+rand(0,6)+'.jpg"></center>'
 	'You get down on your knees and open your mouth to suck his cock.'
-		act'Suck':gt'vokBimbo','pos33'
-		act 'Run out of the bathroom.':gt'vokzalGin'
+		act'Suck':gt'trainbimbo','pos33'
+		act 'Run out of the bathroom.':gt'pavtrainhall'
 	end
 end
 
@@ -166,7 +166,7 @@ if $ARGS[0] = 'pos33':
     'You start gagging and struggling to breath, after a bit he stops forcing himself so deep in your mouth, giving you time to recover.'
     'He repeats these actions several times,while you start taking off your clothes.'
 
-	act 'Pull your panties off and masturbate':gt 'vokBimbo', 'pos333'
+	act 'Pull your panties off and masturbate':gt 'trainbimbo', 'pos333'
 end
 
 if $ARGS[0] = 'pos333':
@@ -184,10 +184,10 @@ if $ARGS[0] = 'pos333':
 	'You start rubbing your clit as the guy fucks your mouth and throat. After a bit you are completely naked, once you he pulls you up and pushes you are he pushes you down on the floor where you sprawl before him, you clothes laying around you, as he says.'
 	if rand(0,1) = 0:
 		'"You''re hot and give great head, but I think I want to try that tight little ass of yours."'
-		act 'Next':gt 'vokBimbo', 'pos3333'
+		act 'Next':gt 'trainbimbo', 'pos3333'
 	else
 		'"You''re hot and give great head, but I think I want to try that tight little pussy of yours."'
-		act 'Next':gt 'vokBimbo', 'pos3334'
+		act 'Next':gt 'trainbimbo', 'pos3334'
 	end
 end
 
@@ -213,7 +213,7 @@ if $ARGS[0] = 'pos3333':
 		pcs_horny = 0 & orgasm += 1 & 'When you feel him cumming, your own orgasm sweeps through you.'
 	end	
 
-	act 'Next':gt 'vokBimbo', 'pos33333'
+	act 'Next':gt 'trainbimbo', 'pos33333'
 end
 
 if $ARGS[0] = 'pos3334':
@@ -240,7 +240,7 @@ if $ARGS[0] = 'pos3334':
 	'After he finishing inside you he lets you go, and begins to make himself presentable.'
 	gs 'stat'
 	
-	act 'Next':gt 'vokBimbo', 'pos33333'
+	act 'Next':gt 'trainbimbo', 'pos33333'
 end
 
 if $ARGS[0] = 'pos33333':
@@ -253,7 +253,7 @@ if $ARGS[0] = 'pos33333':
 	if rand1>=40:'<center><video autoplay loop src="images/locations/pavlovsk/trainstation/sex/bimbo.cum.body0.mp4"></video></center>'
 	'He pushes you down on the dirty floor and he starts jerking off standing over you. Soon his spurts of hot sperm start raining down all over you body. Once he is finished cumming on you, he pulls out a marker and writes on your chest Pussy Whore. "This way it will be clear to everyone what you really are, ha ha ha!" He pulled up his pants and left you there lying on the floor covered in cum.'
 
-	act 'dress':gt 'vokBimbo', 'pos1'
+	act 'dress':gt 'trainbimbo', 'pos1'
 end
 
 if $ARGS[0] = 'pos4':
@@ -264,8 +264,8 @@ if $ARGS[0] = 'pos4':
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/trainstation/vokbimbo4.jpg"></center>'
 	'You pretend not to notice anything. Maybe they will just think you are so stupid, that you mixed up the women''s room with the mens room.'
 
-	act 'wait':gt 'vokBimbo', 'pos1'
-	act 'Leave':gt 'vokmantoiev', 'male'
+	act 'wait':gt 'trainbimbo', 'pos1'
+	act 'Leave':gt 'pavtrainhall', 'male'
 end
 
 if $ARGS[0] = 'pos5':
@@ -276,7 +276,7 @@ if $ARGS[0] = 'pos5':
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/trainstation/vokbimbo1.jpg"></center>'
 	'You ran into a toilet stall and closed the door. You feel shame at the thought of anyone catching you in here. Your heart was pounding in your chest.'
 
-	act 'Run out of toilet':gt 'vokmantoiev', 'male'
+	act 'Run out of toilet':gt 'pavtrainhall', 'male'
 end
 
 if $ARGS[0] = 'pos6':
@@ -292,9 +292,9 @@ if $ARGS[0] = 'pos6':
 		*clr
 		'<center><video autoplay loop src="images/locations/pavlovsk/trainstation/bimbo.strip'+rand(0,6)+'.mp4"></video></center>'
 		'You strip out of your clothes.'
-		act 'Further':gt'vokBimbo','pos66'
+		act 'Further':gt'trainbimbo','pos66'
 	end
-	act 'Ran out of toilet':gt'vokzalGin'
+	act 'Ran out of toilet':gt'pavtrainhall'
 end
 
 if $ARGS[0] = 'pos66':
@@ -371,8 +371,8 @@ if $ARGS[0] = 'pos66':
 		gs 'cuminsidereact', 'some drunk guy whom you likely won''t even remember tomorrow', sck
 	end
 	'After taking a few breaths, you stand up with some difficulty and gather your scattered stuff from the bathroom floor.'
-	act 'dress':gt 'vokBimbo', 'pos1'
+	act 'dress':gt 'trainbimbo', 'pos1'
 end
 
---- vokBimbo ---------------------------------
+--- trainbimbo ---------------------------------
 

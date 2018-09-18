@@ -655,17 +655,10 @@
 		<Location name="volAndGev"/>
 	</Folder>
 	<Folder name="Station Campus">
-		<Location name="vokzalG"/>
-		<Location name="Grinok"/>
-		<Location name="vokzalGin"/>
-		<Location name="vokdin"/>
-		<Location name="vokdinvera"/>
-		<Location name="vokmantoiev"/>
-		<Location name="vokzaltorg"/>
-		<Location name="vokzalper"/>
-		<Location name="vokzalperG"/>
-		<Location name="vokzaltoilet"/>
-		<Location name="vokzalholle"/>
+		<Location name="pavtrain"/>
+		<Location name="pavtrainhall"/>
+		<Location name="pavtrainhall_events"/>
+		<Location name="pavtrain_market"/>
 		<Location name="katalkin"/>
 		<Location name="katalkinSex"/>
 		<Location name="katalkinAlko"/>
@@ -776,6 +769,7 @@
 	</Folder>
 	<Folder name="North Side">
 		<Location name="Nord"/>
+		<Location name="nordtrain"/>
 		<Location name="Terminal"/>
 		<Location name="TerminalOffice"/>
 		<Location name="ivanRoom"/>
@@ -790,7 +784,6 @@
 		<Location name="LCporn"/>
 		<Location name="LCwork"/>
 		<Location name="pirsingsalon"/>
-		<Location name="vokzal"/>
 		<Location name="obekt"/>
 		<Location name="obekt2"/>
 		<Location name="dangeon"/>
@@ -998,7 +991,7 @@
 	</Folder>
 	<Folder name="Etogame">
 		<Location name="etoexhib"/>
-		<Location name="vokBimbo"/>
+		<Location name="trainBimbo"/>
 		<Location name="parkBimbo"/>
 		<Location name="ptu_dush"/>
 		<Location name="nastja"/>

@@ -41,6 +41,11 @@ if $ARGS[0] = 'start':
 		if badrand >= 80:konvert = 0
 	end
 
+	act 'Leave the Metro station':
+		minut += 5
+		gt $loc, $metka
+	end
+	
 	if money >= 16:
 		if $loc ! 'street':
 			act 'Go to the <b>Residential Area</b> (16 <b>₽</b>)':
@@ -86,11 +91,6 @@ if $ARGS[0] = 'start':
 				gt 'metro', 'vagon'
 			end
 		end
-	end
-
-	act 'Leave the Metro station':
-		minut += 5
-		gt $loc, $metka
 	end
 	
 	if pusher = 1 and dealer = 0:

@@ -28,7 +28,7 @@ act 'Kneel down':
 		gs 'arousal', 'end'
 		gs 'stat'
 	
-		act 'Leave':gt 'Grinok', 'start'
+		act 'Leave':gt 'pavtrain_market', 'start'
 	end
 end
 

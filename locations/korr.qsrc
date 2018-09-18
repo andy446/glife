@@ -188,7 +188,7 @@ if IvanPodstavaQW = 3 and hour >= 9 and hour <= 20:
 
 			'Time dragged on too long. Your life and work was tedious and monotonous. You sewed quilted five years, had dinner in the dining room and went to sleep in the barracks surrounded by other women inmates. With your salary of 2, 000 <b>₽</b> per month in 1000 listed on the debt repayment. But time does not stand still and still came an end to your suffering. You let go and gave 2,000 <b>₽</b>. You took the train and came back to the city.'
 
-			act 'Get off the train':gt 'vokzal'
+			act 'Get off the train': gt 'nordtrain', 'outside'
 		end
 	end
 	exit

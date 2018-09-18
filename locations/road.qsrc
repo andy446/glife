@@ -21,7 +21,7 @@ if $ARGS[0] = '':
 	if nroad = 0:act 'Go to the City Industrial Region (0:15)':minut += 15 & gt 'nord'
 	if nroad = 16:act 'Check out the construction site (1:00)':minut += 60 & gt 'obekt'
 	if nroad = 20:
-		act 'Go to Pavlovsk train station (0:15)': minut += 15 & gt 'vokzalG'
+		act 'Go to Pavlovsk train station (0:15)': minut += 15 & gt 'pavtrain'
 		act 'Go to Pavlovsk high street (0:15)': minut += 15 & gt 'pavCommercial'
 	end
 	if nroad < 20:act 'Walk towards Pavlovsk (1:00)':minut += 60 & nroad += 1 & gt $curloc

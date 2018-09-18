@@ -94,7 +94,7 @@ else
 	$Pharmname = '.'
 end
 
-'You are on the high street, at one end is the <a href="exec:minut += 15 & gt ''vokzalG''">train station</a> and access to the highway. Near the highway you can also find a <a href="exec:minut += 5 & gt ''zaprF'', ''start''">gas station</a>.'
+'You are on the high street, at one end is the <a href="exec:minut += 15 & gt ''pavtrain''">train station</a> and access to the highway. Near the highway you can also find a <a href="exec:minut += 5 & gt ''zaprF'', ''start''">gas station</a>.'
 'The nearby residential area is next to the lake and the town surrounds the old palace grounds which are now a large <a href="exec:minut += 5 & gt ''gskver'', ''start''">public park</a>.'
 'There is a small <a href="exec:minut += 5 & gt ''gpoli''">clinic</a><<$Pharmname>>'
 

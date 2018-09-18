@@ -236,7 +236,7 @@ if $ARGS[0] = 'snkayf':
 
 	if snkz = 5:
 		hour += 2
-		gt 'vokmantoiev', 'female'
+		gt 'pavtrainhall', 'female'
 	end
 
 	if snkz = 6:

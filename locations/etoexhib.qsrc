@@ -1686,7 +1686,7 @@ if $ARGS[0] = 'pos54':
 			'<center><img <<$set_imgh>> src="images/locations/shared/train/spy.jpg"></center>'
 			'You bought a fake passport, which claims you are an adult.'
 
-			act 'Leave':gt 'vokzal'
+			act 'Leave': gt 'nordtrain', 'outside'
 		end
 	end
 
@@ -1701,13 +1701,13 @@ if $ARGS[0] = 'pos54':
 			'<center><img <<$set_imgh>> src="images/locations/shared/train/spy.jpg"></center>'
 			'You bought a fake diploma.'
 
-			act 'Leave':gt 'vokzal'
+			act 'Leave': gt 'nordtrain', 'outside'
 		end
 	end
 
 	act 'Leave':
 		cls
-		gt 'vokzal'
+		gt 'nordtrain', 'outside'
 	end
 end
 

@@ -192,7 +192,7 @@ if StoryLine = 1:
 			!! for future code I guess
 		end
 
-		if $loc = 'vokzalG':
+		if $loc = 'pavtrain':
 			!! for future code I guess
 		end
 

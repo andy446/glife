@@ -8,7 +8,7 @@ minut += 60
 
 !'<a href="exec:GT ''nowostreet'',''start''">Buildings</a> '
 
-act 'Head to the station':gt 'vokzalholle', ''
+act 'Head to the station':gt 'nordtrain', 'inside'
 act 'Walk to the lake':gt 'lake', 'start'
 
 --- dort ---------------------------------

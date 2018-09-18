@@ -1,6 +1,6 @@
-# vokzalholle
+# nordtrain
 
-if $ARGS[0] = '':
+if $ARGS[0] = 'inside':
 	$metka = $ARGS[0]
 	$loc = $CURLOC
 	$location_type = 'public_indoors'
@@ -10,15 +10,98 @@ if $ARGS[0] = '':
 	gs'stat'
 	'<center><img <<$set_imgh>> src="images/locations/shared/train/vokzalholle.jpg" ></center>'
 	'There is a <a href="exec:GT ''dort''">path</a> leading off in to the distance, in the direction of the lake.'
-	act 'Leave the station building': minut += 2 & gt 'vokzal'
+	act 'Leave the station': minut += 2 & gt 'nordtrain', 'outside'
 	*nl
 	if Trainpass_day > daystart:
 		'You have <<Trainpass_day - daystart>> days left on your train pass.'
-		act 'Go to the platforms': gt 'vokzalper'
+		act 'Go to the platforms': gt 'nordtrain', 'platform'
 	else
-		act 'Go to the ticket office': minut += 1 & gt 'vokzalholle', 'ticket'
+		act 'Go to the ticket office': minut += 1 & gt 'nordtrain', 'ticket'
 	end
-	act 'Go to the restrooms': minut += 1 & gt 'vokzaltoilet'
+	act 'Go to the restrooms': minut += 1 & gt 'nordtrain', 'toilet'
+end
+
+if $ARGS[0] = 'outside':
+	$metka = $ARGS[0]
+	$loc = $CURLOC
+	$location_type = 'public_outdoors'
+	cls
+	gs'stat'
+	'<center><B>Railway station</B></center>'
+	'<center><img <<$set_imgh>> src="images/locations/city/shared/trainstation/vokzal.jpg"></center>'
+
+	if car > 0 and cardrive = 19:
+		cardrive = 19
+		'In the parking lot is <a href="exec:GS ''carF'',''start''">your <<$car>></a>.'
+	end
+
+	if RAND(1,100) > 70:
+		'You see a <a href="exec:GT ''etoexhib'',''pos54''">suspicious character</a>.'
+		!fakes use 2 for aware of need for, 1 for have, otherwise 0
+		if fakepassport = 2 or fakediplom = 2:
+		'When you pass by the suspicious character, he whispers to you: "I have what you want, miss"'
+		end
+	end
+
+	act 'Go to the city industrial region': minut += 15 & gt'nord'
+	act 'Enter the station building': minut += 2 & gt'nordtrain', 'inside'
+end
+
+if $ARGS[0] = 'platform':
+	$metka = $ARGS[0]
+	$loc = $CURLOC
+	$location_type = 'public_outdoors'
+	cls
+	gs 'stat'
+	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/trainstation/vokzalper.jpg" ></center>'
+	'When you arrive at the platform, you can''t help but notice it bustling with activity. Lots of passengers are coming and going, all carrying large bags. It feels like it is always busy here, no matter at what time of the day you are here.'
+
+	act 'Return to the station': minut += 5 & gt 'nordtrain', 'inside'
+	
+	if Trainpass_day > daystart:
+		act 'Take a train to the city center': gt 'nordtrain', 'centre'
+		
+		act 'Take a train to the old platform by the communal village': gt 'nordtrain', 'communal'
+		
+		act 'Take a train to the village of Gadukino': gt 'nordtrain', 'village'
+		
+		act 'Take a train to the old town': gt 'nordtrain', 'oldtown'
+		
+		act 'Take a train to Pavlovsk': gt 'nordtrain', 'pavlovsk'
+	end
+end
+
+if $ARGS[0] = 'toilet':
+	$metkaM = $ARGS[0]
+	$locM = $CURLOC
+	$metka = $ARGS[0]
+	$loc = $CURLOC
+	$location_type = 'bathroom'
+	
+	*clr & cla
+	gs'stat'
+
+	if night_mode = 1:
+		fcolor = rgb(255, 255, 255)
+		bcolor = rgb(0, 0, 0)
+		lcolor = rgb(106, 90, 205)
+	else
+		fcolor = rgb(0, 0, 0)
+		bcolor = rgb(255, 255, 255)
+		lcolor = rgb(106, 90, 205)
+	end
+
+	'<center><img <<$set_imgh>> src="images/locations/shared/bathroom/publictoilet.jpg"></center>'
+
+	act 'Return to the station': minut += 1 & gt 'nordtrain', 'inside'
+
+	act 'Look in the mirror': gt 'mirror', 'start'
+	if pcs_hairbsh = 0: act 'Brush your hair': gt 'mirror', 'brush'
+
+	dynamic $tampon
+	dynamic $quickwash
+	dynamic $basin
+	dynamic $removepan
 end
 
 if $ARGS[0] = 'ticket':
@@ -27,10 +110,12 @@ if $ARGS[0] = 'ticket':
 	'<center><h4>Ticket office</h4></center>'
 	'<center><img <<$set_imgh>> src="images/locations/shared/train/kassa.jpg"></center>'
 
+	act 'Leave the ticket office':minut += 1 & gt 'nordtrain', 'inside'
+	
 	if money >= 50:
 		act 'Buy a ticket':
 			cla
-			gs 'vokzalholle', 'buy_ticket'
+			gs 'nordtrain', 'buy_ticket'
 		end
 	end
 
@@ -39,7 +124,7 @@ if $ARGS[0] = 'ticket':
 			cla
 			money -= 1500
 			Trainpass_day = daystart + 7
-			act 'Return': gt 'vokzalholle', ''
+			act 'Return': gt 'nordtrain', 'inside'
 		end
 	end
 
@@ -48,50 +133,49 @@ if $ARGS[0] = 'ticket':
 			cla
 			money -= 5500
 			Trainpass_day = daystart + 30
-			act 'Return': gt 'vokzalholle', ''
+			act 'Return': gt 'nordtrain', 'inside'
 		end
 	end
-
-	act 'Leave the ticket office':minut += 1 & gt 'vokzalholle', ''
 end
 
 if $ARGS[0] = 'buy_ticket':
+	
+	act 'Leave the ticket office': gt 'nordtrain', 'inside'
+	
 	if money >= 50:
 		act 'Buy a ticket to the city center (50 <b>₽</b>)':
 			money -= 50
-			gt 'vokzalholle', 'centre'
+			gt 'nordtrain', 'centre'
 		end
 	end
 
 	if money >= 50:
 		act 'Buy a ticket to the old platform by the communal village (50 <b>₽</b>)':
 			money -= 100
-			gt 'vokzalholle', 'communal'
+			gt 'nordtrain', 'communal'
 		end
 	end
 
 	if money >= 75:
 		act 'Buy a ticket to the village of Gadukino (75 <b>₽</b>)':
 			money -= 75
-			gt 'vokzalholle', 'village'
+			gt 'nordtrain', 'village'
 		end
 	end
 
 	if money >= 100:
 		act 'Buy a ticket to the old town (100 <b>₽</b>)':
 			money -= 100
-			gt 'vokzalholle', 'oldtown'
+			gt 'nordtrain', 'oldtown'
 		end
 	end
 
 	if money >= 125:
 		act 'Buy a ticket to Pavlovsk (125 <b>₽</b>)':
 			money -= 125
-			gt 'vokzalholle', 'pavlovsk'
+			gt 'nordtrain', 'pavlovsk'
 		end
 	end
-	
-	act 'Leave the ticket office': gt 'vokzalholle', ''
 end
 
 if $ARGS[0] = 'centre':
@@ -155,8 +239,8 @@ if $ARGS[0] = 'oldtown':
 end
 
 if $ARGS[0] = 'pavlovsk':
-	$loc = 'vokzalperG'
-	$metka = ''
+	$loc = 'pavtrainhall'
+	$metka = 'platform'
 	minut += 35
 	if rand(1, 100) < 15: gt 'train', 'private'
 	if rand(1, 100) < 30: gt 'train', 'Gopnik'
@@ -167,9 +251,9 @@ if $ARGS[0] = 'pavlovsk':
 	'After 35 minutes, you see the town of Pavlovsk approaching. Pavlovsk Castle is an impressive sight, even from a long distance. The train stops at its final destination, a platform in Pavlovsk station.'
 	act 'Get off the train':
 		if train_event = 0 and rand(1, 100) <= 5: gt 'train_incidental', 'end'
-		gt 'vokzalperG'
+		gt 'pavtrainhall', 'platform'
 	end
 end
 
---- vokzalholle ---------------------------------
+--- nordtrain ---------------------------------
 

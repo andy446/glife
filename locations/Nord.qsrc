@@ -57,7 +57,7 @@ if $ARGS[0] = '':
 
 	if hour >= 8 and hour <= 22:'You can see the <a href="exec:$locM = ''Nord'' & minut += 1 & gt ''kiosk'', ''start''">kiosk</a> selling cigarettes and magazines.'
 
-	'<a href="exec:minut += 15 & gt ''vokzal''">Train Station</a> to get to the small Town.'
+	'<a href="exec:minut += 15 & gt ''nordtrain'', ''outside''">Train Station</a> to get to the small Town.'
 
 	if week = 3 or hour < 16:
 		'The Bar "Rabotnik" is here, but it seems to be closed. A sign by the door tells you that it''s open every day (except Wednesday) between 16:00 and 24:00.'

@@ -25,7 +25,7 @@ if hour = 0 and $prevloc ! 'HotelRoom':
 		hotresepQW = 2
 		observ_exp += 3
 	end
-	act 'Go back to the High Street':minut += 3 & gt'vokzalG'
+	act 'Go back to the High Street':minut += 3 & gt'pavtrain'
 	exit
 end
 if hour = 0 and $prevloc = 'HotelRoom':
@@ -124,7 +124,7 @@ if hotwait = 1:
 hotwait = 0
 end
 
-act 'Leave the hotel':minut += 3 & gt'vokzalG'
+act 'Leave the hotel':minut += 3 & gt'pavtrain'
 
 if maidqw >= 1 and hour >= 16 and hour < 17:
 	act'<b>Work as a maid</b>':

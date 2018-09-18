@@ -475,7 +475,7 @@ else
 			'Vasily grins and shouts as he sees you walk by: "Look guys, it''s our favourite slut! <<$shultextrand>>" His friends laugh loudly at your expense.'
 			
 			if $prevloc = 'gkafe':
-				act 'Blush and quickly leave the cafe':gt'vokzalG'
+				act 'Blush and quickly leave the cafe':gt'pavtrain'
 			else
 				act 'Blush and keep walking':gt 'gskver', 'start'
 				if BjBeerQW >= 5:act 'Approach the guys':gt'zsoft_gopskverGorSlut','1'

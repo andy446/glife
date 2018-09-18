@@ -25,9 +25,9 @@ if $ARGS[0] = 'start':
 	gs 'stat'
 	'<center><h4>Market</h4></center>'
 	if month >= 11 or month <= 3:
-		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/market/pavtrain_marketw.jpg"></center>'
+		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/market/grinokw.jpg"></center>'
 	else
-		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/market/pavtrain_market.jpg"></center>'
+		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/market/grinok.jpg"></center>'
 	end
 	'This small open air market is located near the train station.'
 	if arturQW = 1 and (week = 6 or week = 7) and hour < 12:
@@ -177,9 +177,9 @@ if $ARGS[0] = 'start':
 			gs 'stat'
 			lookwine = daystart
 			if month >= 11 or month <= 3:
-				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/market/pavtrain_marketw.jpg"></center>'
+				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/market/grinokw.jpg"></center>'
 			else
-				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/market/pavtrain_market.jpg"></center>'
+				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/market/grinok.jpg"></center>'
 			end
 			'You look around the market, but the Chinese vendors don''t seem to be here today.'
 			act 'Leave': gt 'pavtrain_market', 'start'

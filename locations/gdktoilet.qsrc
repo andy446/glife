@@ -20,6 +20,12 @@ if $ARGS[0] = 'start':
 	'<center><b><font color="maroon">Bathroom Entrance</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/bathroom/bathroom_entrance.jpg"></center>'
 
+	act 'Go Outside': 
+		gs 'arousal', 'end'
+		gs 'stat'
+		gt 'gdk'
+	end
+	
 	if hour >= 8 and hour <= 23:
 		act 'Go in the Men''s toilet': gt 'gdktoilet', 'mens_entrance_events'
 		act 'Go in the Women''s toilet': gt 'gdktoilet', 'womens'
@@ -57,12 +63,6 @@ if $ARGS[0] = 'start':
 
 	if hour >= 14 and hour <= 20:
 		act 'Go to the gym': gt 'gdksport', 'start'
-	end
-	
-	act 'Go Outside': 
-		gs 'arousal', 'end'
-		gs 'stat'
-		gt 'gdk'
 	end
 end
 

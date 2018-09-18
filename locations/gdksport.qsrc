@@ -143,8 +143,10 @@ if $ARGS[0] = 'racing1':
 	gs 'stat'
 	'Race training cost 300 <b>₽</b> for 30 lessons.'
 
+	act 'Leave':gt 'gdksport', 'start'
+	
 	if money >= 300 and gsAboBeg = 0:
-		act 'Buy 30 racing lessons (300 RUB)':
+		act 'Buy 30 racing lessons (300 <b>₽</b>)':
 			cls
 			money -= 300
 			gsAboBeg += 30
@@ -153,8 +155,6 @@ if $ARGS[0] = 'racing1':
 			act 'Leave':gt 'gdksport', 'start'
 		end
 	end
-
-	act 'Leave':gt 'gdksport', 'start'
 end
 
 if $ARGS[0] = 'dance1':
@@ -162,8 +162,10 @@ if $ARGS[0] = 'dance1':
 	gs 'stat'
 	'Dance lessons cost 300 <b>₽</b> for 30 lessons.'
 
+	act 'Leave':gt 'gdksport', 'start'
+	
 	if money >= 300 and gsAboDance = 0:
-		act 'Buy 30 dance lessons (300 RUB)':
+		act 'Buy 30 dance lessons (300 <b>₽</b>)':
 			cls
 			money -= 300
 			gsAboDance += 30
@@ -171,9 +173,7 @@ if $ARGS[0] = 'dance1':
 			'You paid for 30 dance lessons.'
 			act 'Leave':gt 'gdksport', 'start'
 		end
-	end
-
-	act 'Leave':gt 'gdksport', 'start'
+	end	
 end
 
 if $ARGS[0] = 'vball1':
@@ -181,8 +181,10 @@ if $ARGS[0] = 'vball1':
 	gs 'stat'
 	'Volleyball lessons cost 300 <b>₽</b> for 30 visits.'
 
+	act 'Leave':gt 'gdksport', 'start'
+	
 	if money >= 300 and gsAboVolley = 0:
-		act 'Buy 30 volleyball lessons (300 RUB)':
+		act 'Buy 30 volleyball lessons (300 <b>₽</b>)':
 			cls
 			money -= 300
 			gsAboVolley += 30
@@ -190,15 +192,16 @@ if $ARGS[0] = 'vball1':
 			'You paid for 30 volleyball lessons.'
 			act 'Leave':gt 'gdksport', 'start'
 		end
-	end
-
-	act 'Leave':gt 'gdksport', 'start'
+	end	
 end
 
 if $ARGS[0] = 'dance2':
 	cla & *clr
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/shared/gym/fit1.jpg"></center>'
+	
+	act 'Leave':gt 'gdksport', 'start'
+	
 	if pcs_danc < 50:
 		gsAboDance -= 1
 		timemult = 8
@@ -232,7 +235,6 @@ if $ARGS[0] = 'dance2':
 			gt 'gdksport', 'albina3'
 		end
 	end
-	act 'Leave':gt 'gdksport', 'start'
 end
 
 if $ARGS[0] = 'albina1':
@@ -589,7 +591,7 @@ if $ARGS[0] = 'starlets':
 			end
 		end
 	end
-		act 'Leave':gt 'gdksport', 'start'
+	act 'Leave':gt 'gdksport', 'start'
 end
 
 if $ARGS[0] = 'cab_home':
@@ -659,7 +661,7 @@ if $ARGS[0] = 'vball2':
 	end
 
 	act 'Leave':gt 'gdksport', 'start'
-	act 'Speak to coach':gt 'Voltrener', 'start'
+	act 'Talk to the coach':gt 'Voltrener', 'start'
 end
 
 if $ARGS[0] = 'vball3':
@@ -698,7 +700,7 @@ if $ARGS[0] = 'vball3':
 		'You took to the court, but kept missing plays because you were too drunk to focus. The coach noticed your state and removed you from the game.'
 	end
 	act 'Leave':gt 'gdksport', 'start'
-	act 'Go to coaching':gt 'Voltrener', 'start'
+	act 'Talk to the coach':gt 'Voltrener', 'start'
 end
 
 if $ARGS[0] = 'vball4':
@@ -719,7 +721,7 @@ if $ARGS[0] = 'vball4':
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/gym/volley/gdksport.jpg"></center>'
 	'Number of games <<volsesongame>>, Win - <<volsesonwin>>, lesions - <<volsesonloss>>.'
 	'At the beginning of the workout you ran a few laps around the room. Afterwards the coach has you do push-ups and crunches. Then you practiced receiving and setting up plays and serving the ball. At the end of the workout you had a practice game.'
-		act 'Leave':gt 'gdksport', 'start'
+	act 'Leave':gt 'gdksport', 'start'
 	if $pantyworntype = 'none' and rand(0,1) = 1 and (volleytanga = 1 or VoltrenerVoyeur >= 5):
 		act 'Correct clothing':
 			inhib_exp += rand(1,5)
@@ -727,12 +729,12 @@ if $ARGS[0] = 'vball4':
 			TrenerLust += 3
 			Voltrenersee += 1 & ! setcheck on gg without panties
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/gym/volley/event/game'+rand(1,2)+'.jpg"></center>'
-			'It seems the coach noticed you wasn''t wearing any panties, his eyes lit up and he said turning away: "<<$pcs_lastname>>. Come see me after training. I need to show you UH  ... a few things" '
+			'It seems the coach noticed you wasn''t wearing any panties, his eyes lit up and he said turning away: "<<$pcs_lastname>>. Come see me after training. I need to show you UH ... a few things" '
 			act 'Leave':gs'stat'& gt 'gdksport', 'start'
 			act 'Go to the coach''s office':gt 'Voltrenersex', 'start'
 		end
 	else
-		act 'Go to coaching':gt 'Voltrener', 'start'
+		act 'Talk to the coach':gt 'Voltrener', 'start'
 	end
 end
 
@@ -748,6 +750,7 @@ if $ARGS[0] = 'vball5':
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/gym/volley/gdksport.jpg"></center>'
 	'The tournament starts at 20:00. Your bus departs at 19:00. You gathered your things together with the rest of the team and got on a bus that took you to the out of town match.'
+	act 'Leave':gt 'gdksport', 'start'
 	act 'Get on bus and go to play':
 		volltime = 0
 		sorevday = daystart
@@ -758,7 +761,6 @@ if $ARGS[0] = 'vball5':
 		minut += 60 & !total time should be 4 hours, 2 hours for the game and 2 hours travel
 		gt 'gdksport', 'volley'
 	end
-	act 'Leave':gt 'gdksport', 'start'
 end
 
 if $ARGS[0] = 'volley':
@@ -904,25 +906,25 @@ if $ARGS[0] = 'volley':
 		if volpoint > volpointv:
 			volsesonwin += 1
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/gym/volley/game6.jpg"></center>'
-			'Your team won.'
+			'Your team wins.'
 		elseif volpoint < volpointv:
 			volsesonloss += 1
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/gym/volley/game8.jpg"></center>'
-			'Your team lost.'
+			'Your team loses.'
 		else
 			if rand (0, 1) = 0:
 				volsesonwin += 1
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/gym/volley/game7.jpg"></center>'
-				'The match was very close, but in the end your team gets the win.'
+				'The match was very close, but in the end your team pulls of a win.'
 			else
 				volsesonloss += 1
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/gym/volley/game7.jpg"></center>'
-				'The match was very close, but in the end your team losses.'
+				'The match was very close, but in the end your team still loses.'
 			end
 		end
 		minut += 60 & !total time should be 4 hours, 2 hours for the game and 2 hours travel
 		act 'Leave':gt 'gdksport', 'start'
-		act 'Go to coaching':gt 'Voltrener', 'start'
+		act 'Talk to the coach':gt 'Voltrener', 'start'
 	end
 end
 
@@ -995,8 +997,6 @@ end
 
 if $ARGS[0] = 'ShowerWithIvan':
 	cls
-	gs'stat'
-
 	'<center><video autoplay loop src="images/shared/home/bathroom/dush.mp4"></video></center>'
 	'Ivan walks over to you, pulling his boxer shorts and stepping out of them as they fall around his ankles. Stepping into the shower with you, getting himself wet under the shower. His muscular body was very close to yours.'
 	'You tried not to look at him but your eyes involuntarily dropped to his groin where his thick cock hung and swung as he moved. Ivan seeing where you was looking winked, "Want to wash me?"'
@@ -1004,7 +1004,6 @@ if $ARGS[0] = 'ShowerWithIvan':
 	gs 'stat'
 	act 'Lather Ivan':
 		cls
-		gs 'stat'
 		gs 'boyStat', 'A3'
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/ivan/sex/community/shower.jpg"></center>'
 		'You took your washcloth and began to lather Ivan''s body. As you move around him, you can''t help but notice his <<dick>>cm <<$dick_girth>> cock began to rise up and getting hard, you feel it brush against your thigh.'
@@ -1016,7 +1015,6 @@ if $ARGS[0] = 'ShowerWithIvan':
 
 			if npcSex[3] = 0:npcSex[3] = 1 & guy += 1
 
-			gs 'stat'
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/ivan/sex/community/shover.jpg"></center>'
 			'You slowly sink to your knees in front of Ivan and his <<dick>>cm <<$dick_girth>> cock in front of your face. Ivan leaned forward probing impatiently with the head of his cock against your lips. Your mouth opens almost against your will and you let his cock slide in your mouth.'
 			'Your lips tightly wrapped around Ivan''s solid rod and you sucked him as the streams of warm water wash over you. Suddenly Ivan pulled his dick out of your mouth and takes you by the hand, pulling you back up to your feet. He brought his lips to your breast and began to suck on your nipple.'
@@ -1117,6 +1115,8 @@ if $ARGS[0] = 'Ivan_bored':
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/ivan/school/ivan2.jpg"></center>'
 	'You look at Ivan for a long moment and bite your lower lip and then whisper just loud enough he can barely hear you. "I''m bored." He looks at you a moment then smiles, he looks around, then takes you by the hand and leads you away from the others, into one of the lesser used area''s of the school. He stops at one of the boys restrooms, going inside and leaving you outside. A few moments later two younger boys are ushered out by Ivan and sent packing. He watches them go, once they round the corner he pulls you into the bathroom.'
 
+	act 'Leave': gt 'gschool_lessons', 'short_break'
+	
 	act 'Go into the bathroom with Ivan':
 		cls
 		pcs_horny += 20
@@ -1166,9 +1166,6 @@ if $ARGS[0] = 'Ivan_bored':
 		end
 
 	end
-
-	act 'Leave': gt 'gschool_lessons', 'short_break'
-
 end
 
 

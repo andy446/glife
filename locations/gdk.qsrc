@@ -7,6 +7,8 @@ $location_type = 'public_outdoors'
 gs 'stat'
 '<center><b><font color="maroon">Community Centre</font></b></center>'
 
+act 'Leave':gt 'pavResidential'
+
 if hour >= 20 and hour <= 23 and week >= 5 and week < 7:
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/dk_night.jpg"></center>'
 	'The entrance to the Community Centre is full of young people, the guys are just hanging around smoking and joking. The girls in small groups, all dressed up and gossiping. You see the bushes moving, Pavlovsks'' famous make out garden.'
@@ -51,8 +53,6 @@ if hour >= 12 and hour < 20:act 'Go upstairs to the hobby clubs':gt'gdkkru'
 if nerd_night_game = 1 and nerd_night_game_day = daystart and hour = 20: act 'Go up stairs to the hobby clubs and <b>Join nerds</b>': gt 'gschool_socialchg','nerd game night'
 
 if hour >= 8:act 'Go to the toilets': gt 'gdktoilet', 'start'
-
-act 'Leave':gt 'pavResidential'
 
 gs'family'
 

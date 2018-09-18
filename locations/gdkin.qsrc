@@ -51,6 +51,8 @@ if $ARGS[0] = '':
 			exit
 		end
 
+		act 'Go outside':gt 'gdk'
+		
 		act 'Dance (0:15)':
 			cls
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_dance.jpg"></center>'
@@ -205,8 +207,6 @@ if $ARGS[0] = '':
 	elseif hour < 20:
 		'The Club closes. The main lights go on, the music fades and everyone beings to leave.'
 	end
-
-	act 'Go outside':gt 'gdk'
 	
 	act 'Go to the toilets': gt 'gdktoilet', 'start'
 
@@ -218,7 +218,7 @@ if $ARGS[0] = 'Katja_dance':
 	*clr & cla 
 	dancerand=rand(1,5)
 	if $pantyworntype = 'none': 
-		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/katja_dance1_2.jpg"></center>'  
+		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/katja_dance1_2.jpg"></center>'
 		inhib_exp += rand(1,2)
 		'You dance with Katja attracting views of men from across the room. And when you consider that you not wearing panties, and your occasional spiraling of your skirt shows that fact off, it helps explain the attention.'
 	else
@@ -245,7 +245,7 @@ if $ARGS[0] = 'Katja_dance':
 					'Rebuffing the guy you and Katja pushed him away and turned to the crowd of guys around you. Katja hugs you and sticks out her tongue at the guys. The rebuffed guys looks around and thinks better of it and gets lost among the other dancers.'
 					gs 'arousal', 'end'
 					gs 'stat'
-					act 'to get lost':  gt 'gdkin'
+					act 'Move on': gt 'gdkin'
 				end
 			end	
 		elseif dancerand = 2:	
@@ -279,7 +279,7 @@ if $ARGS[0] = 'Katja_dance':
 			'Looking at the crowd of guys around you, you hug Katja and stick out your tongue at them, letting them know they can look at you all they like but that''s all they''re going to get.'
 			gs 'arousal', 'end'
 			gs 'stat'
-			act 'to get lost':  gt 'gdkin'
+			act 'Move on': gt 'gdkin'
 		end
 	end
 end
@@ -298,8 +298,8 @@ if $ARGS[0] = 'kotov_love':
 			'The frightened man begins to speak. "Come on, I didn''t know, I''m leaving." Vitek pushes the guy. "Get out of here and don''t come back."'
 		elseif fightboyrand > 5 and fightboyrand < 10:
 			'The guy shoves Vitek back. "Get your hands off me asshole!" Vitek suddenly kicks the guy with a fast and powerful blow.'
-            'The guy falls to the floor in pain, Vitek steps over and looms over the guy, grabbing him by this shirt he yanks him off the floor and slams him into the wall.'
-            '"Well, motherfucker? You think you can take what''s mine? How about I take what''s yours." The guy curled up in pain and frighteningly replies. "You can have anything, anything I got!"'
+			'The guy falls to the floor in pain, Vitek steps over and looms over the guy, grabbing him by this shirt he yanks him off the floor and slams him into the wall.'
+			'"Well, motherfucker? You think you can take what''s mine? How about I take what''s yours." The guy curled up in pain and frighteningly replies. "You can have anything, anything I got!"'
 		elseif fightboyrand >= 10:
 			'The guy punches Vitek in the face, Vitek recoils from the hit and lands a powerful kick of his own. Then they start fighting, fists and kicks landing from both sides. Finally a very powerful hit by Vitek, sends the guy flying into the wall, where he slumps to the floor. Vitek runs to him and starts punching him in the face. The guy stops resisting, apparently he lost consciousness.'
 		end

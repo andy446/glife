@@ -49,7 +49,7 @@ if $ARGS[0] = 'Food':
 				
 	act 'At the front':gt 'FedorEv3', 'Front'
 								
-	act 'in the middle':gt 'FedorEv3', 'Middle'
+	act 'In the middle':gt 'FedorEv3', 'Middle'
 								
 	act 'In the back':gt 'FedorEv3', 'Back'
 end	
@@ -89,7 +89,7 @@ if $ARGS[0] = 'Front':
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/5.jpg"></center>'
 	end		
 	'You point to the front seats. "Let''s sit up front, so that we can get the best view in the theater." And Fedor responds, "Just seeing you is the best view I could ask for"' 
-	'You lightly flick his nose with your finger as you reply. "Oh stop, your''re going to make me blush"'
+	'You lightly flick his nose with your finger as you reply. "Oh stop, you''re going to make me blush"'
 				
 	act 'Take a seat':
 		cls
@@ -123,9 +123,9 @@ if $ARGS[0] = 'Front':
 						gt 'FedorEv3', 'Front Caught'
 					end	
 			end	
-			act 'Finish and continue watching movie':gt 'FedorEv3', 'Movies 2'
+			act 'Finish and continue watching the movie':gt 'FedorEv3', 'Movies 2'
 		end				
-		act 'Finish and continue watching movie':gt 'FedorEv3', 'Movies 2'	
+		act 'Finish and continue watching the movie':gt 'FedorEv3', 'Movies 2'	
 		
 		act 'Go to the restroom':gt 'FedorEv3', 'Restroom Break'
 	end			
@@ -148,7 +148,7 @@ if $ARGS[0] = 'Front HJ':
 	gs 'arousal', 'end'				
 	gs 'stat'
 		
-	act 'Finish and continue watching movie':gt 'FedorEv3', 'Movies 2'
+	act 'Finish and continue watching the movie':gt 'FedorEv3', 'Movies 2'
 end	
 		
 if $ARGS[0] = 'Front Caught':
@@ -163,7 +163,7 @@ if $ARGS[0] = 'Front Caught':
 	'as he watches you and Fedor. You to pull your hand back as you bite your lip with embarrassment while trying to watch the movie, hoping that they will forget what they saw.'
 	gs 'arousal', 'end'
 				
-	act 'Continue watching movie':gt 'FedorEv3', 'Movies 2'
+	act 'Continue watching the movie':gt 'FedorEv3', 'Movies 2'
 end	
 								
 if $ARGS[0] = 'Middle':
@@ -177,7 +177,7 @@ if $ARGS[0] = 'Middle':
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/5.jpg"></center>'
 	end		
 	'You point to the middle seats. "I hear the middle is the warmest." and Fedor responds, "It may be warm but you''re the only hot one here."' 
-	'You lightly flick his nose with your finger as you reply, "Oh stop, your''re going to make me blush '
+	'You lightly flick his nose with your finger as you reply, "Oh stop, you''re going to make me blush '
 				
 	act 'Take a seat':
 		cls
@@ -211,12 +211,12 @@ if $ARGS[0] = 'Middle':
 				gs 'arousal', 'end'				
 				gs 'stat'
 			
-				act 'Finish and continue watching movie':gt 'FedorEv3', 'Movies 2'
+				act 'Finish and continue watching the movie':gt 'FedorEv3', 'Movies 2'
 			end
 			act 'Well you need to wait until we are alone':gt 'FedorEv3', 'Movies 2'
 			
 		end
-		act 'Continue watching movie':gt 'FedorEv3', 'Movies 2'
+		act 'Continue watching the movie':gt 'FedorEv3', 'Movies 2'
 		
 		act 'Go to the restroom':gt 'FedorEv3', 'Restroom Break'
 	end		
@@ -233,7 +233,7 @@ if $ARGS[0] = 'Back':
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/5.jpg"></center>'
 	end		
 	'You point to the back seats. "Let''s sit in the back where we can get some privacy." and Fedor responds, "Like it in the back huh?"' 
-	'You lightly flick his nose with your finger as you reply, "Oh stop, your''re going to make me blush'
+	'You lightly flick his nose with your finger as you reply, "Oh stop, you''re going to make me blush'
 				
 	act 'Take a seat':
 		cls
@@ -269,7 +269,7 @@ if $ARGS[0] = 'Back':
 					gs 'arousal', 'bj', 5							
 					gs 'stat'
 					
-					act 'As you wish':
+					act 'Ride him':
 						cls
 						gs'stat'
 						'<center><img <<$set_imgh>> src="images/locations/city/citycenter/mall/cinema/sex/kinosex7.jpg"></center>'
@@ -310,7 +310,7 @@ if $ARGS[0] = 'Back Sex':
 	gs 'arousal', 'end'				
 	gs 'stat'			
 	
-	act 'Finish watching movie':gt 'FedorEv3', 'Movies 2'
+	act 'Finish watching the movie':gt 'FedorEv3', 'Movies 2'
 end	
 
 if $ARGS[0] = 'Back Caught':
@@ -353,7 +353,7 @@ if $ARGS[0] = 'Back Preg':
 		gs 'arousal', 'end'				
 		gs 'stat'			
 	
-		act 'Finish watching movie':gt 'FedorEv3', 'Movies 2'
+		act 'Finish watching the movie':gt 'FedorEv3', 'Movies 2'
 	end	
 	act 'Pull out please':
 		VK = rand(1,10)
@@ -437,9 +437,9 @@ if $ARGS[0] = 'Ladies Room':
 	end	
 	
 	if EndMovie = 1:
-		act 'Leave restroom':gt 'FedorEv3', 'Movies 3'
+		act 'Leave the restroom':gt 'FedorEv3', 'Movies 3'
 	else
-		act 'Go back to theater':gt 'FedorEv3', 'Movies 2'
+		act 'Go back to the theater':gt 'FedorEv3', 'Movies 2'
 	end	
 end		
 		
@@ -471,9 +471,9 @@ if $ARGS[0] = 'Mens Room':
 	end	
 	
 	if EndMovie = 1:
-		act 'Leave restroom':gt 'FedorEv3', 'Movies 3'
+		act 'Leave the restroom':gt 'FedorEv3', 'Movies 3'
 	else
-		act 'Return to theater':gt 'FedorEv3', 'Movies 2'
+		act 'Go back to the theater':gt 'FedorEv3', 'Movies 2'
 	end	
 end	
 		
@@ -746,7 +746,7 @@ if $ARGS[0] = 'Restroom Lady':
 				gs 'arousal', 'cuni', 5, 'lesbian', 'dom'
 				gs 'stat'	
 						
-				act 'Rest leg on counter':
+				act 'Rest your leg on the counter':
 					cls
 					minut -= 5
 					gs'stat'
@@ -1114,7 +1114,7 @@ if $ARGS[0] = 'Restroom Gang':
 										act 'Wash up':gt 'FedorEv3', 'Restroom Wash'
 									end	
 								end	
-								act 'Nod yes':
+								act 'Nod':
 									cls
 									minut -= 15
 									sub += 5
@@ -1243,9 +1243,9 @@ if $ARGS[0] = 'Restroom Wash':
 	'You grab a few paper towels then approach the sink to clean yourself as thoughly as posible while taking a few seconds to enjoy a splash of warm water on your face, leaving you feeling refreshed as you finish up and walk away from the sink.'
 	
 	if FedorRestTimes > 2 and EndMovie = 1:
-		act 'Leave restroom':gt 'FedorEv3', 'Movies 3'
+		act 'Leave the restroom':gt 'FedorEv3', 'Movies 3'
 	elseif FedorRestTimes > 2 and EndMovie = 0:
-		act 'Go back to theater':gt 'FedorEv3', 'Movies 2'
+		act 'Go back to the theater':gt 'FedorEv3', 'Movies 2'
 	else	
 		act 'Dry off':gt 'FedorEv3', 'Ladies Room'		
 	end	
@@ -1269,9 +1269,9 @@ if $ARGS[0] = 'Restroom Wash 2':
 	'You grab a few paper towels then approach the sink to clean yourself as thoughly as posible while taking a few seconds to enjoy a splash of warm water on your face, leaving you feeling refreshed as you finish up and walk away from the sink.'
 
 	if FedorRestTimes > 2 and EndMovie = 1:
-		act 'Leave restroom':gt 'FedorEv3', 'Movies 3'
+		act 'Leave the restroom':gt 'FedorEv3', 'Movies 3'
 	elseif FedorRestTimes > 2 and EndMovie = 0:
-		act 'Go back to theater':gt 'FedorEv3', 'Movies 2'
+		act 'Go back to the theater':gt 'FedorEv3', 'Movies 2'
 	else	
 		act 'Dry off':gt 'FedorEv3', 'Mens Room'
 	end	
@@ -1294,9 +1294,9 @@ if $ARGS[0] = 'Restroom Wash 3':
 	'You grab a few paper towels then aproach the sink to clean yourself as thoughly as posible while taking a few seconds to enjoy a splash of warm water on your face, leaving you feeling refreshed as you finish up and walk away from the sink.'
 				
 	if EndMovie = 1:
-		act 'Leave restroom':gt 'FedorEv3', 'Movies 3'
+		act 'Leave the restroom':gt 'FedorEv3', 'Movies 3'
 	else
-		act 'Go back to theater':gt 'FedorEv3', 'Movies 2'
+		act 'Go back to the theater':gt 'FedorEv3', 'Movies 2'
 	end	
 end	
 		

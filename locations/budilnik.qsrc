@@ -19,6 +19,11 @@ if $ARGS[0] = 'start':
 	'<center><b><a href="exec:gt ''budilnik'', ''7''">7</a> <a href="exec:gt ''budilnik'', ''8''">8</a> <a href="exec:gt ''budilnik'', ''9''">9</a></b></center>'
 	'<center><b><a href="exec:gt ''budilnik'', ''0''">0</a></b></center>'
 	'<center><b><a href="exec:gt ''budilnik'', ''Reset''">Reset</a> <a href="exec:gt ''budilnik'', ''Time''">Set Alarm</a></b></center>'
+	if budilnikOn = 0:
+		'<center>Your alarm is currently turned <a href="exec: budilnikOn = 1 & GT ''budilnik'', ''start''"><b>off</a></b></center>.'
+	else
+		'<center>Your alarm is currently turned <a href="exec: budilnikOn = 0 & GT ''budilnik'', ''start''"><b>on</b></a></center>.'
+	end
 
 	act 'Leave':
 		cla

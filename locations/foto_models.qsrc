@@ -1107,7 +1107,7 @@ if $ARGS[0] = 'anastasia_chat':
 										*clr & cla
 										'<center><img src="images/locations/city/citycenter/photo/portraits/anastasia_p/talking/1.jpg"></center>'
 										'	She picks up her panties and gets up again. "Listen <<$pcs_nickname>>, you''re great at this job, and one day you might be as famous or even more famous a model than I am. And I want you to be ready when it happens. So just in case, my advice to you is to make sure you''re on birth control, make sure you enjoy yourself, and <i>always</i> charge extra for creampies and swallowing."'
-										'	And with that, she walks away, leaving you in the confused state of feeling like your mum just gave you advice on how to make the transition from nude model to professional hooker.'
+										'	And with that, she walks away, leaving you in the confused state of feeling like your <<$npc_nickname[''A29'']>> just gave you advice on how to make the transition from nude model to professional hooker.'
 										anastasiasex = 1
 										act 'Leave':gt 'foto','studio'
 									end

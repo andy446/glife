@@ -282,7 +282,7 @@ if $ARGS[0] = 'confession':
 				Kirill += 1
 				KnoKirillName = 1
 				'You once more feel the need to speak to the priest about some of the things that happened recently in your life.'
-				'"I sometimes think that my mum doesn''t trust me. I''m still a virgin, but she won''t take my word for it. Every month she nags my head off about going to the gynecologist to prove I''m still a virgin. She claims that my school needs to know, but I know that is a lie. It’s starting to irritate me."'
+				'"I sometimes think that my <<$npc_nickname[''A29'']>> doesn''t trust me. I''m still a virgin, but she won''t take my word for it. Every month she nags my head off about going to the gynecologist to prove I''m still a virgin. She claims that my school needs to know, but I know that is a lie. It’s starting to irritate me."'
 				'The priest sighed, "I''m sure she''s just doing what she thinks is best for you."'
 				'"That doesn’t make me feel less irritated." you replied sourly.'
 				'"Yes, I understand," the priest chuckled, "My mother, bless her soul, was just the same. Always checking up on who I was with and never letting me be alone with a girl. I almost went crazy."'
@@ -325,7 +325,7 @@ if $ARGS[0] = 'confession':
 					if Kirill_Crpt <= 10: Kirill_Crpt += 1
 					'"I''ve lied to my mother about it and given her a fake note from the gynocologist saying I''m still a vigin." you admitted shamefully.'
 				else
-					'"Mum will make me go to the gynocologist soon and he''ll report that I''m no longer a virgin." you say fearfully, "My mum will be so mad. I don''t know what to do."'
+					'"<<$npc_nickname[''A29'']>> will make me go to the gynocologist soon and he''ll report that I''m no longer a virgin." you say fearfully, "My <<$npc_nickname[''A29'']>> will be so mad. I don''t know what to do."'
 					if Kirill_Crpt <= 10: Kirill_Crpt += 1
 				end
 				act 'Return to Narthex': gt 'ParChurch', 'Narthex'

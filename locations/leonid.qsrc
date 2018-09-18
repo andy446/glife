@@ -51,8 +51,8 @@ if $ARGS[0] = 'firstTime':
 	'"All right mister <<$bSurname>>, I''ve got the idea. I promise to keep quiet and be your...slave."'
 	'"Very well. I will call you if I require your presence. Until then you are free to go."'
 	if SchoolAtestat = 0:
-		'"But mister <<$bSurname>>, what do I tell to my mum? How do I explain my absence from the school and everything?"'
-		'"Do not care about the school. I will take care of it. As for your mum, if she asks, tell her you ran from home to a friend but reconsidered and went back."'
+		'"But mister <<$bSurname>>, what do I tell to my <<$npc_nickname[''A29'']>>? How do I explain my absence from the school and everything?"'
+		'"Do not care about the school. I will take care of it. As for your <<$npc_nickname[''A29'']>>, if she asks, tell her you ran from home to a friend but reconsidered and went back."'
 		'"Yes mister <<$bSurname>>."'
 		schoolprogul = 0
 	end

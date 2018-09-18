@@ -557,7 +557,7 @@ if $ARGS[0] = 'BjBeerBeaten':
 		'The thought barely registers in your mind at first, but finally it does: they''re going to fuck you too!?'
 		if pcs_dom>10 and pcs_vag = 0 and pcs_ass >5 and pcs_horny < 75:
 			act 'Offer your ass instead': 
-				'You plead to the guys: "Please guys, I''m still a virgin! My mum would kill me if I lost my virginity, she has me checked every month! Maybe... maybe there''s something else I could do to please you, if you leave my pussy alone?"'
+				'You plead to the guys: "Please guys, I''m still a virgin! My <<$npc_nickname[''A29'']>> would kill me if I lost my virginity, she has me checked every month! Maybe... maybe there''s something else I could do to please you, if you leave my pussy alone?"'
 				act 'Take it in the ass':gt 'gopskver','BjBeerAnal'
 			end
 		else
@@ -598,7 +598,7 @@ if $ARGS[0] = 'BjBeerYes':
 		'You meekly object, but it gets drowned out by the enthusiastic shouts of the others. They pull you up and guide you to a place where no one ever comes.'
 		if pcs_dom>10 and pcs_vag = 0 and pcs_ass >5 and pcs_horny < 75:
 			act 'Offer your ass instead': 
-				'You plead to the guys: "Please guys, I''m still a virgin! My mum would kill me if I lost my virginity, she has me checked every month! Maybe... maybe there''s something else I could do to please you, if you leave my pussy alone? Please?"'
+				'You plead to the guys: "Please guys, I''m still a virgin! My <<$npc_nickname[''A29'']>> would kill me if I lost my virginity, she has me checked every month! Maybe... maybe there''s something else I could do to please you, if you leave my pussy alone? Please?"'
 				act 'Take it in the ass':gt 'gopskver','BjBeerAnal'
 			end
 		else
@@ -811,11 +811,11 @@ if $ARGS[0] = 'BjBeerPhone':
 	end
 
 	'Luckily the guys don''t last long, and finish fairly quickly. They both pull out and drop their loads on your face, and wipe their dicks on your <<$pcs_haircol>> <<$curly>> hair. They make you lick their cocks clean, but don''t let go of your hair just yet.' 
-	'Vasily grins as he tells the camera: "And that was the premiere presentation of <<$pcs_nickname>> <<$pcs_lastname>> in her very first production called "Gagging Whore"! You delivered an excellent performance <<$pcs_nickname>>, say hi to your mum!" He zooms in on your face, and continues to film.'
+	'Vasily grins as he tells the camera: "And that was the premiere presentation of <<$pcs_nickname>> <<$pcs_lastname>> in her very first production called "Gagging Whore"! You delivered an excellent performance <<$pcs_nickname>>, say hi to your <<$npc_nickname[''A29'']>>!" He zooms in on your face, and continues to film.'
 	act 'Do as he says':
 		cla
 		*pl
-		'By now you would rather just disappear in a large hole in the ground and never come back, but that''s not an option. You doubtfully look at the camera, wiping the tears and cum from your eyes as you softly mutter: "Hi mum..."'
+		'By now you would rather just disappear in a large hole in the ground and never come back, but that''s not an option. You doubtfully look at the camera, wiping the tears and cum from your eyes as you softly mutter: "Hi <<$npc_nickname[''A29'']>>..."'
 		'You desperately hope Vasily was just having a bit of fun with you, and that he''ll delete the recording before anyone else sees it.'
 		act 'Try to clean yourself up': gt'gopskver','BjBeerFace'
 	end

@@ -124,7 +124,7 @@ if $ARGS[0] = 'home':
 				'You ignore his look. "Is Anushka home?"'
 				'"No she''s not home right now, she''s probably out sucking some guy''s dick or something, but if you want you can go wait for her in her room."'
 				'You are aghast that her brother would say such a thing about her. "Why would you tell people something like that?"'
-				'At first, he looks a bit confused, as if he''s not sure what you mean but then he just shrugs. "That''s what my mum always says when I ask where Anushka is."'
+				'At first, he looks a bit confused, as if he''s not sure what you mean but then he just shrugs. "That''s what my mother always says when I ask where Anushka is."'
 				'You shake your head unsure about what to think, should you go in and wait for her or just go? Maksim just stands there staring at your tits and you can actually feel him undressing you with his eyes.'
 			else
 				'<center><img src="images/locations/pavlovsk/resident/apartment/anushapt/maksim.jpg"></center>'
@@ -726,7 +726,7 @@ if $ARGS[0] = 'chat':
 		'<center><h4><font color="maroon">Anushka''s Room</font></h4></center>'
 		'<center><img src="images/characters/pavlovsk/school/girl/anushka/bedroom/bedroomtalk.jpg"></center>'
 		'"I don''t mean to pry, but you and your bothers seem to have a rocky relationship."'
-		'"I know we have a bit of a love hate relationship, they can be such little assholes but at the same time they have their moments when they''re an absolute blast. If the oldest one could just stop creeping around and perving out on all my female friends. We would get along a lot better and if my mum would stop poisoning them against me and girls in general. I swear she wants to turn them into sexist assholes."'
+		'"I know we have a bit of a love hate relationship, they can be such little assholes but at the same time they have their moments when they''re an absolute blast. If the oldest one could just stop creeping around and perving out on all my female friends. We would get along a lot better and if my mother would stop poisoning them against me and girls in general. I swear she wants to turn them into sexist assholes."'
 		act 'Keep talking': gt 'anushapt', 'chat'
 		act 'Stop talking': gt 'anushapt', 'anushroom'
 	end
@@ -860,7 +860,7 @@ if $ARGS[0] = 'chat':
 			'You are not sure how you should ask this, but you are curious about what''s wrong with her mother. "I don''t mean to pry, but what''s wrong with your mother?"'
 			'Anushka glances at you. "You mean to ask, why is my mother a complete fucking cunt?" When she see''s the look on your face she waves her hand dismissively. "Don''t worry, everyone but her knows it. Honestly I don''t really know, she wasn''t always like this. When I was really young she was pretty fun and then she just changed." She sighs and looks a little sad.'
 			*nl
-			'"Best I can tell is my mother was a party girl looking for a guy she could latch onto, who would give her a party life forever. My dad was the biggest baddest mother fucker around back then, so perfect for my mum. But sometime after I was born, he settled down and I think it just hit her. This was her life, just that of a house wife and mother. She resents him, my brothers, and me for it and blames us for every bad thing that has happened in her life."'
+			'"Best I can tell is my mother was a party girl looking for a guy she could latch onto, who would give her a party life forever. My dad was the biggest baddest mother fucker around back then, so perfect for my mother. But sometime after I was born, he settled down and I think it just hit her. This was her life, just that of a house wife and mother. She resents him, my brothers, and me for it and blames us for every bad thing that has happened in her life."'
 			*nl
 			'Then her tone turns a bit hard. "She is just a loser bitch that wanted to live off a man and didn''t get her way, like my dad says. She''s just a waste of fucking space." Then she looks away for a moment before saying more. "I don''t really want to talk about this."'
 			act 'Keep talking': gt 'anushapt', 'chat'
@@ -1105,7 +1105,7 @@ if $ARGS[0] = 'brotherroom':
 		'Anushka quickly replies; "Calm down. I just wanted to see what you were up to, cause I know you little shitheads are always up to something."'
 		'"What do you care what we do? Shouldn''t you be off with your band or sucking some cock?"'
 		'Anushka reaches out and slaps him in the back of the head. "Watch what you say or I''ll beat your little ass."'
-		'He rubs the back of his head. "That''s what mum always says."'
+		'He rubs the back of his head. "That''s what mother always says."'
 		'Anushka fumes a bit. "Fuck that bitch, don''t listen to her, listen to dad you little asshole."'
 		'He just rolls his eyes and ignores her and looks at you now. "Don''t tell me, is this one of the famous groupies we''ve heard so many stories about?"'
 		act 'Excuse me?':

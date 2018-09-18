@@ -69,7 +69,7 @@ if $ARGS[0] = '':
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/trainstation/cafe/gkafe2.jpg"></center>'
 			'A small cafe, attached to the train station. It looks rather shabby.'
 
-			if StoryLine > 0:'Since your mum works here, you can eat here for free.'
+			if StoryLine > 0:'Since your <<$npc_nickname[''A29'']>> works here, you can eat here for free.'
 
 			if week < 6:
 				if hour >= 6 and hour < 16 and StoryLine > 0:
@@ -81,7 +81,7 @@ if $ARGS[0] = '':
 
 				razvrand = rand(1, 10)
 
-				! WD: Allpw event to trigger even after talking to mum about fucking her boss
+				! WD: Allpw event to trigger even after talking to <<$npc_nickname[''A29'']>> about fucking her boss
 				if razvrand > 7 and hour > 16 and hour < 20 and age < 18 and dyadyamishaevent = 0 and momslut >= 1:
 					''
 					'A male figure walks closely by your table. You look up and recognize uncle Misha, your neighbor. He stops and recognizes you as well, and sits down with you. He gives you a friendly smile as he says: "Oh, <<$pcs_nickname>>, hello. Listen, me and your stepfather were working late in the garage yesterday, and went for a nightcap at my place when we were finished. When your stepfather left, he accidentally left some of his tools behind. I''m fairly sure he needs them again today, and I could use a hand bringing them back to the garage. Could you help me out? I''ll give you money so you can get some ice cream for your troubles."'

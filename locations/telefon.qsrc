@@ -531,7 +531,7 @@ if $ARGS[0] = 'Phone_call':
 	clr
 	pl '<center><b><<$mid(100+hour,2,2)>>:<<$mid(100+minut,2,2)>></b></center>'
 	pl '<center><TABLE cellspacing="0" width="80%"><TR><TD><img src="images/system/icon/icon_statusbar_left.png"></TD><TD></TD><TD align="right"><img src="images/system/icon/icon_statusbar_right.png"></TD></TR></TABLE></center>'
-	pl'<center><font size=6>Calling Mum</font></center>'
+	pl'<center><font size=6>Calling <<$npc_nickname[''A29'']>></font></center>'
 	pl'<center><img src="images/system/phone/icons/icon_npc1.png"><br></center>'
 	pl'<center><a href="exec:gs ''telefon'', ''Phone_contactlist'' "><img src="images/system/phone/decline.png"></a></center>'
 	wait 1500
@@ -569,7 +569,7 @@ if $ARGS[0] = 'Phone_contactlist':
 	pl '<center><TABLE cellspacing="0" width="80%"><TR><TD><img src="images/system/icon/icon_statusbar_left.png"></TD><TD></TD><TD align="right"><img src="images/system/icon/icon_statusbar_right.png"></TD></TR></TABLE></center>'
 	pl '<center><font size=6>Contacts</font></center>'
 	pl '<center><img src="<<FUNC(''$phone_theme'')>>icon_call.png" height="80" width="80"><br></center>'
-	if StoryLine = 1:pl'<center><TABLE cellspacing="0" width="80%"><TR><TD><img src="images/system/phone/icons/icon_npc1.png"></TD><TD>Mum</TD><TD align="right"><a href="exec:gs ''telefon'', ''Phone_call'' "><b>Call</b></a></TD></TR></TABLE></center>'
+	if StoryLine = 1:pl'<center><TABLE cellspacing="0" width="80%"><TR><TD><img src="images/system/phone/icons/icon_npc1.png"></TD><TD><<$npc_nickname[''A29'']>></TD><TD align="right"><a href="exec:gs ''telefon'', ''Phone_call'' "><b>Call</b></a></TD></TR></TABLE></center>'
 	if hour >= 8 and hour <= 19:
 		if telalla > 0:
 			pl'<center><TABLE cellspacing="0" width="80%"><TR><TD><img src="images/system/phone/icons/icon_ira1.png"></TD><TD></TD><TD align="right"><a href="exec:$callerid = ''images/system/phone/icons/icon_ira1.png'' & $telsob = ''Alla'' & gt ''telefon'', ''mobilaraz''"><b>Call</b></a></TD></TR></TABLE></center>'

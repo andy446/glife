@@ -44,7 +44,7 @@ if hour = 7 and indorf = 0:
 	! on weekdays Anka here too
 	if week <= 5: *P ' <a href="exec:gt''sister''">Anya</a> is trying to lose some weight so she is only having a very light breakfast.'
 else
-	'The kitchen is not very impressive, but it has everything your family needs. Since everyone has the habit of eating at different times, Mum usually pre-cooks the meals and stores them in the fridge. Of course, you could also just have a snack if you''re not that hungry.'
+	'The kitchen is not very impressive, but it has everything your family needs. Since everyone has the habit of eating at different times, <<$npc_nickname[''A29'']>> usually pre-cooks the meals and stores them in the fridge. Of course, you could also just have a snack if you''re not that hungry.'
 end
 gs 'family'
 

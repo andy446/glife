@@ -62,7 +62,7 @@ if $ARGS[0] = 'peek':
 					cla
 					*clr
 					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/vladimir/sex/bath_voyer_3.jpg"></center>'
-					'Suddenly you hear the sound of the shower door as it creaks open. Turning around, you see your stepfather. He is standing in the hallway, devouring your naked body with his eyes. In your mind''s eye you see a flash of all the little moments the two of you have shared and then it dawns on you, your mum is at work. You smirk, and you feel your core tighten with desire:'
+					'Suddenly you hear the sound of the shower door as it creaks open. Turning around, you see your stepfather. He is standing in the hallway, devouring your naked body with his eyes. In your mind''s eye you see a flash of all the little moments the two of you have shared and then it dawns on you, your <<$npc_nickname[''A29'']>> is at work. You smirk, and you feel your core tighten with desire:'
 					'"Daddy, do you want to join me?"'
 					act 'Daddy wants to join?': gs 'vanrPar', 'stepdad_sex'
 				end

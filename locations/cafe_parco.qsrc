@@ -2,7 +2,7 @@
 
 $location_type = 'public_indoors'
 
-if $args[0]= 'cafe_parco':
+if $args[0]= 'start':
 	$menu_loc = 'cafe_parco'
 	$menu_arg = 'start'
 	menu_off = 0

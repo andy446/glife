@@ -34,7 +34,7 @@ if $args[0] = 'door':
 		if mey_vika['mey_vika_qw'] > 27:
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/meynolds/tamara_tea1.jpg"></center>'
 			'You walk up to the Meynolds residence and ring the doorbell...'
-			'After a short wait, you hear the lock click and you see Katja''s mum Kathy and sister Vicky standing by the door: <br><do>Oh hi, <<$pcs_nickname>>, welcome! Come in, make yourself at home.</do>'
+			'After a short wait, you hear the lock click and you see Katja''s mother Kathy and sister Vicky standing by the door: <br><do>Oh hi, <<$pcs_nickname>>, welcome! Come in, make yourself at home.</do>'
 
 			act 'Enter': gt 'mey_home', 'start'
 			exit

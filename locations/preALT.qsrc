@@ -46,7 +46,7 @@ if $ARGS[0] = 'Three':
 		showstat 1
 		showobjs 1
 		gs 'obj_din', 'old'
-		act 'Begin':
+		act 'Continue':
 			*clr
 			cla
 			'<center><img <<$set_imgh>> src="images/system/schoolgirl.jpg"></center>'
@@ -56,7 +56,7 @@ if $ARGS[0] = 'Three':
 				if $month = 'June':
 					gt'Gaddvor'
 				else
-					gt'pavComplex','start'
+					gt'bedrPar', 'intro'
 				end
 			end
 		end
@@ -139,7 +139,7 @@ if $ARGS[0] = 'Cursed Schoolgirl Start':
 			if $month = 'June':
 				gt'Gaddvor'
 			else
-				gt'pavComplex','start'
+				gt'bedrPar', 'intro'
 			end
 		end
 	end
@@ -232,7 +232,7 @@ if $ARGS[0] = 'Cursed Schoolgirl Start 2':
 										if $month = 'June':
 											gt'Gaddvor'
 										else
-											gt'pavComplex','start'
+											gt'bedrPar', 'intro'
 										end
 									end
 								end

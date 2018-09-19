@@ -157,7 +157,8 @@ if $ARGS[0] = 'SGStart2':
 	act 'Confirm':
 		cls
 		'<center><img <<$set_imgh>> src="images/pre/sys/altstart26.jpg"></center>'
-		'You have two options when it comes to beginning your game. You can start at the end of the summer holiday, very close to starting the new school year, or you can start at the beginning of the summer holiday.'
+		'You have two options when it comes to beginning your game:'
+		'You can start in August, at the end of the summer holiday, very close to starting the new school year, awaking at your parent''s home in Pavlovsk <B>(recommended for new players)</B>, or you can start in June, at the beginning of the summer holiday, visiting your grandparent''s house in Gadukino.'
 !!	This is to account for the school year not matching up with the calendar year.
 		if date_toggle ! 1:
 			if birthmonth >= 7: birthyear -= 1
@@ -165,7 +166,7 @@ if $ARGS[0] = 'SGStart2':
 		end
 		killvar '$startdob'
 		killvar 'date_toggle'
-		act 'Start at the end of August <B>(recommended for new players)</B>':
+		act 'Start at the end of August':
 !!		This is the default start
 			kanicont = 6
 			gt 'preSYS', 'SGStart3'
@@ -183,6 +184,7 @@ if $ARGS[0] = 'SGStart2':
 				kanicont = 92
 				Gspassed = 1
 				dostupindorf = 1
+				$npc_nickname['A29'] = input('<center>What name do you address your mother by?<br><br>Mother (default), Mum, Mom, Mama, etc.</center>')
 				gt 'preSYS', 'SGStart3'
 			end
 		end

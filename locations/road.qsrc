@@ -40,7 +40,7 @@ if $ARGS[0] = '':
 				act 'Continue':gt $curloc
 			elseif gorand>60:
 				gs 'road', 'autostop_d'
-				if nroad<15:
+				if nroad < 10:
 					act 'Ask the driver to take you to Gadukino':
 						$road_textrand0 = 'Gadukino'
 						gt 'road', 'autostpo_money'
@@ -65,7 +65,7 @@ if $ARGS[0] = '':
 				act 'Continue':gt $curloc
 			elseif gorand>60:
 				gs 'road', 'autostop_d'
-				if nroad>15:
+				if nroad > 10:
 					act 'Ask the driver to take you to Gadukino':
 						$road_textrand0 = 'Gadukino'
 						gt 'road', 'autostpo_money'
@@ -128,7 +128,7 @@ if $ARGS[0] = '':
 end
 
 if $ARGS[0] = 'drive_sex1':
-    $location_type = 'event_outdoors'
+	$location_type = 'event_outdoors'
 	cls
 	gs 'npcgeneratec', 0, 'truck driver', rand(14,22)
 	gs 'boyStat', $npclastgenerated
@@ -142,33 +142,33 @@ if $ARGS[0] = 'drive_sex1':
 	spafinloc = 12
 	gs 'cum_manage'
 	if $road_textrand0 = 'Gadukino':
-        minut+=15
-        nroad=15
+		minut+=15
+		nroad=15
 	elseif $road_textrand0 = 'Pavlovsk':
-        minut+=15
-        nroad=20
+		minut+=15
+		nroad=20
 	elseif $road_textrand0 = 'St. Petersburg':
-        minut+=15
-        nroad=0
-    end
+		minut+=15
+		nroad=0
+	end
 	'<center><B>Main road between St. Petersburg and Pavlovsk</B></center>'
 	'<center><video autoplay loop src="images/locations/highway/sex/bj (1).mp4" width="1000" height="562"></video></center>'
-    'When you get in the car, you immediately reach for his pants and take out his semi-erect cock. That''s what you promised him, after all. You feel it slowly hardening between your fingers as the man drives off.'
-    if pcs_throat < dick: pcs_throat += 1
-    if dick >= 14 and dick < 16: $raod_text_sex = 'a normal size'
-    if dick >= 16 and dick < 18: $raod_text_sex = 'a bit larger than average'
-    if dick >= 18 and dick < 20: $raod_text_sex = 'quite large'
-    if dick >= 20: $raod_text_sex = 'huge'
-    'You gentle massage his cock between your fingers while the man gets comfortable. It''s <<$raod_text_sex>>, roughly <<dick>> centimetres long and quite girthy. You manage to massage him to a full erection in no time at all, and lower your head to take it between your lips.'
-    'As you lick the tip of his cock with your tongue and begin to suck him off, you have to admit: this is kinda hot! The man is well groomed, and has a pleasant masculine smell to him.'
+	'When you get in the car, you immediately reach for his pants and take out his semi-erect cock. That''s what you promised him, after all. You feel it slowly hardening between your fingers as the man drives off.'
+	if pcs_throat < dick: pcs_throat += 1
+	if dick >= 14 and dick < 16: $raod_text_sex = 'a normal size'
+	if dick >= 16 and dick < 18: $raod_text_sex = 'a bit larger than average'
+	if dick >= 18 and dick < 20: $raod_text_sex = 'quite large'
+	if dick >= 20: $raod_text_sex = 'huge'
+	'You gentle massage his cock between your fingers while the man gets comfortable. It''s <<$raod_text_sex>>, roughly <<dick>> centimetres long and quite girthy. You manage to massage him to a full erection in no time at all, and lower your head to take it between your lips.'
+	'As you lick the tip of his cock with your tongue and begin to suck him off, you have to admit: this is kinda hot! The man is well groomed, and has a pleasant masculine smell to him.'
 	'You eagerly bob your head up and down while he drives, totally forgetting about your earlier doubts and do your best to get him off.'
 	'With success: in no time at all, the man groans and his cock erupts inside your mouth, shooting gobs of his hot sperm onto your tongue while you keep your lips closed around his cock to not make a mess.'
 	'Realizing you can''t spit it out anywhere, you have no option but to swallow his load while he keeps driving.'
-    act'To go further': gt 'road', 'autospot_drive'
+	act'To go further': gt 'road', 'autospot_drive'
 end
 
 if $ARGS[0] = 'drive_sex2':
-    $location_type = 'event_outdoors'
+	$location_type = 'event_outdoors'
 	cls
 	gs 'npcgeneratec', 0, 'truck driver', rand(14,22)
 	gs 'boyStat', $npclastgenerated
@@ -180,64 +180,64 @@ if $ARGS[0] = 'drive_sex2':
 	spafinloc = 7
 	gs 'cum_manage'
 	if $road_textrand0 = 'Gadukino':
-        minut+=15
-        nroad=10
+		minut+=15
+		nroad=10
 	elseif $road_textrand0 = 'Pavlovsk':
-        minut+=15
-        nroad=20
+		nroad=20
+		minut+=15
 	elseif $road_textrand0 = 'St. Petersburg':
-        minut+=15
-        nroad=0
-    end
+		minut+=15
+		nroad=0
+	end
 	'<center><B>Main road between St. Petersburg and Pavlovsk</B></center>'
 	'<center><video autoplay loop src="images/locations/highway/sex/hj (1).mp4" width="800" height="448"></video></center>'
-    'When you get in the car, you immediately reach for his pants and take out his semi-erect cock. That''s what you promised him, after all. You feel it slowly hardening between your fingers as the man drives off.'
-    if dick >= 14 and dick < 16: $raod_text_sex = 'a normal size'
-    if dick >= 16 and dick < 18: $raod_text_sex = 'a bit larger than average'
-    if dick >= 18 and dick < 20: $raod_text_sex = 'quite large'
-    if dick >= 20: $raod_text_sex = 'huge'
-    'You gentle massage his cock between your fingers while the man gets comfortable. It''s <<$raod_text_sex>>, roughly <<dick>> centimetres long and quite girthy. You manage to massage him to a full erection in no time at all, and begin to jerk him off while he drives, rubbing your fingertips over his glans.'
-    'Even though you feel a bit awkward for having to service this man to get where you need to be, you''re serious about what you promised him and jerk him off diligently. In no time at all, your soft touch brings him to an orgasm. Unfortunately his cock was pointing straight at you when it happened, and most of his sperm ends up on your clothes.'
-    act'Continue': gt 'road', 'autospot_drive'
+	'When you get in the car, you immediately reach for his pants and take out his semi-erect cock. That''s what you promised him, after all. You feel it slowly hardening between your fingers as the man drives off.'
+	if dick >= 14 and dick < 16: $raod_text_sex = 'a normal size'
+	if dick >= 16 and dick < 18: $raod_text_sex = 'a bit larger than average'
+	if dick >= 18 and dick < 20: $raod_text_sex = 'quite large'
+	if dick >= 20: $raod_text_sex = 'huge'
+	'You gentle massage his cock between your fingers while the man gets comfortable. It''s <<$raod_text_sex>>, roughly <<dick>> centimetres long and quite girthy. You manage to massage him to a full erection in no time at all, and begin to jerk him off while he drives, rubbing your fingertips over his glans.'
+	'Even though you feel a bit awkward for having to service this man to get where you need to be, you''re serious about what you promised him and jerk him off diligently. In no time at all, your soft touch brings him to an orgasm. Unfortunately his cock was pointing straight at you when it happened, and most of his sperm ends up on your clothes.'
+	act'Continue': gt 'road', 'autospot_drive'
 end
 
 if $ARGS[0] = 'autospot_drive':
-    $location_type = 'event_outdoors'
+	$location_type = 'event_outdoors'
 	cls
 	gs'stat'
 	money -= autostop_price * 100
 	if $road_textrand0 = 'Gadukino':
-        minut += 15
-        nroad = 10
+		minut += 15
+		nroad = 10
 	elseif $road_textrand0 = 'Pavlovsk':
-        minut += 15
-        nroad = 20
+		minut += 15
+		nroad = 20
 	elseif $road_textrand0 = 'St. Petersburg':
-        minut += 15
-        nroad = 0
-    end
+		minut += 15
+		nroad = 0
+	end
 	picrand = RAND(1,2)
-    if truck_drive = 1:
+	if truck_drive = 1:
 		'<center><B>Main road between St. Petersburg and Pavlovsk</B></center>'
 		'<center><img <<$set_imgh>> src="images/locations/highway/truck_drive (<<picrand>>).jpg" ></center>'
 		'You try to start a conversation once or twice, but the man doesn''t really seem to be interested in chatting while he drives. You give up and just look out the window, while he drives you to your destination.'
 		'Fifteen minutes later you arrive, and the man pulls over. "Alright, we''re here. Take care, girl!"'
-    elseif bandit_drive = 1:
+	elseif bandit_drive = 1:
 		'<center><B>Main road between St. Petersburg and Pavlovsk</B></center>'
 		'<center><img <<$set_imgh>> src="images/locations/highway/drive (<<picrand>>).jpg" ></center>'
 		'You try to start a conversation once or twice, but the man doesn''t really seem to be interested in chatting while he drives. You give up and just look out the window, while he drives you to your destination.'
 		'Fifteen minutes later you arrive, and the man pulls over. "Alright, we''re here. Take care, girl!"'
-    else
+	else
 		'<center><B>Main road between St. Petersburg and Pavlovsk</B></center>'
 		'<center><img <<$set_imgh>> src="images/locations/highway/drive (<<picrand>>).jpg" ></center>'
 		'You try to start a conversation once or twice, but the man doesn''t really seem to be interested in chatting while he drives. You give up and just look out the window, while he drives you to your destination.'
 		'Fifteen minutes later you arrive, and the man pulls over. "Alright, we''re here. Take care, girl!"'
-    end
-    act'Get out of the car':gt $curloc
+	end
+	act'Get out of the car':gt $curloc
 end
 
 if $ARGS[0] = 'autostpo_money':
-    $location_type = 'event_outdoors'
+	$location_type = 'event_outdoors'
 	cls
 	gs'stat'
 	autostop_price = RAND(3,6)
@@ -245,16 +245,16 @@ if $ARGS[0] = 'autostpo_money':
 	if textrand = 1:$road_textrand4 = 'I''ll take you there for <<autostop_price*100>> <b>₽</b>.'
 	if textrand = 2:$road_textrand4 = '<<autostop_price*100>> <b>₽</b>. Take it or leave it.'
 	if textrand = 3:$road_textrand4 = '<<autostop_price*100>> <b>₽</b>.'
-    if truck_drive = 1:
+	if truck_drive = 1:
 		'<center><B>Main road between St. Petersburg and Pavlovsk</B></center>'
 		'<center><img <<$set_imgh>> src="images/locations/highway/truck_guy (<<picrand>>).jpg" ></center>'
-    elseif bandit_drive = 1:
+	elseif bandit_drive = 1:
 		'<center><B>Main road between St. Petersburg and Pavlovsk</B></center>'
 		'<center><img <<$set_imgh>> src="images/locations/highway/guy (1).jpg" ></center>'
-    else
+	else
 		'<center><B>Main road between St. Petersburg and Pavlovsk</B></center>'
 		'<center><img <<$set_imgh>> src="images/locations/highway/guy (<<picrand>>).jpg" ></center>'
-    end
+	end
 	'You approach the driver and say: "Hello, sir! I need a ride to <<$road_textrand0>>, can you help me?"'
 	'The driver gives you another appraising look.'
 	vnerand = RAND(0,1200) 
@@ -353,9 +353,9 @@ if $ARGS[0] = 'autostop_d':
 	cls
 	gs'stat'
 	truck_drive = 0
-    bandit_drive = 0
-    drive_sex[1] = 0
-    drive_sex[2] = 0
+	bandit_drive = 0
+	drive_sex[1] = 0
+	drive_sex[2] = 0
 	textrand = RAND(1,5)
 	if textrand = 1:$road_textrand1 = 'Hey there, darling! Where are you going?'
 	if textrand = 2:$road_textrand1 = 'What''s a gorgeous girl like you doing all alone on a road like this?'
@@ -388,7 +388,7 @@ if $ARGS[0] = 'autostop_d':
 			if pcs_apprnc < 60:'Then he shrugs and says: "Where do you need to go, lady?"'
 			if pcs_apprnc >= 60:'Then he gives you a friendly smile and says: "<<$road_textrand1>>"'
 		elseif ivrand = 1:
-        	'<center><B>Main road between St. Petersburg and Pavlovsk</B></center>'
+			'<center><B>Main road between St. Petersburg and Pavlovsk</B></center>'
 			'<center><img <<$set_imgh>> src="images/locations/highway/guy (1).jpg" ></center>'
 			'After a few minutes of you trying to get someone to pull over, a black car with tinted windows stops near you. Two guys wearing leather jackets are clearly appraising your body.'
 			'One says to the other: "Nice, we clearly drove to the right place!"'

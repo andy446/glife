@@ -35,9 +35,11 @@ if $args[0] = '':
 			end
 		end
 	end
+	act 'Leave':gt 'Gadsarai'
 	act 'Play with Bandit (0:15)':
 		cls
 		minut += 15
+		pcs_mood += 5
 		npc_horny['A66'] += rand(3,15)
 		gs'stat'
 		'<center><img <<$set_imgh>> src="images/locations/gadukino/village/dog.jpg"></center>'
@@ -52,7 +54,6 @@ if $args[0] = '':
 		end
 	end
 	gs 'stat'
-	act 'Leave':gt 'Gadsarai'
 end
 
 if $args[0] = 'horny':
@@ -131,7 +132,7 @@ if $args[0] = '1':
 		cls
 		npc_horny['A66'] = 0
 		minut += 15
-		pcs_mood = pcs_mood / 2
+		if alko < 6 and zoo < 20: pcs_mood = pcs_mood / 2
 		npc_QW['A66'] += 1
 		sub += 1
 		gs 'arousal', 'foreplay', 15, 'sub', 'beast'
@@ -176,7 +177,7 @@ if $args[0] = '2':
 	act 'Get on all fours':
 		cls
 		npc_horny['A66'] = 0
-		pcs_mood = pcs_mood / 2
+		if alko < 6 and zoo < 20: pcs_mood = pcs_mood / 2
 		npc_QW['A66'] += 3
 		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/beast/bandit/hump.jpg"></center>'
@@ -218,7 +219,7 @@ if $args[0] = '3':
 		act 'Masturbate':
 			cls
 			npc_horny['A66'] = 0
-			pcs_mood = pcs_mood/2
+			if alko < 6 and zoo < 20: pcs_mood = pcs_mood/2
 			gs 'stat'
 			'<center><img <<$set_imgh>> src="images/beast/bandit/handcanine1.jpg"></center>'
 			'Without taking your eyes off of the dog''s penis, you gently rub it as if it was a man. A white and sticky liquid oozes from its tip, then Bandit tries to escape, but you keep holding the penis. A few minutes later the dog profusely ejaculates on the floor close to your feet...'
@@ -235,7 +236,7 @@ if $args[0] = '3':
 			act 'Wear a condom and masturbate':
 				cls
 				npc_horny['A66'] = 0
-				pcs_mood = pcs_mood/2
+				if alko < 6 and zoo < 20: pcs_mood = pcs_mood/2
 				gs 'stat'
 
 				'<center><img <<$set_imgh>> src="images/beast/bandit/handcanine2.jpg"></center>'
@@ -279,7 +280,7 @@ if $args[0] = '4':
 		act 'On the face':
 			cls
 			npc_horny['A66'] = 0
-			pcs_mood = pcs_mood/2
+			if alko < 6 and zoo < 20: pcs_mood = pcs_mood/2
 			gs 'boyStat', 'A66'
 			sexvolume = rand(20,50)
 			spafinloc = 11
@@ -296,7 +297,7 @@ if $args[0] = '4':
 		act 'In the mouth':
 			cls
 			npc_horny['A66'] = 0
-			pcs_mood = pcs_mood/2
+			if alko < 6 and zoo < 20: pcs_mood = pcs_mood/2
 			gs 'boyStat', 'A66'
 			spafinloc = 12
 			sexvolume = rand(20,50)
@@ -355,7 +356,7 @@ if $args[0] = '5a':
 		act 'On the face':
 			cls
 			npc_horny['A66'] = 0
-			pcs_mood = pcs_mood/2
+			if alko < 6 and zoo < 20: pcs_mood = pcs_mood/2
 			gs 'boyStat', 'A66'
 			spafinloc = 11
 			sexvolume = rand(20,50)
@@ -372,7 +373,7 @@ if $args[0] = '5a':
 		act 'In the mouth':
 			cls
 			npc_horny['A66'] = 0
-			pcs_mood = pcs_mood/2
+			if alko < 6 and zoo < 20: pcs_mood = pcs_mood/2
 			gs 'boyStat', 'A66'
 			spafinloc = 12
 			sexvolume = rand(20,50)
@@ -400,7 +401,7 @@ if $args[0] = '5a':
 			pcs_vag = 5
 			vgape = 3
 			npc_horny['A66'] = 0
-			pcs_mood = pcs_mood/2
+			if alko < 6 and zoo < 20: pcs_mood = pcs_mood/2
 			gs 'boyStat', 'A66'
 			sexvolume = rand(20,590)
 			gs 'cum_manage'
@@ -426,7 +427,7 @@ if $args[0] = '5a':
 				cls
 				npc_QW['A66'] += 1
 				npc_horny['A66'] = 0
-				pcs_mood = pcs_mood/2
+				if alko < 6 and zoo < 20: pcs_mood = pcs_mood/2
 				DogAnal+=1
 				gs 'stat'
 
@@ -438,7 +439,7 @@ if $args[0] = '5a':
 				gs 'stat'
 				act 'Let Bandit knot your ass':
 					cls
-					pcs_mood = pcs_mood/2
+					if alko < 6 and zoo < 20: pcs_mood = pcs_mood/2
 					gs 'stat'
 
 					'<center><img <<$set_imgh>> src="images/beast/bandit/analknot.jpg"></center>'
@@ -607,7 +608,7 @@ if $args[0] = '5a':
 				act 'Prevent':
 					cls
 					minut += 2
-					pcs_mood = pcs_mood/2
+					if alko < 6 and zoo < 20: pcs_mood = pcs_mood/2
 					sub += 1
 					gs 'stat'
 					'<center><img <<$set_imgh>> src="images/beast/bandit/piratanal.jpg"></center>'
@@ -730,7 +731,7 @@ if $args[0] = '5b':
 		act 'On the face':
 			cls
 			npc_horny['A66'] = 0
-			pcs_mood = pcs_mood/2
+			if alko < 6 and zoo < 20: pcs_mood = pcs_mood/2
 			gs 'boyStat', 'A66'
 			spafinloc = 11
 			sexvolume = rand(20,50)
@@ -751,7 +752,7 @@ if $args[0] = '5b':
 			sexvolume = rand(20,50)
 			gs 'cum_manage'
 			npc_horny['A66'] = 0
-			pcs_mood = pcs_mood/2
+			if alko < 6 and zoo < 20: pcs_mood = pcs_mood/2
 			gs 'stat'
 
 			'<center><img <<$set_imgh>> src="images/beast/bandit/piratmouth1.jpg"></center>'
@@ -779,7 +780,7 @@ if $args[0] = '5b':
 			else
 				cls
 				npc_horny['A66'] = 0
-				pcs_mood = pcs_mood/2
+				if alko < 6 and zoo < 20: pcs_mood = pcs_mood/2
 				DogVag+=1
 				npc_QW['A66'] += 1
 				gs 'stat'
@@ -791,7 +792,7 @@ if $args[0] = '5b':
 				gs 'stat'
 				act 'Knot me Bandit !':
 					cls
-					pcs_mood = pcs_mood/2
+					if alko < 6 and zoo < 20: pcs_mood = pcs_mood/2
 					gs 'stat'
 
 					'<center><img <<$set_imgh>> src="images/beast/bandit/piratvagknot.jpg"></center>'
@@ -964,7 +965,7 @@ if $args[0] = '5b':
 				act 'Prevent':
 					cls
 					minut += 2
-					pcs_mood = pcs_mood/2
+					if alko < 6 and zoo < 20: pcs_mood = pcs_mood/2
 					gs 'stat'
 
 					'<center><img <<$set_imgh>> src="images/beast/bandit/piratvag.jpg"></center>'
@@ -1140,7 +1141,7 @@ if $args[0] = '5b':
 				cls
 				npc_QW['A66'] += 1
 				npc_horny['A66'] = 0
-				pcs_mood = pcs_mood/2
+				if alko < 6 and zoo < 20: pcs_mood = pcs_mood/2
 				DogAnal+=1
 				gs 'stat'
 
@@ -1152,7 +1153,7 @@ if $args[0] = '5b':
 				gs 'stat'
 				act 'Let Bandit knot your ass':
 					cls
-					pcs_mood = pcs_mood/2
+					if alko < 6 and zoo < 20: pcs_mood = pcs_mood/2
 					gs 'stat'
 					'<center><img <<$set_imgh>> src="images/beast/bandit/analknot.jpg"></center>'
 					'You brace yourself and dig your nails in the dirty ground as you prepare yourself to be anally knotted by your grandparents dog. Bandit doesn''t seem to pay attention an casually continues to pound your ass, you grit your teeth in anticipation when you feel the swollen orb hitting your ravaged anal spincher again, it''s gonna slip in soon !! And it finally happens, with one hell of a hard thrust, Bandit mercilessly pushes his knot inside your ass, you cry out in pain and bliss, your legs shaking from the intense orgasm you''re experiencing, and the endless amount of canine spunk he is pouring in your bowels only intensify your shameful orgasm further.'
@@ -1318,7 +1319,7 @@ if $args[0] = '5b':
 				act 'Prevent':
 					cls
 					minut += 2
-					pcs_mood = pcs_mood/2
+					if alko < 6 and zoo < 20: pcs_mood = pcs_mood/2
 					sub += 1
 					gs 'stat'
 
@@ -1441,7 +1442,7 @@ if $args[0] = '6':
 		act 'On the face':
 			cls
 			npc_horny['A66'] = 0
-			pcs_mood = pcs_mood/2
+			if alko < 6 and zoo < 20: pcs_mood = pcs_mood/2
 			gs 'boyStat', 'A66'
 			sexvolume = rand(20,50)
 			spafinloc = 11
@@ -1458,7 +1459,7 @@ if $args[0] = '6':
 		act 'In the mouth':
 			cls
 			npc_horny['A66'] = 0
-			pcs_mood = pcs_mood/2
+			if alko < 6 and zoo < 20: pcs_mood = pcs_mood/2
 			gs 'boyStat', 'A66'
 			sexvolume = rand(20,590)
 			spafinloc = 12
@@ -1496,7 +1497,7 @@ if $args[0] = '6':
 						cls
 						pcs_vag = 5
 						vgape = 3
-						pcs_mood = pcs_mood/2
+						if alko < 6 and zoo < 20: pcs_mood = pcs_mood/2
 						gs 'boyStat', 'A66'
 						sexvolume = rand(20,590)
 						gs 'cum_manage'
@@ -1635,7 +1636,7 @@ if $args[0] = '6':
 				act 'Wait':
 					cls
 					minut += 2
-					pcs_mood = pcs_mood/2
+					if alko < 6 and zoo < 20: pcs_mood = pcs_mood/2
 					sub += 1
 					gs 'stat'
 					'<center><img <<$set_imgh>> src="images/beast/bandit/analknot1.jpg"></center>'

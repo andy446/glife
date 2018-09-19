@@ -966,7 +966,12 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 			end
 			if MiraLoc ! 1:gs 'Miroslava', 'miraclothes'
 			'"<<$pcs_nickname>>, you''re fun to be with, but Dad has chores for me to work on." Mira tells you.'
-
+			
+			if $clothingworntype = 'nude':
+				gs 'clothing', 'wear_last_worn'
+				gs 'underwear', 'wear'
+			end
+			
 			act 'Go back to the village':mira_guest = 0 & MiraLoc = 0 & gt 'Gadukino'
 		end
 
@@ -981,7 +986,12 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 			end
 			if MiraLoc ! 1:gs 'Miroslava', 'miraclothes'
 			'"<<$pcs_nickname>>, you''re fun to be with, but I gotta get home. Dad has chores for me to work on.," Mira tells you.'
-
+			
+			if $clothingworntype = 'nude':
+				gs 'clothing', 'wear_last_worn'
+				gs 'underwear', 'wear'
+			end
+			
 			act 'Go back to the village':mira_guest = 0 & MiraLoc = 0 & gt 'Gadukino'
 		end
 
@@ -992,7 +1002,12 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 			gs 'stat'
 			gs 'Miroslava', 'miraclothes'
 			'"<<$pcs_nickname>>, you''re fun to be with, but it''s late. I gotta get to bed. Dad has chores for me to work on tomorrow." Mira tells you.'
-
+			
+			if $clothingworntype = 'nude':
+				gs 'clothing', 'wear_last_worn'
+				gs 'underwear', 'wear'
+			end
+			
 			act 'Go back to the village':gt 'Gadukino'
 		end
 
@@ -1007,7 +1022,12 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 			end
 			if MiraLoc ! 1:gs 'Miroslava', 'miraclothes'
 			'"<<$pcs_nickname>>, you''re fun to be with, but I gotta get home and get to bed. Dad has chores for me to work on tomorrow." Mira tells you.'
-	
+			
+			if $clothingworntype = 'nude':
+				gs 'clothing', 'wear_last_worn'
+				gs 'underwear', 'wear'
+			end
+			
 			act 'Go back to the village':mira_guest = 0 & MiraLoc = 0 & gt 'Gadukino'
 		end		
 	end

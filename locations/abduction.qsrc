@@ -485,6 +485,7 @@ if $ARGS[0] = 'abdEscapeWindow2':
 		act 'Panic':gt 'abduction', 'abdTorture'
 	else
 		'You did it! Just in time, before someone managed to catch you, you loosen the window and pull yourself through.'
+		'As you land you see some clothes hanging on a line. It looks like the clothes for 4 or 5 girls but by luck one of the outfits is yours!'
 		act 'Run away':gt 'abduction', 'abdEscapeWindow3'
 	end
 end
@@ -492,7 +493,12 @@ end
 if $ARGS[0] = 'abdEscapeWindow3':
 	cls
 	i = rand(1, 3)
+	gs 'underwear', 'wear'
+	gs 'underwear', 'dispose'
+	gs 'clothing' 'wear_last_worn'
 	'<center><img <<$set_imgh>> src="images/locations/shared/abduction/midnowhere<<i>>.jpg"></center>'
+	'Pulling on your clothes as you run you finally think you are far enough away and try to find your bearings.'
+	'Any underwear you had with you is lost but that''s a small price to pay for your freedom.'
 	'You are in a middle of nowhere.'
 	'Before you in a distance you can see shimmer of a something that could be water.'
 	'If you turn back, you can hear distant noise of what could be a highway.'

@@ -198,9 +198,23 @@ if $ARGS[0] =  'themes':
 	if money >= 500:
 		i = 1
 		:phonethemeloop
-		if phonetheme[i] = 0: '<a href="exec: money -= 500 & phonetheme[<<i>>] = 1 & gt ''kiosk'', ''themes''">Buy the <<$phonetheme_name[i]>> theme.</a>'
+		if i = 1: $phoneNameTemp = 'Bimbo'
+		if i = 2: $phoneNameTemp = 'Aluminus'
+		if i = 3: $phoneNameTemp = 'Bottlecapped'
+		if i = 4: $phoneNameTemp = 'Galactic'
+		if i = 5: $phoneNameTemp = 'Vectored'
+		if i = 6: $phoneNameTemp = 'Veneer'
+		if i = 7: $phoneNameTemp = 'Voidwalker'
+		if i = 8: $phoneNameTemp = 'Voidwalker Red'
+		if i = 9: $phoneNameTemp = 'Voidwalker Toxic'
+		if i = 10: $phoneNameTemp = 'Gopnik'
+		if i = 11: $phoneNameTemp = 'Sports'
+		if i = 12: $phoneNameTemp = 'Succubus'
+		if i = 13: $phoneNameTemp = 'Woodshop'
+		if phonetheme[i] = 0: '<a href="exec: VIEW ''images/system/phone/previews/<<$phonetheme_name[i]>>.png''">Preview</a> <a href="exec: money -= 500 & phonetheme[<<i>>] = 1 & gt ''kiosk'', ''themes''">Buy</a> the <b><<$phoneNameTemp>></b> theme.'
 		i += 1
-		if i < 13: jump 'phonethemeloop'
+		if i < 14: jump 'phonethemeloop'
+		killvar '$phoneNameTemp'
 	else
 		'You don''t have enough money to buy a phone theme.'
 	end

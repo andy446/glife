@@ -939,7 +939,6 @@ if $ARGS[0] = 'shower':
 	dynamic $showerdin
 	minut += 15
 	pcs_horny += 1
-	pcs_hairbsh = 1
 	pcs_makeup = 1
 	if frost > 0:frost = 0
 	gs 'stat'

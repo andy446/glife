@@ -1197,6 +1197,7 @@ if $ARGS[0] = 'artemGopSkver':
 end &! --- artemgopSkver ---
 
 if $ARGS[0] = 'start':
+	*clr & cla
 	'<center><b><font color="maroon"><<$npc_firstname[''A2'']>> <<$npc_lastname[''A2'']>></font></b></center>'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/2.jpg"></center>'
 	if kotovLoveQW > 0 and artemVitokQW = 0:
@@ -1238,9 +1239,8 @@ if $ARGS[0] = 'start':
 
 			act 'Continue':gs 'gschool_grounds','main'
 		end
-	end
-
-	if fedorKozlovQW >= 10 and FedorArtemTalk = 0:
+	elseif fedorKozlovQW >= 10 and FedorArtemTalk = 0:
+		cla
 		FedorArtemTalk = 1
 		'As you leave the school courtyard with Artem to go study, Fedor stops you.'
 		'He looks questioningly at Artem and asks: "Artem, what''s going on? Are you taking <<$pcs_nickname>> somewhere? She''s with me, you know..."'
@@ -1251,15 +1251,15 @@ if $ARGS[0] = 'start':
 		gs 'stat'
 
 		act 'Do homework with Artem': gt 'artemEv','learn'
+	else 
+		cla
+		'You walk across the school courtyard to meet up with Artem and go study at his place. He gives you a friendly nod as you approach, and asks: "You ready to go?"'
+		'You smile: "Let''s go study!"'
+		'The two of you don''t have much to talk about on the way there, and after a few minutes just decide to walk in silence.'
+		gs 'stat'
+		
+		act 'Go to Artem''s home':gt 'artemhome','inside'
 	end
-
-	'You walk across the school courtyard to meet up with Artem and go study at his place. He gives you a friendly nod as you approach, and asks: "You ready to go?"'
-	'You smile: "Let''s go study!"'
-	'The two of you don''t have much to talk about on the way there, and after a few minutes just decide to walk in silence.'
-	gs 'stat'
-
-	act 'Go to Artem''s home':gt 'artemhome','inside'
-	!!act 'Do homework with Artem': gt 'artemEv','learn'
 end
 
 --- artemEv ---------------------------------

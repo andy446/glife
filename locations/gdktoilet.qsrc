@@ -20,7 +20,7 @@ if $ARGS[0] = 'start':
 	'<center><b><font color="maroon">Bathroom Entrance</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/bathroom/bathroom_entrance.jpg"></center>'
 
-	act 'Go Outside': 
+	act 'Go outside': 
 		gs 'arousal', 'end'
 		gs 'stat'
 		gt 'gdk'

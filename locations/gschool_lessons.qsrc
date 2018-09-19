@@ -2959,14 +2959,10 @@ end
 if $ARGS[0] = 'post_dress':
 	*clr & cla
 	$metka = 'post_dress'
+	$metkaM = 'post_dress'
 	$loc = 'gschool_lessons'
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/gym/postphys<<rand(1,4)>>.jpg"></center>'
-	act 'Choose a different outfit':postphys_event = daystart & gt 'wardrobe', 'start'
-	act 'Use the mirror': gt 'mirror', 'start'
-	if pcs_hairbsh = 0:
-		act 'Brush your hair': gt 'mirror', 'brush'
-	end
 	act 'Leave school':
 		if $clothingworntype = 'nude':
 			msg'<b><font color = red>You need to get dressed before you leave the changing rooms.</font></b>'
@@ -2974,6 +2970,11 @@ if $ARGS[0] = 'post_dress':
 		else
 			gt 'gschool_lessons', 'short_break'
 		end
+	end
+	act 'Choose a different outfit':postphys_event = daystart & gt 'wardrobe', 'start'
+	act 'Use the mirror': gt 'mirror', 'start'
+	if pcs_hairbsh = 0:
+		act 'Brush your hair': gt 'mirror', 'brush'
 	end
 end
 

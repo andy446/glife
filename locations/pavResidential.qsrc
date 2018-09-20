@@ -4,6 +4,9 @@ music_loop = 0
 CLOSE ALL
 $metka = ''
 $loc = 'pavResidential'
+$menu_loc = 'pavResidential'
+$menu_arg = ''
+menu_off = 0
 $metkaStreet = ''
 $locStreet = 'pavResidential'
 $location_type = 'public_outdoors'

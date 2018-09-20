@@ -13,6 +13,9 @@ if $ARGS[0] = 'start':
 	'<center><img <<$set_imgh>> src="images/locations/city/centralpark/parkcafe.jpg"></center>'
 
 	act 'See the menu':gs 'food_menu'
+	if money >= 300:
+		act 'Eat and run (0:20) (300₽)':gt 'food', 'f_food'
+	end
 	'Whilst sitting and eating in the summer cafe. You take a moment and enjoy the beautiful scenery.'
 
 	arand = rand(1, 7)

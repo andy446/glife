@@ -19,9 +19,6 @@ act 'Back':killvar 'food_loc' & gt $loc, $metka
 killvar '$_drink'
 killvar '$_eat'
 if $loc = 'burger':
-	if money >= 100:
-		act 'Eat and run (0:20) (100₽)':gt 'food', 'f_food'
-	end
 	'<center><b><font color="maroon">Diner Bystroeshka</font></b></center>'
 	*nl
 	!'<center><img <<$set_imgh>> src="images/shared/menus/burger.png"</center><br>'
@@ -62,7 +59,6 @@ if $loc = 'burger':
 	$_drink['5,price'] = 180
 end
 if $loc = 'gkafe':
-	act 'Eat and run':gt 'food', 'f_food'
 	'<center><b><font color="maroon">Borislav''s cafe</font></b></center>'
 	*nl
 	'<center><img <<$set_imgh>> src="images/shared/drinks/cafedrinks.jpg"</center><br>'
@@ -174,7 +170,6 @@ if $loc = 'brothel':
 	end
 end
 if $loc = 'cafe_parco':
-	act 'Eat and run':gt 'food', 'f_food'
 	'<center><h4><font color="maroon">Cafe "Del Parco"</font></h4></center>'
 	*nl
 	'<center><img <<$set_imgh>> src="images/shared/drinks/cafedrinks.jpg"</center><br>'
@@ -214,7 +209,6 @@ if $loc = 'cafe_parco':
 	$_drink['5,price'] = 200
 end
 if $loc = 'kafe':
-	act 'Eat and run':gt 'food', 'f_food'
 	'<center><b><font color="maroon">The Roadhouse</font></b></center>'
 	*nl
 	'<center><img <<$set_imgh>> src="images/shared/drinks/dinerdrinks.jpg"</center><br>'
@@ -254,7 +248,6 @@ if $loc = 'kafe':
 	$_drink['5,price'] = 180
 end
 if $loc = 'lakecafe':
-	act 'Eat and run':gt 'food', 'f_food'
 	'<center><B><font color=maroon>The Lake Cafe</font></B></center>'
 	*nl
 	'<center><img <<$set_imgh>> src="images/shared/drinks/cafedrinks.jpg"</center><br>'
@@ -294,7 +287,6 @@ if $loc = 'lakecafe':
 	$_drink['5,price'] = 200
 end
 if $loc = 'liamelkafe':
-	act 'Eat and run':gt 'food', 'f_food'
 	'<center><B><font color=maroon>Tiny Cafe</font></B></center>'
 	*nl
 	'<center><img <<$set_imgh>> src="images/shared/drinks/cafedrinks.jpg"</center><br>'
@@ -334,7 +326,6 @@ if $loc = 'liamelkafe':
 	$_drink['5,price'] = 200
 end
 if $loc = 'ParkKafe':
-	act 'Eat and run':gt 'food', 'f_food'
 	'<center><B><font color=maroon>Park Cafe</font></B></center>'
 	*nl
 	'<center><img <<$set_imgh>> src="images/shared/drinks/cafedrinks.jpg"</center><br>'

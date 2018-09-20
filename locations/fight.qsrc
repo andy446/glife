@@ -1,5 +1,6 @@
 # fight
 if $ARGS[0] = 'start':
+	menu_off = 1
 	cla
 	inFight = 1
 	if night_mode = 1:
@@ -306,6 +307,7 @@ if $ARGS[0] = 'start':
 end
 
 if $ARGS[0] = 'sta':
+	menu_off = 1
 	cla
 	damTip = 0
 	damTipM = 0

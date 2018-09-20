@@ -25,6 +25,9 @@ if $args[0]= 'inner':
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/park/cafe/caffe_del_parco_in.jpg"></center>'
 
 	act 'See the menu':gs 'food_menu'
+	if money >= 300:
+		act 'Eat and run (0:20) (300₽)':gt 'food', 'f_food'
+	end
 
 	act 'Go back outside': gt 'gskver', 'start'
 

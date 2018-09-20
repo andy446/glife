@@ -33,6 +33,9 @@ if $ARGS[0] = 'start':
 	end
 
 	act 'See the menu':gs 'food_menu'
+	if money >= 300:
+		act 'Eat and run (0:20) (300₽)':gt 'food', 'f_food'
+	end
 
 	if IvanPodstavaQW = 2:
 		act 'Go into the office to Anatoly Borisovich':gt 'burger', 'office'

@@ -597,7 +597,7 @@ if $ARGS[0] = 'handjob':
 			end		
 			gs 'stat'
 
-			if gdk_nice_guy = 1 and $ARGS[1] = 'unpaid':
+			if gdk_nice_guy = 1 or $ARGS[1] = 'unpaid':
 				if boynumBlock = 0:guy += 1
 				if boynumBlock > 0 and bmTOTSEX[Tboynum] = 0:guy += 1
 

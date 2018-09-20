@@ -19,7 +19,9 @@ fixed Lariska quest start to run even if the fight was more than a week ago
 if $ARGS[0] = 'start':
 	CLOSE ALL
 	$metka = $ARGS[0]
+	$metkaM = $ARGS[0]
 	$loc = $CURLOC
+	$locM = $CURLOC
 	$location_type = 'public_indoors'
 	gs 'stat'
 	if night_mode = 1:
@@ -34,7 +36,10 @@ if $ARGS[0] = 'start':
 	'<center><b><font color="maroon">community center</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/gym/volley/gdksport.jpg"></center>'
 	'The community center sports club offers lessons in <a href="exec: gt ''gdksport'',''racing1''">Racing</a>, <a href="exec:gt ''gdksport'',''dance1''">Dance</a> and <a href="exec:gt ''gdksport'',''vball1''">Volleyball</a>.'
-
+	*nl
+	'In the locker room is a <a href="exec:GT ''mirror'',''start''">mirror</a>, where you can ' + iif(pcs_hairbsh = 0,'<a href="exec:GT ''mirror'',''brush''">brush</a>','brush') + ' your hair.'
+	*nl
+	
 	if kotovLoveQW > 0 and hour = 16:
 		'You see <a href="exec:minut += 3 & gt ''kotovEv''">Vitek Kotov</a> with a large sports bag entering the sports club.'
 	elseif npc_rel['A3'] >= 80 and hour = 17 and ivansportday ! daystart:
@@ -119,9 +124,9 @@ if $ARGS[0] = 'start':
 			end
 		end
 	elseif $clothingworntype ! 'exercise':
-		'You need to wear exercise clothing before you can take any lessons.'
+		'You need to wear exercise clothing before you can take a volleyball or track lesson.'
 	elseif $shoeworntype ! 'trainers':
-		'You need to wear exercise shoes before you can take any lessons.'
+		'You need to wear exercise shoes before you can take a volleyball or track lesson.'
 	else
 		'You are too tired to do any exercise. You need to rest and replenish your stamina.'
 	end
@@ -934,7 +939,6 @@ if $ARGS[0] = 'shower':
 	dynamic $showerdin
 	minut += 15
 	pcs_horny += 1
-	pcs_hairbsh = 1
 	pcs_makeup = 1
 	if frost > 0:frost = 0
 	gs 'stat'

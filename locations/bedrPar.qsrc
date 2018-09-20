@@ -299,7 +299,7 @@ if $ARGS[0] = 'intro':
 	wait 2000
 	$npc_nickname['A29'] = input('<center>What name do you address your mother by?<br><br>Mother (default), Mum, Mom, Mama, etc.</center>')
 
-	act 'continue':
+	act 'Continue':
 		cla & *clr
 		menu_off = 1
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/prost4.jpg"></center>'

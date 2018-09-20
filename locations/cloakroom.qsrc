@@ -32,7 +32,7 @@ $coat_list_line = {
 
 	$RESULT += '<TD>'
 	if i = defaultcoat:
-		$RESULT += 'Yes<'
+		$RESULT += 'Yes'
 	end
 	$RESULT += '</TD>'
 

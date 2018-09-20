@@ -74,6 +74,7 @@ if $ARGS[0] = '2':
 	gs 'gadukino_event', 'sound'
 	cls
 	wolfrand = rand(1,10)
+	hantrand = rand(1,10)
 	gs'stat'
 	!gs'time'
 	gs 'gadforestlost', 'gadforestlost'
@@ -109,6 +110,7 @@ if $ARGS[0] = '3':
 	gs 'gadukino_event', 'sound'
 	cls
 	wolfrand = rand(1,10)
+	hantrand = rand(1,10)
 	gs'stat'
 	!gs'time'
 	gs 'gadforestlost', 'gadforestlost'
@@ -143,6 +145,7 @@ if $ARGS[0] = '4':
 	gs 'gadukino_event', 'sound'
 	cls
 	wolfrand = rand(1,10)
+	hantrand = rand(1,10)
 	gs'stat'
 	!gs'time'
 	gs 'gadforestlost', 'gadforestlost'

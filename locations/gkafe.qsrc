@@ -109,6 +109,9 @@ if $ARGS[0] = 'menu':
 	$loc = 'gkafe'
 	$metka = ''
 	act 'See the menu':gs 'food_menu'
+	if money >= 300:
+		act 'Eat and run (0:20) (300₽)':gt 'food', 'f_food'
+	end
 end
 
 if $ARGS[0] = 'boris':

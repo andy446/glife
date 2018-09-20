@@ -83,7 +83,7 @@ if $ARGS[0] = '':
 					Act 'Dance with Katya':gt 'gdkin', 'Katja_dance'
 				end
 
-				if alko >= 4:
+				if alko >= 6:
 					'You''re too drunk to try and dance, you are barely able to stay on your feet and mostly just drunkenly bump into other people as you try and dance.'
 					if rand (0,1) = 0:gt 'gdkin', 'too_drunk_dance'
 				elseif alko = 1:
@@ -110,7 +110,7 @@ if $ARGS[0] = '':
 					'The music is quite old, but catchy. You have fun dancing, not paying attention to anyone.'
 				end
 
-				if alko < 4:
+				if alko < 6:
 					verprigrand = rand(0, 100)
 
 					if verprigrand <= pcs_danc:
@@ -159,7 +159,7 @@ if $ARGS[0] = '':
 				gt 'gevent', '6'
 			end
 
-			if alko >= 4:
+			if alko >= 6:
 				'You''re too drunk to dance and you lean against the wall for support to keep from falling down.'
 				if rand (0,1) = 0:gt 'gdkin', 'too_drunk_dance'
 			elseif alko = 1:
@@ -170,7 +170,7 @@ if $ARGS[0] = '':
 				'You are standing next to the wall while watching the others dance.'
 			end
 
-			if alko < 4:
+			if alko < 6:
 				verodance = 0
 
 				if pcs_hairbsh = 1:verodance += 1
@@ -316,7 +316,7 @@ if $ARGS[0] = 'kotov_love':
 end
 
 if $ARGS[0] = 'reakt_dance':
-	if alko > 0:
+	if alko >= 3:
 		'You feel yourself getting aroused by the guy''s actions.'
 		gs 'arousal', 'foreplay', 5
 		gs 'arousal', 'end'
@@ -332,14 +332,14 @@ if $ARGS[0] = 'reakt_dance':
 end
 
 if $ARGS[0] = 'reverse_reakt_dance':
-	if alko <= 0:
+	if alko < 3:
 		pcs_mood += 20
 		'You enjoy dancing with him a great deal.'
 		if pcs_inhib < 40:inhib_exp += rand(1,2)
 		gs 'arousal', 'foreplay', 5
 		gs 'arousal', 'end'
 		gs 'stat'
-	elseif alko > 0:
+	elseif alko > 3:
 		if pcs_horny > 0:pcs_horny -= 5
 
 		pcs_mood -= 5
@@ -398,7 +398,7 @@ if $ARGS[0] = 'dance_vrp':
 		end
 	end
 
-		if pcs_danc >= 50 and alko > 0 and pcs_horny >= 50:
+		if pcs_danc >= 50 and alko >= 3 and pcs_horny >= 50:
 		act 'Sexy dance':
 			cls
 			if $pantyworntype = 'none' and PCloSkirt > 2:
@@ -419,7 +419,7 @@ if $ARGS[0] = 'dance_vrp':
 	act 'Further':
 		cls
 		gs 'stat'
-		if $pantyworntype = 'none' and alko > 0 and PCloSkirt > 2:
+		if $pantyworntype = 'none' and alko >= 3 and PCloSkirt > 2:
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_dance9.jpg"></center>'
 		elseif alko > 0:
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_dance10.jpg"></center>'
@@ -591,10 +591,10 @@ if $ARGS[0] = 'too_drunk_dance':
 		cls
 		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_dance_alco1.jpg"></center>'
-		'Katja Meynold approached you. "<<$pcs_nickname>>, are you too drunk? Let''s go home, I''ll take you."'
+		'Katja Meynold approached you. "<<$pcs_nickname>>, are you drunk? Let''s get you home, I''ll help you."'
 
 		act 'Go with Katja':
-			*clr
+			*clr & cla
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_dance.jpg"></center>'
 			minut += 15
 			npc_rel['A14'] = 100

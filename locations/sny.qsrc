@@ -125,7 +125,7 @@ if $ARGS[0] = '6':
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/dimkahome/newyear/tusa6.jpg"></center>'
 	'Albina and Katja are dancing face to face in the middle of the room. Suddenly Albina kisses Katja on the lips. The room erupts into howling kids encouraging them to continuing. Someone hands you another glass of vodka.'
 
-	act 'drink':
+	act 'Drink':
 		cls
 		minut += 15
 		alko += 3

@@ -1190,7 +1190,7 @@ if $ARGS[0] = 'Fedor First Date':
 		minut += 15
 		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/fedor/fedorev/park/walk.jpg"></center>'
-		'"I would like that." you said with a smile and Fedor respondes "Good, I hear that this movie will have us in stiches." with a delighted look on his face as he wraps his arm around yours then walks you to the movie theater.'
+		'"I would like that." you said with a smile and Fedor responds: "Good, I hear that this movie will have us in stiches." with a delighted look on his face as he wraps his arm around yours then walks you to the movie theater.'
 
 		act 'Watch a movie':
 			cls

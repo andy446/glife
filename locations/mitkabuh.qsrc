@@ -34,7 +34,7 @@ if $ARGS[0] = 'partyalone':
 !! repeat until drunk
 	if alko < 8:
 		'<center><img <<$set_imgh>> src="images/locations/gadukino/village/drunk.jpg"></center>'
-		'Set in a secluded spot behind your grandparents'' house the three village boys, Mitka Shkvoryen, Vasyan Paket and Kolyamba Pyut are drinking moonshine, without any snacks. Mitka pours the brew into a clear plastic shot glass and hand it over to you.'
+		'Set in a secluded spot behind your grandparents'' house the three village boys, Mitka Shkvoryen, Vasyan Paket and Kolyamba Pyut are drinking moonshine, without any snacks. Mitka pours the brew into a clear plastic shot glass and hands it over to you.'
 		act 'Leave':gt 'Gaddvor'
 		act 'Drink':
 			*clr & cla

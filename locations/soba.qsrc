@@ -131,7 +131,7 @@ if $ARGS[0] = 'gamedog':
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/beast/zoo/1.jpg"></center>'
 	'You call <<$namesob>> to your bed, so that you can play with him. You kiss him, play with legs and stroke his neck and stomach.'
-	'Suddenly, Your pussy starts to itch. You can not understand why, but strongly want sex. Then, seeing your dogs penis poking out of its sheeth, you have a crazy idea.'
+	'Suddenly, your pussy starts to itch. You can''t understand why, but you strongly want sex. Then, seeing <<$namesob>> penis poking out of its sheeth, you have a crazy idea.'
 	'You could have some fun playing with his member.'
 
 	act 'Leave':pcs_dom += 5 & dynamic $brodila

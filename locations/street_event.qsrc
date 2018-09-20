@@ -784,7 +784,7 @@ if $ARGS[1] = 'main':
 			*clr & cla
 			'<<$streetev_title>>'
 			'<center><img <<$set_imgh>> src="images/locations/shared/street/beatup.jpg"></center>'
-			'As you walk down the street you pass a man that is badly beaten laying unconscious on the sidewalk. You stop a moment unsure what to do, but everyone else just ignores it. Not being sure what you could do to help you, you continue on your way and wonder what happened to him.'
+			'As you walk down the street you pass a man that is badly beaten lying unconscious on the sidewalk. You stop a moment unsure what to do, but everyone else just ignores it. Not being sure what you could do to help, you continue on your way and wonder what happened to him.'
 			act 'Continue':gt $loc
 		elseif streetrand > 84:
 			if hour >= 9:

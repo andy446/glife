@@ -29,7 +29,7 @@ $sischecks = {
 			*nl
 			'I can not approach her junked up like this.'
 			
-			act '<B>Move away</B>':gt $loc, $metka
+			act 'Move away':gt $loc, $metka
 		end
 		
 		if StrongNarkota <= 20:
@@ -43,7 +43,7 @@ $sischecks = {
 			*nl
 			'You tell yourself, "Come on <<$pcs_nickname>>, deep breath, focus, you can do this."'
 			'You feel your head is clear enough to talk to your sister once more.'
-			act '<B>Move away</B>':gt $loc, $metka
+			act 'Move away':gt $loc, $metka
 		end
 	end
 
@@ -231,26 +231,26 @@ $narkosisterspalila = {
 	!'sister slept on drugs.'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/anya/sister2.jpg"></center>'
 	*nl
-    '"Come on, keep it together, act sober." You think. "I have just got talk normal and not think about it."'
-    'Your sister looks at you quizzically. "Are you stoned <<$pcs_nickname>>?"'
-    act'No':
-	    cla
-	    set narkossister = 1
-	    gs'stat'
-	    'You adversely shake your head "No." You back away, but it''s very clear you sister could tell that you are stoned.'
-        act '<B>Move away</B>':gt $loc, $metka
+	'"Come on, keep it together, act sober." You think. "I have just got talk normal and not think about it."'
+	'Your sister looks at you quizzically. "Are you stoned <<$pcs_nickname>>?"'
+	act'No':
+		cla
+		set narkossister = 1
+		gs'stat'
+		'You adversely shake your head "No." You back away, but it''s very clear you sister could tell that you are stoned.'
+		act 'Move away':gt $loc, $metka
 	end
 	act'Share':
-		    cls
-		    set narkossista = 1
-		    gs'stat'
-		    '<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/anya/sister2.jpg"></center>'
-		    *nl
-		    'You tell your sister, that you learned where to buy drugs, and you really wanted to try and it is just this once never again.'
-		    'Your sister strictly looks at you and says, "<<$pcs_nickname>> I''m not your mother, who would kill you if she found out, but this is the first and last time. It''s not worth it!'
-			'If you continue, then your whole life will not be worth shit.'
-            act '<B>Move away</B>':gt $loc, $metka
-        exit
+		cls
+		set narkossista = 1
+		gs'stat'
+		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/anya/sister2.jpg"></center>'
+		*nl
+		'You tell your sister, that you learned where to buy drugs, and you really wanted to try and it is just this once never again.'
+		'Your sister strictly looks at you and says, "<<$pcs_nickname>> I''m not your mother, who would kill you if she found out, but this is the first and last time. It''s not worth it!'
+		'If you continue, then your whole life will not be worth shit.'
+		act 'Move away':gt $loc, $metka
+		exit
 	end
 }
 
@@ -264,7 +264,7 @@ $d_sister[1]={
 		npc_rel['A33'] +=(pcs_intel/10)+(pcs_apprnc/20)
 		gs'stat'
 		'You apologize to your sister and it seems she forgives you.'
-		act '<B>Move away</B>':gt $loc, $metka
+		act 'Move away':gt $loc, $metka
 		end
 	end
 }
@@ -278,7 +278,7 @@ $d_sister[2]={
 		npc_rel['A33'] +=(pcs_intel/10)+(pcs_apprnc/20)
 		gs'stat'
 		'You suck up to your sister and she appears to be slowly treating you better.'
-		act '<B>Move away</B>':gt $loc, $metka
+		act 'Move away':gt $loc, $metka
 		end
 	end
 }
@@ -334,7 +334,7 @@ $d_sister[3]={
 			'You chat with your sister and she advises you where you can earn some money.'
 		end
 		if sisterTalk = 15:
-			'You chat with your sister and she tells you that you can find a lot of interesting bargins if you wander through the market.'
+			'You chat with your sister and she tells you that you can find a lot of interesting bargains if you wander through the market.'
 		end
 		if sisterTalk = 16:
 			'Anya tells you horror stories about a pretty girl who didn''t wash or shave her legs, and how it became so terrible, that she looked like a bum and had no friends. She advises you to take care of your body.'

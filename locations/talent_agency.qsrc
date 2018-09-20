@@ -580,7 +580,7 @@ if $ARGS[0] = 'wrong_room':
 		'The man looks up at you and says, "I think you''ve got the wrong room darling," not pausing his fucking for even a moment.'
 		'"Ugh! Ugh! Ugh! Ugh!" The girl doesn''t even seem to notice you''re in front of her, grunting every time his cock slams into her. It looks like she''s not focused on anything and her face appears to be one of tolerance rather than enjoyment. '
 		*nl
-		'"Uhm, ah- sorry."  You close the door as casually as possible, still hearing the slapping of flesh and grunting after it already clicked shut.'
+		'"Uhm, ah- sorry." You close the door as casually as possible, still hearing the slapping of flesh and grunting after it already clicked shut.'
 		act 'Leave':gt'talent_agency','hallway'
 	
 	elseif interview = 11:

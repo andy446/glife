@@ -23,8 +23,8 @@ if $ARGS[0] = 'outside':
 		act'Don''t drink the beer':
 			*clr & cla
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/dk_night.jpg"></center>'
-			if alko<3:'You smile at him but say: "No thanks, I''m not really in the mood for beer right now..."'
-			if alko>=3:'You''re already fairly tipsy and mumble: "I don''t thi-*hic* think I should... *hic*"'
+			if alko < 6:'You smile at him but say: "No thanks, I''m not really in the mood for beer right now..."'
+			if alko >= 6:'You''re already fairly tipsy and mumble: "I don''t thi-*hic* think I should... *hic*"'
 			'<<$boydesc>> offers you a disarming smile and says: "Alright, no problem! We can just chat!"'
 				act'Chat with him':
 				*clr & cla
@@ -63,7 +63,7 @@ if $ARGS[0] = 'outside':
 		end
 		act 'Have a beer':
 			*clr & cla
-			alko += 1
+			alko += rand(1,2)
 			cumspclnt = 2
 			gs 'cum_cleanup'
 			pcs_breath = 0
@@ -72,7 +72,7 @@ if $ARGS[0] = 'outside':
 			gs 'stat'
 			'You accept the beer and have a lot of fun chatting with the guy, while you drink the beer and have some chips. He''s very funny, and tells you some hilarious stories.'
 
-			if alko >= 3:
+			if alko >= 6:
 				pcs_horny += 20
 				'<<$boydesc>> scoots over until he''s right next to you on the fallen tree, and closes his arms around you. He pulls you in and kisses your lips passionately, making your heart flutter. Wow, he''s a good kisser!'
 				'Then you feel his hands on your chest.'
@@ -161,7 +161,7 @@ if $ARGS[0] = 'outside':
 
 					act 'Leave':gt 'gdk'
 				end
-			elseif alko < 3:
+			elseif alko < 6:
 				if DPtipe = 1:
 					randvnesh = rand(40,120)
 					deystrand = rand(0,1)
@@ -384,7 +384,7 @@ if $ARGS[0] = 'outside':
 			end
 		end
 	elseif (gdk_nice_guy = 1 and pav_slut >= 35 and pav_slut < 65) or (gdk_nice_guy = 0 and pav_slut >= 15 and pav_slut < 35):
-			alko += 1
+			alko += rand(1,2)
 			cumspclnt = 2
 			gs 'cum_cleanup'
 			pcs_breath = 0
@@ -839,7 +839,7 @@ if $ARGS[0] = 'hotel':
 			
 			act 'Have a drink with him':
 				*clr & cla
-				alko += 2
+				alko += 3
 				cumspclnt = 2
 				gs 'cum_cleanup'
 				pcs_breath = 0

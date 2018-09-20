@@ -70,11 +70,13 @@ if grupTipe[numnpc] = 4:
 					'<<$npc_firstname[$static_num]>> offers you a beer and says: "Hey <<$pcs_nickname>>! Let''s drink some beer and have some fun!"'
 				end
 
+				act 'Decline':npc_rel[$static_num] -= 5 & gt $loc, $metka
+				
 				act 'Drink the beer':
 					cls
 					minut += 5
 					npc_rel[$static_num] += 5
-					alko += 1
+					alko += rand(1,2)
 					if pcs_hydra >= 100:
 						pcs_hydra += 5
 					else
@@ -88,8 +90,6 @@ if grupTipe[numnpc] = 4:
 
 					act 'Move away':gt $loc, $metka
 				end
-
-				act 'Decline':npc_rel[$static_num] -= 5 & gt $loc, $metka
 			end
 		elseif pav_slut >= 125:
 			if npcPol[numnpc] = 0:
@@ -363,7 +363,6 @@ end
 !!!!!!!!!!!!!!!!!!
 
 	if numnpc = 3:gt 'IvanEv', 'School Chat'
-
 
 !!!!!!!!!!!!!!!
 !!Vitek Kotov!!

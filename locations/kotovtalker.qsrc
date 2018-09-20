@@ -4,14 +4,16 @@
 !!!!!!!!!!!!!!!!!
 if numnpc = 9 and pav_slut < 25 and kotovLoveQW >= 0 and (npc_rel[$static_num] >= 80 or hotcat >= 5):
 	if $loc = 'gdkin':
-		if alko < 2:
+		if alko < 3:
 			'<<$npc_firstname[$static_num]>> "<<$pcs_nickname>> Hey, let''s get drunk and then do something dumb."'
 
+			act 'Refuse':npc_rel[$static_num] -= 5 & gt $loc, $metka
+			
 			act 'Drink beer':
 				cls
 				minut += 5
 				npc_rel[$static_num] += 5
-				alko += 2
+				alko += rand(1,2)
 				cumspclnt = 2
 				gs 'cum_cleanup'
 				pcs_breath = 0
@@ -22,9 +24,7 @@ if numnpc = 9 and pav_slut < 25 and kotovLoveQW >= 0 and (npc_rel[$static_num] >
 			end
 
 			if NikoPayback = 2 and kotovloveqw > 0 and VitekVsNiko = 0:act 'Tell him about Niko':gt 'NikoPayback', 'Vitek Help 2'
-
-			act 'Refuse':npc_rel[$static_num] -= 5 & gt $loc, $metka
-		elseif alko >= 2:
+		elseif alko >= 3:
 			'<<$npc_firstname[$static_num]>> "<<$pcs_nickname>> Hey, let''s dance."'
 
 			act 'Refuse':npc_rel[$static_num] -= 5 & gt $loc, $metka
@@ -120,11 +120,13 @@ elseif $loc = 'gdkin':
 	if pav_slut < 50:
 		'<<$npc_firstname[$static_num]>> "<<$pcs_nickname>> Hey, let''s get drunk and then do something dumb."'
 
+		act 'Refuse':npc_rel[$static_num] -= 5 & gt $loc, $metka
+		
 		act 'Drink beer':
 			cls
 			minut += 5
 			npc_rel[$static_num] += 5
-			alko += 1
+			alko += rand(1,2)
 			cumspclnt = 2
 			gs 'cum_cleanup'
 			pcs_breath = 0
@@ -133,8 +135,6 @@ elseif $loc = 'gdkin':
 
 			act 'Move away':gt $loc, $metka
 		end
-
-		act 'Refuse':npc_rel[$static_num] -= 5 & gt $loc, $metka
 	elseif pav_slut >= 50:
 		'<<$npc_firstname[$static_num]>> "Then what the fuck are you doing here cumwhore? Came to suck some dick?"'
 

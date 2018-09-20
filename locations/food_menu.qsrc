@@ -19,8 +19,8 @@ act 'Back':killvar 'food_loc' & gt $loc, $metka
 killvar '$_drink'
 killvar '$_eat'
 if $loc = 'burger':
-	if money >= 100:
-		act 'Eat and run (0:20) (100₽)':gt 'food', 'f_food'
+	if money >= 300:
+		act 'Eat and run (0:20) (300₽)':gt 'food', 'f_food'
 	end
 	'<center><b><font color="maroon">Diner Bystroeshka</font></b></center>'
 	*nl

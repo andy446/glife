@@ -1,6 +1,5 @@
 # exercise
 
-
 !{This will centralize calls for exercise. For calls where you wish to allow multiple types of exercises, such as a bedroom or yard, use gs 'exercise', 'start'
 For direct calls use this format: gs 'exercise', $ARGS[0], ARG[1], $ARGS[2], $ARGS[3], $ARGS[4]
 $ARGS[0] is the workout tier and the higher the tier, the greater the workout intensity.
@@ -10,9 +9,7 @@ ARG[1] is the time override. By default the tiers are in 15 minute segments if b
 $ARGS[2] and on are the stats to be affected by the workout NOTE: use the _exp variant, not the pcs_!!!!
 	Values: 'stren_exp' 'vital_exp' 'agil_exp' 'sprt_exp' 'react_exp'
 	Other stats can be added if desired - for a dance-a-thon you might use gs 'exercise', 'tier1', 0, 'agil_exp', 'danc_exp'
-
 }
-
 
 if $ARGS[0] = 'start':
 	if (pcs_stam >=15 or pcs_stam >= 10 and bookYog + obruch > 0):
@@ -49,7 +46,7 @@ if $ARGS[0] = 'workout':
 		if $sportloc = 'Meadow': gs 'underwear', 'wear'
 		act 'Leave': gt $loc, $metka
 	end
-	gs 'wardrobe', 'sports_outfit_option', 'workout'
+	if $loc ! 'experiment': gs 'wardrobe', 'sports_outfit_option', 'workout'
 	act 'Manual': gt 'exercise', 'manual'
 	if exer_stam[1] ! 0 and pcs_stam > exer_stam[1]: act '<<$excer_name[1]>> - (<<exer_stam[1]>> stamina)': exercisex = 1 & gt 'exercise', 'auto'
 	if exer_stam[2] ! 0 and pcs_stam > exer_stam[2]: act '<<$excer_name[2]>> - (<<exer_stam[2]>> stamina)': exercisex = 2 & gt 'exercise', 'auto'

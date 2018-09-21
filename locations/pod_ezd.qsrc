@@ -1142,7 +1142,7 @@ if $ARGS[0] = 'etaj_1' or $ARGS[0] = '':
 
 	'There''s a <a href="exec: dynamic $housemates">list</a> of the people who live here on the wall.'
 	'Someone put up some <a href="exec:GT ''pod_ezd'',''pod_objava''">advertisements</a> on the wall, near the entrance.'
-	act '<font color = maroon><b>Go outside</b></font>':
+	act 'Go outside':
 		if hour < 4 and motherWorry = 0 and age < 18:
 			'<font color=red>Are you sure? Your mother will worry if you go out at this time.</font>'
 			cla
@@ -1153,7 +1153,7 @@ if $ARGS[0] = 'etaj_1' or $ARGS[0] = '':
 		end
 	end
 	if ArtemBeInHome > 0 and artemblok = 0: 
-		act 'Apartment number 2: Artem Chebotarev': CLOSE ALL & gt 'artemhome'
+		act 'Apartment number 2: Artem Chebotarev': gt 'artemhome'
 	end
 	act 'Go up to the second floor': minut += 1 & gt 'pod_ezd','etaj_2'
 	act 'Take the elevator': gt 'pod_ezd','lift','etaj_1'

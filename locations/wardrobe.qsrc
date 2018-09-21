@@ -40,7 +40,7 @@ if $ARGS[0] = 'start':
 	*p '<TR><TH>Panties worn</TH><TH>Shoes (Only worn outside)</TH><TH>Purse worn</TH>'
 	*P '<TR><TD><center><a href="exec:gt ''panties'', ''view_panty_list'', ''wardrobe''"><img Height = <<ward_img_hgt>> src="<<FUNC(''$body_image'',''panties'')>>"></a></center></TD><TD><center><a href="exec:gt ''shoes'', ''view_shoe_list'', ''wardrobe''"><img Height = <<ward_img_hgt>> src="<<FUNC(''$body_image'', ''shoes'')>>"></a></center></TD><TD><center>'
 	if bag = 1:
-		'<a href="exec:gt ''purses'', ''view_purse_list''"><img Height = <<ward_img_hgt>> src="<<FUNC(''$purse_image'',  $currentpursetype, currentpursenumber)>>"></a>'
+		'<a href="exec:gt ''purses'', ''view_purse_list''"><img Height = <<ward_img_hgt>> src="<<FUNC(''$purse_image'', $currentpursetype, currentpursenumber)>>"></a>'
 	else
 		'<a href="exec:gt ''purses'', ''view_purse_list''"><img Height = <<ward_img_hgt>> src="images/pc/noitem.png"></a>'
 	end
@@ -113,7 +113,9 @@ end
 if $ARGS[0] = 'default':
 	gs 'stat'
 	'Default sports outfit <a href="exec:gs ''wardrobe'', ''sports_entry_wear''">Wear this default outfit</a>'
-		
+	
+	act 'Return': gt 'wardrobe', 'start'
+	
 	if ARRSIZE('defclothingnumber') > 0:
 		i = 0
 		:loopdefclothing
@@ -123,7 +125,6 @@ if $ARGS[0] = 'default':
 	end
 	*nl
 	'Note: When selecting an outfit you will see the bonus for your shoes applied, this will be removed when you leave and only added when outside.'
-	act 'Return': gt 'wardrobe', 'start'
 end
 
 if $ARGS[0] = 'default_entry_wear':
@@ -246,8 +247,8 @@ if $ARGS[0] = 'default_set':
 		i += 1
 		if i < ARRSIZE('defclothingnumber'):jump 'loopdefclothing_set'
 	end
-	act 'Add as new default': gt 'wardrobe', 'default_entry_set', ARRSIZE('defclothingnumber')
 	act 'Return': gt 'wardrobe', 'start'
+	act 'Add as new default': gt 'wardrobe', 'default_entry_set', ARRSIZE('defclothingnumber')
 end
 
 if $ARGS[0] = 'default_entry_set':
@@ -285,7 +286,7 @@ if $ARGS[0] = 'default_entry_delete':
 	killvar 'defpursenumber', i
 	killvar 'defcoat', i
 	killvar 'def_clothing_name', i
-	gt 'wardrobe', 'default_set'
+	gt 'wardrobe', 'default'
 end
 
 !!-- sports outfit stuff
@@ -304,7 +305,6 @@ if $ARGS[0] = 'sports_entry_wear':
 	gs 'panties', 'wear', $sportspantytype, sportspantynumber
 
 	gs 'shoes', 'wear', 'trainers', sportsshoenumber
-
 
 	if $sportspursetype = '' AND sportspursenumber = 0:
 		$sportspursetype = 'none' & sportspursenumber = 0

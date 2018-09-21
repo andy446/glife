@@ -495,7 +495,7 @@ if $ARGS[0] = 'abdEscapeWindow3':
 	i = rand(1, 3)
 	gs 'underwear', 'wear'
 	gs 'underwear', 'dispose'
-	gs 'clothing' 'wear_last_worn'
+	gs 'clothing', 'wear_last_worn'
 	'<center><img <<$set_imgh>> src="images/locations/shared/abduction/midnowhere<<i>>.jpg"></center>'
 	'Pulling on your clothes as you run you finally think you are far enough away and try to find your bearings.'
 	'Any underwear you had with you is lost but that''s a small price to pay for your freedom.'

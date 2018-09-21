@@ -115,11 +115,10 @@ if car > 0 and cardrive = 20:
 	'Your <a href="exec:gs ''carF'', ''start''">car<<$car>></a> is parked in the street.'
 end
 
-
 if home_owned[2] = 1:
-	'You live in one of the apartment blocks in the old part of Pavlovsk, and the door to the <a href="exec:minut += 3 & GT ''pavcomplex'',''start''">apartment building</a> is right there. Your <a href="exec:minut += 5 & GT ''korrPar''">parents'' home</a> is on the second floor there. <<$gcartext>>'
+	'You live in one of the apartment blocks in the old part of Pavlovsk, and the door to the <a href="exec:minut += 2 & GT ''pavcomplex'',''start''">apartment building</a> is right there. Your <a href="exec:minut += 5 & GT ''korrPar''">parents'' home</a> is on the second floor there. <<$gcartext>>'
 elseif StoryLine = 1:
-	'You are standing near one of the apartment blocks in the old part of Pavlovsk, and the door to the <a href="exec:minut += 3 & GT ''pavcomplex'',''start''">apartment building</a> is right there. Your parents live here, but you are no longer welcome in their home. <<$gcartext>>'
+	'You are standing near one of the apartment blocks in the old part of Pavlovsk, and the door to the <a href="exec:minut += 2 & GT ''pavcomplex'',''start''">apartment building</a> is right there. Your parents live here, but you are no longer welcome in their home. <<$gcartext>>'
 else
 	'<<$gcartext>>'
 end
@@ -142,7 +141,7 @@ end
 if hour >= 8 and hour <= 22:'You can see the <a href="exec:$locM = ''pavResidential'' & gt ''kiosk'', ''start''">kiosk</a> selling cigarettes and magazines.'
 
 !if SchoolBlock = 0:
-	$schoolname = ' and the local <a href="exec: minut += 1 & gt ''gschool_grounds'', ''main''">school</a>.'
+	$schoolname = ' and the local <a href="exec: minut += 2 & gt ''gschool_grounds'', ''main''">school</a>.'
 !else
 !	'.'
 !end
@@ -151,7 +150,7 @@ if hour >= 8 and hour <= 22:'You can see the <a href="exec:$locM = ''pavResident
 
 'The town square features a <a href="exec: minut += 2 & gt ''gdk''">community center</a><<$schoolname>>'
 
-'A <a href="exec:minut += 15 & gt ''Gshveyfab'', ''start''">garment factory</a> named Paris Commune is situated in the industrial area on the outskirts of town. Inhabitants of the Pavlovsk apartments can store their cars in the <a href="exec:minut += 5 & gt ''pavComplex'', ''garages''">garages</a>.'
+'A <a href="exec:minut += 15 & gt ''Gshveyfab'', ''start''">garment factory</a> named Paris Commune is situated in the industrial area on the outskirts of town. Inhabitants of the Pavlovsk apartments can store their cars in the <a href="exec:minut += 3 & gt ''pavComplex'', ''garages''">garages</a>.'
 
 ''
 !!made changes here, to remove direct links to the kids in the apartment complex, make sure this will work with the code left.
@@ -178,7 +177,7 @@ else
 end
 !!end of code changes.
 
-if kanikuli = 0 and StoryLine > 0 and SchoolAtestat = 0 and SchoolBlock = 0 and week < 6 and hour >= 7 and hour < 9: act '<font color = green><b>Go to school</b></font>': minut += 1 & gt 'gschool_grounds', 'main'
+if kanikuli = 0 and StoryLine > 0 and SchoolAtestat = 0 and SchoolBlock = 0 and week < 6 and hour >= 7 and hour < 9: act '<b>Go to school</b>': minut += 2 & gt 'gschool_grounds', 'main'
 
 if InvitationToDimkaNYparty = 1 and month = 12 and day = 31 and hour > 14 and hour <= 18:
 	act '<b>Go to Dimka''s house at the New Year party</b>': killvar 'InvitationToDimkaNYparty' & minut += 30 & gt 'sny', '3'
@@ -190,7 +189,7 @@ act 'Go to the high street':minut += 5 & gt 'pavCommercial'
 if home_owned[2] = 1: act '<b>GO HOME</b> (Parents'' Apartment)': minut += 4 & GT 'korrPar'
 if pavSharedAptEnabled = 1:act '<b>GO HOME</b> (Shared Apartment)': minut += 5 & GT 'pavSharedApt', 'start'
 
-act 'Go to the apartment complex':minut += 3 & gt 'pavcomplex', 'start'
+act 'Go to the apartment complex':minut += 2 & gt 'pavcomplex', 'start'
 
 act 'Wait':gs 'obj_din', 'wait'
 

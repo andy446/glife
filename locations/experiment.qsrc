@@ -1513,17 +1513,61 @@ if $ARGS[0] = 'testarea:treatment:room:social':
 
 	fuckCh = rand (0, 100)
 	if fuckCh <= 30:
-		act 'Spend some time reading':pcs_mood += 10 & minut += waitTime & gt 'experiment', 'testarea:treatment:room:social:gofuck'
+		act 'Spend some time reading':
+			cls
+			gs 'stat'
+			'<center><img <<$set_imgh>> src="images/shared/accessories/books/book.jpg"></center>'
+			if pcs_nerd > 0:
+				lastread = totminut
+				lastreadday = daystart
+				pcs_nerd += 1
+				blizoruk += 1
+			end
+			if rand(0,1) = 0:
+				makupskl_exp += 1
+				'The book is really girly and mostly centres around what the characters wear and how they get ready to go out.'
+				'You do pick up a few make up tips but its not mentally stimulating.'
+			else
+				if pcs_sewng <= 100: sewng_exp += rand(1,3)
+				'The book is about an older lady solving a murder. For the most part its exciting.'
+				'The slower parts have her sewing and it goes into more detail than it needs to, you do learn a little though.'
+			end
+			pcs_mood += 10
+			minut += waitTime
+			'While you are reading, all of a sudden a strong hand grabs you by the neck.'
+			act 'Stop reading': gt 'experiment', 'testarea:treatment:room:social:gofuck'
+		end
 	else
-		act 'Spend some time reading':pcs_mood += 10 & minut += waitTime & gt 'experiment', 'testarea:treatment:room:social'
+		act 'Spend some time reading':
+			cls
+			gs 'stat'
+			'<center><img <<$set_imgh>> src="images/shared/accessories/books/book.jpg"></center>'
+			if pcs_nerd > 0:
+				lastread = totminut
+				lastreadday = daystart
+				pcs_nerd += 1
+				blizoruk += 1
+			end
+			if rand(0,1) = 0:
+				makupskl_exp += 1
+				'The book is really girly and mostly centres around what the characters wear and how they get ready to go out.'
+				'You do pick up a few make up tips but its not mentally stimulating.'
+			else
+				if pcs_sewng <= 100: sewng_exp += rand(1,3)
+				'The book is about an older lady solving a murder. For the most part its exciting.'
+				'The slower parts have her sewing and it goes into more detail than it needs to, you do learn a little though.'
+			end
+			pcs_mood += 10
+			minut += waitTime
+			gt 'experiment', 'testarea:treatment:room:social'
+		end
 	end
 	act 'Go back to your room':gt 'experiment', 'testarea:treatment:room'
 end
 
 if $ARGS[0] = 'testarea:treatment:room:social:gofuck':
-	'While you are reading, all of a sudden a strong hand grabs you by the neck.'
 	'"White whore stop reading! Too much cum in balls I have, I need to empty them!" you hear a deep voice say.'
-	''
+	*nl
 	'One of the men approached you directly in the social room! You have no choice but to submit to him... like some kind of pet.'
 	'He leads you to your room, throwing you down between the bedsheets...'
 	coitusType = rand (1, 8)

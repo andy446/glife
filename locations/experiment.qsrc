@@ -1368,8 +1368,7 @@ end
 if $ARGS[0] = 'testarea:treatment:room':
 	minut += 1
 	gs 'stat'
-	$loc = $ARGS[0]
-	$metka = 'testarea:treatment:room'
+	$metka = $ARGS[0]
 	'<center><h3>Experiment private room</h3></center>'
 	'<center><img <<$set_imgh>> src="images\locations\shared\clinic\experiment\room.jpg"></center>'
 	*nl

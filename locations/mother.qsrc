@@ -539,7 +539,7 @@ if $ARGS[0] = '':
 		end
 	end
 
-	if alko > 1 and alkomday ! daystart:
+	if alko >= 3  and alkomday ! daystart:
 		alkomday = daystart
 		npc_rel['A29'] -= 1
 		delin_beh += 1 &!counter for getting sent to Gadukino for the summer

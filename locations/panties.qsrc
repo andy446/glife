@@ -159,7 +159,9 @@ if $ARGS[0] = 'view_panty_item':
 			if metka_panties ! 0:$RESULT += 'Move these panties to  <a href="exec:gt ''panties'', ''dest0'', ''<<$ARGS[1]>>'', ''<<$ARGS[2]>>'', <<ARGS[3]>>">Wardrobe</a><BR>'
 			if metka_panties ! 2:$RESULT += 'Move these panties to  <a href="exec:gt ''panties'', ''dest2'', ''<<$ARGS[1]>>'', ''<<$ARGS[2]>>'', <<ARGS[3]>>">Unwanted</a>'
 		end
-
+		
+		act 'Return':gt 'panties', 'view_panty_list', $ARGS[1]
+		
 		if $ARGS[1] = 'store':
 			'These panties are in storage.'
 		elseif $ARGS[1] = 'unwanted':
@@ -180,8 +182,6 @@ if $ARGS[0] = 'view_panty_item':
 					end
 				end
 			end
-
-			act 'Return':gt 'panties', 'view_panty_list', $ARGS[1]
 		end
 	end
 end

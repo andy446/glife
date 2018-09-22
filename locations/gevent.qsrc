@@ -1,8 +1,8 @@
 # gevent
 CLOSE ALL
 if $ARGS[0] = '1':
-	cla
-	*clr
+	*clr & cla
+	menu_off = 1
 	dyadyamishaevent = 1
 	dick = 18
 	if night_mode = 1:
@@ -23,8 +23,7 @@ if $ARGS[0] = '1':
 	'"Not bad <<$pcs_nickname>>, not bad. Lie down, I''m going to have some fun with you."'
 
 	act 'Lie down on the bed':
-		cla
-		cls
+		*clr & cla
 		'You are no longer resisting, having lost all hope of getting yourself out of this situation. Lying wearily on the bed, he quickly takes your clothes off and sits down at your feet, examining your pussy with his fingers as much as his eyes.'
 
 		if pcs_vag = 0 and stat['vaginal'] = 0:
@@ -45,7 +44,7 @@ if $ARGS[0] = '1':
 		end
 		
 		act 'Swallow his cum':
-			cls
+			*clr & cla
 			stat['vaginal'] += 1
 			stat['bj'] += 1
 			swallow += 1
@@ -73,8 +72,8 @@ if $ARGS[0] = '1':
 end
 
 if $ARGS[0] = '1-1':
-	cla
-	*clr
+	*clr & cla
+	menu_off = 1
 	dmishaday = daystart
 	dick = 18
 	stat['vaginal'] += 1
@@ -116,8 +115,8 @@ if $ARGS[0] = '1-1':
 end
 
 if $ARGS[0] = '2':
-	cla
-	*clr
+	*clr & cla
+	menu_off = 1
 	minut += 15
 	spafinloc = 11
 	gs 'cum_manage'
@@ -139,8 +138,8 @@ if $ARGS[0] = '2':
 end
 
 if $ARGS[0] = '3':
-	cla
-	*clr
+	*clr & cla
+	menu_off = 1
 	alko += 10
 	cumspclnt = 2
 	gs 'cum_cleanup'
@@ -180,8 +179,8 @@ if $ARGS[0] = '3':
 end
 
 if $ARGS[0] = '4':
-	cla
-	*clr
+	*clr & cla
+	menu_off = 1
 	guy += 1
 	alko += 2
 	cumspclnt = 2
@@ -202,8 +201,8 @@ if $ARGS[0] = '4':
 end
 
 if $ARGS[0] = '5':
-	cla
-	*clr
+	*clr & cla
+	menu_off = 1
 	guy += 1
 	stat['vaginal'] += 1
 	pcs_vag += 1
@@ -214,7 +213,7 @@ if $ARGS[0] = '5':
 	minut += 15
 	money += 100
 	slutty += 1
-	pav_prostitute += 2
+	pav_prostitute += rand(2,4)
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/park/sex/5.jpg"></center>'
 	'The guy quickly pulls you into the bushes, separated enough from the main roads to get a quick fuck in without being noticed. Not even bothering to undress you, he simply pulls your clothes to the side and thrusts his dick inside you. Within minutes, his breathing grows heavier and he growls as he shoots his load onto your ass cheeks. He pants: "Nice, babe... you''re definitely worth the money", as he hands you 100 <b>₽</b> and leaves.'
@@ -223,10 +222,12 @@ if $ARGS[0] = '5':
 end
 
 if $ARGS[0] = '6':
+	*clr & cla
+	menu_off = 1
 	gs 'cikl'
 	hour = 12
 	minut = 17
-	pav_sex += 8
+	pav_sex += rand(8,16)
 	guyondisco = rand(5, 10)
 	guy += guyondisco
 	stat['bj'] += guyondisco
@@ -266,7 +267,6 @@ if $ARGS[0] = '6':
 	if guyondisco > 0: jump 'geventgondloop'
 	gs 'stat'
 	
-
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/park/sex/6.1.jpg"></center>'
 	'You barely remember what happened. You were standing against the wall at the disco, quietly enjoying the admittedly rather outdated music when a guy approached you. He started groping you, but you were too drunk to stop him. It also felt kind of nice to be wanted, so you just went along with it.'
 	'The next thing you remember: you were on your knees, sucking him off in the bathroom stalls. After he came in your mouth he took you away from the disco to a different place, where several of his friends had already gathered. "Dude, nice!" they praised his catch, while you unsteadily tried to move to the couch to sit down. You never made it to the couch, the guys immediately surrounded you and started to maul you from all sides.'
@@ -277,8 +277,8 @@ if $ARGS[0] = '6':
 end
 
 if $ARGS[0] = '7':
-	cla
-	*clr
+	*clr & cla
+	menu_off = 1
 	guy += 2
 	stat['anal'] += 2
 	stat['bj'] += 2

@@ -3,6 +3,7 @@
 !chatter with the client
 if $ARGS[0] = 'client_talk':
 	CLOSE ALL
+	menu_off = 1
 	gs 'pod_whore', 'setup'
 	gs 'stat'
 	if whore_money_bjsex < 50:
@@ -672,8 +673,7 @@ if $ARGS[0] = 'hide':
 		gs 'stat'
 		'<center><video autoplay loop src="images/locations/pavlovsk/resident/apartment/stairs/sex/bj'+rand(1,17)+'.mp4"></video></center>'
 		gs 'pod_whore','hide','text_pod_whore_bj'
-		!the reaction and texts in gopsex have to be reworked, there are for example no consequences if mother catches sveta
-		!gs 'gopsex','hide','accview_ggsex'
+		gs 'gopsex','hide','accview_ggsex'
 		act 'Continue': gt 'pod_whore','hide','pod_whore_ev_end'
 	end
 !classic sex
@@ -687,8 +687,7 @@ if $ARGS[0] = 'hide':
 		'<center><video autoplay loop src="images/locations/pavlovsk/resident/apartment/stairs/sex/sex'+rand(1,7)+'.mp4"></video></center>'
 		gs 'pod_whore','hide','text_pod_whore_vag'
 		gs 'gopsex', 'gg_sex_orgasm'
-		!the reaction and texts in gopsex have to be reworked, there are for example no consequences if mother catches sveta
-		!gs 'gopsex','hide','accview_ggsex'
+		gs 'gopsex','hide','accview_ggsex'
 		act 'Continue': gt 'pod_whore','hide','pod_whore_ev_end'
 	end
 !anal sex
@@ -701,8 +700,7 @@ if $ARGS[0] = 'hide':
 		gs 'stat'
 		'<center><video autoplay loop src="images/locations/pavlovsk/resident/apartment/stairs/sex/sex'+rand(8,14)+'.mp4"></video></center>'
 		gs 'pod_whore','hide','text_pod_whore_anal'
-		!the reaction and texts in gopsex have to be reworked, there are for example no consequences if mother catches sveta
-		!gs 'gopsex','hide','accview_ggsex'
+		gs 'gopsex','hide','accview_ggsex'
 		act 'Continue': gt 'pod_whore','hide','pod_whore_ev_end'
 	end
 !all inclusive
@@ -722,8 +720,7 @@ if $ARGS[0] = 'hide':
 			'<center><video autoplay loop src="images/locations/pavlovsk/resident/apartment/stairs/sex/sex'+rand(1,7)+'.mp4"></video></center>'
 			gs 'pod_whore','hide','text_pod_whore_vag'
 			gs 'gopsex', 'gg_sex_orgasm'
-			!the reaction and texts in gopsex have to be reworked, there are for example no consequences if mother catches sveta
-			!gs 'gopsex','hide','accview_ggsex'
+			gs 'gopsex','hide','accview_ggsex'
 			act 'Continue':
 				*clr & cla
 				gs 'arousal','anal',rand(7,15),'prostitution'
@@ -752,8 +749,7 @@ if $ARGS[0] = 'hide':
 			'<center><video autoplay loop src="images/locations/pavlovsk/resident/apartment/stairs/sex/sex'+rand(1,7)+'.mp4"></video></center>'
 			gs 'pod_whore','hide','text_pod_whore_vag'
 			gs 'gopsex', 'gg_sex_orgasm'
-			!the reaction and texts in gopsex have to be reworked, there are for example no consequences if mother catches sveta
-			!gs 'gopsex','hide','accview_ggsex'
+			gs 'gopsex','hide','accview_ggsex'
 			act 'Continue': gt 'pod_whore','hide','pod_whore_ev_end'
 		end
 	end
@@ -773,8 +769,7 @@ if $ARGS[0] = 'hide':
 			gs 'stat'
 			'<center><video autoplay loop src="images/locations/pavlovsk/resident/apartment/stairs/sex/sex'+rand(8,14)+'.mp4"></video></center>'
 			gs 'pod_whore','hide','text_pod_whore_anal'
-			!!the reaction and texts in gopsex have to be reworked, there are for example no consequences if mother catches sveta
-			!gs 'gopsex','hide','accview_ggsex'
+			gs 'gopsex','hide','accview_ggsex'
 			act 'Continue': gt 'pod_whore','hide','pod_whore_ev_end'
 		end
 	end
@@ -830,8 +825,7 @@ if $ARGS[0] = 'hide':
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/sex/1_2_'+rand(1,2)+'.jpg"></center>'
 			gs 'pod_whore','hide','text_pod_whore_groupsex'
 			gs 'gopsex', 'gg_sex_orgasm'
-			!!the reaction and texts in gopsex have to be reworked, there are for example no consequences if mother catches sveta
-			!gs 'gopsex','hide','accview_ggsex'
+			gs 'gopsex','hide','accview_ggsex'
 			act 'Continue':
 				*clr & cla
 				gs 'arousal','vaginal',rand(7,12),'dick[2]','prostitution','group'
@@ -892,8 +886,7 @@ if $ARGS[0] = 'hide':
 			'The other guy gets in front of you and says: "Go on, whore. Put that mouth of yours to work as well, I''m not just going to stand here and wait."'
 			'You obediently open your mouth and take his dick in your mouth. It''s a bit difficult to give him a good blowjob while your pussy is also getting pounded, especially with him moving his hips like that, but after a while they get into a steady pace and you just let the guys have their way with you.'
 			gs 'gopsex', 'gg_sex_orgasm'
-			!!the reaction and texts in gopsex have to be reworked, there are for example no consequences if mother catches sveta
-			!gs 'gopsex','hide','accview_ggsex'
+			gs 'gopsex','hide','accview_ggsex'
 			act 'Continue':
 				*clr & cla
 				gs 'arousal','vaginal',rand(5,10),'dick[1]','prostitution','group'

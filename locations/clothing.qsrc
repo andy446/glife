@@ -732,9 +732,11 @@ if $ARGS[0] = 'wear':
 	PCloInhibit = CloInhibit
 	if cheatbimbo = 0:
 		PCloBimbo = CloBimbo
-		if CloBimbo = 1:bimbocl = 1
+		if CloBimbo = 1: bimbocl = 1
+		if CloBimbo = 0: bimbocl = 0
 	else
 		PCloBimbo = 0
+		CloBimbo = 0
 		bimbocl = 0
 	end
 

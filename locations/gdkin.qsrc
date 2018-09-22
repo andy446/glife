@@ -50,14 +50,13 @@ if $ARGS[0] = '':
 			'You notice Sonia from your class. She is talking to Victor about something.'
 
 			act 'View Sonya':gt 'soniaDisco'
-
 			exit
 		end
 
 		act 'Go outside':gt 'gdk'
 		
 		act 'Dance (0:15)':
-			cls
+			*clr & cla
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_dance.jpg"></center>'
 			if pcs_inhib < 40:inhib_exp += rand(1,2)
 			if (cumloc[6] = 1 or cumloc[7] = 1) or cumloc[11] = 1:
@@ -121,25 +120,20 @@ if $ARGS[0] = '':
 						gs 'stat'
 						'<<$din_disc_dance2>>'
 
-						act 'Move away':
-							cls
-							gt 'gdkin'
-						end
-						
+						act 'Move away': gt 'gdkin'
 						act 'Dance with the guy':gt 'gdkin', 'dance_vrp'
-
 						exit
 					end
 				end
 
 				gs 'stat'
 
-				act 'Further':gt 'gdkin'
+				act 'Continue':gt 'gdkin'
 			end
 		end
 
 		act 'Stand at the wall':
-			cls
+			*clr & cla
 			minut += 5
 			!!fat -= 1
 			pcs_mood -= 5
@@ -158,9 +152,7 @@ if $ARGS[0] = '':
 				exit
 			end
 		
-			if alko >= 6 and rand (1, 100) < 3:
-				gt 'gevent', '6'
-			end
+			if alko >= 6 and rand (1, 100) < 3:	gt 'gevent', '6'
 
 			if alko >= 6:
 				'You''re too drunk to dance and you lean against the wall for support to keep from falling down.'
@@ -192,9 +184,8 @@ if $ARGS[0] = '':
 					gs 'stat'
 					'<<$din_disc_dance>>'
 
-					act 'Dance':gt 'gdkin', 'dance_vrp'
-
 					act 'Refuse': gt 'gdkin'
+					act 'Dance':gt 'gdkin', 'dance_vrp'
 					exit
 				end
 			end
@@ -396,25 +387,10 @@ if $ARGS[0] = 'dance_vrp':
 		end
 	end
 
-	if pcs_danc >= 50 and alko >= 3 and pcs_horny >= 50:
-		act 'Sexy dance':
-			cls
-			if $pantyworntype = 'none' and PCloSkirt > 2:
-				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_dance4.jpg"></center>'
-				'Trying to move your body as erotically as possible, you lean forward while doing a complex dance move, completely forgetting that you''re not wearing panties. Now your dance partner knows as well and it seems he will likely never forget.'
-			else
-				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_dance3.jpg"></center>'
-				'You are taking advantage of your ability to dance, sexy moves cause your partner to stare at you. But he seems stunned by how great you look or maybe by how well you move, either way he suddenly moves away and disappears into the crowd.'
-			end
-			danc_exp += 1
-			gs 'arousal', 'flash', 5
-			gs 'stat'
-			act 'Further':gt'gdkin'
-		end
-	end
-
-	act 'Further':
-		cls
+	act 'Stop and move away': gt 'gdkin'
+	
+	act 'Continue to dance with him':
+		*clr & cla
 		gs 'stat'
 		if $pantyworntype = 'none' and alko >= 3 and PCloSkirt > 2:
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_dance9.jpg"></center>'
@@ -424,6 +400,13 @@ if $ARGS[0] = 'dance_vrp':
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_dance.jpg"></center>'
 		end
 
+		if alko < 6 or pcs_horny <= 75 or pav_slut <= 25:
+			act 'Refuse':
+				if pcs_sprt <= 30: sprt_exp += rand(0, 1)
+				gt 'gdkin'
+			end
+		end
+		
 		if DPgrup = 1:
 			$npc_usedname[$npclastcalled] = $npc_nickname[$npclastcalled]
 			$boydesc = $npc_nickname[$npclastcalled]
@@ -439,33 +422,33 @@ if $ARGS[0] = 'dance_vrp':
 				'For the entire dance the guy was grabbing your ass, breasts and kissing you, he was clearly excited. When you would press up against him, you could feel something hard in his pants. Finally the song ended and the guy offers to take you outside for a drink.'
 				gs 'arousal', 'foreplay', 5
 				gs 'stat'
-				act 'Go drink':gt 'gdksex', 'outside', 'aggressiv'
+				act 'Go outside':gt 'gdksex', 'outside', 'aggressiv'
 			elseif DPtipe = 2:
 				'For the entire dance the guy was grabbing your ass, breasts and kissing you, he was clearly excited. When you would press up against him, you could feel something hard in his pants. Finally the song ended and the guy offers to take you outside for a drink.'
 				gs 'arousal', 'foreplay', 5
 				gs 'stat'
-				act 'Go drink':gt 'gdksex', 'outside', 'aggressiv'
+				act 'Go outside':gt 'gdksex', 'outside', 'aggressiv'
 			end
 		elseif DPgrup = 3:
 			if DPtipe = 1:
 				'The man danced with confidence and elegance, finally the song was over and the man offers to go out for some fresh air and talk.'
 
 				act 'Go with the man':
-					cls
+					*clr & cla
 					gs 'stat'
 					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/dk_night.jpg"></center>'
 					$npc_usedname[$npclastcalled] = $npc_nickname[$npclastcalled]
 					$boydesc = $npc_nickname[$npclastcalled]
 					'You went outside with the man. As you walked he put his arm around your waist. "My name is <<$boydesc>>. What''s your name?" You answered "<<$pcs_nickname>>." The man continued, "<<$pcs_nickname>>, I''m in town on a business trip. I am staying at a nearby hotel, I live in the city itself. There is virtually nothing to do in this town you know. Come back to my hotel with me and we can drink whiskey, while we sit and have a nice chat."'
 
-					act 'Go to the hotel':gt 'gdksex', 'hotel'
-
-					if alko <= 2 or pcs_horny <= 75 or pav_slut <= 25:
+					if alko < 6 or pcs_horny <= 75 or pav_slut <= 25:
 						act 'Refuse':
 							if pcs_sprt <= 30: sprt_exp += rand(0, 1)
 							gt 'gdkin'
 						end
 					end
+					
+					act 'Go to the hotel':gt 'gdksex', 'hotel'
 				end
 			elseif DPtipe = 2:
 				$npc_usedname[$npclastcalled] = $npc_nickname[$npclastcalled]
@@ -476,19 +459,25 @@ if $ARGS[0] = 'dance_vrp':
 				act 'Go to the hotel':gt 'gdksex', 'hotel'
 			end
 		end
-
-		if alko <= 2 or pcs_horny <= 75 or pav_slut <= 25:
-			act 'Refuse':
-				if pcs_sprt <= 30: sprt_exp += rand(0, 1)
-				gt 'gdkin'
-			end
-		end
+				
 		if kotovLoveQW > 0: gt 'gdkin', 'kotov_love'
 	end
-
-	act 'Stop dancing':
-		cls
-		gt 'gdkin'
+	
+	if pcs_danc >= 50 and alko >= 3 and pcs_horny >= 50:
+		act 'Dance sexily':
+			*clr & cla
+			if $pantyworntype = 'none' and PCloSkirt > 2:
+					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_dance4.jpg"></center>'
+				'Trying to move your body as erotically as possible, you lean forward while doing a complex dance move, completely forgetting that you''re not wearing panties. Now your dance partner knows as well and it seems he will likely never forget.'
+			else
+				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_dance3.jpg"></center>'
+				'You are taking advantage of your ability to dance, sexy moves cause your partner to stare at you. But he seems stunned by how great you look or maybe by how well you move, either way he suddenly moves away and disappears into the crowd.'
+			end
+			danc_exp += 1
+			gs 'arousal', 'flash', 5
+			gs 'stat'
+			act 'Continue':gt'gdkin'
+		end
 	end
 end
 

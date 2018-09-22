@@ -18,7 +18,7 @@ if liftnotwork_day ! daystart: liftnotwork_count = 1
 !Apartment Uncle Misha
 if mishahouse_day ! daystart: mishahouse_count = 1	
 !how much money for sex give boys
-$rnd_money_sex = ''+rand(50,350)+''
+$rnd_money_sex = ''+rand(100,350)+''
 rnd_money_sex = $rnd_money_sex
 
 !================================================================================================!
@@ -28,9 +28,8 @@ rnd_money_sex = $rnd_money_sex
 !sex game events with all the guys in the stairwell (2,3 floors)
 if $ARGS[0] = 'sex_ev1':
 	menu_off = 1
-!act 'Smer':
 	minut += 2
-	if pav_slut >= 150 and podwhoreQW < 3: podwhoreQW += 1
+	if podwhoreQW < 3: podwhoreQW += 1
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/event/sex/sex_ev1_1.jpg"></center>'
 	'One of the boys is content to just keep smoking, but the other one grows more bold and approaches you. He starts pulling your clothes off with one hand while his other hand starts mauling your bare ass.'
@@ -169,7 +168,7 @@ end
 
 if $ARGS[0] = 'sex_ev2':
 	menu_off = 1
-	if pav_slut >= 150 and podwhoreQW < 3: podwhoreQW +=1
+	if podwhoreQW < 3: podwhoreQW +=1
 	minut +=2
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/event/sex/sex_ev2_1.jpg"></center>'
@@ -255,7 +254,7 @@ end
 
 if $ARGS[0] = 'sex_ev3':
 	menu_off = 1
-	if pav_slut >= 150 and podwhoreQW < 3: podwhoreQW +=1
+	if podwhoreQW < 3: podwhoreQW +=1
 	minut +=2
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/event/sex/sex_ev3_1.jpg"></center>'
@@ -363,47 +362,103 @@ end
 !mini game events on 2 floor
 !boys smoking
 if $ARGS[0] = 'etaj2_smoke':
+	*clr & cla
 	menu_off = 1
-	siga += 1
-	gs 'shortgs','smoker'
-	minut += 5
+	minut += 1
 	gs 'stat'
 	gs 'boyStat', 'A<<rand(122,126)>>','1'
-:ssboyloop
+	:ssboyloop
 	gs 'boyStat', 'A<<rand(122,126)>>','2'
 	if $boy[1] = $boy[2]: jump 'ssboyloop'
-	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/smoke'+rand(1,3)+'.jpg"></center>'
-	'The guys greet you and offer you a cigarette, which you gladly accept. You spend the next 5 minutes smoking a cigarette with them, talking about trivial things.'
-	if pav_slut >= 150: 
-		'As you smoke the cigarette, you hear the boys whisper among themselves: "Guys, that''s <<$pcs_nickname>>! I heard she''s a '+func('gopsex','hide','gg_whore_text')+'. From what I''ve been told she''ll do just about anything if the price is right, let''s see if she''ll make us a deal."'
-		'One of the guys walks close to you, and gestures for you to lean your head closer to his. When you do, he pulls all of his money out of his pocket. He counts the crumpled bills and offers them to you, whispering: "Is <<rnd_money_sex>> <b>₽</b> enough for two?"'
-		'He never mentions what exactly he wants you to do with him and his friend.'
-		act 'Accept and fuck them':
-			money += '<<rnd_money_sex>>'
-			slutty += 1
-			gt 'pod_ezd', 'sex_ev<<rand(1,3)>>'
-		end
-		act 'Refuse and get away from them': gt 'pod_ezd', 'etaj_3'
-	elseif pav_slut >= 75 or (pav_slut >= 50 and pav_slut < 75 and Sub >= 20) or (pav_slut >= 25 and pav_slut < 50 and Sub >= 40):
-		'As you smoke the cigarette, you hear the boys whisper among themselves: "Guys, that''s <<$pcs_nickname>>. I heard she''s a total slut. I bet if someone would walk up to her and drop their pants, she would start sucking without a second thought."'
-		'After egging each other on for a minute, one of them decides it''s worth a shot: he walks over to you and pulls down his pants, his erect cock bouncing in the air. "<<$pcs_nickname>>, this is for you. You know what to do with it."'
-		'You attempt to protest, but the guys tell you you''re taking their cocks one way or another.'
-		if pcs_dom >= 10:
-			act 'Get angry and tell them off':
-			*clr & cla
-			minut +=2
-			pcs_dom +=1
-			gs 'stat'
-			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/event/megera.jpg"></center>'
-			'Tired of always having to defend yourself, you take all your anger out on the guys: "Are you kidding me!? Did all the blood drain away from your brains and into your groins or something?"'
-			'"If I start screaming now, and accuse you of rape, everyone in the entire housing block will come to see what is happening. Who do you think they''ll going to believe, me or you?"'
-			'The guys realize they overplayed their hand, and the guy with his pants down quickly pulls them back up. "Okay okay, we''re sorry! We was just messing around." they say, and quickly walk away before you can get another word in.'
-				act 'Leave': gt 'pod_ezd', 'etaj_2'
+	'The guys greet you and offer you a cigarette.'
+	
+	act 'Decline and leave': gt 'pod_ezd', 'etaj_2'
+	
+	act 'Take the cigarette':
+		*clr & cla
+		minut += 5
+		siga += 1
+		gs 'shortgs','smoker'		
+		gs 'stat'
+		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/smoke'+rand(1,3)+'.jpg"></center>'
+		'You gladly accept and spend the next 5 minutes smoking a cigarette with them, talking about trivial things.'
+		if pav_slut >= 125 and pav_sex < pav_prostitute: 
+			'As you smoke the cigarette, you hear the boys whisper among themselves: "Guys, that''s <<$pcs_nickname>>! I heard she''s a '+func('gopsex','hide','gg_whore_text')+'. From what I''ve been told she''ll do just about anything if the price is right, let''s see if she''ll make us a deal."'
+			'One of the guys walks close to you, and gestures for you to lean your head closer to his. When you do, he pulls all of his money out of his pocket. He counts the crumpled bills and offers them to you, whispering: "Is <<rnd_money_sex>> <b>₽</b> enough for two?"'
+			'He never mentions what exactly he wants you to do with him and his friend.'
+			act 'Refuse and get away from them': gt 'pod_ezd', 'etaj_2'
+			act 'Accept and fuck them':
+				money += '<<rnd_money_sex>>'
+				pav_prostitute += rand(3,9)
+				slutty += 1
+				gt 'pod_ezd', 'sex_ev<<rand(1,3)>>'
+			end		
+		elseif pav_slut >= 125 and pav_sex >= pav_prostitute:
+			'As you smoke the cigarette, you hear the boys whisper among themselves: "Guys, that''s <<$pcs_nickname>>. I heard she''s a total slut. I bet if someone would walk up to her and drop their pants, she would start sucking without a second thought."'
+			'After egging each other on for a minute, one of them decides it''s worth a shot: he walks over to you and pulls down his pants, his erect cock bouncing in the air. "<<$pcs_nickname>>, this is for you. You know what to do with it."'
+			'You attempt to protest, but the guys tell you you''re taking their cocks one way or another.'
+			if pcs_dom >= 10:
+				act 'Get angry and tell them off':
+				*clr & cla
+				minut +=2
+				pcs_dom +=1
+				gs 'stat'
+				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/event/megera.jpg"></center>'
+				'Tired of always having to defend yourself, you take all your anger out on the guys: "Are you kidding me!? Did all the blood drain away from your brains and into your groins or something?"'
+				'"If I start screaming now, and accuse you of rape, everyone in the entire housing block will come to see what is happening. Who do you think they''ll going to believe, me or you?"'
+				'The guys realize they overplayed their hand, and the guy with his pants down quickly pulls them back up. "Okay okay, we''re sorry! We was just messing around." they say, and quickly walk away before you can get another word in.'
+					act 'Leave': gt 'pod_ezd', 'etaj_2'
+				end
 			end
+			act 'Do as they say': 
+				pav_sex += rand(3,9)
+				gt 'pod_ezd','sex_ev<<rand(1,3)>>'
+			end
+		else
+			act 'Leave': gt 'pod_ezd', 'etaj_2'
 		end
-		act 'Do as they say': gt 'pod_ezd','sex_ev<<rand(1,3)>>'
-	else
-		act 'Leave': gt 'pod_ezd', 'etaj_2'
+	end
+	
+	act 'Just chat with them':
+		*clr & cla	
+		minut += 5		
+		gs 'stat'
+		'You decline, but you stay for a while talking about trivial things.'
+		if pav_slut >= 125 and pav_sex < pav_prostitute: 
+			'You hear the boys whisper among themselves: "Guys, that''s <<$pcs_nickname>>! I heard she''s a '+func('gopsex','hide','gg_whore_text')+'. From what I''ve been told she''ll do just about anything if the price is right, let''s see if she''ll make us a deal."'
+			'One of the guys walks close to you, and gestures for you to lean your head closer to his. When you do, he pulls all of his money out of his pocket. He counts the crumpled bills and offers them to you, whispering: "Is <<rnd_money_sex>> <b>₽</b> enough for two?"'
+			'He never mentions what exactly he wants you to do with him and his friend.'
+			act 'Refuse and get away from them': gt 'pod_ezd', 'etaj_2'
+			act 'Accept and fuck them':
+				money += '<<rnd_money_sex>>'
+				pav_prostitute += rand(3,9)
+				slutty += 1
+				gt 'pod_ezd', 'sex_ev<<rand(1,3)>>'
+			end		
+		elseif pav_slut >= 125 and pav_sex >= pav_prostitute:
+			'You hear the boys whisper among themselves: "Guys, that''s <<$pcs_nickname>>. I heard she''s a total slut. I bet if someone would walk up to her and drop their pants, she would start sucking without a second thought."'
+			'After egging each other on for a minute, one of them decides it''s worth a shot: he walks over to you and pulls down his pants, his erect cock bouncing in the air. "<<$pcs_nickname>>, this is for you. You know what to do with it."'
+			'You attempt to protest, but the guys tell you you''re taking their cocks one way or another.'
+			if pcs_dom >= 10:
+				act 'Get angry and tell them off':
+				*clr & cla
+				minut +=2
+				pcs_dom +=1
+				gs 'stat'
+				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/event/megera.jpg"></center>'
+				'Tired of always having to defend yourself, you take all your anger out on the guys: "Are you kidding me!? Did all the blood drain away from your brains and into your groins or something?"'
+				'"If I start screaming now, and accuse you of rape, everyone in the entire housing block will come to see what is happening. Who do you think they''ll going to believe, me or you?"'
+				'The guys realize they overplayed their hand, and the guy with his pants down quickly pulls them back up. "Okay okay, we''re sorry! We was just messing around." they say, and quickly walk away before you can get another word in.'
+					act 'Leave': gt 'pod_ezd', 'etaj_2'
+				end
+			end
+			act 'Do as they say': 
+				pav_sex += rand(3,9)
+				gt 'pod_ezd','sex_ev<<rand(1,3)>>'
+			end
+		else
+			act 'Leave': gt 'pod_ezd', 'etaj_2'
+		end
 	end
 end
 
@@ -414,7 +469,7 @@ if $ARGS[0] = 'smoke_misha':
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/misha/misha.jpg" ></center>'
 	'Your neighbor''s name is Mikhail, though everyone calls him uncle Misha. He lives in the other apartment on the same floor as yours. Your mother always forbade you to talk to him, warning you that he used to be a local crime lord, and that you shouldn''t get involved with him. However, he has always been polite and nice to you.'
-	if pav_slut >= 75 or dyadyamishaevent >= 1 or (pav_slut >= 50 and pav_slut < 75 and Sub >= 20) or (pav_slut >= 25 and pav_slut < 50 and Sub >= 40):
+	if pav_slut >= 125 or dyadyamishaevent >= 1:
 		misha_smoke_rnd = RAND(1,3)
 		if misha_smoke_rnd = 1:
 			pcs_mood +=5
@@ -422,7 +477,7 @@ if $ARGS[0] = 'smoke_misha':
 			'"Say, <<$pcs_nickname>>, would you like to make an old man feel good? I could use a quick blowjob... there''ll be 50 <b>₽</b> in it for you, for your troubles."'
 			act 'Suck him off':
 				*clr & cla
-				money +=50
+				money += 50
 				slutty += 1
 				pav_prostitute += 1
 				gs 'boyStat', 'A54'
@@ -553,93 +608,6 @@ if $ARGS[0] = 'juliamil':
 	act 'Leave': gt 'pod_ezd', 'etaj_3'
 end
 
-!boys smoking
-if $ARGS[0] = 'smoke_r':
-	menu_off = 1
-	siga += 1
-	gs 'shortgs','smoker'
-	minut += 5
-	gs 'stat'
-	gs 'boyStat', 'A<<rand(122,126)>>','1'
-:srboyloop
-	gs 'boyStat', 'A<<rand(122,126)>>','2'
-	if $boy[1] = $boy[2]: jump 'srboyloop'
-	gs 'stat'
-	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/smoke'+rand(1,3)+'.jpg"></center>'
-	'The guys greet you and offer you a cigarette, which you gladly accept. You spend the next 5 minutes smoking a cigarette with them, talking about trivial things.'
-	if pav_slut >= 75 or (pav_slut >= 50 and pav_slut < 75 and Sub >= 20) or (pav_slut >= 25 and pav_slut < 50 and Sub >= 40):
-		'As you smoke the cigarette, you hear the boys whisper among themselves: "Guys, that''s <<$pcs_nickname>>. I heard she''s a total slut. I bet if someone would walk up to her and drop their pants, she would start sucking without a second thought."'
-		'After egging each other on for a minute, one of them decides it''s worth a shot: he walks over to you and pulls down his pants, his erect cock bouncing in the air. "<<$pcs_nickname>>, this is for you. You know what to do with it."'
-		'You attempt to protest, but the guys tell you you''re taking their cocks one way or another.'
-		if pcs_dom >= 10:
-			act 'Get angry and tell them off':
-			*clr & cla
-			minut +=2
-			pcs_dom +=1
-			gs 'stat'
-			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/event/megera.jpg"></center>'
-			'Tired of always having to defend yourself, you take all your anger out on the guys: "Are you kidding me!? Did all the blood drain away from your brains and into your groins or something?"'
-			'"If I start screaming now, and accuse you of rape, everyone in the entire housing block will come to see what is happening. Who do you think they''ll going to believe, me or you?"'
-			'The guys realize they overplayed their hand, and the guy with his pants down quickly pulls them back up. "Okay okay, we''re sorry! We was just messing around." they say, and quickly walk away before you can get another word in.'
-				act 'Leave': gt 'pod_ezd', 'etaj_2'
-			end
-		end
-		act 'Do as they say':
-			gt 'pod_ezd', 'sex_ev<<rand(1,3)>>'
-		end
-	elseif pav_slut >= 150: 
-		'As you smoke the cigarette, you hear the boys whisper among themselves: "Guys, that''s <<$pcs_nickname>>! I heard she''s a '+func('gopsex','hide','gg_whore_text')+'. From what I''ve been told she''ll do just about anything if the price is right, let''s see if she''ll make us a deal."'
-		'One of the guys walks close to you, and gestures for you to lean your head closer to his. When you do, he pulls all of his money out of his pocket. He counts the crumpled bills and offers them to you, whispering: "Is <<rnd_money_sex>> <b>₽</b> enough for two?"'
-		'He never mentions what exactly he wants you to do with him and his friend.'
-		act 'Accept and fuck them':
-			money += '<<rnd_money_sex>>'
-			gt 'pod_ezd', 'sex_ev<<rand(1,3)>>'
-		end
-		act 'Refuse and get away from them': gt 'pod_ezd', 'etaj_2'
-	end 
-	if pav_slut < 75:
-		act 'Leave': gt 'pod_ezd', 'etaj_3'
-	end
-end
-
-!Event bj Shulga
-if $ARGS[0] = 'bj_smoke_shulga':
-	menu_off = 1
-	minut +=3
-	gs 'stat'
-	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/vasya/vasya.jpg"></center>'
-	'You see Vasily standing in the stairwell, smoking a cigarette. You approach him and ask: "Hi Shulga, do you have a cigarette for me? I would really use a smoke right now."'
-	'Vasily shakes his head, but gives you a horny grin: "Sorry <<$pcs_nickname>>, I''m just finishing my last one. I do have something else you can put your lips around though..."'
-	'He idly runs his hand over his groin, and you can see the outline of his hard cock through the fabric of his pants quite clearly.'
-	'You look at him with some doubt: "I don''t know Shulga, people might see."'
-	'He reassures you: "Don''t worry <<$pcs_nickname>>, you''ll be fine. I''ll keep an eye out, and there''s no one here now right? Just take it in your mouth. I know you''re good at it, you can finish me off quickly."'
-	if RAND(0,100) < 20 or (pav_slut >= 50 and pav_slut < 75 and Sub >= 20) or (pav_slut >= 25 and pav_slut < 50 and Sub >= 40): 
-		act 'Refuse': 
-		cla
-		minut +=1
-		pcs_dom +=1
-		gs 'stat'
-		'You adamantly shake your head: "Sorry Shulga, but it''s not gonna happen. See you around."'
-			act 'Leave': gt 'pod_ezd', 'etaj_3'
-		end
-	end
-	act 'Suck him off quickly':
-		*clr & cla
-		gs 'boyStat', 'A11'
-		gs 'arousal', 'bj', 5
-		gs 'cum_call','mouth',$boy,1 
-		npc_sex[$boy] += 1
-		gs 'arousal', 'end'
-		gs 'stat'
-		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/vasya/sex/stairs/otsos'+rand(1,2)+'.jpg"></center>'
-		'You sigh, and squat before <<$boydesc>>. While you take his <<dick>>cm <<$dick_girth>> cock out of his pants you say: "Okay Shulga, if it''s quick. Just promise you''ll tell me if you see or hear anyone, okay?" He nods his head in understanding.'
-		'You know you have to be quick about this, so take his <<dick>>cm <<$dick_girth>> cock in your mouth without a second thought. Using all the tricks you know you massage his balls and stroke his shaft with your delicate fingers while you suck and lick the head of his dick. He reaches his orgasm almost very quickly, shooting his load in your mouth.'
-		'You quickly swallow his semen and tuck his dick back into his pants after you lick it clean. You look at Vasily as you get back up and ask him: "There, satisfied?"'
-		'He nods with a blissful look on his face: "Thanks <<$pcs_nickname>>, that felt great. You''re really good friend. I need to get going though, I''ll see you around."'
-		act 'Leave': gt 'pod_ezd', 'etaj_3'
-	end
-end
-
 !Shulga smoking
 if $ARGS[0] = 'etaj3_smoke_shulga':
 	menu_off = 1
@@ -662,7 +630,45 @@ if $ARGS[0] = 'etaj3_smoke_shulga':
 		act 'Leave': gt 'pod_ezd', 'etaj_3'
 	end
 
-	if RAND(0,100) <= 50 and (pav_slut >= 75 or npc_rel['A11'] >= 100):  gt 'pod_ezd', 'bj_smoke_shulga'
+	if rand(0,100) <= 50 and (pav_slut >= 125 or npc_rel['A11'] >= 100):  gt 'pod_ezd', 'bj_smoke_shulga'
+end
+
+!Event bj Shulga
+if $ARGS[0] = 'bj_smoke_shulga':
+	menu_off = 1
+	minut +=3
+	gs 'stat'
+	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/vasya/vasya.jpg"></center>'
+	'You see Vasily standing in the stairwell, smoking a cigarette. You approach him and ask: "Hi Shulga, do you have a cigarette for me? I would really use a smoke right now."'
+	'Vasily shakes his head, but gives you a horny grin: "Sorry <<$pcs_nickname>>, I''m just finishing my last one. I do have something else you can put your lips around though..."'
+	'He idly runs his hand over his groin, and you can see the outline of his hard cock through the fabric of his pants quite clearly.'
+	'You look at him with some doubt: "I don''t know Shulga, people might see."'
+	'He reassures you: "Don''t worry <<$pcs_nickname>>, you''ll be fine. I''ll keep an eye out, and there''s no one here now right? Just take it in your mouth. I know you''re good at it, you can finish me off quickly."'
+	
+	act 'Refuse': 
+		cla
+		minut +=1
+		pcs_dom +=1
+		gs 'stat'
+		'You adamantly shake your head: "Sorry Shulga, but it''s not gonna happen. See you around."'
+		act 'Leave': gt 'pod_ezd', 'etaj_3'
+	end
+	
+	act 'Suck him off quickly':
+		*clr & cla
+		gs 'boyStat', 'A11'
+		gs 'arousal', 'bj', 5
+		gs 'cum_call','mouth',$boy,1 
+		npc_sex[$boy] += 1
+		gs 'arousal', 'end'
+		gs 'stat'
+		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/vasya/sex/stairs/otsos'+rand(1,2)+'.jpg"></center>'
+		'You sigh, and squat before <<$boydesc>>. While you take his <<dick>>cm <<$dick_girth>> cock out of his pants you say: "Okay Shulga, if it''s quick. Just promise you''ll tell me if you see or hear anyone, okay?" He nods his head in understanding.'
+		'You know you have to be quick about this, so take his <<dick>>cm <<$dick_girth>> cock in your mouth without a second thought. Using all the tricks you know you massage his balls and stroke his shaft with your delicate fingers while you suck and lick the head of his dick. He reaches his orgasm almost very quickly, shooting his load in your mouth.'
+		'You quickly swallow his semen and tuck his dick back into his pants after you lick it clean. You look at Vasily as you get back up and ask him: "There, satisfied?"'
+		'He nods with a blissful look on his face: "Thanks <<$pcs_nickname>>, that felt great. You''re really good friend. I need to get going though, I''ll see you around."'
+		act 'Leave': gt 'pod_ezd', 'etaj_3'
+	end
 end
 
 !Shulga and Dan smoking
@@ -1084,27 +1090,26 @@ end
 
 !game events with smoking or meeting different NPCs on floors
 !floor 2
-etaj2_smoke_rnd = RAND(0,100)
-	if etaj2_smoke_rnd <= 5 and week < 6 and hour >= 19 and hour <= 23 or etaj2_smoke_rnd <= 5 and week >=6 and hour >= 10 and hour <= 23:$etaj2_smoke_rnd = '<a href="exec: gt ''pod_ezd'', ''smoke_misha''">Uncle Misha</a> is currently outside his apartment, smoking a cigarette.'
-	if etaj2_smoke_rnd > 5 and etaj2_smoke_rnd <= 10:$etaj2_smoke_rnd = 'Some <a href="exec: gt ''pod_ezd'', ''etaj2_smoke''">boys</a> that live in your neighborhood are currently sharing a cigarette in the stairwell.'
-	if etaj2_smoke_rnd > 10:$etaj2_smoke_rnd = 'The stairwell is empty.'
+etaj2_smoke_rnd = rand(0,100)
+	if (etaj2_smoke_rnd <= 5 and week < 6 and hour >= 19 and hour <= 23) or (etaj2_smoke_rnd <= 5 and week >=6 and hour >= 10 and hour <= 23):$etaj2_smoke_rnd = '<a href="exec: gt ''pod_ezd'', ''smoke_misha''">Uncle Misha</a> is currently outside his apartment, smoking a cigarette.'
+	if etaj2_smoke_rnd > 5 and etaj2_smoke_rnd <= 20:$etaj2_smoke_rnd = 'Some <a href="exec: gt ''pod_ezd'', ''etaj2_smoke''">boys</a> that live in your neighborhood are currently sharing a cigarette in the stairwell.'
+	if etaj2_smoke_rnd > 20:$etaj2_smoke_rnd = 'The stairwell is empty.'
 !floor 3
-etaj3_smoke_rnd = RAND(0,100)
-	if etaj3_smoke_rnd <= 5 and hour >= 14 and hour < 17 or etaj3_smoke_rnd <= 5 and week >=6 and hour >= 0 and hour < 3 or etaj3_smoke_rnd <= 5 and week >=6 and hour >= 11 and hour < 14:$etaj3_smoke_rnd = 'You see <a href="exec: gt ''pod_ezd'', ''etaj3_smoke_shulga''">Vasily</a> having a smoke in the stairwell.'
-	if etaj3_smoke_rnd <= 5 and week < 6 and hour >= 0 and hour < 3:$etaj3_smoke_rnd = '<a href="exec: gt ''pod_ezd'', ''etaj3_smoke_shulga_den''">Vasily and Dan</a> are standing outside uncle Sergey''s apartment, smoking a cigarette.'
-	if etaj3_smoke_rnd > 5 and etaj3_smoke_rnd <= 10:$etaj3_smoke_rnd = 'Some of the local <a href="exec: gt ''pod_ezd'', ''smoke_r''">boys</a> are smoking a cigarette in the stairwell.'
+etaj3_smoke_rnd = rand(0,100)
+	if (etaj3_smoke_rnd <= 10 and hour >= 14 and hour < 17) or (etaj3_smoke_rnd <= 5 and week = 7 and hour >= 20 and hour <= 23) or (etaj3_smoke_rnd <= 5 and week >= 6 and hour >= 11 and hour < 14):$etaj3_smoke_rnd = 'You see <a href="exec: gt ''pod_ezd'', ''etaj3_smoke_shulga''">Vasily</a> having a smoke in the stairwell.'
+	if etaj3_smoke_rnd <= 10 and week < 5 and hour >= 20 and hour <= 23:$etaj3_smoke_rnd = '<a href="exec: gt ''pod_ezd'', ''etaj3_smoke_shulga_den''">Vasily and Dan</a> are standing outside uncle Sergey''s apartment, smoking a cigarette.'
 	if etaj3_smoke_rnd > 10 and etaj3_smoke_rnd < 15 and hour >= 10 and hour <= 23:$etaj3_smoke_rnd = 'You run into <a href="exec: gt ''pod_ezd'', ''juliamil''">Julia Milova</a> in the stairwell.'
 	if etaj3_smoke_rnd > 15:$etaj3_smoke_rnd = 'The stairwell is empty.'
 !floor 4
-pod_ev_rnd2 = RAND(0,100)
+pod_ev_rnd2 = rand(0,100)
 	if pod_ev_rnd2 <= 3:$pod_ev_rnd2 = 'You hear <a href="exec: gt ''pod_ezd'', ''event_5''">someone</a> coming up the stairs. They sound like they''re in a hurry.'
 	if pod_ev_rnd2 > 3:$pod_ev_rnd2 = 'The stairwell is empty.'
 !floor 5
-etaj5_cherdak_rnd = RAND(1,15)
+etaj5_cherdak_rnd = rand(1,15)
 	if etaj5_cherdak_rnd <= 4:$etaj5_cherdak_rnd = 'You hear some suspicious sounds coming from upstairs. It sounds like <a href="exec: gt ''pod_ezd'', ''etaj5_cherdak_ev<<etaj5_cherdak_rnd>>''">a couple having sex</a>.'
 	if etaj5_cherdak_rnd > 4:$etaj5_cherdak_rnd = 'The stairwell is empty.'
 !different game events with spying
-pod_ev_rnd = RAND(1,100)
+pod_ev_rnd = rand(1,100)
 	if pod_ev_rnd <= 4:$pod_ev_rnd = 'You hear some sounds coming from upstairs, it sounds like <a href="exec: gt ''pod_ezd'', ''event_<<pod_ev_rnd>>''">someone</a> is there.'
 	if pod_ev_rnd > 4:$pod_ev_rnd = ''
 

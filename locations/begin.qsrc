@@ -8,7 +8,7 @@ if $ARGS[0] = 'start':
 	'<center><b><font color="maroon">CHOOSE GAME START</font></b></center>'
 	*nl
 	'<b>Transformation Start:</b>'
-	'You are Michael Kuznetsov, a fairly average, 35 year old businessman who finds an artefact that changes everything about him and his life. Features magic.'
+	'You are Mikhail Kuznetsov, a fairly average, 35 year old businessman who finds an artefact that changes everything about him and his life. Features magic.'
 	*nl
 	'<b>School girl Start:</b>'
 	'You are a school girl in the most lustful town in Russia. Will you study hard and keep your purity for that special someone or become a sex addicted whore? Or anything in between, the possibilities are endless. No magic.'

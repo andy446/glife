@@ -235,7 +235,7 @@ if numnpc = 23:
 	if albinaQWdance > 0 and AlbinaBlokDance = 0 and ZvezdEnd = 0:
 		'Albina offers you a friendly smile and says: "<<$pcs_nickname>>, you''re progressing very well in your training. Don''t forget to keep attending!"'
 
-		if pav_slut > 100:'By the way, some people are telling some pretty disgusting rumours about you.'
+		if pav_slut >= 125:'By the way, some people are telling some pretty disgusting rumours about you.'
 	end
 
 	if artemIzdev = 1:
@@ -304,12 +304,12 @@ act 'Chat':
 	if $loc ! 'gdkin':
 		gs 'nogorslut'
 		gs 'yesgorslut'
-
+		
 		act 'Continue': gt 'gschool_lessons', 'short_break'
 	else
 		gs 'nogorslut'
 		gs 'yesgorslut'
-
+		
 		act 'Move away':gt $loc, $metka
 	end
 end
@@ -340,14 +340,14 @@ if numnpc = 2:
 			npc_rel[$static_num] += 5
 			sub += 1
 
-			if pav_slut < 100:artemLernQW = 1
+			if pav_slut < 125: artemLernQW = 1
 
 			gs 'stat'
 			'<center><b><font color="maroon"><<$npc_firstname[$static_num]>> <<$npc_lastname[$static_num]>></font></b></center>'
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/<<numnpc>>.jpg"></center>'
 
-			if pav_slut < 100:'You approach Artem and explain how you''re struggling in school and could really use his help studying. Artem is a bit surprised: "What... you want my help? Well, okay I guess. Come meet me at my place if you want to do homework together."'
-			if pav_slut >= 100:'You approach Artem and explain how you''re struggling in school and could really use his help studying. Artem is outraged: "Bah... the school whore needs my help? I don''t think so."'
+			if pav_slut < 125:'You approach Artem and explain how you''re struggling in school and could really use his help studying. Artem is a bit surprised: "What... you want my help? Well, okay I guess. Come meet me at my place if you want to do homework together."'
+			if pav_slut >= 125:'You approach Artem and explain how you''re struggling in school and could really use his help studying. Artem is outraged: "Bah... the school whore needs my help? I don''t think so."'
 
 			if $loc ! 'gdkin':
 				act 'Leave': gt 'gschool_lessons', 'short_break'
@@ -397,8 +397,8 @@ if numnpc = 12:
 			'<center><b><font color="maroon"><<$npc_firstname[$static_num]>> <<$npc_lastname[$static_num]>></font></b></center>'
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/<<numnpc>>.jpg"></center>'
 
-			if pav_slut < 100:'You approach Julia and explain how you''re struggling in school and could really use his help studying. She thinks it over for a second, but happily agrees: "Sure <<$pcs_nickname>>, that could be fun!"'
-			if pav_slut >= 100:'You approach Julia and explain how you''re struggling in school and could really use his help studying. She makes some comments about your lousy reputation in school, but at the same time doesn''t seem to care too much about it and agrees to help you anyway. As long as you don''t tell anyone.'
+			if pav_slut < 125:'You approach Julia and explain how you''re struggling in school and could really use his help studying. She thinks it over for a second, but happily agrees: "Sure <<$pcs_nickname>>, that could be fun!"'
+			if pav_slut >= 125:'You approach Julia and explain how you''re struggling in school and could really use his help studying. She makes some comments about your lousy reputation in school, but at the same time doesn''t seem to care too much about it and agrees to help you anyway. As long as you don''t tell anyone.'
 			if $loc ! 'gdkin':gt 'gschool_lessons', 'short_break'
 			if $loc ! 'gdkin':
 				xgt 'gschool_lessons', 'short_break', 'nopict'
@@ -587,8 +587,8 @@ if numnpc = 16:
 			'<center><b><font color="maroon"><<$npc_firstname[$static_num]>> <<$npc_lastname[$static_num]>></font></b></center>'
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/<<numnpc>>.jpg"></center>'
 
-			if pav_slut < 100:'You approach Natasha and explain how you''re struggling in school and could really use his help studying. She thinks it over for a second, but happily agrees: "Sure <<$pcs_nickname>>, that could be fun!"'
-			if pav_slut >= 100:'You approach Natasha and explain how you''re struggling in school and could really use his help studying. She makes some comments about your lousy reputation in school, but at the same time doesn''t seem to care too much about it and agrees to help you anyway. As long as you don''t tell anyone.'
+			if pav_slut < 125:'You approach Natasha and explain how you''re struggling in school and could really use his help studying. She thinks it over for a second, but happily agrees: "Sure <<$pcs_nickname>>, that could be fun!"'
+			if pav_slut >= 125:'You approach Natasha and explain how you''re struggling in school and could really use his help studying. She makes some comments about your lousy reputation in school, but at the same time doesn''t seem to care too much about it and agrees to help you anyway. As long as you don''t tell anyone.'
 			if $loc ! 'gdkin':
 				xgt 'gschool_lessons', 'short_break', 'nopict'
 			else

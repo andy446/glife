@@ -1,6 +1,6 @@
 # nogorslut
 
-if pav_slut <= 50:
+if pav_slut < 125:
 	if pcs_apprnc/8 = 0:
 		npc_rel[$static_num] += 1
 	else

@@ -2,10 +2,13 @@
 CLOSE ALL
 
 if $ARGS[0] = 'start':
-	cls
+	*clr & cla
 	$metka = 'start'
 	$loc = 'gskver'
 	$location_type = 'public_outdoors'
+	$menu_loc = 'gskver'
+	$menu_arg = $ARGS[0]
+	menu_off = 0
 	gs 'stat'
 
 	if sound = 0:

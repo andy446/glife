@@ -200,7 +200,7 @@ if $ARGS[0] = '5':
 	act 'Get a better look':
 		cls
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/gym/volley/sex/voltrenersexshower19.jpg"></center>'
-		'Through the glass you see, as Michael strong views approaching the booth, and Vanya nothing, not seeing, pulls your ass, you frantically try to close the booth door on the lock, that Ivan looks like and not closed. But the cock in her ass and pushes Ivan not let you do it, the door abruptly opens, coach growled: "Again fuck. Prokhorov will tell your coach, you honouring mode, and the competitions are preparing". From these words Ivan shrank his penis opal and easily fell out of your ass: "Don''t need Michael to say anything to anyone, please. I will help with the hall, well, there is a grid to hang, girls to hold after departure", - and he, sideways covering his dignity, grabbing your stuff, got out of the shower.'
+		'Through the glass you see, as Mikhail strong views approaching the booth, and Vanya nothing, not seeing, pulls your ass, you frantically try to close the booth door on the lock, that Ivan looks like and not closed. But the cock in her ass and pushes Ivan not let you do it, the door abruptly opens, coach growled: "Again fuck. Prokhorov will tell your coach, you honouring mode, and the competitions are preparing". From these words Ivan shrank his penis opal and easily fell out of your ass: "Don''t need Mikhail to say anything to anyone, please. I will help with the hall, well, there is a grid to hang, girls to hold after departure", - and he, sideways covering his dignity, grabbing your stuff, got out of the shower.'
 		!!Originally 65, but without significant anal experience Ivan will have you in too much pain to get anywhere near that		
 		if pcs_horny < 30: 
 			act 'Close the shower door':
@@ -252,7 +252,7 @@ if $ARGS[0] = '5':
 									cls
 									'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/gym/volley/sex/voltrenersexshower27.jpg"></center>'
 									$orgasm_or = 'custom'
-									$orgasm_txt = 'Literally exhausted from the desire of a cock inside you, you just get the coach on the floor and choose from the entire scope mounted on his cock. The head parted her lips, and a member with a flourish came in the pussy, leaning, what- then inside that has caused a new wave of pleasure. Starting to move up on it - down, from side to side, you skewer yourself on his cock. Michael caresses your neck, chest and waves of pleasure run from the nipples, where-down...the hands of coach you squeezed the nipples, surprise, you seem to be electrocuted, you cried, and huddled in orgasm.'
+									$orgasm_txt = 'Literally exhausted from the desire of a cock inside you, you just get the coach on the floor and choose from the entire scope mounted on his cock. The head parted her lips, and a member with a flourish came in the pussy, leaning, what- then inside that has caused a new wave of pleasure. Starting to move up on it - down, from side to side, you skewer yourself on his cock. Mikhail caresses your neck, chest and waves of pleasure run from the nipples, where-down...the hands of coach you squeezed the nipples, surprise, you seem to be electrocuted, you cried, and huddled in orgasm.'
 									gs 'arousal', 'vaginal_finger', 15, 'sub'
 									gs 'arousal', 'vaginal', 15, 'sub'
 									minut -= 15

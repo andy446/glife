@@ -80,7 +80,7 @@ if $ARGS[0] = '':
 				gs 'stat'
 
 				if rand(0,7)=1 and katja_disco_end=1 and (alko > 1 or pcs_horny => 80) and KatjaHorny > 60:
-					*CLR
+					*clr
 					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/katja_dance.jpg"></center>'
 					'While you are dancing you notice Katya out on the dance floor as well.'
 					Act 'Dance with Katya':gt 'gdkin', 'Katja_dance'
@@ -89,7 +89,7 @@ if $ARGS[0] = '':
 				if alko >= 6:
 					'You''re too drunk to try and dance, you are barely able to stay on your feet and mostly just drunkenly bump into other people as you try and dance.'
 					if rand (0,1) = 0:gt 'gdkin', 'too_drunk_dance'
-				elseif alko = 1:
+				elseif alko >= 3:
 					if $pantyworntype = 'none' and PCloSkirt > 2:
 						*clr
 						'<center><video autoplay loop src="images/locations/pavlovsk/community/disco/club_dance2.mp4"></video></center>'
@@ -99,7 +99,7 @@ if $ARGS[0] = '':
 						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_dance7.jpg"></center>'
 						'You''re a bit tipsy, but you''re having a lot of fun out on the dance floor anyways, you''re not paying much attention to anyone else or even the music.'
 					end
-				elseif alko > 1:
+				elseif alko > 3:
 					if $pantyworntype = 'none' and PCloSkirt > 2:
 						*clr
 						'<center><video autoplay loop src="images/locations/pavlovsk/community/disco/club_dance2.mp4"></video></center>'
@@ -121,12 +121,12 @@ if $ARGS[0] = '':
 						gs 'stat'
 						'<<$din_disc_dance2>>'
 
-						act 'Dance with the guy':gt 'gdkin', 'dance_vrp'
-
 						act 'Move away':
 							cls
 							gt 'gdkin'
 						end
+						
+						act 'Dance with the guy':gt 'gdkin', 'dance_vrp'
 
 						exit
 					end
@@ -194,18 +194,14 @@ if $ARGS[0] = '':
 
 					act 'Dance':gt 'gdkin', 'dance_vrp'
 
-					act 'Refuse':
-						cls
-						gt 'gdkin'
-					end
-
+					act 'Refuse': gt 'gdkin'
 					exit
 				end
 			end
 
 			gs 'stat'
 
-			act 'Further':gt 'gdkin'
+			act 'Continue':gt 'gdkin'
 		end
 	elseif hour < 20:
 		'The Club closes. The main lights go on, the music fades and everyone beings to leave.'
@@ -213,7 +209,6 @@ if $ARGS[0] = '':
 	end
 	
 	act 'Go to the toilets': gt 'gdktoilet', 'start'
-
 end
 
 if $ARGS[0] = 'Katja_dance':	
@@ -353,7 +348,7 @@ if $ARGS[0] = 'reverse_reakt_dance':
 end
 
 if $ARGS[0] = 'dance_vrp':
-	cls
+	*clr & cla
 	minut += 5
 	if pcs_danc < 50 and pcs_agil >=pcs_danc:danc_exp += 1
 	if pcs_inhib < 40:inhib_exp += rand(1,2)
@@ -401,7 +396,7 @@ if $ARGS[0] = 'dance_vrp':
 		end
 	end
 
-		if pcs_danc >= 50 and alko >= 3 and pcs_horny >= 50:
+	if pcs_danc >= 50 and alko >= 3 and pcs_horny >= 50:
 		act 'Sexy dance':
 			cls
 			if $pantyworntype = 'none' and PCloSkirt > 2:
@@ -415,7 +410,6 @@ if $ARGS[0] = 'dance_vrp':
 			gs 'arousal', 'flash', 5
 			gs 'stat'
 			act 'Further':gt'gdkin'
-
 		end
 	end
 

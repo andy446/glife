@@ -185,7 +185,12 @@ if $ARGS[0] = 'SGStart2':
 				Gspassed = 1
 				dostupindorf = 1
 				$npc_nickname['A29'] = input('<center>What name do you address your mother by?<br><br>Mother (default), Mum, Mom, Mama, etc.</center>')
-				gt 'preSYS', 'SGStart3'
+				if $npc_nickname['A29'] = '':
+					$npc_nickname['A29'] = 'Mother'
+					gt 'preSYS', 'SGStart3'
+				else
+					gt 'preSYS', 'SGStart3'
+				end
 			end
 		end
 	end

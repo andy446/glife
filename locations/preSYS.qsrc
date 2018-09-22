@@ -10,6 +10,9 @@ else
 	bcolor = rgb(255, 255, 255)
 	lcolor = rgb(106, 90, 205)
 end
+$pcs_firstname = 'Svetlana'
+$pcs_lastname = 'Lebedev'
+$pcs_nickname = 'Sveta'
 
 !!******************** TG Start Background Options ******************************
 if $ARGS[0] = 'TGStart':
@@ -100,17 +103,21 @@ if $ARGS[0] = 'SGStart':
 	dynamic $currentpursetype + '_purses[<<currentpursenumber>>] = 1'
 
 !!	********************
+	!! player name is set in preSYS.qsrc
+	$temp_firstname = '<<$pcs_firstname>>'
 	$pcs_firstname = input("What is your first name? (Leave blank for Svetlana)")
+	if $pcs_firstname = '':$pcs_firstname = '<<$temp_firstname>>'
+	killvar '$temp_firstname'
 
-	if $pcs_firstname = '':$pcs_firstname = 'Svetlana'
+	$temp_lastname = '<<$pcs_lastname>>'
+	$pcs_lastname = input("What is your family name? (Leave blank for Lebedev)")
+	if $pcs_lastname = '':$pcs_lastname = '<<$temp_lastname>>'
+	killvar '$temp_lastname'
 
-	$pcs_lastname = input("What is your last name? (Leave blank for Lebedev)")
-
-	if $pcs_lastname = '':$pcs_lastname = 'Lebedev'
-
-	$pcs_nickname = input("What is your nick name? (Leave blank for Sveta)")
-
-	if $pcs_nickname = '':$pcs_nickname = 'Sveta'
+	$temp_nickname = '<<$pcs_nickname>>'
+	$pcs_nickname = input("What is your nickname? (Leave blank for Sveta)")
+	if $pcs_nickname = '':$pcs_nickname = '<<$temp_nickname>>'
+	killvar '$temp_nickname'
 	
 	gs 'npcstatic1'
 	gs 'npcstatic2'
@@ -177,6 +184,7 @@ if $ARGS[0] = 'SGStart2':
 			act '<i>Start at the beginning of June</i> Restricted due PC age, set birthday before June or after July to unlock': gt 'preSYS', 'SGStart2', 1
 		else
 			act 'Start at the beginning of June':
+				$temp_nickname = '<<$npc_nickname[''A29'']>>'
 				month = 6
 				$month = 'June'
 				day = 1
@@ -185,12 +193,9 @@ if $ARGS[0] = 'SGStart2':
 				Gspassed = 1
 				dostupindorf = 1
 				$npc_nickname['A29'] = input('<center>What name do you address your mother by?<br><br>Mother (default), Mum, Mom, Mama, etc.</center>')
-				if $npc_nickname['A29'] = '':
-					$npc_nickname['A29'] = 'Mother'
-					gt 'preSYS', 'SGStart3'
-				else
-					gt 'preSYS', 'SGStart3'
-				end
+				if $npc_nickname['A29'] = '':$npc_nickname['A29'] = '<<$temp_nickname>>'
+				killvar '$temp_nickname'
+				gt 'preSYS', 'SGStart3'
 			end
 		end
 	end

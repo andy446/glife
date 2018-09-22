@@ -290,6 +290,7 @@ end
 
 if $ARGS[0] = 'intro':
 	cla & *clr
+	$temp_nickname = '<<$npc_nickname[''A29'']>>'
 	menu_off = 1
 	minut += 5
 	gs 'stat'
@@ -298,7 +299,8 @@ if $ARGS[0] = 'intro':
 	'All of a sudden you hear a familiar voice yell out, "<<$pcs_nickname>>, time to get up. You can''t spend the whole day laying around!"'
 	wait 2000
 	$npc_nickname['A29'] = input('<center>What name do you address your mother by?<br><br>Mother (default), Mum, Mom, Mama, etc.</center>')
-	if $npc_nickname['A29'] = '':$npc_nickname['A29'] = 'Mother'
+	if $npc_nickname['A29'] = '':$npc_nickname['A29'] = '<<$temp_nickname>>'
+	killvar '$temp_nickname'
 
 	act 'Continue':
 		cla & *clr

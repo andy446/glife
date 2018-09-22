@@ -423,18 +423,21 @@ $cheatmenu['avatar_hair_set'] = {
 }
 
 $cheatmenu['rename'] = {
+	!! player name is set in preSYS.qsrc
+	$temp_firstname = '<<$pcs_firstname>>'
 	$pcs_firstname = input("What is your first name? (Leave blank for Svetlana)")
+	if $pcs_firstname = '':$pcs_firstname = '<<$temp_firstname>>'
+	killvar '$temp_firstname'
 
-	if $pcs_firstname = '':$pcs_firstname = 'Svetlana'
+	$temp_lastname = '<<$pcs_lastname>>'
+	$pcs_lastname = input("What is your family name? (Leave blank for Lebedev)")
+	if $pcs_lastname = '':$pcs_lastname = '<<$temp_lastname>>'
+	killvar '$temp_lastname'
 
-	$pcs_lastname = input("What is your last name? (Leave blank for Lebedev)")
-
-	if $pcs_lastname = '':$pcs_lastname = 'Lebedev'
-
-	!!!0.2.6 addition
+	$temp_nickname = '<<$pcs_nickname>>'
 	$pcs_nickname = input("What is your nickname? (Leave blank for Sveta)")
-
-	if $pcs_nickname = '':$pcs_nickname = 'Sveta'
+	if $pcs_nickname = '':$pcs_nickname = '<<$temp_nickname>>'
+	killvar '$temp_nickname'
 }
 
 $cheatmenu['looks'] = {

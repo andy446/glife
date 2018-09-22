@@ -170,6 +170,8 @@ if $ARGS[0] = 'roadPRE':
 end
 
 if $ARGS[0] = 'otelPRE':
+	$temp_firstname = '<<$pcs_firstname>>'
+	$temp_lastname = '<<$pcs_lastname>>'
 	'<center><img <<$set_imgh>> src="images/pre/tg/otelpre.jpg"></center>'
 	'Your trip to the hotel is quite uneventful compared to your tomb raiding adventure.'
 	*nl
@@ -260,13 +262,13 @@ if $ARGS[0] = 'otelPRE':
 										week = 1
 										hour = 7
 										day = 25
-!!										body
+										!!body
 										pcs_hgt = 186
 										dick = 0
 										pcs_energy = 60
 										pcs_hydra = 60
 										pcs_sleep = 70
-!!										stats
+										!!stats
 										pcs_stren = 160
 										pcs_agil = 50
 										pcs_vital = 160
@@ -320,6 +322,8 @@ if $ARGS[0] = 'otelPRE':
 end
 
 if $ARGS[0] = 'tatianaPRE':
+	$pcs_firstname = '<<$temp_firstname>>'
+	$pcs_lastname = '<<$temp_lastname>>'
 	'<center><img <<$set_imgh>> src="images/pre/shared/karinpre.jpg"></center>'
 	'You wake up in in an unfamiliar room. Standing near you is the same red-haired girl that entered your hotel room.'
 	*nl
@@ -418,9 +422,6 @@ end
 
 if $ARGS[0] = 'sleepPRE':
 	killobj
-	$pcs_firstname = 'Svetlana'
-	$pcs_lastname = 'Lebedev'
-	$pcs_nickname = 'Sveta'
 	'<center><img <<$set_imgh>> src="images/pre/shared/karinpre.jpg"></center>'
 	'"You''re awake?." Tatiana says looking into your eyes.'
 	act 'Look at yourself':
@@ -436,17 +437,21 @@ if $ARGS[0] = 'sleepPRE':
 		*nl
 		'"Well, yes. I won''t argue about that." Tatiana agrees. "It''s your life and you decide what you do with it, but for the time being, you cannot go back to your old life, so deal with it. On a side note, I already took care of an alibi. Today Michael crashed his car into the pit and died, it''s on the news." With these words, Tatiana picked up the remote and turned on the TV.'
 
+		!! player name is set in preSYS.qsrc
+		$temp_firstname = '<<$pcs_firstname>>'
 		$pcs_firstname = input("What is your first name? (Leave blank for Svetlana)")
+		if $pcs_firstname = '':$pcs_firstname = '<<$temp_firstname>>'
+		killvar '$temp_firstname'
 
-		if $pcs_firstname = '': $pcs_firstname = 'Svetlana'
+		$temp_lastname = '<<$pcs_lastname>>'
+		$pcs_lastname = input("What is your family name? (Leave blank for Lebedev)")
+		if $pcs_lastname = '':$pcs_lastname = '<<$temp_lastname>>'
+		killvar '$temp_lastname'
 
-		$pcs_lastname = input("What is your last name? (Leave blank for Lebedev)")
-
-		if $pcs_lastname = '': $pcs_lastname = 'Lebedev'
-
-		$pcs_nickname = input("What is your alternative first name? (Leave blank for Sveta - this is your familiar name so re-enter first name if you do not want one)")
-
-		if $pcs_nickname = '': $pcs_nickname = 'Sveta'
+		$temp_nickname = '<<$pcs_nickname>>'
+		$pcs_nickname = input("What is your nickname? (Leave blank for Sveta)")
+		if $pcs_nickname = '':$pcs_nickname = '<<$temp_nickname>>'
+		killvar '$temp_nickname'
 
 		act 'Watch TV':
 			cla

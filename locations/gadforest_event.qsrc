@@ -2286,10 +2286,6 @@ if $ARGS[0] = 'forest_hanters':
 					*clr
 					minut += 30
 					wolf_know = 1
-					if $clothingworntype = 'nude':
-						swamp_clothes = 1
-						gs 'clothing', 'wear', $lastwornclothingtype, lastwornclothingnumber
-					end
 					gs 'stat'
 					!gs 'time'
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hanters.jpg"></center>'

@@ -316,23 +316,17 @@ if notathomesleep > 7 and hour >= 16 and hour < 21 and mother_go = 0:
 	end
 end
 
-!------------------------------------------!
-!gg whore if she had given herself to boys in the stairwell, then customers hammering at the door: !
-gs'pod_whore'
-pod_client = RAND(0,100)
-if pod_whore_countQW <= 15:
-	if pod_client <= 5 and hour >= 10 and hour <= 23 and pav_slut >= 150 and podwhoreQW >=3:
+!If she has given herself to boys in the stairwell, customers start hammering at the door:
+if hour >= 10 and hour <= 23 and pav_slut >= 125 and podwhoreQW >= 3:
+	pod_client = rand(0,100)
+	if pod_whore_countQW <= 15 and pod_client <= 5:
 		play 'sound/door1.mp3',100
 		'Someone is at the door: <a href="exec: gt ''pod_whore'', ''client_talk''">Answer</a>'	
-	end
-elseif pod_whore_countQW > 15:
-	if pod_client <= 20 and hour >= 10 and hour <= 23 and pav_slut >= 150 and podwhoreQW >=3:
+	elseif pod_whore_countQW > 15 and pod_client <= 20:
 		play 'sound/door1.mp3',100
 		'Someone is at the door: <a href="exec: gt ''pod_whore'', ''client_talk''">Answer</a>'
-	end
-end	
-!'<<$pod_client>>'
-!==========================================!
+	end	
+end
 
 if grad_miss ! 0 and grad_miss <= daystart:
 	SchoolAtestat = 1

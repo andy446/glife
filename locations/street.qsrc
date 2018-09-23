@@ -5,6 +5,9 @@ CLOSE ALL
 $metka = ''
 $loc = 'street'
 $location_type = 'public_outdoors'
+$menu_loc = 'street'
+$menu_arg = ''
+menu_off = 0
 killvar '$locclass'
 
 if sound = 0:

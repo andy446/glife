@@ -454,7 +454,7 @@ if $ARGS[0] = 'maid':
 			chai1 = rand(0,100 - (maidstat/2))
 			
 			!! MJ: from 50,51 to 50,150 -- More often but less.
-			if chai1 < 25:chai = 50 + rand(0, maidstat)
+			if chai1 < 25:chai = rand(20,60) + rand(0, maidstat)
 			
 			if maidrand <= 10:
 				minut += 35

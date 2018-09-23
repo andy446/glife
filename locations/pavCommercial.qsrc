@@ -1,18 +1,16 @@
 # pavCommercial
 
-!{Change log
-25 March 2016
-Fixed diplaced period after church link
-Fixed visting links to look the same
-Added start of Andrei kidnapping
-}
-$location_type = 'public_outdoors'
+CLOSE ALL
 
 $metka = ''
 $loc = 'pavCommercial'
+$location_type = 'public_outdoors'
 $metkaStreet = ''
 $locStreet = 'pavCommercial'
-CLOSE ALL
+$menu_loc = 'pavCommercial'
+$menu_arg = ''
+menu_off = 0
+
 if sound = 0:
 	if month >=11 and month <= 12 or month >=1 and month <=3:
 		if hour >= 8 and hour <= 23: PLAY 'sound/street2.mp3',30 & PLAY 'sound/zima.mp3',30

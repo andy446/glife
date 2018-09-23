@@ -95,6 +95,8 @@ if $ARGS[0] = 'inside':
 		end
 	end
 
+	act 'Leave Artem''s apartment': gt 'artemhome','leave', 1 
+					
 	if artQW = 2:
 		!!took the flowers but not wanker Artem
 		artcooldown += 1
@@ -112,7 +114,27 @@ if $ARGS[0] = 'inside':
 		'Artem invites you to sit next to him on the bed.'
 		act 'Kiss Artem': gt 'artemEv','kiss'
 	end
+	
+	if talkartemday ! daystart and artQW ! 5:
+		act 'Chat with Artem':
+			*clr & cla
+			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/2.jpg"></center>'
+			'You talk with Artem for an hour, about various topics. Or rather: you''re doing most of the talking, and Artem is mostly listening to you talk. Occasionally he pitches in though, and you can tell he''s a very smart guy. You even learn a thing or two.'
+			artemtimes += 1
+			talkartemday = daystart
+			lern += rand(3, 6)
+			intel_exp += rand(1, 2)
+			comphckng_exp += rand(1,3)
+			minut += 60
+			pcs_mood += 10
+			gs 'stat'
 
+			act 'Continue':gt 'artemhome','inside'
+		end
+	end
+	
+	if lernHome > 0:act 'Do homework with Artem': gt 'artemEv','learn'
+	
 	if dimaFilm > 0 and arthakQW = 0 and pcs_vag > 0:
 		act 'Ask Artem to steal the video Dimka filmed of you':
 			*clr & cla
@@ -159,28 +181,6 @@ if $ARGS[0] = 'inside':
 			end
 		end
 	end
-
-	if talkartemday ! daystart and artQW ! 5:
-		act 'Chat with Artem':
-			*clr & cla
-			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/2.jpg"></center>'
-			'You talk with Artem for an hour, about various topics. Or rather: you''re doing most of the talking, and Artem is mostly listening to you talk. Occasionally he pitches in though, and you can tell he''s a very smart guy. You even learn a thing or two.'
-			artemtimes += 1
-			talkartemday = daystart
-			lern += rand(3, 6)
-			intel_exp += rand(1, 2)
-			comphckng_exp += rand(1,3)
-			minut += 60
-			pcs_mood += 10
-			gs 'stat'
-
-			act 'Continue':gt 'artemhome','inside'
-		end
-	end
-
-	if lernHome > 0:act 'Do homework with Artem': gt 'artemEv','learn'
-
-	act 'Leave Artem''s apartment': gt 'artemhome','leave', 1 
 end
 
 !lied to artem about the content of the vide

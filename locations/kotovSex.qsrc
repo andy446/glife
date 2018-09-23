@@ -1,6 +1,7 @@
 # kotovSex
 
 If $ARGS[0] = '':
+	menu_off = 1
 	vitekvisit +=1
 	gs 'boyStat', 'A9'
 	minut += 15

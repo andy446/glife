@@ -45,7 +45,7 @@ if $ARGS[0] = 'main':
 			gs 'stat'
 			'Everyone from your year is assembled in the classroom. Your teachers have gathered in front of the class, and congratulate all of you on completing high school. As they hand everyone their well-earned diplomas, they wish you luck for the future.'
 
-			act 'Return to town': minut += 1 & gt 'pavResidential'
+			act 'Return to town': minut += 2 & gt 'pavResidential'
 
 			act 'Go to the prom party':
 				*clr & cla
@@ -69,7 +69,6 @@ if $ARGS[0] = 'main':
 	exit
 	end
 
-
 !!	act 'Go to old school building': gt
 
 !!	act 'Go to the Principals Office': gt
@@ -92,12 +91,12 @@ if $ARGS[0] = 'main':
 				if NikoEv = 10:
 					gt 'NikoDates', 'Walk Of Shame'
 				elseif minut <= 45:
-					act 'Go to class':
+					act '<b>Go to class</b>':
 						gt 'gschool_grounds', 'bulding'
 					end
 				else
 					'You are late for school, you could rush to class or just skip until the second period.'
-					act 'Rush to class':
+					act '<b>Rush to class</b>':
 						demerit += 5
 	!!					if rand(0,4) = 0:
 	!!						gt 'gschool_leesons', 'late punishment'
@@ -117,7 +116,7 @@ if $ARGS[0] = 'main':
 			elseif hour = 8:
 				if NikoEv = 10:gt 'NikoDates', 'Walk Of Shame'
 				'You missed your whole first class, hopefully no one noticed.'
-				act 'Rush to class':
+				act '<b>Rush to class</b>':
 					demerit += 10
 					gt 'gschool_grounds', 'bulding'
 !!					gs 'gschool_lessons', 'morning'   !This skips all the teacher morning interactions.
@@ -130,16 +129,15 @@ if $ARGS[0] = 'main':
 		end
 	end
 
+	act 'Return to town': minut += 2 & gt 'pavResidential'
+	
 	act 'Go to the sports field': gt 'gschool_grounds', 'sports'
 
 	if week = 6 and hour = 8 and StoryLine > 0 and SchoolAtestat = 0 and detention_set = 1 and schoolBlock = 0:
 		act 'Go to detention': gt 'gschool_detention', 'start'
 	end
 
-	act 'Return to town':gt 'pavResidential'
-
 	if zverRageQW = 1:gt 'gschool_grounds', 'KristinaFight'
-
 
 	if week < 6 and hour = 14 and dimaRevenge = 5 and dimaRevChoice = 0:
 		gt 'dimaRevenge', dimaRevenge
@@ -363,9 +361,7 @@ if $ARGS[0] = 'bulding':
 		end
 	end
 
-	act 'Return to town':
-		gt 'pavResidential'
-	end
+	act 'Return to town': minut += 2 & gt 'pavResidential'
 
 	if dimaRevenge = 1:
 		'You''re in a good mood today as you enter the school. That changes when Dimka stops you in the hall on the way to class.

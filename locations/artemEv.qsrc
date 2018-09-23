@@ -102,7 +102,7 @@ if $ARGS[0] = 'learn':
 		'During your homework session, you notice Artem''s gaze wander a few times. He''s glancing at your feet and chest, whenever he thinks you''re not looking.'
 	end
 
-	if (pav_slut >= 50 and artemblag = 0) or artQW = 5:
+	if (pav_slut >= 125 and artemblag = 0) or artQW = 5:
 		if artemBJQW = 0 and (artemsex = 0 or artQW = 5):
 			cla
 			if artQW = 5:
@@ -665,25 +665,26 @@ if $ARGS[0] = 'learn':
 		end
 	end
 
-	if (artQW = 3 or artQW = 20) and artemkissday ! daystart and (pav_slut < 50 or artemblag = 1):
+	if (artQW = 3 or artQW = 20) and artemkissday ! daystart and (pav_slut < 125 or artemblag = 1):
 		'After you finish doing your homework with Artem, he closes his eyes and puckers his lips as he leans towards you. He wants to kiss you.'
 		act 'Kiss Artem': gt 'artemEv','kiss'
 	end
 end
 
 if $ARGS[0] = 'kiss':
-	'<center><img <<$set_imgh>> src="images/shared/sex/kiss/kiss.jpg"></center>'
-	'You smile, and slowly move your face towards Artem''s. Artem reads your signal and leans in, softly kissing your <<$liptalk3>>.'
-	'When you finally end the kiss, he shyly says: "<<$pcs_nickname>>, I really like you."'
+	*clr & cla
 	pcs_horny += 10
 	minut += 5
+	gs 'stat'
 	artemkissday = daystart
-	if pav_slut >= 50 and artemblag = 0:
-		cla
-		'Artem stops you when you try to kiss him: "I don''t think so <<$pcs_nickname>>, I''ve heard way too many stories about where that mouth has been. You can still use it on me, though..."'
-		'He lets those words linger in the air for a second, and then unbuttons his pants and pulls out his erect cock.'
-		act 'Suck him off': gt 'artemEv','bj'
+
+	if pav_slut < 125:
+		'<center><img <<$set_imgh>> src="images/shared/sex/kiss/kiss.jpg"></center>'
+		'You smile, and slowly move your face towards Artem''s. Artem reads your signal and leans in, softly kissing your <<$liptalk3>>.'
+		'When you finally end the kiss, he shyly says: "<<$pcs_nickname>>, I really like you."'
 	end
+	
+	act 'Just hang out':gt 'artemhome','inside'
 
 	if artemtimes >= 20 and leghumpArtem = 0:
 		'Artem trips over his words when he tries to suggest something: "<<$pcs_nickname>>, maybe we could... maybe I... I really want you... can I touch your ass? Please?"'
@@ -769,6 +770,7 @@ if $ARGS[0] = 'kiss':
 				npc_sex['A2'] += 1
 				bja += 1
 				gs 'arousal','bj',5
+				gs 'stat'
 
 				if mesec > 0:
 					if artemanal > 0:
@@ -891,9 +893,14 @@ if $ARGS[0] = 'kiss':
 			end
 		end
 	end
-	gs 'stat'
-
-	act 'Just hang out':gt 'artemhome','inside'
+	
+	if pav_slut >= 125 and artemblag = 0:
+		*clr & cla
+		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/2.jpg"></center>'
+		'Artem stops you when you try to kiss him: "I don''t think so <<$pcs_nickname>>, I''ve heard way too many stories about where that mouth has been. You can still use it on me, though..."'
+		'He lets those words linger in the air for a second, and then unbuttons his pants and pulls out his erect cock.'
+		act 'Suck him off': gt 'artemEv','bj'
+	end
 end
 
 

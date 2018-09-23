@@ -36,7 +36,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 	! npc_QW['A60'] = 11 Guys fuck Mira after she pissed at party
 	! npc_QW['A60'] = 12 PC tells her about it
 	! npc_QW['A60'] += Mira pose as a prostitute
-	
+
 	gs 'Miroslava', 'miraclothes'
 	'Mira is a sociable girl. She is <<girlage>> years old. She lives with her father, who recently had to move in here because of the huge debts he had to some disreptuble men in the city. He had to sell all the families property, including an apartment in the city center. With the little money they had left over, they could only afford to buy a house in a rundown village, like this one.'
 
@@ -67,7 +67,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 			if hour >= 13 or hour < 16:act 'Further':gt'gadfield','cow2'
 			if hour >= 16:act 'Further':gt'gadfield','cow3'
 		end
-		
+
 		if hour < 13 or hour >= 16:
 			act 'Go for a run on the field':
 				*clr & cla
@@ -101,7 +101,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 				end
 			end
 		end
-		
+
 		if hour >= 13 and hour < 16 and temper >= 15 and sunWeather = 1:
 			act 'Swim in the nearby river':
 				*clr & cla
@@ -144,10 +144,10 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 	else
 		if mirasex = 1 and npc_QW['A63'] < 13 and miralick > 0 and MiraLoc = 2 and pcs_horny >= 40: act 'Talk to Mira in the meadow': gt 'Meadow','lesb_talk_mira3'
 		if mirasex = 2 and MiraLoc = 2 and pcs_horny >= 40 and npc_rel['A60'] >= 15: act 'Talk to Mira in the meadow': gt 'Meadow','lesb_mira'
-		
+
 		act 'Leave':gt 'Miroslava','Leave'
 		act 'Chat':gt 'Miroslava', 'miratalk'
-		
+
 		if month >= 4 and month <= 10 and sunWeather = 1:
 			act 'Offer to walk together':
 				*clr & cla
@@ -201,7 +201,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 				end
 			end
 		end
-		
+
 		if meadow = 1 and MiraLoc ! 3:
 			act 'Show her your secret place':
 				*clr & cla
@@ -257,7 +257,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 				end
 			end
 		end
-		
+
 		if npc_rel['A60'] >= 15 and hour >= 20 and npc_QW['A60'] = 0 and sunWeather = 1 and MiraLoc ! 3:
 			act 'Ask if she has met the local boys?':
 				*clr & cla
@@ -310,7 +310,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 				end
 			end
 		end
-		
+
 		if npc_rel['A60'] >= 20 and week >= 6 and hour > 18 and hour < 22:
 			act 'Suggest taking a steam bath in your grandparents sauna':
 				if Mira_no = 0:
@@ -352,7 +352,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 				end
 			end
 		end
-		
+
 		if sunWeather = 1 and temper >= 15 and month >= 5 and month <= 9 and MiraLoc ! 1:
 			act 'Offer to go to the river':
 				*clr & cla
@@ -393,7 +393,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 				end
 			end
 		end
-		
+
 		if miratalkforest = 0 and npc_rel['A60'] >= 5:
 			act 'Ask about the forest':
 				*clr & cla
@@ -425,7 +425,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 				act 'Further':gt $loc, $metka
 			end
 		end
-		
+
 		if sunWeather = 1 and temper >= 15 and month >= 5 and month <= 9 and MiraLoc ! 3 and miratalkforest > 0 and npc_rel['A60'] >= 5:
 			act 'Offer to go to the forest':
 				*clr & cla
@@ -463,12 +463,10 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 				end
 			end
 		end
-		
+
 		if sunWeather = 1 and temper >= 15 and month >= 5 and month <= 9 and MiraLoc = 3 and miratalkforest > 1 and npc_rel['A60'] >= 5 and $clothingworntype ! 'nude' and forestpicnic = 0:
 			act 'Offer to walk naked':
 				*clr & cla
-				!the clothing remains in the woods
-				clothesforest = 1
 				minut+=5
 				gs 'underwear', 'remove'
 				gs 'clothing', 'strip', 'gadforest'
@@ -479,7 +477,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 				act'Further':gt'gadforest','1'
 			end
 		end
-		
+
 		if npc_rel['A60'] >= 15 and MiraLoc ! 3 and (npc_QW['A63'] < 13 or npc_QW['A60'] >= 10 or mirasex > 1):
 			if mira_guest = 0:
 				act 'Invite Mira back to your grandparent''s house':
@@ -508,7 +506,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 					end
 				end
 			end
-			
+
 			if mira_guest = 1:
 				act 'Watch TV':
 					*clr & cla
@@ -522,7 +520,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 					act'Further':gt'Gadhouse'
 				end
 			end
-			
+
 			if mira_guest = 1 and hour >= 18:
 				act 'Sleep over':
 					*clr & cla
@@ -540,7 +538,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 					end
 				end
 			end
-			
+
 			if mira_guest > 0:
 				act 'Say goodbye to Mira':
 					*clr & cla
@@ -550,12 +548,12 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 					gs 'stat'
 					gs 'Miroslava', 'miraclothes'
 					'You say goodbye to Mira, and she went home.'
-					
+
 					act 'Walk back home':gt'Gadhouse'
 				end
 			end
 		end
-		
+
 		if npc_rel['A60'] >= 15 and Mira_no = 0 and (npc_QW['A63'] < 13 or npc_QW['A60'] >= 10 or mirasex > 1):
 			if mira_guest = 0 and mira_temp >= 1 and mira_temp <= 2 and mira_go_blok = 0 and MiraLoc ! 3:
 				*clr & cla
@@ -757,7 +755,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 				end
 			end
 		end
-		
+
 		if npc_QW['A60'] >= 30 and hour < 19 and month >= 5 and month <= 9 and MiraLoc ! 3:
 			act '<b>Make your third wish</b>':
 				*clr & cla
@@ -954,7 +952,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 				end
 			end
 		end
-		
+
 		if mira_temp = 0 and mira_go_blok = 0 and meadow > 2 and MiraLoc = 0:
 			*clr & cla
 			minut += 5
@@ -966,12 +964,12 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 			end
 			if MiraLoc ! 1:gs 'Miroslava', 'miraclothes'
 			'"<<$pcs_nickname>>, you''re fun to be with, but Dad has chores for me to work on." Mira tells you.'
-			
+
 			if $clothingworntype = 'nude':
 				gs 'clothing', 'wear_last_worn'
 				gs 'underwear', 'wear'
 			end
-			
+
 			act 'Go back to the village':mira_guest = 0 & MiraLoc = 0 & gt 'Gadukino'
 		end
 
@@ -986,12 +984,12 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 			end
 			if MiraLoc ! 1:gs 'Miroslava', 'miraclothes'
 			'"<<$pcs_nickname>>, you''re fun to be with, but I gotta get home. Dad has chores for me to work on.," Mira tells you.'
-			
+
 			if $clothingworntype = 'nude':
 				gs 'clothing', 'wear_last_worn'
 				gs 'underwear', 'wear'
 			end
-			
+
 			act 'Go back to the village':mira_guest = 0 & MiraLoc = 0 & gt 'Gadukino'
 		end
 
@@ -1002,12 +1000,12 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 			gs 'stat'
 			gs 'Miroslava', 'miraclothes'
 			'"<<$pcs_nickname>>, you''re fun to be with, but it''s late. I gotta get to bed. Dad has chores for me to work on tomorrow." Mira tells you.'
-			
+
 			if $clothingworntype = 'nude':
 				gs 'clothing', 'wear_last_worn'
 				gs 'underwear', 'wear'
 			end
-			
+
 			act 'Go back to the village':gt 'Gadukino'
 		end
 
@@ -1022,14 +1020,14 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 			end
 			if MiraLoc ! 1:gs 'Miroslava', 'miraclothes'
 			'"<<$pcs_nickname>>, you''re fun to be with, but I gotta get home and get to bed. Dad has chores for me to work on tomorrow." Mira tells you.'
-			
+
 			if $clothingworntype = 'nude':
 				gs 'clothing', 'wear_last_worn'
 				gs 'underwear', 'wear'
 			end
-			
+
 			act 'Go back to the village':mira_guest = 0 & MiraLoc = 0 & gt 'Gadukino'
-		end		
+		end
 	end
 end
 
@@ -1230,9 +1228,9 @@ if $ARGS[0] = 'mira_river':
 end
 
 if $ARGS[0] = 'Leave':
-	if MiraLoc = 0: 
+	if MiraLoc = 0:
 		gt 'MiroslavaHome','start'
-	elseif MiraLoc = 3: 
+	elseif MiraLoc = 3:
 		gt 'gadforest', '1'
 	elseif MiraLoc = 6:
 		gt 'Gadhouse'

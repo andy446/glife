@@ -164,9 +164,11 @@ if $ARGS[0] = 'SGStart2':
 	act 'Confirm':
 		cls
 		'<center><img <<$set_imgh>> src="images/pre/sys/altstart26.jpg"></center>'
+		*nl
 		'You have two options when it comes to beginning your game:'
-		'You can start in August, at the end of the summer holiday, very close to starting the new school year, awaking at your parent''s home in Pavlovsk <B>(recommended for new players)</B>, or you can start in June, at the beginning of the summer holiday, visiting your grandparent''s house in Gadukino.'
-!!	This is to account for the school year not matching up with the calendar year.
+		*nl
+		'Starting in August, at the end of the summer holiday, very close to the new school year <i>(recommended for new players)</i>, or starting in June, at the beginning of the summer holiday.'
+		!!This is to account for the school year not matching up with the calendar year.
 		if date_toggle ! 1:
 			if birthmonth >= 7: birthyear -= 1
 			if birthmonth = 6 and day > 1: birthyear -= 1
@@ -174,17 +176,16 @@ if $ARGS[0] = 'SGStart2':
 		killvar '$startdob'
 		killvar 'date_toggle'
 		act 'Start at the end of August':
-!!		This is the default start
+		!!This is the default start
 			kanicont = 6
 			gt 'preSYS', 'SGStart3'
 		end
 
-!!	This is to prevent to player from starting at 14
+		!!This is to prevent to player from starting at 14
 		if birthmonth = 6 and yearlefttemp = 2:
 			act '<i>Start at the beginning of June</i> Restricted due PC age, set birthday before June or after July to unlock': gt 'preSYS', 'SGStart2', 1
 		else
 			act 'Start at the beginning of June':
-				$temp_nickname = '<<$npc_nickname[''A29'']>>'
 				month = 6
 				$month = 'June'
 				day = 1
@@ -192,9 +193,6 @@ if $ARGS[0] = 'SGStart2':
 				kanicont = 92
 				Gspassed = 1
 				dostupindorf = 1
-				$npc_nickname['A29'] = input('<center>What name do you address your mother by?<br><br>Mother (default), Mum, Mom, Mama, etc.</center>')
-				if $npc_nickname['A29'] = '':$npc_nickname['A29'] = '<<$temp_nickname>>'
-				killvar '$temp_nickname'
 				gt 'preSYS', 'SGStart3'
 			end
 		end
@@ -202,7 +200,11 @@ if $ARGS[0] = 'SGStart2':
 end
 
 if $ARGS[0] = 'SGStart3':
-
+	'<center><img <<$set_imgh>> src="images/pre/sys/altstart26.jpg"></center>'
+	*nl
+	'You can choose from two starting locations:'
+	*nl
+	'In the Pavlovsk start you awaken at your parent''s home in the provincial town of Pavlovsk <i>(Recommended for new players)</i>. In the Gadukino start you are visiting your grandparent''s house in the small farming village of Gadukino.'
 
 
 !! Sets family relationship values and overwrites the npcstatic data for them
@@ -225,10 +227,36 @@ if $ARGS[0] = 'SGStart3':
 	if r <= 65:jump 'default_friendship_loop'
 
 	npc_rel['A11'] = 60
-	
-	gt 'preSYS', 'charselect'
+
+	act 'Pavlovsk Start': 
+		gt 'preSYS', 'pav_start'
+	end
+	act 'Gadukino Start':
+		gt 'preSYS', 'gad_start'
+	end
 end
 
+if $ARGS[0] = 'pav_start':
+	*clr
+	'<center><h2>Pavlovsk</h2></center>'
+	'<center><img <<$set_imgh>> src="images/pre/alt/gorodok.jpg"></center>'
+	*nl
+	'<center>A provincial town in a rural area of Russia, it looks much like all the other towns in the region. Population: about 15000 inhabitants.</center>'
+	start_location = 1
+	act 'Confirm location': gt 'preSYS', 'charselect'
+	act 'Change location': gt 'preSYS', 'SGStart3'
+end
+
+if $ARGS[0] = 'gad_start':
+	*clr
+	'<center><h2>Gadukino</h2></center>'
+	'<center><img <<$set_imgh>> src="images/pre/alt/gadukino.jpg"></center>'
+	*nl
+	'<center>A small farming village with many rickety wooden houses and even more ruins of houses. This village has seen better times.</center>'
+	start_location = 2
+	act 'Confirm location': gt 'preSYS', 'charselect'
+	act 'Change location': gt 'preSYS', 'SGStart3'
+end
 
 if $ARGS[0] = 'charselect':
 	*clr

@@ -81,27 +81,26 @@ if $ARGS[0] = 'start':
 		gt 'torgcentr'
 	end
 
-	act 'Look through the clothes on sale':
+	act 'View clothing':
 		minut += 5
 		gt 'sell_young_clothes', 'start'
 	end
 
-	act 'Look through the panties on sale':
-		minut += 5
+	act 'View panties'
 		gt 'sell_young_clothes', 'panties'
 	end
 
-	act 'Look through the bras on sale':
+	act 'View bras':
 		minut += 5
 		gt 'sell_young_clothes', 'bras'
 	end
 
-	act 'Look through the shoes on sale':
+	act 'View shoes':
 		minut += 5
 		gt 'sell_young_clothes', 'shoes'
 	end
 
-	act 'Look through the purses on sale':
+	act 'View purses':
 		minut += 5
 		gt 'sell_young_clothes', 'purses'
 	end

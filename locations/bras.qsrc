@@ -158,10 +158,12 @@ if $ARGS[0] = 'view_bra_item':
 	else
 		if $ARGS[1] ! 'bathroom':
 			if metka_bras ! 1:$RESULT += 'Move these bras to <a href="exec:gt ''bras'', ''dest1'', ''<<$ARGS[1]>>'', ''<<$ARGS[2]>>'', <<ARGS[3]>>">Storage</a><BR>'
-			if metka_bras ! 0:$RESULT += 'Move these bras to  <a href="exec:gt ''bras'', ''dest0'', ''<<$ARGS[1]>>'', ''<<$ARGS[2]>>'', <<ARGS[3]>>">Wardrobe</a><BR>'
-			if metka_bras ! 2:$RESULT += 'Move these bras to  <a href="exec:gt ''bras'', ''dest2'', ''<<$ARGS[1]>>'', ''<<$ARGS[2]>>'', <<ARGS[3]>>">Unwanted</a>'
+			if metka_bras ! 0:$RESULT += 'Move these bras to <a href="exec:gt ''bras'', ''dest0'', ''<<$ARGS[1]>>'', ''<<$ARGS[2]>>'', <<ARGS[3]>>">Wardrobe</a><BR>'
+			if metka_bras ! 2:$RESULT += 'Move these bras to <a href="exec:gt ''bras'', ''dest2'', ''<<$ARGS[1]>>'', ''<<$ARGS[2]>>'', <<ARGS[3]>>">Unwanted</a>'
 		end
 
+		act 'Return':gt 'bras', 'view_bra_list', $ARGS[1]
+		
 		if $ARGS[1] = 'store':
 			'This bra is in storage.'
 		elseif $ARGS[1] = 'unwanted':
@@ -181,9 +183,7 @@ if $ARGS[0] = 'view_bra_item':
 						end
 					end
 				end
-			end
-
-			act 'Return':gt 'bras', 'view_bra_list', $ARGS[1]
+			end	
 		end
 	end
 end

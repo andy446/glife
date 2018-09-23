@@ -57,23 +57,25 @@ if $ARGS[0] = 'start':
 		gt 'torgcentr'
 	end
 	
-	act 'Browse the clothing': minut += 5 & gt 'butik', 'clothes'
+	act 'View clothing': minut += 5 & gt 'butik', 'clothes'
 
-	act 'Browse the panties': minut += 5 & gt 'butik', 'panties'
+	act 'View panties': minut += 5 & gt 'butik', 'panties'
 
-	act 'Browse the bras': minut += 5 & gt 'butik', 'bras'
+	act 'View bras': minut += 5 & gt 'butik', 'bras'
 
-	act 'Browse the shoes': minut += 5 & gt 'butik', 'shoes'
+	act 'View shoes': minut += 5 & gt 'butik', 'shoes'
 
-	act 'Browse the handbags': minut += 5 & gt 'butik', 'purses'
+	act 'View purses': minut += 5 & gt 'butik', 'purses'
 
 	if money >= 50000:
-		if coat[9] < 1:
-			if coat[9] = 0:dynamic 'act ''Look at designer coat 9'':gt ''clothing'', ''view_clothing_item'', ''shop'', ''coat'', 9, 50000'
-		end
+		act 'View coats'
+			if coat[9] < 1:
+				if coat[9] = 0:dynamic 'act ''Look at designer coat 9'':gt ''clothing'', ''view_clothing_item'', ''shop'', ''coat'', 9, 50000'
+			end
 
-		if coat[11] < 1:
-			if coat[11] = 0:dynamic 'act ''Look at designer coat 11'':gt ''clothing'', ''view_clothing_item'', ''shop'', ''coat'', 11, 50000'
+			if coat[11] < 1:
+				if coat[11] = 0:dynamic 'act ''Look at designer coat 11'':gt ''clothing'', ''view_clothing_item'', ''shop'', ''coat'', 11, 50000'
+			end
 		end
 	end
 end

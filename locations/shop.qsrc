@@ -424,29 +424,37 @@ if $shoplocation = 'clothing':
 
 		act 'Leave the women''s clothing department':gt 'shop', 'start'
 
-		act 'View clothes': $shoplocation = 'clothing1' & gt 'shop'
+		act 'View clothing': $shoplocation = 'clothing1' & gt 'shop'
 
 		act 'View underwear': $shoplocation = 'underwear' & gt 'shop'
 
-		if konki!1:
-			'A pair of ice-skates are available for 3000 <b>₽</b>.'
-			if money >= 3000:
-				act 'Buy skates for 3000 <b>₽</b>':
-					cla
-					*clr
-					money = money - 3000
-					konki = 1
+		if swimwear[4] = 0:
+			act 'View swimwear':
+				cla
+				*clr
+				'<center><img <<$set_imgh>> src="images/pc/clothing/12swimwear/4.jpg"></center>'
+				gs 'clothing_attributes', 'swimwear', 4
+				'Swimwear 4'
+				FUNC('$clothing_name', 'swimwear', 4)
+				if CloInhibit > pcs_inhib:'You don''t feel daring enough to buy an outfit this revealing.'
+				'Costs 1,000 <b>₽</b>.'
 
-					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/lake/konki_shop.jpg"></center>'
-					'You buy a pair of skates.'
-
-					act 'Move away from the counter':gt'shop'
+				act 'Leave':gt 'shop'
+				if money >= 1000 and CloInhibit <= pcs_inhib:
+					act 'Buy':
+						cla
+						money -= 1000
+						swimwear[4] = 1
+						swimwearH[4] = 60
+						swimwearB[4] = pcs_hips
+						gt 'shop', '<font color="green">You bought <b>swimwear 4</b>.</font>'
+					end
 				end
 			end
 		end
 
 		if coat[1] = 0:
-			act 'Inspect coat 1':
+			act 'View coats':
 				cla
 				*clr
 				'<center><img <<$set_imgh>> src="images/pc/clothing/11coat/1.jpg"></center>'
@@ -469,27 +477,19 @@ if $shoplocation = 'clothing':
 			end
 		end
 
-		if swimwear[4] = 0:
-			act 'Inspect swimwear 4':
-				cla
-				*clr
-				'<center><img <<$set_imgh>> src="images/pc/clothing/12swimwear/4.jpg"></center>'
-				gs 'clothing_attributes', 'swimwear', 4
-				'Swimwear 4'
-				FUNC('$clothing_name', 'swimwear', 4)
-				if CloInhibit > pcs_inhib:'You don''t feel daring enough to buy an outfit this revealing.'
-				'Costs 1,000 <b>₽</b>.'
+		if konki!1:
+			'A pair of ice-skates are available for 3000 <b>₽</b>.'
+			if money >= 3000:
+				act 'Buy ice skates (3000 <b>₽</b>)':
+					cla
+					*clr
+					money = money - 3000
+					konki = 1
 
-				act 'Leave':gt 'shop'
-				if money >= 1000 and CloInhibit <= pcs_inhib:
-					act 'Buy':
-						cla
-						money -= 1000
-						swimwear[4] = 1
-						swimwearH[4] = 60
-						swimwearB[4] = pcs_hips
-						gt 'shop', '<font color="green">You bought <b>swimwear 4</b>.</font>'
-					end
+					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/lake/konki_shop.jpg"></center>'
+					'You buy a pair of skates.'
+
+					act 'Move away from the counter':gt'shop'
 				end
 			end
 		end

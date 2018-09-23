@@ -651,5 +651,55 @@ if $ARGS[0]='villagecat':
 	act 'Leave Boniface alone':minut += 2 & gt 'Gadhouse', 'Start'
 end
 
+if $ARGS[0] = 'intro':
+	cla & *clr
+	$metka = ''
+	$loc = 'Gadhouse'
+	$temp_nickname = '<<$npc_nickname[''A29'']>>'
+	monthbabkapay = month
+	menu_off = 1
+	hour = 6
+	gs 'stat'
+	'<center><H4>Your Grandparents'' Cottage</H4></center>'
+	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/prost4.jpg"></center>'
+	*nl
+	'All of a sudden you hear a familiar voice yell out, "<<$pcs_nickname>>, time to get up. You can''t spend the whole day laying around!"'
+	wait 2000
+	$npc_nickname['A29'] = input('<center>What name do you address your mother by?<br>Mother (default), Mum, Mom, Mama, etc.</center>')
+	if $npc_nickname['A29'] = '':$npc_nickname['A29'] = '<<$temp_nickname>>'
+	killvar '$temp_nickname'
+
+	act 'Continue':
+		cla & *clr
+		minut += 5
+		gs 'stat'
+		'<center><H4>Your Grandparents'' Cottage</H4></center>'
+		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/prost5.jpg"></center>'
+		*nl
+		'You tiredly open your eyes seeing your <<$npc_nickname[''A29'']>>, standing over you, "Fifteen more minutes..."'
+		'<<$npc_nickname[''A29'']>> lets out a loud sigh, "No, up now!" as she yanks the cover off...'
+		'"<<$npc_nickname[''A29'']>>!" you let out as you feel a slight cold breeze hit your body.'
+		'"Listen!, I''m heading back to Pavlovsk this morning, and I want to hear no excuses, <<$pcs_nickname>>. The summer holidays will be over soon and you need to get used to getting up early, for when school starts. So, from now on set your alarm on so you can wake up at a reasonable time." <<$npc_nickname[''A29'']>> says as she stares at you expectantly..'
+
+		act 'Get up':
+			cla & *clr
+			minut += 5
+			gs 'stat'
+			'<center><H4>Your Grandparents'' Cottage</H4></center>'
+			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/prost5.jpg"></center>'
+			*nl
+			'As soon as you get off your now coverless bed, your <<$npc_nickname[''A29'']>> is quick to resume her nagging, telling you again what you already heard from her a few moments ago. "Summer is almost over, you can''t sleep in anymore, not even for another fifteen minutes." She''s not even looking at you while she talks, but luckily for you that means she misses you rolling your eyes.'
+			'"What are you going to do when school starts, or when you get a job? Better get into the habit of setting your alarm so you can wake up bright and early."'
+			'You let out an exasperated sigh, "Yeah, yeah I know, you told me that already. So, how early are we talking?"'
+			'Your <<$npc_nickname[''A29'']>> shoots you a sharp look and you know to fix your attitude or else. "Well, depends on what you plan to do in the morning. There''s showering and brushing your teeth, doing your hair and then makeup and shaving if you really need to. If I remember right...Anya used to wake up at 06:00 for school. Besides, while you are staying at your grandparent''s house, you should be up extra early helping them tend to the farm, this isn''t a holiday camp!"'
+			'"You want me to wake up that early?!" You huff. "Can''t I wake up at like... 07:00?"'
+			'Your <<$npc_nickname[''A29'']>> shrugs. "You could, but then  you might have to cut corners or even end up running late to school, and I won''t be having any of that. Your teachers won''t either," she warns you before making her way outside. "Oh, don''t forget: when you get back to Pavlovsk, you need to head down to the clinic and see the gynecologist for a check up. Not just once, but every month," she adds quickly.'
+			'"But why do I--"'
+			'Before you can finish, she cuts you off. "I''m not going to have you running around town like so many of those other girls I see! Opening their legs for any boy that comes around..." She shakes her head in disgust. "I want a referral every month and it better tell me you''re still a virgin or else, understand?" <<$npc_nickname[''A29'']>> says as she storms off towards your grandparent''s outside door. "Don''t forget to talk to your grandparent''s and ask if they need help!" she says loudly. Without waiting for your response, she closes the door, and with that, she''s gone.'
+
+			act 'I understand...':gt 'budilnik', 'start'
+		end
+	end
+end
 --- Gadhouse ---------------------------------
 

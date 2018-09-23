@@ -43,9 +43,9 @@ if $ARGS[0] = 'start':
 		''
 		'The store has a small front on a side street but one glance is all you need to tell this is not your average clothing store. Inside the store, shelves and racks of alternative clothes crammed into every available space - anybody setting out to find an inch of wall would have their work cut out for them. The checkout counter is near the entrance.'
 
-		act 'Clothing':gt 'dolls', 'clothing'
-		act 'Shoes':gt 'dolls', 'shoes'
-		act 'Purses':gt 'dolls', 'purses'
+		act 'View clothing':gt 'dolls', 'clothing'
+		act 'View shoes':gt 'dolls', 'shoes'
+		act 'View purses':gt 'dolls', 'purses'
 		!act 'Jewelery':gt 'dolls', 'jewelry'
 		!act 'Piercings':gt 'dolls', 'piecrings'
 

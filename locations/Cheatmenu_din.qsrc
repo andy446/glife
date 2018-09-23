@@ -1672,40 +1672,43 @@ $cheatmenu['status'] = {
 		'Show image toolbar: Currently OFF - <a href="exec:Enable_showstatimg = 1 & dynamic $cheatmenu[''status''] & gs ''stat''">Turn ON</a>'
 	end
 	*nl
-	!control image toolbar position
-	'<center><B>Image Toolbar Settings</B></center>'
-	$stat_temp_text = '<br>Image toolbar position: <B>'
-	if Enable_statimg_loc = 0:
-		$stat_temp_text += 'Middle'
-	elseif Enable_statimg_loc = 1:
-		$stat_temp_text += 'Top'
-	elseif Enable_statimg_loc = 2:
-		$stat_temp_text += 'Bottom'
-	else
-		$stat_temp_text += 'ERROR! please reset it'
-	end
-	$stat_temp_text += '</B>. You can move it to '
-	if Enable_statimg_loc ! 0:$stat_temp_text += ' <a href="exec:Enable_statimg_loc=0 & dynamic $cheatmenu[''status''] & gs ''stat''">Middle</a>'
-	if Enable_statimg_loc ! 1:$stat_temp_text += ' <a href="exec:Enable_statimg_loc=1 & dynamic $cheatmenu[''status''] & gs ''stat''">Top</a>'
-	if Enable_statimg_loc ! 2:$stat_temp_text += ' <a href="exec:Enable_statimg_loc=2 & dynamic $cheatmenu[''status''] & gs ''stat''">Bottom</a>'
+	if Enable_showstatimg = 1:
+		!control image toolbar position
+		'<center><B>Image Toolbar Settings</B></center>'
+		$stat_temp_text = '<br>Image toolbar position: <B>'
+		if Enable_statimg_loc = 0:
+			$stat_temp_text += 'Middle'
+		elseif Enable_statimg_loc = 1:
+			$stat_temp_text += 'Top'
+		elseif Enable_statimg_loc = 2:
+			$stat_temp_text += 'Bottom'
+		else
+			$stat_temp_text += 'ERROR! please reset it'
+		end
+		$stat_temp_text += '</B>. You can move it to '
+		if Enable_statimg_loc ! 0:$stat_temp_text += ' <a href="exec:Enable_statimg_loc=0 & dynamic $cheatmenu[''status''] & gs ''stat''">Middle</a>'
+		if Enable_statimg_loc ! 1:$stat_temp_text += ' <a href="exec:Enable_statimg_loc=1 & dynamic $cheatmenu[''status''] & gs ''stat''">Top</a>'
+		if Enable_statimg_loc ! 2:$stat_temp_text += ' <a href="exec:Enable_statimg_loc=2 & dynamic $cheatmenu[''status''] & gs ''stat''">Bottom</a>'
 
-	$stat_temp_text
-	killvar 'stat_temp_text'
-	!End control image toolbar position
-	if set_statimgh > 0: set_statimgw = 0
-	if set_statimgw > 0: set_statimgh = 0
-	if set_statimgh <= 0 and set_statimgw <= 0: $set_statimgh = ''
-	if set_statimgh > 0:
-		'Force Image toobar height: <a href="exec:set_statimgw=0 & set_statimgh=input(''Enter the height of the images'') & dynamic $cheatmenu[''status''] & gs ''stat''"><<set_statimgh>></a>: Currently ON - <a href="exec:set_statimgh=0 & dynamic $cheatmenu[''status''] & gs ''stat''">Turn OFF</a>'
-		$set_statimgh = 'height = <<set_statimgh>>'
-	else
-		'Force Image toobar height: Currently OFF - <a href="exec:set_statimgw=0 & set_statimgh=input(''Enter the height of the images'') & dynamic $cheatmenu[''status''] & gs ''stat''">Turn ON</a>'
-	end
-	if set_statimgw > 0:
-		'Force Image toobar width: <a href="exec:set_statimgh=0 & set_statimgw=input(''Enter the width of the images'') & dynamic $cheatmenu[''status''] & gs ''stat''"><<set_statimgw>></a>: Currently ON - <a href="exec:set_statimgw=0 & dynamic $cheatmenu[''status''] & gs ''stat''">Turn OFF</a>'
-		$set_statimgh = 'width = <<set_statimgw>>'
-	else
-		'Force Image toobar width: Currently OFF - <a href="exec:set_statimgh=0 & set_statimgw=input(''Enter the width of the images'') & dynamic $cheatmenu[''status''] & gs ''stat''">Turn ON</a>'
+
+		$stat_temp_text
+		killvar 'stat_temp_text'
+		!End control image toolbar position
+		if set_statimgh > 0: set_statimgw = 0
+		if set_statimgw > 0: set_statimgh = 0
+		if set_statimgh <= 0 and set_statimgw <= 0: $set_statimgh = ''
+		if set_statimgh > 0:
+			'Force Image toobar height: <a href="exec:set_statimgw=0 & set_statimgh=input(''Enter the height of the images'') & dynamic $cheatmenu[''status''] & gs ''stat''"><<set_statimgh>></a>: Currently ON - <a href="exec:set_statimgh=0 & dynamic $cheatmenu[''status''] & gs ''stat''">Turn OFF</a>'
+			$set_statimgh = 'height = <<set_statimgh>>'
+		else
+			'Force Image toobar height: Currently OFF - <a href="exec:set_statimgw=0 & set_statimgh=input(''Enter the height of the images'') & dynamic $cheatmenu[''status''] & gs ''stat''">Turn ON</a>'
+		end
+		if set_statimgw > 0:
+			'Force Image toobar width: <a href="exec:set_statimgh=0 & set_statimgw=input(''Enter the width of the images'') & dynamic $cheatmenu[''status''] & gs ''stat''"><<set_statimgw>></a>: Currently ON - <a href="exec:set_statimgw=0 & dynamic $cheatmenu[''status''] & gs ''stat''">Turn OFF</a>'
+			$set_statimgh = 'width = <<set_statimgw>>'
+		else
+			'Force Image toobar width: Currently OFF - <a href="exec:set_statimgh=0 & set_statimgw=input(''Enter the width of the images'') & dynamic $cheatmenu[''status''] & gs ''stat''">Turn ON</a>'
+		end
 	end
 
 	!<a href="exec:gs ''Cheatmenu_din'' & dynamic $cheatmenu[''status''] & gs ''stat''"><img src="<<FUNC(''$phone_theme'')>>icon_settings.png"></a>

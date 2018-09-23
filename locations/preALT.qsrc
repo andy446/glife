@@ -53,10 +53,10 @@ if $ARGS[0] = 'Three':
 			'Welcome to the Schoolgirl version! You will need to carry on with your school life, manage your relationships and deal with whatever else comes up along the way!'
 			act 'Begin':
 				close all
-				if $month = 'June':
-					gt'Gaddvor'
-				else
-					gt'bedrPar', 'intro'
+				if start_location = 2:
+					gt 'Gadhouse', 'intro'
+				elseif start_location = 1:
+					gt 'bedrPar', 'intro'
 				end
 			end
 		end
@@ -136,10 +136,10 @@ if $ARGS[0] = 'Cursed Schoolgirl Start':
 		'Welcome to the Cursed Schoolgirl version! Guide <<$pcs_nickname>> through her school life, relationships and myriad of other issues that might pop up and all with the added spice of magic to keep things interesting!'
 		act 'Begin':
 			close all
-			if $month = 'June':
-				gt'Gaddvor'
-			else
-				gt'bedrPar', 'intro'
+			if start_location = 2:
+				gt 'Gadhouse', 'intro'
+			elseif start_location = 1:
+				gt 'bedrPar', 'intro'
 			end
 		end
 	end
@@ -213,10 +213,10 @@ if $ARGS[0] = 'Cursed Schoolgirl Start 2':
 								hour = 18
 								cla
 								*clr
-								if $month = 'June':
+								if start_location = 2:
 									'<center><img <<$set_imgh>> src="images/pre/alt/gadukino.jpg"></center>'
 									'You give Gustav directions to your grandparent''s house, half an hour later he drops you off at your grandparent''s yard in Gadukino.'
-								else
+								elseif start_location = 1:
 									'<center><img <<$set_imgh>> src="images/pre/alt/gorodok.jpg"></center>'
 									'You give Gustav directions to your family''s apartment building, half an hour later he drops you off in front of your apartment complex in Pavlovsk.'
 								end
@@ -229,10 +229,10 @@ if $ARGS[0] = 'Cursed Schoolgirl Start 2':
 									'<center><img <<$set_imgh>> src="images/system/magicschoolgirl.jpg"></center>'
 									'Welcome to the Cursed Schoolgirl version! Guide <<$pcs_nickname>> through her school life, relationships and myriad other issues that might pop up and all with the added spice of magic to keep things interesting!'
 									act 'Begin!':
-										if $month = 'June':
-											gt'Gaddvor'
-										else
-											gt'bedrPar', 'intro'
+										if start_location = 2:
+											gt 'Gadhouse', 'intro'
+										elseif start_location = 1:
+											gt 'bedrPar', 'intro'
 										end
 									end
 								end

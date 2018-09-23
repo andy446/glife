@@ -1,12 +1,13 @@
 # Gaddvor
 
 if $ARGS[0]='':
-	
 	music_loop = 0
-	
 	$metka = ''
 	$loc = 'Gaddvor'
 	$location_type = 'public_outdoors'
+	$menu_loc = 'Gaddvor'
+	$menu_arg = ''
+	menu_off = 0
 	killvar '$locclass'
 	gs 'stat'
 	CLOSE ALL
@@ -96,6 +97,7 @@ end
 
 if $ARGS[0]='chickens':
 	*clr & cla
+	menu_off = 0
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/village/chickens1.jpg"></center>'
 	'Ordinary chickens clucking about their pen.'
 	minut += 1

@@ -166,8 +166,9 @@ if $ARGS[0] = 'SGStart2':
 		'<center><img <<$set_imgh>> src="images/pre/sys/altstart26.jpg"></center>'
 		*nl
 		'You have two options when it comes to beginning your game:'
-		'You can start in August, at the end of the summer holiday, very close to starting the new school year <i>(recommended for new players)</i>, or you can start in June, at the beginning of the summer holiday.'
-!!	This is to account for the school year not matching up with the calendar year.
+		*nl
+		'Starting in August, at the end of the summer holiday, very close to the new school year <i>(recommended for new players)</i>, or starting in June, at the beginning of the summer holiday.'
+		!!This is to account for the school year not matching up with the calendar year.
 		if date_toggle ! 1:
 			if birthmonth >= 7: birthyear -= 1
 			if birthmonth = 6 and day > 1: birthyear -= 1
@@ -175,12 +176,12 @@ if $ARGS[0] = 'SGStart2':
 		killvar '$startdob'
 		killvar 'date_toggle'
 		act 'Start at the end of August':
-!!		This is the default start
+		!!This is the default start
 			kanicont = 6
 			gt 'preSYS', 'SGStart3'
 		end
 
-!!	This is to prevent to player from starting at 14
+		!!This is to prevent to player from starting at 14
 		if birthmonth = 6 and yearlefttemp = 2:
 			act '<i>Start at the beginning of June</i> Restricted due PC age, set birthday before June or after July to unlock': gt 'preSYS', 'SGStart2', 1
 		else
@@ -201,7 +202,9 @@ end
 if $ARGS[0] = 'SGStart3':
 	'<center><img <<$set_imgh>> src="images/pre/sys/altstart26.jpg"></center>'
 	*nl
-	'You can choose from two starting locations. The default start is awaking at your parent''s home in Pavlovsk <i>(Recommended for new players)</i>, the alternative start is visiting your grandparent''s house in Gadukino.'
+	'You can choose from two starting locations:'
+	*nl
+	'In the Pavlovsk start you awaken at your parent''s home in the provincial town of Pavlovsk <i>(Recommended for new players)</i>. In the Gadukino start you are visiting your grandparent''s house in the small farming village of Gadukino.'
 
 
 !! Sets family relationship values and overwrites the npcstatic data for them

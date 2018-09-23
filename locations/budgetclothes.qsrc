@@ -61,25 +61,15 @@ if $ARGS[0] = 'start':
 		
 		act 'Return':gt 'budgetclothes', 'start'
 		
-		act 'Look at regular shoes':
+		act 'View regular shoes':
 			minut += 5
 			gt 'budgetclothes', 'shoes'
 		end
 
-		act 'Look at exercise shoes':
+		act 'View exercise shoes':
 			minut += 5
 			gt 'budgetclothes', 'trainers'
 		end
-	end
-
-	act 'View coats':
-		minut += 5
-		gt 'budgetclothes', 'coats'
-	end
-
-	act 'View purses':
-		minut += 5
-		gt 'budgetclothes', 'purses'
 	end
 
 	act 'View panties':
@@ -90,6 +80,16 @@ if $ARGS[0] = 'start':
 	act 'View bras':
 		minut += 5
 		gt 'budgetclothes', 'bras'
+	end
+
+	act 'View purses':
+		minut += 5
+		gt 'budgetclothes', 'purses'
+	end
+
+	act 'View coats':
+		minut += 5
+		gt 'budgetclothes', 'coats'
 	end
 end
 

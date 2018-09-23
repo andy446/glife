@@ -131,7 +131,8 @@ if $ARGS[0] = 'clothes':
 		if i = 10: i = 16
 		if i = 45: i = 57
 		if i = 80:i = 86
-	if i <= 413:jump 'loopcheap'
+		if i = 414:i = 415
+	if i <= 414:jump 'loopcheap'
 end
 
 if $ARGS[0] = 'cheapclo':

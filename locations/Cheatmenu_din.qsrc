@@ -95,6 +95,17 @@ $cheatmenu['noSleep'] = {
 	end
 }
 
+$cheatmenu['noMood'] = {
+	if cheatNoMood = 0:
+		cheatNoMood = 1
+		dynamic $cheatmenu['permanent']
+		exit
+	elseif cheatNoMood = 1:
+		cheatNoMood = 0
+		dynamic $cheatmenu['permanent']
+	end
+}
+
 $cheatmenu['noFat'] = {
 	if cheatNoFat = 0:
 		cheatNoFat = 1
@@ -287,6 +298,8 @@ $cheatmenu['permanent'] = {
 	if cheatNoDrink = 1:$cheatNoDrink = 'Currently ON'
 	if cheatNoSleep = 0:$cheatNoSleep = 'Currently OFF'
 	if cheatNoSleep = 1:$cheatNoSleep = 'Currently ON'
+	if cheatNoMood = 0:$cheatNoMood = 'Currently OFF'
+	if cheatNoMood = 1:$cheatNoMood = 'Currently ON'
 	if cheatNoFat = 0:$cheatNoFat = 'Currently OFF'
 	if cheatNoFat = 1:$cheatNoFat = 'Currently ON'
 	if cheatHealth = 0:$cheatHealth = 'Currently OFF'
@@ -317,6 +330,7 @@ $cheatmenu['permanent'] = {
 	'Never eat: <a href="exec:dynamic $cheatmenu[''noEat'']"><<$cheatNoEat>></a>'
 	'Never drink: <a href="exec:dynamic $cheatmenu[''noDrink'']"><<$cheatNoDrink>></a>'
 	'Never sleep: <a href="exec:dynamic $cheatmenu[''noSleep'']"><<$cheatNoSleep>></a>'
+	'Always happy: <a href="exec:dynamic $cheatmenu[''noMood'']"><<$cheatNoMood>></a>'
 	'Never lose or gain weight: <a href="exec:dynamic $cheatmenu[''noFat'']"><<$cheatNoFat>></a>'
 	'Disable STDs: <a href="exec:dynamic $cheatmenu[''health'']"><<$cheatHealth>></a>'
 	'Never get addicted: <a href="exec:dynamic $cheatmenu[''addict'']"><<$NarkImmune>></a>'

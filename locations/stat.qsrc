@@ -939,12 +939,16 @@ else
 end
 
 !!Mood
-maxmood = 100 - moodmodifier
-if pcs_mood > 100:
+if cheatNoMood = 0:
+	maxmood = 100 - moodmodifier
+	if pcs_mood > 100:
+		pcs_mood = 100
+	elseif pcs_mood < 0:
+		pcs_mood = 0
+	!!	Asylum: basically this means clinically insane, like court-ordered committed, saliva dripping, blubbering... Ordinarily irreversible at this stage meaning Game Over, but cheat can help
+	end
+else
 	pcs_mood = 100
-elseif pcs_mood < 0:
-	pcs_mood = 0
-!!	Asylum: basically this means clinically insane, like court-ordered committed, saliva dripping, blubbering... Ordinarily irreversible at this stage meaning Game Over, but cheat can help
 end
 
 if pcs_mood >= 80:

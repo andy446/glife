@@ -35,7 +35,9 @@ $clothing_list_line = {
 		$RESULT += '<TD colspan="2"></TD>'
 	end
 
-	if $ARGS[1] ! 'coat' and $ARGS[1] ! 'swimwear':
+	if $ARGS[1] = 'cheap' and ARGS[2] = 414:
+		$RESULT += '<TD>A potato sack the hunters gave you.</TD>'
+	elseif $ARGS[1] ! 'coat' and $ARGS[1] ! 'swimwear':
 		gs 'clothing_descriptions'
 		$RESULT += '<TD><<FUNC(''$short_description'', $ARGS[1])>> <<ARGS[2]>><br/><br/><<$description>></TD>'
 	else
@@ -367,7 +369,9 @@ if $ARGS[0] = 'view_clothing_item':
 	$RESULT = FUNC('$short_description', $ARGS[2], CloStyle2)
 	$RESULT += '<<ARGS[3]>>'
 	'<<$RESULT>>'
-	if $ARGS[2] ! 'coat' and $ARGS[2] ! 'swimwear':
+	if $ARGS[1] = 'cheap' and ARGS[2] = 414:
+		'A potato sack the hunters gave you.'
+	elseif $ARGS[2] ! 'coat' and $ARGS[2] ! 'swimwear':
 		gs 'clothing_descriptions'
 		'<<$description>>'
 	else
@@ -709,12 +713,6 @@ if $ARGS[0] = 'wear':
 	clothingwornnumber = ARGS[2]
 
 	dynamic $ARGS[1] + 'W[<<ARGS[2]>>] = 1'
-
-	if $ARGS[1] ! 'coat' and $ARGS[1] ! 'swimwear':
-		gs 'clothing_descriptions'
-	else
-		FUNC('$clothing_name', $ARGS[1], ARGS[2])
-	end
 
 	gs 'clothing_attributes', $ARGS[1], ARGS[2]
 

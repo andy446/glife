@@ -48,7 +48,6 @@ if $ARGS[0] = 'etaj_1':
 	menu_off = 0
 	CLOSE ALL
 	if sound = 0:PLAY 'sound/podezd.mp3',30
-	minut +=1
 	gs 'stat'
 	'<center><b><font color = maroon>Ground floor of the apartment building</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/podezd2.jpg"></center>'
@@ -58,9 +57,9 @@ if $ARGS[0] = 'etaj_1':
 
 	'There''s a <a href="exec: gt ''pavComplexb2'', ''housemates''">list</a> of the people who live here on the wall.'
 	'Someone put up some <a href="exec:GT ''pavComplexb2'',''pod_objava''">advertisements</a> on the wall, near the entrance.'
-	act '<font color = maroon><b>Go outside</b></font>': gt 'pavcomplex', 'start'
-	act 'Go up to the second floor': CLOSE ALL & gt 'pavComplexb2','etaj_2'
-	act 'Take the elevator': CLOSE ALL & gt 'pavComplexb2','lift','etaj_1'
+	act 'Go outside': minut += 1 & gt 'pavcomplex', 'start'
+	act 'Go up to the second floor': minut +=1 & gt 'pavComplexb2','etaj_2'
+	act 'Take the elevator': gt 'pavComplexb2','lift','etaj_1'
 
 end
 
@@ -69,13 +68,12 @@ if $ARGS[0] = 'etaj_2':
 	$menu_loc = 'pavComplexb2'
 	$menu_arg = 'etaj_2'
 	menu_off = 0
-	minut +=1
 	gs 'stat'
 	'<center>2nd floor of the apartment building</center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/etaj2.jpg"></center>'
 	'<center>The second floor stairwell is clean and well maintained. It was renovated not long ago, and the inhabitants do their best to keep it clean.</center>'
-	act 'Go down to the first floor': gt 'pavComplexb2','etaj_1'
-	act 'Go up to the third floor': gt 'pavComplexb2','etaj_3'
+	act 'Go down to the first floor': minut +=1 & gt 'pavComplexb2','etaj_1'
+	act 'Go up to the third floor': minut +=1 & gt 'pavComplexb2','etaj_3'
 	act 'Take the elevator': gt 'pavComplexb2','lift','etaj_2'
 end
 
@@ -84,13 +82,12 @@ if $ARGS[0] = 'etaj_3':
 	$menu_loc = 'pavComplexb2'
 	$menu_arg = 'etaj_3'
 	menu_off = 0
-	minut +=1
 	gs 'stat'
 	'<center>3rd floor of the apartment building</center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/etaj3.jpg"></center>'
 	'<center>The third floor stairwell is clean and well maintained. It was renovated not long ago, and the inhabitants do their best to keep it clean.</center>'
-	act 'Go down to the second floor': gt 'pavComplexb2','etaj_2'
-	act 'Go up to the fourth floor': gt 'pavComplexb2','etaj_4'
+	act 'Go down to the second floor': minut +=1 & gt 'pavComplexb2','etaj_2'
+	act 'Go up to the fourth floor': minut +=1 & gt 'pavComplexb2','etaj_4'
 	act 'Take the elevator': gt 'pavComplexb2','lift','etaj_3'
 end
 
@@ -99,7 +96,6 @@ if $ARGS[0] = 'etaj_4':
 	$menu_loc = 'pavComplexb2'
 	$menu_arg = 'etaj_4'
 	menu_off = 0
-	minut +=1
 	gs 'stat'
 	'<center>4th floor of the apartment building</center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/etaj4.jpg"></center>'
@@ -107,8 +103,8 @@ if $ARGS[0] = 'etaj_4':
 	if anushkaFirstvisit ! 0:
 		act 'Apartment number 17: Anushka Konstantinov': gt 'anushapt', 'home'
 	end
-	act 'Go down to the third floor': gt 'pavComplexb2','etaj_3'
-	act 'Go up to the fifth floor': gt 'pavComplexb2','etaj_5'
+	act 'Go down to the third floor': minut +=1 & gt 'pavComplexb2','etaj_3'
+	act 'Go up to the fifth floor': minut +=1 & gt 'pavComplexb2','etaj_5'
 	act 'Take the elevator': gt 'pavComplexb2','lift','etaj_4'
 end
 
@@ -117,14 +113,13 @@ if $ARGS[0] = 'etaj_5':
 	$menu_loc = 'pavComplexb2'
 	$menu_arg = 'etaj_5'
 	menu_off = 0
-	minut +=1
 	gs 'stat'
 	'<center>Floor #5</center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/etaj5.jpg"></center>'
 	'<center>The fifth floor stairwell looks much like most of the other floors, though it has a final set of stairs at the other end of the hall that go up to the roof.</center>'
-	act 'Go down to the fourth floor': gt 'pavComplexb2','etaj_4'
+	act 'Go down to the fourth floor': minut +=1 & gt 'pavComplexb2','etaj_4'
 	act 'Take the elevator': gt 'pavComplexb2','lift','etaj_5'
-	act 'Go to the roof': gt 'pavComplexb2', 'roof'
+	act 'Go to the roof': minut +=1 & gt 'pavComplexb2', 'roof'
 end
 
 !!roof
@@ -149,7 +144,7 @@ if $ARGS[0] = 'roof':
 		end
 	end
 	'<center>The roof is fairly flat, with the roof access door in a raised part in the middle of the roof. Along one of the walls is another door to some type of storage or maintenances access. There is several ventilation stacks on the roof as well.</center>'
-	act 'Go down to the fifth floor': gt 'pavComplexb2','etaj_5'
+	act 'Go down to the fifth floor': minut +=1 & gt 'pavComplexb2','etaj_5'
 end
 
 !================================================================================================!
@@ -214,8 +209,8 @@ if $ARGS[0] = 'anushkaFirst':
 	'As you walk into the building you nearly run into Anushka. "Hey <<$pcs_nickname>> whats up?"'
 	'A bit surprised to see her but not disappointed, you was just wandering around for the hell of it. "Just killing time, kinda bored you know?"'
 	'She nods a bit and finishes checking the mail. "Yeah I know how that is, hey want to come up to my place and hang out?"'
-	act 'Can''t, got to go.': gt 'pavcomplex', 'start'
-	act 'Sure': gt 'anushapt', 'firstvisit'
+	act 'Can''t, got to go.': minut += 1 & gt 'pavcomplex', 'start'
+	act 'Sure': minut += 2 & gt 'anushapt', 'firstvisit'
 end
 
 

@@ -4,6 +4,10 @@ if $ARGS[0] = '':
 	CLOSE ALL
 	clr
 	$loc = 'gpoli'
+	$location_type = 'indoors'
+	$menu_loc = 'gpoli'
+	$menu_arg = ''
+	menu_off = 0
 	frost = 0
 	gs 'stat'
 	if night_mode = 1:
@@ -17,31 +21,70 @@ if $ARGS[0] = '':
 	end
 	'<center><b><font color="maroon">Clinic</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/shared/clinic/poli.jpg"></center>'
-	if prcptn_lvl > 40 and pcs_know_mward <= 0:
-		'<br><br>You see a sign that reads <a href="exec: minut += 5 & gt ''gpoli'', ''maternity_ward''">"Maternity ward"</a>.'
-	end
+		
+	if prcptn_lvl > 40 and pcs_know_mward <= 0:	'<br><br>You see a sign that reads <a href="exec: minut += 5 & gt ''gpoli'', ''maternity_ward''">"Maternity ward"</a>.'
 
-	if pcs_ask_mward_help >= 1 and pcs_know_mward <= 0:
-		'<br><br><a href="exec: minut += 5 & gt ''gpoli'', ''reception''">Ask</a> at the reception for help with your breasts.'
-	end
+	if pcs_ask_mward_help >= 1 and pcs_know_mward <= 0: '<br><br><a href="exec: minut += 5 & gt ''gpoli'', ''reception''">Ask</a> at the reception for help with your breasts.'
 
 	act 'Leave':minut += 5 & gt 'pavCommercial'
 
+	if preg = 2:
+		act 'Give birth':
+			*clr & cla
+			menu_off = 1
+			if kid > 0:minut += rand(300,660) else minut += rand(120,480)
+			'<center><img <<$set_imgh>> src="images/locations/shared/clinic/birthing.jpg"></center>'
+			'You lay on the bed and your feet are put in stirups.'
+			'Your contractions get closer and closer, and after some time (and a lot of swearing) you finally give birth.'
+			:multikidloop
+				sterilewb += 1
+				nextbaby = arrpos('$kidname', 'unborn')
+				kid += 1
+				BabyEmbryo -= 1
+				daykid[nextbaby] = day
+				monthkid[nextbaby] = month
+				yearkid[nextbaby] = year
+				if polkid[nextbaby] = 0:$polreb[nextbaby] = 'girl' & '"Congratulations it''s a girl. What is her name?"'
+				if polkid[nextbaby] = 1:$polreb[nextbaby] = 'boy' & '"Congratulations it''s a boy. What is his name?"'
+
+				wait 350
+				$kidname[nextbaby] = input("Enter your <<$polreb[nextbaby]>>''s name")
+				'The doctors clean up <<$kidname[nextbaby]>>.'
+				if $kidname[nextbaby] = '':
+					if polkid[nextbaby] = 0:$kidname[nextbaby] = 'Masha'
+					if polkid[nextbaby] = 1:$kidname[nextbaby] = 'Misha'
+				end
+			if BabyEmbryo > 0:'You do not have much time to stare at your <<$polreb[nextbaby]>>, because you are having an another contraction. Your next baby is coming!' & jump 'multikidloop'
+			preg = 0
+			thinkpreg = 0
+			knowpreg = 0
+			knowpregrecover = 1
+			vidage += 1
+			pregtalk = 0
+			cycle = 4
+			gs 'cum_cleanup', 'reset'
+			dynamic $d_cycreport_choice
+			gs 'stat'
+			act 'Leave':gt $curloc
+		end
+	end
+	
 	if hour >= 6 and hour <= 21:
 		if gpoliuborka = 0:
-			act 'Read job listing':
-				cla
-				*clr
+			act 'Read the job listing':
+				*clr & cla
+				menu_off = 1
 				minut += 5
 				gpoliuborka = 1
+				gs 'stat'
 				'You notice a piece of paper on the wall near the entrance to the clinic, it''s a job listing. It reads: "Cleaner wanted! One hour per day, any time between 14:00 and 21:00. Payment: 50 <b>₽</b>."'
 
 				act 'Move away':gt 'gpoli'
 			end
 		elseif gpoliuborka = 1 and hour >= 8 and hour <= 21:
 			act 'Ask the head doctor about the job':
-				cla
-				*clr
+				*clr & cla
+				menu_off = 1
 				gpoliuborka = 2
 				minut += 15
 				gs 'stat'
@@ -56,8 +99,8 @@ if $ARGS[0] = '':
 			end
 		elseif gpoliuborka > 1 and hour >= 14 and hour <= 21 and gpolicleanday ! daystart:
 			act 'Work as a cleaner for 50 <b>₽</b> (1:00)':
-				cla
-				*clr
+				*clr & cla
+				menu_off = 1
 				gpolicleanday = daystart
 				minut += 60
 				pcs_mood -= 15
@@ -74,11 +117,12 @@ if $ARGS[0] = '':
 				if Gspravka < 10 and ginrand = 0:
 					'When you clean the floor of the gynaecologist''s examination room, he leaves the room to let you do your work in peace. You''re alone now.'
 
-					if pcs_vag > 0:
+					if pcs_vag > 0 and motherKnowSpravka = 0:
 						act 'Forge a referral to give to your mother':
-							cls
+							*clr & cla
 							Gspravka = 30
 							GspravkaT = 1
+							Gspassed = 1
 							gs 'stat'
 							'You see a pile of unused referral forms and think to yourself: "I may not be a virgin any more, but <<$npc_nickname[''A29'']>> doesn''t need to know that!"'
 							'After you make sure no one is in the corridor, you quickly walk to the desk, take one of the empty referral forms and press his stamp onto it. You can do the rest later. You quickly hide it under your clothes and get back to cleaning, after carefully putting everything back the way you found it.'
@@ -91,11 +135,10 @@ if $ARGS[0] = '':
 			end
 		end
 
-		if glassqw=1:
+		if glassqw = 1:
 			act'Visit the optometrist (0:35)':
-				cla
-				*clr
-				hour += 1
+				*clr & cla
+				menu_off = 1
 				minut += 35
 				gs'stat'
 				'The optometrist takes you through a series of tests, to measure the condition of your eyes.'
@@ -111,6 +154,7 @@ if $ARGS[0] = '':
 		if pcs_health < (pcs_vital * 10 + pcs_stren * 5) or pain['total'] > 10:
 			act 'See a Doctor about your health (1:00)':
 				cla
+				menu_off = 1
 				minut += 60
 				if pain['head'] > 0:pain['head'] -= rand(7,13)
 				if pain['hair'] > 0:pain['hair'] -= rand(7,13)
@@ -165,53 +209,11 @@ if $ARGS[0] = '':
 		if pcs_know_mward > 0:
 			act 'Visit the maternity ward (0:05)': gt 'gpoli', 'maternity_ward'
 		end
-	end
 
-	if preg = 2:
-		act 'Give birth':
-			*clr
-			cla
-			if kid > 0:minut += rand(300,660) else minut += rand(120,480)
-			'<center><img <<$set_imgh>> src="images/locations/shared/clinic/birthing.jpg"></center>'
-			'You lay on the bed and your feet are put in stirups.'
-			'Your contractions get closer and closer, and after some time (and a lot of swearing) you finally give birth.'
-			:multikidloop
-				sterilewb += 1
-				nextbaby = arrpos('$kidname', 'unborn')
-				kid += 1
-				BabyEmbryo -= 1
-				daykid[nextbaby] = day
-				monthkid[nextbaby] = month
-				yearkid[nextbaby] = year
-				if polkid[nextbaby] = 0:$polreb[nextbaby] = 'girl' & '"Congratulations it''s a girl. What is her name?"'
-				if polkid[nextbaby] = 1:$polreb[nextbaby] = 'boy' & '"Congratulations it''s a boy. What is his name?"'
-
-				wait 350
-				$kidname[nextbaby] = input("Enter your <<$polreb[nextbaby]>>''s name")
-				'The doctors clean up <<$kidname[nextbaby]>>.'
-				if $kidname[nextbaby] = '':
-					if polkid[nextbaby] = 0:$kidname[nextbaby] = 'Masha'
-					if polkid[nextbaby] = 1:$kidname[nextbaby] = 'Misha'
-				end
-			if BabyEmbryo > 0:'You do not have much time to stare at your <<$polreb[nextbaby]>>, because you are having an another contraction. Your next baby is coming!' & jump 'multikidloop'
-			preg = 0
-			thinkpreg = 0
-			knowpreg = 0
-			knowpregrecover = 1
-			vidage += 1
-			pregtalk = 0
-			cycle = 4
-			gs 'cum_cleanup', 'reset'
-			dynamic $d_cycreport_choice
-			gs 'stat'
-			act 'Leave':gt $curloc
-		end
-	end
-
-	if hour >= 6 and hour <= 21:
 		if tabletkishot < 5 and money >= 750:
-			act 'Get a birth control shot (750 <b>₽</b>)':
-				cls
+			act 'Get a birth control shot for 750 <b>₽</b> (0:15)':
+				*clr & cla
+				menu_off = 1
 				minut += 15
 				tabletkishot = rand(84,91)
 				shotdays = 84
@@ -229,11 +231,10 @@ if $ARGS[0] = '':
 		end
 
 		act 'Go to the sexual health clinic':
-			cls
+			*clr & cla
+			menu_off = 1
 			minut += 1
 			gs 'stat'
-			'In the waiting room, a large sign dominates one of the walls:'
-			*nl
 			'<center><b>Sexual Health Clinic</b></center>'
 			*nl
 			'<center>STD Test - 1,000 <b>₽</b></center>'
@@ -242,74 +243,42 @@ if $ARGS[0] = '':
 			act 'Leave':gt 'gpoli'
 
 			if money >= 1000:
-				act 'Be tested for STDs (1,000 <b>₽</b>)':
-					cls
+				act 'Get tested for STDs (1,000 <b>₽</b>)':
+					*clr & cla
 					money -= 1000
 					minut += 60
 					gs 'stat'
 					'The doctor has you provide some blood and urine, before examining you. Then he sends you out to wait in the waiting room while you wait for the test results to come back.'
 
-					if venera > 0:'The doctor calls you back to his office after a while, and says with a slight frown: "I''m afraid I have some bad news."'
-
-					if GerpesOnce = 1:
-						'He continues: "You have genital herpes. Unfortunately, the complete cure for this disease is very expensive and we can''t cure it here. On the upside, herpes is dormant most of the time and is quite manageable, if you take good care of your body. When it is dormant, taking vitamins regularly will make sure it won''t show itself."'
-
-						if Gerpes >= 3:
-							if GerpesNapr = 0:GerpesNapr = 3 & '"Your herpes is currently active. I''m going to put you on a course of herpes shots, in order to suppress it into its dormant state. You''ll need a total of 3 injections (no more than 1 a day), each injection will cost 450 <b>₽</b>."'
-							if GerpesNapr > 0:'You need to see the nurse for your herpes drug injection.'
-
-						else
-							'Your herpes is currently in a dormant state.'
-						end
+					if venera > 0:
+						'The doctor calls you back to his office after a while, and says with a slight frown: "I''m afraid I have some bad news."'
+						gs 'gpoli', 'std_check'
+					else
+						'The doctor is pleased to announce that you do not have a sexually transmitted disease.'	
 					end
+					
+					act 'Leave':gt 'gpoli'
+				end
+			end
+			
+			if GerpesNapr > 0 and money >= 450 and GerpesUkolDay ! daystart:
+				act 'Get herpes shot (450 <b>₽</b>). You need <<GerpesNapr>> more injections to complete the treatment.':
+					*clr & cla
+					money -= 450
+					minut += 15
+					GerpesUkolDay = daystart
+					GerpesNapr -= 1
+					gs 'stat'
+					'You see the nurse and she gives you a painful injection in your ass.'
 
-					if SifacOnce = 1:
-						'He continues: "You have syphilis. Unfortunately, the complete cure for this disease is very expensive and we can''t cure it here. It can be suppressed with a recently developed drug therapy, but it won''t cure you completely. It''s also fairly expensive already."'
-
-						if Sifilis < 15:
-							'Your syphilis is in an inactive stage. Nothing more can be done currently.'
-						elseif Sifilis >= 15:
-							if SifNapr = 0:SifNapr = 10 & '"I''m going to put you on a course of syphilis inhibiting drugs. You''ll need a total of 10 injections (no more than 1 a day), each injection will cost 1,000 <b>₽</b>."'
-							if SifNapr > 0:'You need to see the nurse for your syphilis drug injection.'
-						end
-					end
-
-					if TriperOnce = 1:
-						'He continues: "We found gonorrhea. Fortunately, we can cure this disease."'
-						if TriperNapr = 0:TriperNapr = 5 & '"I''m going to put you on a course of gonorrhea injections. You''ll need a total of 5 injections (no more than 1 a day), each injection will cost 750 <b>₽</b>."'
-						if TriperNapr > 0:'You need to see the nurse for your gonorrhea injections.'
-					end
-
-					if KandidozOnce = 1:
-						'He continues: "You have thrush. Unfortunately, the complete cure for this disease is very expensive and we can''t cure it here. On the upside, thrush is not that harmful and can be treated easily to the point where it won''t trouble you. When it is dormant, taking vitamins regularly will make sure it won''t show itself."'
-
-						if KandidNapr = 0:KandidNapr = 1 & '"The pills are available at the pharmacy, across the street."'
-						if Kandidoz < 30:'Your thrush is currently in remission. If you take vitamins daily, it will stay that way.'
-					end
-
-					if venera <= 0:'The doctor is pleased to announce that you do not have a sexually transmitted disease.'
-						act 'Leave':gt 'gpoli'
-					end
-
-				if GerpesNapr > 0 and GerpesUkolDay ! daystart:
-					act 'Get herpes shot (450 <b>₽</b>). You need <<GerpesNapr>> more injections to complete the treatment.':
-						cls
-						money -= 450
-						minut += 15
-						GerpesUkolDay = daystart
-						GerpesNapr -= 1
-						gs 'stat'
-						'You see the nurse and she gives you a painful injection in your ass.'
-
-						if GerpesNapr = 0:Gerpes = -10 & 'You have completed the treatment.'
-						act 'Leave':gt 'gpoli'
-					end
+					if GerpesNapr = 0:Gerpes = -10 & 'You have completed the treatment.'
+					act 'Leave':gt 'gpoli'
 				end
 			end
 				
 			if TriperNapr > 0 and money >= 750 and TriperUkolDay ! daystart:
 				act 'Get gonorrhea shot (750 <b>₽</b>). You need <<TriperNapr>> more injections to complete the treatment.':
-					cls
+					*clr & cla
 					money -= 750
 					minut += 15
 					TriperUkolDay = daystart
@@ -325,7 +294,7 @@ if $ARGS[0] = '':
 
 			if money >= 1000 and SifNapr > 0 and SifUkolDay ! daystart:
 				act 'Get syphilis shot (1,000 <b>₽</b>). You need <<SifNapr>> more injections to complete the treatment.':
-					cls
+					*clr & cla
 					money -= 1000
 					minut += 15
 					SifUkolDay = daystart
@@ -343,6 +312,7 @@ if $ARGS[0] = '':
 		if sick >= 1:
 			act 'Visit the doctor for your sickness':
 				cla
+				menu_off = 1
 				minut += 15
 				sick = 0
 				gs 'stat'
@@ -352,9 +322,10 @@ if $ARGS[0] = '':
 			end
 		end
 
-		if (pav_slut >= 150 or guy > 10 or unprotfilm or whoreQW > 1 or bordelslutty > 0 or cumcondslip_aware > 0) or lastmens >= 35 and gynodaystart ! daystart:
+		if (pav_slut >= 125 or pav_prostitute >= 125 or guy > 10 or unprotfilm or whoreQW > 1 or bordelslutty > 0 or cumcondslip_aware > 0 or (daystart - lastmens > 42)) and gynodaystart ! daystart:
 			act 'Visit your gynaecologist (1,000 <b>₽</b>)':
-				cls
+				*clr & cla
+				menu_off = 1
 				gynodaystart = daystart
 				minut += 5
 				gs 'stat'
@@ -362,13 +333,13 @@ if $ARGS[0] = '':
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/gpoli_1.jpg"></center>'
 				'You decide to have a check-up with your gynaecologist. Given your sexual history, you can''t be too careful.'
 				if docKnow = 0:
-					if pav_slut >= 150:
+					if pav_slut >= 125 and pav_prostitute < 125:
 						$gyn1 = 'He looks at you with some concern, but still has to ask: "Rumor in town says that you''re a prostitute?"'
 						$gyn2 = '"Doctor, the whole town knows! And knows my body, if you know what I mean... well, maybe they know Sonia''s better," you laugh despite yourself.'
 					elseif unprotfilm:
 						$gyn1 = 'He looks at you with some concern, but still has to ask: "Are you by any chance <<$pfname>>?" He doesn''t say how he''s familiar with the name, but you can probably guess.'
 						$gyn2 = '"I hope not, but who knows?"'
-					elseif whoreQW > 1 or bordelslutty > 0:
+					elseif whoreQW > 1 or bordelslutty > 0 or pav_prostitute >= 125:
 						$gyn1 = 'He looks at you with some concern, but still has to ask: "Rumor in town says that you''re a prostitute?"'
 						$gyn2 = '"I don''t think so, I only do business down in St. Petersburg, but who knows?"'
 					else
@@ -384,7 +355,7 @@ if $ARGS[0] = '':
 					$gyn2
 					'The gynaecologist nods, and motions for you to stand up: "Very well, let''s see how you''re doing then. Undress for me, please."'
 				elseif docKnow = 1:
-					if pav_slut >= 150 or unprotfilm or whoreQW > 1 or bordelslutty > 0:
+					if pav_slut >= 125 or unprotfilm or whoreQW > 1 or bordelslutty > 0 or pav_prostitute >= 125:
 						$gyn1 = 'He looks at you with some concern, asking: "Are you still in the business?"'
 						$gyn2 = 'In a way, you feel touched that he is so concerned for his patients. You don''t mind answering his question, and say: "Doctor, you know how it is... I do it because studies are expensive, because clothing is expensive. Because my family could also use the help, financially. And most of all: because I love having sex. I might as well get paid to do it, right?"'
 					else
@@ -399,14 +370,15 @@ if $ARGS[0] = '':
 					$gyn2
 					'The gynaecologist smirks, but nods: "I understand. It''s not my place to judge, anyway. Let''s see how you''re doing. Undress for me, please."'
 				end
+				
 				act 'Take off your clothes':
-					cls
+					*clr & cla
 					minut += 5
 					gs 'stat'
 					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/gpoli_3.jpg"></center>'
 					'You quickly take off your clothes so your gynaecologist can examine you, and neatly fold them before putting them aside.'
 					act 'Sit in the chair':
-						cls
+						*clr & cla
 						minut += 5
 						docKnow = 1
 						gs 'stat'
@@ -414,31 +386,36 @@ if $ARGS[0] = '':
 						'Once you''re nude, you have a seat in the gynaecologist''s chair and spread your legs in the stirrups.'
 						'For the next few minutes, the doctor gives you a thorough check-up. He spends a bit more time on your asshole than he probably should, but then again - maybe he''s just being thorough.'
 						$gpoli_sick = ''
+						
 						if cumcondslip > 0:
 							$gpoli_sick = 'are suffering from toxic shock from a spent condom in your body. I removed it as soon as I found it. If you were feeling sick, it should slowly subside.'
 							cumcondslip = 0
 							gs 'cum_cleanup', 'cleanloc', 17
 						end
+						
 						if preg > 0:
 							knowpreg = 1
 							$gpoli_sick = 'are pregnant'
 						end
+						
 						if venera > 0:
 							if $gpoli_sick ! '':$gpoli_sick = $gpoli_sick + ', and you have a sexually transmitted disease'
-							if $gpoli_sick = '':$gpoli_sick = 'have a sexually transmitted disease'
+							if $gpoli_sick = '':$gpoli_sick = 'have a sexually transmitted disease'					
 						end
+						
 						if $gpoli_sick = '':
 							'The doctor smiles when he gives you the good news: "You''re perfectly healthy."'
 							'You feel very relieved, and thank him profusely: "Thank you doctor, that is great news. Thanks again for the check-up."'
 							'He nods, and waves his hand: "It''s all good. Just don''t forget to use protection, it''s still dangerous out there."'
 						else
 							'The doctor frowns when he gives you the bad news: "I''m afraid I found something irregular. You <<$gpoli_sick>>."'
+							if venera > 0: gs 'gpoli', 'std_check'
 						end
 						'The doctor stands beside you while he helps you move your legs from the stirrups, and asks with a confident smile on his face: "So <<$pcs_nickname>>... how are you going to repay me for the examination?"'
 
 						if money >= 1000:
 							act 'Offer him money':
-								cls
+								*clr & cla
 								minut += 5
 								gs 'stat'
 
@@ -446,7 +423,7 @@ if $ARGS[0] = '':
 								'He returns your smile, and jovially says: "<<$pcs_nickname>>, only for you: 1,000 <b>₽</b>."'
 
 								act 'Pay him (1,000 <b>₽</b>)':
-									cls
+									*clr & cla
 									minut += 5
 									money -= 1000
 
@@ -458,7 +435,7 @@ if $ARGS[0] = '':
 						end
 
 						act 'Offer him your body':
-							cls
+							*clr & cla
 							gs 'stat'
 							'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/sex/gpoli_6.jpg"></center>'
 							'You slowly put your hands on his groin with a cheeky grin, and to your surprise feel that his cock is already fully erect. Looks like this was the payment option he was hoping you would go for!'
@@ -471,7 +448,7 @@ if $ARGS[0] = '':
 
 							act 'Give him a blowjob':
 								if venera > 0:gt 'gpoli', 'gynoblow'
-								cls
+								*clr & cla
 								if gpoli_doctorhavesex = 0:gpoli_doctorhavesex = 1 & guy += 1
 								gs 'stat'
 								'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/sex/gpoli_7.jpg"></center>'
@@ -484,7 +461,7 @@ if $ARGS[0] = '':
 								gs 'stat'
 
 								act 'Continue':
-									cls
+									*clr & cla
 									gs 'stat'
 									'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/sex/gpoli_8.jpg"></center>'
 									'You moan, feeling some of your wetness running down your leg as dr. Petrovich keeps rubbing his cock against your clit. He sure knows his way around a woman''s body!'
@@ -494,7 +471,7 @@ if $ARGS[0] = '':
 									gs 'stat'
 
 									act 'Have sex with him':
-										cls
+										*clr & cla
 										pcs_vag += 1
 										gs 'boyStat', 'A68'
 										cumprecheck = 1
@@ -510,7 +487,7 @@ if $ARGS[0] = '':
 										gs 'stat'
 
 										act 'Sex on the table':
-											cls
+											*clr & cla
 											gs 'stat'
 											'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/sex/gpoli_10.jpg"></center>'
 											'He picks up the pace again and fucks you hard and fast like before. Your body no longer listens to you, and you find yourself eagerly bucking your hips against his thrusts. You feel that tingle starting up inside you again... if he keeps this up, you''re going to cum all over his cock again in no time!'
@@ -527,7 +504,7 @@ if $ARGS[0] = '':
 											gs 'stat'
 
 											act 'Anal sex':
-												cls
+												*clr & cla
 												pcs_ass += 1
 												gs 'stat'
 												'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/sex/gpoli_11.jpg"></center>'
@@ -541,7 +518,7 @@ if $ARGS[0] = '':
 												gs 'stat'
 
 												act 'Sex on the floor':
-													cls
+													*clr & cla
 													gs 'stat'
 													'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/sex/gpoli_12.jpg"></center>'
 													'To your surprise he ignores your butt for now, and drives his penis into your cunt instead. He fucks you with short, rough strokes... almost as if he''s fucking the annoyance out of his system. It doesn''t feel very pleasant at first, but soon you begin to moan and enjoy the feeling again when your body relaxes.'
@@ -551,7 +528,7 @@ if $ARGS[0] = '':
 													gs 'stat'
 
 													act 'Anal':
-														cls
+														*clr & cla
 														gs 'stat'
 														'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/sex/gpoli_13.jpg"></center>'
 														'Now that you''re so aroused, the anal sex doesn''t hurt quite as much. You furiously rub your clit while he pounds your stretched asshole roughly, slowly losing your mind when a second orgasm hits you. Dr. Petrovich must feel your anus contracting around his cock when you cum with it inside you.'
@@ -562,7 +539,7 @@ if $ARGS[0] = '':
 														gs 'stat'
 
 														act 'Let him cum in your mouth':
-															cls
+															*clr & cla
 															minut += 5
 															pcs_horny += 5
 															gs 'boyStat', 'A68'
@@ -576,7 +553,7 @@ if $ARGS[0] = '':
 															'Then he lets out a satisfied sigh and begins to put his clothes back on, as if nothing happened.'
 
 															act 'Get dressed too':
-																cls
+																*clr & cla
 																minut += 5
 																pcs_horny += 5
 																gs 'stat'
@@ -605,8 +582,9 @@ if $ARGS[0] = '':
 		end
 
 		if narkoman = 1 and storyline > 0:
-			act 'See a doctor for help with weakness and pain':
-				cls
+			act 'Seek help for your weakness and pain':
+				*clr & cla
+				menu_off = 1
 				minut += 5
 				gs 'stat'
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/gpoli_1.jpg"></center>'
@@ -623,7 +601,7 @@ if $ARGS[0] = '':
 				end
 
 				act 'Continue':
-					cls
+					*clr & cla
 					minut += 5
 					gs 'stat'
 					'You tell the doctor about the white powder you''ve been sniffing while he checks your temperature, blood pressure and pulse.'
@@ -635,34 +613,39 @@ if $ARGS[0] = '':
 					'You notice that there is a certain sparkle in his eyes when he looks at your <<$titsize>> breasts with interest. You feel embarrassed at your nipples hardening even further, and try to think of bad things. You silently think to yourself: "My mother is watching! My mother is watching!"'
 					'To your relief, the tingle you started to feel in your pussy goes away.'
 					'The doctor tells you as he steps towards the door: "Please undress and sit down in that chair. I will be back momentarily." Then he leaves.'
+					
 					act 'Reluctantly take your clothes off':
-						cls
+						*clr & cla
 						minut += 10
 						gs 'stat'
 						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/gpoli_3.jpg"></center>'
 						'You sigh. Is this guy even a doctor? He was way too eager with your boobs, and you suspect he has other reasons to want you naked.'
 						'Nevertheless, you feel terrible and really need this check-up. You reluctantly begin to take your clothes off.'
 						act 'Sit in the chair':
-							cls
+							*clr & cla
 							minut += 5
 							gs 'stat'
 							'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/gpoli_4.jpg"></center>'
 							'You quickly undress and climb into the chair. The leather-like surface feels strangely warm on your bottom, and it takes you a moment to realize that it is heated. You fidget nervously as you wait for the doctor to return.'
 							'After what seems like hours, the doctor comes back into the room. You notice his face seems redder than it was and his hair seems to be a little damp. He has also taken off the apron-like smock he had on before. He continues with his examination, taking your hands and arms and massaging the joints and flexing them. He does the same with your feet and legs. To your surprise, he also examines your ass and pussy, easing his gloved fingers into first your pussy and then your asshole. He even speads your lips apart and pushes the hood back to expose your clitoris which he gently massages for a moment before suddenly getting to his feet with a deep sigh, his eyes lingering on your exposed pussy for a moment too long before he seems to give himself a little shake. You''re glad he stopped when he did... if he had kept doing that, you would''ve gotten wet for sure!'
 							$gpoli_sick = ''
+							
 							if cumcondslip > 0:
 								$gpoli_sick = 'are suffering from toxic shock from a spent condom in your body. I removed it as soon as I found it. If you were feeling sick, it should slowly subside.'
 								cumspclnt = 8
 								gs 'cum_cleanup'
 							end
+							
 							if preg > 0:
 								knowpreg = 1
 								$gpoli_sick = 'are pregnant'
 							end
+							
 							if venera > 0:
 								if $gpoli_sick ! '':$gpoli_sick = $gpoli_sick + ', and you have a sexually transmitted disease'
 								if $gpoli_sick = '':$gpoli_sick = 'have a sexually transmitted disease'
 							end
+							
 							if $gpoli_sick = '':
 								'"Well, other than the fact that you are addicted to cocaine, you are completely healthy. Truth be told, you have a very mature body for a girl your age." At these words you see the corners of his mouth twitch, and you think his trousers look a little tighter in his crotch area than before. "But that''s not what you are here for. Now please get dressed again while I write a note for your mother. I''m not allowed to give you the cure to your addiction without her permission."'
 								'Your heart begins to race when you hear that, your mother can''t find out! She would kill you if she finds out what you have been up to!'
@@ -670,10 +653,12 @@ if $ARGS[0] = '':
 								'He looks at you sternly and shakes his head: "I''m sorry <<$pcs_nickname>>, but you are not an adult. I need her permission to treat you, those are the rules."'
 							else
 								'"Well <<$pcs_nickname>>, you have a problem. You <<$gpoli_sick>> as well as being addicted to cocaine. I''ll have to write a note for your mother, I can''t treat you without her permission."'
+								if venera > 0: gs 'gpoli', 'std_check'
 								'Your heart begins to race when you hear that, your mother can''t find out! She would kill you if she finds out what you have been up to!'
 								'You quickly blurt: "Wait! Could you please just give me the cure without telling her? Please?"'
 								'He looks at you sternly and shakes his head: "I''m sorry <<$pcs_nickname>>, but you are not an adult. I need her permission to treat you. You''ve been a very bad girl, you know..."'
 							end
+							
 							act 'Offer him money':gt 'gpoli', 'spravka_money_pale'
 							act 'Try to negotiate':gt 'gpoli', 'spravka_arrange_pale'
 						end
@@ -690,9 +675,9 @@ if $ARGS[0] = '':
 end
 
 if $ARGS[0] = 'referral':
-
+	menu_off = 1
 	if pcs_vag = 0:
-		cls
+		*clr & cla
 		minut = minut + 15
 		gs 'stat'
 
@@ -705,8 +690,9 @@ if $ARGS[0] = 'referral':
 		'He confirms that you are still a virgin, and tells you to get dressed again while he prepares your referral. While you put your clothes back on, he fills out the form at his desk and stamps it before handing it to you. This should keep your mother happy for another month...'
 		act 'Leave':gt $curloc
 	end
+	
 	if pcs_vag > 0:
-		cls
+		*clr & cla
 		minut += 5
 		gs 'stat'
 
@@ -723,7 +709,7 @@ if $ARGS[0] = 'referral':
 		end
 
 		act 'Have the check-up':
-			cls
+			*clr & cla
 			minut += 5
 			gs 'stat'
 			'The doctor breathes on his stethoscope to warm it up and says: "Lift your shirt, please."'
@@ -735,13 +721,13 @@ if $ARGS[0] = 'referral':
 			'There is an eager sparkle in his eyes when he looks at your bare breasts. The pervert!'
 			'He continues: "Now get undressed and have a seat in the chair, please. You can put your feet in the stirrups."'
 			act 'Undress':
-				cls
+				*clr & cla
 				minut += 5
 				gs 'stat'
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/gpoli_3.jpg"></center>'
 				'You reluctantly take your clothes off, trying to put off the moment as long as you can. You know he will find out about your secret in a moment. Nevertheless, you don''t have any other option. Maybe you''ll get lucky and he won''t notice?'
 				act 'Sit in the chair':
-					cls
+					*clr & cla
 					minut += 5
 					gs 'stat'
 					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/gpoli_4.jpg"></center>'
@@ -752,29 +738,35 @@ if $ARGS[0] = 'referral':
 						knowpreg = 1
 						$gpoli_sick = 'are pregnant'
 					end
+					
 					if venera > 0:
 						if $gpoli_sick ! '':$gpoli_sick = $gpoli_sick + ', and you have a sexually transmitted disease'
 						if $gpoli_sick = '':$gpoli_sick = 'have a sexually transmitted disease'
 					end
+					
 					if $gpoli_sick = '':
 						'"Well, you are completely healthy. However, you are also no longer a virgin." At these words you see the corners of his mouth twitch, and you think his trousers look a little tighter in his crotch area. "Please get dressed again while I write out the referral for your mother."'
 						'Your heart begins to race when you hear that, your mother can''t find out! She would kill you if she finds out what you have been up to!'
 						'You quickly blurt: "Wait! Could you please just write down that I''m still a virgin, so I don''t get in trouble? Please?"'
 						'He looks at you sternly and shakes his head: "I''m sorry <<$pcs_nickname>>, I can''t do that, that''s fraud! Do you have any idea how much trouble I could get into?"'
 					else
-						'The doctor frowns when he gives you the results: "I''m afraid I have some bad news, <<$pcs_nickname>>. You <<$gpoli_sick>>. You''re also not a virgin any more, obviously."'
+						'The doctor frowns when he gives you the results: "I''m afraid I have some bad news, <<$pcs_nickname>>. You <<$gpoli_sick>>.'
+						if venera > 0: gs 'gpoli', 'std_check'
+						'You''re also not a virgin any more, obviously."'
 						'Your heart begins to race when you hear that, that''s terrible! Your mother would kill you if she finds out what you have been up to!'
 						'You quickly blurt: "Wait! Could you please just write down that I''m still a virgin, so I don''t get in trouble? Please?"'
 						'He looks at you sternly and shakes his head: "I''m sorry <<$pcs_nickname>>, but you are not an adult. I need her permission to treat you. And I can''t lie on a referral... that''s fraud! Do you have any idea how much trouble I could get into?"'
 					end
+
 					act 'Offer him money':gt 'gpoli', 'spravka_money'
 					act 'Try to negotiate':gt 'gpoli', 'spravka_arrange'
 					act 'Just accept the referral as is':gt 'gpoli', 'badend'
 				end
 			end
 		end
+		
 		act 'Admit you''re no virgin':
-			cls
+			*clr & cla
 			minut += 5
 			gs 'stat'
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/gpoli_1.jpg"></center>'
@@ -791,6 +783,7 @@ if $ARGS[0] = 'referral':
 				'You continue: "But... my <<$npc_nickname[''A29'']>> thinks I''m still a virgin, and I would really like to keep it that way. Could you please help me?"'
 				'He nods again and says: "I see what you''re getting at. I might be able to help you, but I''m running a big risk by doing that. What''s in it for me?"'
 			end
+			
 			act 'Offer him money':gt 'gpoli', 'spravka_money'
 			act 'Try to negotiate':gt 'gpoli', 'spravka_arrange'
 			act 'Just accept the referral as is':gt 'gpoli', 'badend'
@@ -799,7 +792,7 @@ if $ARGS[0] = 'referral':
 end
 
 if $ARGS[0] = 'gynoblow':
-	cls
+	*clr & cla
 	if gpoli_doctorhavesex = 0:gpoli_doctorhavesex = 1 & guy += 1
 	if $ARGS[1] = 'referral_blow':
 		Gspravka = 30
@@ -817,7 +810,7 @@ if $ARGS[0] = 'gynoblow':
 	gs 'stat'
 
 	act 'Let him cum in your mouth':
-		cls
+		*clr & cla
 		minut += 5
 		pcs_horny += 5
 		gs 'boyStat', 'A68'
@@ -831,7 +824,7 @@ if $ARGS[0] = 'gynoblow':
 		'Then he lets out a satisfied sigh and begins to put his clothes back on, as if nothing happened.'
 
 		act 'Get dressed too':
-			cls
+			*clr & cla
 			minut += 5
 			gs 'stat'
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/sex/gpoli_15.jpg"></center>'
@@ -848,7 +841,7 @@ if $ARGS[0] = 'gynoblow':
 end
 
 if $ARGS[0] = 'badend':
-	cls
+	*clr & cla
 	minut += 5
 	gs 'stat'
 	Gspravka = 30
@@ -858,14 +851,14 @@ if $ARGS[0] = 'badend':
 	'You sigh, understanding that there''s nothing you can (or would be willing to) do to change his mind. Your gynaecologist takes an empty form from the pile and fills it out, stating that you are not a virgin. He presses his stamp onto it and offers it to you with a disappointed look in his eyes.'
 	'Dejectedly, you take it from him and get ready to leave. How are you going to tell your mother?'
 	if $loc = 'kuhrPar':
-		act 'leave': gt 'mother', 'referral'
+		act 'Leave': gt 'mother', 'referral'
 	else
-		act 'Leave':gt 'gpoli'
+		act 'Leave': gt 'gpoli'
 	end
 end
 
 if $ARGS[0] = 'spravka_arrange':
-	cls
+	*clr & cla
 	minut += 5
 	gs 'stat'
 	if gpoliuborka = 2:
@@ -884,7 +877,7 @@ if $ARGS[0] = 'spravka_arrange':
 		'He smirks at you and mutters: "I understand why you are no longer a virgin, you little minx! So eager to please..."'
 		'Your face is at the same level as his crotch, and he slowly undoes his pants and drops them to his ankles. His erect cock is pointing at you eagerly, a bead of precum slowly dripping down from it. You can tell he wants you badly.'
 		act 'Grab a referral form and run out of the room':
-			cls
+			*clr & cla
 			Gspravka = 30
 			GspravkaT = 1
 			Gspassed = 1
@@ -895,7 +888,7 @@ if $ARGS[0] = 'spravka_arrange':
 		end
 	end
 	act 'You really don''t want your mother to find out...':
-		cls
+		*clr & cla
 		minut += 5
 		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/sex/gpoli_6.jpg"></center>'
@@ -904,9 +897,9 @@ if $ARGS[0] = 'spravka_arrange':
 		'You lick the tip of his cock teasingly. It''s a nice cock for sure, and the thought of servicing it even turns you on a little. Just because he more or less blackmailed you into doing this, that doesn''t mean you can''t enjoy yourself at the same time...'
 		'You slowly envelop his cock with your mouth, and begin to suck the head. After a minute or two you feel his hand at the back of your head. You want to raise your head and ask him what he wants, but he forces you to stay where it is and slowly pushes his hips forward, making you take more and more of his rod inside your mouth.'
 		act 'Give him a blowjob':
-			cls
-			if gpoli_doctorhavesex = 0:gpoli_doctorhavesex = 1 & guy += 1
 			if venera > 0:gt 'gpoli', 'gynoblow', 'referral_blow'
+			*clr & cla
+			if gpoli_doctorhavesex = 0:gpoli_doctorhavesex = 1 & guy += 1
 			gs 'stat'
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/sex/gpoli_7.jpg"></center>'
 			'You want to move back, but there is nowhere to go. His stiff cock is in front of you, and his powerful hand on the back of your head pulling you in closer. The masculine smell of his throbbing cock fills your nose as you breathe and you have to admit, it excites you!'
@@ -920,7 +913,7 @@ if $ARGS[0] = 'spravka_arrange':
 			gs 'stat'
 
 			act 'Continue':
-				cls
+				*clr & cla
 				gs 'stat'
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/sex/gpoli_8.jpg"></center>'
 				'You can feel your arousal rising when his body touches yours. As dr. Petrovich keeps massaging your clitoris with his cockhead, you can feel your juices start to leak from your swollen pussy and run down your quivering thighs. You can hear the wet squelching, as he plows his throbbing cock between your soaking wet pussy lips. You close your eyes for a moment as you feel him push against your sopping wet cunt... it feels so good!'
@@ -930,7 +923,7 @@ if $ARGS[0] = 'spravka_arrange':
 				gs 'stat'
 
 				act 'Let him fuck you':
-					cls
+					*clr & cla
 					pcs_vag += 1
 					gs 'boyStat', 'A68'
 					cumprecheck = 1
@@ -946,7 +939,7 @@ if $ARGS[0] = 'spravka_arrange':
 					gs 'arousal', 'vaginal', 5, 'sub'
 					gs 'stat'
 					act 'Sex on the table':
-						cls
+						*clr & cla
 						gs 'stat'
 						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/sex/gpoli_10.jpg"></center>'
 						'Again he starts with short thrusts but soon picks up the pace. Your body is no longer under your control as you feel your hips rising to meet his thrusts, an electric shock coursing through your body. Everything ceases to exist, except for the wonderful feeling of his hard throbbing shaft moving in and out of your <<age>> year old pussy. Again, you feel the overwhelming power of an orgasm come closer and closer.'
@@ -963,7 +956,7 @@ if $ARGS[0] = 'spravka_arrange':
 						gs 'stat'
 
 						act 'He fucks your ass':
-							cls
+							*clr & cla
 							pcs_ass += 1
 							gs 'stat'
 							'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/sex/gpoli_11.jpg"></center>'
@@ -977,7 +970,7 @@ if $ARGS[0] = 'spravka_arrange':
 							gs 'stat'
 
 							act 'Sex on the floor':
-								cls
+								*clr & cla
 								gs 'stat'
 								'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/sex/gpoli_12.jpg"></center>'
 								'To your surprise he ignores your butt for now, and drives his penis into your cunt instead when he gets down behind you. He fucks you with short, rough strokes... almost as if he''s fucking the annoyance out of his system. It doesn''t feel very pleasant at first, but soon you begin to moan and enjoy the feeling again when your body begins to relax.'
@@ -987,7 +980,7 @@ if $ARGS[0] = 'spravka_arrange':
 								gs 'stat'
 
 								act 'Anal again':
-									cls
+									*clr & cla
 									gs 'stat'
 									'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/sex/gpoli_13.jpg"></center>'
 									'Now that you''re so aroused, the anal sex doesn''t hurt quite as much. You furiously rub your clit while he pounds your stretched asshole roughly, slowly losing your mind when a second orgasm hits you. Dr. Petrovich must feel your anus contracting around his cock when you cum with it inside you.'
@@ -998,7 +991,7 @@ if $ARGS[0] = 'spravka_arrange':
 									gs 'stat'
 
 									act 'Let him cum in your mouth':
-										cls
+										*clr & cla
 										minut += 5
 										pcs_horny += 5
 										gs 'boyStat', 'A68'
@@ -1012,7 +1005,7 @@ if $ARGS[0] = 'spravka_arrange':
 										'Then he lets out a satisfied sigh and begins to put his clothes back on, as if nothing happened.'
 
 										act 'Get dressed':
-											cls
+											*clr & cla
 											minut += 5
 											gs 'stat'
 											'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/sex/gpoli_15.jpg"></center>'
@@ -1026,9 +1019,9 @@ if $ARGS[0] = 'spravka_arrange':
 											gs 'arousal', 'end'
 											gs 'stat'
 											if $loc = 'kuhrPar':
-												act 'leave': gt 'mother', 'referral'
+												act 'Leave': gt 'mother', 'referral'
 											else
-												act 'Leave':gt 'gpoli'
+												act 'Leave': gt 'gpoli'
 											end
 										end
 									end
@@ -1045,12 +1038,12 @@ if $ARGS[0] = 'spravka_arrange':
 		'You frown. You really don''t want to have sex with him, sex is what got you into this whole mess in the first place! You try one more time: "I can''t do that doctor. Please, show some compassion... could you give me a break, just this once? I just need some time to figure out how to tell my <<$npc_nickname[''A29'']>> about all this!"'
 		'His gaze is stone cold, without any sign of compassion. He says in an even tone: "So be it. Sorry <<$pcs_nickname>>, but that''s not how it works. I''m running a big enough risk as it is. If you''re not helping me, I''m not helping you."'
 		act 'Try to negotiate': gt 'gpoli', 'spravka_arrange'
-		act 'Just accept the referral as is':gt 'gpoli', 'badend'
+		act 'Just accept the referral as is': gt 'gpoli', 'badend'
 	end
 end
 
 if $ARGS[0] = 'spravka_money':
-	cls
+	*clr & cla
 	minut += 5
 	gs 'stat'
 
@@ -1061,7 +1054,7 @@ if $ARGS[0] = 'spravka_money':
 		'He continues: "The standard consultancy fee is 2,000 <b>₽</b>."'
 		if money >= 2000:
 			act 'Pay him the 2,000 <b>₽</b>':
-				cls
+				*clr & cla
 				minut += 5
 				money -= 2000
 				gs 'stat'
@@ -1088,7 +1081,7 @@ if $ARGS[0] = 'spravka_money':
 end
 
 if $ARGS[0] = 'spravka_money_pale':
-	cls
+	*clr & cla
 	minut += 5
 	gs 'stat'
 
@@ -1099,7 +1092,7 @@ if $ARGS[0] = 'spravka_money_pale':
 		'He continues: "The normal consultancy fee is 2,000 <b>₽</b>."'
 		if money >= 2000:
 			act 'Pay him the 2,000 <b>₽</b>':
-				cls
+				*clr & cla
 				minut += 5
 				money -= 2000
 				pcs_horny += 5
@@ -1125,7 +1118,7 @@ if $ARGS[0] = 'spravka_money_pale':
 end
 
 if $ARGS[0] = 'spravka_arrange_pale':
-	cls
+	*clr & cla
 	minut += 5
 	gs 'stat'
 	if gpoli_doctorhavesex = 1:
@@ -1142,7 +1135,7 @@ if $ARGS[0] = 'spravka_arrange_pale':
 		'The doctor puts his hands on your hips and smiles at you confidently as he says: "A beautiful girl like you always has other options."'
 		'He gropes your <<$titsize>> boobs for a while, before he moves his hands to his trousers and undoes his belt.'
 		act 'Run out of the office':
-			cls
+			*clr & cla
 			gs 'stat'
 			'In a panic, you grab your clothes and run out of the office. You know you can''t talk about this with anyone... if you say anything, dr. Petrovich would tell your <<$npc_nickname[''A29'']>> about your addiction. You quickly get dressed again in an empty examination room, wondering how you''re going to get out of this mess now.'
 			if $loc = 'kuhrPar':
@@ -1153,7 +1146,7 @@ if $ARGS[0] = 'spravka_arrange_pale':
 		end
 	end
 	act 'Do what you have to do':
-		cls
+		*clr & cla
 		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/sex/gpoli_6.jpg"></center>'
 		'You sigh and slowly slide down from chair, kneeling in front of the doctor. He undoes his trousers and lets them drop to his ankles, exposing his semi-hard penis. You grasp it in your hand and reluctantly begin to lick his member while rubbing your hand up and down the shaft. As his cock begins to get harder, you become fascinated by the changes to his manhood. You find yourself starting to get involved in pleasuring him... maybe this won''t be so bad after all. To your surprise, you think you might even be starting to enjoy the feel and taste of his hot flesh. You move your hand faster, still licking his now fully erect cock and his breathing slightly accelerates. You think maybe that''s it, maybe he''s about to come...'
@@ -1163,7 +1156,8 @@ if $ARGS[0] = 'spravka_arrange_pale':
 		gs 'stat'
 
 		act 'Give him a blowjob':
-			cls
+			if venera > 0:gt 'gpoli', 'gynoblow'
+			*clr & cla
 			if gpoli_doctorhavesex = 0:gpoli_doctorhavesex = 1 & guy += 1
 			gs 'stat'
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/sex/gpoli_7.jpg"></center>'
@@ -1178,7 +1172,7 @@ if $ARGS[0] = 'spravka_arrange_pale':
 			gs 'stat'
 
 			act 'Continue':
-				cls
+				*clr & cla
 				gs 'stat'
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/sex/gpoli_8.jpg"></center>'
 				'You can feel your arousal rising when his body touches yours. As dr. Petrovich keeps massaging your clitoris with his cockhead, you can feel your juices start to leak from your swollen pussy and run down your quivering thighs. You can hear the wet squelching, as he plows his throbbing cock between your soaking wet pussy lips. You close your eyes for a moment as you feel him push against your sopping wet cunt... it feels so good!'
@@ -1188,7 +1182,7 @@ if $ARGS[0] = 'spravka_arrange_pale':
 				gs 'stat'
 
 				act 'Let him fuck you':
-					cls
+					*clr & cla
 					pcs_vag += 1
 					gs 'stat'
 					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/sex/gpoli_9.jpg"></center>'
@@ -1202,7 +1196,7 @@ if $ARGS[0] = 'spravka_arrange_pale':
 					gs 'stat'
 
 					act 'Sex on the table':
-						cls
+						*clr & cla
 						gs 'stat'
 						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/sex/gpoli_10.jpg"></center>'
 						'Again he starts with short thrusts but soon picks up the pace. Your body is no longer under your control as you feel your hips rising to meet his thrusts, an electric shock coursing through your body. Everything ceases to exist, except for the wonderful feeling of his hard throbbing shaft moving in and out of your <<age>> year old pussy. Again, you feel the overwhelming power of an orgasm come closer and closer.'
@@ -1219,7 +1213,7 @@ if $ARGS[0] = 'spravka_arrange_pale':
 						gs 'stat'
 
 						act 'He fucks your ass':
-							cls
+							*clr & cla
 							pcs_ass += 1
 							gs 'stat'
 							'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/sex/gpoli_11.jpg"></center>'
@@ -1233,7 +1227,7 @@ if $ARGS[0] = 'spravka_arrange_pale':
 							gs 'stat'
 
 							act 'Sex on the floor':
-								cls
+								*clr & cla
 								gs 'stat'
 								'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/sex/gpoli_12.jpg"></center>'
 								'To your surprise he ignores your butt for now, and drives his penis into your cunt instead when he gets down behind you. He fucks you with short, rough strokes... almost as if he''s fucking the annoyance out of his system. It doesn''t feel very pleasant at first, but soon you begin to moan and enjoy the feeling again when your body begins to relax.'
@@ -1243,7 +1237,7 @@ if $ARGS[0] = 'spravka_arrange_pale':
 								gs 'stat'
 
 								act 'Anal again':
-									cls
+									*clr & cla
 									gs 'stat'
 									'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/sex/gpoli_13.jpg"></center>'
 									'Now that you''re so aroused, the anal sex doesn''t hurt quite as much. You furiously rub your clit while he pounds your stretched asshole roughly, slowly losing your mind when a second orgasm hits you. Dr. Petrovich must feel your anus contracting around his cock when you cum with it inside you.'
@@ -1254,7 +1248,7 @@ if $ARGS[0] = 'spravka_arrange_pale':
 									gs 'stat'
 
 									act 'Let him cum in your mouth':
-										cls
+										*clr & cla
 										minut += 5
 										pcs_horny += 5
 										gs 'boyStat', 'A68'
@@ -1268,7 +1262,7 @@ if $ARGS[0] = 'spravka_arrange_pale':
 										'Then he lets out a satisfied sigh and begins to put his clothes back on, as if nothing happened.'
 
 										act 'Get dressed':
-											cls
+											*clr & cla
 											minut += 5
 											gs 'stat'
 											'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/gyno/sex/gpoli_15.jpg"></center>'
@@ -1298,8 +1292,9 @@ end
 
 if $ARGS[0] = 'maternity_ward':
 	pcs_know_mward = 1
-	*clr
-	cla
+	$menu_arg = $ARGS[0]
+	menu_off = 0
+	*clr & cla
 	gs 'stat'
 	minut += 5
 	if hour >= 6 and hour <= 20:
@@ -1308,14 +1303,13 @@ if $ARGS[0] = 'maternity_ward':
 		if lactate > 0 and pcs_gpolimilkdonation = 3:
 			act 'Talk to the nurse (0:05)':
 				gs 'stat'
-				*clr
-				cla
-				minute += 5
+				*clr & cla
+				menu_off = 1
+				minut += 5
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/old_nurse.jpg"></center>'
 				'Nurse: Hello <<$pcs_firstname>>, how can I help you?'
 				act 'Donate your breast milk (0:15)':
-					*clr
-					cla
+					*clr & cla
 					milkedvolume = 0
 					pcs_gpoli_donationsessioncount = 0
 					!!if rand(0,100) = 95 and orphanfeed = 0:
@@ -1327,8 +1321,7 @@ if $ARGS[0] = 'maternity_ward':
 					!!	'It seems like there is a crib with a baby inside in this room, too.'
 					!!end
 					act 'have your breasts pumped':
-						*clr
-						cla
+						*clr & cla
 						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/pump_room.jpg"></center>'
 						'You sit down and take off your top.'
 						if lactatemv > lactatemm*8/10:
@@ -1348,8 +1341,7 @@ if $ARGS[0] = 'maternity_ward':
 					end
 				end
 				act 'Check your file (0:05)':
-					*clr
-					cla
+					*clr & cla
 					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/formular.jpg"></center>'
 					'The nurse hands you a file on how much you have donated so far.'
 					'<br>----------------------------------------'
@@ -1381,8 +1373,8 @@ if $ARGS[0] = 'maternity_ward':
 		if lactate > 0 and lactatemv > lactatemm/8 and pcs_gpolimilkdonation <= 2:
 			'<br><br><center>One of the nurses looks at you suspiciously.<center>'
 			act 'Talk to the nurse (0:05)':
-				*clr
-				cla
+				*clr & cla
+				menu_off = 1
 				minut += 5
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/old_nurse.jpg"></center>'
 				if preg >= 0 and pregtimes > 0 and pcs_gpolimilkdonation <= 0:
@@ -1424,9 +1416,8 @@ if $ARGS[0] = 'maternity_ward':
 				end
 				if pcs_gpolimilkdonation < 1: pcs_gpolimilkdonation = 1
 				if pcs_gpolimilkdonation < 2:
-					act 'explain yourself':
-						*clr
-						cla
+					act 'Explain yourself':
+						*clr & cla
 						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/old_nurse.jpg"></center>'
 						if preg = 0 and pregtimes = 0:
 							pcs_gpolimilkdonation = 2
@@ -1445,8 +1436,7 @@ if $ARGS[0] = 'maternity_ward':
 							'Nurse: So, what do you think?'
 							pcs_gpolimilkdonation = 2
 							act 'give it a try (0:15)':
-								*clr
-								cla
+								*clr & cla
 								minut += 15
 								pcs_gpolimilkdonation = 3
 								'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/pump_room.jpg"></center>'
@@ -1513,9 +1503,8 @@ if $ARGS[0] = 'maternity_ward':
 								end
 								act 'Leave':gt 'gpoli'
 							end
-							act 'deny to donate':
-								*clr
-								cla
+							act 'Deny to donate':
+								*clr & cla
 								'You deny to donate your breast milk. The nurse looks sad at you and let you leave.'
 								act 'Leave':gt 'gpoli'
 							end
@@ -1530,9 +1519,8 @@ if $ARGS[0] = 'maternity_ward':
 							'You look at her with wide eyes.'
 							'Nurse: So, what do you think?'
 							pcs_gpolimilkdonation = 2
-							act 'give it a try (0:15)':
-								*clr
-								cla
+							act 'Give it a try (0:15)':
+								*clr & cla
 								minut += 15
 								pcs_gpolimilkdonation = 3
 								'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/pump_room.jpg"></center>'
@@ -1599,9 +1587,8 @@ if $ARGS[0] = 'maternity_ward':
 								end
 								act 'Leave':gt 'gpoli'
 							end
-							act 'deny to donate':
-								*clr
-								cla
+							act 'Deny to donate':
+								*clr & cla
 								'You deny to donate your breast milk. The nurse looks sad at you and let you leave.'
 								act 'Leave':gt 'gpoli'
 							end
@@ -1609,8 +1596,7 @@ if $ARGS[0] = 'maternity_ward':
 					end
 				elseif pcs_gpolimilkdonation = 2:
 					act 'Offer to donate your breast milk (0:15)':
-					*clr
-						cla
+						*clr & cla
 						minut += 15
 						pcs_gpolimilkdonation = 3
 						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/mward/pump_room.jpg"></center>'
@@ -1691,7 +1677,7 @@ if $ARGS[0] = 'maternity_ward':
 				act 'Leave':gt 'gpoli'
 			end
 		end
-		act 'leave':gt 'gpoli'
+		act 'Leave':gt 'gpoli'
 	else
 		'The clinic is closed. It''s open every day between 06:00 and 21:00.'
 		act 'Leave':minut += 5 & gt 'pavCommercial'
@@ -1699,8 +1685,8 @@ if $ARGS[0] = 'maternity_ward':
 end
 
 if $ARGS[0] = 'reception':
-	*clr
-	cla
+	*clr & cla
+	menu_off = 1
 	minut += 2
 	gs 'stat'
 	'You walk up to the reception and ask for help with your problem'
@@ -1711,8 +1697,8 @@ if $ARGS[0] = 'reception':
 end
 
 if $ARGS[0] = 'maternity_ward_donation':
-	*clr
-	cla
+	*clr & cla
+	menu_off = 1
 	gs 'stat'
 	if hour >= 6 and hour <= 20:
 		nipple_cream = 1
@@ -1723,9 +1709,8 @@ if $ARGS[0] = 'maternity_ward_donation':
 		else
 			'Your nipples are worked by the pumps, pumping your milk out, you feel the pressure in your breasts easing down. Then your breasts tingle from the milk production as the pump demands more of your milk.'
 		end
-		act 'continue':
-			*clr
-			cla
+		act 'Continue':
+			*clr & cla
 			milkedvolume = func('lact_lib','$get_breastmilk', 4, 15)
 			breastpumped += 4
 			'After 15 minutes, the nurse detaches the pumps from your breasts.'
@@ -1762,8 +1747,7 @@ if $ARGS[0] = 'maternity_ward_donation':
 				'Nurse: Looks like you could go for a another pumping...shall we?'
 				act 'have your breasts pumped again': gt 'gpoli', 'maternity_ward_donation'
 				act 'enough for today':
-					*clr
-					cla
+					*clr & cla
 					gs 'stat'
 					if pcs_gpoli_donationsessioncount > 0:
 						'You put on your top, and the nurse hands you <<mward_donatemoney>><b>₽</b> for your donated breast milk.'
@@ -1778,8 +1762,7 @@ if $ARGS[0] = 'maternity_ward_donation':
 			else
 				act 'ask to donate more': gt 'gpoli', 'maternity_ward_donation'
 				act 'enough for today':
-					*clr
-					cla
+					*clr & cla
 					gs 'stat'
 					if pcs_gpoli_donationsessioncount > 0:
 						'You put on your top, and the nurse hands you <<mward_donatemoney>><b>₽</b> for your donated breast milk.'
@@ -1802,5 +1785,43 @@ if $ARGS[0] = 'maternity_ward_donation':
 		act 'Leave':minut += 5 & gt 'pavCommercial'
 	end
 end
+
+if $ARGS[0] = 'std_check':
+	if GerpesOnce = 1:
+		'He continues: "You have genital herpes. Unfortunately, the complete cure for this disease is very expensive and we can''t cure it here. On the upside, herpes is dormant most of the time and is quite manageable, if you take good care of your body. When it is dormant, taking vitamins regularly will make sure it won''t show itself."'
+				
+		if Gerpes >= 3:
+			if GerpesNapr = 0:GerpesNapr = 3 & '"Your herpes is currently active. I''m going to put you on a course of herpes shots, in order to suppress it into its dormant state. You''ll need a total of 3 injections (no more than 1 a day), each injection will cost 450 <b>₽</b>."'
+			if GerpesNapr > 0:'You need to see the nurse for your herpes drug injection.'
+		else
+			'Your herpes is currently in a dormant state.'
+		end
+	end
+
+	if SifacOnce = 1:
+		'He continues: "You have syphilis. Unfortunately, the complete cure for this disease is very expensive and we can''t cure it here. It can be suppressed with a recently developed drug therapy, but it won''t cure you completely. It''s also fairly expensive already."'
+
+		if Sifilis < 15:
+			'Your syphilis is in an inactive stage. Nothing more can be done currently.'
+		elseif Sifilis >= 15:
+			if SifNapr = 0:SifNapr = 10 & '"I''m going to put you on a course of syphilis inhibiting drugs. You''ll need a total of 10 injections (no more than 1 a day), each injection will cost 1,000 <b>₽</b>."'
+			if SifNapr > 0:'You need to see the nurse for your syphilis drug injection.'
+		end
+	end
+
+	if TriperOnce = 1:
+		'He continues: "We found gonorrhea. Fortunately, we can cure this disease."'
+		if TriperNapr = 0:TriperNapr = 5 & '"I''m going to put you on a course of gonorrhea injections. You''ll need a total of 5 injections (no more than 1 a day), each injection will cost 750 <b>₽</b>."'
+		if TriperNapr > 0:'You need to see the nurse for your gonorrhea injections.'
+	end
+
+	if KandidozOnce = 1:
+		'He continues: "You have thrush. Unfortunately, the complete cure for this disease is very expensive and we can''t cure it here. On the upside, thrush is not that harmful and can be treated easily to the point where it won''t trouble you. When it is dormant, taking vitamins regularly will make sure it won''t show itself."'
+
+		if KandidNapr = 0:KandidNapr = 1 & '"The pills are available at the pharmacy, across the street."'
+		if Kandidoz < 30:'Your thrush is currently in remission. If you take vitamins daily, it will stay that way.'
+	end	
+end
+
 --- gpoli ---------------------------------
 

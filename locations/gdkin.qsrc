@@ -5,6 +5,9 @@ if $ARGS[0] = '':
 	$metka = ''
 	$loc = 'gdkin'
 	$location_type = 'public_indoors'
+	$menu_loc = 'gdkin'
+	$menu_arg = ''
+	menu_off = 0
 	boynumBlock = 0
 	gs 'stat'
 	if night_mode = 1:

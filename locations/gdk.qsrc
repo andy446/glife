@@ -7,7 +7,7 @@ $location_type = 'public_outdoors'
 gs 'stat'
 '<center><b><font color="maroon">Community Centre</font></b></center>'
 
-act 'Leave':gt 'pavResidential'
+act 'Leave': minut += 2 & gt 'pavResidential'
 
 if hour >= 20 and hour <= 23 and week >= 5 and week < 7:
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/dk_night.jpg"></center>'

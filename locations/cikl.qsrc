@@ -177,10 +177,10 @@ if succubusflag = 1:
 	if bimbolevel > 0 and bimbo > 0: bimbowithdrawal = 40
 elseif bimbolevel >= 1:
 !!Checks how often sex has occured in the last 24 hours and for drops in bimbo score, for calculating withdrawal
-	if 3 > snapshotY + snapshotX - (stat['vaginal'] + stat['bj'] + stat['anal']):
-		bimbowithdrawal = 0
-	else
+	if 4 > snapshotY + (stat['vaginal'] + stat['bj'] + stat['anal']) - snapshotX:
 		bimbowithdrawal += 1
+	else
+		bimbowithdrawal = 0
 	end
 end
 

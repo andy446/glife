@@ -620,7 +620,7 @@ if $ARGS[0] = 'bed':
 	*clr
 	gs 'stat'
 	if AnushkaLoc = 2:
-		'<center><img src="images/locations/pavlovsk/resident/apartment/anushapt/nushbed.jpg"></center>'
+		'<center><img src="images/locations/pavlovsk/resident/apartment/anushapt/anushroom/nushbed.jpg"></center>'
 		'Anushka sits on her bed and waves you over to sit next to her. You quickly jump up on the bed next to her.'
 		act 'Chat': gt 'anushapt', 'chat'
 	else

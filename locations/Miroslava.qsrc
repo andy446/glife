@@ -220,6 +220,23 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 
 				act 'Continue':gt 'meadow'
 			end
+		elseif meadow = 2 and MiraLoc ! 3:
+			act 'Offer to go to the Meadow':
+				*clr & cla
+				minut += 30
+				npc_rel['A60'] += 2
+				MiraLoc = 2
+				mira_guest = 0
+				if ($clothingworntype = 'nude' or $clothingworntype = 'swimwear'):
+					gs 'clothing', 'wear', $lastwornclothingtype, lastwornclothingnumber
+					gs 'underwear', 'wear'
+				end
+				gs 'stat'
+				'<center><img <<$set_imgh>> src="images/characters/village/mira/girls_go.jpg"></center>'
+				'You lead Mira once again through the thickets to the hidden meadow and all the way she talks about everything and anything.'
+
+				act 'Continue':gt 'meadow'
+			end
 		end
 
 		if (meadow = 3 or meadow = 6) and hour >= 8 and hour < 19 and MiraLoc ! 2 and MiraLoc ! 3 and sunWeather = 1:

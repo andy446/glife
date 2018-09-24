@@ -28,6 +28,7 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 	!125e
 
 	if MiraLoc = 2:
+		act 'Talk to Mira': gt 'Meadow', 'Mira'
 		'<a href="exec: gt ''Meadow'', ''Mira''">Mira</a> is in the meadow and is spinning with a delightful smile and laughing.'
 	elseif Mira_no = 0:
 		temp_md = 20

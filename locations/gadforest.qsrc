@@ -4,8 +4,8 @@ if $ARGS[0] = '1':
 	PC_arrive = iif($loc ! 'Miroslava', 1 , 0)
 	!out skirt
 	$location_type = 'secluded'
-	$metka = $ARGS[0]
-	$loc = $CURLOC
+	$metka = '1'
+	$loc = 'gadforest'
 	clothesAtLocation = FUNC('lost_clothes_here',$CURLOC)
 	gs 'gadukino_event', 'sound'
 	*clr & cla
@@ -262,8 +262,8 @@ end
 if $ARGS[0] = '2':
 	$location_type = 'secluded'
 	!inside
-	$metka = $ARGS[0]
-	$loc = $CURLOC
+	$metka = '2'
+	$loc = 'gadforest'
 	gs 'gadukino_event', 'sound'
 	*clr & cla
 	gs'stat'
@@ -363,8 +363,8 @@ end
 if $ARGS[0] = '3':
 	!deep forest
 	$location_type = 'secluded'
-	$metka = $ARGS[0]
-	$loc = $CURLOC
+	$metka = '3'
+	$loc = 'gadforest'
 	gs 'gadukino_event', 'sound'
 	*clr & cla
 	gs'stat'
@@ -439,8 +439,8 @@ end
 if $ARGS[0] = '4':
 	!near swamp
 	$location_type = 'secluded'
-	$metka = $ARGS[0]
-	$loc = $CURLOC
+	$metka = '4'
+	$loc = 'gadforest'
 	gs 'gadukino_event', 'sound'
 	*clr & cla
 	gs'stat'

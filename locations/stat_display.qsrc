@@ -166,7 +166,7 @@ if StoryLine > 0 and SchoolAtestat = 0 and $holyday ! '': $stat_msg += '<BR><<$h
 if birthday = day and birthmonth = month: $stat_msg += '<BR><b>Today is your birthday.</b>' & $stat_msg += '<BR>'
 
 !New icon based menu.
-!if menu_off = 0: 
+!if menu_off = 0:
 	$stat_msg += '<table><tr><td><a href="exec:killvar ''menu_page'' & gs ''obj_din'', ''description''"><img src="images/system/menu icons/icon_character.png"></a></td><td><a href="exec:killvar ''menu_page'' & gs ''obj_din'', ''face''"><img src="images/system/menu icons/icon_lookself.png"></a></td>'+iif(bag > 0,'<td><a href="exec:gs ''din_bad'', ''d_bag''"><img src="images/system/menu icons/icon_purse.png"></a></td>','')+'<td><a href="exec:gs ''telefon'',''Phone_menu''"><img src="images/system/menu icons/icon_phone.png"></a></td><td><a href="exec:gs ''obj_din'', ''records''"><img src="images/system/menu icons/icon_additional.png"></a></td><td><a href="exec:killvar ''menu_page'' & gs''$menu_setting''"><img src="images/system/menu icons/icon_menu.png"></a></td></tr></table>'
 !elseif menu_off = 1: disabled for now.
 	!$stat_msg += '<table><tr><td><a href="exec:killvar ''menu_page'' & gs ''obj_din'', ''menu_disabled''"><img src="images/system/menu icons/icon_character.png"></a></td><td><a href="exec:killvar ''menu_page'' & gs ''obj_din'', ''menu_disabled''"><img src="images/system/menu icons/icon_lookself.png"></a></td>'+iif(bag > 0,'<td><a href="exec:gs ''obj_din'', ''menu_disabled''"><img src="images/system/menu icons/icon_purse.png"></a></td>','')+'<td><a href="exec:gs ''telefon'',''Phone_menu''"><img src="images/system/menu icons/icon_phone.png"></a></td><td><a href="exec:gs ''obj_din'', ''menu_disabled''"><img src="images/system/menu icons/icon_additional.png"></a></td><td><a href="exec:killvar ''menu_page'' & gs''obj_din'', ''menu_disabled''"><img src="images/system/menu icons/icon_menu.png"></a></td></tr></table>'
@@ -1089,10 +1089,18 @@ elseif $pantyworntype = 'none' and $clothingworntype ! 'swimwear':
 		else
 			$stat_msg += '<BR><b><font color="red">Your face is flushed with shame, you are not wearing panties and your naked ass flashes from under your short skirt.</font></b>'
 		end
+	elseif PCloPants > 0:
+		if $braworntype = 'none':
+			$stat_msg += '<BR><b><font color="red">You aren''t wearing underwear, and your bare pussy is rubbing against your clothing.</font></b>'
+		else
+			$stat_msg += '<BR><b><font color="red">You aren''t wearing panties, and your bare pussy is rubbing against your clothing.</font></b>'
+		end
 	elseif $clothingworntype ! 'nude':
 		$stat_msg += '<BR><b><font color="red">You are not wearing panties.</font></b>'
 	elseif towel = 1:
 		$stat_msg += '<BR><b><font color = red>Your naked body is covered only by a short towel.</font></b>'
+	elseif $braworntype = 'none':
+		$stat_msg += '<BR><b><font color = red>You are not wearing any underwear.</font></b>'
 	end
 elseif PCloBimbo = 1 and cheatBimbo = 0:
 	$stat_msg += '<BR><b><font color = #FF00FF>You are dressed as a bimbo</font></b>'
@@ -1248,7 +1256,7 @@ if StoryLine = 1:
 	if nerd_night_game = 1 and nerd_night_game_day = daystart and hour > 15 and hour < 21: $stat_msg += '<BR><b>Join nerds at the community center at eight</b>'
 	if InvitationToDimkaNYparty = 1 and month = 12 and day = 31: $stat_msg += '<BR><b>Go to the residential area between 15:00 and 18:00 to go to Dimka''s New Year party.</b>'
 end
-	
+
 if home_owned[1] = 1 and home_owned[4] > 0:
 	$stat_msg += '<BR>You have rented an apartment in the city residential area, which is paid up for <b><<ArendHouseSL>></b> days, and you also have an apartment in Pushkin, which is paid up for <b><<ArendHouseSL4>></b> days. Utilities are due on the 25th of <<$month>>.'
 elseif home_owned[1] = 1:
@@ -1256,7 +1264,7 @@ elseif home_owned[1] = 1:
 elseif home_owned[4] > 0:
 	$stat_msg += '<BR>You have rented an apartment in Pushkin, and you''re paid up for <<ArendHouseSL4>> days. Utilities are due on the 25th of <<$month>>.'
 end
-	
+
 if model > 0 and model_week = (daystart - week) / 7 and model_job_week >= 2:
 	$stat_msg += '<BR><b>You have no more modelling jobs available this week.</b>'
 elseif model > 0 and model_week < (daystart - week) / 7 and model_job_week = 1:

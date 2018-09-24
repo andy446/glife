@@ -58,6 +58,9 @@ if $ARGS[0] = 'clothes':
 	elseif $clothingworntype = 'nude' and $pantyworntype = 'none':
 		$RESULT = 'images/pc/clothing/nude1.jpg'
 		$body_image_msg += 'You are completely naked.'
+	elseif $clothingworntype = 'cheap' and clothingwornnumber = 414:
+		$RESULT = FUNC('$clothing_image', $clothingworntype, clothingwornnumber)
+		$body_image_msg += 'You are wearing a hessian sack the hunters gave you.'
 	else
 		$RESULT = FUNC('$clothing_image', $clothingworntype, clothingwornnumber)
 		$body_image_msg += 'You are wearing ' + FUNC('$short_description', $clothingworntype, PCloStyle2) + '<<clothingwornnumber>>.'
@@ -97,7 +100,7 @@ if $ARGS[0] = 'panties':
 		$body_image_msg += 'You are not wearing any panties.'
 	else
 		$RESULT = FUNC('$panty_image', $pantyworntype, pantywornnumber)
-		!Kevin, please edit this line. I can not find panties description		
+		!Kevin, please edit this line. I can not find panties description
 		!$body_image_msg += 'You are wearing ' + FUNC('$shoe_description', $shoeworntype) + '<<shoewornnumber>>.'
 		$body_image_msg += 'You are wearing <<$pantyworntype>> panty <<pantywornnumber>>'
 	end
@@ -109,7 +112,7 @@ if $ARGS[0] = 'bra':
 		$body_image_msg += 'You are not wearing a bra. Your breasts would be considered an EU <<$titsize>>'
 	else
 		$RESULT = FUNC('$bra_image', $braworntype, brawornnumber)
-		!Kevin, please edit this line. I can not find bra description		
+		!Kevin, please edit this line. I can not find bra description
 		!$body_image_msg += 'You are wearing ' + FUNC('$shoe_description', $shoeworntype) + '<<shoewornnumber>>.'
 		$body_image_msg += 'You are wearing <<$braworntype>> bra <<brawornnumber>>. Your breasts would be considered an EU <<$titsize>>'
 	end

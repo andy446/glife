@@ -1,8 +1,8 @@
 # backwater
 
 $location_type = 'secluded'
-$metka = $ARGS[0]
-$loc = $CURLOC
+$metka = ''
+$loc = 'backwater'
 gs 'gadukino_event', 'sound'
 cls
 gs'stat'
@@ -23,7 +23,7 @@ if $clothingworntype = 'nude' and hantersKnowSlut = 0 and hanters = 1 and hour >
 			cls
 			minut += 5
 			gs 'underwear', 'wear'
-			gs 'clothing', 'recover_lost_clothes', $CURLOC, 1
+			gs 'clothing', 'recover_lost_clothes', 'backwater', 1
 
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/swampbackwaternude1.jpg"></center>'
 			'Noticing the hunter, you rush over to your clothes and begin dressing yourself in panic. As you get fully dressed, you look over your shoulder, expecting the hunter standing there, but there is no one there.'
@@ -86,7 +86,7 @@ if clothesAtLocation = 0:
 				else
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/backwaterundress.jpg"></center>'
 				end
-				gs 'clothing', 'strip', $CURLOC
+				gs 'clothing', 'strip', 'backwater'
 				'You do not hesitate getting undressed, not caring if anyone is watching.'
 				act'Back':gt'backwater'
 			else
@@ -103,7 +103,7 @@ else
 		act 'Pick up your clothes':
 			cla
 			*clr
-			gs 'clothing', 'recover_lost_clothes', $CURLOC
+			gs 'clothing', 'recover_lost_clothes', 'backwater'
 			'You pick up your clothes laying on the ground.'
 			gt $loc, $metka
 		end
@@ -111,7 +111,7 @@ else
 		act 'Get dressed':
 			cla
 			*clr
-			gs 'clothing', 'recover_lost_clothes', $CURLOC, 1
+			gs 'clothing', 'recover_lost_clothes', 'backwater', 1
 			gs 'underwear', 'wear'
 			'You pick up your clothes laying on the ground and get dressed.'
 			gt $loc, $metka
@@ -174,7 +174,7 @@ if $clothingworntype = 'nude':
 				*clr
 				minut += 5
 				clearclothes = 5
-				gs 'clothing','recover_lost_clothes',$CURLOC, 1
+				gs 'clothing','recover_lost_clothes','backwater', 1
 				gs 'clothing', 'strip', 'swamphouse'
 				if $clothingworntype = 'nude':
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/basinwash1.jpg"></center>'
@@ -191,7 +191,7 @@ if $clothingworntype = 'nude':
 					*clr
 					minut += 10
 					clearclothes = 3
-					gs 'clothing','recover_lost_clothes',$CURLOC, 1
+					gs 'clothing','recover_lost_clothes','backwater', 1
 					gs 'clothing', 'strip', 'clothesline_swamp'
 					if $clothingworntype = 'nude':
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/basinwash2.jpg"></center>'

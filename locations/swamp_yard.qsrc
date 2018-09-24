@@ -220,8 +220,7 @@ if hanterhelp = 2 and hantersKnow = 0:
 		act 'Take the hessian and walk away':
 			*clr & cla
 			hanterhelp = 0
-			swamp_clothes = 1
-			gs 'clothing', 'wear', $lastwornclothingtype, lastwornclothingnumber
+			gs 'clothing', 'swamp_clothes', 1
 			gs 'stat'
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/tkan_cloth.jpg"></center>'
 			'You thank them and quickly cover yourself with the piece of hessian... It''s not much but it''s at least better than nothing.'
@@ -230,8 +229,7 @@ if hanterhelp = 2 and hantersKnow = 0:
 		act 'Take the hessian and stay':
 			*clr & cla
 			hanterhelp = 0
-			swamp_clothes = 1
-			gs 'clothing', 'wear', $lastwornclothingtype, lastwornclothingnumber
+			gs 'clothing', 'swamp_clothes', 1
 			gs 'stat'
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/tkan_cloth.jpg"></center>'
 			'You thank them and quickly cover yourself with the piece of hessian... It''s not much but it''s at least better than nothing.'
@@ -400,7 +398,8 @@ if hour >= 8 and hour < 20:
 				act'Dress':
 					*clr & cla
 					minut+=5
-					swamp_clothes = 1
+					gs 'clothing', 'swamp_clothes', 1
+					gs 'stat'
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/tkan_cloth.jpg"></center>'
 					'You quickly rush inside the hut and hide behind a piece of hessian... It''s not much, but at least it''s better than nothing.'
 					act'Further':gt 'swamphouse'
@@ -1019,8 +1018,9 @@ if StoryLine = 1 and lost_girl > 0 and daystart > lost_girl:
 	minut += 150
 	lost_girl = 0
 	forest_lostday = 0
-	dirtyclothes = 0 & swamp_clothes = 0
+	dirtyclothes = 0
 	hanters = 0
+	gs 'clothing', 'swamp_clothes', 0
 	gs 'clothing', 'recover_lost_clothes', 'swamphouse', 1
 	gs 'stat'
 

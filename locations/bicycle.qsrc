@@ -16,7 +16,7 @@ if $ARGS[0] = 'sarai':
 	else
 		'You notice an old bike. It looks like it''s still in a good condition, you can probably ride it without any trouble.'
 	end
-		
+
 	if hour >= 6 and hour <= 20 and sunWeather = 1 and month >= 4 and month <= 10:
 		if findvelday ! daystart:
 			act 'Ride the bike (1:00)':
@@ -132,18 +132,18 @@ if $ARGS[0] = 'forest':
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/village/findvel.jpg"></center>'
 
 	act 'Bike to the village (0:25)':
-		dirtyclothes = 0 & swamp_clothes = 0
+		dirtyclothes = 0
+		gs 'clothing', 'swamp_clothes', 0
 		if $clothingworntype ! 'nude' or pcs_inhib > 50:
 			cls
 			pcs_mood += 10
 			findvel = 1
 			minut += 25
 			inhib_exp += 4
-			gs'stat'
-
 			gs 'bicycle', 'clothes_findvel'
 			'You ride your bike out of the forest and return to the village.'
 			gs 'bicycle', 'ridego', 'Gaddvor'
+			gs'stat'
 		else
 			cls
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/village/findvel_nude.jpg"></center>'
@@ -182,7 +182,8 @@ if $ARGS[0] = 'swamp':
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/village/findvel.jpg"></center>'
 
 	act 'Bike to the village (1:15)':
-		dirtyclothes = 0 & swamp_clothes = 0
+		dirtyclothes = 0
+		gs 'clothing', 'swamp_clothes', 0
 		if $clothingworntype ! 'nude' or pcs_inhib > 50:
 			cls
 			minut += 75
@@ -194,13 +195,11 @@ if $ARGS[0] = 'swamp':
 			findvel = 1
 			hanters = 0
 			inhib_exp += 4
-			gs'stat'
 			!gs'time'
-
 			gs 'bicycle', 'clothes_findvel'
 			'You ride your bike out of the swamp and return to the village.'
-
 			gs 'bicycle', 'ridego', 'Gaddvor'
+			gs'stat'
 		else
 			cls
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/village/findvel_nude.jpg"></center>'
@@ -214,12 +213,11 @@ if $ARGS[0] = 'swamp':
 		pcs_mood += 5
 		hanters = 0
 		findvel = 2
-		gs'stat'
 		!gs'time'
-
 		gs 'bicycle', 'clothes_findvel'
 		'You jump onto your bike and ride to the forest.'
 		gs 'bicycle', 'ridego', 'gadforest','1'
+		gs'stat'
 	end
 	act 'Put the bike aside': gt'swamp_yard'
 end

@@ -22,7 +22,7 @@ if $ARGS[0] = 'list':
 			gt 'wardrobe', 'start'
 		end
 	end
-	
+
 	'<center><a href="exec:gt ''clothing_QV'', ''list'', ''gm''"><img src="images/locations/city/citycenter/mall/GM.png"></a></center>'
 
 	if ARRSIZE('average') > 0:'<center><a href="exec:gt ''clothing_QV'', ''list'', ''kats''"><img src="images/locations/city/citycenter/mall/pussycat.png"></a></center>'
@@ -34,9 +34,9 @@ if $ARGS[0] = 'list':
 	if ARRSIZE('fetish') > 0 or ARRSIZE('burlesque') > 0:'<center><a href="exec:gt ''clothing_QV'', ''list'', ''sexshop''"><img src="images/locations/city/citycenter/sexshop/shop_name.png"></a></center>'
 
 	if ARRSIZE('exhibit') > 0:'<center><a href="exec:gt ''clothing_QV'', ''list'', ''exhibitshop''"><img src="images/locations/oldtown/exhibitshop/shop_name.png"></a></center>'
-	
+
 	if ARRSIZE('alternative') > 0:'<center><a href="exec:gt ''clothing_QV'', ''list'', ''dolls''"><img src="images/locations/city/island/dolls.png"></a></center>'
-	
+
 	if ARRSIZE('exercise') > 0:'<center><a href="exec:gt ''clothing_QV'', ''list'', ''sports''"><img src="images/locations/city/citycenter/mall/sports.png"></a></center>'
 
 	if $ARGS[1] = 'gm':
@@ -54,7 +54,7 @@ if $ARGS[0] = 'list':
 
 		i = 1
 		:loopcheap
-		if cheap[i] = 1: 
+		if cheap[i] = 1:
 			gs 'clothing_attributes', 'cheap', i
 			if CloInhibit <= pcs_inhib:
 				if CloStyle ! 5:
@@ -257,7 +257,7 @@ if $ARGS[0] = 'list':
 		'<center><table border=1><TH><a href="exec:gt ''clothing'', ''view_clothing_list'', ''wardrobe'', ''<<$ward_list_store>>''">Switch to wardrobe list</a></TH><TH><a href="exec:gt ''clothing'', ''view_clothing_list'', ''store'', ''<<$ward_list_store>>''">Switch to stored clothing list</a></TH><TH><a href="exec:gt ''clothing'', ''view_clothing_list'', ''unwanted'', ''<<$ward_list_store>>''">Switch to unwanted clothing list</a></TH></center></table>'
 		*nl
 		'<center>These are the clothes that are currently available for you to wear.</center><br>'
-		*nl	
+		*nl
 
 		i = 1
 		:loopalternative
@@ -371,7 +371,7 @@ if $ARGS[0] = 'strip':
 			gt 'clothing_QV', 'gym'
 		end
 	end
-	
+
 	act 'Leave': gt $loc, $metka
 end
 
@@ -381,7 +381,7 @@ if $ARGS[0] = 'change':
 	gs 'clothing_attributes', $ARGS[1], ARGS[2]
 	'<center><img src="<<FUNC(''$clothing_image'',  $ARGS[1], ARGS[2])>>"></center>'
 	if $ARGS[1] = 'cheap' and ARGS[2] = 414:
-		'A potato sack the hunters gave you.'
+		'A hessian sack the hunters gave you.'
 	else
 		$RESULT = FUNC('$short_description', $ARGS[1], CloStyle2)
 		$RESULT += '<<ARGS[2]>>'

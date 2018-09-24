@@ -95,24 +95,41 @@ if $ARGS[0] = '1':
 		act 'Dress':
 			cla
 			*clr
-			swamp_clothes = 0
 			minut += 5
+			gs 'clothing', 'swamp_clothes', 0
 			gs 'underwear', 'wear'
 			gs 'clothing', 'recover_lost_clothes', 'gadforest', 1
+			gs 'stat'
 			if CloSkirtShortness = 0:'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/nudeforest.jpg"></center>'
-			 if CloSkirtShortness > 0:'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/nudeforest1.'+rand(1,2)+'.jpg"></center>'
-			'You change into your clothes.'
+			if CloSkirtShortness > 0:'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/nudeforest1.'+rand(1,2)+'.jpg"></center>'
+			'You change back into your clothes.'
 			act 'Back': gt 'gadforest','1'
 		end
 	end
 	!if he had gone from the forest and put in another place
 	if clothesAtLocation = 1 and $clothingworntype ! 'nude':
-		act 'Pick up the abandoned clothing':
-			cla
-			*clr
-			gs 'clothing', 'recover_lost_clothes', 'gadforest'
-			'You pick up your clothes.'
-			act 'Back': gt 'gadforest','1'
+		if $clothingworntype = 'cheap' and clothingwornnumber = 414:
+			act 'Pick up the abandoned clothing':
+				cla
+				minut += 2
+				gs 'clothing', 'swamp_clothes', 0
+				gs 'clothing', 'recover_lost_clothes', 'gadforest', 1
+				gs 'stat'
+				*nl
+				'You pick up your abandoned clothing and change out of the hessian sack the hunters gave you.'
+				act 'Back': gt 'gadforest','1'
+			end
+		else
+			act 'Pick up the abandoned clothing':
+				cla
+				minut += 5
+				gs 'clothing', 'swamp_clothes', 0
+				gs 'clothing', 'recover_lost_clothes', 'gadforest'
+				gs 'stat'
+				*nl
+				'You pick up your abandoned clothing.'
+				act 'Back': gt 'gadforest','1'
+			end
 		end
 	end
 	if hour >= 6 and hour <= 20 and sunWeather = 1:
@@ -220,7 +237,8 @@ if $ARGS[0] = '1':
 		end
 	end
 	act 'Out of the woods':
-		dirtyclothes = 0 & swamp_clothes = 0
+		dirtyclothes = 0
+		gs 'clothing', 'swamp_clothes', 0
 		if $clothingworntype = 'nude':
 			if $CloLosTyp[$CURLOC] = '' or gadforest_clothestorn = 1:
 				!no cloth here, it must be broken. There may be a good exhibi or rape event entry point.
@@ -238,6 +256,7 @@ if $ARGS[0] = '1':
 		end
 	end
 	if rand(1,10)> 9: gs 'gadforest', 'torncloth'
+	gs 'stat'
 end
 
 if $ARGS[0] = '2':

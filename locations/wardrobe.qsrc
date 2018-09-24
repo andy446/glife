@@ -6,6 +6,10 @@ if $ARGS[0] = 'start':
 	PShoCut = ShoCut
 	PShoStyle = ShoStyle
 	$wloc = 'wardrobe'
+	if $clothingworntype = 'cheap' and clothingwornnumber = '414':
+		gs 'clothing', 'strip'
+		gs 'clothing', 'swamp_clothes', 0
+	end
 	if ward_img_hgt = 0:ward_img_hgt = 150
 	'<h3><center><b><font color="maroon">Wardrobe overview</b></h3><br><center><font color="maroon">These are the clothes you are currently wearing - Click on an item to change it</font></center>'
 	'<br><center><table border=0 cellspacing=<<ward_img_hgt/25>> cellpadding=5>'

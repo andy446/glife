@@ -36,7 +36,7 @@ $clothing_list_line = {
 	end
 
 	if $ARGS[1] = 'cheap' and ARGS[2] = 414:
-		$RESULT += '<TD>A potato sack the hunters gave you.</TD>'
+		$RESULT += '<TD>A hessian sack the hunters gave you.</TD>'
 	elseif $ARGS[1] ! 'coat' and $ARGS[1] ! 'swimwear':
 		gs 'clothing_descriptions'
 		$RESULT += '<TD><<FUNC(''$short_description'', $ARGS[1])>> <<ARGS[2]>><br/><br/><<$description>></TD>'
@@ -370,7 +370,7 @@ if $ARGS[0] = 'view_clothing_item':
 	$RESULT += '<<ARGS[3]>>'
 	'<<$RESULT>>'
 	if $ARGS[1] = 'cheap' and ARGS[2] = 414:
-		'A potato sack the hunters gave you.'
+		'A hessian sack the hunters gave you.'
 	elseif $ARGS[2] ! 'coat' and $ARGS[2] ! 'swimwear':
 		gs 'clothing_descriptions'
 		'<<$description>>'
@@ -833,5 +833,19 @@ if $ARGS[0] = 'wear_last_worn':
 	gs 'clothing', 'wear', $lastwornclothingtype, lastwornclothingnumber
 end
 
+if $ARGS[0] = 'swamp_clothes':
+	if ARGS[1] = 1:
+		cheap[414] = 1
+		cheapS[414] = 0
+		cheapH[414] = 100
+		cheapB[414] = pcs_hips
+		swamp_clothes = 1
+		gs 'clothing', 'wear', 'cheap', 414
+	end
+	if ARGS[1] = 0:
+		cheap[414] = 0
+		swamp_clothes = 0
+	end
+end
 --- clothing ---------------------------------
 

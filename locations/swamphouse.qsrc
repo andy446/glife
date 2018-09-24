@@ -19,7 +19,7 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 	end
 	hantslutsexrand = rand(1,3)
 	temp_sh = rand(1,5)
-	clothesAtLocation = FUNC('lost_clothes_here',$CURLOC)
+	clothesAtLocation = FUNC('lost_clothes_here','swamphouse')
 	clothesOnLine = FUNC('lost_clothes_here','clothesline_swamp')
 
 	'<center><H4>Hut</H4></center>'
@@ -88,18 +88,18 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 		end
 	end
 	!re-arrange it, there should be no logic error now by illume
-	if $clothingworntype ! 'nude' or swamp_clothes = 1:
+	if $clothingworntype ! 'nude' and clothesAtLocation = 0:
 		!have cloth, or rag on
 		act 'Undress':
 			if hantersKnowSlut > 0 or hanters = 0 or hanters = 1 and hour >= 8 and hour < 20 and hantersKnowSlut = 0:
 				cla
 				*clr
+				minut+=5
 				if $clothingworntype ! 'nude':
 					gs 'clothing', 'strip', 'swamphouse'
 				end
-				swamp_clothes = 0
 				gs 'underwear', 'remove'
-				minut+=5
+				gs 'stat'
 
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/swamphouseundress.jpg"></center>'
 				'Feeling the heat in the cabin, you start removing your clothes.'
@@ -117,9 +117,9 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 		!clothes are ready
 		if $clothingworntype = 'nude':
 			act 'Get dressed':
-				gs 'clothing', 'recover_lost_clothes', 'swamphouse', 1
-				swamp_clothes = 0
 				gs 'underwear', 'wear'
+				gs 'clothing', 'recover_lost_clothes', 'swamphouse', 1
+				gs 'stat'
 				gt 'swamphouse', 'start'
 			end
 		else
@@ -135,9 +135,9 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 		!clothes are ready
 		if $clothingworntype = 'nude':
 			act 'Get dressed':
-				gs 'clothing', 'recover_lost_clothes', 'clothesline_swamp', 1
-				swamp_clothes = 0
 				gs 'underwear', 'wear'
+				gs 'clothing', 'recover_lost_clothes', 'clothesline_swamp', 1
+				gs 'stat'
 				gt 'swamphouse', 'start'
 			end
 		else
@@ -155,8 +155,8 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 			gt 'selfplay', 'start'
 		end
 	end
-	if $clothingworntype = 'nude' and swamp_clothes = 0:
-		act 'Look for your clothes':
+	if ($clothingworntype = 'nude' and swamp_clothes = 0) or swamp_enema = 0:
+		act 'Look for some clothes':
 			cla
 			*clr
 			minut += 10
@@ -167,8 +167,8 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 				'You search for your clothes, but only manage to find an enema syringe... "What is this doing here?" you wonder.'
 				act 'Further': gt 'swamphouse', 'start'
 			else
-				swamp_clothes = 1
-				!gs 'clothing', 'wear', $lastwornclothingtype, lastwornclothingnumber
+				gs 'clothing', 'swamp_clothes', 1
+				gs 'stat'
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/swamphouse_tkancloth.jpg"></center>'
 				'You find a piece of hessian... "Well, at least it''s something." you say to yourself.'
 				act 'Back.': gt 'swamphouse', 'start'
@@ -423,7 +423,8 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 					cla
 					*clr
 					minut+=5
-					swamp_clothes = 1
+					gs 'clothing', 'swamp_clothes', 1
+					gs 'stat'
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/tkan_cloth.jpg"></center>'
 					'You look around searching for your clothes but can''t seem to find them, instead you hide behind a piece of hessian... It''s better than nothing.'
 					act 'Further': gt 'swamphouse', 'start'

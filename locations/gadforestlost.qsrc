@@ -6,9 +6,10 @@ if $ARGS[0] = 'forestrescue':
 	cls
 	minut += 150
 	lost_girl = 0
-	dirtyclothes = 0 & swamp_clothes = 0
+	dirtyclothes = 0
 	forest_lostday = 0
 	hanters = 0
+	gs 'clothing', 'swamp_clothes', 0
 	gs 'stat'
 
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/forester.jpg"></center>'
@@ -206,9 +207,11 @@ if $ARGS[0] = 'gadforestlostfinish':
 	'You look over and realize that you finally see lights shining from distnat houses, glad to get out of this alive you rush forward.'
 	!clear lost flags by illume, clear dirtyclothes flag by rachels
 	lost_girl = 0
-	dirtyclothes = 0 & swamp_clothes = 0
+	dirtyclothes = 0
 	forest_lostday = 0
 	hanters = 0
+	gs 'clothing', 'swamp_clothes', 0
+	gs 'stat'
 	if $clothingworntype = 'nude':
 		act 'Out of the woods':
 			minut += 25

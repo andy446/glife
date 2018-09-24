@@ -828,6 +828,8 @@ if $ARGS[0] = 'wear':
 end
 
 if $ARGS[0] = 'wear_last_worn':
+	!!contingency
+	if $lastwornclothingtype = '': $lastwornclothingtype = 'nude'
 	gs 'clothing', 'wear', $lastwornclothingtype, lastwornclothingnumber
 end
 

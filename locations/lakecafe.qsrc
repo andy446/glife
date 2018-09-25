@@ -1,4 +1,4 @@
- <b>₽</b># lakecafe
+# lakecafe
 
 if $ARGS[0] = 'main':
 	$metka = 'main'

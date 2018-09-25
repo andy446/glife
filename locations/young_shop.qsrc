@@ -90,7 +90,7 @@ if $ARGS[0] = 'start':
 		gt 'sell_young_clothes', 'start'
 	end
 
-	act 'View panties'
+	act 'View panties':
 		gt 'sell_young_clothes', 'panties'
 	end
 

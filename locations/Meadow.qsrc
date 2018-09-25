@@ -28,6 +28,7 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 	!125e
 
 	if MiraLoc = 2:
+		act 'Talk to Mira': gt 'Meadow', 'Mira'
 		'<a href="exec: gt ''Meadow'', ''Mira''">Mira</a> is in the meadow and is spinning with a delightful smile and laughing.'
 	elseif Mira_no = 0:
 		temp_md = 20
@@ -133,10 +134,8 @@ if $ARGS[0] = 'Mira':
 		'"What a wonderful place you have found, it''s so comfortable and sunny!"'
 		if pcs_horny >= 60 and npc_QW['A60'] > 15 and temper >= 20 and sunWeather = 1:
 			act 'Mira, come here and stick that tongue of your in my wet pussy!':
-				*clr & cla
 				if miralick = 0:miralick = 1 & girl += 1
 				! WD: missing horny adjust
-				gs 'stat'
 				if $pantyworntype ! 'none':
 					'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/miralick.jpg"></center>'
 					'Mira immediately sits on the grass and waits until you get undressed. Holding out your hand, you throw caution to the winds and push your panties aside, revealing your already dripping snatch...'
@@ -162,19 +161,17 @@ if $ARGS[0] = 'Mira':
 						end
 					end
 				else
-					act 'Further':
-						*clr & cla
-						gs 'stat'
-						'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/miralick2.jpg"></center>'
-						'Mira obediently kneels at your feet and starts licking your clit and fingering your pussy. After a few minutes of this treatment, Mira brings you to a blazing orgasm.'
-						$orgasm_or = 'yes'
-						gs 'arousal', 'cuni', 5, 'lesbian'
-						gs 'arousal', 'vaginal_finger', 5, 'lesbian'
-						minut -= 5
-						gs 'arousal', 'end'
-						gs 'stat'
-						act 'Finish': gt 'Meadow', 'start'
-					end
+					*clr & cla
+					gs 'stat'
+					'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/miralick2.jpg"></center>'
+					'Mira obediently kneels at your feet and starts licking your clit and fingering your pussy. After a few minutes of this treatment, Mira brings you to a blazing orgasm.'
+					$orgasm_or = 'yes'
+					gs 'arousal', 'cuni', 5, 'lesbian'
+					gs 'arousal', 'vaginal_finger', 5, 'lesbian'
+					minut -= 5
+					gs 'arousal', 'end'
+					gs 'stat'
+					act 'Finish': gt 'Meadow', 'start'
 				end
 			end
 		end

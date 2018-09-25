@@ -220,6 +220,23 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 
 				act 'Continue':gt 'meadow'
 			end
+		elseif meadow = 2 and MiraLoc ! 3:
+			act 'Offer to go to the Meadow':
+				*clr & cla
+				minut += 30
+				npc_rel['A60'] += 2
+				MiraLoc = 2
+				mira_guest = 0
+				if ($clothingworntype = 'nude' or $clothingworntype = 'swimwear'):
+					gs 'clothing', 'wear', $lastwornclothingtype, lastwornclothingnumber
+					gs 'underwear', 'wear'
+				end
+				gs 'stat'
+				'<center><img <<$set_imgh>> src="images/characters/village/mira/girls_go.jpg"></center>'
+				'You lead Mira once again through the thickets to the hidden meadow and all the way she talks about everything and anything.'
+
+				act 'Continue':gt 'meadow'
+			end
 		end
 
 		if (meadow = 3 or meadow = 6) and hour >= 8 and hour < 19 and MiraLoc ! 2 and MiraLoc ! 3 and sunWeather = 1:
@@ -965,12 +982,19 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 			if MiraLoc ! 1:gs 'Miroslava', 'miraclothes'
 			'"<<$pcs_nickname>>, you''re fun to be with, but Dad has chores for me to work on." Mira tells you.'
 
-			if $clothingworntype = 'nude':
-				gs 'clothing', 'wear_last_worn'
-				gs 'underwear', 'wear'
+			act 'Go back to the village':
+				mira_guest = 0
+				MiraLoc = 0
+				if $clothingworntype = 'nude':
+					if $loc = 'gadforest':
+						gs 'clothing', 'recover_lost_clothes', 'gadforest', 1
+					else
+						gs 'clothing', 'wear_last_worn'
+					end
+					gs 'underwear', 'wear'
+				end
+				gt 'Gadukino'
 			end
-
-			act 'Go back to the village':mira_guest = 0 & MiraLoc = 0 & gt 'Gadukino'
 		end
 
 		if mira_temp = 0 and mira_go_blok = 0 and meadow > 2 and MiraLoc ! 0:
@@ -985,12 +1009,19 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 			if MiraLoc ! 1:gs 'Miroslava', 'miraclothes'
 			'"<<$pcs_nickname>>, you''re fun to be with, but I gotta get home. Dad has chores for me to work on.," Mira tells you.'
 
-			if $clothingworntype = 'nude':
-				gs 'clothing', 'wear_last_worn'
-				gs 'underwear', 'wear'
+			act 'Go back to the village':
+				mira_guest = 0
+				MiraLoc = 0
+				if $clothingworntype = 'nude':
+					if $loc = 'gadforest':
+						gs 'clothing', 'recover_lost_clothes', 'gadforest', 1
+					else
+						gs 'clothing', 'wear_last_worn'
+					end
+					gs 'underwear', 'wear'
+				end
+				gt 'Gadukino'
 			end
-
-			act 'Go back to the village':mira_guest = 0 & MiraLoc = 0 & gt 'Gadukino'
 		end
 
 		if hour = 23 and MiraLoc = 0:
@@ -1001,12 +1032,17 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 			gs 'Miroslava', 'miraclothes'
 			'"<<$pcs_nickname>>, you''re fun to be with, but it''s late. I gotta get to bed. Dad has chores for me to work on tomorrow." Mira tells you.'
 
-			if $clothingworntype = 'nude':
-				gs 'clothing', 'wear_last_worn'
-				gs 'underwear', 'wear'
+			act 'Go back to the village':
+				if $clothingworntype = 'nude':
+					if $loc = 'gadforest':
+						gs 'clothing', 'recover_lost_clothes', 'gadforest', 1
+					else
+						gs 'clothing', 'wear_last_worn'
+					end
+					gs 'underwear', 'wear'
+				end
+				gt 'Gadukino'
 			end
-
-			act 'Go back to the village':gt 'Gadukino'
 		end
 
 		if hour = 23 and MiraLoc ! 0:
@@ -1021,12 +1057,19 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 			if MiraLoc ! 1:gs 'Miroslava', 'miraclothes'
 			'"<<$pcs_nickname>>, you''re fun to be with, but I gotta get home and get to bed. Dad has chores for me to work on tomorrow." Mira tells you.'
 
-			if $clothingworntype = 'nude':
-				gs 'clothing', 'wear_last_worn'
-				gs 'underwear', 'wear'
+			act 'Go back to the village':
+				mira_guest = 0
+				MiraLoc = 0
+				if $clothingworntype = 'nude':
+					if $loc = 'gadforest':
+						gs 'clothing', 'recover_lost_clothes', 'gadforest', 1
+					else
+						gs 'clothing', 'wear_last_worn'
+					end
+					gs 'underwear', 'wear'
+				end
+				gt 'Gadukino'
 			end
-
-			act 'Go back to the village':mira_guest = 0 & MiraLoc = 0 & gt 'Gadukino'
 		end
 	end
 end

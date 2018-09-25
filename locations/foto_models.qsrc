@@ -1065,62 +1065,18 @@ if $ARGS[0] = 'anastasia_chat':
 				anastasia_exercise = 1
 				act'Keep chatting':gt 'foto_models','anastasia_chat'
 			end
+!!			if guy > 0:
+!!				act'Oh! You mean like fucking!':
+!!					*clr & cla
+!!					'	"Oh! You mean like fucking!"'
 		end
 	end
 
 	if anastasiasex = 0:
-		act 'Tell her you saw her having sex in the empty set':
-			cla
-			'	"Oh you saw that?" She barely even reacts to what you said. She doesn''t appear to be surprised or embarrassed at all.'
-			act 'Continue':
-				*clr & cla
-				'<center><img src="images/locations/city/citycenter/photo/portraits/anastasia_p/talking/2.jpg"></center>'
-				'	"Just one of the perks of being the top model in Russia." She pauses for a moment to run her hands through her hair, almost like she''s stretching...'
-				'	"All the men end up wanting to fuck you."'
-				act 'Uh...':
-					*clr & cla
-					'<center><img src="images/locations/city/citycenter/photo/portraits/anastasia_p/talking/3.jpg"></center>'
-					'	Her candor catches you off guard, especially with how nonchalantly she says it. You didn''t expect her to be so open about her sexuality like that.'
-					'	"What''s the matter <<$pcs_nickname>>? You look shocked." She says, laying down on a couch of one of the nearby sets. Your teeth make a clicking sound as they snap together, not realizing your mouth had been agape. Following that, you can''t help but be excruciatingly aware of her wide open legs and her pussy that is spreading with them.'
-					'	"Oh come now darling, you know that even I have my needs don''t you? Sexually and financially that is."'
-					'	The word "financially" makes you pause, making you forget whatever it was you were about to say.'
-					act'"Financially?"':
-						*clr & cla
-						'<center><img src="images/locations/city/citycenter/photo/portraits/anastasia_p/talking/5.jpg"></center>'
-						'	Anastasia sits up a bit. "Yes, financially. I need money to live don''t I?"'
-						'	"No, wait! That''s not what I meant! Who were those men?"'
-						act'Continue':
-							*clr & cla
-							'<center><img src="images/locations/city/citycenter/photo/portraits/anastasia_p/talking/4.jpg"></center>'
-							'	She leans back again and closes her eyes as if she were tired. "My clients of course. I''m the number one model in the city, it makes it easy to do some escorting on the side. It''s a good deal for everyone. They get to live their dream, the studio makes more money on set rental, and in the end I get to supplement my sexual and financial needs. Men will pay a lot of money to have sex with a model like me."'
-							act'"But-"':
-								*clr & cla
-								'<center><img src="images/locations/city/citycenter/photo/portraits/anastasia_p/talking/6.jpg"></center>'
-								'	Before you can say anything she interrupts you as she gets on her knees and sticks her ass out towards you, saying, "Especially like this." The pose is particularly provacative, now showing her slightly parted pussy. "A tip for you <<$pcs_nickname>>, if you ever get to a position in your career like mine, you''ll find that this position is especially versatile."'
-								'	"If they want to fuck you from behind, they can pick either hole. If you''re on top, all you have to do is work your bum like this," she starts moving her hips up and down, simulating a cowgirl position, "and they''ll hit all the right spots. For you and for them. They cum in no time and so do I! As you saw, this position is also great if you want to service two, or even three men at once."'
-								act '"No, wait! I wasn''t asking about any of this!"':
-									*clr & cla
-									'<center><img src="images/locations/city/citycenter/photo/portraits/anastasia_p/talking/9.jpg"></center>'
-									'	"<<$pcs_nickname>>," she says, "if you''re going to have a career in this industry you can''t be naive about how it works. This is just another way to use your fame."'
-									'	She sounds vaguely disappointed in you, like a mother trying to teach her child manners.'
-									act'Continue':
-										*clr & cla
-										'<center><img src="images/locations/city/citycenter/photo/portraits/anastasia_p/talking/1.jpg"></center>'
-										'	She picks up her panties and gets up again. "Listen <<$pcs_nickname>>, you''re great at this job, and one day you might be as famous or even more famous a model than I am. And I want you to be ready when it happens. So just in case, my advice to you is to make sure you''re on birth control, make sure you enjoy yourself, and <i>always</i> charge extra for creampies and swallowing."'
-										'	And with that, she walks away, leaving you in the confused state of feeling like your <<$npc_nickname[''A29'']>> just gave you advice on how to make the transition from nude model to professional hooker.'
-										anastasiasex = 1
-										act 'Leave':gt 'foto','studio'
-									end
-								end
-							end
-						end
-					end
-				end
-			end
-		end
+		act 'Tell her you saw her having sex in the empty set':gt'foto_models','anastasiasex'
 	end
 	if anastasiasex = 1:
-		act 'Ask for sex advice':gt 'foto_models','anastasiasex'
+		act 'Ask for sex advice':gt 'foto_models','anastasiasextalk'
 	end
 !	if city_modelling > 100 and anastasiasex = 1 and anastasia_ask = 0:
 !		act'Ask Anastasia how to start selling yourself like she does':gt'foto_models','anastasia_ask'
@@ -1128,6 +1084,153 @@ if $ARGS[0] = 'anastasia_chat':
 end
 
 if $ARGS[0] = 'anastasiasex':
+	cla
+	anastasiasex = 1
+	'	"Oh you saw that?" She barely even reacts to what you said. She doesn''t appear to be surprised or embarrassed at all.'
+	act 'Continue':
+		*clr & cla
+		'<center><img src="images/locations/city/citycenter/photo/portraits/anastasia_p/talking/2.jpg"></center>'
+		'	"Just one of the perks of being the top model in Russia." She pauses for a moment to run her hands through her hair, almost like she''s stretching...'
+		'	"All the men end up wanting to fuck you."'
+		act 'Uh...':
+			*clr & cla
+			'<center><img src="images/locations/city/citycenter/photo/portraits/anastasia_p/talking/3.jpg"></center>'
+			'	Her candor catches you off guard, especially with how nonchalantly she says it. You didn''t expect her to be so open about her sexuality like that.'
+			'	"What''s the matter <<$pcs_nickname>>? You look shocked." She says, laying down on a couch of one of the nearby sets. Your teeth make a clicking sound as they snap together, not realizing your mouth had been agape. Following that, you can''t help but be excruciatingly aware of her wide open legs and her pussy that is spreading with them.'
+			'	"Oh come now darling, you know that even I have my needs don''t you? Sexually and financially that is."'
+			'	The word "financially" makes you pause, making you forget whatever it was you were about to say.'
+			act'"Financially?"':
+				*clr & cla
+				'<center><img src="images/locations/city/citycenter/photo/portraits/anastasia_p/talking/5.jpg"></center>'
+				'	Anastasia sits up a bit. "Yes, financially. I need money to live don''t I?"'
+				'	"No, wait! That''s not what I meant! Who were those men?"'
+				act'Continue':
+					*clr & cla
+					'<center><img src="images/locations/city/citycenter/photo/portraits/anastasia_p/talking/4.jpg"></center>'
+					'	She leans back again and closes her eyes as if she were tired. "My clients of course. I''m the number one model in the city, it makes it easy to do some escorting on the side. It''s a good deal for everyone. They get to live their dream, the studio makes more money on set rental, and in the end I get to supplement my sexual and financial needs. Men will pay a lot of money to have sex with a model like me."'
+					act'"But-"':
+						*clr & cla
+						'<center><img src="images/locations/city/citycenter/photo/portraits/anastasia_p/talking/6.jpg"></center>'
+						'	Before you can say anything she interrupts you as she gets on her knees and sticks her ass out towards you, saying, "Especially like this." The pose is particularly provacative, now showing her slightly parted pussy. "A tip for you <<$pcs_nickname>>, if you ever get to a position in your career like mine, you''ll find that this position is especially versatile."'
+						'	"If they want to fuck you from behind, they can pick either hole. If you''re on top, all you have to do is work your bum like this," she starts moving her hips up and down, simulating a cowgirl position, "and they''ll hit all the right spots. For you and for them. They cum in no time and so do I! As you saw, this position is also great if you want to service two, or even three men at once."'
+						act '"No, wait! I wasn''t asking about any of this!"':
+							*clr & cla
+							'<center><img src="images/locations/city/citycenter/photo/portraits/anastasia_p/talking/9.jpg"></center>'
+							'	"<<$pcs_nickname>>," she says, "if you''re going to have a career in this industry you can''t be naive about how it works. This is just another way to use your fame."'
+							'	She sounds vaguely disappointed in you, like a mother trying to teach her child manners.'
+							act'Continue':
+								*clr & cla
+								'<center><img src="images/locations/city/citycenter/photo/portraits/anastasia_p/talking/1.jpg"></center>'
+								'	She picks up her panties and gets up again. "Listen <<$pcs_nickname>>, you''re great at this job, and one day you might be as famous or even more famous a model than I am. And I want you to be ready when it happens. So just in case, my advice to you is to make sure you''re on birth control, make sure you enjoy yourself, and <i>always</i> charge extra for creampies, swallowing, and anal."'
+								'	And with that, she walks away, leaving you in the confused state of feeling like your <<$npc_nickname[''A29'']>> just gave you advice on how to make the transition from nude model to professional hooker.'
+								act 'Leave':gt 'foto','studio'
+							end
+						end
+					end
+				end
+			end
+		end
+		
+		if guy >= 10:
+			act'I know what you mean':
+				*clr & cla
+				'<center><img src="images/locations/city/citycenter/photo/portraits/anastasia_p/talking/3.jpg"></center>'
+				'"Oh yeah, I know what you mean," you nod.'
+				'"Oh?"'
+				act'Being pretty makes people want you':
+					cla & *nl
+					'"It''s not like I wasn''t pretty before I became a model," you shrug, smiling back. "Men want to fuck pretty girls."'
+					'"Men want to fuck anything that has two legs and a pussy dear. Though they will pay more to fuck <i>famous</i> pretty girls," she smirks.'
+					act'Pay?':gt'foto_models','anastasiasex2'
+					if slutty > 0:
+						act'Oh! We can do that here?':gt'foto_models','anastasiasex3'
+					end
+				end
+				
+				if pcs_cupsize <= 25:
+					act'I''ve got big boobs':
+						cla & *nl
+						'"I had big boobs in high school too," you grin, looking down meaningfully at your <<$titsize>> breasts. "Boys wouldn''t be boys if they didn''t drool over the thought of fucking busty girls like me.'
+						'"True," she smirks. "Though they will pay more to fuck <i>famous</i> busty girls,"'
+						act'Pay?':gt'foto_models','anastasiasex2'
+						if slutty > 0:
+							act'Oh! We can do that here?':gt'foto_models','anastasiasex3'
+						end
+					end
+				end
+				if exhibitionist_lvl > 1:
+					act'Showing them your tits does that':
+						cla & *nl
+						'"Yeah, flashing your tits in the park tends to make boys want to fuck you," you say, biting your lip with a smile.'
+						'"You sly little minx you!" she chuckles. "I won''t deny that, I certainly teased enough boys during my youth as well. Though grown men tend to pay more for a fuck when they see your breasts on a magazine cover instead of pulled out of your blouse in the park."'
+						act'Pay?':gt'foto_models','anastasiasex2'
+						if slutty > 0:
+							act'Oh! We can do that here?':gt'foto_models','anastasiasex3'
+						end
+					end
+				end
+			end
+		end
+	end
+end
+
+if $ARGS[0] = 'anastasiasex2':
+	*clr & cla
+	'<center><img src="images/locations/city/citycenter/photo/portraits/anastasia_p/talking/5.jpg"></center>'
+	'"Pay?" you ask quizzically.'
+	'"Yes. Pay."'
+	'Anastasia regards you with a slight tilt of the head. "Those men were my clients. Who did you think they were?"'
+	'"Oh," you say. "I thought you were just doing it for fun."'
+	'"Well, I do still fuck for fun," she smiles. "But it''s much more efficient to charge for it as well. I''m the number one model in the city after all, it makes it easy to do some escorting on the side. It''s a good deal for everyone. They get to live their dream, the studio makes more money on set rental, and in the end I get to supplement my sexual and financial needs. Men will pay a lot of money to have sex with a model like me."'
+	act'Makes sense':
+		*clr & cla
+		'<center><img src="images/locations/city/citycenter/photo/portraits/anastasia_p/talking/1.jpg"></center>'
+		'"Makes sense I suppose," you say, musing what Anastasia''s just told you. She picks up her panties and stands, regarding you warmly with a motherly touch on your cheek.'
+		'"Oh <<pcs_firstname>>, you''re such a big girl," she says. "Not everyone would understand like you do. With an attitude like yours, you''ll go far in this industry. I see the potential in you to be as famous or even more famous than I am one day! Can I give you some advice?"'
+		'"Of course Anastasia," you nod, leaning in.'
+		'"Three important things," she says, whispering in your ear. "Make sure to enjoy yourself, never forget your birth control, and <i>always</i> charge extra for creampies, swallowing, and anal."'
+		'With that, she stands back and gives you an eager smile. "Got it?"'
+		act'Uhh, yeah...':
+			*clr & cla
+			'<center><img src="images/locations/city/citycenter/photo/portraits/anastasia_p/talking/1.jpg"></center>'
+			'"Uhh, yeah..." you say, trailing off. You weren''t sure what kind of advice you were expecting, but it sure wasn''t professional hooking tips.'
+			'"Words to live by dear," she smiles. "Words to live by. If you ever need more advice on that kind of thing, don''t be afraid to ask. Don''t be a stranger!"'
+			'With that, she bids you farewell, walking towards another part of the studio.'
+			act 'Leave':gt 'foto','studio'
+		end
+		
+		act'Yes':
+			*clr & cla
+			'<center><img src="images/locations/city/citycenter/photo/portraits/anastasia_p/talking/1.jpg"></center>'
+			'"Yes Anastasia" you say, nodding obediently.'
+			'"Words to live by dear," she smiles. "Words to live by. If you ever need more advice on that kind of thing, don''t be afraid to ask. Don''t be a stranger!"'
+			'With that, she bids you farewell, walking towards another part of the studio.'
+			act 'Leave':gt 'foto','studio'
+		end
+	end
+end
+
+if $ARGS[0] = 'anastasiasex3':
+	*clr & cla
+	'<center><img src="images/locations/city/citycenter/photo/portraits/anastasia_p/talking/face.jpg"></center>'
+	'"We can do that here?" you exclaim.'
+	'"But of course," she smiles at you. "We''re erotic models in the cultural capital of the nation my dear, it makes it easy to do some escorting on the side. The studio won''t complain because it makes more money on set rental, and at the same time, girls like you and me get to supplement our financial needs, not to mention all the enjoyable fucking we get to do. Men will pay a lot of money to have sex with a models like us."'
+	act'Wow!':
+		*clr & cla
+		'<center><img src="images/locations/city/citycenter/photo/portraits/anastasia_p/talking/1.jpg"></center>'
+		'"Wow!"'
+		'"Yes indeed, we are quite privileged to have the opportunities we do. However, I really must be going deary. I have an appointment soon." You nod as she stand and picks up her panties. "Let me know if you''d like to get started on escorting. I''d love to help introduce you to the company. But before I go, may I offer some advice?"'
+		'You listen eagerly as Anastasia leans in to whisper in your ear.'
+		'"There are three things you need to know in this business. Make sure to enjoy yourself, never forget your birth control, and <i>always</i> charge extra for creampies, swallowing, and anal."'
+		'She stands back, meeting your eyes with a smile. "Words to live by my dear. Words to live by. But I must be off now. Don''t be a stranger!"'
+		'With that, she bids you farewell, walking towards another part of the studio.'
+		
+		'<b>dev note: escorting business still WIP</b>'
+		act 'Leave':gt 'foto','studio'
+	end
+end
+
+if $ARGS[0] = 'anastasiasextalk':
 	cla
 	'<center><img src="images/locations/city/citycenter/photo/portraits/anastasia_p/talking/face.jpg"></center>'
 	'	"Sure <<$pcs_nickname>>, what would you like help with?"'
@@ -1202,7 +1305,7 @@ if $ARGS[0] = 'anastasiasex':
 			'	You blush even harder as she casually slips in the option of using this position for girls with strap-ons. Just when you thought it couldn''t get any more embarrassing...'
 			*nl
 			'	"Is there anything else you wanted to ask about?"'
-			act '"Yeah, I actually wanted to ask..."':gt'foto_models','anastasiasex'
+			act '"Yeah, I actually wanted to ask..."':gt'foto_models','anastasiasextalk'
 			act '"No, that was all"':
 				*clr & cla
 				'<center><video autoplay loop src="images/locations/city/citycenter/studio/sex/pornwalk1.mp4"></video></center>'

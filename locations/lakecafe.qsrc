@@ -31,7 +31,7 @@ if $ARGS[0] = 'main':
 		if npc_Qstlvl['A89'] = 0:
 			if barrnd = 1:'Behind the bar you see a smiling <a href="exec:gt ''lakecafe'', ''barmensha''">barmaid</a>, who is currently polishing some glasses.'
 			if barrnd = 2:'Inside the diner you see a smiling <a href="exec:gt ''lakecafe'', ''barmensha''">barmaid</a>, who is currently picking up some dirty dishes and cleaning a table.'
-			if barrnd = 3:'Behind the bar you see a smiling	 <a href="exec:gt ''lakecafe'', ''barmensha''">barmaid</a>, who is currently making some mixed drinks skilfully.'
+			if barrnd = 3:'Behind the bar you see a smiling <a href="exec:gt ''lakecafe'', ''barmensha''">barmaid</a>, who is currently making some mixed drinks skilfully.'
 		elseif npc_Qstlvl['A89'] = 1:
 			if barrnd = 1:'Behind the bar you see <a href="exec:gt ''lakecafe'', ''barmensha''">Eugene</a>, with that perpetual smile on her face. She''s currently polishing some glasses, it must be a slow period.'
 			if barrnd = 2:'Inside the diner you see <a href="exec:gt ''lakecafe'', ''barmensha''">Eugene</a>, with that perpetual smile on her face. She''s collecting dirty dishes from tables.'

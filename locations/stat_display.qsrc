@@ -1095,12 +1095,14 @@ elseif $pantyworntype = 'none' and $clothingworntype ! 'swimwear':
 		else
 			$stat_msg += '<BR><b><font color="red">You aren''t wearing panties, and your bare pussy is rubbing against your clothing.</font></b>'
 		end
-	elseif $clothingworntype ! 'nude':
-		$stat_msg += '<BR><b><font color="red">You are not wearing panties.</font></b>'
 	elseif towel = 1:
 		$stat_msg += '<BR><b><font color = red>Your naked body is covered only by a short towel.</font></b>'
-	elseif $braworntype = 'none':
-		$stat_msg += '<BR><b><font color = red>You are not wearing any underwear.</font></b>'
+	elseif $clothingworntype ! 'nude':
+		if $braworntype = 'none':
+			$stat_msg += '<BR><b><font color = red>You are not wearing any underwear.</font></b>'
+		else
+			$stat_msg += '<BR><b><font color="red">You are not wearing panties.</font></b>'
+		end
 	end
 elseif PCloBimbo = 1 and cheatBimbo = 0:
 	$stat_msg += '<BR><b><font color = #FF00FF>You are dressed as a bimbo</font></b>'

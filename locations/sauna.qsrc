@@ -164,9 +164,9 @@ if $ARGS[0] = 'saunaroom':
 			end
 		else
 			act '<<$sleep_txt>>':
-				if SaunaWhore > 0:
+				if SaunaWhore = 0:
 					workDolg += 850
-				elseif SaunaWhore = 0:
+				elseif SaunaWhore > 0:
 					money -= 850
 				end
 				if disable_autosave = 0:

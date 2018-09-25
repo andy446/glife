@@ -1086,6 +1086,7 @@ end
 if $ARGS[0] = 'anastasiasex':
 	cla
 	anastasiasex = 1
+	'<center><img src="images/locations/city/citycenter/photo/portraits/anastasia_p/talking/1.jpg"></center>'
 	'	"Oh you saw that?" She barely even reacts to what you said. She doesn''t appear to be surprised or embarrassed at all.'
 	act 'Continue':
 		*clr & cla

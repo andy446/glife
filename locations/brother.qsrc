@@ -37,6 +37,11 @@ if npc_QW['A34'] > 20 and npc_QW['A34'] < 25: npc_QW['A34'] = 20
 ! BrotherNo:
 ! brother_ev1
 ! brotherConfidence: if it is over 10 he might try and touch you during a homework (not used yet)
+! npc_know_sveta_lact['A34'] = 0 - Kolka does not know sveta is lactating
+! npc_know_sveta_lact['A34'] = 1 - Kolka does know sveta is lactating
+! npc_know_sveta_lact['A34'] = 2 - Kolka does know that sveta was lactating
+! npc_breastfeed_by_sveta['A34'] = 0 or 1 - Kolka was no/was breastfeed by sveta
+! npc_tasted_sveta_milk['A34'] = 0 or 1 - Does Kolka know how svetas breastmilk taste? 0 = no, 1 = yes
 
 if $ARGS[0] = 'start':
 	gs 'stat'

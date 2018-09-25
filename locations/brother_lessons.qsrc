@@ -357,6 +357,7 @@ if $ARGS[0] = 'anatomylesson1':
 					cla & *clr
 					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/5.jpg"></center>'
 					'	Eventually, Kolka has traced out all the arteries and veins you have and you bring the lesson to a close.'
+					if lactate > 0: '	He even traces every vein and artery that can be seen through your breasts skin.'
 					'	You quickly sit up to hide the growing wetness between you legs and ask him, "So how was that? Do you think you have a better understanding of the material now?"'
 					'	"Yeah!" he says excitedly. "I think I get it now! You really helped me out <<$pcs_nickname>>!" He unexpectedly wraps his arms around you, giving you a big hug. You''re surprised by this, mostly because you weren''t expecting him to do something like this while you were still naked.'
 					'	"You''re the best sister ever!" he cries.'
@@ -399,25 +400,120 @@ if $ARGS[0] = 'anatomylesson2':
 				cla & *clr
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/8.jpg"></center>'
 				'	A few awkward long moments go by of Kolka closely examining your breasts and nipples before you realize that he''s not going to sit back down. You sigh and figure you might as well get on with the lesson in the mean time. At least he''ll be able to see them clearly.'
-				'	"So... Like I was saying, women have breasts because of babies. When a woman is pregnant, her breasts start to produce milk which is then used to feed her newborn."'
-				'	"How does the milk come out?" Kolka asks, now inspecting your breasts from multiple angles. "Do you squeeze it and milk it out like cows?"'
-				'	You sputter in laughter saying, "What? No, silly! That would be really painful because girls nipples are very sensitive! No, the baby suckles, meaning they just use their mouth and suck to draw the milk out. That''s why they call it ''breastfeeding.''"'
-				'	"Oh! So you mean like this?" and before you can stop him, Kolka leans in to put your nipple in his mouth and starts sucking.'
+				if lactate > 0 and kid <= 0:
+					'	"So... Like I was saying, women have breasts because of babies. When a woman is pregnant, her breasts start to produce milk which is then used to feed her newborn. In some cases, there can also be milk without having a baby."'
+				elseif lactate > 0 and kid > 0:
+					if npc_know_sveta_lact['A34'] = 1 or npc_know_sveta_lact['A34'] = 2:
+						'	"So... Like I was saying, women have breasts because of babies. When a woman is pregnant, her breasts start to produce milk which is then used to feed her newborn. You probably saw me doing this from time to time."'
+					else
+						'	"So... Like I was saying, women have breasts because of babies. When a woman is pregnant, her breasts start to produce milk which is then used to feed her newborn."'
+					end
+				else
+					'	"So... Like I was saying, women have breasts because of babies. When a woman is pregnant, her breasts start to produce milk which is then used to feed her newborn."'
+				end
+				if npc_know_sveta_lact['A34'] = 1 or npc_know_sveta_lact['A34'] = 2:
+					if npc_breastfeed_by_sveta['A34'] >= 1 and kid >= 0:
+						'	Kolka inspecting your breasts from multiple angles. "Yeah, I remember. Your milk tasted good."'
+						'	You blush a bit, remembering how you breastfeed Kolka. "Uhm yes, but we are doing this here for school, so you bettern don''t write that down somewhere. So the baby latches out with the mouth here an then sucks to draw out the milk."'
+						'	"Oh! Like this?" and before you can stop him, Kolka leans in to put your nipple in his mouth and starts sucking.'
+					elseif npc_breastfeed_by_sveta['A34'] <= 0 and kid >= 1:
+						'	Kolka inspecting your breasts from multiple angles. "Yeah, I remember. The baby sucked on your breast."'
+						'	You nod at Kolka. "Exactly. So the baby latches out with the mouth here an then sucks to draw out the milk." Your finger points to your nipples.'
+						'	"Oh! Like this?" and before you can stop him, Kolka leans in to put your nipple in his mouth and starts sucking.'
+					else
+						'	"How does the milk come out?" Kolka asks, now inspecting your breasts from multiple angles. "Do you squeeze it and milk it out like cows?"'
+						'	You sputter in laughter saying, "What? No, silly! That would be really painful because girls nipples are very sensitive! No, the baby suckles, meaning they just use their mouth and suck to draw the milk out. That''s why they call it ''breastfeeding.''"'
+						'	"Oh! So you mean like this?" and before you can stop him, Kolka leans in to put your nipple in his mouth and starts sucking.'
+					end
+				else
+					'	"How does the milk come out?" Kolka asks, now inspecting your breasts from multiple angles. "Do you squeeze it and milk it out like cows?"'
+					'	You sputter in laughter saying, "What? No, silly! That would be really painful because girls nipples are very sensitive! No, the baby suckles, meaning they just use their mouth and suck to draw the milk out. That''s why they call it ''breastfeeding.''"'
+					'	"Oh! So you mean like this?" and before you can stop him, Kolka leans in to put your nipple in his mouth and starts sucking.'
+				end
 				act'"Hey! Stop that!"':
 					cla & *clr
 					pcs_horny += 20
 					gs 'stat'
-					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/7.jpg"></center>'
-					'	You push him back immediately. "Hey! What do you think you''re doing?! You can''t just do that to a girl!"'
-					'	"But you were sayin-"'
-					'	"I know what I was saying! You''re not a baby Kolka. You can''t just start sucking on someone''s nippes like that. I told you..." you trail off, nervously noticing the wetness beginning to seep from your pussy. "... girl''s nipples are very sensitive..."'
-					'	"Oh." he says very matter of factly. "Right. You did just say that. I forgot. I''m sorry <<$pcs_nickname>>."'
-					'	"It''s okay," you reply, gently massaging your nipple and trying your best not to accidentally wipe your love juice on anything. "Just, don''t do that so suddenly like that okay? At least ask next time."'
-					'	"Wait so if I ask I can do it?" he pipes up.'
-					'	"No!" you say with a stern smile. "I mean... I''ll think about it. But expect the answer to be more likely no than yes okay?"'
-					'	"Mkay," he says, while writing down some things in his notebook.'
-					'	<i><b>sigh</b> Boys...</i>'
-					'	Looking at the next part of the homework it talks about the anatomy of the vulva but doesn''t go on to the internals. At least you''ll be able to use your arousal for the lesson now..."'
+					temp_var = func('lact_lib','$get_breastmilk', 0, 1)
+					'<<temp_var>>'
+					milkedvolume = temp_var/6
+					if lactate > 0 and milkedvolume >=5:
+						'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/7.jpg"></center>'
+						'	You push him back immediately. "Hey! What do you think you''re doing?! You can''t just do that to a girl!"'
+						'	"But you were sayin-"'
+						if npc_breastfeed_by_sveta['A34'] <= 0:
+							'	"I know what I was saying! You''re not a baby Kolka. You can''t just start sucking on someone''s nippes like that. I told you..." you trail off, nervously noticing the wetness beginning to seep from your pussy. Your nipple tingles, that means that Kolka probably got some milk out "... girl''s nipples are very sensitive..."'
+						else
+							'	"I know what I was saying! You can''t just start sucking on someone''s nippes like that. I told you..." you trail off, nervously noticing the wetness beginning to seep from your pussy. Your nipple tingles, that means that Kolka probably got some milk out "... girl''s nipples are very sensitive..."'
+						end
+						'	"Oh." he says very matter of factly. "Right. You did just say that. I forgot. I''m sorry <<$pcs_nickname>>."'
+						'	"It''s okay," you reply, gently massaging your nipple and trying your best not to accidentally wipe your love juice on anything. "Just, don''t do that so suddenly like that okay? At least ask next time."'
+						'	"Wait so if I ask I can do it?" he pipes up.'
+						'	"No!" you say with a stern smile. "I mean... I''ll think about it. But expect the answer to be more likely no than yes okay?"'
+						'	"Mkay," he says, while writing down some things in his notebook.'
+						if npc_know_sveta_lact['A34'] = 0 and npc_tasted_sveta_milk['A34'] <= 0:
+							'	During writing Kolka licks his lips "I didn''t know you had milk in your breasts. It tastes good!"'
+						elseif npc_know_sveta_lact['A34'] = 0 and npc_tasted_sveta_milk['A34'] >= 1:
+							'	During writing Kolka licks his lips "Wow ... I didn''t know you had milk in your breasts... and it tastes familiar..."'
+						elseif npc_know_sveta_lact['A34'] = 1 and npc_tasted_sveta_milk['A34'] >= 1:
+							'	During writing Kolka licks his lips and adds "Your milk tastes way better from the source...".'
+						elseif npc_know_sveta_lact['A34'] = 1 and npc_tasted_sveta_milk['A34'] <= 0:
+							'	During writing Kolka licks his lips and adds "Hmm - I didn''t think your milk would taste so good...".'
+						elseif npc_know_sveta_lact['A34'] = 2 and npc_tasted_sveta_milk['A34'] >= 1:
+							'	During writing Kolka licks his lips and adds "I didn''t know you had milk again..."'
+							npc_know_sveta_lact['A34'] = 1
+						elseif npc_know_sveta_lact['A34'] = 2 and npc_tasted_sveta_milk['A34'] <= 0:
+							'	During writing Kolka licks his lips and adds "I didn''t know you had milk again...and it tastes really good."'
+							npc_know_sveta_lact['A34'] = 1
+						else
+							'	During writing Kolka licks his lips and adds "Hmm - I didn''t think your milk would taste so good...".'
+						end
+						'	You slap him on the back of his head playfully. "shh - stop that now."'
+						'	<i><b>sigh</b> Boys...</i>'
+						'	Looking at the next part of the homework it talks about the anatomy of the vulva but doesn''t go on to the internals. At least you''ll be able to use your arousal for the lesson now..."'
+						npc_tasted_sveta_milk['A34'] = 1
+					elseif lactate > 0 and milkedvolume < 5:
+						'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/7.jpg"></center>'
+						'	You push him back immediately. "Hey! What do you think you''re doing?! You can''t just do that to a girl!"'
+						'	"But you were sayin-"'
+						if npc_breastfeed_by_sveta['A34'] <= 0:
+							'	"I know what I was saying! You''re not a baby Kolka. You can''t just start sucking on someone''s nippes like that. I told you..." you trail off, nervously noticing the wetness beginning to seep from your pussy. "... girl''s nipples are very sensitive..."'
+						else
+							'	"I know what I was saying! You can''t just start sucking on someone''s nippes like that. I told you..." you trail off, nervously noticing the wetness beginning to seep from your pussy. "... girl''s nipples are very sensitive..."'
+						end
+						if npc_know_sveta_lact['A34'] <= 0:
+							'	You can tell that no milk came out, but you were nervous for a moment for him to find out about your lactation.'
+						elseif npc_know_sveta_lact['A34'] = 1 and npc_breastfeed_by_sveta['A34'] <= 0:
+							'	You can tell that no milk came out, but you were nervous for a moment for him to find out about your lactation. You don''t feel like breastfeeding Kolka at the moment.'
+						elseif npc_know_sveta_lact['A34'] = 2:
+							'	You can tell that no milk came out, but you were nervous for a moment for him to find out that you are lactation again.'
+						end
+						'	"Oh." he says very matter of factly. "Right. You did just say that. I forgot. I''m sorry <<$pcs_nickname>>."'
+						'	"It''s okay," you reply, gently massaging your nipple and trying your best not to accidentally wipe your love juice on anything. "Just, don''t do that so suddenly like that okay? At least ask next time."'
+						'	"Wait so if I ask I can do it?" he pipes up.'
+						'	"No!" you say with a stern smile. "I mean... I''ll think about it. But expect the answer to be more likely no than yes okay?"'
+						'	"Mkay," he says, while writing down some things in his notebook.'
+						'	<i><b>sigh</b> Boys...</i>'
+						'	You '
+						'	Looking at the next part of the homework it talks about the anatomy of the vulva but doesn''t go on to the internals. At least you''ll be able to use your arousal for the lesson now..."'
+					else
+						'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/7.jpg"></center>'
+						'	You push him back immediately. "Hey! What do you think you''re doing?! You can''t just do that to a girl!"'
+						'	"But you were sayin-"'
+						'	"I know what I was saying! You''re not a baby Kolka. You can''t just start sucking on someone''s nippes like that. I told you..." you trail off, nervously noticing the wetness beginning to seep from your pussy. "... girl''s nipples are very sensitive..."'
+						'	"Oh." he says very matter of factly. "Right. You did just say that. I forgot. I''m sorry <<$pcs_nickname>>."'
+						'	"It''s okay," you reply, gently massaging your nipple and trying your best not to accidentally wipe your love juice on anything. "Just, don''t do that so suddenly like that okay? At least ask next time."'
+						'	"Wait so if I ask I can do it?" he pipes up.'
+						'	"No!" you say with a stern smile. "I mean... I''ll think about it. But expect the answer to be more likely no than yes okay?"'
+						'	"Mkay," he says, while writing down some things in his notebook.'
+						if npc_know_sveta_lact['A34'] = 1:
+							'	Kolka looks up at you for a moment "Did you stop having milk?"'
+							'	You nod at Kolka and tell him to concentrate on the studies.'
+							npc_know_sveta_lact['A34'] = 2
+						end
+						'	<i><b>sigh</b> Boys...</i>'
+						'	Looking at the next part of the homework it talks about the anatomy of the vulva but doesn''t go on to the internals. At least you''ll be able to use your arousal for the lesson now..."'
+					end
 					act'Continue the lesson':gt'brother_lessons', 'anatomylesson3'
 				end
 
@@ -425,22 +521,111 @@ if $ARGS[0] = 'anatomylesson2':
 					cla & *clr
 					pcs_horny += 40
 					gs 'stat'
-					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/8.jpg"></center>'
-					'	"Kolk-! Ahh~! Wai- Uh~! Sto-... Ohh~!" you try to voice protests but they get lost in your stifled moans.'
-					'	Your brother continues to suck on your nipple with increased vigor, now grabbing your other breast to use as leverage and keep his face close. You squirm under his advances, trying to push him off but you''re too weak, your body floundering in pleasure.'
-					'	He pulls his lips off with a pop. "Huh. Why isn''t any milk coming out?" he asks. At last! A respite! You start to catch your breath and just as you''re about to tell him not to do that again, he leans forward and starts sucking again.'
-					'	"Ahh~!" A cry briefly escapes your lips before you clamp your own hand over them to make sure the rest of your family doesn''t overhear you. You can only imagine your mother''s reaction if she came in to find your brother sucking on your tits like this.'
-					'	After another minute of sucking and squirming, your brother finally relents. "<<$pcs_nickname>>, I thought you said milk came out. I''ve been sucking all this time and nothing''s come out. Why''s that?" Then he notices your heavy breathing. "Hey, are you okay? Is there something wrong with you?"'
-					act'Continue':
-						cla & *clr
-						'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/7.jpg"></center>'
-						'	"Kolka..." you sigh deeply before continuing. "First of all, you can''t just suck on a girl''s nipples like that! I told you..." you trail off, taking notice of the love juices dripping from your snatch and nervously smiling. "... they''re very sensitive... Second of all, I''m not pregnant dummy! Breasts only produce milk if you''re pregnant or recently gave birth."'
-						'	"Oh. Sorry."'
-						'	"It''s okay... It felt kind of good to be honest..." you admit with some embarrassment. "Just... ask next time? Please?"'
-						'	"Okay <<$pcs_nickname>>," he says, writing some things down in his notebook.'
-						'	You sigh again. Taking a look in the textbook, it says the next part of the homework is about the external female organs: the vulva. You slyly smile to yourself.'
-						'	<i>Well, at least I didn''t get wet for nothing.</i>'
-						act'Continue the lesson':gt'brother_lessons', 'anatomylesson3'
+					if lactate > 0:
+						milkedvolume = func('lact_lib','$get_breastmilk', 0, 5)
+						milkedvolume += func('lact_lib','$get_breastmilk', 5, 5)
+						if npc_know_sveta_lact['A34'] <= 0:
+							'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/8.jpg"></center>'
+							'	"Kolk-! Ahh~! Wai- Uh~! Sto-... Ohh~!" you try to voice protests but they get lost in your stifled moans.'
+							'	Your brother continues to suck eagerly on your nipple with increased vigor, now grabbing your other breast to use as leverage and keep his face close. You squirm under his advances, trying to push him off but you''re too weak, your body floundering in pleasure. You can tell that his definately getting out your breast milk.'
+							'	He pulls his lips off with a pop. "Wow! There really is any milk coming out!" he says surprised. At last! A respite! You start to catch your breath and just as you''re about to tell him not to do that again, he leans forward and starts sucking again.'
+							'	"Ahh~!" A cry briefly escapes your lips before you clamp your own hand over them to make sure the rest of your family doesn''t overhear you. You can only imagine your mother''s reaction if she came in to find your brother sucking on your tits like this.'
+							'	After 5 minutes of sucking and squirming, your brother finally stops. "<<$pcs_nickname>>, I didn''t know you had milk - and it is so delicious!"'
+							if milkedvolume >= 500:'	He goes on "... and there is so much of it!'
+							'	Then he notices your heavy breathing. "Hey, are you okay? Is there something wrong with you?"'
+							npc_know_sveta_lact['A34'] = 1
+							npc_breastfeed_by_sveta['A34'] = 1
+						elseif npc_know_sveta_lact['A34'] = 1 and npc_breastfeed_by_sveta['A34'] <= 0:
+							'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/8.jpg"></center>'
+							'	"Kolk-! Ahh~! Wai- Uh~! Sto-... Ohh~!" you try to voice protests but they get lost in your stifled moans.'
+							'	Your brother continues to suck eagerly on your nipple with increased vigor, now grabbing your other breast to use as leverage and keep his face close. You squirm under his advances, trying to push him off but you''re too weak, your body floundering in pleasure. You can tell that his definately getting out your breast milk.'
+							'	He pulls his lips off with a pop. "Wow! This milk tastes so good!" he says energetic. At last! A respite! You start to catch your breath and just as you''re about to tell him not to do that again, he leans forward and starts sucking again.'
+							'	"Ahh~!" A cry briefly escapes your lips before you clamp your own hand over them to make sure the rest of your family doesn''t overhear you. You can only imagine your mother''s reaction if she came in to find your brother sucking on your tits like this.'
+							'	After 5 minutes of sucking and squirming, your brother finally stops. "<<$pcs_nickname>>, it is so delicious, I want seconds!"'
+							if milkedvolume >= 500:'	He goes on "... and you probably can make enough milk for that!'
+							'	Then he notices your heavy breathing. "Hey, are you okay? Is there something wrong with you?"'
+						elseif npc_know_sveta_lact['A34'] = 2:
+							'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/8.jpg"></center>'
+							'	"Kolk-! Ahh~! Wai- Uh~! Sto-... Ohh~!" you try to voice protests but they get lost in your stifled moans.'
+							'	Your brother continues to suck eagerly on your nipple with increased vigor, now grabbing your other breast to use as leverage and keep his face close. You squirm under his advances, trying to push him off but you''re too weak, your body floundering in pleasure. You can tell that his definately getting out your breast milk.'
+							'	He pulls his lips off with a pop. "Wow! I didn''t know you had milk again - this milk tastes so good!" he says energetic. At last! A respite! You start to catch your breath and just as you''re about to tell him not to do that again, he leans forward and starts sucking again.'
+							'	"Ahh~!" A cry briefly escapes your lips before you clamp your own hand over them to make sure the rest of your family doesn''t overhear you. You can only imagine your mother''s reaction if she came in to find your brother sucking on your tits like this.'
+							'	After 5 minutes of sucking and squirming, your brother finally stops. "<<$pcs_nickname>>, it is so delicious, I want seconds!"'
+							if milkedvolume >= 500:'	He goes on "... and you probably can make enough milk for that!'
+							'	Then he notices your heavy breathing. "Hey, are you okay? Is there something wrong with you?"'
+							npc_know_sveta_lact['A34'] = 1
+						else
+							'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/8.jpg"></center>'
+							'	"Kolk-! Ahh~! Wai- Uh~! Sto-... Ohh~!" you try to voice protests but they get lost in your stifled moans.'
+							'	Your brother continues to suck eagerly on your nipple with increased vigor, now grabbing your other breast to use as leverage and keep his face close. You squirm under his advances, trying to push him off but you''re too weak, your body floundering in pleasure. You can tell that his definately getting out your breast milk.'
+							'	He pulls his lips off with a pop. "Wow! This milk tastes so good!" he says energetic. At last! A respite! You start to catch your breath and just as you''re about to tell him not to do that again, he leans forward and starts sucking again.'
+							'	"Ahh~!" A cry briefly escapes your lips before you clamp your own hand over them to make sure the rest of your family doesn''t overhear you. You can only imagine your mother''s reaction if she came in to find your brother sucking on your tits like this.'
+							'	After 5 minutes of sucking and squirming, your brother finally stops. "<<$pcs_nickname>>, it is so delicious, I want seconds!"'
+							if milkedvolume >= 500:'	He goes on "... and you probably can make enough milk for that!'
+							'	Then he notices your heavy breathing. "Hey, are you okay? Is there something wrong with you?"'
+						end
+						milkedvolume = 0
+						act'Continue':
+							cla & *clr
+							'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/7.jpg"></center>'
+							'	"Kolka..." you sigh deeply before continuing. "First of all, you can''t just suck on a girl''s nipples like that! I told you..." you trail off, taking notice of the love juices dripping from your snatch and nervously smiling. "... they''re very sensitive..."'
+							'	"Oh. Sorry."'
+							'	"It''s okay... It felt kind of good to be honest..." you admit with some embarrassment. "Just... ask next time? Please?"'
+							'	"Okay <<$pcs_nickname>>," he says, writing some things down in his notebook.'
+							if kid <= 0 and npc_know_sveta_lact['A34'] <= 0:
+								'	Kolka looks up for short "Wait ... haven''t you said only pregnant women have milk?'
+								'	You blush a bit "I also said, that it can happen under other circumstances...'
+							end
+							'	You sigh again. Taking a look in the textbook, it says the next part of the homework is about the external female organs: the vulva. You slyly smile to yourself.'
+							'	<i>Well, at least I didn''t get wet for nothing.</i>'
+							npc_know_sveta_lact['A34'] = 1
+							npc_breastfeed_by_sveta['A34'] = 1
+							npc_tasted_sveta_milk['A34'] = 1
+							act'Continue the lesson':gt'brother_lessons', 'anatomylesson3'
+						end
+					else
+						milkedvolume = func('lact_lib','$get_breastmilk', 0, 2)
+						milkedvolume += func('lact_lib','$get_breastmilk', 5, 2)
+						milkedvolume = 0
+						if npc_know_sveta_lact['A34'] = 1:
+							'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/8.jpg"></center>'
+							'	"Kolk-! Ahh~! Wai- Uh~! Sto-... Ohh~!" you try to voice protests but they get lost in your stifled moans.'
+							'	Your brother continues to suck eagerly on your nipple with increased vigor, now grabbing your other breast to use as leverage and keep his face close. You squirm under his advances, trying to push him off but you''re too weak, your body floundering in pleasure.'
+							'	He pulls his lips off with a pop. "Huh. Why isn''t any milk coming out?" he asks. At last! A respite! You start to catch your breath and just as you''re about to tell him not to do that again, he leans forward and starts sucking again.'
+							'	"Ahh~!" A cry briefly escapes your lips before you clamp your own hand over them to make sure the rest of your family doesn''t overhear you. You can only imagine your mother''s reaction if she came in to find your brother sucking on your tits like this.'
+							'	After another minute of sucking and squirming, your brother finally relents. "<<$pcs_nickname>>, I thought your milk will come out. I''ve been sucking all this time and nothing''s come out. Why''s that?" Then he notices your heavy breathing. "Hey, are you okay? Is there something wrong with you?"'
+							npc_know_sveta_lact['A34'] = 2
+							act'Continue':
+								cla & *clr
+								'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/7.jpg"></center>'
+								'	"Kolka..." you sigh deeply before continuing. "First of all, you can''t just suck on a girl''s nipples like that! I told you..." you trail off, taking notice of the love juices dripping from your snatch and nervously smiling. "... they''re very sensitive... Second of all, I don''t have milk anymore."'
+								'	"Oh. Sorry." Kolka looks a bit sad that no milk came.'
+								'	"It''s okay... It felt kind of good to be honest..." you admit with some embarrassment. "Just... ask next time? Please?"'
+								'	"Okay <<$pcs_nickname>>," he says, writing some things down in his notebook.'
+								'	You sigh again. Taking a look in the textbook, it says the next part of the homework is about the external female organs: the vulva. You slyly smile to yourself.'
+								'	<i>Well, at least I didn''t get wet for nothing.</i>'
+								act'Continue the lesson':gt'brother_lessons', 'anatomylesson3'
+							end
+							
+						else
+							'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/8.jpg"></center>'
+							'	"Kolk-! Ahh~! Wai- Uh~! Sto-... Ohh~!" you try to voice protests but they get lost in your stifled moans.'
+							'	Your brother continues to suck on your nipple with increased vigor, now grabbing your other breast to use as leverage and keep his face close. You squirm under his advances, trying to push him off but you''re too weak, your body floundering in pleasure.'
+							'	He pulls his lips off with a pop. "Huh. Why isn''t any milk coming out?" he asks. At last! A respite! You start to catch your breath and just as you''re about to tell him not to do that again, he leans forward and starts sucking again.'
+							'	"Ahh~!" A cry briefly escapes your lips before you clamp your own hand over them to make sure the rest of your family doesn''t overhear you. You can only imagine your mother''s reaction if she came in to find your brother sucking on your tits like this.'
+							'	After another minute of sucking and squirming, your brother finally relents. "<<$pcs_nickname>>, I thought you said milk came out. I''ve been sucking all this time and nothing''s come out. Why''s that?" Then he notices your heavy breathing. "Hey, are you okay? Is there something wrong with you?"'
+							act'Continue':
+								cla & *clr
+								'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/7.jpg"></center>'
+								'	"Kolka..." you sigh deeply before continuing. "First of all, you can''t just suck on a girl''s nipples like that! I told you..." you trail off, taking notice of the love juices dripping from your snatch and nervously smiling. "... they''re very sensitive... Second of all, I''m not pregnant dummy! Breasts only produce milk if you''re pregnant or recently gave birth."'
+								'	"Oh. Sorry."'
+								'	"It''s okay... It felt kind of good to be honest..." you admit with some embarrassment. "Just... ask next time? Please?"'
+								'	"Okay <<$pcs_nickname>>," he says, writing some things down in his notebook.'
+								'	You sigh again. Taking a look in the textbook, it says the next part of the homework is about the external female organs: the vulva. You slyly smile to yourself.'
+								'	<i>Well, at least I didn''t get wet for nothing.</i>'
+								act'Continue the lesson':gt'brother_lessons', 'anatomylesson3'
+							end
+						end
 					end
 				end
 			end

@@ -1148,7 +1148,7 @@ if $ARGS[0] = 'anastasiasex':
 					end
 				end
 				
-				if pcs_cupsize <= 25:
+				if pcs_cupsize >= 25:
 					act'I''ve got big boobs':
 						cla & *nl
 						'"I had big boobs in high school too," you grin, looking down meaningfully at your <<$titsize>> breasts. "Boys wouldn''t be boys if they didn''t drool over the thought of fucking busty girls like me.'

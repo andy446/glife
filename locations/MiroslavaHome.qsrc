@@ -1,17 +1,23 @@
 # MiroslavaHome
 
 if $ARGS[0] = 'start':
-	$metka = $ARGS[0]
-	$loc = $CURLOC
+	$loc = 'MiroslavaHome'
+	$metka = 'start'
 	$location_type = 'public_outdoors'
+	
+	$menu_loc = 'MiroslavaHome'
+	$menu_arg = 'start'
+	menu_off = 0
+	
 	*clr & cla
 	minut += 5
 	mira_temp = rand(0,15)
 	gs 'stat'
+	
 	'<center><h2>Gadukino Village</h2></center>'
 	'<center><b>Mira''s Yard</b></center>'
 
-	!!MiaLoc tells us where Mira is Located
+	!!MiraLoc tells us where Mira is Located
 	!!----------------------------------------------
 	!!MiraLoc = 0 (Mira at home)
 	!!MiraLoc = 1 (Mira at river)
@@ -42,37 +48,115 @@ if $ARGS[0] = 'start':
 			gs'stat'
 
 			act 'Further':gt 'miroslavahome', 'start'
-		elseif temper >= 15 and sunWeather = 1 and npc_QW['A60'] = 7 and hour >= 8 and hour <= 18:
+		elseif npc_QW['A60'] = 15 and temper >= 10 and sunWeather = 1 and miraprost = 0:
 			*clr & cla
 			'<center><img <<$set_imgh>> src="images/characters/village/mira/miraqw7.jpg"></center>'
-			'Entering the courtyard, you notice Mira, working in the garden. She is bent over and, to your amazement, you see her bare naked crotch...'
-			MiraLoc = 0
+			'Walking through the village, you notice Mira, digging in her vegetable garden. She stands with her ass high in the air, and to your amazement, she isn''t wearing panties. You get a good look at her pussy lips...'
 
-			act 'Approach it':
+			act 'You approach slowly':
 				*clr & cla
-				gs 'Miroslava', 'miraclothes'
-				'You quietly sneak up to her, but she notices you and turns around, immediately blushing rapidly. You a couple seconds of silently staring at her, and then unceremoniously asked why she without panties. Miroslav took the eye, with rumpled feet and legs, explaining that it turned out very hot, so she... You remind her about the second wish and ask to sit down. Miroslav reluctantly agrees, and when he sits down, you tell her, she`ll show you the crotch, you bad considered. The girl mumbles something unintelligible, but then for half a minute lifts up her skirt and gives you a good look at my crotch.'
-				npc_rel['A60'] = 1
 				minut += 15
 				gs 'stat'
 
+				gs 'Miroslava', 'miraclothes'
+
+				'You quietly sneak up to her, but she notices your approach and turns around, her hands pull her skirt back into place, blushing. You stare at her for a few seconds silently, and then ask, "Why don''t you have any panties on?" Mira, her eyes darting about, shifting her weight from foot to foot, explaining hesitantly, "Well what happened is, well it''s very hot and I thought it would feel better without panties." You interrupt her with an upraised hand as you get an idea for your second wish... You remind her she still owes you two wishes and you''re ready to collect your second wish. You tell Mira to sit down and she reluctantly agrees. When she is finally sitting, you order her to show you her pussy. Mira grumbles and glares at you, but eventually sighs and slowly lifts up her skirt, giving you a good look at her crotch.'
 				act 'Watch':
 					*clr & cla
 					'<center><img <<$set_imgh>> src="images/characters/village/mira/mirawish2.jpg"></center>'
-					'You enjoy the view, then you have a crazy idea, and you decide to make a second wish. Mira sadly said that she thought this was your second wish, but you answer that you just could not resist, after which you ask her to follow you.'
-					pcs_horny += 15
-					minut += 15
+					'You enjoy the view, then snap your fingers as an amazing idea comes to mind for your second wish. Mira says she thought her second wish was over, but you wouldn''t make it that easy. You ask if she is thinking about backing out of granting your wishes, but Mira says no, she will go through with them. You smile and tell her to follow you.'
+					gs 'arousal', 'voyeur', 2, 'exhibitionism', 'lesbian', 'dom'
 					gs 'stat'
 
-					act 'Go out on the road':
+					act 'Lead her to the road':
 						*clr & cla
+						minut += 45
+						pcs_dom += 2
 						'<center><img <<$set_imgh>> src="images/characters/village/mira/mirawish2_1.jpg"></center>'
-						'Out on the road you say, "Mira, pose as a prostitute, this will be the second wish." Mira sadly nods her head, looks around and seeing that the street was quiet, fulfills your desire...'
-						minut += 15
-						npc_QW['A60'] = 8
+						'You lead her out to the main road. You tell Mira, that she is to pose as a prostitute and attempt to get a customer or two. This is your second wish. You want Mira to become a prostitute and fulfill the desires of anyone who asks for her services. Mira looks shocked but nods that she will do it, Mira looks around the area and seeing no one else watching begins to pose by the roadside for passing cars...'
 						gs 'stat'
 
-						act 'Go back to the village':gt'gadukino'
+						act 'Wait for a car...':
+							*clr & cla
+							minut += 30
+							pcs_horny += 20
+							miraprost += 1
+							npc_QW['A60'] = 16
+							'<center><img <<$set_imgh>> src="images/characters/village/mira/miraprost.jpg"></center>'
+							'It isn''t long before Mira''s first customer pulls up in a nice vehicle. She takes a deep breath, looks you in the eyes, winks and approaches the vehicle and starts talking to the driver.'
+							'You can''t hear what she is saying but after only a few minutes the door opens and Mira steps into the vehicle. It pulls away, but doesn''t go far. You see it pull off the main road and head down a dirt road. Smiling and wanting to see the action, you run into the woods trying to head off the vehicle.'
+							gs 'stat'
+
+							act 'Watch her with the customer':
+								if rand(0,1) = 0:
+									*clr & cla
+									'<center><video autoplay loop src="images/characters/village/mira/sex/miraprost1.mp4"></video></center>'
+									'You walk up and look into the car. You see Mira giving one hell of a blowjob to her first customer. Her head is bobbing up and down on his 17cm cock.'
+									gs 'arousal', 'voyeur', 5, 'exhibitionism', 'prostitution'
+									gs 'stat'
+
+									act 'Continue':
+										*clr & cla
+										minut += 10
+										'<center><video autoplay loop src="images/characters/village/mira/sex/miraprost1_1.mp4"></video></center>'
+										'You duck for cover as the guy suddenly gets out of the car and opens the passenger door, grabs Mira''s head and starts forcing his cock deep into her throat.'
+										gs 'stat'
+
+										act 'Continue':
+											*clr & cla
+											minut += 10
+											'<center><video autoplay loop src="images/characters/village/mira/sex/miraprost1_2.mp4"></video></center>'
+											'Eventually, the guy grunts and cums all over Mira''s face and into her mouth. The nicely dressed man pulls Mira out of the car, hands her a few bills and then drives off.'
+											gs 'stat'
+
+											act 'Continue':
+												*clr & cla
+												minut += 10
+												'<center><img <<$set_imgh>> src="images/characters/village/mira/miramoney.jpg"></center>'
+												'Mira walks back towards town counting the money he gave her as she absentmindedly licks the cum as it drips down her face. She smiles at you and shows you the money as you join her.'
+												gs 'arousal', 'end'
+												gs 'stat'
+
+												act 'Return to the village': miraloc = 0 & gt 'gadukino'
+											end
+										end
+									end
+								else
+									*clr & cla
+									'<center><video autoplay loop src="images/characters/village/mira/miraprost2.mp4"></video></center>'
+									'You walk up and look into the van. You see Mira showing her first customer her tits and rubbing her pussy. You see a hungry gleam in the guy''s eyes, which Mira returns right back.'
+									gs 'arousal', 'voyeur', 20, 'exhibitionism', 'prostitution'
+									gs 'stat'
+
+									act 'Continue':
+										*clr & cla
+										'<center><video autoplay loop src="images/characters/village/mira/sex/miraprost2_1.mp4"></video></center>'
+										'Mira and the guy jump into the back of the van and you watch as he starts fucking her wet pussy. His hand covers her mouth as she screams in ecstasy. The guy pounds his 20cm cock deep into her pussy. From Mira''s grunts of partial ecstasy, partial pain, you know the guy is hitting or entering her cervix.'
+										gs 'arousal', 'voyeur', 10, 'exhibitionism', 'prostitution'
+										gs 'stat'
+
+										act 'Continue':
+											*clr & cla
+											'<center><video autoplay loop src="images/characters/village/mira/sex/miraprost2_2.mp4"></video></center>'
+											'You have to duck behind some bushes as they move outside the van. The guy continues to pound into Mira''s pussy until he cums...and cums...and cums. '
+											gs 'arousal', 'voyeur', 10, 'exhibitionism', 'prostitution'
+											gs 'stat'
+
+											act 'Continue':
+												*clr & cla
+												minut += 10
+												'<left><video autoplay loop src="images/locations/gadukino/sex/mira/miracumpump.mp4"></video></left>''<right><video autoplay loop src="images/locations/gadukino/sex/mira/miracumdump.mp4"></video></right>'
+												'After the wild sex, Mira and the guy sit in the van and talk for a bit. He gives her a nice wad of cash and she starts walking to the village. Seeing you, she smiles and says thanks.'
+												gs 'arousal', 'end'
+												gs 'stat'
+
+												act 'Return to the village': miraloc = 0 & gt 'gadukino'
+											end
+										end
+									end
+								end
+							end
+						end
 					end
 				end
 			end
@@ -96,13 +180,13 @@ if $ARGS[0] = 'start':
 				'Near the house <a href="exec: gt ''mirafather'' ">Afanasiy</a> is working.'
 			end
 			if month >= 5 and month <= 9 and hour >= 18 and hour <= 21 and rand(0,30) >= 28:'You hear a motorcycle in the village. <a href="exec: gt ''miroslavahome'', ''mirabrother''">Miras brother</a> has come in from the city to visit his siblings and father.'
-			if MiraLoc > 0 and npc_QW['A60'] > 30:
+			if MiraLoc > 0 and npc_QW['A60'] > 15:
 				act 'Check on Mira':
 					*clr & cla
 					minut += 2
 					gs 'stat'
 					'Mira isn''t home.'
-					if miraprost > 0 and month >= 5 and month <= 9 and hour >= 18 and hour >= 0 and rand(0,5) >= 4:
+					if miraprost > 0 and month >= 5 and month <= 9 and hour >= 18:
 						'You think you know where to find her. Ever since granting your second wish Mira has been earning money as a prostitute on the highway.'
 						act 'Go to the highway': gt 'gadprostitutes','start'
 					else
@@ -111,7 +195,7 @@ if $ARGS[0] = 'start':
 					act 'Leave': gt 'gadukino'
 				end
 			end
-!!125s
+
 			act 'Ask for Mira':
 				if mira_temp >= 10 and sunWeather = 1 and temper >= 15 and hour < 20 and Mira_no = 0:
 					*clr & cla
@@ -141,7 +225,7 @@ if $ARGS[0] = 'start':
 		end
 	else
 		'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mirahome.jpg"></center>'
-		if hour > 22 or hour < 3: 'It''s late, most of Mira''s family is asleep, no need to them up unnecessarily.' else 'It''s too early, most of Mira''s family is still asleep, no need to wake people up unnecessarily.'
+		if hour > 22 or hour < 3: 'It''s too late, most of Mira''s family is asleep, no need to wake them up unnecessarily.' else 'It''s too early, most of Mira''s family is still asleep, no need to wake them up unnecessarily.'
 		act 'Leave': gt 'gadukino'
 	end
 end
@@ -302,4 +386,3 @@ if $ARGS[0] = 'mirabrother':
 end
 
 --- MiroslavaHome ---------------------------------
-

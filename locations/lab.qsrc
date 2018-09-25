@@ -11,6 +11,10 @@ if $ARGS[0] = 'start':
 		fcolor = rgb(255, 255, 255)
 		bcolor = rgb(0, 0, 0)
 		lcolor = rgb(106, 90, 205)
+	elseif night_mode = 2:
+		fcolor = rgb(255, 255, 255)
+		bcolor = rgb(20, 20, 20)
+		lcolor = rgb(106, 90, 205)
 	else
 		fcolor = rgb(0, 0, 0)
 		bcolor = rgb(255, 255, 255)
@@ -128,6 +132,10 @@ if $ARGS[0] = 'Gustav':
 		fcolor = rgb(255, 255, 255)
 		bcolor = rgb(0, 0, 0)
 		lcolor = rgb(106, 90, 205)
+	elseif night_mode = 2:
+		fcolor = rgb(255, 255, 255)
+		bcolor = rgb(20, 20, 20)
+		lcolor = rgb(106, 90, 205)
 	else
 		fcolor = rgb(0, 0, 0)
 		bcolor = rgb(255, 255, 255)
@@ -211,6 +219,10 @@ if $ARGS[0] = 'Tatiana':
 	if night_mode = 1:
 		fcolor = rgb(255, 255, 255)
 		bcolor = rgb(0, 0, 0)
+		lcolor = rgb(106, 90, 205)
+	elseif night_mode = 2:
+		fcolor = rgb(255, 255, 255)
+		bcolor = rgb(20, 20, 20)
 		lcolor = rgb(106, 90, 205)
 	else
 		fcolor = rgb(0, 0, 0)
@@ -587,6 +599,10 @@ if $ARGS[0] = 'Tatianasuctalk':
 		fcolor = rgb(255, 255, 255)
 		bcolor = rgb(0, 0, 0)
 		lcolor = rgb(106, 90, 205)
+	elseif night_mode = 2:
+		fcolor = rgb(255, 255, 255)
+		bcolor = rgb(20, 20, 20)
+		lcolor = rgb(106, 90, 205)
 	else
 		fcolor = rgb(0, 0, 0)
 		bcolor = rgb(255, 255, 255)
@@ -653,6 +669,10 @@ if $ARGS[0] = 'Tatianasucsexask':
 	if night_mode = 1:
 		fcolor = rgb(255, 255, 255)
 		bcolor = rgb(0, 0, 0)
+		lcolor = rgb(106, 90, 205)
+	elseif night_mode = 2:
+		fcolor = rgb(255, 255, 255)
+		bcolor = rgb(20, 20, 20)
 		lcolor = rgb(106, 90, 205)
 	else
 		fcolor = rgb(0, 0, 0)

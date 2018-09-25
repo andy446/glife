@@ -10,6 +10,8 @@ $shoe_list_line = {
 
 	if night_mode = 1:
 		$bgcolor = iif($bgcolor='#0C0B11','#000000','#0C0B11')
+	elseif night_mode = 2:
+		$bgcolor = iif($bgcolor='#0C0B11','#141414','#0C0B11')
 	else
 		$bgcolor = iif($bgcolor='#f3f4ee','#ffffff','#f3f4ee')
 	end

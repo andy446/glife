@@ -14,6 +14,9 @@ if $ARGS[0] = 'main':
 	if night_mode = 1:
 		fcolor = rgb(255, 255, 255)
 		bcolor = rgb(0, 0, 0)
+	elseif night_mode = 2:
+		fcolor = rgb(255, 255, 255)
+		bcolor = rgb(20, 20, 20)
 	else
 		fcolor = rgb(0, 0, 0)
 		bcolor = rgb(255, 255, 255)

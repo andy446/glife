@@ -6,6 +6,11 @@ if night_mode = 1:
 	$bcolor1 = '#202020'
 	$bcolor2 = '#303030'
 	$bcolor3 = '#000000'
+elseif night_mode = 2:
+	$fcolor1 = '#FFFFFF'
+	$bcolor1 = '#202020'
+	$bcolor2 = '#303030'
+	$bcolor3 = '#141414'
 else
 	$fcolor1 = '#000000'
 	$bcolor1 = '#FFFFFF'

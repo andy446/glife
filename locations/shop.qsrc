@@ -37,6 +37,10 @@ if $shoplocation = 'main':
 		fcolor = rgb(255, 255, 255)
 		bcolor = rgb(0, 0, 0)
 		lcolor = rgb(106, 90, 205)
+	elseif night_mode = 2:
+		fcolor = rgb(255, 255, 255)
+		bcolor = rgb(20, 20, 20)
+		lcolor = rgb(106, 90, 205)
 	else
 		fcolor = rgb(0, 0, 0)
 		bcolor = rgb(255, 255, 255)
@@ -249,6 +253,10 @@ if $shoplocation = 'grocery':
 		fcolor = rgb(255, 255, 255)
 		bcolor = rgb(0, 0, 0)
 		lcolor = rgb(106, 90, 205)
+	elseif night_mode = 2:
+		fcolor = rgb(255, 255, 255)
+		bcolor = rgb(20, 20, 20)
+		lcolor = rgb(106, 90, 205)
 	else
 		fcolor = rgb(0, 0, 0)
 		bcolor = rgb(255, 255, 255)
@@ -302,6 +310,10 @@ if $shoplocation= 'cosmetics':
 		fcolor = rgb(255, 255, 255)
 		bcolor = rgb(0, 0, 0)
 		lcolor = rgb(106, 90, 205)
+	elseif night_mode = 2:
+		fcolor = rgb(255, 255, 255)
+		bcolor = rgb(20, 20, 20)
+		lcolor = rgb(106, 90, 205)
 	else
 		fcolor = rgb(0, 0, 0)
 		bcolor = rgb(255, 255, 255)
@@ -347,6 +359,10 @@ if $shoplocation = 'hardware':
 	if night_mode = 1:
 		fcolor = rgb(255, 255, 255)
 		bcolor = rgb(0, 0, 0)
+		lcolor = rgb(106, 90, 205)
+	elseif night_mode = 2:
+		fcolor = rgb(255, 255, 255)
+		bcolor = rgb(20, 20, 20)
 		lcolor = rgb(106, 90, 205)
 	else
 		fcolor = rgb(0, 0, 0)
@@ -415,6 +431,10 @@ if $shoplocation = 'clothing':
 		if night_mode = 1:
 			fcolor = rgb(255, 255, 255)
 			bcolor = rgb(0, 0, 0)
+			lcolor = rgb(106, 90, 205)
+		elseif night_mode = 2:
+			fcolor = rgb(255, 255, 255)
+			bcolor = rgb(20, 20, 20)
 			lcolor = rgb(106, 90, 205)
 		else
 			fcolor = rgb(0, 0, 0)
@@ -588,6 +608,10 @@ if $shoplocation = 'tech':
 	if night_mode = 1:
 		fcolor = rgb(255, 255, 255)
 		bcolor = rgb(0, 0, 0)
+		lcolor = rgb(106, 90, 205)
+	elseif night_mode = 2:
+		fcolor = rgb(255, 255, 255)
+		bcolor = rgb(20, 20, 20)
 		lcolor = rgb(106, 90, 205)
 	else
 		fcolor = rgb(0, 0, 0)

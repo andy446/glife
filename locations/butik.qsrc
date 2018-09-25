@@ -72,7 +72,7 @@ if $ARGS[0] = 'start':
 	act 'View purses': minut += 5 & gt 'butik', 'purses'
 
 	if money >= 50000:
-		act 'View coats'
+		act 'View coats':
 			if coat[9] < 1:
 				if coat[9] = 0:dynamic 'act ''Look at designer coat 9'':gt ''clothing'', ''view_clothing_item'', ''shop'', ''coat'', 9, 50000'
 			end

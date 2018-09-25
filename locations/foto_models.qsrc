@@ -1187,7 +1187,7 @@ if $ARGS[0] = 'anastasiasex2':
 		*clr & cla
 		'<center><img src="images/locations/city/citycenter/photo/portraits/anastasia_p/talking/1.jpg"></center>'
 		'"Makes sense I suppose," you say, musing what Anastasia''s just told you. She picks up her panties and stands, regarding you warmly with a motherly touch on your cheek.'
-		'"Oh <<pcs_firstname>>, you''re such a big girl," she says. "Not everyone would understand like you do. With an attitude like yours, you''ll go far in this industry. I see the potential in you to be as famous or even more famous than I am one day! Can I give you some advice?"'
+		'"Oh <<$pcs_firstname>>, you''re such a big girl," she says. "Not everyone would understand like you do. With an attitude like yours, you''ll go far in this industry. I see the potential in you to be as famous or even more famous than I am one day! Can I give you some advice?"'
 		'"Of course Anastasia," you nod, leaning in.'
 		'"Three important things," she says, whispering in your ear. "Make sure to enjoy yourself, never forget your birth control, and <i>always</i> charge extra for creampies, swallowing, and anal."'
 		'With that, she stands back and gives you an eager smile. "Got it?"'

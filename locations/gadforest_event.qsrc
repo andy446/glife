@@ -666,7 +666,7 @@ if $ARGS[0] = 'gopforest_kolyamba':
 						cla
 						*clr
 						gopsawnaked += 1
-						if gopsawnaked >= 5 npc_QW['A63']< 20:gopsawnaked = 0 & npc_QW['A63'] += 1
+						if gopsawnaked >= 5 and npc_QW['A63'] < 20:gopsawnaked = 0 & npc_QW['A63'] += 1
 						pcs_horny += 10
 						minut += 5
 						gs 'clothing', 'swamp_clothes', 0

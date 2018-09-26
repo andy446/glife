@@ -695,6 +695,16 @@ $cheatmenu['setStat'] = {
 	dynamic $cheatmenu['stats']
 }
 
+$cheatmenu['setStat1'] = {
+	temp_input = input("Set your <<$ARGS[1]>> level:")
+	dynamic "
+		<<$ARGS[0]>>_lvl = 100 - temp_input
+		<<$ARGS[0]>>_lvlst = 100 - temp_input
+	"
+	killvar 'temp_input'
+	dynamic $cheatmenu['stats']
+}
+
 $cheatmenu['setAttrs'] = {
 	loop_index = 0
 	:set_attrs_loop
@@ -735,6 +745,16 @@ $cheatmenu['printStatLinks'] = {
 	*p '<a href="exec:<<$ARGS[0]>>_lvl -= 10 & <<$ARGS[0]>>_lvlst = <<$ARGS[0]>>_lvl & dynamic $cheatmenu[''stats'']" >-10</a>  '
 	*p '<a href="exec:<<$ARGS[0]>>_lvl = 0 & <<$ARGS[0]>>_lvlst = 0 & dynamic $cheatmenu[''stats'']" >Min</a>  '
 	*pl '<a href="exec:dynamic $cheatmenu[''setStat''], ''<<$ARGS[0]>>'', ''<<$ARGS[1]>>''" >Set</a>'
+}
+
+$cheatmenu['printStatLinks1'] = {
+	*p '<a href="exec:<<$ARGS[0]>>_lvl = 0 & <<$ARGS[0]>>_lvlst = 0 & dynamic $cheatmenu[''stats'']" >Max</a>  '
+	*p '<a href="exec:<<$ARGS[0]>>_lvl -= 1 & <<$ARGS[0]>>_lvlst = <<$ARGS[0]>>_lvl & dynamic $cheatmenu[''stats'']" >+1</a> '
+	*p '<a href="exec:<<$ARGS[0]>>_lvl -= 10 & <<$ARGS[0]>>_lvlst = <<$ARGS[0]>>_lvl & dynamic $cheatmenu[''stats'']" >+10</a> '
+	*p '<a href="exec:<<$ARGS[0]>>_lvl += 1 & <<$ARGS[0]>>_lvlst = <<$ARGS[0]>>_lvl & dynamic $cheatmenu[''stats'']" >-1</a> '
+	*p '<a href="exec:<<$ARGS[0]>>_lvl += 10 & <<$ARGS[0]>>_lvlst = <<$ARGS[0]>>_lvl & dynamic $cheatmenu[''stats'']" >-10</a>  '
+	*p '<a href="exec:<<$ARGS[0]>>_lvl = 100 & <<$ARGS[0]>>_lvlst = 100 & dynamic $cheatmenu[''stats'']" >Min</a>  '
+	*pl '<a href="exec:dynamic $cheatmenu[''setStat1''], ''<<$ARGS[0]>>'', ''<<$ARGS[1]>>''" >Set</a>'
 }
 
 $cheatmenu['stats'] = {
@@ -782,7 +802,7 @@ $cheatmenu['stats'] = {
 	if MagikDostup = 0: *p 'Magic (<<magik_lvl>>): ' & dynamic $cheatmenu['printStatLinks'], 'magik', 'Magic'
 	*nl
 	*pl'<b>Sexual:</b>'
-	*pl 'Inhibition level (<<100 - pcs_inhib>>): <a href="exec:inhib_lvl = 0 & inhib_lvlst = 0 & dynamic $cheatmenu[''stats'']" >Max</a>  <a href="exec:inhib_lvl -= 1 & inhib_lvlst = inhib_lvl & dynamic $cheatmenu[''stats'']" >+1</a> <a href="exec:inhib_lvl -= 10 & inhib_lvlst = inhib_lvl & dynamic $cheatmenu[''stats'']" >+10</a> <a href="exec:inhib_lvl += 1 & inhib_lvlst = inhib_lvl & dynamic $cheatmenu[''stats'']" >-1</a> <a href="exec:inhib_lvl += 10 & inhib_lvlst = inhib_lvl & dynamic $cheatmenu[''stats'']" >-10</a>  <a href="exec:inhib_lvl = 100 & inhib_lvlst = 100 & dynamic $cheatmenu[''stats'']" >Min</a>'
+	*pl 'Inhibition level (<<100 - inhib_lvl>>): ' & dynamic $cheatmenu['printStatLinks1'], 'inhib', 'Inhibition'
 	if pcs_dom < 0 or sub < 0: pcs_dom = 0 & sub = 0
 	if pcs_dom > 100: pcs_dom = 100
 	if sub > 100: sub = 100

@@ -67,7 +67,7 @@ if $ARGS[0] = '1':
 		if foresteventrand = 9 and hour >= 8 and hour <= 15 and month >= 4 and month <= 10 and gadboyday ! daystart and week > 5: gt 'gadforest_event', 'gopforest_3boys'
 	end
 
-	if $clothingworntype ! 'nude' and clothesAtLocation = 0 and temper >= 15 and sunWeather = 1 and hour>=6 and hour<=20 and miratalkforest > 1 and MiraLoc ! 3 and (inhib > 50 or exhibitionist_lvl > 1):
+	if $clothingworntype ! 'nude' and clothesAtLocation = 0 and temper >= 15 and sunWeather = 1 and hour>=6 and hour<=20 and miratalkforest > 1 and MiraLoc ! 3 and (pcs_inhib >= 25 or exhibitionist_lvl > 1):
 		act'Strip naked':
 			if forestpicnic = 0:
 				inhib_exp += rand(1,3)
@@ -167,7 +167,7 @@ if $ARGS[0] = '1':
 				end
 			end
 
-			act 'Further':gt 'gadforest','1'
+			act 'Continue':gt 'gadforest','1'
 		end
 	end
 	if hour >= 6 and hour <= 20 and month >= 6 and month <= 9 and boletus + bilberry < 10 and edge_forestday ! daystart:
@@ -212,7 +212,7 @@ if $ARGS[0] = '1':
 				gs 'gadforest', 'clothes2'
 				'You are wandering through the woods in search of mushrooms or berries for half an hour, but found nothing.'
 			end
-			act 'Further':gt 'gadforest','1'
+			act 'Continue':gt 'gadforest','1'
 		end
  	end
 	if hour >= 6 and hour <= 20 and month >= 6 and month <= 9 and MiraLoc ! 3:
@@ -247,7 +247,7 @@ if $ARGS[0] = '1':
 				'You sneak out the woods, hiding your naked body in shadow and moving toward grandparents house.'
 				'You Successfully reach home without witness.'
 				cla
-				act 'Further':gt'Gadhouse'
+				act 'Continue':gt'Gadhouse'
 			else
 				'<B>You should dress before leave</B>'
 			end
@@ -348,7 +348,7 @@ if $ARGS[0] = '2':
 				gs 'gadforest', 'clothes2'
 				'You are wandering through the woods in search of mushrooms or berries for half an hour, but found nothing.'
 			end
-			act 'Further':gt 'gadforest','2'
+			act 'Continue':gt 'gadforest','2'
 		end
 	end
 	if hour >= 6 and hour <= 20 and month >= 6 and month <= 9:
@@ -423,7 +423,7 @@ if $ARGS[0] = '3':
 			gs 'gadforest', 'clothes1'
 			'Within half an hour of wandering through the woods in search of mushrooms or berries, you found <<new_boletus>> kg mushrooms and <<new_bilberry>> kg of berries.'
 
-			act 'Further':gt 'gadforest','3'
+			act 'Continue':gt 'gadforest','3'
 		end
 	end
 	if hour >= 6 and hour <= 20 and month >= 6 and month <= 9:
@@ -500,7 +500,7 @@ if $ARGS[0] = '4':
 			gs 'gadforest', 'clothes1'
 			'Within half an hour of wandering through the woods in search of mushrooms or berries, you found <<new_boletus>> kg mushrooms and <<new_bilberry>> kg of berries.'
 
-			act 'Further':gt 'gadforest','4'
+			act 'Continue':gt 'gadforest','4'
 		end
 	end
 	act 'Go further into the forest':
@@ -552,7 +552,7 @@ if $ARGS[0] = 'gadforestloststart':
 	end
 	'You suddenly realize in horror that you are not familiar with the area you are in... you get lost.'
 
-	act 'Further':
+	act 'Continue':
 		if lost = 1: gt 'gadforestlost','1'
 		if lost = 2: gt 'gadforestlost','2'
 		if lost = 3: gt 'gadforestlost','3'

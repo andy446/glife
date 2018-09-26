@@ -1,8 +1,8 @@
 # Miroslava
 
 if $ARGS[0] = 'Start' or $ARGS[0] = '':
-	$metka = $ARGS[0]
-	$loc = $curloc
+	$metka = 'Start'
+	$loc = 'Miroslava'
 	gs 'boyStat', 'A60'
 	girlage = age
 	temp = RAND(0,20)
@@ -63,9 +63,9 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 			'<center><img <<$set_imgh>> src="images/characters/village/mira/graze_cow_mira.jpg"></center>'
 			'You chat with Mira for an hour. You feel like your relationship with her has improved.'
 
-			if hour < 13:act 'Further':gt'gadfield','cow'
-			if hour >= 13 or hour < 16:act 'Further':gt'gadfield','cow2'
-			if hour >= 16:act 'Further':gt'gadfield','cow3'
+			if hour < 13:act 'Continue':gt'gadfield','cow'
+			if hour >= 13 or hour < 16:act 'Continue':gt'gadfield','cow2'
+			if hour >= 16:act 'Continue':gt'gadfield','cow3'
 		end
 
 		if hour < 13 or hour >= 16:
@@ -82,8 +82,8 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 				'<center><img <<$set_imgh>> src="images/characters/village/mira/graze_cow_run_mira.jpg"></center>'
 				'You spend the next hour running around the field with Mira.'
 
-				if hour < 14:act 'Further':gt'gadfield','cow'
-				if hour >= 16:act 'Further':gt'gadfield','cow3'
+				if hour < 14:act 'Continue':gt'gadfield','cow'
+				if hour >= 16:act 'Continue':gt'gadfield','cow3'
 			end
 			if temper >= 15 and sunWeather = 1:
 				act 'Tan by the field':
@@ -96,8 +96,8 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 					'<center><img <<$set_imgh>> src="images/characters/village/mira/graze_cow_sun_mira.jpg"></center>'
 					'You lie down next to Mira and tan together in the sun.'
 
-					if hour < 14:act 'Further':gt'gadfield','cow'
-					if hour >= 16:act 'Further':gt'gadfield','cow3'
+					if hour < 14:act 'Continue':gt'gadfield','cow'
+					if hour >= 16:act 'Continue':gt'gadfield','cow3'
 				end
 			end
 		end
@@ -116,7 +116,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/graze_cow_river_mira.jpg"></center>'
 				'You wade in the river, splashing around with Mira is lot of fun.'
 
-				act 'Further':gt'gadfield','cow2'
+				act 'Continue':gt'gadfield','cow2'
 			end
 
 			act 'Tan by the river':
@@ -129,7 +129,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 				'<center><img <<$set_imgh>> src="images/characters/village/mira/graze_cow_sun_mira2.jpg"></center>'
 				'You lie down next to Mira and tan together in the sun.'
 
-				act 'Further':gt'gadfield','cow2'
+				act 'Continue':gt'gadfield','cow2'
 			end
 		end
 
@@ -238,7 +238,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 						'<center><img <<$set_imgh>> src="images/characters/village/mira/girls_go.jpg"></center>'
 						'You offer go with Mira to to the meadow and she readily agrees. On the way you tell each other different stories, some true but mostly tall tales.'
 
-						act 'Further':gt 'meadow'
+						act 'Continue':gt 'meadow'
 					else
 						minut += 5
 						gs 'stat'
@@ -273,7 +273,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 				gs 'Miroslava', 'miraclothes'
 				'You ask Mira if she has already met everyone in the village. When she says no, you offer to introduce her to some of the local guys and she readily agrees, asking you to wait a couple of minutes while she changes and freshens up. When she comes out, you go drinking with the group of boys near your house...'
 
-				act 'Further':mira_guest = 0 & minut += 15 & temp = 0 & npc_drunk['A60'] = 0 & gt 'mitkabuh'
+				act 'Continue':mira_guest = 0 & minut += 15 & temp = 0 & npc_drunk['A60'] = 0 & gt 'mitkabuh'
 			end
 		end
 
@@ -296,9 +296,9 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 						'You suggest drinking with the village boys and Mira readily agrees, then asks you to wait a couple of minutes while she changes. When she comes out, you go to to drink with the group of boys near your house....'
 					end
 					if npc_QW['A60'] > 15 and npc_QW['A63'] > 15 and gadriver_gang < 3 :
-						act 'Further':mira_guest = 0 & MiraLoc = 5 & minut += 15 & temp = 0 & npc_drunk['A60'] = 0 & gt 'mitkabuh_group'
+						act 'Continue':mira_guest = 0 & MiraLoc = 5 & minut += 15 & temp = 0 & npc_drunk['A60'] = 0 & gt 'mitkabuh_group'
 					else
-						act 'Further':mira_guest = 0 & MiraLoc = 5 & minut += 15 & temp = 0 & npc_drunk['A60'] = 0 & gt 'mitkabuh'
+						act 'Continue':mira_guest = 0 & MiraLoc = 5 & minut += 15 & temp = 0 & npc_drunk['A60'] = 0 & gt 'mitkabuh'
 					end
 				else
 					minut += 5
@@ -422,7 +422,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 				'"But, I just willing only go to the forest edge. I refuse to go deep into the forest," Mira quickly added.'
 				'"Okay, okay, we''ll only walk along the edge of the forest," - you agree.'
 
-				act 'Further':gt $loc, $metka
+				act 'Continue':gt $loc, $metka
 			end
 		end
 
@@ -465,16 +465,18 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 		end
 
 		if sunWeather = 1 and temper >= 15 and month >= 5 and month <= 9 and MiraLoc = 3 and miratalkforest > 1 and npc_rel['A60'] >= 5 and $clothingworntype ! 'nude' and forestpicnic = 0:
-			act 'Offer to walk naked':
-				*clr & cla
-				minut+=5
-				gs 'underwear', 'remove'
-				gs 'clothing', 'strip', 'gadforest'
-				gs 'stat'
-				'<center><img <<$set_imgh>> src="images/characters/village/mira/miraforest6.jpg"></center>'
-				'You offered Mira to take a walk through the woods naked and she immediately agreed.'
+			if pcs_inhib >= 25 or exhibitionist_lvl > 1:
+				act 'Offer to walk naked':
+					*clr & cla
+					minut+=5
+					gs 'underwear', 'remove'
+					gs 'clothing', 'strip', 'gadforest'
+					gs 'stat'
+					'<center><img <<$set_imgh>> src="images/characters/village/mira/miraforest6.jpg"></center>'
+					'You offered Mira to take a walk through the woods naked and she immediately agreed.'
 
-				act'Further':gt'gadforest','1'
+					act'Continue':gt'gadforest','1'
+				end
 			end
 		end
 
@@ -501,7 +503,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 							'<center><img <<$set_imgh>> src="images/locations/gadukino/river/dressbch.jpg"></center>'
 							'You changed into your regular clothes and went home with Mira.'
 
-							act 'Further': minut += 15 & gt'Gadhouse'
+							act 'Continue': minut += 15 & gt'Gadhouse'
 						end
 					end
 				end
@@ -517,7 +519,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 					'<center><img <<$set_imgh>> src="images/characters/village/mira/mira_tv'+rand(1,12)+'.jpg"></center>'
 					'You and Mira watch TV for an hour.'
 
-					act'Further':gt'Gadhouse'
+					act'Continue':gt'Gadhouse'
 				end
 			end
 
@@ -583,7 +585,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/river/dressbch.jpg"></center>'
 						'You change into your clothes and go home with Mira.'
 
-						act 'Further': gt'Gadhouse'
+						act 'Continue': gt'Gadhouse'
 					end
 				end
 
@@ -595,7 +597,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 					'<center><img <<$set_imgh>> src="images/pc/speak_to_the_hand.jpg"></center>'
 					'You deny Mira, saying that you don''t want to right now.'
 
-					act 'Further': gt 'Miroslava', 'Start'
+					act 'Continue': gt 'Miroslava', 'Start'
 				end
 			end
 			if mira_guest = 1 and mira_temp >= 3 and mira_temp <= 4:
@@ -615,7 +617,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 					'<center><img <<$set_imgh>> src="images/characters/village/mira/mira_tv'+rand(1,12)+'.jpg"></center>'
 					'You watch TV with Mira for an hour.'
 
-					act'Further':gt'Gadhouse'
+					act'Continue':gt'Gadhouse'
 				end
 
 				act'Refuse':
@@ -625,7 +627,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 					'<center><img <<$set_imgh>> src="images/pc/speak_to_the_hand.jpg"></center>'
 					'You deny Mira, saying that you don''t want to right now.'
 
-					act 'Further': gt $loc, $metka
+					act 'Continue': gt $loc, $metka
 				end
 			end
 			if MiraLoc ! 2 and mira_temp = 5 and (meadow = 3 or meadow = 6) and mira_go_blok = 0 and MiraLoc ! 3 and hour < 19 and sunWeather = 1:
@@ -650,7 +652,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 					'<center><img <<$set_imgh>> src="images/characters/village/mira/girls_go.jpg"></center>'
 					'You go to Mira through the dense undergrowth to the hidden meadow. Along the way she merrily tells stories from her past city life.'
 
-					act 'Further': gt 'Meadow'
+					act 'Continue': gt 'Meadow'
 				end
 
 				act'Refuse':
@@ -661,7 +663,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 					'<center><img <<$set_imgh>> src="images/pc/speak_to_the_hand.jpg"></center>'
 					'You deny Mira, saying that you don''t want to right now.'
 
-					act 'Further': gt 'Miroslava', 'Start'
+					act 'Continue': gt 'Miroslava', 'Start'
 				end
 			end
 
@@ -692,7 +694,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 					'<center><img <<$set_imgh>> src="images/pc/speak_to_the_hand.jpg"></center>'
 					'You deny Mira, saying that you don''t want to right now.'
 
-					act 'Further': gt 'Miroslava', 'Start'
+					act 'Continue': gt 'Miroslava', 'Start'
 				end
 			end
 
@@ -715,7 +717,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 					'<center><img <<$set_imgh>> src="images/characters/village/mira/mira.jpg"></center>'
 					'"Not right now Mira," you say. "I''m not in the mood to talk right now."'
 
-					act 'Further': gt 'Miroslava', 'Start'
+					act 'Continue': gt 'Miroslava', 'Start'
 				end
 			end
 			if MiraLoc ! 1 and mira_temp >= 6 and mira_temp <= 7 and sunWeather = 1 and temper >= 15 and month >= 5 and month <= 9 and mira_go_blok = 0 and MiraLoc ! 3 and hour < 18:
@@ -740,7 +742,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 					'<center><img <<$set_imgh>> src="images/characters/village/mira/girls_go.jpg"></center>'
 					'You decided to go with Mira to the village beach and all the way she goes, merrily chattering and telling stories.'
 
-					act 'Further': gt'Gadriver', 'Gadbitch'
+					act 'Continue': gt'Gadriver', 'Gadbitch'
 				end
 
 				act'Refuse':
@@ -751,7 +753,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 					'<center><img <<$set_imgh>> src="images/pc/speak_to_the_hand.jpg"></center>'
 					'You tell Mira that you don''t feel like going to the river right now.'
 
-					act 'Further': gt 'Miroslava', 'Start'
+					act 'Continue': gt 'Miroslava', 'Start'
 				end
 			end
 		end

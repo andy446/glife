@@ -1,14 +1,14 @@
 # mirasex
 
-!MiraLoc tells us where Mira is Located
-!----------------------------------------------
-!MiraLoc = 0 (Mira at home)
-!MiraLoc = 1 (Mira at river)
-!MiraLoc = 2 (Mira at meadow)
-!MiraLoc = 3 (Mira at forest)
-!MiraLoc = 4 (Mira at field)
-!MiraLoc = 5 (Mira with gop)
-!---------------------------------------------
+	!MiaLoc tells us where Mira is Located
+	!----------------------------------------------
+	!MiraLoc = 0 (Mira at home)
+	!MiraLoc = 1 (Mira at river)
+	!MiraLoc = 2 (Mira at meadow)
+	!MiraLoc = 3 (Mira at forest)
+	!MiraLoc = 4 (Mira at field)
+	!MiraLoc = 5 (Mira with gop)
+	!---------------------------------------------
 
 if $ARGS[0] = 'miralick_first':
 	*clr & cla
@@ -723,3 +723,4 @@ $text_cum[2] = 'After some time, Mira began to tremble and her pussy started rhy
 $text_cum[3] = 'Gradually, a pleasant warmth growing and throbbing in the abdomen, then the sensations crashing down on you and your body cover the hot waves of orgasm. At the same time you notice that Mira trembled all over and her pussy started rhythmically pulsing. She arched in orgasm and not holding back moaning loudly, squeezing your head with their feet and flooding his face with her juices.'
 
 --- mirasex ---------------------------------
+

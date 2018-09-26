@@ -2099,7 +2099,7 @@ if $ARGS[0] = 'nude_shoot':
 				city_modelling += rand(10,20)
 				pav_modelling += rand(0,city_modelling)/4
 				inhib_exp += 5
-				'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/nude<<rand(1,6)>>.jpg"></center>'
+				'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/nude<<rand(1,5)>>.jpg"></center>'
 				'	Already naked, you step onto set and begin the shoot immediately.'
 				*nl
 				'	You spend two hours posing confidently for a photographer taking pictures of you, often being asked to carefully position your hands or legs in ways that tastefully hides your pussy and nipples. These images, though incredibly provocative, are still somehow considered to be conservative enough to be allowed on the front cover of fashion, sports, and other tabloid magazines. When the shoot ends, both you and the photographers are very proud of the results and you are paid <<modelpayfin>> <b>₽</b> for your work.'
@@ -2130,7 +2130,7 @@ if $ARGS[0] = 'nude_shoot':
 				city_modelling += rand(10,20)
 				pav_modelling += rand(0,city_modelling)/4
 				inhib_exp += 5
-				'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/nude<<rand(7,28)>>.jpg"></center>'
+				'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/nude<<rand(6,26)>>.jpg"></center>'
 				'	Already naked, you step onto set and begin the shoot immediately.'
 				*nl
 				'	You spend two hours posing confidently for a photographer taking pictures of you, often using props, hands, legs, or shadow to shield your pussy while simultaneously teasing the would-be readers of what they cannot see. When the shoot ends, both you and the photographers are very proud of the results and you are paid <<modelpayfin>> <b>₽</b> for your work.'
@@ -2166,7 +2166,7 @@ if $ARGS[0] = 'nude_shoot':
 				pav_modelling += rand(10,15)
 				inhib_exp += 5
 				if pcs_pubes <= 20:
-					'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/nude<<rand(29,35)>>.jpg"></center>'
+					'<center><img <<$set_imgh>> src="images/locations/city/citycenter/photo/nude<<rand(27,35)>>.jpg"></center>'
 					'	Already naked, you step onto set and begin the shoot immediately.'
 					*nl
 					'	You spend two hours posing confidently for a photographer taking pictures of you that fully expose your breasts and pussy. When the shoot ends, both you and the photographers are very proud of the results and you are paid <<modelpayfin>> <b>₽</b> for your work.'

@@ -1,15 +1,19 @@
 # gadukino
 
 if $ARGS[0] = '':
-	$metka = $ARGS[0]
-	$loc = $CURLOC
+	$loc = 'gadukino'
+	$metka = ''
 	$location_type = 'public_outdoors'
 	CLOSE ALL
 	gs 'gadukino_event', 'gadukino'
-	!125s
+
+	$menu_loc = 'gadukino'
+	$menu_arg = ''
+	menu_off = 0
+
 	!exec before everything
-	mitkarand = rand(1,12)
 	!lower chance (1/3 to 1/12) and once per day by illume
+	mitkarand = rand(1,12)
 	if mitkaday ! daystart and mitka = 0 and hour >= 7 and hour < 20 and mitkarand = 1:
 		*clr & cla
 		minut += 5
@@ -18,7 +22,7 @@ if $ARGS[0] = '':
 		'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mitka.jpg"></center>'
 		'In the village you are approached by your old friend Mitka.'
 
-		act 'Further':gt 'mitka'
+		act 'Continue':gt 'mitka'
 	elseif mitkaday ! daystart and mitka = 1 and hour >= 17 and hour < 20 and mitkarand = 1 and mitkaday ! daystart and npc_QW['A63'] < 13:
 		*clr & cla
 		minut += 5
@@ -27,7 +31,7 @@ if $ARGS[0] = '':
 		'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mitka.jpg"></center>'
 		'In the village you are approached by your old friend Mitka.'
 
-		act 'Further':gt 'mitka'
+		act 'Continue':gt 'mitka'
 	else
 		mitkarand = rand(1,20)
 		if gadriver_gang < 3:
@@ -70,7 +74,7 @@ if $ARGS[0] = '':
 		end
 		if npc_rel['A60'] > 0: 'Just down the road from your grandparents house is <a href="exec:minut += 5 & gt ''MiroslavaHome'', ''start''">Mira''s</a> house.'
 		*nl
-		!125s
+
 		if month >= 6 and month <= 9:
 			if hour >= 9 and hour <= 11:
 				'A truck from the city has come to <a href="exec: gt ''gadukino'',''collection_point''">collect</a> mushrooms and berries. Will stay around until noon.'
@@ -184,14 +188,14 @@ if $ARGS[0] = 'succubus_hunt':
 		'God, this place is dull! After searching for an hour, you find no one; not even a stray cat seems to be out and about tonight. You give up reluctantly, pondering how else you are going to feed tonight.'
 		act 'Continue': gt 'gadukino'
 	else
-		'You are getting really antsy to feed, and after finding absolutely no one outside, you decide that breaking into someone''s house, risky as it is, is still better than going hungry.' 
+		'You are getting really antsy to feed, and after finding absolutely no one outside, you decide that breaking into someone''s house, risky as it is, is still better than going hungry.'
 		*nl
 		!Another rand_check here to choose the scene?
-		'You break the lock of the first house you see and go inside. You sneak around the house, looking for a meal, but there''s nobody there. This entire night is a bust... Well, since you''re here, you might as well try and see if there''s any regular food that helps with your hunger, even though you doubt it.' 
+		'You break the lock of the first house you see and go inside. You sneak around the house, looking for a meal, but there''s nobody there. This entire night is a bust... Well, since you''re here, you might as well try and see if there''s any regular food that helps with your hunger, even though you doubt it.'
 		'You head to the kitchen for a midnight snack, and as you tear through the fridge, eating whatever looks appetizing, you hear a man curse.'
 		'"Shit, what the hell happened to my door?!"'
 		'You freeze on the spot. You didn''t think anybody would actually come home while you were still here, but now that they did, maybe you can still salvage this mess.'
-		
+
 		act 'Strip':
 			*clr
 			cla
@@ -204,10 +208,10 @@ if $ARGS[0] = 'succubus_hunt':
 			'You give him a good look at your body; according to your plan, that should be enough to calm him down. Unfortunately, he doesn''t seem to be aware of the plan, cause he is having none of it.'
 			'"Have you been eating my food?! Get the hell out of my house!"'
 			*nl
-			'He grabs you and starts dragging you towards the door. You protest and try in vain to seduce him, wondering how anyone could resist your charms like this. Then you remember that you are stronger than him - weird how easily superhuman strength can slip your mind.' 
+			'He grabs you and starts dragging you towards the door. You protest and try in vain to seduce him, wondering how anyone could resist your charms like this. Then you remember that you are stronger than him - weird how easily superhuman strength can slip your mind.'
 			'As soon as you resist his pull, he grinds to a halt, confused by the fact that he can''t move you further. With the tables turned, you grab him and half-drag, half-throw him into his own living room where he lands on his back, stunned by the fact that this woman so easily overpowered him.'
 			'You pull his pants off and, already nude yourself, lower your pussy to his cock. He may have played the angry man, but the fact that it stands at attention soothes your bruised ego - your seduction efforts didn''t go completely unnoticed - and you plunge yourself down on top of him.'
-			
+
 			act 'Feed on him':
 				*clr
 				cla
@@ -230,13 +234,13 @@ if $ARGS[0] = 'succubus_hunt':
 				sucabscum = 1
 				minut += 15 + (20 * scfeed) / succublvl
 				'<center><img <<$set_imgh>> src="images/pc/body/succubusself.jpg"></center>'
-				
-				'You ride him hard, desperate to get your hungry pussy the nourishment it requires.' 
+
+				'You ride him hard, desperate to get your hungry pussy the nourishment it requires.'
 				if scrand < succublvl:
-					'Your seduction and succubus powers were strong enough to get your victim hard, but they weren''t enough to make him forget about his situation: He is giving you hateful looks, clearly pissed about his door and food and, oh yeah, the fact you are raping him, but you simply ignore that.' 
-					'All you need is his sperm. You could care less about his happiness, and if he wants to complain about a woman like you fucking his brains out, that''s his problem. Just as you''re thinking that, your powers surge and force him to come, unloading his jizz deep into your waiting cunt.' 
+					'Your seduction and succubus powers were strong enough to get your victim hard, but they weren''t enough to make him forget about his situation: He is giving you hateful looks, clearly pissed about his door and food and, oh yeah, the fact you are raping him, but you simply ignore that.'
+					'All you need is his sperm. You could care less about his happiness, and if he wants to complain about a woman like you fucking his brains out, that''s his problem. Just as you''re thinking that, your powers surge and force him to come, unloading his jizz deep into your waiting cunt.'
 					*nl
-					'You don''t know how long you go at it with him exactly, but after coming inside you <<$scxcum>>, and thus making you come too, he runs out of energy and falls unconscious. You lift yourself off of your passed-out plaything and head for the kitchen to collect your clothes as well as one last snack, feeling wonderfully relaxed after getting your fix.' 
+					'You don''t know how long you go at it with him exactly, but after coming inside you <<$scxcum>>, and thus making you come too, he runs out of energy and falls unconscious. You lift yourself off of your passed-out plaything and head for the kitchen to collect your clothes as well as one last snack, feeling wonderfully relaxed after getting your fix.'
 					'Then you head out the back door, making sure to break the handle on the way out - you''re nothing if not consistent.'
 				else
 					'He was resisting you initially, but after a while, your powers break any resistance he had in him. By the time his first orgasm hits and he shoots his sperm into your needy cunt, he would have betrayed his own mother, much less broken his front door and laid his fridge at your feet, just to be inside you a little longer.'
@@ -291,14 +295,14 @@ if $ARGS[0] = '1':
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/meadow/meadow_path.jpg"></center>'
 					' A few minutes later, snacking on an apple, you stumble upon the remains of an overgrown dirt road running through the middle of a majestic meadow filled with wildflowers. Judging by its undisturbed state no one uses it.'
 
-					act 'Further':
+					act 'Claim the meadow':
 						*clr & cla
 						minut += 20
 						gs 'stat'
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/meadow/meadow1_<<rand(0,5)>>.jpg"></center>'
-						'You spend another twenty minutes exploring the meadow and its surroundings. You''re positive no one visits this location. You loudly proclaim the meadow to be your domain and you are its ruler. Eventually, you decide to head back to the village and to your surprise, the path you follow back emerges into your grandparents back yard.'
+						'You spend another twenty minutes exploring the meadow and its surroundings. You''re positive no one visits this location. You loudly proclaim the meadow to be your domain and you are its ruler. Eventually, you decide to head back to the village. To your surpise, your discover a quick shortcut that leads from the meadow back to your grandparents house.'
 
-						act 'Return to the village': gt 'Gaddvor'
+						act 'Return to the house': gt 'Gaddvor'
 					end
 				end
 			end
@@ -307,6 +311,7 @@ if $ARGS[0] = '1':
 end
 
 if $ARGS[0] = '2':
+	! never met mira before
 	if npc_rel['A60'] = 0:
 		*clr & cla
 		'<center><img <<$set_imgh>> src="images/locations/gadukino/village/miroslava.jpg"></center>'
@@ -320,7 +325,7 @@ if $ARGS[0] = '2':
 			'You decide to lend a hand to help the girl with the calf. You are lonely in the village, and maybe this girl, if you get to know her, could your trips to Gadukino less boring. You walk over to the girl and introduce yourself and ask if she wants help. She nods and resumes pulling on the rope, while you walk over behind the calf and give it a load slap on the rump. The calf is surprised and immediately to moves forward away from you. The girl smiles in thanks and tells you her name is Miroslava, but everyone calls her Mira.'
 			'Together you are able to guide the calf back into its pen. Mira turns out to be quite a sociable girl and conversationalist. You learn that her family was recently forced to move to the village from the city. Her father''s huge gambling debts to some questionable men forced him to eventually sell the family''s property in the city to pay them back. Mira is having a rough time adjusting to the life in a small village. She misses the apartment in the center of the city and the money to buy nice dresses and makeup with. After selling everything and paying off the debt, her father was told to leave the city "or else...", so they were destitute and could only afford to buy a house in this run down dust covered village. You walk with her and chat until you reach her house, which is close by to your grandparent''s place. Mira invites you to come and visit her at any time. She is just as bored in the village as you are.'
 
-			act 'Finish': gt 'gadukino'
+			act 'Finish your walk': gt 'gadukino'
 		end
 
 		act 'Walk away': gt 'gadukino'

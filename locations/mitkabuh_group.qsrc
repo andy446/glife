@@ -52,7 +52,7 @@ if $ARGS[0] = '':
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/village/drinking.jpg"></center>'
 					'You pass Mira a shot glass full of liquor, she examines the glass''s contents for a moment, then gulps down the entire glass with a single tose of her head. Her eyes wided and she coughs a little, sucking in her breath with a smile. You talk with the guys as they drink as well.'
 
-					act 'Further':gt $curloc
+					act 'Continue':gt $curloc
 				end
 			end
 		end
@@ -307,7 +307,7 @@ if $ARGS[0] = 'mirapiss_3':
 			gs 'arousal','masturbate',15,'exhibitionism', 'sub', 'group'
 			gs 'stat'
 
-			act 'Further':gt $curloc
+			act 'Continue':gt $curloc
 		end
 	else
 		'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitka_group/drunk1.jpg"></center>'
@@ -327,7 +327,7 @@ if $ARGS[0] = 'mirapiss_3':
 			gs 'arousal','flash', 10, 'sub', 'group'
 			gs 'stat'
 
-			act 'Further':gt $curloc
+			act 'Continue':gt $curloc
 		end
 	end
 end

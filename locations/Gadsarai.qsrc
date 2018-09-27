@@ -515,7 +515,7 @@ if $ARGS[0] = 'cow':
 			if cow_field = 1:'You lead Dawn to the field, where you let the shepherds take over.'
 			if graze_cow = 1:'You lead Dawn to the field, where you grandfather awaits you. It''s his turn to keep an eye on the cows.'
 
-			act 'Further':gt'gadfield','cow'
+			act 'Continue':gt'gadfield','cow'
 		end
 	end
 
@@ -561,7 +561,7 @@ if $ARGS[0] = 'horse':
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/village/horse_field.jpg"></center>'
 			'You took Desperado by the bridle and led it to the field. There, you let it run free in the paddock area, and went on with your business.'
 
-			act 'Further':gt'gadfield','field'
+			act 'Continue':gt'gadfield','field'
 		end
 	end
 	if horse_river = 1 and sunWeather = 1 and temper >= 15:
@@ -576,7 +576,7 @@ if $ARGS[0] = 'horse':
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/village/horse_field.jpg"></center>'
 			'You took Desperado by the bridle and led it to the river.'
 
-			act 'Further':gt'Gadriver', 'Gadbitch'
+			act 'Continue':gt'gadriver', 'gadbitch'
 		end
 	end
 	if comb_horse = 1:
@@ -592,7 +592,7 @@ if $ARGS[0] = 'horse':
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/village/comb_horse.jpg"></center>'
 			'You groom Desperado for an hour. When finished, you''re satisfied with the result. Desperado is looking as healthy as ever.'
 
-			act 'Further':gt 'Gadsarai','horse'
+			act 'Continue':gt 'Gadsarai','horse'
 		end
 	end
 
@@ -620,7 +620,7 @@ if $ARGS[0] = 'mira_dog':
 		'"Okay Mira, I''m feeling mercyfull today. You can consider yourself forgiven." you say, removing Mira''s collar.'
 		'The girl looks nervously at you for a few moments, then quickly gets dressed and runs home.'
 
-		act 'Further':gt'Gadsarai'
+		act 'Continue':gt'Gadsarai'
 	end
 	act 'Go':gt'Gadsarai'
 end
@@ -635,7 +635,7 @@ if know_no_bandit = 0:
 	gs'stat'
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/village/know_no_pirat.jpg"></center>'
 	'"Where''s Bandit? The bastard probably ran away, you sadly thought, looking at an empty dog house, remembering the beloved dog fondly.'
-	act 'Further':gt $loc, $metka
+	act 'Continue':gt $loc, $metka
 end
 }
 !125e

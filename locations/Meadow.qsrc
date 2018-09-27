@@ -1,17 +1,29 @@
 # Meadow
+
 if $ARGS[0] = 'start' or $ARGS[0] = '':
-	$location_type = 'secluded'
-	$metka = 'start'
 	$loc = 'Meadow'
+	$metka = 'start'
+	$location_type = 'secluded'
+
+	$menu_loc = 'Meadow'
+	$menu_arg = 'start'
+	menu_off = 0
 
 	gs 'stat'
 
-!MiraLoc = 0 (Mira at home)
-!MiraLoc = 1 (Mira at river)
-!MiraLoc = 2 (Mira at meadow)
-!MiraLoc = 3 (Mira at forest)
-!MiraLoc = 4 (Mira at field)
-!MiraLoc = 5 (Mira with gop)
+	!MiraLoc = 0 (Mira at home)
+	!MiraLoc = 1 (Mira at river)
+	!MiraLoc = 2 (Mira at meadow)
+	!MiraLoc = 3 (Mira at forest)
+	!MiraLoc = 4 (Mira at field)
+	!MiraLoc = 5 (Mira with gop)
+
+	!meadow = 1 'You have found the meadow'
+	!meadow = 2 'Your first visit with Mira'
+	!meadow = 3 'You allowed Mira to come here without you'
+	!meadow = 4 'You have denied Mira from coming here without you. Blocks wish and father events.'
+	!meadow = 5 'You are interested in Mira''s father'
+	!meadow = 6 'You have seduced Mira''s father, now its her turn'
 
 	'<center><H4>Meadow</H4></center>'
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/meadow/meadow1_<<rand(0,5)>>.jpg"></center>'
@@ -78,18 +90,12 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 	act 'Leave':minut += 20 & MiraLoc = 0 & gt 'Gaddvor'
 end
 
-	!meadow = 1 'You have found the meadow'
-	!meadow = 2 'Your first visit with Mira'
-	!meadow = 3 'You allowed Mira to come here without you'
-	!meadow = 4 'You have denied Mira from coming here without you. Kills wish and father events.'
-	!meadow = 5 'You are interested in Mira''s father'
-	!meadow = 6 'You have seduced Mira''s father, now its her turn'
-
 if $ARGS[0] = 'Mira':
 	minut += 2
 	gs 'stat'
+	! first time here with Mira
 	if meadow = 2:
-	gs 'Miroslava', 'miraclothes'
+		gs 'Miroslava', 'miraclothes'
 		'"Wow! This place is awesome. My family and I have only been in the village a few months, but I have never heard anyone ever talk about this place." Mira tells you. "Now I know where I can come to, when I want to be alone. You don''t mind, do you?"'
 		act 'You allow her to come here on her own':
 			*clr & cla
@@ -116,6 +122,7 @@ if $ARGS[0] = 'Mira':
 				minut += 2
 				pcs_horny += 40
 				gs 'stat'
+
 				if npc_QW['A60'] = 0:
 					'<center><img <<$set_imgh>> src="images/characters/village/mira/mira.jpg"></center>'
 				else
@@ -142,14 +149,14 @@ if $ARGS[0] = 'Mira':
 					'Mira immediately sits on the grass and waits until you get undressed. Holding out your hand, you throw caution to the winds and push your panties aside, revealing your already dripping snatch...'
 					gs 'arousal', 'foreplay', 5, 'lesbian'
 					gs 'stat'
-					act 'Further':
+					act 'Continue':
 						*clr & cla
 						gs 'stat'
 						'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/miralick1.jpg"></center>'
 						'You enjoy, Mira''s gentle touch between your legs. She teases you by gently touching your clit...'
 						gs 'arousal', 'vaginal_finger', 5, 'lesbian'
 						gs 'stat'
-						act 'Further':
+						act 'Continue':
 							*clr & cla
 							gs 'stat'
 							'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/miralick2.jpg"></center>'
@@ -162,7 +169,7 @@ if $ARGS[0] = 'Mira':
 						end
 					end
 				else
-					act 'Further':
+					act 'Continue':
 						*clr & cla
 						gs 'stat'
 						'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/miralick2.jpg"></center>'
@@ -521,6 +528,9 @@ if $ARGS[0] = 'miraperversion11':
 	pcs_horny += 10
 	npc_QW['A60'] = 12
 	gs 'stat'
+
+	gs 'Miroslava', 'miraclothes'
+
 	'You don''t know where to begin, so you stay silent just staring at Mira. Mira at the same time is looking at her feet and blushing hard.'
 	'Finally you gather your wits and ask what happened last night? Mira, still not looking you in the eye, stammers out that she doesn''t know why she did it. She says that she was out of control.'
 	'But you were also drunk, and did not do what she did. Her face sinks with shame and she continues to look at the ground.'
@@ -537,8 +547,8 @@ if $ARGS[0] = 'lesb_mira':
 	'You continue, "Mira, I want you," you whispered in her ear and kissed her passionately on the lips.'
 	gs 'arousal', 'kiss_give', 5, 'lesbian'
 	gs 'stat'
-	if mirahorny < 20:act 'Further':gt 'mirasex','mirakiss'
-	if mirahorny >= 20:act 'Further':gt 'mirasex','foreplay'
+	if mirahorny < 20:act 'Continue':gt 'mirasex','mirakiss'
+	if mirahorny >= 20:act 'Continue':gt 'mirasex','foreplay'
 end
 
 if $ARGS[0] = 'mira_lesb':
@@ -563,7 +573,7 @@ if $ARGS[0] = 'mira_lesb':
 			'"- You`re mean, " she sulked at you in response.'
 			gs 'arousal', 'end'
 			gs 'stat'
-			act 'Further':gt $loc, $metka
+			act 'Continue':gt $loc, $metka
 		end
 	end
 end
@@ -637,7 +647,7 @@ if $ARGS[0] = 'mira_lesb_talk1':
 	'" - Well, yeah so?"'
 	'" - I was thinking you served all the boys and forgot about your best friend." Mira said looking you in the eye.'
 	if lesbian = 0:
-		'" - So you''re not a guy. Do you want to do that?," - you.say surprised'
+		'" - So you''re not a guy. Do you want to do that?," - you say surprised'
 		'" - Everyone knows girls know the best ways to pleasure girls," she answered you.'
 	else
 		'You already guessed where she was going with this, but still hesitated.'
@@ -682,7 +692,8 @@ if $ARGS[0] = 'mira_lesb_talk2':
 	mirahorny = rand(0,80)
 	gs 'stat'
 
-	'Mira walks up toyou with a malicious smile on her face.'
+	'<center><img <<$set_imgh>> src="images/characters/village/mira/mira_lesb_talk2.jpg"></center>'
+	'Mira walks up to you with a malicious smile on her face.'
 	' - Well, <<$pcs_nickname>>, congratulations, she said. - You are now the same whore as me. All the boys fucked you too.'
 	'You tried to keep silent, but she is not satisfied.'
 	' - So did they or did they not?, - she insists on an answer.'
@@ -722,6 +733,7 @@ if $ARGS[0] = 'mira_lesb_talk4':
 	mirahorny = rand(40,80)
 	miraday = daystart
 	gs 'stat'
+
 	gs 'Miroslava', 'miraclothes'
 
 	'Walking through the village you meet Mira. Seeing you, she immediately came up to you with an excited face.'
@@ -740,7 +752,7 @@ if $ARGS[0] = 'mirameadow':
 		*clr & cla
 		minut += 2
 		'<center><img <<$set_imgh>> src="images/characters/village/mira/mirameadowmastr.jpg"></center>'
-		'You are about to approach her, but stop as she undoes her pants. You decide to watch to what she does...'
+		'You were about to approach her, but stop as she undoes her pants. You decide to watch to what she does...'
 		act 'Watch':
 			*clr & cla
 			'<center><img <<$set_imgh>> src="images/characters/village/mira/mirameadowmastr1.jpg"></center>'
@@ -778,7 +790,7 @@ if $ARGS[0] = 'mirameadow':
 								gs 'arousal', 'voyeur', 10, 'lesbian'
 								gs 'arousal', 'end'
 								gs 'stat'
-								act 'Leave':minut += 30 & gt'Gaddvor'
+								act 'Leave':minut += 20 & gt 'gadukino'
 							end
 						end
 					end

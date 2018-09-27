@@ -28,11 +28,11 @@ if $ARGS[0] = 'start':
 
 	'A large river flows lazily a for a few hundred meters in the northern outskirts of Gadukino.'
 
-	if hour >= 6 and hour < 21 and sunWeather = 1: 'You see the local <a href="exec:gt ''Gadriver'', ''fishers''">fishermen</a> fishing with their rods on the riverbank.'
+	if hour >= 6 and hour < 21 and sunWeather = 1: 'You see the local <a href="exec:gt ''gadriver'', ''fishers''">fishermen</a> fishing with their rods on the riverbank.'
 
 	temp_gr = rand(0,20)
 
-	if temp_gr = 1 and hour < 5 and month >= 5 and month <= 9 and npc_QW['A60'] >= 20: 'Right next to the path leading to the river, you see <a href="exec: gt ''Gadriver'', ''mirapunish'' ">Mira</a> naked, bound with ropes between two trees...'
+	if temp_gr = 1 and hour < 5 and month >= 5 and month <= 9 and npc_QW['A60'] >= 20: 'Right next to the path leading to the river, you see <a href="exec: gt ''gadriver'', ''mirapunish'' ">Mira</a> naked, bound with ropes between two trees...'
 
 	if temp_gr = 4 and MiraLoc ! 1 and npc_QW['A63'] >= 13 and hour >= 5 and sub > 0:
 		if mitkaguysriver ! daystart:
@@ -64,13 +64,12 @@ if $ARGS[0] = 'start':
 					gs 'dinSex','boy_wants_anal','lubri'
 					gs 'dinsex','analsex',20,'sub','gangbang'
 				end
-				gs 'arousal', 'end'
 				gs 'stat'
 
 				act 'Finish':minut += 10 & gt'gadukino'
 			end
 		else
-			act 'Go to the beach':minut += 5 & gt 'Gadriver', 'Gadbitch'
+			act 'Go to the beach':gt 'gadriver', 'gadbitch'
 			act 'Go to Gadukino':minut += 20 & MiraLoc ! 1 & gt 'gadukino'
 		end
 	elseif temp_gr = 5 and MiraLoc ! 1 and npc_QW['A63'] >= 13 and hour >= 5 and sub > 0:
@@ -82,26 +81,26 @@ if $ARGS[0] = 'start':
 				*clr & cla
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkaguysriversex18.jpg"></center>'
 				'The boys lead you to Vasyan''s house, where they spend an hour fucking you in the ass...'
+				gs 'arousal', 'anal', 20, 'gangbang', 'sub'
+				gs 'arousal', 'anal', 20, 'gangbang', 'sub'
+				gs 'arousal', 'anal', 20, 'gangbang', 'sub'
+				gs 'arousal', 'end'
 				gs 'boyStat', 'A63'
 				npc_sex[$boy] += 1
-				gs 'arousal', 'anal', 20, 'gangbang', 'sub'
 				gs 'cum_call','butt',$boy,1
 				gs 'boyStat', 'A61'
 				npc_sex[$boy] += 1
-				gs 'arousal', 'anal', 20, 'gangbang', 'sub'
 				gs 'cum_call','butt',$boy,1
 				gs 'boyStat', 'A62'
 				npc_sex[$boy] += 1
-				gs 'arousal', 'anal', 20, 'gangbang', 'sub'
 				gs 'cum_call','butt',$boy,1
-				gs 'arousal', 'end'
 				pcs_ass += 3
 				gs 'stat'
 
-				act 'Leave':minut += 10 & gt'gadukino'
+				act 'Leave': gt'gadukino'
 			end
 		else
-			act 'Go to the beach':minut += 5 & gt 'Gadriver', 'Gadbitch'
+			act 'Go to the beach':gt 'gadriver', 'gadbitch'
 			act 'Go to Gadukino':minut += 20 & MiraLoc ! 1 & gt 'gadukino'
 		end
 	elseif temp_gr = 6 and MiraLoc ! 1 and npc_QW['A63'] >= 13 and hour >= 5 and sub > 0:
@@ -129,22 +128,22 @@ if $ARGS[0] = 'start':
 				gs 'arousal', 'end'
 				gs 'stat'
 
-				act 'Finish':minut += 10 & gt'gadukino'
+				act 'Finish': gt'gadukino'
 			end
 		else
-			act 'Go to the beach':minut += 5 & gt 'Gadriver', 'Gadbitch'
+			act 'Go to the beach':gt 'gadriver', 'gadbitch'
 			act 'Go to Gadukino':minut += 20 & MiraLoc ! 1 & gt 'gadukino'
 		end
 	else
-		act 'Go to the beach':minut += 5 & gt 'Gadriver', 'Gadbitch'
+		act 'Go to the beach':gt 'gadriver', 'gadbitch'
 		act 'Go to Gadukino':minut += 20 & MiraLoc ! 1 & gt 'gadukino'
 	end
 end
 
-if $ARGS[0] = 'Gadbitch':
-	PC_arrive = iif($metka ! 'Gadbitch', 1 , 0)
+if $ARGS[0] = 'gadbitch':
+	PC_arrive = iif($metka ! 'gadbitch', 1 , 0)
 	$location_type = 'public_outdoors'
-	$metka = 'Gadbitch'
+	$metka = 'gadbitch'
 	$loc = 'gadriver'
 	menu_off = 1
 	gs 'stat'
@@ -176,15 +175,15 @@ if $ARGS[0] = 'Gadbitch':
 
 	if sunWeather = 1 and MiraLoc = 1:
 		if RAND(0,10) < 5:
-			'<a href="exec:sun = 1 & gt ''Gadriver'', ''Mira'' ">Mira</a> is laying on the beach sunbathing.'
+			'<a href="exec:sun = 1 & gt ''gadriver'', ''Mira'' ">Mira</a> is laying on the beach sunbathing.'
 			if npc_rel['A60'] < 15:npc_rel['A60'] += 1
 		else
-			'<a href="exec:sun = 0 & gt ''Gadriver'', ''Mira'' ">Mira</a> is in the river splashing water around and having fun.'
+			'<a href="exec:sun = 0 & gt ''gadriver'', ''Mira'' ">Mira</a> is in the river splashing water around and having fun.'
 			if npc_rel['A60'] < 15:npc_rel['A60'] += 1
 		end
 	end
 
-	if MiraLoc ! 1 and npc_QW['A63'] >= 13 and RAND(0,10) = 0 and hour >= 8 and hour < 20 and month >= 5 and month <= 9 and temper >= 15 and sunWeather = 1:'<a href="exec: gt ''Gadriver'', ''GuysRiver'' ">Bob Colby</a> is resting on the riverbank.'
+	if MiraLoc ! 1 and npc_QW['A63'] >= 13 and RAND(0,10) = 0 and hour >= 8 and hour < 20 and month >= 5 and month <= 9 and temper >= 15 and sunWeather = 1:'<a href="exec: gt ''gadriver'', ''GuysRiver'' ">Bob Colby</a> is resting on the riverbank.'
 
 	if temper >= 15 and month >= 5 and month <= 9:
 		temp_gr = RAND(0,9)
@@ -195,7 +194,7 @@ if $ARGS[0] = 'Gadbitch':
 				gs 'underwear', 'remove'
 				gs 'clothing', 'strip', 'VillageRiver'
 				'Without hesitation, you take off all your clothes and neatly fold them before putting them down on a pile. Without your clothes holding you back, you can go for a nice swim in the river or just lie down in the sand and do some sunbathing.'
-				act 'Continue': gt 'Gadriver', 'Gadbitch'
+				act 'Continue': gt 'gadriver', 'gadbitch'
 			end
 		end
 		if $clothingworntype = 'swimwear':
@@ -232,36 +231,27 @@ if $ARGS[0] = 'Gadbitch':
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkaguysriversex13.jpg"></center>'
 						'When you decide it''s time to get out of the river, you hear the sound of men laughing as they walk on the river bank approaching you. As they get closer you see the smirking faces of the village boys led by Mitya headed towards the river bank while you are still in the shallow waters.'
 						'They quickly undress and jump in the water. Within a few seconds you are surrounded by the grinning boys. Without a word they reach for you and roughly take turns forcing you to suck their cocks.'
+						gs 'arousal', 'bj', 15, 'gangbang', 'sub', 'rough'
+						gs 'arousal', 'hj', 15, 'gangbang', 'sub', 'rough'
+						gs 'arousal', 'end'
 						gs 'boyStat', 'A63'
 						npc_sex[$boy] += 1
-						gs 'arousal', 'bj', 10, 'gangbang', 'sub', 'rough'
-						gs 'arousal', 'hj', 5, 'gangbang', 'sub', 'rough'
-						gs 'arousal', 'hj', 5, 'gangbang', 'sub', 'rough'
-						minut -= 10
 						gs 'cum_call','face',$boy, 1,'','',20
 						gs 'cum_call','hair',$boy, 1,'','',20
 						gs 'boyStat', 'A61'
 						npc_sex[$boy] += 1
-						gs 'arousal', 'bj', 10, 'gangbang', 'sub', 'rough'
-						gs 'arousal', 'hj', 5, 'gangbang', 'sub', 'rough'
-						gs 'arousal', 'hj', 5, 'gangbang', 'sub', 'rough'
-						minut -= 10
 						gs 'cum_call','face',$boy, 1,'','',20
 						gs 'cum_call','mouth',$boy, 1,'','',20
 						gs 'boyStat', 'A62'
 						npc_sex[$boy] += 1
-						gs 'arousal', 'bj', 10, 'gangbang', 'sub', 'rough'
-						gs 'arousal', 'hj', 5, 'gangbang', 'sub', 'rough'
-						gs 'arousal', 'hj', 5, 'gangbang', 'sub', 'rough'
 						minut -= 10
 						gs 'cum_call','face',$boy, 1,'','',20
 						gs 'cum_call','mouth',$boy, 1,'','',20
 						swallow += RAND(0,3)
 						gang +=1
-						gs 'arousal', 'end'
 						gs 'stat'
 
-						act 'Finish':minut += 5 & gt'Gadriver', 'Gadbitch'
+						act 'Finish':gt'gadriver', 'gadbitch'
 					elseif MiraLoc ! 1 and npc_QW['A63'] >= 13 and temp_gr = 1 and hour >= 8 and hour < 20 and sub > 0:
 						*clr & cla
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkaguysriversex19.jpg"></center>'
@@ -276,9 +266,9 @@ if $ARGS[0] = 'Gadbitch':
 						gs 'arousal', 'end'
 						gs 'stat'
 
-						act 'Finish':minut += 5 & gt'Gadriver', 'Gadbitch'
+						act 'Finish':gt'gadriver', 'gadbitch'
 					else
-						minut += 5 & gt'Gadriver', 'Gadbitch'
+						gt'gadriver', 'gadbitch'
 					end
 				end
 			end
@@ -316,34 +306,27 @@ if $ARGS[0] = 'Gadbitch':
 							'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkaguysriversex12.jpg"></center>'
 							'As soon as you step out of the water, you find yourself standing naked in front of a couple of the village boys, judging from the fishing poles they are carrying, you know they were coming to the river to do some fishing.'
 							'But, seeing you skinny dipping, they instead start talking amongst themselves about how much of a slut you are and the only good thing you are for is sucking cock. You tell them to fuck off, but they are too worked up and not listening to you at all.'
+							gs 'arousal', 'vaginal', 10, 'gangbang', 'sub', 'rough'
+							gs 'arousal', 'anal', 10, 'gangbang', 'sub', 'rough'
+							gs 'arousal', 'hj', 10, 'gangbang', 'sub', 'rough'
+							gs 'arousal', 'bj', 10, 'gangbang', 'sub', 'rough'
+							gs 'arousal', 'end'
 							gs 'boyStat', 'A63'
 							npc_sex[$boy] += 1
-							gs 'arousal', 'vaginal', 10, 'gangbang', 'sub', 'rough'
-							gs 'arousal', 'hj', 5, 'gangbang', 'sub', 'rough'
 							gs 'cum_call','butt',$boy, 1
 							gs 'boyStat', 'A61'
 							npc_sex[$boy] += 1
-							gs 'arousal', 'bj', 5, 'gangbang', 'sub', 'rough'
-							minut -= 10
-							gs 'arousal', 'anal', 10, 'gangbang', 'sub', 'rough'
-							gs 'arousal', 'hj', 5, 'gangbang', 'sub', 'rough'
 							gs 'cum_call','anus',$boy, 1,'','',20
 							gs 'boyStat', 'A62'
 							npc_sex[$boy] += 1
-							gs 'arousal', 'bj', 10, 'gangbang', 'sub', 'rough'
-							gs 'arousal', 'hj', 5, 'gangbang', 'sub', 'rough'
-							gs 'arousal', 'hj', 5, 'gangbang', 'sub', 'rough'
-							minut -= 10
 							gs 'cum_call','mouth',$boy
 							swallow += RAND(0,1)
 							gs 'stat'
-							gs 'arousal', 'end'
-							gs 'stat'
 							gang +=1
 
-							act 'Finish':minut += 5 & gt'Gadriver', 'Gadbitch'
+							act 'Finish': gt'gadriver', 'gadbitch'
 						else
-							minut += 5 & gt'Gadriver', 'Gadbitch'
+							gt'gadriver', 'gadbitch'
 						end
 					end
 				end
@@ -368,7 +351,7 @@ if $ARGS[0] = 'Gadbitch':
 						end
 						'You are sunbathing by the river when Mira comes along. You smile, she undresses and lays her towel next to yours.'
 
-						act 'Continue': gt'Gadriver', 'Gadbitch'
+						act 'Continue': gt'gadriver', 'gadbitch'
 					elseif $clothingworntype = 'nude':
 						*clr & cla
 						minut += 60
@@ -395,34 +378,26 @@ if $ARGS[0] = 'Gadbitch':
 								*clr & cla
 								'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkaguysriversex14.jpg"></center>'
 								'You hear several men''s voices rapidly approaching. All of a sudden a couple of the village boys emerge in front of you. Noticing that you are nude, they brighten up greatly and in a few minutes, despite you protesting lively, they have you on all fours and are roughly fucking you...'
+								gs 'arousal', 'vaginal', 10, 'gangbang', 'sub', 'rough'
+								gs 'arousal', 'anal', 10, 'gangbang', 'sub', 'rough'
+								gs 'arousal', 'bj', 10, 'gangbang', 'sub', 'rough'
+								gs 'arousal', 'hj', 10, 'gangbang', 'sub', 'rough'
 								gs 'boyStat', 'A62'
 								npc_sex[$boy] += 1
-								gs 'arousal', 'vaginal', 10, 'gangbang', 'sub', 'rough'
-								gs 'arousal', 'hj', 5, 'gangbang', 'sub', 'rough'
 								gs 'cum_call','butt',$boy, 1
 								gs 'boyStat', 'A63'
 								npc_sex[$boy] += 1
-								gs 'arousal', 'bj', 5, 'gangbang', 'sub', 'rough'
-								minut -= 10
-								gs 'arousal', 'anal', 10, 'gangbang', 'sub', 'rough'
-								gs 'arousal', 'hj', 5, 'gangbang', 'sub', 'rough'
 								gs 'cum_call','anus',$boy, 1,'','',20
 								gs 'boyStat', 'A61'
 								npc_sex[$boy] += 1
-								gs 'arousal', 'bj', 10, 'gangbang', 'sub', 'rough'
-								gs 'arousal', 'hj', 5, 'gangbang', 'sub', 'rough'
-								gs 'arousal', 'hj', 5, 'gangbang', 'sub', 'rough'
-								minut -= 10
 								gs 'cum_call','mouth',$boy
-								swallow += RAND(0,1)
-								gs 'stat'
+								swallow += 1
 								gs 'arousal', 'end'
-								gang +=1
 								gs 'stat'
 
-								act 'Get dressed':minut += 5 & gt'Gadriver', 'Gadbitch'
+								act 'Get dressed':gt'gadriver', 'gadbitch'
 							else
-								gt'Gadriver', 'Gadbitch'
+								gt'gadriver', 'gadbitch'
 							end
 						end
 					else
@@ -451,32 +426,25 @@ if $ARGS[0] = 'Gadbitch':
 								*clr & cla
 								'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkaguysriversex15.jpg"></center>'
 								'After a while, you hear some familiar voices quickly approaching you. A couple minutes later you see the village boys emerge from the bushes. Noticing you sunbathing, they brighten up greatly. In a short amount of time, despite you protesting lively, all of your holes have been violated...'
+								gs 'arousal', 'vaginal', 10, 'gangbang', 'sub', 'rough'
+								gs 'arousal', 'anal', 10, 'gangbang', 'sub', 'rough'
+								gs 'arousal', 'bj', 10, 'gangbang', 'sub', 'rough'
+								gs 'arousal', 'hj', 10, 'gangbang', 'sub', 'rough'
+								gs 'arousal', 'end'
 								gs 'boyStat', 'A61'
 								npc_sex[$boy] += 1
-								gs 'arousal', 'vaginal', 10, 'gangbang', 'sub', 'rough'
-								gs 'arousal', 'hj', 5, 'gangbang', 'sub', 'rough'
 								gs 'cum_call','butt',$boy, 1
 								gs 'boyStat', 'A62'
 								npc_sex[$boy] += 1
-								gs 'arousal', 'bj', 5, 'gangbang', 'sub', 'rough'
-								minut -= 10
-								gs 'arousal', 'anal', 10, 'gangbang', 'sub', 'rough'
-								gs 'arousal', 'hj', 5, 'gangbang', 'sub', 'rough'
 								gs 'cum_call','anus',$boy, 1,'','',20
 								gs 'boyStat', 'A63'
 								npc_sex[$boy] += 1
-								gs 'arousal', 'bj', 10, 'gangbang', 'sub', 'rough'
-								gs 'arousal', 'hj', 5, 'gangbang', 'sub', 'rough'
-								gs 'arousal', 'hj', 5, 'gangbang', 'sub', 'rough'
-								minut -= 10
 								gs 'cum_call','mouth',$boy
-								swallow += RAND(0,1)
-								gs 'stat'
-								gs 'arousal', 'end'
+								swallow += 1
 								gang +=1
 								gs 'stat'
 
-								act 'Finish':minut += 5 & gt'Gadriver', 'Gadbitch'
+								act 'Finish':gt'gadriver', 'gadbitch'
 							elseif MiraLoc = 1 and npc_QW['A60'] >= 15 and temp_gr = 1 and hour >= 8 and hour < 20:
 								*clr & cla
 								'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mitka/mitkaguysriversex16.jpg"></center>'
@@ -486,10 +454,10 @@ if $ARGS[0] = 'Gadbitch':
 								gs 'arousal', 'end'
 								gs 'stat'
 
-								act 'Finish':minut += 5 & gt'Gadriver', 'Gadbitch'
+								act 'Finish': gt'gadriver', 'gadbitch'
 							else
 								minut += 5
-								gt'Gadriver', 'Gadbitch'
+								gt'gadriver', 'gadbitch'
 							end
 						end
 					end
@@ -505,7 +473,7 @@ if $ARGS[0] = 'Gadbitch':
 			minut += 5
 			gs 'underwear', 'wear'
 			if clothesAtLocation = 1: gs 'clothing', 'recover_lost_clothes', 'VillageRiver', 1
-				act 'Continue': gt 'Gadriver', 'Gadbitch'
+				act 'Continue': gt 'gadriver', 'gadbitch'
 		end
 	end
 
@@ -514,13 +482,13 @@ if $ARGS[0] = 'Gadbitch':
 		if $clothingworntype = 'swimwear':
 			cla
 			'You need to dress in regular clothes first.'
-			act'Return':gt'Gadriver', 'Gadbitch'
+			act'Return':gt'gadriver', 'gadbitch'
 		elseif $clothingworntype = 'nude':
 			'You need to put some clothes on first.'
-			act'Return':gt'Gadriver', 'Gadbitch'
+			act'Return':gt'gadriver', 'gadbitch'
 		else
 			minut += 5
-			gt 'Gadriver', 'start'
+			gt 'gadriver', 'start'
 		end
 	end
 !! extraordinary events at the river beach. Be aware, this part has to be at the end because it removes actions, which were set before.
@@ -539,7 +507,7 @@ if $ARGS[0] = 'Gadbitch':
 		*nl
 		'"<<$pcs_nickname>>, I have to go home, " Mira said to you and began to gather her stuff.'
 
-		act 'Continue': gt'Gadriver', 'Gadbitch'
+		act 'Continue': gt'gadriver', 'gadbitch'
 	elseif Mira_no = 0 and MiraLoc = 1 and hour > 8 and hour < 20 and sunWeather = 1 and temper >= 15 and PC_arrive = 1:
 		*clr & cla
 		'<center><img <<$set_imgh>> src="images/characters/village/mira/mira_in_river.jpg"></center>'
@@ -567,7 +535,7 @@ if $ARGS[0] = 'Gadbitch':
 					'You start to take off your clothes.'
 					if ARRSIZE('swimwear') > 0:
 						act 'Change into swimwear':
-							gs 'Gadriver','get_changed','start'
+							gs 'gadriver','get_changed','start'
 						end
 					end
 					if pcs_inhib >= 25 or exhibitionist_lvl > 1:
@@ -592,7 +560,7 @@ if $ARGS[0] = 'Gadbitch':
 								pcs_sweat = 10 + rand(0,4)
 								gs'stat'
 
-								act 'Get out of the water':gt'Gadriver', 'Gadbitch'
+								act 'Get out of the water':gt'gadriver', 'gadbitch'
 							end
 						end
 					end
@@ -600,7 +568,7 @@ if $ARGS[0] = 'Gadbitch':
 				end
 				act'Refuse': gt 'gadriver', 'second_thoughts'
 			else
-				gt'Gadriver', 'Gadbitch'
+				gt'gadriver', 'gadbitch'
 			end
 		end
 	end
@@ -630,7 +598,7 @@ if $ARGS[0] = 'get_changed':
 				pcs_sweat = 10 + rand(0,4)
 				gs'stat'
 
-				act 'Get out of the water':gt'Gadriver', 'Gadbitch'
+				act 'Get out of the water':gt'gadriver', 'gadbitch'
 			end
 		else
 			act'Second thoughts': gt 'gadriver', 'second_thoughts'
@@ -651,7 +619,7 @@ if $ARGS[0] = 'second_thoughts':
 	npc_rel['A60'] -= 1
 	gs 'stat'
 
-	act 'Continue': gt'Gadriver', 'Gadbitch'
+	act 'Continue': gt'gadriver', 'gadbitch'
 end
 
 if $ARGS[0] = 'Mira':
@@ -673,7 +641,7 @@ if $ARGS[0] = 'Mira':
 			'<center><img <<$set_imgh>> src="images/characters/village/mira/mirarivernude.jpg"></center>'
 		end
 	end
-	act 'Leave':minut += 5 & gt 'Gadriver', 'Gadbitch'
+	act 'Leave':gt 'gadriver', 'gadbitch'
 
 	act 'Chat':
 		*clr & cla
@@ -715,7 +683,7 @@ if $ARGS[0] = 'Mira':
 				'You and Mira are chatting about trivial things.'
 			end
 		end
-		act 'Leave':minut += 5 & gt 'Gadriver', 'Gadbitch'
+		act 'Leave':gt 'gadriver', 'gadbitch'
 	end
 end
 
@@ -730,7 +698,7 @@ if $ARGS[0] = 'mirapunish':
 	'You approach Mira, she is looking distressed and embarrassingly smiles as you start asking what happened. She pleads you to release her. As you untie her, she explains that Kolyamba punished her for barely biting his cock as she sucked it...'
 	'"Thank God you showed up." she says with a sigh of relief as you untie her. "I''m glad it was you who found me and not one of those old hags from the village. They would be calling me a whore and I would get scolded about being promiscuous. Those old hags hate us you know. We''re young and beautiful and they are just mean old wrenches." said the naked Mira, revealing her true feelings about the villagers. She continues quietly, "Or it could have been even worse, someone could have abused me, raped me or even killed m..." All of a sudden she stops and lunges herself in your arms weeping. "Thank you," she tells you. "You saved my life!"'
 
-	act 'Leave':minut += 5 & gt 'Gadriver', 'Gadbitch'
+	act 'Leave':gt 'gadriver', 'gadbitch'
 end
 
 if $ARGS[0] = 'GuysRiver':
@@ -799,7 +767,7 @@ if $ARGS[0] = 'GuysRiver':
 					gs 'arousal', 'end'
 					gs 'stat'
 				end
-				act 'Leave':minut += 5 & gt'Gadriver', 'Gadbitch'
+				act 'Leave':gt'gadriver', 'gadbitch'
 			end
 		end
 	elseif temp_gr < 8:
@@ -849,7 +817,7 @@ if $ARGS[0] = 'GuysRiver':
 					gs 'arousal', 'end'
 					gs 'stat'
 				end
-				act 'Leave':minut += 5 & gt'Gadriver', 'Gadbitch'
+				act 'Leave':gt'gadriver', 'gadbitch'
 			end
 		end
 	else
@@ -914,12 +882,12 @@ if $ARGS[0] = 'GuysRiver':
 					gs 'arousal', 'end'
 					gs 'stat'
 				end
-				act 'Leave':minut += 5 & gt'Gadriver', 'Gadbitch'
+				act 'Leave':gt'gadriver', 'gadbitch'
 			end
 		end
 	end
 	if pcs_dom > 0:
-		act 'Leave':minut += 5 & gt'Gadriver', 'Gadbitch'
+		act 'Leave':gt'gadriver', 'gadbitch'
 	end
 end
 
@@ -954,7 +922,7 @@ if $ARGS[0] = 'fishers':
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/river/talkfishers.jpg"></center>'
 					'You keep watching as the fishermen throw out their lures, one of them catches a fish and shows off his trophy before putting it into the fish bail. The two of you chat about fishing.'
 
-					act 'Leave':minut += 5 & gt 'Gadriver', 'start'
+					act 'Leave':gt 'gadriver', 'start'
 				end
 			end
 			if fishersQW = 4:
@@ -968,7 +936,7 @@ if $ARGS[0] = 'fishers':
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/river/talkfishers.jpg"></center>'
 					'You decide to try your luck at fishing and ask the fishermen if they could lend you a fishing rod. A friend of the family, Uncle Stepan points to a pile of spare rods and tells you to pick one.'
 
-					act 'Fishing':gt 'Gadriver', 'fishing'
+					act 'Fishing':gt 'gadriver', 'fishing'
 				end
 			end
 			if fishersQW = 5:
@@ -981,14 +949,14 @@ if $ARGS[0] = 'fishers':
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/river/talkfishers.jpg"></center>'
 					'You decide to join your new friends, Uncle Stepan tells you he has plenty of spare rods, and he hands you a rod while his eyes travel up and down your body.'
 
-					act 'Fishing':gt 'Gadriver', 'fishing'
+					act 'Fishing':gt 'gadriver', 'fishing'
 				end
 			end
 
-			act 'Leave':minut += 5 & gt 'Gadriver', 'start'
+			act 'Leave':gt 'gadriver', 'start'
 		end
 	else
-		act 'Leave':minut += 5 & gt 'Gadriver', 'start'
+		act 'Leave':gt 'gadriver', 'start'
 	end
 end
 
@@ -1048,11 +1016,11 @@ if $ARGS[0] = 'fishing':
 						'You strike, but the lack of tension makes the fish escape from the hook.'
 
 					end
-					act 'Throw another bait':gt 'Gadriver', 'fishing'
+					act 'Throw another bait':gt 'gadriver', 'fishing'
 				end
 			else
 				'The bobber remains perfectly still, eventually you decide to try a different lure.'
-				act 'Retrieve bait':gt 'Gadriver', 'fishing'
+				act 'Retrieve bait':gt 'gadriver', 'fishing'
 			end
 		end
 		act 'Finish':
@@ -1074,7 +1042,7 @@ if $ARGS[0] = 'fishing':
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/river/talkfishers.jpg"></center>'
 					'You decide to release all the fish you caught today, the other fishermen shake their heads disapprovingly, throwing sidelong glances at your body as you dump the fish back into the river.'
 
-					act 'Leave':minut += 5 & gt $loc, $metka
+					act 'Leave':gt $loc, $metka
 				end
 				act 'Give the fish to Uncle Stepan':
 					cla
@@ -1086,7 +1054,7 @@ if $ARGS[0] = 'fishing':
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/river/talkfishers.jpg"></center>'
 					'You give all the fish you caught to uncle Stepan and he makes a show out of reluctantly accepting them, but you can see that he is actually quite happy with this arrangement.'
 
-					act 'Leave':minut += 5 & gt $loc, $metka
+					act 'Leave':gt $loc, $metka
 				end
 				act 'Bring a fish to Boniface':
 					cla
@@ -1112,7 +1080,7 @@ if $ARGS[0] = 'fishing':
 					act 'Finish': gt 'Gadhouse'
 				end
 			else
-				act 'Leave':minut += 5 & gt $loc, $metka
+				act 'Leave':gt $loc, $metka
 			end
 		end
 	else
@@ -1136,7 +1104,7 @@ if $ARGS[0] = 'fishing':
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/river/talkfishers.jpg"></center>'
 				'You decide to release all the fish you caught today, the other fishermen shake their heads disapprovingly, throwing sidelong glances at your body as you dump the fish back into the river.'
 
-				act 'Leave':minut += 5 & gt $loc, $metka
+				act 'Leave':gt $loc, $metka
 			end
 			act 'Give to Uncle Stepan':
 				cla
@@ -1148,7 +1116,7 @@ if $ARGS[0] = 'fishing':
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/river/talkfishers.jpg"></center>'
 				'You give all the fish caught to uncle Stepan and he reluctantly accepts them, you can see he is quite happy with this arrangement.'
 
-				act 'Leave':minut += 5 & gt $loc, $metka
+				act 'Leave':gt $loc, $metka
 			end
 			act 'Bring a fish to Boniface':
 				cla
@@ -1174,7 +1142,7 @@ if $ARGS[0] = 'fishing':
 				act 'Finish': gt 'Gadhouse'
 			end
 		else
-			act 'Leave':minut += 5 & gt $loc, $metka
+			act 'Leave':gt $loc, $metka
 		end
 	end
 end

@@ -971,22 +971,7 @@ if $ARGS[0] = 'private':
 			act 'Finish':menu_off = 0 & gt $loc, $metka
 		end
 	end
-
-	!!breast pump is now in the menu, not on the screen
-	if breastcounter <= 0:
-		temp_var = 50
-	else
-		temp_var = (50/breastcounter)
-	end
-	if breastpump > 0 and bp_unbox >= 1:
-		act 'Use breast pump':
-			gt 'lact_lib', 'bp_milking'
-		end
-	elseif breastpump > 0 and bp_unbox <= 0:
-		'<a href="exec: gt ''lact_lib'', ''bp_unbox_event''">Unbox</a> your breast pump'
-	elseif breastpump <= 0 and pcs_horny >= temp_var:
-		act 'Massage your breasts': gt 'lact_lib','man_milking'
-	end
+	gs 'lact_lib', 'massage'
 end
 
 if $ARGS[0] = 'misery':

@@ -606,6 +606,18 @@ end
 !!	man_milking - manual (with hands) milking
 !!	use href="exec:gt ''lact_lib'',''man_milking''"
 !!	for manual milk expression in bathrooms etc. please use this function.
+
+if $ARGS[0] = 'massage':
+	if breastcounter <= 0:
+		temp_var = 50
+	else
+		temp_var = (50/breastcounter)
+	end
+	if breastpump = 0 and pcs_horny >= temp_var and pcs_inhib >= 40:
+		act 'Massage your breasts': gt 'lact_lib','man_milking'
+	end
+end
+
 if $ARGS[0] = 'man_milking':
 	pumptime = 0
 	if pcs_inhib < 40:

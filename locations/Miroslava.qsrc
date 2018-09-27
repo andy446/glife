@@ -1,14 +1,19 @@
 # Miroslava
 
 if $ARGS[0] = 'Start' or $ARGS[0] = '':
-	$metka = 'Start'
 	$loc = 'Miroslava'
+	$metka = $ARGS[0]
+
+	$menu_loc = 'Miroslava'
+	$menu_arg = $ARGS[0]
+	menu_off = 0
+
 	gs 'boyStat', 'A60'
 	girlage = age
 	temp = RAND(0,20)
 	mira_temp = rand(0,20)
 
-	!MiaLoc tells us where Mira is Located
+	!MiraLoc tells us where Mira is Located
 	!----------------------------------------------
 	!MiraLoc = 0 (Mira at home)
 	!MiraLoc = 1 (Mira at river)
@@ -259,7 +264,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 		end
 
 		if npc_rel['A60'] >= 15 and hour >= 20 and npc_QW['A60'] = 0 and sunWeather = 1 and MiraLoc ! 3:
-			act 'Ask if she has met the local boys?':
+			act 'Ask if she''s met the local boys?':
 				*clr & cla
 				minut += 2
 				npc_rel['A60'] += 1
@@ -278,7 +283,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 		end
 
 		if npc_rel['A60'] >= 16 and hour >= 20 and npc_QW['A60'] > 0 and sunWeather = 1 and MiraLoc ! 3:
-			act 'Suggest catching up with the local guys and having a drink or three':
+			act 'Drink with the local guys':
 				if Mira_no = 0:
 					*clr & cla
 					minut += 5
@@ -312,7 +317,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 		end
 
 		if npc_rel['A60'] >= 20 and week >= 6 and hour > 18 and hour < 22:
-			act 'Suggest taking a steam bath in your grandparents sauna':
+			act 'Inite for a steam bath':
 				if Mira_no = 0:
 					if npc_QW['A63'] < 13 or npc_QW['A60'] >= 10 or mirasex > 1:
 						*clr & cla
@@ -372,7 +377,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 						gs 'Miroslava', 'miraclothes'
 						'You suggest going to the river to swim or sunbathe, Mira readily agrees.'
 
-						act 'Go to the river':gt 'Gadriver', 'Gadbitch'
+						act 'Go to the river':gt 'gadriver', 'gadbitch'
 					else
 						MiraLoc = 0
 						minut += 5
@@ -482,7 +487,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 
 		if npc_rel['A60'] >= 15 and MiraLoc ! 3 and (npc_QW['A63'] < 13 or npc_QW['A60'] >= 10 or mirasex > 1):
 			if mira_guest = 0:
-				act 'Invite Mira back to your grandparent''s house':
+				act 'Invite to your grandparent''s':
 					*clr & cla
 					minut += 5
 					mira_guest = 1
@@ -742,7 +747,7 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 					'<center><img <<$set_imgh>> src="images/characters/village/mira/girls_go.jpg"></center>'
 					'You decided to go with Mira to the village beach and all the way she goes, merrily chattering and telling stories.'
 
-					act 'Continue': gt'Gadriver', 'Gadbitch'
+					act 'Continue': gt'gadriver', 'gadbitch'
 				end
 
 				act'Refuse':

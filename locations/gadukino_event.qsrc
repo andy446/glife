@@ -8,7 +8,7 @@ if $ARGS[0] = 'mira_apologise':
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/village/turn_back.jpg"></center>'
 	'Walking through the village you hear someone catching up to you. Turning around, you see Mira nearing you.'
 
-	act 'Further':
+	act 'Continue':
 		*clr & cla
 		minut += 5
 		gs 'stat'
@@ -33,7 +33,7 @@ if $ARGS[0] = 'mira_apologise':
 			'"Ok, I agree to a truce," you say smiling, genuinely filled with joy ending all the drama. "I forgive you."'
 			'"And...?" Mira asks you.'
 			'Instead of answering her, you grab her by the arm and pull her into the bushes.'
-			act 'Further': gt 'mirasex','miralick_first'
+			act 'Continue': gt 'mirasex','miralick_first'
 		end
 		act 'Refuse':
 			*clr & cla
@@ -63,7 +63,7 @@ if $ARGS[0] = 'mitka_apologise':
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/village/turn_back.jpg"></center>'
 	'Walking through the village you hear someone catching up to you. Turning around, you see Mitka running towards you. Knowing from experience, that boys are faster runners, you stop and wait for him to catch up.'
 
-	act 'Further':
+	act 'Continue':
 		*clr & cla
 		minut += 5
 		gs 'stat'
@@ -110,7 +110,7 @@ if $ARGS[0] = 'gang_apologise':
 		'He looked at you with sorrow in his eyes. You did not expect that anyone of them would be sorry.'
 		'"I had a talk with the other men in the morning, and, uh," uncle Stepan losing his composure. "Well, in short, I decided that I wanted to talk to you, apologize and ask if you could forget about yesterday... I''m really sorry and I''m worried that we might have damaged you physically."'
 		'You looked skeptically at "your uncle", not really knowing if he''s joking or not.'
-		act 'Further':
+		act 'Continue':
 			*clr & cla
 			minut += 5
 			gs 'stat'
@@ -165,12 +165,13 @@ if $ARGS[0] = 'gang_apologise':
 		'<center><img <<$set_imgh>> src="images/locations/gadukino/village/girl_escapes.jpg"></center>'
 		'You started running away from the road, not stopping before you felt you were in the clear.'
 		'"Good thing I ran away from that evil man." you thought to yourself, looking around.'
-		act 'Further':gt'Meadow'
+		act 'Continue':gt'Meadow'
 	end
 end
 
 if $ARGS[0] = 'gadriver_gang':
 	minut += 5
+	menu_off = 1
 	gadriver_gang = 1
 	gadboyday = daystart
 	npc_QW['A63'] = 21
@@ -182,7 +183,7 @@ if $ARGS[0] = 'gadriver_gang':
 	'You walked along the path, fully immersed in your inner thoughts, you didn''t immediately notice the crowd of drunken village men. Noticing you alone the men turn their attention towards you.'
 	'One of the men grabs you and forces you away from the village. They start stripping you, surround you on all sides, taking out their cocks, warming up for what''s supposed to come. You think about resisting, but considering your reputation in the village, you find it''s not worth fighting, plus there was no way you could fight against this many men so you humbly kneel.'
 
-	act 'Suck':
+	act 'Suck the nearest cock':
 		*clr & cla
 		gs 'underwear', 'wear'
 		gs 'clothing', 'strip'
@@ -197,7 +198,7 @@ if $ARGS[0] = 'gadriver_gang':
 		minut -= 5
 		gs 'stat'
 
-		act 'Keep sucking':
+		act 'Suck the next guy':
 			*clr & cla
 			gs 'npcgeneratec', 0, 'some country guy', rand(19,45)
 			gs 'boyStat', $npclastgenerated, 'a'
@@ -208,7 +209,7 @@ if $ARGS[0] = 'gadriver_gang':
 			gs 'arousal', 'bj', 5, 'sub', 'gangbang'
 			gs 'stat'
 
-			act 'Further':
+			act 'Deepthroat two at once':
 				*clr & cla
 				gs 'npcgeneratec', 0, 'some country guy', rand(19,45)
 				gs 'boyStat', $npclastgenerated, 'b'
@@ -219,7 +220,7 @@ if $ARGS[0] = 'gadriver_gang':
 
 				gs 'arousal', 'bj', 5, 'sub', 'gangbang', 'deepthroat'
 				gs 'stat'
-				act 'Further':
+				act 'Make the first trio cum':
 					*clr & cla
 					minut += 5
 					gs 'cum_call', 'mouth', $boy, 1
@@ -227,11 +228,11 @@ if $ARGS[0] = 'gadriver_gang':
 					gs 'cum_call', 'stomach', $boy2, 1
 
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/river/gadriver_gang_cum1.jpg"></center>'
-					'It doesn''t take long before the first men finish, cumming in your mouth, on the face and chest. You continue sucking the men off, however...'
+					'It doesn''t take long before the first men finish, cumming in your mouth, on the face and chest. You continue sucking more men off, however...'
 
 					gs 'arousal', 'bj', 5, 'sub', 'gangbang', 'deepthroat'
 					gs 'stat'
-					act 'Further':
+					act 'Continue':
 						*clr & cla
 						gs 'npcgeneratec', 0, 'some country man', rand(19,45)
 						gs 'boyStat', $npclastgenerated
@@ -245,7 +246,7 @@ if $ARGS[0] = 'gadriver_gang':
 						minut -= 5
 						gs 'stat'
 
-						act 'Further':
+						act 'Continue':
 							*clr & cla
 							minut += 5
 							gs 'npcgeneratec', 0, 'man', rand(19,45)
@@ -264,7 +265,7 @@ if $ARGS[0] = 'gadriver_gang':
 							pose = 1
 							if rand(1,2) = 1:gs 'dinsex','sexcum'
 
-							act 'Further':
+							act 'Continue':
 								*clr & cla
 								gs 'npcgeneratec', 0, 'drunk man', rand(19,45)
 								gs 'boyStat', $npclastgenerated
@@ -283,7 +284,7 @@ if $ARGS[0] = 'gadriver_gang':
 								minut -= 5
 								gs 'stat'
 
-								act 'Further':
+								act 'Continue':
 									*clr & cla
 									gs 'boyStat', 'A63'
 									npc_sex[$boy] += 1
@@ -298,7 +299,7 @@ if $ARGS[0] = 'gadriver_gang':
 									minut -= 5
 									gs 'stat'
 
-									act 'Further':
+									act 'Continue':
 										*clr & cla
 										gs 'boyStat', 'A171'
 										npc_sex[$boy] += 1
@@ -316,7 +317,7 @@ if $ARGS[0] = 'gadriver_gang':
 										minut -= 5
 										gs 'stat'
 
-										act 'Further':
+										act 'Continue':
 											*clr & cla
 											gs 'npcgeneratec', 0, 'village man', rand(19,45)
 											gs 'boyStat', $npclastgenerated
@@ -333,7 +334,7 @@ if $ARGS[0] = 'gadriver_gang':
 											if rand(1,2) = 1:gs 'dinsex','sexcum'
 											gs 'stat'
 
-											act 'Further':
+											act 'Continue':
 												*clr & cla
 												minut += 5
 												gs 'boyStat', 'A62'
@@ -352,7 +353,7 @@ if $ARGS[0] = 'gadriver_gang':
 												gs 'stat'
 												*pl
 
-												act 'Further':
+												act 'Continue':
 													*clr & cla
 													minut += 5
 													if pcs_health <= 100:pcs_health += 100
@@ -365,7 +366,7 @@ if $ARGS[0] = 'gadriver_gang':
 													'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/river/gadriver_gang_oral4.jpg"></center>'
 													'The men decide that your holes need a rest, so the next few men are only going to get oral pleasure. They tell you to get on your knees and ordered you to suck.'
 
-													act 'Further':
+													act 'Continue':
 														*clr & cla
 														gs 'cum_call', 'mouth', $boy, 1
 														swallow += 1
@@ -386,7 +387,7 @@ if $ARGS[0] = 'gadriver_gang':
 														'They finish and walk away.'
 														gs 'stat'
 
-														act 'Further':
+														act 'Continue':
 															*clr & cla
 															gs 'npcgeneratec', 0, 'man', rand(19,45)
 															gs 'boyStat', $npclastgenerated
@@ -404,7 +405,7 @@ if $ARGS[0] = 'gadriver_gang':
 															'The men cum and walk away feeling satisfied.'
 															gs 'stat'
 
-															act 'Further':
+															act 'Continue':
 																*clr & cla
 																gs 'npcgeneratec', 0, 'unfamiliar guy', rand(19,45)
 																gs 'boyStat', $npclastgenerated
@@ -422,7 +423,7 @@ if $ARGS[0] = 'gadriver_gang':
 																'The men cum and walk away feeling satisfied.'
 																gs 'stat'
 
-																act 'Further':
+																act 'Continue':
 																	*clr & cla
 																	gs 'npcgeneratec', 0, 'guy', rand(19,45)
 																	gs 'boyStat', $npclastgenerated
@@ -438,7 +439,7 @@ if $ARGS[0] = 'gadriver_gang':
 																	minut -= 5
 																	gs 'stat'
 
-																	act 'Further':
+																	act 'Continue':
 																		*clr & cla
 																		gs 'npcgeneratec', 0, 'Drunk man', rand(19,45)
 																		gs 'boyStat', $npclastgenerated
@@ -453,7 +454,7 @@ if $ARGS[0] = 'gadriver_gang':
 																		minut -= 5
 																		gs 'stat'
 
-																		act 'Further':
+																		act 'Continue':
 																			*clr & cla
 																			gs 'boyStat', 'A172'
 																			npc_sex[$boy] += 1
@@ -470,7 +471,7 @@ if $ARGS[0] = 'gadriver_gang':
 																			minut -= 5
 																			gs 'stat'
 
-																			act 'Further':
+																			act 'Continue':
 																				*clr & cla
 																				gs 'npcgeneratec', 0, 'a man', rand(19,45)
 																				gs 'boyStat', $npclastgenerated
@@ -487,7 +488,7 @@ if $ARGS[0] = 'gadriver_gang':
 																				if rand(1,2) = 1:gs 'dinsex','sexcum'
 																				gs 'stat'
 
-																				act 'Further':
+																				act 'Continue':
 																					*clr & cla
 																					minut += 5
 																					if pcs_health <= 100:pcs_health += 100
@@ -497,7 +498,7 @@ if $ARGS[0] = 'gadriver_gang':
 																					'"I really hope that that was the last one..." you thought.'
 																					'This was just unfortunately wishful thinking. The men soon put you on your knees and then several men shoved their cocks in your face.'
 
-																					act 'Further':
+																					act 'Continue':
 																						*clr & cla
 																						gs 'npcgeneratec', 0, 'stranger', rand(19,45)
 																						gs 'boyStat', $npclastgenerated
@@ -514,7 +515,7 @@ if $ARGS[0] = 'gadriver_gang':
 																						if rand(1,2) = 1:gs 'dinsex','sexcum'
 																						gs 'stat'
 
-																						act 'Further':
+																						act 'Continue':
 																							*clr & cla
 																							gs 'npcgeneratec', 0, 'drunk guy', rand(19,45)
 																							gs 'boyStat', $npclastgenerated
@@ -534,7 +535,7 @@ if $ARGS[0] = 'gadriver_gang':
 																							if rand(1,2) = 1:gs 'dinsex','sexcum'
 																							*pl
 
-																							act 'Further':
+																							act 'Continue':
 																								*clr & cla
 																								gs 'npcgeneratec', 0, 'a man', rand(19,45)
 																								gs 'boyStat', $npclastgenerated
@@ -553,7 +554,7 @@ if $ARGS[0] = 'gadriver_gang':
 																								minut -= 5
 																								gs 'stat'
 
-																								act 'Further':
+																								act 'Continue':
 																									*clr & cla
 																									gs 'npcgeneratec', 0, 'unknown man', rand(19,45)
 																									gs 'boyStat', $npclastgenerated
@@ -570,7 +571,7 @@ if $ARGS[0] = 'gadriver_gang':
 																									minut -= 5
 																									gs 'stat'
 
-																									act 'Further':
+																									act 'Continue':
 																										*clr & cla
 																										gs 'npcgeneratec', 0, 'a villager', rand(19,45)
 																										gs 'boyStat', $npclastgenerated
@@ -587,7 +588,7 @@ if $ARGS[0] = 'gadriver_gang':
 																										minut -= 5
 																										gs 'stat'
 
-																										act 'Further':
+																										act 'Continue':
 																											*clr & cla
 																											minut += 5
 																											if pcs_health <= 100:pcs_health += 100
@@ -598,7 +599,7 @@ if $ARGS[0] = 'gadriver_gang':
 																											gs 'arousal', 'bj', 5, 'sub', 'gangbang', 'deepthroat'
 																											gs 'stat'
 
-																											act 'Further':
+																											act 'Continue':
 																												*clr & cla
 																												minut += 5
 																												gs 'npcgeneratec', 0, 'stranger', rand(19,45)
@@ -616,20 +617,21 @@ if $ARGS[0] = 'gadriver_gang':
 
 																												'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/river/gadriver_gang_cum3.jpg"></center>'
 																												'Like a panicked animal being pushed against a wall you gave it all, using all your might to please them. Your endeavor didn''t go unnoticed, some of men began cumming in your mouth and some of them on your face. There was so much sperm that your chest and abdomen also got covered.'
-																												act 'Further':
+																												act 'Continue':
 																													*clr & cla
 																													minut += 5
 																													gs 'cum_call', 'mouth', $boy3, 1
 																													gs 'cum_call', 'face', $boy4, 1
-																													swallow += 1
+																													swallow += 2
 																													gang += 1
+																													menu_off = 0
 																													gs 'stat'
 
 																													'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/river/gadriver_gang_cum4.jpg"></center>'
 																													'When the last men finally came, the crowd began to disperse, leaving you wrapped in a tattered blanket. You hear them sharing impressions of their drunken antics.'
 																													gs 'arousal', 'end'
 																													gs 'stat'
-																													act 'Further':minut += 5 & gt'Gadriver', 'Gadbitch'
+																													act 'Leave':minut += 5 & gt'gadriver', 'gadbitch'
 																												end
 																											end
 																										end
@@ -670,7 +672,7 @@ if $ARGS[0] = 'gadukino_mitka':
 	'Walking through the village you met Mitka. Seeing you, he started rubbing his crotch and said with a grin.'
 	'"Hey, <<$pcs_nickname>>, let''s go have some fun getting rid of this boner you just gave me."'
 
-	act 'Further': gt 'mitkasex', 'gad1', 'A63'
+	act 'Go with him': gt 'mitkasex', 'gad1', 'A63'
 end
 
 if $ARGS[0] = 'gadukino_kolyamba':
@@ -682,7 +684,7 @@ if $ARGS[0] = 'gadukino_kolyamba':
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/village/kolyamba.jpg"></center>'
 	'Walking through the village you met Kolyamba. Seeing you, he reached into his pants and started playing with his balls. He then grabbed you by the arm and dragged into the bushes next to the road.'
 
-	act 'Further': gt 'mitkasex', 'gad1', 'A61'
+	act 'Go with him': gt 'mitkasex', 'gad1', 'A61'
 end
 
 if $ARGS[0] = 'gadukino_vasyan':
@@ -690,11 +692,11 @@ if $ARGS[0] = 'gadukino_vasyan':
 	vasyanday = daystart
 	gs 'stat'
 
-	'<center><b><font color = maroon>Vasya Paket</font></b></center>'
+	'<center><b><font color = maroon>Vasyan Paket</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/village/vasyan.jpg"></center>'
 	'Walking through the village you met Vasya. Seeing you, he smiled and waved you over to him. He kisses you on the lips and asks you to join him as he walked into the bushes next to the road.'
 
-	act 'Further': gt 'mitkasex', 'gad1', 'A62'
+	act 'Go with him': gt 'mitkasex', 'gad1', 'A62'
 end
 
 if $ARGS[0] = 'gadukino_2boys':
@@ -712,7 +714,7 @@ if $ARGS[0] = 'gadukino_2boys':
 	if mitboyrand = 2:'Walking through the village you met Mitka and Vasya. Seeing you, they grin, grab you by the arms and drag you into the bushes.'
 	if mitboyrand = 3:'Walking through the village you met Kolyamba and Vasya. Seeing you, they grin, grab you by the arms and drag you into the bushes.'
 
-	act 'Further': gt 'mitkasex', 'gad2'
+	act 'Go with them': gt 'mitkasex', 'gad2'
 end
 
 if $ARGS[0] = 'mira_mitka':
@@ -725,7 +727,7 @@ if $ARGS[0] = 'mira_mitka':
 	'Walking with Mira in the village you met Mitka. Seeing Mira, he started playing with his balls and said with a grin.'
 	'"Oh hey Mira, let''s go have some fun getting rid of this boner you just gave me."'
 
-	act 'Further': gt 'mitkasex', 'forest1', 'A63'
+	act 'Go with them': gt 'mitkasex', 'forest1', 'A63'
 end
 
 if $ARGS[0] = 'mira_kolyamba':
@@ -737,7 +739,7 @@ if $ARGS[0] = 'mira_kolyamba':
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/village/kolyamba.jpg"></center>'
 	'Walking with Mira in the village you met Kolyamba. Seeing Mira, he started playing with his balls, dragging her into the bushes next to the road.'
 
-	act 'Further': gt 'mitkasex', 'forest1', 'A61'
+	act 'Go with them': gt 'mitkasex', 'forest1', 'A61'
 end
 
 if $ARGS[0] = 'mira_vasyan':
@@ -749,7 +751,7 @@ if $ARGS[0] = 'mira_vasyan':
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/village/vasyan.jpg"></center>'
 	'Walking with Mira in the village you met Vasyan. Seeing Mira, he smiled and dragged her into the bushes next to the road.'
 
-	act 'Further': gt 'mitkasex', 'forest1', 'A62'
+	act 'Go with them': gt 'mitkasex', 'forest1', 'A62'
 end
 
 if $ARGS[0] = 'mira_2boys':
@@ -767,7 +769,7 @@ if $ARGS[0] = 'mira_2boys':
 	if mitboyrand = 2:'Walking with Mira in the village you met Mitka and Vasyan. Seeing Mira, they grin, grab her arms and drag her into the bushes.'
 	if mitboyrand = 3:'Walking with Mira in the village you met Kolyamba and Vasyan. Seeing Mira, they grin, grab her arms and drag her into the bushes.'
 
-	act 'Further': gt 'mitkasex', 'forest2', mitboyrand
+	act 'Go with them': gt 'mitkasex', 'forest2', $ARGS[1]
 end
 
 if $ARGS[0] = 'mira_3boys':
@@ -783,7 +785,7 @@ if $ARGS[0] = 'mira_3boys':
 
 	'Walking with Mira in the village you met Mitka, Kolyamba and Vasyan. Seeing Mira, they grin, grab her arms and drag her into the bushes.'
 
-	act 'Further': gt 'mitkasex', 'forest3'
+	act 'Go with them': gt 'mitkasex', 'forest3'
 end
 
 if $ARGS[0] = 'go_home':

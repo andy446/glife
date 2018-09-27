@@ -1,17 +1,23 @@
 # MiroslavaHome
 
 if $ARGS[0] = 'start':
-	$metka = $ARGS[0]
-	$loc = $CURLOC
+	$loc = 'MiroslavaHome'
+	$metka = 'start'
 	$location_type = 'public_outdoors'
+
+	$menu_loc = 'MiroslavaHome'
+	$menu_arg = 'start'
+	menu_off = 0
+
 	*clr & cla
 	minut += 5
 	mira_temp = rand(0,15)
 	gs 'stat'
+
 	'<center><h2>Gadukino Village</h2></center>'
 	'<center><b>Mira''s Yard</b></center>'
 
-	!!MiaLoc tells us where Mira is Located
+	!!MiraLoc tells us where Mira is Located
 	!!----------------------------------------------
 	!!MiraLoc = 0 (Mira at home)
 	!!MiraLoc = 1 (Mira at river)
@@ -22,7 +28,7 @@ if $ARGS[0] = 'start':
 	!!---------------------------------------------
 
 	act 'Leave': gt 'gadukino'
-	
+
 	if hour >= 8 and hour <= 22:
 		if Mira_no > 0 and mirafathertalk = 0 and miraday ! daystart:
 			*clr & cla
@@ -41,14 +47,14 @@ if $ARGS[0] = 'start':
 			mirafathertalk = 1
 			gs'stat'
 
-			act 'Further':gt 'miroslavahome', 'start'
+			act 'Continue':gt 'miroslavahome', 'start'
 		elseif temper >= 15 and sunWeather = 1 and npc_QW['A60'] = 7 and hour >= 8 and hour <= 18:
 			*clr & cla
 			'<center><img <<$set_imgh>> src="images/characters/village/mira/miraqw7.jpg"></center>'
 			'Entering the courtyard, you notice Mira, working in the garden. She is bent over and, to your amazement, you see her bare naked crotch...'
 			MiraLoc = 0
 
-			act 'Approach it':
+			act 'You approach slowly':
 				*clr & cla
 				gs 'Miroslava', 'miraclothes'
 				'You quietly sneak up to her, but she notices you and turns around, immediately blushing rapidly. You a couple seconds of silently staring at her, and then unceremoniously asked why she without panties. Miroslav took the eye, with rumpled feet and legs, explaining that it turned out very hot, so she... You remind her about the second wish and ask to sit down. Miroslav reluctantly agrees, and when he sits down, you tell her, she`ll show you the crotch, you bad considered. The girl mumbles something unintelligible, but then for half a minute lifts up her skirt and gives you a good look at my crotch.'
@@ -64,10 +70,10 @@ if $ARGS[0] = 'start':
 					minut += 15
 					gs 'stat'
 
-					act 'Go out on the road':
+					act 'Lead her to the road':
 						*clr & cla
 						'<center><img <<$set_imgh>> src="images/characters/village/mira/mirawish2_1.jpg"></center>'
-						'Out on the road you say, "Mira, pose as a prostitute, this will be the second wish." Mira sadly nods her head, looks around and seeing that the street was quiet, fulfills your desire...'
+						'You lead her out to the main road. You tell Mira, that she is to pose as a prostitute and attempt to get a customer or two. This is your second wish. You want Mira to become a prostitute and fulfill the desires of anyone who asks for her services. Mira looks shocked but nods that she will do it, Mira looks around the area and seeing no one else watching begins to pose by the roadside for passing cars...'
 						minut += 15
 						npc_QW['A60'] = 8
 						gs 'stat'
@@ -111,7 +117,7 @@ if $ARGS[0] = 'start':
 					act 'Leave': gt 'gadukino'
 				end
 			end
-!!125s
+
 			act 'Ask for Mira':
 				if mira_temp >= 10 and sunWeather = 1 and temper >= 15 and hour < 20 and Mira_no = 0:
 					*clr & cla
@@ -141,7 +147,7 @@ if $ARGS[0] = 'start':
 		end
 	else
 		'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mirahome.jpg"></center>'
-		if hour > 22 or hour < 3: 'It''s late, most of Mira''s family is asleep, no need to them up unnecessarily.' else 'It''s too early, most of Mira''s family is still asleep, no need to wake people up unnecessarily.'
+		if hour > 22 or hour < 3: 'It''s too late, most of Mira''s family is asleep, no need to wake them up unnecessarily.' else 'It''s too early, most of Mira''s family is still asleep, no need to wake them up unnecessarily.'
 		act 'Leave': gt 'gadukino'
 	end
 end
@@ -166,7 +172,7 @@ if $ARGS[0] = 'mirabrother':
 			else
 				'He gazes at you a couple of seconds, and then asks, "Who are you again?"'
 			end
-			
+
 			act 'Walk away': gt 'MiroslavaHome', 'start'
 		else
 			if $pantyworntype ! 'none':
@@ -259,7 +265,7 @@ if $ARGS[0] = 'mirabrother':
 
 												'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/mira/mirabromoto6.jpg"></center>'
 												'You obediently sit down in front of him on your knees and unzip his pants. His quickly growing member pops out right in front of your face...'
-												
+
 												act 'Suck':
 													*clr & cla
 													pcs_horny += RAND(10,20)

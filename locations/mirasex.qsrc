@@ -1,14 +1,14 @@
 # mirasex
 
-	!MiaLoc tells us where Mira is Located
-	!----------------------------------------------
-	!MiraLoc = 0 (Mira at home)
-	!MiraLoc = 1 (Mira at river)
-	!MiraLoc = 2 (Mira at meadow)
-	!MiraLoc = 3 (Mira at forest)
-	!MiraLoc = 4 (Mira at field)
-	!MiraLoc = 5 (Mira with gop)
-	!---------------------------------------------
+!MiaLoc tells us where Mira is Located
+!----------------------------------------------
+!MiraLoc = 0 (Mira at home)
+!MiraLoc = 1 (Mira at river)
+!MiraLoc = 2 (Mira at meadow)
+!MiraLoc = 3 (Mira at forest)
+!MiraLoc = 4 (Mira at field)
+!MiraLoc = 5 (Mira with gop)
+!---------------------------------------------
 
 if $ARGS[0] = 'miralick_first':
 	*clr & cla
@@ -43,7 +43,7 @@ if $ARGS[0] = 'mirakiss':
 	if pcs_horny < 20 or mirahorny < 20:
 		act 'Continue kissing':gt 'mirasex','mirakiss'
 	else
-		act 'Further':gt 'mirasex','foreplay'
+		act 'Continue':gt 'mirasex','foreplay'
 	end
 end
 
@@ -197,7 +197,7 @@ if $ARGS[0] = 'lickmira_mis1':
 		act 'Continue licking Mira':gt 'mirasex','lickmira_mis1'
 	else
 		if pcs_horny < 60:act 'Leave':MiraLoc ! 2 & minut += 20 & gt'Gaddvor'
-		if pcs_horny >= 60:act 'Further':gt 'mirasex','horny_talk'
+		if pcs_horny >= 60:act 'Continue':gt 'mirasex','horny_talk'
 	end
 	killvar '$textmis'
 	killvar '$textlick'

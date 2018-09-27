@@ -169,7 +169,7 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 				gs 'stat'
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/enema.jpg"></center>'
 				'You search for your clothes, but only manage to find an enema syringe... "What is this doing here?" you wonder.'
-				act 'Further': gt 'swamphouse', 'start'
+				act 'Continue': gt 'swamphouse', 'start'
 			else
 				gs 'clothing', 'swamp_clothes', 1
 				gs 'stat'
@@ -325,7 +325,7 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/doublehanterlove.jpg"></center>'
 			'The men hold your hands leading you away from the hut. You''re fully aware of their plans but you don''t really mind.'
-			act 'Further': gt 'hantersex'
+			act 'Continue': gt 'hantersex', 'doublelovesex'
 		end
 		act 'Refuse':
 			*clr & cla
@@ -420,7 +420,7 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/swampdvornude1.jpg"></center>'
 					'You look around searching for your clothes. When you spot them, you dash over to grab them.'
-					act 'Further': gt 'swamphouse', 'start'
+					act 'Continue': gt 'swamphouse', 'start'
 				end
 			else
 				act 'Cover yourself':
@@ -431,7 +431,7 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 					gs 'stat'
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/tkan_cloth.jpg"></center>'
 					'You look around searching for your clothes but can''t seem to find them, instead you hide behind a piece of hessian... It''s better than nothing.'
-					act 'Further': gt 'swamphouse', 'start'
+					act 'Continue': gt 'swamphouse', 'start'
 				end
 			end
 			act 'Stay naked':
@@ -443,7 +443,7 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/swamphousenude1.jpg"></center>'
 				'You take a deep breath and decided to disregard your nerves and leave it as it is. Upon entering the hut, the hunters can''t help themselves, they start staring at your most private parts.'
 				'"Damn, <<$pcs_nickname>>, you look really good. The things I would want to do to you..." said a somewhat aroused Andrei.'
-				act 'Further': gt 'swamphouse', 'start'
+				act 'Continue': gt 'swamphouse', 'start'
 			end
 		end
 		if hantersKnowSlut > 0:
@@ -455,14 +455,14 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 				'Seeing you naked, the men get quickly aroused...'
 				'"Come here <<$pcs_nickname>>, come to us," one of the guys calls out to you.'
 
-				act 'Further':hantersexnude = 1 & gt 'hantersex', 'hantersexnude'
+				act 'Continue':hantersexnude = 1 & gt 'hantersex', 'hantersexnude'
 			else
 				hanterknowday = daystart
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/swamphousenude1.jpg"></center>'
 				'Seeing you naked, the men just shake their heads...'
 				'"Look here <<$pcs_nickname>>, if you want to charm us, you will need to think of something else." said one of the guys.'
 
-				act 'Further': gt 'swamphouse', 'start'
+				act 'Continue': gt 'swamphouse', 'start'
 			end
 		end
 	end
@@ -513,7 +513,7 @@ if $ARGS[0] = 'bucket':
 			pcs_breath = 0
 			'You take a sip from bucket, quenching your thirst.'
 		end
-		act 'Further': gt 'swamphouse', 'start'
+		act 'Continue': gt 'swamphouse', 'start'
 	end
 	act 'Move Away': gt 'swamphouse', 'start'
 
@@ -559,7 +559,7 @@ if $ARGS[0] = 'stove':
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hotsoup.jpg"></center>'
 			'You made a simple mushroom soup.'
 
-			act 'Further': gt 'swamphouse', 'start'
+			act 'Continue': gt 'swamphouse', 'start'
 		end
 	end
 	if bucket >= 5 and hotwater = 0:
@@ -574,7 +574,7 @@ if $ARGS[0] = 'stove':
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hotwater.jpg"></center>'
 			'With the heated water, You can now clean yourself with the basin or wash your clothes.'
 
-			act 'Further': gt 'swamphouse', 'start'
+			act 'Continue': gt 'swamphouse', 'start'
 		end
 	end
 	act 'Move away': gt 'swamphouse', 'start'
@@ -614,7 +614,7 @@ if $ARGS[0] = 'stackmagazines':
 		gs 'swamphouse', 'clothes_read_magazines'
 		'You decide to look through the scientific journal, trying to understand all sorts of clever things written in the magazine.'
 
-		act 'Further': gs 'swamphouse', 'stackmagazines'
+		act 'Continue': gs 'swamphouse', 'stackmagazines'
 	end
 	act 'Read the literary magazine (1:00)':
 		cla
@@ -635,7 +635,7 @@ if $ARGS[0] = 'stackmagazines':
 		gs 'swamphouse', 'clothes_read_magazines'
 		'You decided to look through the literary magazine... It''s a real drag, you almost fall asleep several times while reading it.'
 
-		act 'Further': gs 'swamphouse', 'stackmagazines'
+		act 'Continue': gs 'swamphouse', 'stackmagazines'
 	end
 	act 'Read the entertainment magazine (1:00)':
 		cla
@@ -656,7 +656,7 @@ if $ARGS[0] = 'stackmagazines':
 		gs 'swamphouse', 'clothes_read_magazines'
 		'You flick entertainment magazine, you delve into the world of the rich and famous.'
 
-		act 'Further': gs 'swamphouse', 'stackmagazines'
+		act 'Continue': gs 'swamphouse', 'stackmagazines'
 	end
 	act 'Read the porn magazine (1:00)':
 		cla
@@ -673,7 +673,7 @@ if $ARGS[0] = 'stackmagazines':
 		gs 'arousal', 'voyeur', 60
 		gs 'arousal', 'end'
 		gs 'stat'
-		act 'Further': gs 'swamphouse', 'stackmagazines'
+		act 'Continue': gs 'swamphouse', 'stackmagazines'
 	end
 	act 'Move away': gt 'swamphouse', 'start'
 end
@@ -705,7 +705,7 @@ if $ARGS[0] = 'basin':
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/basinswim.jpg"></center>'
 			'You fill the basin with warm water, strip, sitting in the basin you clean yourself. You feel rejuvenated again.'
 
-			act 'Further': gt 'swamphouse', 'start'
+			act 'Continue': gt 'swamphouse', 'start'
 		end
 	end
 	if hotwater = 1  and dirtyclothes = 1 and ($clothingworntype = 'nude' and clothesAtLocation = 1) or ($clothingworntype ! 'nude' and clothesAtLocation = 0 and clothesOnLine = 0):
@@ -739,7 +739,7 @@ if $ARGS[0] = 'basin':
 				end
 				'You hang the clothes to dry inside the hut.'
 
-				act 'Further': gt 'swamphouse', 'start'
+				act 'Continue': gt 'swamphouse', 'start'
 			end
 			if month >= 5 and month <= 9 and clothesOnLine = 0:
 				act 'Hang the clothes on a clothesline':
@@ -756,7 +756,7 @@ if $ARGS[0] = 'basin':
 					end
 					'You hang the clothes outside to dry.'
 
-					act 'Further': gt 'swamp_yard'
+					act 'Continue': gt 'swamp_yard'
 				end
 			end
 		end
@@ -807,7 +807,7 @@ if $ARGS[0] = 'hanterstableBJ':
 					gs 'arousal', 'end'
 					gs 'stat'
 
-					act 'Further': gs 'swamphouse', 'hanterstableBJ'
+					act 'Continue': gs 'swamphouse', 'hanterstableBJ'
 				end
 			else
 				act 'Keep sucking':
@@ -823,7 +823,7 @@ if $ARGS[0] = 'hanterstableBJ':
 					gs 'arousal', 'end'
 					gs 'stat'
 
-					act 'Further': gs 'swamphouse', 'hanterstableBJ'
+					act 'Continue': gs 'swamphouse', 'hanterstableBJ'
 				end
 			end
 		end
@@ -858,7 +858,7 @@ if $ARGS[0] = 'hanterstableBJ':
 					'When he was all done you cleaned Andrei the best you could, and then you put his cock back in his pants and zipped him up.'
 					gs 'arousal', 'end'
 					gs 'stat'
-					act 'Further': gs 'swamphouse', 'hanterstableBJ'
+					act 'Continue': gs 'swamphouse', 'hanterstableBJ'
 				end
 			else
 				act 'Keep sucking':
@@ -874,7 +874,7 @@ if $ARGS[0] = 'hanterstableBJ':
 					gs 'arousal', 'end'
 					gs 'stat'
 
-					act 'Further': gs 'swamphouse', 'hanterstableBJ'
+					act 'Continue': gs 'swamphouse', 'hanterstableBJ'
 				end
 			end
 		end
@@ -909,7 +909,7 @@ if $ARGS[0] = 'hanterstableBJ':
 					'When he was all done you cleaned Andrei the best you could, and then you put his cock back in his pants and zipped him up.'
 					gs 'arousal', 'end'
 					gs 'stat'
-					act 'Further': gs 'swamphouse', 'hanterstableBJ'
+					act 'Continue': gs 'swamphouse', 'hanterstableBJ'
 				end
 			else
 				act 'Keep sucking':
@@ -925,7 +925,7 @@ if $ARGS[0] = 'hanterstableBJ':
 					gs 'arousal', 'end'
 					gs 'stat'
 
-					act 'Further': gs 'swamphouse', 'hanterstableBJ'
+					act 'Continue': gs 'swamphouse', 'hanterstableBJ'
 				end
 			end
 		end
@@ -970,7 +970,7 @@ if $ARGS[0] = 'hanterstable':
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/shulginhome/kuh/vodka'+rand(0,2)+'.jpg"></center>'
 			'You take a shot of vodka. The men laugh at the funny face you''re making after the shot.'
 
-			act 'Further': gs 'swamphouse', 'hanterstable'
+			act 'Continue': gs 'swamphouse', 'hanterstable'
 		end
 		act 'Drink beer':
 			*clr & cla
@@ -983,7 +983,7 @@ if $ARGS[0] = 'hanterstable':
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/shulginhome/kuh/beer2.jpg"></center>'
 			'You take a bottle of bear, open it and start drinking it.'
 
-			act 'Further': gs 'swamphouse', 'hanterstable'
+			act 'Continue': gs 'swamphouse', 'hanterstable'
 		end
 		act 'Eat a snack':
 			gs 'food', 'snack'&!use current one, *clr & cla will clear messages
@@ -993,7 +993,7 @@ if $ARGS[0] = 'hanterstable':
 
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/snack1.'+rand(1,2)+'.jpg"></center>'
 			'You grab something to eat, so you don''t get drunk to quickly.'
-			act 'Further': gs 'swamphouse', 'hanterstable'
+			act 'Continue': gs 'swamphouse', 'hanterstable'
 		end
 		act 'Chat':
 			*clr & cla
@@ -1006,7 +1006,7 @@ if $ARGS[0] = 'hanterstable':
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hanterstable.jpg"></center>'
 			'You chat with the men about various topics... You try to keep up with their lingo but sometime fail and you all have a laugh about it.'
 
-			act 'Further': gs 'swamphouse', 'hanterstable'
+			act 'Continue': gs 'swamphouse', 'hanterstable'
 		end
 		act 'Move away from the table':hantersdrink = 0 & hanter_refuse = 1 & gt 'swamphouse', 'start'
 		if alko > 3 and alko < 8 and smokertemp = 1:
@@ -1259,7 +1259,7 @@ if $ARGS[0] = 'hanterstable':
 							'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/shulginhome/bigroom/drunk_ev/pohmel1.jpg"></center>'
 							'Three hours later you wake up in the middle of the night. You''ve got a headache and vaguely remember yesterday.'
 
-							act 'Further': gt 'swamphouse', 'start'
+							act 'Continue': gt 'swamphouse', 'start'
 						end
 					end
 				end
@@ -1284,7 +1284,7 @@ if $ARGS[0] = 'hanterstable':
 							'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/shulginhome/bigroom/drunk_ev/pohmel4.jpg"></center>'
 							'Four hours later you wake up in the middle of the night. You''ve got a headache and vaguely remember yesterday.'
 
-							act 'Further': gt 'swamphouse', 'start'
+							act 'Continue': gt 'swamphouse', 'start'
 						end
 					end
 				end
@@ -1308,7 +1308,7 @@ if $ARGS[0] = 'hanterstable':
 							'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/shulginhome/bigroom/drunk_ev/pohmel2.jpg"></center>'
 							'You sleep for awhile, waking up barely able to lift your head from the pillow. You''ve got a headache and vaguely remember yesterday.'
 
-							act 'Further': gt 'swamphouse', 'start'
+							act 'Continue': gt 'swamphouse', 'start'
 						end
 					end
 				end
@@ -1340,7 +1340,7 @@ if $ARGS[0] = 'hanterstable':
 									'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/shulginhome/bigroom/drunk_ev/pohmel2.jpg"></center>'
 									'You sleep for awhile, waking up barely able to get out of bed. You''ve got a headache and vaguely remember yesterday.'
 
-									act 'Further': gt 'swamphouse', 'start'
+									act 'Continue': gt 'swamphouse', 'start'
 								end
 							end
 						end
@@ -1398,7 +1398,7 @@ if $ARGS[0] = 'hanterstable':
 														'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/shulginhome/bigroom/drunk_ev/pohmel4.jpg"></center>'
 														'You sleep for four hours, waking up in the middle night, barely able to get up off the floor. You''ve got a headache and vaguely remember yesterday.'
 
-														act 'Further': gt 'swamphouse', 'start'
+														act 'Continue': gt 'swamphouse', 'start'
 													end
 												end
 											end
@@ -1422,7 +1422,7 @@ if $ARGS[0] = 'hanterstable':
 													'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/shulginhome/bigroom/drunk_ev/pohmel2.jpg"></center>'
 													'You sleep for awhile, waking up barely able to get out of bed. You''ve got a headache and vaguely remember yesterday.'
 
-													act 'Further': gt 'swamphouse', 'start'
+													act 'Continue': gt 'swamphouse', 'start'
 												end
 											end
 										end
@@ -1447,7 +1447,7 @@ if $ARGS[0] = 'hanterstable':
 										   '<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/shulginhome/bigroom/drunk_ev/pohmel2.jpg"></center>'
 										   'You sleep for awhile, waking up barely able to get out of bed. You''ve got a headache and vaguely remember yesterday.'
 
-											act 'Further': gt 'swamphouse', 'start'
+											act 'Continue': gt 'swamphouse', 'start'
 										end
 									end
 								end
@@ -1531,7 +1531,7 @@ if $ARGS[0] = 'hanterstable':
 												'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/shulginhome/bigroom/drunk_ev/pohmel3.jpg"></center>'
 												'You sleep for four hours, waking up in the middle night, barely able to get up off the floor. You''ve got a headache and vaguely remember yesterday.'
 
-												act 'Further': gt 'swamphouse', 'start'
+												act 'Continue': gt 'swamphouse', 'start'
 											end
 										end
 									else
@@ -1545,7 +1545,7 @@ if $ARGS[0] = 'hanterstable':
 											'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/dance5.jpg"></center>'
 											'You keep on dancing, undressing further. Judging by the excited faces of the men, you''re definitely turning them on.'
 
-											act 'Further': gt 'hantersex', 'sexafterstrip3'
+											act 'Continue': gt 'hantersex', 'sexafterstrip3'
 										end
 									end
 								end
@@ -1582,7 +1582,7 @@ if $ARGS[0] = 'hanterstable':
 						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/shulginhome/bigroom/drunk_ev/pohmel1.jpg"></center>'
 						'Three hours later you wake up in the middle of the night. You''ve got a headache and vaguely remember yesterday.'
 
-						act 'Further': gt 'swamphouse', 'start'
+						act 'Continue': gt 'swamphouse', 'start'
 					end
 				end
 			end
@@ -1606,7 +1606,7 @@ if $ARGS[0] = 'hanterstable':
 						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/shulginhome/bigroom/drunk_ev/pohmel4.jpg"></center>'
 						'Four hours later you wake up in the middle of the night. You''ve got a headache and vaguely remember yesterday.'
 
-						act 'Further': gt 'swamphouse', 'start'
+						act 'Continue': gt 'swamphouse', 'start'
 					end
 				end
 			end
@@ -1630,7 +1630,7 @@ if $ARGS[0] = 'hanterstable':
 						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/shulginhome/bigroom/drunk_ev/pohmel2.jpg"></center>'
 						'You sleep for awhile, waking up barely able to lift your head from the pillow. You''ve got a headache and vaguely remember yesterday.'
 
-						act 'Further': gt 'swamphouse', 'start'
+						act 'Continue': gt 'swamphouse', 'start'
 					end
 				end
 			end
@@ -1697,7 +1697,7 @@ if $ARGS[0] = 'hanterstable':
 												'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/shulginhome/bigroom/drunk_ev/pohmel3.jpg"></center>'
 												'You sleep for four hours, waking up in the middle night, barely able to get up off the floor. You''ve got a headache and vaguely remember yesterday.'
 
-												act 'Further': gt 'swamphouse', 'start'
+												act 'Continue': gt 'swamphouse', 'start'
 											end
 										end
 									else
@@ -1710,7 +1710,7 @@ if $ARGS[0] = 'hanterstable':
 											'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/dance5.jpg"></center>'
 											'You keep on dancing, undressing further. Judging by the excited faces of the men, you''re definitely turning them on.'
 
-											act 'Further': gt 'hantersex', 'sexafterstrip1'
+											act 'Continue': gt 'hantersex', 'sexafterstrip1'
 										end
 									end
 								end
@@ -1845,7 +1845,7 @@ if $ARGS[0] = 'dirty_swamphouse':
 	'Visiting the hut, you notice that the hut has gotten pretty dirty. "I need to do something about this." you think to yourself. You grab a broom and a rag and began cleaning.'
 	'After a while you''ve finished cleaning and put back everything in order again. You''re quite pleased with yourself.'
 
-	act 'Further':dirty_swamphouse = 0 & gt 'swamphouse', 'start'
+	act 'Continue':dirty_swamphouse = 0 & gt 'swamphouse', 'start'
 end
 
 --- swamphouse ---------------------------------

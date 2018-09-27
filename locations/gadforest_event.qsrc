@@ -27,7 +27,7 @@ if $ARGS[0] = 'gopforest_mitka':
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mitka.jpg"></center>'
 				'Walking through the forest you met Mitka, you chatted with him for a bit and went on.'
 
-				act 'Further':gt 'gadforest','1'
+				act 'Continue':gt 'gadforest','1'
 			else
 				cla
 				*clr
@@ -87,7 +87,7 @@ if $ARGS[0] = 'gopforest_mitka':
 									'After a few more minutes Mitka pulls out and cums on her stomach. They rest for a little while and then get dressed and go towards the village...'
 									gs 'arousal', 'voyeur', 5
 									gs 'stat'
-									act 'Further':gt 'gadforest','1'
+									act 'Continue':gt 'gadforest','1'
 								end
 							end
 						else
@@ -115,7 +115,7 @@ if $ARGS[0] = 'gopforest_mitka':
 								'After a couple of minutes Mitka strongly slaps her ass and Mira quickly turns around, gets on her knees before him and sucks his cock for a few seconds before he spill his warm cum all over her face.'
 								gs 'arousal', 'voyeur', 10
 								gs 'stat'
-								act 'Further':gt 'gadforest','1'
+								act 'Continue':gt 'gadforest','1'
 							end
 						end
 					end
@@ -158,7 +158,7 @@ if $ARGS[0] = 'gopforest_mitka':
 							'After a couple of minutes Mitka strongly slaps her ass and Mira quickly turns around, gets on her knees before him and sucks his cock for a few seconds before he spill his warm cum all over her face.'
 							gs 'arousal', 'voyeur', 10
 							gs 'stat'
-							act 'Further':gt 'gadforest','1'
+							act 'Continue':gt 'gadforest','1'
 						end
 					end
 				else
@@ -171,7 +171,7 @@ if $ARGS[0] = 'gopforest_mitka':
 					'<center><b><font color = maroon>Mitka Shkvoryen</font></b></center>'
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mitka.jpg"></center>'
 					'Walking through the forest with Mira, you met Mitka. You had a little chat, noticing the interest Mira showed Mitka, and went on.'
-					act 'Further':gt 'gadforest','1'
+					act 'Continue':gt 'gadforest','1'
 				end
 			elseif npc_QW['A63'] > 0 and npc_QW['A63'] < 13 and gadriver_gang < 3 or npc_QW['A63'] >= 13 and npc_QW['A60'] < 11 and gadriver_gang < 3:
 				cla
@@ -203,7 +203,7 @@ if $ARGS[0] = 'gopforest_mitka':
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mitka.jpg"></center>'
 				'Walking through the woods with Mira you met Mitka. Scratching his balls, he said with a grin:'
 				'"Oh, you`re just who I need!" He grabbed you by the hand and dragged you into the nearest bush.'
-				act 'Further':mitboyrand = 1 & gt 'mitkasex'
+				act 'Continue':mitboyrand = 1 & gt 'mitkasex'
 			else
 				cla
 				*clr
@@ -215,7 +215,7 @@ if $ARGS[0] = 'gopforest_mitka':
 				'<center><b><font color = maroon>Mitka Pin</font></b></center>'
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mitka.jpg"></center>'
 				'Walking through the forest with Mira, you met Mitka. You had a little chat and went on.'
-				act 'Further':gt 'gadforest','1'
+				act 'Continue':gt 'gadforest','1'
 			end
 		end
 	else
@@ -252,7 +252,7 @@ if $ARGS[0] = 'gopforest_mitka':
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/swampbackwaternude1.jpg"></center>'
 						'You yelp in surprise and you rush to where you left your clothes. Dressed and calm you decide to go on.'
 
-						act 'Further':gt 'gadforest','1'
+						act 'Continue':gt 'gadforest','1'
 					end
 				else
 					act 'Hide':
@@ -266,7 +266,7 @@ if $ARGS[0] = 'gopforest_mitka':
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/mitkahideforest.jpg"></center>'
 						'You quickly hide in the nearby bushes. Mitka walks right past not noticing you. You let out a breath and go on.'
 
-						act 'Further':gt 'gadforest','1'
+						act 'Continue':gt 'gadforest','1'
 					end
 				end
 				act 'Go further':
@@ -283,7 +283,7 @@ if $ARGS[0] = 'gopforest_mitka':
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/mitkanudeforest.jpg"></center>'
 					'You pretend not to notice the stunned Mitka and walk right past him, swaying your hips pointedly to maximize the effect. Looking around, you notice that the effect has exceeded your expectations. Mitka dropped his pants and is hastily jerking off, looking after you.'
 
-					act 'Further':gt 'gadforest','1'
+					act 'Continue':gt 'gadforest','1'
 				end
 			else
 				cla
@@ -297,7 +297,7 @@ if $ARGS[0] = 'gopforest_mitka':
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mitka.jpg"></center>'
 				'Walking through the forest you met Mitka. After spotting him him, you tried to dress, but Mitka, without wasting another minute he grabbed you by the hand and dragged you into the nearest bush.'
 
-				act 'Further':forest_gopsex = 1 & temphant = 4 & gt 'hanters', 'start'
+				act 'Continue':forest_gopsex = 1 & temphant = 4 & gt 'hanters', 'start'
 			end
 		else
 			if npc_QW['A63'] = 0 or gadriver_gang >= 3:
@@ -330,7 +330,7 @@ if $ARGS[0] = 'gopforest_mitka':
 							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gopforestnude.jpg"></center>'
 							'You yelp in surprise, as you and Mira rush to where you left your clothes. Dressed and calm you decide to go on.'
 
-							act 'Further':gt 'gadforest','1'
+							act 'Continue':gt 'gadforest','1'
 						end
 					else
 						act 'Hide':
@@ -344,7 +344,7 @@ if $ARGS[0] = 'gopforest_mitka':
 							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
 							'You and Mira, quickly hide in the nearby bushes. Mitka walks right past not noticing you. You let out a breath and go on.'
 
-							act 'Further':gt 'gadforest','1'
+							act 'Continue':gt 'gadforest','1'
 						end
 					end
 				elseif npc_QW['A60'] >= 11:
@@ -406,7 +406,7 @@ if $ARGS[0] = 'gopforest_mitka':
 									'After a couple of minutes Mitka strongly slaps her ass and Mira quickly turns around, gets on her knees before him and sucks his cock for a few seconds before he spill his warm cum all over her face...'
 									gs 'arousal', 'voyeur', 10
 									gs 'stat'
-									act 'Further':gt 'gadforest','1'
+									act 'Continue':gt 'gadforest','1'
 								end
 							end
 						end
@@ -422,7 +422,7 @@ if $ARGS[0] = 'gopforest_mitka':
 							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
 							'You and Mira, quickly hide in the nearby bushes. Mitka walks right past not noticing you. You let out a breath and go on.'
 
-							act 'Further':gt 'gadforest','1'
+							act 'Continue':gt 'gadforest','1'
 						end
 					end
 				end
@@ -440,7 +440,7 @@ if $ARGS[0] = 'gopforest_mitka':
 				if temp_gadf = 1:'Walking through the forest with Mira, you come face-to-face with Mitka. You yelp in surprise, and rush to your clothing. You are running away with Mira, but before you get too far Mitka grabs you in his arms and drags you with him into the nearest bush.'
 				if temp_gadf = 2:'Walking through the forest you saw Mitka. Realizing that he hasn''t noticed you yet, you decide...'
 
-				if temp_gadf = 1:act 'Further':MiraLoc = 0 & forest_gopsex = 1 & temphant = 4 & gt 'hanters', 'start'
+				if temp_gadf = 1:act 'Continue':MiraLoc = 0 & forest_gopsex = 1 & temphant = 4 & gt 'hanters', 'start'
 				if temp_gadf = 2:
 					act 'Hide':
 						cla
@@ -453,7 +453,7 @@ if $ARGS[0] = 'gopforest_mitka':
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
 						'You and Mira, quickly hide in the nearby bushes. Mitka walks right past not noticing you. You let out a breath and go on.'
 
-						act 'Further':gt 'gadforest','1'
+						act 'Continue':gt 'gadforest','1'
 					end
 				end
 
@@ -468,7 +468,7 @@ if $ARGS[0] = 'gopforest_mitka':
 				'<center><b><font color = maroon>Mitka Shkvoryen</font></b></center>'
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mitka.jpg"></center>'
 				'Walking through the forest with Mira, you come face-to-face with Mitka. Seeing you naked Mitka scratched his balls and dragged you into the nearest bush.'
-				act 'Further':gt 'mitkasex', 'forest1', 'A63'
+				act 'Continue':gt 'mitkasex', 'forest1', 'A63'
 			else
 				cla
 				*clr
@@ -490,7 +490,7 @@ if $ARGS[0] = 'gopforest_mitka':
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
 					'You and Mira, quickly hide in the nearby bushes. Mitka walks right past not noticing you. You let out a breath and go on.'
 
-					act 'Further':gt 'gadforest','1'
+					act 'Continue':gt 'gadforest','1'
 				end
 			end
 		end
@@ -511,7 +511,7 @@ if $ARGS[0] = 'gopforest_kolyamba':
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/kolyamba.jpg"></center>'
 				'Walking through the forest you met Kolyamba. You chatted with him for a bit and then went on.'
 
-				act 'Further':gt 'gadforest','1'
+				act 'Continue':gt 'gadforest','1'
 			else
 				cla
 				*clr
@@ -524,7 +524,7 @@ if $ARGS[0] = 'gopforest_kolyamba':
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/kolyamba.jpg"></center>'
 				'Walking through the forest you met Kolyamba. Seeing you, he scratched his balls and dragged you into the nearest bushes.'
 
-				act 'Further':forest_gopsex = 1 & temphant = 5 & gt 'hanters', 'start'
+				act 'Continue':forest_gopsex = 1 & temphant = 5 & gt 'hanters', 'start'
 			end
 		else
 			if npc_QW['A63'] < 13 or gadriver_gang >= 3:
@@ -551,7 +551,7 @@ if $ARGS[0] = 'gopforest_kolyamba':
 						'Mira is still wearing her flip-flops, you see them sticking out, pressed right at Kolyamba''s ass, as Mira has her legs wrapped around him. She groans loudly as Kolyamba keeps slapping her crotch with his balls, driving his hard penis deep into her vagina. Mira is scratching the ground with her hands, her back arched like a cat''s, it looks like she is saying something to Kolyamba. But he is not paying any attention, as he keeps battering her pussy, soon he brought her to orgasm and then he cums too...'
 						gs 'arousal', 'voyeur', 10
 						gs 'stat'
-						act 'Further':gt 'gadforest','1'
+						act 'Continue':gt 'gadforest','1'
 					end
 				else
 					cla
@@ -563,7 +563,7 @@ if $ARGS[0] = 'gopforest_kolyamba':
 					'<center><b><font color = maroon>Kolyamba Pyut</font></b></center>'
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/village/kolyamba.jpg"></center>'
 					'Walking through the forest with Mira, you met Kolyamba. You had a little chat and went on.'
-					act 'Further':gt 'gadforest','1'
+					act 'Continue':gt 'gadforest','1'
 				end
 			elseif npc_QW['A63'] >= 13 and npc_QW['A60'] < 11 and gadriver_gang < 3:
 				cla
@@ -578,7 +578,7 @@ if $ARGS[0] = 'gopforest_kolyamba':
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/kolyamba.jpg"></center>'
 				'Walking through the woods with Mira you met Kolyamba. Scratching his balls and not paying any attention to Mira, who was standing right next to him, he dragged you into the nearest bush.'
 
-				act 'Further':forest_gopsex = 1 & temphant = 5 & gt 'hanters', 'start'
+				act 'Continue':forest_gopsex = 1 & temphant = 5 & gt 'hanters', 'start'
 			elseif npc_QW['A63'] >= 13 and npc_QW['A60'] >= 11 and gadriver_gang < 3:
 				cla
 				*clr
@@ -591,7 +591,7 @@ if $ARGS[0] = 'gopforest_kolyamba':
 				'<center><b><font color = maroon>Kolyamba Pyut</font></b></center>'
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/kolyamba.jpg"></center>'
 				'Walking through the woods with Mira you met Kolyamba. Seeing you, he scratched his balls and grabbing you both by the arms, dragged into the bushes.'
-				act 'Further':gt 'mitkasex', 'forest1', 'A61'
+				act 'Continue':gt 'mitkasex', 'forest1', 'A61'
 			else
 				cla
 				*clr
@@ -603,7 +603,7 @@ if $ARGS[0] = 'gopforest_kolyamba':
 				'<center><b><font color = maroon>Kolyamba Pyut</font></b></center>'
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/kolyamba.jpg"></center>'
 				'Walking through the forest with Mira, you met Kolyamba. You had a little chat and went on.'
-				act 'Further':gt 'gadforest','1'
+				act 'Continue':gt 'gadforest','1'
 			end
 		end
 	else
@@ -638,7 +638,7 @@ if $ARGS[0] = 'gopforest_kolyamba':
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/swampbackwaternude1.jpg"></center>'
 						'You yelp in surprise and you rush to where you left your clothes. Dressed and calm you decide to go on.'
 
-						act 'Further':gt 'gadforest','1'
+						act 'Continue':gt 'gadforest','1'
 					end
 				else
 					act 'Hide':
@@ -652,7 +652,7 @@ if $ARGS[0] = 'gopforest_kolyamba':
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/mitkahideforest.jpg"></center>'
 						'You quickly hide in the nearby bushes. Kolyamba walks right past not noticing you. You let out a breath and go on.'
 
-						act 'Further':gt 'gadforest','1'
+						act 'Continue':gt 'gadforest','1'
 					end
 				end
 			else
@@ -668,7 +668,7 @@ if $ARGS[0] = 'gopforest_kolyamba':
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/kolyamba.jpg"></center>'
 				'Walking through the forest you met Kolyamba. After spotting him, you tried to dress, but Kolyamba, without wasting another minute grabbed you by the hand and dragged you into the nearest bush.'
 
-				act 'Further':forest_gopsex = 1 & temphant = 5 & gt 'hanters', 'start'
+				act 'Continue':forest_gopsex = 1 & temphant = 5 & gt 'hanters', 'start'
 			end
 		else
 			if npc_QW['A63'] < 13 or gadriver_gang < 3:
@@ -701,7 +701,7 @@ if $ARGS[0] = 'gopforest_kolyamba':
 							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gopforestnude.jpg"></center>'
 							'You yelp in surprise, as you and Mira rush to where you left your clothes. Dressed and calm you decide to go on.'
 
-							act 'Further':gt 'gadforest','1'
+							act 'Continue':gt 'gadforest','1'
 						end
 					else
 						act 'Hide':
@@ -715,7 +715,7 @@ if $ARGS[0] = 'gopforest_kolyamba':
 							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
 							'You and Mira, quickly hide in the nearby bushes. Kolyamba walks right past not noticing you. You let out a breath and go on.'
 
-							act 'Further':gt 'gadforest','1'
+							act 'Continue':gt 'gadforest','1'
 						end
 					end
 				elseif npc_QW['A60'] >= 11:
@@ -760,7 +760,7 @@ if $ARGS[0] = 'gopforest_kolyamba':
 								gs 'stat'
 								'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/mirameadowbj2.jpg"></center>'
 								'Mira is still wearing her flip-flops, you see them sticking out, pressed right at Kolyamba''s ass, as Mira has her legs wrapped around him. She groans loudly as Kolyamba keeps slapping her crotch with his balls, driving his hard penis deep into her vagina. Mira is scratching the ground with her hands, her back arched like a cat''s, it looks like she is saying something to Kolyamba. But he is not paying any attention, as he keeps battering her pussy, soon he brought her to orgasm and then he cums too...'
-								act 'Further':gt 'gadforest','1'
+								act 'Continue':gt 'gadforest','1'
 							end
 						end
 					else
@@ -775,7 +775,7 @@ if $ARGS[0] = 'gopforest_kolyamba':
 							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
 							'You and Mira, quickly hide in the nearby bushes. Kolyamba walks right past not noticing you. You let out a breath and go on.'
 
-							act 'Further':gt 'gadforest','1'
+							act 'Continue':gt 'gadforest','1'
 						end
 					end
 				end
@@ -793,7 +793,7 @@ if $ARGS[0] = 'gopforest_kolyamba':
 				 if temp_gadf = 1:'Walking through the forest with Mira, you come face-to-face with Kolyamba. You yelp in surprise, and rush to your clothing. You are running away with Mira, but before you get too far Kolyamba grabs you in his arms and drags you with him into the nearest bush.'
 				 if temp_gadf = 2:'Walking through the forest you saw Kolyamba. Realizing that he hasn''t noticed you yet, you decide...'
 
-				if temp_gadf = 1:act 'Further':Miraloc = 0 & forest_gopsex = 1 & temphant = 5 & gt 'hanters', 'start'
+				if temp_gadf = 1:act 'Continue':Miraloc = 0 & forest_gopsex = 1 & temphant = 5 & gt 'hanters', 'start'
 				if temp_gadf = 2:
 					act 'Hide':
 						cla
@@ -806,7 +806,7 @@ if $ARGS[0] = 'gopforest_kolyamba':
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
 						'You and Mira, quickly hide in the nearby bushes. Kolyamba walks right past not noticing you. You let out a breath and go on.'
 
-						act 'Further':gt 'gadforest','1'
+						act 'Continue':gt 'gadforest','1'
 					end
 				end
 
@@ -822,7 +822,7 @@ if $ARGS[0] = 'gopforest_kolyamba':
 				'<center><b><font color = maroon>Kolyamba Pyut</font></b></center>'
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/kolyamba.jpg"></center>'
 				'Walking through the forest with Mira, you come face-to-face with Kolyamba. Seeing you naked Kolyamba scratched his balls and dragged you into the nearest bush.'
-				act 'Further':gt 'mitkasex', 'forest1', 'A61'
+				act 'Continue':gt 'mitkasex', 'forest1', 'A61'
 			else
 				cla
 				*clr
@@ -845,7 +845,7 @@ if $ARGS[0] = 'gopforest_kolyamba':
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
 					'You and Mira, quickly hide in the nearby bushes. Kolyamba walks right past not noticing you. You let out a breath and go on.'
 
-					act 'Further':gt 'gadforest','1'
+					act 'Continue':gt 'gadforest','1'
 				end
 			end
 		end
@@ -866,7 +866,7 @@ if $ARGS[0] = 'gopforest_vasyan':
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/vasyan.jpg"></center>'
 				'Walking through the forest you met Vasyan. Chatted with him a bit and went on.'
 
-				act 'Further':gt 'gadforest','1'
+				act 'Continue':gt 'gadforest','1'
 			else
 				cla
 				*clr
@@ -879,7 +879,7 @@ if $ARGS[0] = 'gopforest_vasyan':
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/vasyan.jpg"></center>'
 				'Walking through the forest you met Vasyan. Seeing you, he scratched his balls and dragged you into the nearest bushes.'
 
-				act 'Further':forest_gopsex = 1 & temphant = 6 & gt 'hanters', 'start'
+				act 'Continue':forest_gopsex = 1 & temphant = 6 & gt 'hanters', 'start'
 			end
 		else
 			if npc_QW['A63'] < 13 or gadriver_gang >= 3:
@@ -906,7 +906,7 @@ if $ARGS[0] = 'gopforest_vasyan':
 						'Mira is fully naked, bent over, right in front of Vasyan. She is exposing her ass as he drives his cock deep inside it. Judging by her lustful moans, she quite likes having him fuck her from behind, but after a couple of minutes Vasyan pulls out of her and lowers her ass...'
 						gs 'arousal', 'voyeur', 5
 						gs 'stat'
-						act 'Further':gt 'gadforest','1'
+						act 'Continue':gt 'gadforest','1'
 					end
 				else
 					cla
@@ -918,7 +918,7 @@ if $ARGS[0] = 'gopforest_vasyan':
 					'<center><b><font color = maroon>Vasan Package</font></b></center>'
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/village/vasyan.jpg"></center>'
 					'Walking through the forest with Mira, you met Vasyan. You had a little chat and went on.'
-					act 'Further':gt 'gadforest','1'
+					act 'Continue':gt 'gadforest','1'
 				end
 			elseif npc_QW['A63'] >= 13 and npc_QW['A60'] < 11 and gadriver_gang < 3:
 				cla
@@ -946,7 +946,7 @@ if $ARGS[0] = 'gopforest_vasyan':
 				'<center><b><font color = maroon>Vasan Package</font></b></center>'
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/vasyan.jpg"></center>'
 				'Walking through the woods with Mira you met Vasyan. Seeing you, he scratched his balls and grabbing you both by the arms and dragged you into the bushes.'
-				act 'Further':gt 'mitkasex', 'forest1', 'A62'
+				act 'Continue':gt 'mitkasex', 'forest1', 'A62'
 			else
 				cla
 				*clr
@@ -958,7 +958,7 @@ if $ARGS[0] = 'gopforest_vasyan':
 				'<center><b><font color = maroon>Vasan Package</font></b></center>'
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/vasyan.jpg"></center>'
 				'Walking through the forest with Mira, you met Vasyan. You had a little chat and went on.'
-				act 'Further':gt 'gadforest','1'
+				act 'Continue':gt 'gadforest','1'
 			end
 		end
 	else
@@ -995,7 +995,7 @@ if $ARGS[0] = 'gopforest_vasyan':
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/swampbackwaternude1.jpg"></center>'
 						'You yelp in surprise and you rush to where you left your clothes. Dressed and calm you decide to go on.'
 
-						act 'Further':gt 'gadforest','1'
+						act 'Continue':gt 'gadforest','1'
 					end
 				else
 					act 'Hide':
@@ -1009,7 +1009,7 @@ if $ARGS[0] = 'gopforest_vasyan':
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/mitkahideforest.jpg"></center>'
 						'You quickly hide in the nearby bushes. Vasyan walks right past not noticing you. You let out a breath and go on.'
 
-						act 'Further':gt 'gadforest','1'
+						act 'Continue':gt 'gadforest','1'
 					end
 				end
 			else
@@ -1024,7 +1024,7 @@ if $ARGS[0] = 'gopforest_vasyan':
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/vasyan.jpg"></center>'
 				'Walking through the forest you met Vasyan. After spotting him, you tried to dress, but Vasyan, without wasting another minute grabbed you by the hand and dragged you into the nearest bush.'
 
-				act 'Further':forest_gopsex = 1 & temphant = 6 & gt 'hanters', 'start'
+				act 'Continue':forest_gopsex = 1 & temphant = 6 & gt 'hanters', 'start'
 			end
 		else
 			if npc_QW['A63'] < 13 or gadriver_gang >= 3:
@@ -1058,7 +1058,7 @@ if $ARGS[0] = 'gopforest_vasyan':
 							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gopforestnude.jpg"></center>'
 							'You yelp in surprise, as you and Mira rush to where you left your clothes. Dressed and calm you decide to go on.'
 
-							act 'Further':gt 'gadforest','1'
+							act 'Continue':gt 'gadforest','1'
 						end
 					else
 						act 'Hide':
@@ -1072,7 +1072,7 @@ if $ARGS[0] = 'gopforest_vasyan':
 							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
 							'You and Mira, quickly hide in the nearby bushes. Vasyan walks right past not noticing you. You let out a breath and go on.'
 
-							act 'Further':gt 'gadforest','1'
+							act 'Continue':gt 'gadforest','1'
 						end
 					end
 				elseif npc_QW['A60'] >= 11:
@@ -1117,7 +1117,7 @@ if $ARGS[0] = 'gopforest_vasyan':
 								gs 'stat'
 								'<center><img <<$set_imgh>> src="images/characters/village/mira/sex/mirameadowbj6.jpg"></center>'
 								'Mira is fully naked, bent over, right in front of Vasyan. She is exposing her ass as he drives his cock deep inside it. Judging by her lustful moans, she quite likes having him fuck her from behind, but after a couple of minutes Vasyan pulls out of her and lowers her ass...'
-								act 'Further':gt 'gadforest','1'
+								act 'Continue':gt 'gadforest','1'
 							end
 						end
 					else
@@ -1132,7 +1132,7 @@ if $ARGS[0] = 'gopforest_vasyan':
 							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
 							'You and Mira, quickly hide in the nearby bushes. Vasyan walks right past not noticing you. You let out a breath and go on.'
 
-							act 'Further':gt 'gadforest','1'
+							act 'Continue':gt 'gadforest','1'
 						end
 					end
 				end
@@ -1150,7 +1150,7 @@ if $ARGS[0] = 'gopforest_vasyan':
 				if temp_gadf = 1:'Walking through the forest with Mira, you come face-to-face with Vasyan. You yelp in surprise, and rush to your clothing. You are running away with Mira, but before you get too far Vasyan grabs you in his arms and drags you with him into the nearest bush.'
 				if temp_gadf = 2:'Walking through the forest you saw Vasyan. Realizing that he hasn''t noticed you yet, you decide...'
 
-				if temp_gadf = 1:act 'Further':Miraloc = 0 & forest_gopsex = 1 & temphant = 6 & gt 'hanters', 'start'
+				if temp_gadf = 1:act 'Continue':Miraloc = 0 & forest_gopsex = 1 & temphant = 6 & gt 'hanters', 'start'
 				if temp_gadf = 2:
 					act 'Hide':
 						cla
@@ -1163,7 +1163,7 @@ if $ARGS[0] = 'gopforest_vasyan':
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
 						'You and Mira, quickly hide in the nearby bushes. Vasyan walks right past not noticing you. You let out a breath and go on.'
 
-						act 'Further':gt 'gadforest','1'
+						act 'Continue':gt 'gadforest','1'
 					end
 				end
 
@@ -1179,7 +1179,7 @@ if $ARGS[0] = 'gopforest_vasyan':
 				'<center><b><font color = maroon>Vasan Package</font></b></center>'
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/vasyan.jpg"></center>'
 				'Walking through the forest with Mira, you come face-to-face with Vasyan. Seeing you naked Vasyan scratched his balls and dragged you into the nearest bush.'
-				act 'Further':gt 'mitkasex', 'forest1', 'A62'
+				act 'Continue':gt 'mitkasex', 'forest1', 'A62'
 			else
 				cla
 				*clr
@@ -1202,7 +1202,7 @@ if $ARGS[0] = 'gopforest_vasyan':
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
 					'You and Mira, quickly hide in the nearby bushes. Vasyan walks right past not noticing you. You let out a breath and go on.'
 
-					act 'Further':gt 'gadforest','1'
+					act 'Continue':gt 'gadforest','1'
 				end
 			end
 		end
@@ -1225,7 +1225,7 @@ if $ARGS[0] = 'gopforest_2boys':
 				if temphant = 5:'Walking through the forest you met Mitka and Vasyan. You chatted with them a bit and went on.'
 				if temphant = 6:'Walking through the forest you met Kolyamba and Vasyan. You chatted with them a bit and went on.'
 
-				act 'Further':gt 'gadforest','1'
+				act 'Continue':gt 'gadforest','1'
 			else
 				cla
 				*clr
@@ -1239,7 +1239,7 @@ if $ARGS[0] = 'gopforest_2boys':
 				if temphant = 5:'Walking through the forest you met Mitka and Vasyan. Seeing you, they grinned and dragged you to the bushes.'
 				if temphant = 6:'Walking through the forest you met Kolyamba and Vasyan. Seeing you, they grinned and dragged you to the bushes.'
 
-				act 'Further':forest_gopsex = 2 & gt 'hantersex', 'doublelovesex'
+				act 'Continue':forest_gopsex = 2 & gt 'hantersex', 'doublelovesex'
 			end
 		else
 			if npc_QW['A63'] < 13 or gadriver_gang >= 3:
@@ -1280,7 +1280,7 @@ if $ARGS[0] = 'gopforest_2boys':
 							gs 'arousal', 'voyeur', 5, 'group'
 							gs 'stat'
 						end
-						act 'Further':gt 'gadforest','1'
+						act 'Continue':gt 'gadforest','1'
 					end
 				else
 					cla
@@ -1294,7 +1294,7 @@ if $ARGS[0] = 'gopforest_2boys':
 					if mitboyrand = 1:'Walking through the forest with Mira, you meet Mitka and Kolyamba. You chatted with them a bit and went on.'
 					if mitboyrand = 2:'Walking through the forest with Mira, you meet Mitka and Vasyan. You chatted with them a bit and went on.'
 					if mitboyrand = 3:'Walking through the forest with Mira, you meet Kolyamba and Vasyan. You chatted with them a bit and went on.'
-					act 'Further':gt 'gadforest','1'
+					act 'Continue':gt 'gadforest','1'
 				end
 			elseif npc_QW['A63'] >= 13 and npc_QW['A60'] < 11 and gadriver_gang < 3:
 				cla
@@ -1310,7 +1310,7 @@ if $ARGS[0] = 'gopforest_2boys':
 				if mitboyrand = 2:'Walking through the forest with Mira, you meet Mitka and Vasyan. Seeing you, they smiled and not paying any attention to Mira, who was standing right next to them, they dragged you into the nearest bush.'
 				if mitboyrand = 3:'Walking through the forest with Mira you meet Kolyamba and Vasyan. Seeing you, they smiled and not paying any attention to Mira, who was standing right next to them, they dragged you into the nearest bush.'
 
-				act 'Further':forest_gopsex = 2 & gt 'hantersex', 'doublelovesex'
+				act 'Continue':forest_gopsex = 2 & gt 'hantersex', 'doublelovesex'
 			elseif npc_QW['A63'] >= 13 and npc_QW['A60'] >= 11 and gadriver_gang < 3:
 				cla
 				*clr
@@ -1324,7 +1324,7 @@ if $ARGS[0] = 'gopforest_2boys':
 				if mitboyrand = 1:'Walking through the forest with Mira, you meet Mitka and Kolyamba. They are happy to see you, grabbing you both by the arms, they drag you into the nearest bush.'
 				if mitboyrand = 2:'Walking through the forest with Mira, you meet Mitka and Vasyan. They are happy to see you, grabbing you both by the arms, they drag you into the nearest bush.'
 				if mitboyrand = 3:'Walking through the forest with Mira, you meet Kolyamba and Vasyan. They are happy to see you, grabbing you both by the arms, they drag you into the nearest bush.'
-				act 'Further': gt 'mitkasex', 'forest2', mitboyrand
+				act 'Continue': gt 'mitkasex', 'forest2', mitboyrand
 			else
 				cla
 				*clr
@@ -1337,7 +1337,7 @@ if $ARGS[0] = 'gopforest_2boys':
 				if mitboyrand = 1:'Walking through the forest with Mira, you meet Mitka and Kolyamba. You chatted with them a bit and went on.'
 				if mitboyrand = 2:'Walking through the forest with Mira, you meet Mitka and Vasyan. You chatted with them a bit and went on.'
 				if mitboyrand = 3:'Walking through the forest with Mira, you meet Kolyamba and Vasyan. You chatted with them a bit and went on.'
-				act 'Further':gt 'gadforest','1'
+				act 'Continue':gt 'gadforest','1'
 			end
 		end
 	else
@@ -1380,7 +1380,7 @@ if $ARGS[0] = 'gopforest_2boys':
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/swampbackwaternude1.jpg"></center>'
 						'You yelp in surprise and you rush to where you left your clothes. Dressed and calm you decide to go on.'
 
-						act 'Further':gt 'gadforest','1'
+						act 'Continue':gt 'gadforest','1'
 					end
 				else
 					act 'Hide':
@@ -1393,7 +1393,7 @@ if $ARGS[0] = 'gopforest_2boys':
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/mitkahideforest.jpg"></center>'
 						'You quickly hide in the nearby bushes. The guys walked right past not noticing you. You let out a breath and go on.'
 
-						act 'Further':gt 'gadforest','1'
+						act 'Continue':gt 'gadforest','1'
 					end
 				end
 			else
@@ -1408,7 +1408,7 @@ if $ARGS[0] = 'gopforest_2boys':
 				if temphant = 2:'Walking through the forest you met Mitka and Vasyan. Seeing them you tried to run away and dress, but without wasting another minute they grabbed you by the arms and dragged you into the nearest bush.'
 				if temphant = 3:'Walking through the forest you met Kolyamba and Vasyan. Seeing them you tried to run away and dress, but without wasting another minute they grabbed you by the arms and dragged you into the nearest bush.'
 
-				act 'Further':forest_gopsex = 2 & gt 'hantersex', 'doublelovesex'
+				act 'Continue':forest_gopsex = 2 & gt 'hantersex', 'doublelovesex'
 			end
 		else
 			mitboyrand = rand(1,3)
@@ -1450,7 +1450,7 @@ if $ARGS[0] = 'gopforest_2boys':
 							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gopforestnude.jpg"></center>'
 							'You yelp in surprise, as you and Mira rush to where you left your clothes. Dressed and calm you decide to go on.'
 
-							act 'Further':gt 'gadforest','1'
+							act 'Continue':gt 'gadforest','1'
 						end
 					else
 						act 'Hide':
@@ -1464,7 +1464,7 @@ if $ARGS[0] = 'gopforest_2boys':
 							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
 							'You and Mira, quickly hide in the nearby bushes. The guys walked right past not noticing you. You let out a breath and go on.'
 
-							act 'Further':gt 'gadforest','1'
+							act 'Continue':gt 'gadforest','1'
 						end
 					end
 				elseif npc_QW['A60'] >= 11:
@@ -1527,7 +1527,7 @@ if $ARGS[0] = 'gopforest_2boys':
 									gs 'arousal', 'voyeur', 5
 									gs 'stat'
 								end
-								act 'Further':gt 'gadforest','1'
+								act 'Continue':gt 'gadforest','1'
 							end
 						end
 					else
@@ -1542,7 +1542,7 @@ if $ARGS[0] = 'gopforest_2boys':
 							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
 							'You and Mira, quickly hide in the nearby bushes. The guys walked right past not noticing you. You let out a breath and go on.'
 
-							act 'Further':gt 'gadforest','1'
+							act 'Continue':gt 'gadforest','1'
 						end
 					end
 				end
@@ -1566,7 +1566,7 @@ if $ARGS[0] = 'gopforest_2boys':
 					if mitboyrand = 3:'Walking through the forest with Mira you saw Kolyamba and Vasyan. Realizing that they haven''t noticed you yet, you decide...'
 				end
 
-				if temp_gadf = 1:act 'Further':Miraloc = 0 & forest_gopsex = 2 & gt 'hantersex', 'doublelovesex'
+				if temp_gadf = 1:act 'Continue':Miraloc = 0 & forest_gopsex = 2 & gt 'hantersex', 'doublelovesex'
 				if temp_gadf = 2:
 					act 'Hide':
 						cla
@@ -1579,7 +1579,7 @@ if $ARGS[0] = 'gopforest_2boys':
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
 						'You and Mira, quickly hide in the nearby bushes. The guys walked right past not noticing you. You let out a breath and go on.'
 
-						act 'Further':gt 'gadforest','1'
+						act 'Continue':gt 'gadforest','1'
 					end
 				end
 
@@ -1596,7 +1596,7 @@ if $ARGS[0] = 'gopforest_2boys':
 				if mitboyrand = 1:'Walking through the forest with Mira, you come face-to-face with Mitka and Kolyamba. Seeing you naked they scratched their balls and dragged you into the nearest bush.'
 				if mitboyrand = 2:'Walking through the forest with Mira, you come face-to-face with Mitka and Vasyan. Seeing you naked they scratched their balls and dragged you into the nearest bush.'
 				if mitboyrand = 3:'Walking through the forest with Mira, you come face-to-face with Kolyamba and Vasyan. Seeing you naked they scratched their balls and dragged you into the nearest bush.'
-				act 'Further': gt 'mitkasex', 'forest2', mitboyrand
+				act 'Continue': gt 'mitkasex', 'forest2', mitboyrand
 			else
 				cla
 				*clr
@@ -1620,7 +1620,7 @@ if $ARGS[0] = 'gopforest_2boys':
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
 					'You and Mira, quickly hide in the nearby bushes. The guys walked right past not noticing you. You let out a breath and go on.'
 
-					act 'Further':gt 'gadforest','1'
+					act 'Continue':gt 'gadforest','1'
 				end
 			end
 		end
@@ -1640,7 +1640,7 @@ if $ARGS[0] = 'gopforest_3boys':
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/3boys.'+rand(1,2)+'.jpg"></center>'
 				'Walking through the forest you met Mitka, Kolyamba and Vasyan. You chatted with them a bit and went on.'
 
-				act 'Further':gt 'gadforest','1'
+				act 'Continue':gt 'gadforest','1'
 			else
 				cla
 				*clr
@@ -1652,7 +1652,7 @@ if $ARGS[0] = 'gopforest_3boys':
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/3boys.'+rand(1,2)+'.jpg"></center>'
 				'Walking through the forest you met Mitka, Kolyamba and Vasyan. Seeing you, they grinned and dragged you with them to the bushes.'
 
-				act 'Further':forest_gopsex = 3 & gt 'hanters', 'start'
+				act 'Continue':forest_gopsex = 3 & gt 'hanters', 'start'
 			end
 		else
 			if npc_QW['A63'] < 13 or gadriver_gang >= 3:
@@ -1678,7 +1678,7 @@ if $ARGS[0] = 'gopforest_3boys':
 						'Mira squats between the three friends and happily sucks their members. You watch as they take turns cumming in her mouth, and on her face...'
 						gs 'arousal', 'voyeur', 5
 						gs 'stat'
-						act 'Further':gt 'gadforest','1'
+						act 'Continue':gt 'gadforest','1'
 					end
 				else
 					cla
@@ -1690,7 +1690,7 @@ if $ARGS[0] = 'gopforest_3boys':
 
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/3boys.'+rand(1,2)+'.jpg"></center>'
 					'Walking through the forest with Mira, you meet Mitka, Kolyamba and Vasyan. You chatted with them a bit and went on.'
-					act 'Further':gt 'gadforest','1'
+					act 'Continue':gt 'gadforest','1'
 				end
 			elseif npc_QW['A63'] >= 13 and npc_QW['A60'] < 11 and gadriver_gang < 3:
 				cla
@@ -1704,7 +1704,7 @@ if $ARGS[0] = 'gopforest_3boys':
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/3boys.'+rand(1,2)+'.jpg"></center>'
 				'Walking through the forest with Mira you meet Mitka, Kolyamba and Vasyan. Seeing you, they smiled and not paying any attention to Mira, who was standing right next to them, they dragged you into the nearest bush.'
 
-				act 'Further':forest_gopsex = 3 & gt 'hanters', 'start'
+				act 'Continue':forest_gopsex = 3 & gt 'hanters', 'start'
 			elseif npc_QW['A63'] >= 13 and npc_QW['A60'] >= 11 and gadriver_gang < 3:
 				cla
 				*clr
@@ -1716,7 +1716,7 @@ if $ARGS[0] = 'gopforest_3boys':
 
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/3boys.'+rand(1,2)+'.jpg"></center>'
 				'Walking through the forest with Mira you meet Mitka, Kolyamba and Vasyan. They are happy to see you, grabbing you both by the arms, they drag you into the nearest bush.'
-				act 'Further': gt 'mitkasex', 'forest3'
+				act 'Continue': gt 'mitkasex', 'forest3'
 			else
 				cla
 				*clr
@@ -1727,7 +1727,7 @@ if $ARGS[0] = 'gopforest_3boys':
 
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/3boys.'+rand(1,2)+'.jpg"></center>'
 				'Walking through the forest with Mira you meet Mitka, Kolyamba and Vasyan. You chatted with them a bit and went on.'
-				act 'Further':gt 'gadforest','1'
+				act 'Continue':gt 'gadforest','1'
 			end
 		end
 	else
@@ -1766,7 +1766,7 @@ if $ARGS[0] = 'gopforest_3boys':
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/swampbackwaternude1.jpg"></center>'
 						'You yelp in surprise and you rush to where you left your clothes. Dressed and calm you decide to go on.'
 
-						act 'Further':gt 'gadforest','1'
+						act 'Continue':gt 'gadforest','1'
 					end
 				else
 					act 'Hide':
@@ -1780,7 +1780,7 @@ if $ARGS[0] = 'gopforest_3boys':
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/mitkahideforest.jpg"></center>'
 						'You quickly hide in the nearby bushes. The guys walked right past not noticing you. You let out a breath and go on.'
 
-						act 'Further':gt 'gadforest','1'
+						act 'Continue':gt 'gadforest','1'
 					end
 				end
 			else
@@ -1794,7 +1794,7 @@ if $ARGS[0] = 'gopforest_3boys':
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/3boys.'+rand(1,2)+'.jpg"></center>'
 				'Walking through the forest you met Mitka, Kolyamba and Vasyan. Seeing them you tried to run away and dress, but without wasting another minute they grabbed you by the arms and dragged you into the nearest bush.'
 
-				act 'Further':forest_gopsex = 3 & gt 'hanters', 'start'
+				act 'Continue':forest_gopsex = 3 & gt 'hanters', 'start'
 			end
 		else
 			if npc_QW['A63'] < 13 or gadriver_gang >= 3:
@@ -1831,7 +1831,7 @@ if $ARGS[0] = 'gopforest_3boys':
 							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gopforestnude.jpg"></center>'
 							'You yelp in surprise, as you and Mira rush to where you left your clothes. Dressed and calm you decide to go on..'
 
-							act 'Further':gt 'gadforest','1'
+							act 'Continue':gt 'gadforest','1'
 						end
 					else
 						act 'Hide':
@@ -1845,7 +1845,7 @@ if $ARGS[0] = 'gopforest_3boys':
 							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
 							'You and Mira, quickly hide in the nearby bushes. The guys walked right past not noticing you. You let out a breath and go on.'
 
-							act 'Further':gt 'gadforest','1'
+							act 'Continue':gt 'gadforest','1'
 						end
 					end
 				elseif npc_QW['A60'] >= 11:
@@ -1892,7 +1892,7 @@ if $ARGS[0] = 'gopforest_3boys':
 								'Mira squats between the three friends and happily sucks their members. You watch as they take turns cumming in her mouth, and on her face...'
 								gs 'arousal', 'voyeur', 5
 								gs 'stat'
-								act 'Further':gt 'gadforest','1'
+								act 'Continue':gt 'gadforest','1'
 							end
 						end
 					else
@@ -1907,7 +1907,7 @@ if $ARGS[0] = 'gopforest_3boys':
 							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
 							'You and Mira, quickly hide in the nearby bushes. The guys walked right past not noticing you. You let out a breath and go on.'
 
-							act 'Further':gt 'gadforest','1'
+							act 'Continue':gt 'gadforest','1'
 						end
 					end
 				end
@@ -1927,7 +1927,7 @@ if $ARGS[0] = 'gopforest_3boys':
 					'Walking through the forest with Mira you saw Mitka, Kolyamba and Vasyan. Realizing that they haven''t noticed you yet, you decide...'
 				end
 
-				if temp_gadf = 1:act 'Further':Miraloc = 0 & forest_gopsex = 3 & gt 'hanters', 'start'
+				if temp_gadf = 1:act 'Continue':Miraloc = 0 & forest_gopsex = 3 & gt 'hanters', 'start'
 				if temp_gadf = 2:
 					act 'Hide':
 						cla
@@ -1940,7 +1940,7 @@ if $ARGS[0] = 'gopforest_3boys':
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
 						'You and Mira, quickly hide in the nearby bushes. The guys walked right past not noticing you. You let out a breath and go on.'
 
-						act 'Further':gt 'gadforest','1'
+						act 'Continue':gt 'gadforest','1'
 					end
 				end
 
@@ -1955,7 +1955,7 @@ if $ARGS[0] = 'gopforest_3boys':
 
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/3boys.'+rand(1,2)+'.jpg"></center>'
 				'Walking through the forest with Mira, you come face-to-face with Mitka, Kolyamba and Vasyan. Seeing you naked they scratched their balls and dragged you into the nearest bush.'
-				act 'Further': gt 'mitkasex', 'forest2', rand(1,3)
+				act 'Continue': gt 'mitkasex', 'forest2', rand(1,3)
 			else
 				cla
 				*clr
@@ -1977,7 +1977,7 @@ if $ARGS[0] = 'gopforest_3boys':
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gophideforest.jpg"></center>'
 					'You and Mira, quickly hide in the nearby bushes. The guys walked right past not noticing you. You let out a breath and go on.'
 
-					act 'Further':gt 'gadforest','1'
+					act 'Continue':gt 'gadforest','1'
 				end
 			end
 		end
@@ -2013,7 +2013,7 @@ if $ARGS[0] = 'nude_event':
 		'Finally after the hundredth time, of looking around to make sure no one is around, you decide...'
 	end
 
-	if inhib > 50:
+	if pcs_pcs_inhib >= 25 or exhibitionist_lvl > 1 or pcs_horny > 60:
 		act'Give in to the temptation':
 			cla
 			*clr
@@ -2030,7 +2030,7 @@ if $ARGS[0] = 'nude_event':
 			if MiraLoc ! 3:'You do not hesitate and quickly get undressed, leaving your clothes in a pile on the forest floor.'
 			if MiraLoc = 3:'Seeing that the resistance stopped, Mira quickly began to undress you, leaving your clothes in a pile on the forest floor.'
 
-			act'Further':gt 'gadforest','1'
+			act'Continue':gt 'gadforest','1'
 		end
 	end
 
@@ -2048,7 +2048,7 @@ if $ARGS[0] = 'nude_event':
 		if MiraLoc ! 3:'Although the temptation to strip naked is very strong, you are too afraid of getting caught so you decide to keep your clothes on.'
 		if MiraLoc = 3:'Mira pouts at you for refusing to undress for a moment then she smiles again, "C''mon, <<$pcs_nickname>>, I know a good spot to find berries."'
 
-		act'Further':gt 'gadforest','1'
+		act'Continue':gt 'gadforest','1'
 	end
 end
 
@@ -2062,7 +2062,7 @@ if $ARGS[0] = 'mushroom_pickers1':
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/mushroom_pickers1.jpg"></center>'
 	'Wandering through the woods in search of mushrooms, you notice other mushroom pickers. I`m wondering whether to continue the search in this place, or should I go to another?'
 	if $clothingworntype = 'nude':'Well, they didn`t see you here, if they do, it would be the talk of the whole village.'
-	act 'Further':gt $loc, $metka
+	act 'Continue':gt $loc, $metka
 end
 if $ARGS[0] = 'mushroom_pickers2':
 	cla
@@ -2153,7 +2153,7 @@ if $ARGS[0] = 'mushroom':
 		if $clothingworntype = 'nude':'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/mushroom4.'+rand(1,2)+'.jpg"></center>'
 		if $clothingworntype = 'nude':inhib_exp += rand(1,3)
 		'You begin collecting mushrooms trying to make everything fit in the basket.'
-		act 'Further':gt $loc, $metka
+		act 'Continue':gt $loc, $metka
 	end
 end
 if $ARGS[0] = 'bilberry':
@@ -2174,7 +2174,7 @@ if $ARGS[0] = 'bilberry':
 
 		'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/bilberry1.jpg"></center>'
 		'You begin collecting berries trying to make everything fit in the basket.'
-		act 'Further':gt $loc, $metka
+		act 'Continue':gt $loc, $metka
 	end
 end
 if $ARGS[0] = 'basket':
@@ -2237,7 +2237,7 @@ if $ARGS[0] = 'forest_hanters':
 	if hanters > 0:'Wandering through the woods you see people. It''s your friends, the hunters, Andrei, Sergei and Igor.'
 	*pl
 	if forest_lost = 1:
-		act 'Further':
+		act 'Continue':
 			if hantersKnow = 0:
 				cla
 				*clr
@@ -2281,7 +2281,7 @@ if $ARGS[0] = 'forest_hanters':
 					'Then you started heading back to the clearing.'
 					hanterslut += 1
 				end
-				act 'Further':
+				act 'Continue':
 					cla
 					*clr
 					minut += 30
@@ -2315,7 +2315,7 @@ if $ARGS[0] = 'forest_hanters':
 					hantersKnow = 1
 					'After resting for half an hour the hunters began to rise to their feet.'
 					'"Okay <<$pcs_nickname>>, we will lead you out of the swamp," said Andrei. "Over there lies the the road back to the village, and if you want, we can stay here a little longer ."'
-					act 'Further':hanters = 1 & minut += 60 & gt 'swamp_yard'
+					act 'Continue':hanters = 1 & minut += 60 & gt 'swamp_yard'
 				end
 			else
 				cla
@@ -2370,9 +2370,9 @@ if $ARGS[0] = 'forest_hanters':
 				end
 				!re-arrange and 1-layer out for logic error by illume
 				if hantersKnowSlut = 0:
-					act 'Further':hanters = 1 & wolf_know = 1 & minut += 60 & gt 'swamp_yard'
+					act 'Continue':hanters = 1 & wolf_know = 1 & minut += 60 & gt 'swamp_yard'
 				else
-					act 'Further':
+					act 'Continue':
 						temp_gadf = rand(1,3)
 						temphant = rand(1,3)
 						hanters = 1
@@ -2473,7 +2473,7 @@ if $ARGS[0] = 'forest_hanters':
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/hiding_woods.jpg"></center>'
 				'You decided to hide from sin, yet you have not noticed. He waited until the men leave, you continued your way.'
 
-				act 'Further':gt $loc, $metka
+				act 'Continue':gt $loc, $metka
 			end
 		end
 	end
@@ -2487,7 +2487,7 @@ if $ARGS[0] = 'forest_road':
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/forest_road.jpg"></center>'
 	'You`re off, on the road towards the village, humming happily to yourself.'
 	if temp_gadf > 3:
-		act 'Further':
+		act 'Continue':
 			cla
 			*clr
 			minut += 75
@@ -2505,7 +2505,7 @@ if $ARGS[0] = 'forest_road':
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/run.jpg"></center>'
 				'You don''t hesitate and start running.'
 
-				act 'Further':
+				act 'Continue':
 					if goforest > lostrand:
 						cla
 						*clr
@@ -2516,7 +2516,7 @@ if $ARGS[0] = 'forest_road':
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/run_end1.jpg"></center>'
 						'You`ve been running on the road, afraid to look back. The exhaustion made you stop, after a quick look around you realize that no one is behind you, chasing you and you are already at the edge of the forest.'
 
-						act 'Further':gt 'gadforest','1'
+						act 'Continue':gt 'gadforest','1'
 					else
 						cla
 						*clr
@@ -2528,7 +2528,7 @@ if $ARGS[0] = 'forest_road':
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/run_end2.jpg"></center>'
 						'You`ve been running up hill and down hill, too afraid to even to look behind you. In the end the exhaustion made you stop, after a quick look around you realize that no one is behind you, chasing you, but now you have no idea where you are.'
 
-						act 'Further':
+						act 'Continue':
 							if temp_gadf = 1: gt 'gadforestlost','1'
 							if temp_gadf = 2: gt 'gadforestlost','2'
 							if temp_gadf = 3: gt 'gadforestlost','3'
@@ -2547,11 +2547,11 @@ if $ARGS[0] = 'forest_road':
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/horror.jpg"></center>'
 				'You froze from fear, staring into the darkness which had already noticeable shadows in it. You were attacked in your stupor.'
 
-				act 'Further': over = 11 & gt 'gameover'
+				act 'Continue': over = 11 & gt 'gameover'
 			end
 		end
  	else
-		act 'Further':minut += 150 & gt 'gadforest','1'
+		act 'Continue':minut += 150 & gt 'gadforest','1'
 	end
 end
 if $ARGS[0] = 'swamp_road':
@@ -2563,7 +2563,7 @@ if $ARGS[0] = 'swamp_road':
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/forest_road.jpg"></center>'
 	'You went on the road in the direction of the swamp, merrily humming to yourself.'
 	if temp_gadf > 3:
-		act 'Further':
+		act 'Continue':
 			cla
 			*clr
 			minut += 75
@@ -2581,7 +2581,7 @@ if $ARGS[0] = 'swamp_road':
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/run.jpg"></center>'
 				'You don''t hesitate and start running.'
 
-				act 'Further':
+				act 'Continue':
 					if goforest > lostrand:
 						cla
 						*clr
@@ -2592,7 +2592,7 @@ if $ARGS[0] = 'swamp_road':
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/run_end1.jpg"></center>'
 						'You`ve been running on the road, afraid to look back. The exhaustion made you stop, after a quick look around you realize that no one is behind you, chasing you and you are already at the edge of the forest.'
 
-						act 'Further':gt 'gadforest','1'
+						act 'Continue':gt 'gadforest','1'
 					else
 						cla
 						*clr
@@ -2604,7 +2604,7 @@ if $ARGS[0] = 'swamp_road':
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/run_end2.jpg"></center>'
 						'You`ve been running up hill and down hill, too afraid to even to look behind you. In the end the exhaustion made you stop, after a quick look around you realize that no one is behind you, chasing you, but now you have no idea where you are.'
 
-						act 'Further':
+						act 'Continue':
 							if temp_gadf = 1: gt 'gadforestlost','1'
 							if temp_gadf = 2: gt 'gadforestlost','2'
 							if temp_gadf = 3: gt 'gadforestlost','3'
@@ -2623,11 +2623,11 @@ if $ARGS[0] = 'swamp_road':
 				'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/horror.jpg"></center>'
 				'You froze from fear, staring into the darkness which had already noticeable shadows in it. You were attacked in your stupor.'
 
-				act 'Further': over = 11 & gt 'gameover'
+				act 'Continue': over = 11 & gt 'gameover'
 			end
 		end
  	else
-		act 'Further':minut += 150 & gt 'swamp'
+		act 'Continue':minut += 150 & gt 'swamp'
 	end
 end
 if $ARGS[0] = 'lost':
@@ -2638,7 +2638,7 @@ if $ARGS[0] = 'lost':
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gadforestsearch0.4.jpg"></center>'
 	'You wander through the woods trying to find familiar places in or out of the forest.'
 
-	act 'Further':
+	act 'Continue':
 		cla
 		*clr
 		minut += 75
@@ -2665,7 +2665,7 @@ if $ARGS[0] = 'lost':
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/run_end2.jpg"></center>'
 			'You`ve been running up hill and down hill, too afraid to even to look behind you. In the end the exhaustion made you stop, after a quick look around you realize that no one is behind you, chasing you, but now you have no idea where you are.'
 
-			act 'Further':
+			act 'Continue':
 				if temp_gadf = 1: gt 'gadforestlost','1'
 				if temp_gadf = 2: gt 'gadforestlost','2'
 				if temp_gadf = 3: gt 'gadforestlost','3'
@@ -2682,7 +2682,7 @@ if $ARGS[0] = 'lost':
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/run_wolf.jpg"></center>'
 			'You rushed to escape in panic, but almost immediately you felt a powerful push in the back and fell down.'
 
-			act 'Further':
+			act 'Continue':
 				cla
 				*clr
 				minut += 1
@@ -2705,7 +2705,7 @@ if $ARGS[0] = 'relax':
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gadforestrelax3.jpg"></center>'
 	'You sit in the woods and relax, trying to remember the way back to the village.'
 
-	act 'Further':
+	act 'Continue':
 		cla
 		*clr
 		minut += 75
@@ -2732,7 +2732,7 @@ if $ARGS[0] = 'relax':
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/run_end2.jpg"></center>'
 			'You`ve been running up hill and down hill, too afraid to even to look behind you. In the end the exhaustion made you stop, after a quick look around you realize that no one is behind you, chasing you, but now you have no idea where you are.'
 
-			act 'Further':
+			act 'Continue':
 				if temp_gadf = 1: gt 'gadforestlost','1'
 				if temp_gadf = 2: gt 'gadforestlost','2'
 				if temp_gadf = 3: gt 'gadforestlost','3'
@@ -2749,7 +2749,7 @@ if $ARGS[0] = 'relax':
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/horror.jpg"></center>'
 			'You froze from fear, staring into the darkness which had already noticeable shadows in it. You were attacked in your stupor.'
 
-			act 'Further': over = 11 & gt 'gameover'
+			act 'Continue': over = 11 & gt 'gameover'
 		end
 	end
 end

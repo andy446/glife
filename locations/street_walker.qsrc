@@ -559,7 +559,7 @@ if $ARGS[0] = 'briberyreaction':
 	*clr & cla
 	minut += 10
 	gs 'stat'
-	!! random chance code here somewhere i'm too tired to figure it out lol
+	!! random chance code here somewhere i''m too tired to figure it out lol
 	temp_rand = rand (0,12)
 	! reaction 1, accept bribe: 0 - 4
 	! reaction 2, refuse bribe: 5 - 7

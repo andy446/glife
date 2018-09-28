@@ -672,51 +672,51 @@ if $ARGS[0] = 'walklake1':
 			end
 		end
 
-		!'
-		act '"Just between your legs?"':
-			cla
-			*clr
-			dynamic $venerasiak
-			dynamic $venerasiakOral
-			slutty += 1
-			guy += 1
-			'<center><img <<$set_imgh>> src="images/locations/city/residential/lake/sex/walk1/walk1.jpg"></center>'
-			'"Only between the legs?" ask you to understand that it offers'
-			'"I was just there and catch, but you told me to start rod mouth polish" the guy said, rastegivaya pants and releasing his rod into the wild.'
-
-			act 'Polished rod':
-				cla
-				*clr
-				stat['bj'] += 1
-				'<center><img <<$set_imgh>> src="images/locations/city/residential/lake/sex/walk1/walk2.jpg"></center>'
-				'You sat down next to him and lowered his head to his cock began to suck. A few minutes later the guy pulled you from a member of "All right enough poliruesh well."'
-
-				act 'I tried':
-					cla
-					*clr
-					stat['vaginal'] += 1
-					cumprecheck = 1
-					gs 'cum_manage'
-					'<center><img <<$set_imgh>> src="images/locations/city/residential/lake/sex/walk1/walk3.jpg"></center>'
-					'The guy climbed, You turned and swung cancer went into your vagina, you screamed in pain.'
-					'"Well, Fishing is not easy, Needless to suffer" said the man with the power of continuing to fuck your pussy. And you have only squeaked with every jolt.'
-
-					act '"Ay-ay-ay"':
-						cla
-						*clr
-						spafinloc = 15
-						gs 'cum_manage'
-						money += 2000
-						'<center><img <<$set_imgh>> src="images/locations/city/residential/lake/sex/walk1/walk4.jpg"></center>'
-						'At the end of man shivered and tensed abruptly pulled his dick out of you, expanding you to her face filled your chest with his sperm.'
-						'"This is for you food for fish." he said with a smile.'
-						'"And it is that they were gold" said the guy handing you money'
-
-						act 'Leave':gt 'lake', 'start'
-					end
-				end
-			end
-		end
+		
+!!		act '"Just between your legs?"':
+!!			cla
+!!			*clr
+!!			dynamic $venerasiak
+!!			dynamic $venerasiakOral
+!!			slutty += 1
+!!			guy += 1
+!!			'<center><img <<$set_imgh>> src="images/locations/city/residential/lake/sex/walk1/walk1.jpg"></center>'
+!!			'"Only between the legs?" ask you to understand that it offers'
+!!			'"I was just there and catch, but you told me to start rod mouth polish" the guy said, rastegivaya pants and releasing his rod into the wild.'
+!!
+!!			act 'Polished rod':
+!!				cla
+!!				*clr
+!!				stat['bj'] += 1
+!!				'<center><img <<$set_imgh>> src="images/locations/city/residential/lake/sex/walk1/walk2.jpg"></center>'
+!!				'You sat down next to him and lowered his head to his cock began to suck. A few minutes later the guy pulled you from a member of "All right enough poliruesh well."'
+!!
+!!				act 'I tried':
+!!					cla
+!!					*clr
+!!					stat['vaginal'] += 1
+!!					cumprecheck = 1
+!!					gs 'cum_manage'
+!!					'<center><img <<$set_imgh>> src="images/locations/city/residential/lake/sex/walk1/walk3.jpg"></center>'
+!!					'The guy climbed, You turned and swung cancer went into your vagina, you screamed in pain.'
+!!					'"Well, Fishing is not easy, Needless to suffer" said the man with the power of continuing to fuck your pussy. And you have only squeaked with every jolt.'
+!!
+!!					act '"Ay-ay-ay"':
+!!						cla
+!!						*clr
+!!						spafinloc = 15
+!!						gs 'cum_manage'
+!!						money += 2000
+!!						'<center><img <<$set_imgh>> src="images/locations/city/residential/lake/sex/walk1/walk4.jpg"></center>'
+!!						'At the end of man shivered and tensed abruptly pulled his dick out of you, expanding you to her face filled your chest with his sperm.'
+!!						'"This is for you food for fish." he said with a smile.'
+!!						'"And it is that they were gold" said the guy handing you money'
+!!
+!!						act 'Leave':gt 'lake', 'start'
+!!					end
+!!				end
+!!			end
+!!		end
 	end
 end
 

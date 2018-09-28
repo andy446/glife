@@ -130,112 +130,109 @@ if $ARGS[0] = 'first':
 		prst_booked += 1
 		prst_tmp = 1
 
-		if hotcat < 3:
-			!Prostitute event, this will be an continuation to the prostitute events that happened earlier
-			!if ugly
-			cla
-			minut += 2
-			gs 'pain', 2, 'armR', 'pinch'
-			gs 'stat'
-			'"I caught this one whoring herself out. Can you believe that? Who would ever want to fuck this pig?!" he exclaims, and the staff erupt with laughter.'
-			'"What was she thinking? Honestly, you''ve done everyone a favor getting her off the streets," says one of the officers before you''re led further into the station.'
+		if prst_bribe = 1:
+			if hotcat < 3:
+				!else if ugly and bribed the officer with sex
+				cla
+				minut += 2
+				gs 'pain', 2, 'armR', 'pinch'
+				gs 'stat'
+				'"I caught this one whoring herself out and you know what she tried to do? She tried to bribe me with sex!"'
+				'The others shake their head, "What was she thinking? No one would fuck someone as ugly as her!"'
+				'You hang your head in shame as you''re led further into the station for booking.'
 
-			act 'Continue further in':gt 'police_station', 'booking'
+				act 'Continue further in':gt 'police_station', 'booking'
+			elseif hotcat > 7:
+				!else if beautiful and bribed the officer with sex
+				cla
+				minut += 2
+				gs 'pain', 2, 'armR', 'pinch'
+				gs 'stat'
+				'"I caught this one whoring herself out and you know what she tried to do? She tried to bribe me with sex!"'
+				'The other officers eye you hungrily, "You''re a better man than me!" one of them exclaim. "Just look at her, how often do you get a chance like that? I would have said yes!"'
+				'A small smile plays across your face, feeling a tiny bit flattered as you''re led further into the station to get booked.'
 
+				act 'Continue further in':gt 'police_station', 'booking'
+			else
+				!else if plain and bribed the officer with sex
+				cla
+				minut += 2
+				gs 'pain', 2, 'armR', 'pinch'
+				gs 'stat'
+				'"I caught this one whoring herself out and you know what she tried to do? She tried to bribe me with sex!"'
+				'The others jokingly say, "Well, she doesn''t look that bad. I wouldn''t have agreed, but I can see it working on someone else..."'
+				'You frown at their rude remarks, but remain silent as you''re led further into the station to be booked.'
 
-			!else if plain
-			cla
-			minut += 2
-			gs 'pain', 2, 'armR', 'pinch'
-			gs 'stat'
-			'"I caught this one whoring herself out. She ain''t bad looking, but you know she''s not making money like those other girls," he says with a disappointing click of the tongue'
-			'The other officers shrug and shake their heads. "Probably some cheap bastards out there that can''t afford to be picky," one speaks up as you''re led further into the station.'
+				act 'Continue further in':gt 'police_station', 'booking'
+			end
+		elseif prst_bribe = 1:
+			if hotcat < 3:
+				!else if ugly and bribed the officer with money
+				cla
+				minut += 2
+				gs 'pain', 2, 'armR', 'pinch'
+				gs 'stat'
+				'"I caught this one whoring herself out, and you know what she tried to do? She tried to bribe me with money!" he exclaims with a laugh. "As if anyone in their right mind paid to fuck this cow."'
+				'The others shake their head, "Good job cleaning the streets of this trash," one of the officers quip as you''re led further inside the police station.'
 
-			act 'Continue further in':gt 'police_station', 'booking'
+				act 'Continue further in':gt 'police_station', 'booking'
+			elseif hotcat > 7:
+				!else if beautiful and bribed the officer with money
+				cla
+				minut += 2
+				gs 'pain', 2, 'armR', 'pinch'
+				gs 'stat'
+				'"I caught this one whoring herself out and you know what she tried to do? She tried to bribe me with money!"'
+				'"Only money?! I would''ve told her to have sex with me. Just look at her, she''s damn gorgeous!" says another officer jokingly, but something tells you he was being quite honest in his remark. The officer holding you laughs and shakes his head as he leads you further into the station to be booked.'
 
+				act 'Continue further in':gt 'police_station', 'booking'
+			else
+				!else if plain and bribed the officer with money
+				cla
+				minut += 2
+				gs 'pain', 2, 'armR', 'pinch'
+				gs 'stat'
+				'"I caught this one whoring herself out and you know what she tried to do? She tried to bribe me with money!"'
+				'The others shake their head, "You can''t blame her for trying. A more corrupt officer might have accepted the bribe," an officer says as you''re led further inside the station for booking.'
 
-			!else if beautiful
-			cla
-			minut += 2
-			gs 'pain', 2, 'armR', 'pinch'
-			gs 'stat'
-			'"I caught this one whoring herself out on the street corner. Such a waste," he turns to you and shakes his head. "A hot thing like you could shack up with some rich guy and leech off him, but I guess that''s not enough for a cock hungry whore like you, huh? One just ain''t enough."'
-			*nl
-			'The other officers laugh cruelly. "It really is a shame, just look at her-- she''s damn gorgeous. You must have some real issues to be selling yourself to strangers."'
-			*nl
-			'"I''m sure the money is great!" The officer holding you laughs loudly as he leads you further inside the police station.'
+				act 'Continue further in':gt 'police_station', 'booking'
+			end
+		else
+			if hotcat < 3:
+				!Prostitute event, this will be an continuation to the prostitute events that happened earlier
+				!if ugly
+				cla
+				minut += 2
+				gs 'pain', 2, 'armR', 'pinch'
+				gs 'stat'
+				'"I caught this one whoring herself out. Can you believe that? Who would ever want to fuck this pig?!" he exclaims, and the staff erupt with laughter.'
+				'"What was she thinking? Honestly, you''ve done everyone a favor getting her off the streets," says one of the officers before you''re led further into the station.'
 
-			act 'Continue further in':gt 'police_station', 'booking'
+				act 'Continue further in':gt 'police_station', 'booking'
+			elseif hotcat > 7:
+				!else if beautiful
+				cla
+				minut += 2
+				gs 'pain', 2, 'armR', 'pinch'
+				gs 'stat'
+				'"I caught this one whoring herself out on the street corner. Such a waste," he turns to you and shakes his head. "A hot thing like you could shack up with some rich guy and leech off him, but I guess that''s not enough for a cock hungry whore like you, huh? One just ain''t enough."'
+				*nl
+				'The other officers laugh cruelly. "It really is a shame, just look at her-- she''s damn gorgeous. You must have some real issues to be selling yourself to strangers."'
+				*nl
+				'"I''m sure the money is great!" The officer holding you laughs loudly as he leads you further inside the police station.'
 
+				act 'Continue further in':gt 'police_station', 'booking'
+			else
+				!else if plain
+				cla
+				minut += 2
+				gs 'pain', 2, 'armR', 'pinch'
+				gs 'stat'
+				'"I caught this one whoring herself out. She ain''t bad looking, but you know she''s not making money like those other girls," he says with a disappointing click of the tongue'
+				'The other officers shrug and shake their heads. "Probably some cheap bastards out there that can''t afford to be picky," one speaks up as you''re led further into the station.'
 
-			!else if ugly and bribed the officer with money
-			cla
-			minut += 2
-			gs 'pain', 2, 'armR', 'pinch'
-			gs 'stat'
-			'"I caught this one whoring herself out, and you know what she tried to do? She tried to bribe me with money!" he exclaims with a laugh. "As if anyone in their right mind paid to fuck this cow."'
-			'The others shake their head, "Good job cleaning the streets of this trash," one of the officers quip as you''re led further inside the police station.'
-
-			act 'Continue further in':gt 'police_station', 'booking'
-
-
-			!else if plain and bribed the officer with money
-			cla
-			minut += 2
-			gs 'pain', 2, 'armR', 'pinch'
-			gs 'stat'
-			'"I caught this one whoring herself out and you know what she tried to do? She tried to bribe me with money!"'
-			'The others shake their head, "You can''t blame her for trying. A more corrupt officer might have accepted the bribe," an officer says as you''re led further inside the station for booking.'
-
-			act 'Continue further in':gt 'police_station', 'booking'
-
-
-			!else if beautiful and bribed the officer with money
-			cla
-			minut += 2
-			gs 'pain', 2, 'armR', 'pinch'
-			gs 'stat'
-			'"I caught this one whoring herself out and you know what she tried to do? She tried to bribe me with money!"'
-			'"Only money?! I would''ve told her to have sex with me. Just look at her, she''s damn gorgeous!" says another officer jokingly, but something tells you he was being quite honest in his remark. The officer holding you laughs and shakes his head as he leads you further into the station to be booked.'
-
-			act 'Continue further in':gt 'police_station', 'booking'
-
-
-			!else if ugly and bribed the officer with sex
-			cla
-			minut += 2
-			gs 'pain', 2, 'armR', 'pinch'
-			gs 'stat'
-			'"I caught this one whoring herself out and you know what she tried to do? She tried to bribe me with sex!"'
-			'The others shake their head, "What was she thinking? No one would fuck someone as ugly as her!"'
-			'You hang your head in shame as you''re led further into the station for booking.'
-
-			act 'Continue further in':gt 'police_station', 'booking'
-
-
-			!else if plain and bribed the officer with sex
-			cla
-			minut += 2
-			gs 'pain', 2, 'armR', 'pinch'
-			gs 'stat'
-			'"I caught this one whoring herself out and you know what she tried to do? She tried to bribe me with sex!"'
-			'The others jokingly say, "Well, she doesn''t look that bad. I wouldn''t have agreed, but I can see it working on someone else..."'
-			'You frown at their rude remarks, but remain silent as you''re led further into the station to be booked.'
-
-			act 'Continue further in':gt 'police_station', 'booking'
-
-
-			!else if beautiful and bribed the officer with sex
-			cla
-			minut += 2
-			gs 'pain', 2, 'armR', 'pinch'
-			gs 'stat'
-			'"I caught this one whoring herself out and you know what she tried to do? She tried to bribe me with sex!"'
-			'The other officers eye you hungrily, "You''re a better man than me!" one of them exclaim. "Just look at her, how often do you get a chance like that? I would have said yes!"'
-			'A small smile plays across your face, feeling a tiny bit flattered as you''re led further into the station to get booked.'
-
-			act 'Continue further in':gt 'police_station', 'booking'
-
+				act 'Continue further in':gt 'police_station', 'booking'
+			end
 		end
 	end
 end
@@ -1109,7 +1106,7 @@ if $ARGS[0] = 'interrogation':
 			end
 		end
 	elseif prst_tmp = 1:
-	!if caught stealing
+	!if caught whoring
 		if book_response = 5: gt 'police_station', 'prst_hard'
 		if book_response = 4: gt 'police_station', 'prst_easy'
 
@@ -1273,6 +1270,7 @@ if $ARGS[0] = 'prst_easy':
 	'He''s quick to notice your nervousness and tells you to relax, he only wants to know what happened. "Now start from the beginning..."'
 	'You take a deep breath and begin confessing your crime as the detective listens attentively.'
 
+	if prst_bribe = 2:
 	!if tried to bribe the officer with sex
 		*clr & cla
 		gs 'stat'
@@ -1283,6 +1281,7 @@ if $ARGS[0] = 'prst_easy':
 
 		act 'Return to the holding cell': gt 'police_station', 'returncell'
 
+	elseif prst_bribe = 1:
 	!else if tried to bribe the officer with money
 		*clr & cla
 		gs 'stat'
@@ -1292,7 +1291,7 @@ if $ARGS[0] = 'prst_easy':
 		'"Okay <<$pcs_firstname>>, we have a civil court judge for these kind of cases and since you''ve already admitted to everything, we might as well take you in front of him. I''ll try to put in a good word for you," he says.'
 
 		act 'Return to the holding cell': gt 'police_station', 'returncell'
-
+	else
 		!this will show up otherwise
 		*clr & cla
 		gs 'stat'
@@ -1302,7 +1301,7 @@ if $ARGS[0] = 'prst_easy':
 		'"Don''t worry, the civil court judge probably won''t care too much about the crime and both the booking officer and I will put in a good word for you since you made our job easy and confessed to everything. The punishment, if there is one, shouldn''t be too bad," he reassures you.'
 
 		act 'Return to the holding cell': gt 'police_station', 'returncell'
-	!end
+	end
 end
 
 if $ARGS[0] = 'prst_norm':
@@ -1317,6 +1316,7 @@ if $ARGS[0] = 'prst_norm':
 	'"Look here <<$pcs_firstname>>, I''m just trying to do my job here so how about you confess and we''ll take it from there..."'
 	'You take a deep breath and begin to talk.'
 
+	if prst_bribe = 2:
 	!if tried to bribe the officer with sex
 		*clr & cla
 		gs 'stat'
@@ -1327,8 +1327,7 @@ if $ARGS[0] = 'prst_norm':
 		'"Okay <<$pcs_firstname>>, we have a civil court judge for these kind of cases and since you''ve already admitted to everything, we might as well take you in front of him and we''ll see how it goes..." he says tiredly.'
 
 		act 'Return to the holding cell': gt 'police_station', 'returncell'
-	!end
-
+	elseif prst_bribe = 1:
 	!if tried to bribe the officer with money
 		*clr & cla
 		gs 'stat'
@@ -1339,8 +1338,7 @@ if $ARGS[0] = 'prst_norm':
 		'"Okay <<$pcs_firstname>>, we have a civil court judge for these kind of cases and since you''ve already admitted to everything, we might as well take you in front of him and we''ll see how it goes..." he says tiredly.'
 
 		act 'Return to the holding cell': gt 'police_station', 'returncell'
-	!end
-
+	else
 	!this will show up otherwise
 		*clr & cla
 		gs 'stat'
@@ -1350,7 +1348,7 @@ if $ARGS[0] = 'prst_norm':
 		'"Truth be told, I don''t really know what kind of sentence the judge will be going for..." he tells you.'
 
 		act 'Return to the holding cell': gt 'police_station', 'returncell'
-	!end
+	end
 end
 
 if $ARGS[0] = 'prst_hard':
@@ -1365,6 +1363,7 @@ if $ARGS[0] = 'prst_hard':
 	'"Don''t waste my time, <<$pcs_firstname>>," he threatens. "If you won''t take this seriously, then I won''t put in the effort to give a shit what happens to you. Now, stop fucking around and tell me everything you did."'
 	'You stutter as you begin confessing.'
 
+	if prst_bribe = 2:
 	!if tried to bribe the officer with sex
 		*clr & cla
 		gs 'stat'
@@ -1375,8 +1374,7 @@ if $ARGS[0] = 'prst_hard':
 		'He slams his fist down on the table. "You think you can get away with telling these kind of lies against our fine police force?! You''re in deep shit now, <<$pcs_firstname>>. I''m taking you to see the judge, and we''ll see how he likes hearing you make a mockery of our justice system."'
 
 		act 'Return to the holding cell': gt 'police_station', 'returncell'
-	!end
-
+	elseif prst_bribe = 1:
 	!if tried to bribe the officer with money
 		*clr & cla
 		gs 'stat'
@@ -1387,8 +1385,7 @@ if $ARGS[0] = 'prst_hard':
 		'He slams his fist down on the table. "You think you can get away with telling these kind of lies against our fine police force?! You''re in deep shit now, <<$pcs_firstname>>. I''m taking you to see the judge, and we''ll see how he likes hearing you make a mockery of our justice system."'
 
 		act 'Return to the holding cell': gt 'police_station', 'returncell'
-	!end
-
+	else
 	!this will show up otherwise
 		*clr & cla
 		gs 'stat'
@@ -1398,7 +1395,7 @@ if $ARGS[0] = 'prst_hard':
 		'"Hopefully the judge will give you a long and hard sentence." he angrily answers you.'
 
 		act 'Return to the holding cell': gt 'police_station', 'returncell'
-	!end
+	end
 end
 
 if $ARGS[0] = 'returncell':

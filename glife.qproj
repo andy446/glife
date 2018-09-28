@@ -131,10 +131,11 @@
 	</Folder>
 	<Folder name="Accessories">
 		<Location name="purses"/>
-		<Location name="$purse_image"/>
+		<Location name="$purse_image"/>street_walker
 		<Location name="sewing"/>
 	</Folder>
 	<Folder name="Prostitution">
+		<Location name="street_walker"/>
 		<Location name="Prostitute"/>
 		<Location name="NormPR"/>
 		<Location name="blowPR"/>

@@ -2694,7 +2694,7 @@ if $ARGS[0] = 'forest_road':
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/horror.jpg"></center>'
 					'You froze from fear, staring into the darkness, trying to make sense of the shadows that seemed to move and swirl around you. Suddenly, you feel a sharp pain on your back.'
 
-					act 'Be mauled to death by wolves': over = 11 & gt 'gameover'
+					act 'Continue': over = 11 & gt 'gameover'
 				end
 			end
 		end

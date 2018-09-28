@@ -43,7 +43,7 @@ act 'Return to the main beach':
 	gt 'lake', 'start'
 end
 
-if katday ! daystart and npc_rel['A219'] >= 1:
+if katday ! daystart and npc_rel['A219'] >= 1 and temper >= 15:
 	'You see Kat on the beach.'
 
 	act 'Approach Kat':gt 'Katlake', 'kat'

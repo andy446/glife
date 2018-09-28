@@ -64,7 +64,7 @@ if $ARGS[0] = 'work':
 	end
 	gs 'street_walker', 'start'
 	'You do a last minute check of your outfit and makeup, in a reflection in the window of a store. Yep you look good and like your are open for business. With a final look you turn and make your way down the sidewalk looking for a customer.'
-	act 'Work the street': gt 'event1'
+	act 'Work the street': gt 'street_walker', 'event1'
 end
 
 if $ARGS[0] = 'event1':

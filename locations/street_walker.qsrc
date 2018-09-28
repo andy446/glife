@@ -77,7 +77,7 @@ if $ARGS[0] = 'event1':
 			if prst_loc ! 1: streetworkevent = 5
 			if ruslan_day = daystart: streetworkevent = 5
 		end
-		if streetworkevent = <= 2:
+		if streetworkevent <= 2:
 			*clr & cla
 			minut += 15
 			city_prostitute += 1

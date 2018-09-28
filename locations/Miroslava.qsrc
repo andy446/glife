@@ -533,16 +533,15 @@ if $ARGS[0] = 'Start' or $ARGS[0] = '':
 					*clr & cla
 					minut += 60
 					if npc_rel['A60'] < 20: npc_rel['A60'] += RAND(1,2)
-						gs 'stat'
-						'<center><img <<$set_imgh>> src="images/characters/village/mira/mira_tv'+rand(1,12)+'.jpg"></center>'
-						'You ask your grandparents if Mira can sleep over. They tell you it''s fine with them, so you invite Mira to sleep over.'
-						*nl
-						'You and Mira head over to the huge wardrobe where your clothes are and spend an hour trying on different clothes and underwear.'
+					gs 'stat'
+					'<center><img <<$set_imgh>> src="images/characters/village/mira/mira_tv'+rand(1,12)+'.jpg"></center>'
+					'You ask your grandparents if Mira can sleep over. They tell you it''s fine with them, so you invite Mira to sleep over.'
+					*nl
+					'You and Mira head over to the huge wardrobe where your clothes are and spend an hour trying on different clothes and underwear.'
 
-						act 'Mira and you raid the kitchen for a late night snack (0:15)': 'You and Mira head to the kitchen to make a quick snack' & gs 'food', 'snack'
-						act 'Go to sleep': 'You''re feeling tired. You and Mira head to your bed and crawl under the covers together and get into bed.' & gt 'bed2'
-						act 'Finish': mira_guest = 0 & gt $loc, $metka
-					end
+					act 'Mira and you raid the kitchen for a late night snack (0:15)': 'You and Mira head to the kitchen to make a quick snack' & gs 'food', 'snack'
+					act 'Go to sleep': 'You''re feeling tired. You and Mira head to your bed and crawl under the covers together and get into bed.' & gt 'bed2'
+					act 'Finish': mira_guest = 0 & gt $loc, $metka
 				end
 			end
 

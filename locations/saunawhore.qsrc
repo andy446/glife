@@ -856,6 +856,7 @@ if $ARGS[0] = 'saunawork':
 			minut += 10
 			gs 'stat'
 			gt 'saunawhore', 'saunawork'
+		end
 		exit
 	end
 	if workDolg <= 0 and pcs_mood <= 50 and SaunaWhore > 0 and money >= 1000:

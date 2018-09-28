@@ -843,14 +843,19 @@ if $ARGS[0] = 'saunawork':
 
 	act 'Use the staff bathroom': minut += 1 & gt 'saunawhore', 'bathroom'
 
-	if workDolg > 0 and pcs_mood <= 10 or workDolg > 0 and SLomka > 0:
+	if workDolg > 0 and (pcs_mood <= 10 or SLomka > 0):
 		cls
-		workDolg += 1500
+		workDolg += 1000
 		gs 'stat'
 		'You are beckoned by the nurse. "Hey, come here."'
 		'You go up to her and she demands your bared arm. You present your arm as required and she takes out a syringe filled with drugs. "Sit still, I''ll give you a shot now and it will make you feel like normal again."'
 
-		act 'Leave':StrongNarkota += 25 & SNarkTimes += 1 & minut += 10 & gt 'saunawhore', 'saunawork'
+		act 'Leave':
+			StrongNarkota += 25
+			SNarkTimes += 1
+			minut += 10
+			gs 'stat'
+			gt 'saunawhore', 'saunawork'
 		exit
 	end
 	if workDolg <= 0 and pcs_mood <= 50 and SaunaWhore > 0 and money >= 1000:

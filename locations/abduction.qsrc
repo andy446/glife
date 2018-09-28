@@ -1020,7 +1020,7 @@ if $ARGS[0] = 'abdSoldSauna':
 	'"Yes madame."'
 	'"I am not a bad person. If you earn me at least five times more, I may let you go."'
 	'With this faint sign of hope she leaves.'
-	workDolg = 100000
+	workDolg = 40000
 
 	painkiller = painkiller_bak
 	prezik = prezik_bak

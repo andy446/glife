@@ -165,6 +165,7 @@ if $ARGS[0] = 'start':
 			loverrelation[lover_number] += 0
 			'<<$loverdesc[lover_number]>> gets close to you, and you can tell by <<$tXyr>> body movements <<$tXe>> wants to kiss you.'
 			act 'Kiss with tongue':
+				cla 
 				'You take the initiative and when <<$tXe>> opens <<$tXyr>> mouth you thrust your tongue into <<$tXyr>> mouth.'
 				gs 'arousal', 'kiss', 5
 				pcs_dom += 1
@@ -233,12 +234,13 @@ if $ARGS[0] = 'start':
 						exit
 					end
 				end
-				cla 
+				
 				act 'Continue':	xgt 'lover_meet', 'likes'
 				exit
 			end
 			
 			act 'Kiss with lips':
+				cla
 				'You press your <<$meetlip>> softly against <<$tXyr>>, and for a split second time seems to stop.'
 				pcs_mood += 10
 				if cumloc[11] = 0 and (cumloc[6] = 0 and cumloc[7] = 0):
@@ -320,13 +322,13 @@ if $ARGS[0] = 'start':
 						end
 					end
 				end
-				cla
+				
 				act 'Continue': xgt 'lover_meet', 'likes'
 				exit
 			end
 
 			act 'Hint for a kiss on the cheek':
-				!! *clr 
+				cla 
 				'You make a cute pouty face and turn your cheek toward <<$loverdesc[lover_number]>>. <<$tXec>> understands and though <<$tXe>> wanted to kiss you, <<$tXe>> settles with giving you a peck on the cheek'
 				pcs_mood += 10
 				if cumloc[11] = 0 and (cumloc[6] = 0 and cumloc[7] = 0):
@@ -398,11 +400,12 @@ if $ARGS[0] = 'start':
 						exit
 					end
 				end	
-				cla 
+				
 				act 'Continue': xgt 'lover_meet', 'likes'
 				exit
 			end
 			act 'Push <<$tXyr>> face away': 
+				cla
 				didPushAway = 1
 				'Maybe you had a bad day, maybe you don''t want a kiss, you rudely push <<$tXyr>> face away, and by the looks of it, hurting <<$tXyr>> feelings in the process.'
 				if haraklover[lover_number] = 0:
@@ -415,7 +418,7 @@ if $ARGS[0] = 'start':
 					loverrelation[lover_number] -= 10
 					'<<$tXec>> begins to get angry, <<$tXe>> takes a deep breath and gives you space.'
 				end
-				cla 
+				 
 				act 'Continue': xgt 'lover_meet', 'likes'
 				exit
 			end
@@ -438,6 +441,7 @@ end
 	
 if $ARGS[0] = 'actions':
 	act 'Can I ask you how you think I look?':
+		cla
 		'<<$loverdesc[lover_number]>> says "If you insist" and tells you exactly how <<$tXe>> thinks you look based on what <<$tXe>> likes:'
 		gs 'lover_likes', 'allPref'
 		act 'Okay, lets talk about something else':	xgt 'lover_meet', 'actions'
@@ -1746,39 +1750,21 @@ if $ARGS[0] = 'actions':
 		if rand(0,1): pcs_dom += 1
 		'"What do you want to do?", <<$tXe>> asks'
 		if loverGender[lover_number] = 0:
-			act '"Let''s go just relax in the stairwell and drink some beer."': act 'Go with <<$tXem>>':gt 'podezdM', 'start'
-			act '"Let''s take a walk in the park"': act 'Go with <<$tXem>>':gt 'parkM', 'start'
-			act '"Let''s go see a movie"': act 'Go with <<$tXem>>':gt 'kinoM', 'start'
-			act '"Let''s go to the cafe."': act 'Go with <<$tXem>>':gt 'kafeM', 'start'
+			act '"Let''s go just relax in the stairwell and drink some beer."': gt 'podezdM', 'start'
+			act '"Let''s take a walk in the park"': gt 'parkM', 'start'
+			act '"Let''s go see a movie"': gt 'kinoM', 'start'
+			act '"Let''s go to the cafe."': gt 'kafeM', 'start'
 		elseif loverGender[lover_number] = 1:
 			$telsob = '<<$loverdesc[lover_number]>>'
 			
 			if month > 5 and temper > 20 and sunWeather = 1:
-				act 'Invite to the park':
-					'"Let''s go for a walk in the park."'
-					act 'Go': gt 'parksvid'
-				end
+				act 'Invite to the park': gt 'parksvid'
 			end
 
-			act 'Invite to a movie':
-				'"Want to go see a movie?"'
-				act 'Go to the movies': gt 'kinosvid'
-			end
-
-			act 'Invite to the pool hall':
-				'"Let''s play pool."'
-				act 'Go play pool': gt 'billsvid'
-			end
-
-			act 'Invite to the cafe':
-				'"Let''s go to the cafe."'
-				act 'Go to the cafe': gt 'kafesvid'
-			end
-
-			act 'Invite to the casino':
-				'"Let''s go to the casino."'
-				act 'Go to the casino': gt 'kazinosvid'
-			end
+			act 'Invite to a movie': gt 'kinosvid'
+			act 'Invite to the pool hall': gt 'billsvid'
+			act 'Invite to the cafe': gt 'kafesvid'
+			act 'Invite to the casino': gt 'kazinosvid'
 		end
 		act 'Never mind...':
 			gt 'lover_meet', 'actions'
@@ -1795,6 +1781,7 @@ if $ARGS[0] = 'actions':
 		end		
 	end
 end
+
 
 --- lover_meet ---------------------------------
 

@@ -97,7 +97,8 @@ end
 if $ARGS[0] = '2':
 	*clr & cla
 	if StoryLine = 1 and forest_lostday > 0 and daystart > forest_lostday and rand(1,10)> 8: gt 'gadforestlost', 'forestrescue'
-	$loc = 'gadforestlost'	$metka = '2'
+	$loc = 'gadforestlost'
+	$metka = '2'
 	$location_type = 'secluded'
 
 	$menu_loc = 'gadforestlost'

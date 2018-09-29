@@ -1,13 +1,11 @@
 # sexm
 
-if $ARGS[0] = 'start':
-	cla
-	*clr
-
-	if loverlove[lover_number] = 0 and loverrelation[lover_number] >= 100 and loverdays[lover_number] >= 30 and husband = 0:
-		act 'Talk about cohabitation':gt 'love', 'start'
-	end
-
+if $ARGS[0] = 'start':	
+	menu_off = 1
+	$location_type = 'event'
+	*clr & cla
+	if loverlove[lover_number] = 0 and loverrelation[lover_number] >= 100 and loverdays[lover_number] >= 30 and husband = 0: act 'Talk about cohabitation': gt 'love', 'start'
+		
 	'<<$loverdesc[lover_number]>> stops at the entrance of your building.'
 
 	if haraklover[lover_number] = 2:'"<<$pcs_nickname>>, can I come in for a cup of coffee?"'
@@ -21,108 +19,60 @@ if $ARGS[0] = 'start':
 				if loverdays[lover_number] < 3:
 					loverrelation[lover_number] += 1
 					'<<$loverdesc[lover_number]>> kisses you on the lips, while his hand squeezes your ass.'
-					
-					gs 'arousal', 'kiss', 5
-					gs 'stat'
-					
 				elseif loverdays[lover_number] >= 3:
 					loverrelation[lover_number] -= 2
 					'<<$loverdesc[lover_number]>> kisses you on the lips and then pulls away mumbling irritably: "Not much happening, so far."'
-					
-					gs 'arousal', 'kiss', 5
-					gs 'stat'
-					
 				end
 			elseif haraklover[lover_number] = 1:
 				if loverdays[lover_number] < 10:
 					loverrelation[lover_number] += 2
 					'<<$loverdesc[lover_number]>> kisses you goodbye on the lips, hugging your waist.'
-					
-					gs 'arousal', 'kiss', 5
-					gs 'stat'
-					
 				elseif loverdays[lover_number] >= 10:
 					loverrelation[lover_number] -= 2
 					'<<$loverdesc[lover_number]>> kisses you goodbye on the lips and asks: "Maybe it''s time we took things to the next level?"'
-					
-					gs 'arousal', 'kiss', 5
-					gs 'stat'
-					
 				end
 			elseif haraklover[lover_number] = 0:
 				if loverdays[lover_number] < 20:
 					loverrelation[lover_number] += 3
 					'<<$loverdesc[lover_number]>> kisses you goodbye on the lips and gently hugs your waist.'
-					
-					gs 'arousal', 'kiss', 5
-					gs 'stat'
-					
 				elseif loverdays[lover_number] >= 20:
 					loverrelation[lover_number] -= 1
 					'<<$loverdesc[lover_number]>> kisses you goodbye on the lips and breaks away from the kiss looking at you with sad eyes.'
-					
-					gs 'arousal', 'kiss', 5
-					gs 'stat'
-					
 				end
-			end
+			end			
 		elseif boyonce[lover_number] = 1:
-
 			if haraklover[lover_number] = 2:
 				if loverdays[lover_number] < 3:
 					loverrelation[lover_number] -= 2
 					'<<$loverdesc[lover_number]>> kisses you goodbye on the lips while squeezing your ass with both hands.'
-					
-					gs 'arousal', 'kiss', 5
-					gs 'stat'
-					
 				elseif loverdays[lover_number] >= 3:
 					loverrelation[lover_number] -= 3
 					'<<$loverdesc[lover_number]>> kisses you on the lips, then pulls away from the kiss muttering in exasperation: "No sex today, huh?"'
-					
-					gs 'arousal', 'kiss', 5
-					gs 'stat'
-					
 				end
 			elseif haraklover[lover_number] = 1:
 				if loverdays[lover_number] < 10:
 					loverrelation[lover_number] -= 1
 					'<<$loverdesc[lover_number]>> kisses you goodbye on the lips, hugging your waist.'
-					
-					gs 'arousal', 'kiss', 5
-					gs 'stat'
-					
 				elseif loverdays[lover_number] >= 10:
 					loverrelation[lover_number] -= 2
 					'<<$loverdesc[lover_number]>> kisses you goodbye on the lips and says: "Okay, I can live one day without sex.".'
-					
-					gs 'arousal', 'kiss', 5
-					gs 'stat'
-					
 				end
 			elseif haraklover[lover_number] = 0:
 				if loverdays[lover_number] < 20:
 					loverrelation[lover_number] += 1
-					'<<$loverdesc[lover_number]>> kisses you goodbye on the lips and gently hugs your waist.'
-					
-					gs 'arousal', 'kiss', 5
-					gs 'stat'
-					
+					'<<$loverdesc[lover_number]>> kisses you goodbye on the lips and gently hugs your waist.'					
 				elseif loverdays[lover_number] >= 20:
 					loverrelation[lover_number] -= 1
-					'<<$loverdesc[lover_number]>> kisses you goodbye on the lips and breaks away from the kiss looking at you with sad eyes.'
-					
-					gs 'arousal', 'kiss', 5
-					gs 'stat'
-					
+					'<<$loverdesc[lover_number]>> kisses you goodbye on the lips and breaks away from the kiss looking at you with sad eyes.'					
 				end
-			end
+			end	
 		end
 
-		act 'Continue':
-			gs 'arousal', 'end'
-			dynamic $go_home
-		end
+		gs 'arousal', 'kiss', 5
+		gs 'arousal', 'end'
+		gs 'stat'
+		
+		dynamic $go_home
 	end
 
 	act 'Say goodnight':
@@ -154,8 +104,6 @@ if $ARGS[0] = 'start':
 				end
 			end
 		elseif boyonce[lover_number] = 1:
-
-
 			if haraklover[lover_number] = 2:
 				if loverdays[lover_number] < 3:
 					loverrelation[lover_number] -= 2
@@ -274,7 +222,6 @@ if $ARGS[0] = 'room':
 		gs 'arousal', 'kiss', 5, 'sub'
 		gs 'stat'
 					
-
 		if boyonce[lover_number] = 1:
 			sexrand = rand(0, 3)
 
@@ -410,8 +357,7 @@ if $ARGS[0] = 'minet':
 	gs 'stat'
 
 	act 'Continue to suck':
-		cla
-		*clr
+		*clr & cla
 		swallow += 1
 		spafinloc = 12
 		gs 'cum_manage'
@@ -423,10 +369,7 @@ if $ARGS[0] = 'minet':
 	end
 
 	act 'Remove his cock before he cums':
-		cla
-		*clr
-
-
+		*clr & cla
 		if haraklover[lover_number] = 0:
 			spafinloc = 13
 			gs 'cum_manage'
@@ -434,7 +377,6 @@ if $ARGS[0] = 'minet':
 			'You remove his dick from your mouth and finish off <<$loverdesc[lover_number]>> with your hand.'
 		elseif haraklover[lover_number] = 1:
 			tiprand = rand(0, 3)
-
 			if tiprand < 3:
 				spafinloc = 13
 				gs 'cum_manage'
@@ -759,8 +701,7 @@ if $ARGS[0] = 'blow':
 	'You squatted and <<$loverdesc[lover_number]>> pulled out his penis.'
 
 	act 'Take by mouth':
-		cla
-		*clr
+		*clr & cla
 		loverrelation[lover_number] += 1
 		bja += 1
 		dick = loverdick[lover_number]
@@ -777,8 +718,7 @@ if $ARGS[0] = 'blow':
 		gs 'stat'
 
 		act 'Continue to suck':
-			cla
-			*clr
+			*clr & cla
 			swallow += 1
 			spafinloc = 12
 			gs 'cum_manage'
@@ -799,10 +739,7 @@ if $ARGS[0] = 'blow':
 		end
 
 		act 'Remove from mouth':
-			cla
-			*clr
-
-
+			*clr & cla
 			if haraklover[lover_number] = 0:
 				spafinloc = 13
 				gs 'cum_manage'
@@ -846,8 +783,7 @@ if $ARGS[0] = 'blow':
 	end
 
 	act 'Masturbate him':
-		cla
-		*clr
+		*clr & cla
 		hja += 1
 		gs 'brosok'
 		spafinloc = 13
@@ -968,8 +904,7 @@ if $ARGS[0] = 'gangbang':
 	gs 'stat'
 	
 	act 'Moan':
-		cla
-		*clr
+		*clr & cla
 		'<center><img <<$set_imgh>> src="images/shared/sex/group/gangbang1.jpg"></center>'
 		'You moan when you feel a fat cock entering your ass. Now you are filled up in every hole.'
 
@@ -995,8 +930,7 @@ if $ARGS[0] = 'gangbang':
 		'It seems the guys have played enough with you and they have decided to come on your face. They removed their dicks from your holes and point them at you.'
 
 		act 'Get on your knees':
-			cla
-			*clr
+			*clr & cla
 			'<center><img <<$set_imgh>> src="images/shared/sex/group/gangbang2.jpg"></center>'
 			'You humbly knelt before the guys, they quickly surround you and they all start to cum on your face, covering it with sticky, warm and fragrant sperm.'
 			'After the boys spent their load they lost interest in you and began to leave.'
@@ -1017,8 +951,7 @@ if $ARGS[0] = 'gangbang':
 end
 
 if $ARGS[0] = 'popala':
-	cla
-	*clr
+	*clr & cla
 	sexpartkno = 1
 	gs 'boyStat', $husID
 	gs 'boyStat', $lover[lover_number], 'a'
@@ -1031,13 +964,11 @@ if $ARGS[0] = 'popala':
 		'Just as you changed position your husband entered the room.'
 	end
 
-	
 	!!if popolaini = 2:
 	!!	'<center><img <<$set_imgh>> src="images/characters/city/husband/sex/p4.jpg"></center>'
 	!!	'Just when you start to enjoy yourself your husband enters the room.'
 	!!end
 	
-
 	if harakHusb = 0:
 		'"Honey what''s happening here? why are you cheating on me?" stammered <<$husName>> while looking at you.'
 		'"<<$husName>> it''s not what you think. It''s just sex, no feelings, I only love you. He does not mean anything. Come to me, I''ll show you how much I love you. " you answered him. You know you are caught red-handed so you made up some excuse on the spot but you don''t really think he will believe this.'
@@ -1113,7 +1044,6 @@ if $ARGS[0] = 'popala':
 			'"You really only love me?" asked <<$husName>>.'
 			'"Yes, so you come to me and i will do everything with you like he did, but it will be with love now and you will understand the difference" you replied. You are amazed at how he believes in this nonsense. <<$husName>> came up to you and you unbuttoned his pants to reveal his dick.'
 
-
 			if haraklover[lover_number] = 0:
 				gs 'lover', 'remove', lover_number
 				husbizvradd = 0
@@ -1138,8 +1068,7 @@ if $ARGS[0] = 'popala':
 				'"Sure, come on." perked <<$husName>> "Dear lie down on the bed"'
 
 				act 'Lie down':
-					cla
-					*clr
+					*clr & cla
 					houseslut += 1
 					'<center><img <<$set_imgh>> src="images/characters/city/husband/sex/p1.jpg"></center>'
 					'You lie down on the bed and <<$husName>> enters your pussy while <<$loverdesc[lover_number]>> lies before you and moves his cock to your mouth. You diligently work your husband''s cock while not forgetting your lover''s cock in your mouth.'
@@ -1163,8 +1092,7 @@ if $ARGS[0] = 'popala':
 				'"Yeah, come to bed, see how I am going to love your ass, " said <<$husName>>.'
 
 				act 'Lie down':
-					cla
-					*clr
+					*clr & cla
 					houseslut += 1
 					'<center><img <<$set_imgh>> src="images/characters/city/husband/sex/p2.jpg"></center>'
 					'You lie down on the bed and <<$husName>> enters you in the anus, while <<$loverdesc[lover_number]>> lies before you, presenting his cock to your mouth. You diligently work your husband''s cock in your ass while not forgetting your lover''s cock in your mouth.'
@@ -1262,11 +1190,9 @@ if $ARGS[0] = 'popala':
 			'"I''m sorry" I muttered while looking at the floor'
 			'<<$husName>> came up to you. "I''ll leave today and will file for divorce, but first, I will punish you, " he said while unzipping his pants and pulling out his penis. "Well, what are you wating for? Suck, whore!"'
 
-
 			if haraklover[lover_number] = 0:
 				act 'Take by mouth':
-					cla
-					*clr
+					*clr & cla
 					spafinloc = 12
 					gs 'Cum_Manage'
 					'<center><img <<$set_imgh>> src="images/characters/city/husband/sex/p3.jpg"></center>'
@@ -1293,8 +1219,7 @@ if $ARGS[0] = 'popala':
 				'"Thanks for the offer, I do believe she will be able to handle me." replied <<$loverdesc[lover_number]>>'
 
 				act 'Lie on the bed':
-					cla
-					*clr
+					*clr & cla
 					'<center><img <<$set_imgh>> src="images/characters/city/husband/sex/p1.jpg"></center>'
 					'You lie down on the bed and <<$husName>> enters your pussy while <<$loverdesc[lover_number]>> lies before you and moves his cock to your mouth. You diligently work your husband''s cock while not forgetting your lover''s cock in your mouth.'
 					'"she is still a great fuck, " said the husband.'
@@ -1318,8 +1243,7 @@ if $ARGS[0] = 'popala':
 				'"Yes, let''s punish the bitch, and then I can go to the authorities to initiate my divorce and remove this whore from my life" said <<$husName>>.'
 
 				act 'Lie on the bed':
-					cla
-					*clr
+					*clr & cla
 					'<center><img <<$set_imgh>> src="images/characters/city/husband/sex/p2.jpg"></center>'
 					'You lie down on the bed and <<$husName>> entered your anus while <<$loverdesc[lover_number]>> lay before you presenting his cock to your mouth. You diligently work your husband''s cock in your ass while not forgetting your lover''s cock in your mouth.'
 					'"Wow, even now she knows how to work that ass " said <<$husName>>.'

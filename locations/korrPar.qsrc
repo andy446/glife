@@ -4,10 +4,10 @@ music_loop = 0
 CLOSE ALL
 if sound = 0:PLAY 'sound/korr.mp3',30
 
-$metkaM = ''
-$locM = 'korrPar'
-$metka = ''
 $loc = 'korrPar'
+$metka = ''
+$locM = 'korrPar'
+$metkaM = ''
 $location_type = 'private'
 $menu_loc = 'korrPar'
 $menu_arg = ''
@@ -35,7 +35,9 @@ else
 	lcolor = rgb(106, 90, 205)
 end
 
-gs 'sentence', 'letter'
+if courtletter_date <= daystart and courtletter_date ! 0:
+	gt 'sentence', 'letter'
+end
 
 if hour ! 18 and blockBedrPar = 1:blockBedrPar = 0
 
@@ -325,11 +327,11 @@ if hour >= 10 and hour <= 23 and pav_slut >= 125 and podwhoreQW >= 3:
 	pod_client = rand(0,100)
 	if pod_whore_countQW <= 15 and pod_client <= 5:
 		play 'sound/door1.mp3',100
-		'Someone is at the door: <a href="exec: gt ''pod_whore'', ''client_talk''">Answer</a>'	
+		'Someone is at the door: <a href="exec: gt ''pod_whore'', ''client_talk''">Answer</a>'
 	elseif pod_whore_countQW > 15 and pod_client <= 20:
 		play 'sound/door1.mp3',100
 		'Someone is at the door: <a href="exec: gt ''pod_whore'', ''client_talk''">Answer</a>'
-	end	
+	end
 end
 
 if grad_miss ! 0 and grad_miss <= daystart:

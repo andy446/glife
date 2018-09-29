@@ -3,42 +3,39 @@
 !if Sveta has a home, receives an envelope home from the court to appear. If possible make it trigger as Sveta enters the home
 !!shows up when courtletter_date = daystart
 if $ARGS[0] = 'letter':
-	if courtletter_date <= daystart and courtletter_date ! 0:
-		courthearing_date = daystart + 7
-		if week = 6: courthearing_date += 2
-		if week = 7: courthearing_date += 1		
-		if courtletter_counter < 10:
-			courtletter_counter += 1
-			*clr & cla
-			minut += 5
-			pcs_mood -= 100
-			gs 'stat'
-			'<center><img <<$set_imgh>> src="images/locations/city/shared/court/openletter.jpg"></center>'
-			'As you enter your home you notice an envelope from the court. You anxiously look at it and take a deep breath before opening the envelope.'
-			if week < 6:
-				'Going through the letter you read that you''ve been summoned to appear in court a week from now.'
-			else
-				'Going through the letter you read that you''ve been summoned to appear in court on Monday, a week from now.'
-			end
-			'<i>Failing to appear in court will have dire consequences for the accused.</i> Your heart drops as you read that line...'
-			'<i>The court is located in the city center. You should arrive at 9:00 as there are a lot of cases and we can''t say when your turn might come up.</i>'
-			'You put the letter back in the envelope and let out a loud sigh...'
-
-			act 'Continue into the apartment': gt $loc, $metka
-			! or 'etoexhib', 'pos51'
+	*clr & cla
+	courtletter_date = 0
+	courthearing_date = daystart + 7
+	if week = 6: courthearing_date += 2
+	if week = 7: courthearing_date += 1
+	if courtletter_counter < 10:
+		courtletter_counter += 1
+		minut += 5
+		pcs_mood -= 100
+		gs 'stat'
+		'<center><img <<$set_imgh>> src="images/locations/city/shared/court/openletter.jpg"></center>'
+		'As you enter your home you notice an envelope from the court. You anxiously look at it and take a deep breath before opening the envelope.'
+		if week < 6:
+			'Going through the letter you read that you''ve been summoned to appear in court a week from now.'
 		else
-
-			!after ten times Sveta gets an envelope home
-			*clr & cla
-			minut += 5
-			gs 'stat'
-			'<center><img <<$set_imgh>> src="images/locations/city/shared/court/openletter.jpg"></center>'
-			'As you come home you see the familiar envelope from the court. You already know the gist of it, <i>failure to show up will have dire consequences,</i> yadda yadda...'
-			'You glance through the letter seeing the same information once again and as you finish you throw it to the side and continue further on inside your apartment...'
-
-			act 'Continue into the apartment': gt $loc, $metka
-			! or 'etoexhib', 'pos51'
+			'Going through the letter you read that you''ve been summoned to appear in court on Monday, a week from now.'
 		end
+		'<i>Failing to appear in court will have dire consequences for the accused.</i> Your heart drops as you read that line...'
+		'<i>The court is located in the city center. You should arrive at 9:00 as there are a lot of cases and we can''t say when your turn might come up.</i>'
+		'You put the letter back in the envelope and let out a loud sigh...'
+
+		act 'Continue': gt $loc, $metka
+		! or 'etoexhib', 'pos51'
+	else
+		!after ten times Sveta gets an envelope home
+		minut += 5
+		gs 'stat'
+		'<center><img <<$set_imgh>> src="images/locations/city/shared/court/openletter.jpg"></center>'
+		'As you come home you see the familiar envelope from the court. You already know the gist of it, <i>failure to show up will have dire consequences,</i> yadda yadda...'
+		'You glance through the letter seeing the same information once again and as you finish you throw it to the side and continue further on inside your apartment...'
+
+		act 'Continue': gt $loc, $metka
+		! or 'etoexhib', 'pos51'
 	end
 end
 

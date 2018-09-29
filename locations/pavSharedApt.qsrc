@@ -207,11 +207,11 @@ if $ARGS[0] = 'start':
 	$menu_loc = 'pavSharedApt'
 	$menu_arg = 'start'
 	menu_off = 0
-	$metka = 'start'
 	$goBack = $metka
-	$metkaM = 'start'
 	$locM = 'pavSharedApt'
+	$metkaM = 'start'
 	$loc = 'pavSharedApt'
+	$metka = 'start'
 	$location_type = 'private'
 	killvar '$locclass'
 	gs 'pavSharedApt', 'update'
@@ -219,7 +219,10 @@ if $ARGS[0] = 'start':
 	minut += 2
 	gs 'stat'
 
-	gs 'sentence', 'letter'
+
+	if courtletter_date <= daystart and courtletter_date ! 0:
+		gt 'sentence', 'letter'
+	end
 
 	! do this once a day
 	if daystart >= tomorrow:

@@ -465,7 +465,9 @@ if $ARGS[0] = 'gadbitch':
 			end
 		end
 	end
-	if ARRSIZE('swimwear') > 0 and $clothingworntype ! 'nude': act 'Get changed':gt 'changingroom', 'view_swim_list'
+	if ARRSIZE('swimwear') > 0:
+		act 'Get changed':gt 'changingroom', 'view_swim_list'
+	end
 	if $clothingworntype = 'nude':
 		act 'Get dressed':
 			clothesAtLocation = FUNC('lost_clothes_here','VillageRiver')
@@ -612,6 +614,9 @@ if $ARGS[0] = 'second_thoughts':
 	*nl
 	if ARRSIZE('swimwear') = 0:
 		'"Actually Mira, I can''t come in right now, as I didn''t bring a swimsuit" you replied you her. "I''m going to stay on the shore for a bit."'
+		*nl
+		'You should probably buy some swimwear if you intend of spending time at the beach'
+		*nl
 	else
 		'"Actually Mira, I''ve changed my mind, I don''t feel like swimming just now," you replied you her. "I''m going to stay on the shore for a bit."'
 	end

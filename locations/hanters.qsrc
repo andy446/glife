@@ -1,194 +1,226 @@
 # hanters
 
 if $ARGS[0]='start':
-gs 'stat'
+	gs 'stat'
 
-!$textsexhanter = 'From a member of the unpleasant smells and remains in the mouth tastes foul feces. "-Damn, I had to do an enema." - belatedly dumaeete you.'
+	!$textsexhanter = 'From a member of the unpleasant smells and remains in the mouth tastes foul feces. "-Damn, I had to do an enema." - belatedly dumaeete you.'
 
-if hantersKnow > 0:
-	if hour = 8 or hour = 14 or hour = 19:
-		'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hanters.jpg"></center>'
-		'The three hunters, Sergei, Igor and Andrei are sitting and telling each other all kinds of hunting stories.'
-	else
-		'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hanterswork1.'+rand(1,9)+'.jpg"></center>'
-		'The three hunters, Sergei, Igor and Andrei, are all minding their own business.'
-	end
-else
-	'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hanters.jpg"></center>'
-	'You see three strangers talking to each other. Each one of them telling all kinds of hunting stories.'
-end
-
-act 'Walk away':gt'swamp_yard'
-if hantersKnow = 0:
-	act 'Greet them':
-		*clr & cla
-		minut += 5
-		hantersKnow = 1
-		hantersAndreiQw += 1
-		hantersIgorQw += 1
-		hantersSergeiQw += 1
-		gs 'stat'
-
-		'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hanters1.jpg"></center>'
-		'You approached the hunters and politely greeted them. The man telling the story stopped and greeted you back.'
-		if pcs_apprnc >= 60:'"What''s your name, beautiful?" one of them asked.'
-		if pcs_apprnc < 60:'"What should we call you?" one of them asked.'
-			'"<<$pcs_nickname>>", you answer.'
-		if gadriver_gang <= 0:
-			'"I''m Andrei, replied the oldest man, and these are my friends Igor and Sergei."'
-			'"Could your surname be <<$pcs_lastname>>?" he asked. You look at him nodding.'
-			'"Don''t act surprised <<$pcs_nickname>>, you look a lot like your mother when she was younger. I... Hmmm... that''s good to know, I''m also from Gadukino." said Andrei.'
-			'"Don''t be shy, have a seat, we won''t hurt you." said Sergei, freeing up some space for you to sit on.'
+	if hantersKnow > 0:
+		if hour = 8 or hour = 14 or hour = 19:
+			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hanters.jpg"></center>'
+			'The three hunters, Sergei, Igor and Andrei are sitting and telling each other all kinds of hunting stories.'
 		else
-			'"Well well, look what the cat dragged in. If it isn''t <<$pcs_nickname>> <<$pcs_lastname>>, the local slut." said Andrei.'
-			'"Don`t be afraid, I''m also from Gadukino, you look just like your mother when she was younger, you''ve both been blessed with good looks." he says.'
-			'"I''m Andrei," he continues on and these are my friends Igor and Sergei.'
-			'"Come here sweetheart, sit down, we aren''t bad, we won''t bite." said Sergei, freeing up some space for you to sit on.'
-			hantersKnowSlut = 1
-			hantersRape = 1
+			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hanterswork1.'+rand(1,9)+'.jpg"></center>'
+			'The three hunters, Sergei, Igor and Andrei, are all minding their own business.'
 		end
-		$npc_usedname['A172'] = 'Andrei'
-		$npc_usedname['A173'] = 'Igor'
-		$npc_usedname['A174'] = 'Sergei'
-		act 'Sit down': gt 'hanters', 'start'
-		act 'Move away': gt 'swamp_yard'
+	else
+		'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hanters.jpg"></center>'
+		'You see three strangers talking to each other. Each one of them telling all kinds of hunting stories.'
 	end
-elseif hour = 8 or hour = 14 or hour = 19:
-	if hantersKnowSlut > 0 and pcs_horny > 50 and mesec <= 0:
-		act 'Stick around':
+
+	act 'Walk away':gt'swamp_yard'
+	if hantersKnow = 0:
+		act 'Greet them':
 			*clr & cla
-			gs 'boyStat', 'A172','1' &! Andrei
-			gs 'boyStat', 'A173','2' &! Igor
-			gs 'boyStat', 'A174','3' &! Sergei
-			gang +=1
-			npc_sex[$boy[1]] += 1
-			npc_sex[$boy[2]] += 1
-			npc_sex[$boy[3]] += 1
-			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hanters1.jpg"></center>'
-			'You make eye contact with the men while making a lewd reference. The men immediately drop everything and turn their attention to you...'
-			'"We know you find us irresistible <<$pcs_nickname>>." Andrei said smiling.'
-			gs 'arousal', 'foreplay', 5, 'sub', 'gangbang'
+			minut += 5
+			hantersKnow = 1
+			hantersAndreiQw += 1
+			hantersIgorQw += 1
+			hantersSergeiQw += 1
 			gs 'stat'
 
-			act 'Further':
+			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hanters1.jpg"></center>'
+			'You approached the hunters and politely greeted them. The man telling the story stopped and greeted you back.'
+			if pcs_apprnc >= 60:'"What''s your name, beautiful?" one of them asked.'
+			if pcs_apprnc < 60:'"What should we call you?" one of them asked.'
+				'"<<$pcs_nickname>>", you answer.'
+			if gadriver_gang <= 0:
+				'"I''m Andrei, replied the oldest man, and these are my friends Igor and Sergei."'
+				'"Could your surname be <<$pcs_lastname>>?" he asked. You look at him nodding.'
+				'"Don''t act surprised <<$pcs_nickname>>, you look a lot like your mother when she was younger. I... Hmmm... that''s good to know, I''m also from Gadukino." said Andrei.'
+				'"Don''t be shy, have a seat, we won''t hurt you." said Sergei, freeing up some space for you to sit on.'
+			else
+				'"Well well, look what the cat dragged in. If it isn''t <<$pcs_nickname>> <<$pcs_lastname>>, the local slut." said Andrei.'
+				'"Don`t be afraid, I''m also from Gadukino, you look just like your mother when she was younger, you''ve both been blessed with good looks." he says.'
+				'"I''m Andrei," he continues on and these are my friends Igor and Sergei.'
+				'"Come here sweetheart, sit down, we aren''t bad, we won''t bite." said Sergei, freeing up some space for you to sit on.'
+				hantersKnowSlut = 1
+				hantersRape = 1
+			end
+			$npc_usedname['A172'] = 'Andrei'
+			$npc_usedname['A173'] = 'Igor'
+			$npc_usedname['A174'] = 'Sergei'
+			act 'Sit down': gt 'hanters', 'start'
+			act 'Move away': gt 'swamp_yard'
+		end
+	elseif hour = 8 or hour = 14 or hour = 19:
+		if hantersKnowSlut > 0 and pcs_horny > 50 and mesec <= 0:
+			act 'Stick around':
 				*clr & cla
-				'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/hantersgroupundress.jpg"></center>'
-				'Igor and Sergei quickly approach you taking you by the hand and lead you towards Andrei. They start taking your clothes off on the go...'
+				gs 'boyStat', 'A172','1' &! Andrei
+				gs 'boyStat', 'A173','2' &! Igor
+				gs 'boyStat', 'A174','3' &! Sergei
+				gang +=1
+				npc_sex[$boy[1]] += 1
+				npc_sex[$boy[2]] += 1
+				npc_sex[$boy[3]] += 1
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hanters1.jpg"></center>'
+				'You make eye contact with the men while making a lewd reference. The men immediately drop everything and turn their attention to you...'
+				'"We know you find us irresistible <<$pcs_nickname>>." Andrei said smiling.'
 				gs 'arousal', 'foreplay', 5, 'sub', 'gangbang'
 				gs 'stat'
 
 				act 'Further':
 					*clr & cla
-					hantsexa = rand(1,3)
-					hantsexb = rand(1,3)
-					hantslutsex += rand(9,12)
-					'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/hantersgrouptanga.jpg"></center>'
-					'They make you lay down on the blanket, pull off your panties exposing your bare vagina. Surrounding you the men take off their pants and you get excited by seeing their swollen members.'
-					gs 'arousal', 'foreplay', 1, 'sub', 'gangbang'
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/hantersgroupundress.jpg"></center>'
+					'Igor and Sergei quickly approach you taking you by the hand and lead you towards Andrei. They start taking your clothes off on the go...'
+					gs 'arousal', 'foreplay', 5, 'sub', 'gangbang'
 					gs 'stat'
-					if hantsexa  < 3 : act 'Suck':gt 'hanters', 'hantersgroupORALasi'
-					if hantsexa  = 3 and hantsexb = 1:act 'Suck':gt 'hanters', 'hantersgroupORALsi'
-					if hantsexa  = 3 and hantsexb = 2:act 'Suck':gt 'hanters', 'hantersgroupORALai'
-					if hantsexa  = 3 and hantsexb = 3:act 'Suck':gt 'hanters', 'hantersgroupORALas'
+
+					act 'Further':
+						*clr & cla
+						hantsexa = rand(1,3)
+						hantsexb = rand(1,3)
+						hantslutsex += rand(9,12)
+						'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/hantersgrouptanga.jpg"></center>'
+						'They make you lay down on the blanket, pull off your panties exposing your bare vagina. Surrounding you the men take off their pants and you get excited by seeing their swollen members.'
+						gs 'arousal', 'foreplay', 1, 'sub', 'gangbang'
+						gs 'stat'
+						if hantsexa < 3 : act 'Suck':gt 'hanters', 'hantersgroupORALasi'
+						if hantsexa = 3 and hantsexb = 1:act 'Suck':gt 'hanters', 'hantersgroupORALsi'
+						if hantsexa = 3 and hantsexb = 2:act 'Suck':gt 'hanters', 'hantersgroupORALai'
+						if hantsexa = 3 and hantsexb = 3:act 'Suck':gt 'hanters', 'hantersgroupORALas'
+					end
 				end
 			end
 		end
-	end
-	act 'Chat':
-		*clr & cla
-		minut += rand (30,90)
-		pcs_mood += rand(10,20)
-		if hantersAndreiQw < 10:hantersAndreiQw += 1
-		if hantersIgorQw < 10:hantersIgorQw += 1
-		if hantersSergeiQw < 10:hantersSergeiQw += 1
-		gs 'stat'
-
-		if CloSkirtShortness > 0 and $pantyworntype = 'none':
+		act 'Chat':
 			*clr & cla
-			if hantersKnowSlut > 0:hanterslut += 1
-			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hantersnotanga1.jpg"></center>'
-			'You are sitting in front of the men, not wearing any panties, so the stories they tell get jumbled and most of the time is spent on throwing sideways glances at your naked vagina.'
-			gs 'arousal', 'foreplay', 5, 'sub', 'gangbang'
+			minut += rand (30,90)
+			pcs_mood += rand(10,20)
+			if hantersAndreiQw < 10:hantersAndreiQw += 1
+			if hantersIgorQw < 10:hantersIgorQw += 1
+			if hantersSergeiQw < 10:hantersSergeiQw += 1
 			gs 'stat'
-		else
-			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hanters1.jpg"></center>'
-			'You enthusiastically listen to the their hunting stories and even share some of your stories.'
-			gs 'hanters', 'hanters_talk'
-			'You get so caught up in the conversation, you don''t even notice how fast the time flies by.'
-		end
-		act 'Move away': gt 'swamp_yard'
-	end
-	if hantersAndreiQw >= 10 and hantersSergeiQw >= 10 and hantersIgorQw >= 10 and shootingday ! daystart:
-		if hantersKnowSlut = 0:
-			if shooting = 0:
-				act 'Ask to learn how to shoot the rifle':
-					*clr & cla
-					minut += 5
-					shootingday = daystart
-					gs 'stat'
-					'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/claps_eyes.jpg"></center>'
-					'"Can''t you guys teach me how to shoot a rifle?'
-					'"You''re a girl, why would you want to learn something like that <<$pcs_nickname>>?" Andrei said smiling. "You should pursue sewing or maybe a girly sport instead. Shooting is for boys."'
-					'"Pretty please." you look at them while making puppy eyes.'
-					if pcs_apprnc >= 60:
-						shooting = 1
-						if hantersAndreiQw < 20:hantersAndreiQw += 1
-						if hantersIgorQw < 20:hantersIgorQw += 1
-						if hantersSergeiQw < 20:hantersSergeiQw += 1
-						'"Okay <<$pcs_nickname>>, we give up", they say smiling. "You''ve persuaded us, we''ll teach you how to shoot...'
-					else
-						hantersAndreiQw -= 1
-						hantersIgorQw -= 1
-						hantersSergeiQw -= 1
-						'"No, <<$pcs_nickname>>, that will not work." they answer. "And don''t assume that those puppy eyes will work on us.'
-   						'You frown your lips and turn your back on the men. "You guys are no fun, I''m leaving." you say angrily while moving away from the hunters.'
-					end
-					if shooting = 1:
 
-						act 'Learn how to shoot the rifle (0:30)':
-							*clr & cla
-							minut += 30
-							'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/shooting.jpg"></center>'
-							'The hunters explain how to hold the rifle, aim, and when to squeeze the trigger. You feel that you are ready and decide to take a...'
-							gs 'stat'
-
-							act 'Shot':
-								*clr & cla
-								minut += 1
-								fingal +=  rand(1,3)
-								shoot_exp += 1
-								'<center><video autoplay loop src="images/locations/gadukino/hunters/shooting1.mp4"></video></center>'
-								'The recoil wasn''t at all as you expected it to be. You hear a loud bang, and the last thing you remember is something hitting you on the forehead...'
-								gs 'stat'
-
-								act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-							end
-						end
-					else
-						act'Go':gt 'swamp_yard'
-					end
-				end
+			if CloSkirtShortness > 0 and $pantyworntype = 'none':
+				*clr & cla
+				if hantersKnowSlut > 0:hanterslut += 1
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hantersnotanga1.jpg"></center>'
+				'You are sitting in front of the men, not wearing any panties, so the stories they tell get jumbled and most of the time is spent on throwing sideways glances at your naked vagina.'
+				gs 'arousal', 'foreplay', 5, 'sub', 'gangbang'
+				gs 'stat'
 			else
-				act 'Ask to shoot the rifle':
-					if fingal = 0:
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hanters1.jpg"></center>'
+				'You enthusiastically listen to the their hunting stories and even share some of your stories.'
+				gs 'hanters', 'hanters_talk'
+				'You get so caught up in the conversation, you don''t even notice how fast the time flies by.'
+			end
+			act 'Move away': gt 'swamp_yard'
+		end
+		if hantersAndreiQw >= 10 and hantersSergeiQw >= 10 and hantersIgorQw >= 10 and shootingday ! daystart:
+			if hantersKnowSlut = 0:
+				if shooting = 0:
+					act 'Ask to learn how to shoot the rifle':
 						*clr & cla
 						minut += 5
 						shootingday = daystart
 						gs 'stat'
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/claps_eyes.jpg"></center>'
-						'You approach the hunters sitting in a clearing. "Guys, could you give me the rifle? I want to try it out again." You ask the hunters.'
-						if shooting = 1:
-							shooting = 2
-							'"Okay, <<$pcs_nickname>>, just don''t end up like the first time," Andrei said jokingly.'
-						elseif pcs_shoot <= 10:
-							'"Sure, <<$pcs_nickname>>, just be careful." Andrei said smiling.'
+						'"Can''t you guys teach me how to shoot a rifle?'
+						'"You''re a girl, why would you want to learn something like that <<$pcs_nickname>>?" Andrei said smiling. "You should pursue sewing or maybe a girly sport instead. Shooting is for boys."'
+						'"Pretty please." you look at them while making puppy eyes.'
+						if pcs_apprnc >= 60:
+							shooting = 1
+							if hantersAndreiQw < 20:hantersAndreiQw += 1
+							if hantersIgorQw < 20:hantersIgorQw += 1
+							if hantersSergeiQw < 20:hantersSergeiQw += 1
+							'"Okay <<$pcs_nickname>>, we give up", they say smiling. "You''ve persuaded us, we''ll teach you how to shoot...'
 						else
-							'"Here, <<$pcs_nickname>>, just don''t shoot too much, the bullets are expensive." Andrei said smiling.'
+							hantersAndreiQw -= 1
+							hantersIgorQw -= 1
+							hantersSergeiQw -= 1
+							'"No, <<$pcs_nickname>>, that will not work." they answer. "And don''t assume that those puppy eyes will work on us.'
+							'You frown your lips and turn your back on the men. "You guys are no fun, I''m leaving." you say angrily while moving away from the hunters.'
 						end
-						if pcs_shoot >= 1 and pcs_shoot <= 10:
+						if shooting = 1:
 
-							act 'Go shooting (1:00)':
-								if (pcs_stren + pcs_shoot > 20) or (pcs_stren + pcs_shoot < 20 and rand(1,2) = 1):
+							act 'Learn how to shoot the rifle (0:30)':
+								*clr & cla
+								minut += 30
+								'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/shooting.jpg"></center>'
+								'The hunters explain how to hold the rifle, aim, and when to squeeze the trigger. You feel that you are ready and decide to take a...'
+								gs 'stat'
+
+								act 'Shot':
+									*clr & cla
+									minut += 1
+									fingal +=  rand(1,3)
+									shoot_exp += 1
+									'<center><video autoplay loop src="images/locations/gadukino/hunters/shooting1.mp4"></video></center>'
+									'The recoil wasn''t at all as you expected it to be. You hear a loud bang, and the last thing you remember is something hitting you on the forehead...'
+									gs 'stat'
+
+									act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+								end
+							end
+						else
+							act'Go':gt 'swamp_yard'
+						end
+					end
+				else
+					act 'Ask to shoot the rifle':
+						if fingal = 0:
+							*clr & cla
+							minut += 5
+							shootingday = daystart
+							gs 'stat'
+							'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/claps_eyes.jpg"></center>'
+							'You approach the hunters sitting in a clearing. "Guys, could you give me the rifle? I want to try it out again." You ask the hunters.'
+							if shooting = 1:
+								shooting = 2
+								'"Okay, <<$pcs_nickname>>, just don''t end up like the first time," Andrei said jokingly.'
+							elseif pcs_shoot <= 10:
+								'"Sure, <<$pcs_nickname>>, just be careful." Andrei said smiling.'
+							else
+								'"Here, <<$pcs_nickname>>, just don''t shoot too much, the bullets are expensive." Andrei said smiling.'
+							end
+							if pcs_shoot >= 1 and pcs_shoot <= 10:
+
+								act 'Go shooting (1:00)':
+									if (pcs_stren + pcs_shoot > 20) or (pcs_stren + pcs_shoot < 20 and rand(1,2) = 1):
+										*clr & cla
+										minut += 60
+										shoot_exp += 1
+										gs 'stat'
+										'<center><video autoplay loop src="images/locations/gadukino/hunters/shooting2.mp4"></video></center>'
+										'You fire the rifle for an hour under the hunters watchful eyes.'
+
+										act'Further':gt 'swamp_yard'
+									else
+										*clr & cla
+										minut += 5
+										shoot_exp += 1
+										gs 'stat'
+										'<center><video autoplay loop src="images/locations/gadukino/hunters/shooting1.mp4"></video></center>'
+										'Everything went wrong just like the first time. You take a shot and got hit once again by the rifle on the forehead...'
+										'"<<$pcs_nickname>>, are you still alive?" Igor asked you with some concern in his voice.'
+										'"Yeah, I think so..." you reply, holding your bruised forehead.'
+										'"I''m glad to hear that," Andrei said laughing. "Go get some rest, little Rambo".'
+
+										act'Further':
+											*clr & cla
+											minut += 1
+											gs 'stat'
+											'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/tongue.jpg"></center>'
+											'"I''m not Rambo, I''m Lara Croft," you reply. Andrei, stands there looking confused not understanding the reference.'
+
+											act'Further':gt 'swamp_yard'
+										end
+									end
+								end
+							else
+								act 'Go shooting (1:00)':
 									*clr & cla
 									minut += 60
 									shoot_exp += 1
@@ -197,289 +229,255 @@ elseif hour = 8 or hour = 14 or hour = 19:
 									'You fire the rifle for an hour under the hunters watchful eyes.'
 
 									act'Further':gt 'swamp_yard'
-								else
-									*clr & cla
-									minut += 5
-									shoot_exp += 1
-									gs 'stat'
-									'<center><video autoplay loop src="images/locations/gadukino/hunters/shooting1.mp4"></video></center>'
-									'Everything went wrong just like the first time. You take a shot and got hit once again by the rifle on the forehead...'
-									'"<<$pcs_nickname>>, are you still alive?" Igor asked you with some concern in his voice.'
-									'"Yeah, I think so..." you reply, holding your bruised forehead.'
-									'"I''m glad to hear that," Andrei said laughing. "Go get some rest, little Rambo".'
-
-									act'Further':
-										*clr & cla
-										minut += 1
-										gs 'stat'
-										'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/tongue.jpg"></center>'
-										'"I''m not Rambo, I''m Lara Croft," you reply. Andrei, stands there looking confused not understanding the reference.'
-
-										act'Further':gt 'swamp_yard'
-									end
 								end
 							end
 						else
-							act 'Go shooting (1:00)':
-								*clr & cla
-								minut += 60
-								shoot_exp += 1
-								gs 'stat'
-								'<center><video autoplay loop src="images/locations/gadukino/hunters/shooting2.mp4"></video></center>'
-								'You fire the rifle for an hour under the hunters watchful eyes.'
+							*clr & cla
+							minut += 5
+							shootingday = daystart
+							gs 'stat'
+							'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/claps_eyes.jpg"></center>'
+							'You approach the hunters sitting in a clearing. "Guys, could you give me the rifle? I want to try it out again." You ask the hunters.'
+							'"You need to heal your forehead first." Andrei says smiling. "You have the spirit of an Amazon, you need to relax."'
 
-								act'Further':gt 'swamp_yard'
-							end
+							act'Further':gt 'swamp_yard'
 						end
-					else
-						*clr & cla
-						minut += 5
-						shootingday = daystart
-						gs 'stat'
-						'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/claps_eyes.jpg"></center>'
-						'You approach the hunters sitting in a clearing. "Guys, could you give me the rifle? I want to try it out again." You ask the hunters.'
-						'"You need to heal your forehead first." Andrei says smiling. "You have the spirit of an Amazon, you need to relax."'
-
-						act'Further':gt 'swamp_yard'
 					end
 				end
-			end
-		else
-			if hantslutsex = 0:
-				*clr & cla
-				minut += 5
-				shootingday = daystart
-				hantersexnude = 1
-				gs 'stat'
-				'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/claps_eyes.jpg"></center>'
-				'You approach the hunters sitting in the meadow. "Guys, let me shoot the rifle," you look at them with your puppy eyes.'
-				'"<<$pcs_nickname>>, come closer," replied Andrei. "If you want to shoot you need to repay us somehow."'
-
-				act'Approach':gt 'hanters', 'start'
 			else
-				*clr & cla
-				minut += 5
-				shootingday = daystart
-				gs 'stat'
+				if hantslutsex = 0:
+					*clr & cla
+					minut += 5
+					shootingday = daystart
+					hantersexnude = 1
+					gs 'stat'
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/claps_eyes.jpg"></center>'
+					'You approach the hunters sitting in the meadow. "Guys, let me shoot the rifle," you look at them with your puppy eyes.'
+					'"<<$pcs_nickname>>, come closer," replied Andrei. "If you want to shoot you need to repay us somehow."'
 
-				'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/claps_eyes.jpg"></center>'
-				'"Please guys, I really want to shoot with the rifle."'
-				'"Don''t you worry <<$pcs_nickname>>, you have other talents that are more needed." Andrei replied.'
-				'He scoffs, pleased with the joke.'
+					act'Approach':gt 'hanters', 'start'
+				else
+					*clr & cla
+					minut += 5
+					shootingday = daystart
+					gs 'stat'
 
-				act'Move away':gt 'swamp_yard'
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/claps_eyes.jpg"></center>'
+					'"Please guys, I really want to shoot with the rifle."'
+					'"Don''t you worry <<$pcs_nickname>>, you have other talents that are more needed." Andrei replied.'
+					'He scoffs, pleased with the joke.'
+
+					act'Move away':gt 'swamp_yard'
+				end
 			end
 		end
+	else
+		act'Talk to Andrei':gt'AndreiHanter'
+		act'Talk to Sergei':gt'SergeiHanter'
+		act'Talk to Igor':gt'IgorHanter'
 	end
-else
-	act'Talk to Andrei':gt'AndreiHanter'
-	act'Talk to Sergei':gt'SergeiHanter'
-	act'Talk to Igor':gt'IgorHanter'
-end
 
-!actions if the SG slut in Gadukino
-if hantersRape = 3:
-	cla
-	*clr
-	minut += 5
-	hantersKnowSlut = 1
-	boyAsex = 0
-	boyBsex = 0
-	boyCsex = 0
-	boyAsexa = 0
-	boyBsexa = 0
-	boyCsexa = 0
-	if hanterandreisex = 0:hanterandreisex = 1 & guy += 1
-	if hantersergeisex = 0:hantersergeisex = 1 & guy += 1
-	if hanterigorsex = 0:hanterigorsex = 1 & guy += 1
-	if hantersIgorLove = 1:hantersIgorLove = 0 & hantersIgorQw -= 100
-	if hantersIgorLove = 2:hantersIgorLove = 0 & hantersIgorQw -= 100 & bfA = 0
-	if hantersIgorLove = 3:hantersIgorLove = 0 & hantersIgorQw -= 100 & husband = 0 & divorced += 1 & husbandMark = 0 & husbharmin = 0 & husbizvradd = 0
-	if hantersSergeiLove = 1:hantersSergeiLove = 0 & hantersSergeiQw -= 100
-	if hantersAndreiLove = 1:hantersAndreiLove = 0 & hantersAndreiQw -= 100
-	gs 'stat'
-
-	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax2.jpg"></center>'
-	'You''re sitting down in the meadow near the road, relaxing, enjoying the nice weather, when all of a sudden Andrei, Sergei and Igor approach you. They quickly surround you not letting move away.'
-	'"Hey, <<$pcs_nickname>>, we''ve been talking with each other, and we feel that you need to repay us somehow for the lessons. So what do you say?"'
-
-	act 'Agree':
-		*clr & cla
-		hantersRape = 5
-		pcs_dom -= 2
-		gs 'stat'
-
-		'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/hantersgroupundress.jpg"></center>'
-		'"I guess you''re right I need to repay you somehow..."'
-		'As soon you''ve agreed the guys change their attitude towards you. Igor helps you up and leads you away from the road while Andrei and Sergei already began taking your clothes off...'
-
-		gs 'arousal', 'foreplay', 5, 'sub', 'gangbang'
-		gs 'stat'
-
-		act 'Further':
-			*clr & cla
-			dirty_dickA = 0
-			dirty_dickB = 0
-			dirty_dickC = 0
-			hantsexa = rand(1,3)
-			hantsexb = rand(1,3)
-			hantslutsex += rand(9,12)
-			hantersexnude = 1
-			gs 'stat'
-
-		   '<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/hantersgrouptanga.jpg"></center>'
-		   'They lay you down on the blanket and quickly pull off your panties. They drop their pants and are standing in front of you with their cocks hanging in the open. "So what are you waiting for? Start sucking."'
-
-			gs 'arousal', 'foreplay', 2, 'sub', 'gangbang'
-			gs 'stat'
-
-			if hantsexa  < 3 : act 'Suck':gt 'hanters', 'hantersgroupORALasi'
-			if hantsexa  = 3 and hantsexb = 1:act 'Suck':gt 'hanters', 'hantersgroupORALsi'
-			if hantsexa  = 3 and hantsexb = 2:act 'Suck':gt 'hanters', 'hantersgroupORALai'
-			if hantsexa  = 3 and hantsexb = 3:act 'Suck':gt 'hanters', 'hantersgroupORALas'
-		end
-	end
-	act 'Refuse':
+	!actions if the SG slut in Gadukino
+	if hantersRape = 3:
 		*clr & cla
 		minut += 5
+		hantersKnowSlut = 1
+		boyAsex = 0
+		boyBsex = 0
+		boyCsex = 0
+		boyAsexa = 0
+		boyBsexa = 0
+		boyCsexa = 0
+		if hanterandreisex = 0:hanterandreisex = 1 & guy += 1
+		if hantersergeisex = 0:hantersergeisex = 1 & guy += 1
+		if hanterigorsex = 0:hanterigorsex = 1 & guy += 1
+		if hantersIgorLove = 1:hantersIgorLove = 0 & hantersIgorQw -= 100
+		if hantersIgorLove = 2:hantersIgorLove = 0 & hantersIgorQw -= 100 & bfA = 0
+		if hantersIgorLove = 3:hantersIgorLove = 0 & hantersIgorQw -= 100 & husband = 0 & divorced += 1 & husbandMark = 0 & husbharmin = 0 & husbizvradd = 0
+		if hantersSergeiLove = 1:hantersSergeiLove = 0 & hantersSergeiQw -= 100
+		if hantersAndreiLove = 1:hantersAndreiLove = 0 & hantersAndreiQw -= 100
 		gs 'stat'
 
-		'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax3.jpg"></center>'
-		'You politely refuse saying you don''t owe them anything, but the men won''t accept a no and you can see that they''re clearly not satisfied with your answer.'
-		'"<<$pcs_nickname>>, don''t fuck around with us. Deep inside you know you need to repay us." said Andrei, grabbing you by the hair.'
+		'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax2.jpg"></center>'
+		'You''re sitting down in the meadow near the road, relaxing, enjoying the nice weather, when all of a sudden Andrei, Sergei and Igor approach you. They quickly surround you not letting move away.'
+		'"Hey, <<$pcs_nickname>>, we''ve been talking with each other, and we feel that you need to repay us somehow for the lessons. So what do you say?"'
 
 		act 'Agree':
 			*clr & cla
-			minut += 5
-			gang += 1
 			hantersRape = 5
-			pcs_dom -= 1
+			pcs_dom -= 2
 			gs 'stat'
 
-			'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax4.jpg"></center>'
-			'Andrei orders Sergei to grab you by the arms, so you can''t run away if you change your mind again...'
+			'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/hantersgroupundress.jpg"></center>'
+			'"I guess you''re right I need to repay you somehow..."'
+			'As soon you''ve agreed the guys change their attitude towards you. Igor helps you up and leads you away from the road while Andrei and Sergei already began taking your clothes off...'
+
+			gs 'arousal', 'foreplay', 5, 'sub', 'gangbang'
+			gs 'stat'
 
 			act 'Further':
 				*clr & cla
+				dirty_dickA = 0
+				dirty_dickB = 0
+				dirty_dickC = 0
+				hantsexa = rand(1,3)
+				hantsexb = rand(1,3)
+				hantslutsex += rand(9,12)
+				hantersexnude = 1
 				gs 'stat'
-				'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax5.'+rand(1,3)+'.jpg"></center>'
-				'While Sergei is holding you by the arms Andrei and Igor start groping every inch of your body...'
 
-				gs 'arousal', 'foreplay', 5, 'sub', 'gangbang'
+			   '<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/hantersgrouptanga.jpg"></center>'
+			   'They lay you down on the blanket and quickly pull off your panties. They drop their pants and are standing in front of you with their cocks hanging in the open. "So what are you waiting for? Start sucking."'
+
+				gs 'arousal', 'foreplay', 2, 'sub', 'gangbang'
 				gs 'stat'
-				act 'Further':
-					*clr & cla
-					dirty_dickA = 0
-					dirty_dickB = 0
-					dirty_dickC = 0
-					hantsexa = rand(1,3)
-					hantsexb = rand(1,3)
-					hantslutsex += rand(9,12)
-					hantersexnude = 1
-					gs 'stat'
 
-					'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/hantersgrouptanga.jpg"></center>'
-					'They force you on the back, yanking your panties, Sergei keeps holding you down while Andrei and Igor take off their pants. "On your knees and start sucking!" Andrei commands you. "Sergei take off your pants, this little bitch is going to please you too."'
-
-					gs 'arousal', 'foreplay', 2, 'sub', 'gangbang'
-					gs 'stat'
-
-					if hantsexa  < 3 : act 'Suck':gt 'hanters', 'hantersgroupORALasi'
-					if hantsexa  = 3 and hantsexb = 1:act 'Suck':gt 'hanters', 'hantersgroupORALsi'
-					if hantsexa  = 3 and hantsexb = 2:act 'Suck':gt 'hanters', 'hantersgroupORALai'
-					if hantsexa  = 3 and hantsexb = 3:act 'Suck':gt 'hanters', 'hantersgroupORALas'
-				end
+				if hantsexa < 3 : act 'Suck':gt 'hanters', 'hantersgroupORALasi'
+				if hantsexa = 3 and hantsexb = 1:act 'Suck':gt 'hanters', 'hantersgroupORALsi'
+				if hantsexa = 3 and hantsexb = 2:act 'Suck':gt 'hanters', 'hantersgroupORALai'
+				if hantsexa = 3 and hantsexb = 3:act 'Suck':gt 'hanters', 'hantersgroupORALas'
 			end
 		end
-		act 'Resist':
+		act 'Refuse':
 			*clr & cla
 			minut += 5
-			gang += 1
-			rape +=1
-			hantersRape = 4
-			pcs_dom += 1
 			gs 'stat'
 
-			'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax6.jpg"></center>'
-			'You desperately begin to resist, but the men are too strong for you. Andrei orders Igor and Sergei to grab you and while you''re fighting them Andrei approaches and slaps you across the face...'
+			'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax3.jpg"></center>'
+			'You politely refuse saying you don''t owe them anything, but the men won''t accept a no and you can see that they''re clearly not satisfied with your answer.'
+			'"<<$pcs_nickname>>, don''t fuck around with us. Deep inside you know you need to repay us." said Andrei, grabbing you by the hair.'
 
-			act 'Further':
+			act 'Agree':
 				*clr & cla
 				minut += 5
+				gang += 1
+				hantersRape = 5
+				pcs_dom -= 1
 				gs 'stat'
-				'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax7.jpg"></center>'
-				'Andrei keeps holding you down, grabbing the clothes, tearing them off...'
+
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax4.jpg"></center>'
+				'Andrei orders Sergei to grab you by the arms, so you can''t run away if you change your mind again...'
 
 				act 'Further':
 					*clr & cla
 					gs 'stat'
-					'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax8.jpg"></center>'
-					'While Igor and Sergei are holding you down Andrei takes off his pants, bringing his cock closer towards your mouth. You shake your head trying to pull away, but he grabs you by the head, and violently shoves his cock into your mouth.'
-					'"Suck on it, bitch," you hear him say while tearing up. "And God forbid, if I feel any teeth, I''ll fucking bury you!"'
-					gs 'boyStat', 'A172'
-					'At the same time Sergei, feeling he can take advantage of the situation, pulls your panties to the side and begins fondling your vagina.'
-					'Igor grabs your hand, takes out his cock, places it in the palm of your hand, leaving you with no choice but to begin jerking him off.'
-					gs 'arousal', 'bj', 5, 'sub', 'gangbang', 'rough'
-					gs 'arousal', 'hj', 5, 'sub', 'gangbang'
-					gs 'arousal', 'vaginal_finger', 5, 'sub', 'gangbang'
-					minut -= 5
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax5.'+rand(1,3)+'.jpg"></center>'
+					'While Sergei is holding you by the arms Andrei and Igor start groping every inch of your body...'
+
+					gs 'arousal', 'foreplay', 5, 'sub', 'gangbang'
 					gs 'stat'
 					act 'Further':
 						*clr & cla
-						minut += 5
+						dirty_dickA = 0
+						dirty_dickB = 0
+						dirty_dickC = 0
+						hantsexa = rand(1,3)
+						hantsexb = rand(1,3)
+						hantslutsex += rand(9,12)
+						hantersexnude = 1
 						gs 'stat'
-						'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax9.jpg"></center>'
-						'After playing around for a while, Sergei and Andrei grab you by your hands and feet and carry you into a clearing behind the hut.'
 
+						'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/hantersgrouptanga.jpg"></center>'
+						'They force you on the back, yanking your panties, Sergei keeps holding you down while Andrei and Igor take off their pants. "On your knees and start sucking!" Andrei commands you. "Sergei take off your pants, this little bitch is going to please you too."'
+
+						gs 'arousal', 'foreplay', 2, 'sub', 'gangbang'
+						gs 'stat'
+
+						if hantsexa < 3 : act 'Suck':gt 'hanters', 'hantersgroupORALasi'
+						if hantsexa = 3 and hantsexb = 1:act 'Suck':gt 'hanters', 'hantersgroupORALsi'
+						if hantsexa = 3 and hantsexb = 2:act 'Suck':gt 'hanters', 'hantersgroupORALai'
+						if hantsexa = 3 and hantsexb = 3:act 'Suck':gt 'hanters', 'hantersgroupORALas'
+					end
+				end
+			end
+			act 'Resist':
+				*clr & cla
+				minut += 5
+				gang += 1
+				rape +=1
+				hantersRape = 4
+				pcs_dom += 1
+				gs 'stat'
+
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax6.jpg"></center>'
+				'You desperately begin to resist, but the men are too strong for you. Andrei orders Igor and Sergei to grab you and while you''re fighting them Andrei approaches and slaps you across the face...'
+
+				act 'Further':
+					*clr & cla
+					minut += 5
+					gs 'stat'
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax7.jpg"></center>'
+					'Andrei keeps holding you down, grabbing the clothes, tearing them off...'
+
+					act 'Further':
+						*clr & cla
+						gs 'stat'
+						'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax8.jpg"></center>'
+						'While Igor and Sergei are holding you down Andrei takes off his pants, bringing his cock closer towards your mouth. You shake your head trying to pull away, but he grabs you by the head, and violently shoves his cock into your mouth.'
+						'"Suck on it, bitch," you hear him say while tearing up. "And God forbid, if I feel any teeth, I''ll fucking bury you!"'
+						gs 'boyStat', 'A172'
+						'At the same time Sergei, feeling he can take advantage of the situation, pulls your panties to the side and begins fondling your vagina.'
+						'Igor grabs your hand, takes out his cock, places it in the palm of your hand, leaving you with no choice but to begin jerking him off.'
+						gs 'arousal', 'bj', 5, 'sub', 'gangbang', 'rough'
+						gs 'arousal', 'hj', 5, 'sub', 'gangbang'
+						gs 'arousal', 'vaginal_finger', 5, 'sub', 'gangbang'
+						minut -= 5
+						gs 'stat'
 						act 'Further':
 							*clr & cla
 							minut += 5
 							gs 'stat'
-							'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax10.jpg"></center>'
-							'There they twist your arms, so you don''t attempt to escape, while Igor fetches a blanket from the hut...'
+							'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax9.jpg"></center>'
+							'After playing around for a while, Sergei and Andrei grab you by your hands and feet and carry you into a clearing behind the hut.'
 
 							act 'Further':
 								*clr & cla
 								minut += 5
 								gs 'stat'
-								'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax11.jpg"></center>'
-								'The men throw you down on the blanket and pull off you panties...'
+								'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax10.jpg"></center>'
+								'There they twist your arms, so you don''t attempt to escape, while Igor fetches a blanket from the hut...'
 
 								act 'Further':
 									*clr & cla
+									minut += 5
 									gs 'stat'
-									'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax12.jpg"></center>'
-									'The men start exploring your body. Sergei grabs you by the face, Igor squeezes your breast, while Andrei starts caressing your vagina...'
+									'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax11.jpg"></center>'
+									'The men throw you down on the blanket and pull off you panties...'
 
-									gs 'arousal', 'foreplay', 5, 'sub', 'gangbang', 'rough'
-									gs 'stat'
 									act 'Further':
 										*clr & cla
 										gs 'stat'
-										'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax14.jpg"></center>'
-										'Andrei finger-fucks you with his two fingers. Sergei and Igor go down on their knees whip out their cocks and make you jerk them off...'
+										'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax12.jpg"></center>'
+										'The men start exploring your body. Sergei grabs you by the face, Igor squeezes your breast, while Andrei starts caressing your vagina...'
 
-										gs 'arousal', 'vaginal_finger', 5, 'sub', 'gangbang', 'rough'
-										gs 'arousal', 'hj', 5, 'sub', 'gangbang'
-										minut -= 5
+										gs 'arousal', 'foreplay', 5, 'sub', 'gangbang', 'rough'
 										gs 'stat'
 										act 'Further':
 											*clr & cla
-											minut += 1
-											dirty_dickA = 0
-											dirty_dickB = 0
-											dirty_dickC = 0
-											hantsexa = rand(1,3)
-											hantsexb = rand(1,3)
-											hantslutsex += rand(9,12)
-											hantersexnude = 1
 											gs 'stat'
+											'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax14.jpg"></center>'
+											'Andrei finger-fucks you with his two fingers. Sergei and Igor go down on their knees whip out their cocks and make you jerk them off...'
 
-											'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax13.jpg"></center>'
-											'Andrei pulls out of his fingers and the men surround you holding their cocks. Their animal instincts have taken over and they''re ready for some real action.'
-											'"Now that we''re past the foreplay <<$pcs_nickname>>, let''s have some real fun," said Andrei.'
+											gs 'arousal', 'vaginal_finger', 5, 'sub', 'gangbang', 'rough'
+											gs 'arousal', 'hj', 5, 'sub', 'gangbang'
+											minut -= 5
+											gs 'stat'
+											act 'Further':
+												*clr & cla
+												minut += 1
+												dirty_dickA = 0
+												dirty_dickB = 0
+												dirty_dickC = 0
+												hantslutsex += rand(9,12)
+												hantersexnude = 1
+												gs 'stat'
 
-											act 'Suck':gt 'hanters', 'hantersgroupORALasi'
+												'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax13.jpg"></center>'
+												'Andrei pulls out of his fingers and the men surround you holding their cocks. Their animal instincts have taken over and they''re ready for some real action.'
+												'"Now that we''re past the foreplay <<$pcs_nickname>>, let''s have some real fun," said Andrei.'
+
+												act 'Suck':gt 'hanters', 'hantersgroupORALasi'
+											end
 										end
 									end
 								end
@@ -490,184 +488,179 @@ if hantersRape = 3:
 			end
 		end
 	end
-end
-!if he agreed to a Blowjob after Striptease and later sex
-if hantdanceslut = 2:
-	*clr & cla
-	minut += 1
-	hantdanceslut = 4
-	hantersRape = 5
-	pcs_dom -= 1
-	boyAsex = 0
-	boyBsex = 0
-	boyCsex = 0
-	boyAsexa = 0
-	boyBsexa = 0
-	boyCsexa = 0
-	gs 'stat'
-
-	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax2.jpg"></center>'
-	'Andrei, Igor and Sergei walk up to you and strike up a conversation. Before you know it they''ve surrounded you, unzipping their pants.'
-
-	act 'Suck':
+	!if he agreed to a Blowjob after Striptease and later sex
+	if hantdanceslut = 2:
 		*clr & cla
-		dirty_dickA = 0
-		dirty_dickB = 0
-		dirty_dickC = 0
-		pcs_horny += rand(10,20)
+		minut += 1
+		hantdanceslut = 4
+		hantersRape = 5
+		pcs_dom -= 1
+		boyAsex = 0
+		boyBsex = 0
+		boyCsex = 0
+		boyAsexa = 0
+		boyBsexa = 0
+		boyCsexa = 0
 		gs 'stat'
 
-		'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/hantersgroupBJ3.6.jpg"></center>'
-		'Without any hesitation you begin sucking off Sergei and jerking off Igor. Andrei stands next to you playing with himself. Not to let him feel left out, you start sucking Andrei off. Thereafter you alternate your attention to each one of the men.'
-		gs 'boyStat', 'A172'
-		gs 'boyStat', 'A174'
-		gs 'boyStat', 'A173'
-		gs 'arousal', 'bj', 15, 'sub', 'gangbang'
-		gs 'stat'
+		'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax2.jpg"></center>'
+		'Andrei, Igor and Sergei walk up to you and strike up a conversation. Before you know it they''ve surrounded you, unzipping their pants.'
 
-		act 'Continue sucking':
+		act 'Suck':
 			*clr & cla
-			gs 'cum_call', 'face', $boy, 1
-			if $clothingworntype = 'nude':gs 'cum_call', 'stomach', $boy, 1
-			if ($clothingworntype ! 'nude' and $clothingworntype ! 'swimwear'):gs 'cum_call', 'clothesgroin', $boy, 1
-			gs 'boyStat', 'A174'
-			gs 'cum_call', 'face', $boy, 1
-			if $clothingworntype = 'nude':gs 'cum_call', 'stomach', $boy, 1
-			if ($clothingworntype ! 'nude' and $clothingworntype ! 'swimwear'):gs 'cum_call', 'clothesgroin', $boy, 1
+			dirty_dickA = 0
+			dirty_dickB = 0
+			dirty_dickC = 0
+			pcs_horny += rand(10,20)
+			gs 'stat'
+
+			'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/hantersgroupBJ3.6.jpg"></center>'
+			'Without any hesitation you begin sucking off Sergei and jerking off Igor. Andrei stands next to you playing with himself. Not to let him feel left out, you start sucking Andrei off. Thereafter you alternate your attention to each one of the men.'
 			gs 'boyStat', 'A172'
-			gs 'cum_call', 'face', $boy, 1
-			if $clothingworntype = 'nude':gs 'cum_call', 'stomach', $boy, 1
-			if ($clothingworntype ! 'nude' and $clothingworntype ! 'swimwear'):gs 'cum_call', 'clothesgroin', $boy, 1
-			hantersKnowSlut = 2
-			hantslutsex += rand(9,12)
+			gs 'boyStat', 'A174'
+			gs 'boyStat', 'A173'
+			gs 'arousal', 'bj', 15, 'sub', 'gangbang'
 			gs 'stat'
 
-			'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/hantersgroupo1.0.jpg"></center>'
-			'You continue orally pleasuring the men, noticing their pulsating cocks ready to explode. Few moments later the men all cum on your face. Feeling satisfied the men start walking away from you.'
-			'"Not bad, <<$pcs_nickname>>," you hear Andrei saying. "Now we know that you are really good at this."'
-			'"We''ll be seeing you again, <<$pcs_nickname>>. And don''t worry, you should be proud of how good you are at pleasuring men."'
-
-			gs 'arousal', 'bj', 5, 'sub', 'gangbang'
-			gs 'stat'
-			act 'Wonder':
+			act 'Continue sucking':
 				*clr & cla
-				minut += 5
+				gs 'cum_call', 'face', $boy, 1
+				if $clothingworntype = 'nude':gs 'cum_call', 'stomach', $boy, 1
+				if ($clothingworntype ! 'nude' and $clothingworntype ! 'swimwear'):gs 'cum_call', 'clothesgroin', $boy, 1
+				gs 'boyStat', 'A174'
+				gs 'cum_call', 'face', $boy, 1
+				if $clothingworntype = 'nude':gs 'cum_call', 'stomach', $boy, 1
+				if ($clothingworntype ! 'nude' and $clothingworntype ! 'swimwear'):gs 'cum_call', 'clothesgroin', $boy, 1
+				gs 'boyStat', 'A172'
+				gs 'cum_call', 'face', $boy, 1
+				if $clothingworntype = 'nude':gs 'cum_call', 'stomach', $boy, 1
+				if ($clothingworntype ! 'nude' and $clothingworntype ! 'swimwear'):gs 'cum_call', 'clothesgroin', $boy, 1
+				hantersKnowSlut = 2
+				hantslutsex += rand(9,12)
 				gs 'stat'
 
-				'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/andreihanter.jpg"></center>'
-				'"What are you saying?," you ask Andrei angrily. "You''ve just made me feel like a whore."'
-				'Andrei turns to you, "You see <<$pcs_nickname>>, you were always like this, you just had to stop running away from it. You can see it this way it''s way better that this happened with us. Don''t worry, we won''t tell anyone. Now that you''ve gained some experience, you''ll become better at controlling that pretty mouth of yours.'
-				'"You really think so?" you ask.'
-				'"Of course! You enjoy giving head, we love reciving head, there is no need we should''nt be enjoying ourself together."'
-				'"And you never know, maybe this newfound experience will make you good." said Andrei while thoughtfully scratching his chin.'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/hantersgroupo1.0.jpg"></center>'
+				'You continue orally pleasuring the men, noticing their pulsating cocks ready to explode. Few moments later the men all cum on your face. Feeling satisfied the men start walking away from you.'
+				'"Not bad, <<$pcs_nickname>>," you hear Andrei saying. "Now we know that you are really good at this."'
+				'"We''ll be seeing you again, <<$pcs_nickname>>. And don''t worry, you should be proud of how good you are at pleasuring men."'
 
-				gs 'arousal', 'end'
+				gs 'arousal', 'bj', 5, 'sub', 'gangbang'
 				gs 'stat'
-				act 'Further':gt $loc, $metka
+				act 'Wonder':
+					*clr & cla
+					minut += 5
+					gs 'stat'
+
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/andreihanter.jpg"></center>'
+					'"What are you saying?," you ask Andrei angrily. "You''ve just made me feel like a whore."'
+					'Andrei turns to you, "You see <<$pcs_nickname>>, you were always like this, you just had to stop running away from it. You can see it this way it''s way better that this happened with us. Don''t worry, we won''t tell anyone. Now that you''ve gained some experience, you''ll become better at controlling that pretty mouth of yours.'
+					'"You really think so?" you ask.'
+					'"Of course! You enjoy giving head, we love reciving head, there is no need we should''nt be enjoying ourself together."'
+					'"And you never know, maybe this newfound experience will make you good." said Andrei while thoughtfully scratching his chin.'
+
+					gs 'arousal', 'end'
+					gs 'stat'
+					act 'Further':gt $loc, $metka
+				end
 			end
 		end
 	end
-end
-!if he otkazalas to suck after the Striptease and the subsequent sex
-if hantdanceslut = 3:
-	*clr & cla
-	minut += 1
-	pcs_dom += 1
-	hantdanceslut = 4
-	boyAsex = 0
-	boyBsex = 0
-	boyCsex = 0
-	boyAsexa = 0
-	boyBsexa = 0
-	boyCsexa = 0
-	gs 'stat'
-
-	'<center><img <<$set_imgh>> src="images/pc/fuckoff1.jpg"></center>'
-	'"Go fuck yourself, you creep!" you said out loudly while showing Andrei the middle finger.'
-
-	act 'Move away':
+	!if he otkazalas to suck after the Striptease and the subsequent sex
+	if hantdanceslut = 3:
 		*clr & cla
-		minut += 5
-		gang += 1
-		rape +=1
-		hantersRape = 4
+		minut += 1
+		pcs_dom += 1
+		hantdanceslut = 4
+		boyAsex = 0
+		boyBsex = 0
+		boyCsex = 0
+		boyAsexa = 0
+		boyBsexa = 0
+		boyCsexa = 0
 		gs 'stat'
 
-		'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax6.jpg"></center>'
-		'Andrei runs up to you. "Are you out of your fucking mind bitch?!!!" He grabs you by the hair and tosses you on to the ground.'
-		'You start desperatly resisting, but Andrei has his hand already up, slapping you, your head starts ringing by the impact...'
+		'<center><img <<$set_imgh>> src="images/pc/fuckoff1.jpg"></center>'
+		'"Go fuck yourself, you creep!" you said out loudly while showing Andrei the middle finger.'
 
-		act 'Further':
+		act 'Move away':
 			*clr & cla
+			minut += 5
+			gang += 1
+			rape +=1
+			hantersRape = 4
 			gs 'stat'
 
-			'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax8.jpg"></center>'
-			'"You stupid whore. Who do you think you are?!!!" Andrei says angrily. You come to your senses and try to pull away, but he grabs you by the hair, commands the others to hold you down and violently shoves his cock into your mouth.'
-			'"Suck on it, bitch, go deep." you hear him say. "And God forbid, I will kill you if I feel any teeth!"'
+			'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax6.jpg"></center>'
+			'Andrei runs up to you. "Are you out of your fucking mind bitch?!!!" He grabs you by the hair and tosses you on to the ground.'
+			'You start desperatly resisting, but Andrei has his hand already up, slapping you, your head starts ringing by the impact...'
 
-			gs 'arousal', 'bj', 5, 'sub', 'gangbang', 'rough', 'deepthroat'
-			gs 'stat'
-			gs 'boyStat', 'A172'
-			'Sergei, seeing he can take advantage of the situation, pulls your panties to the side and begins fondling your clitoris.'
-			'Igor grabs you by the hand, takes out his cock, places it in the palm of your hand, leaving you with no choice but to begin jerking him off.'
-			gs 'arousal', 'hj', 5, 'sub', 'gangbang'
-			gs 'arousal', 'vaginal_finger', 5, 'sub', 'gangbang'
-			minut -= 5
-			gs 'stat'
 			act 'Further':
 				*clr & cla
-				minut += 5
-				gs 'stat'
-				'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax9.jpg"></center>'
-				'After pleasuring them for a while, Sergei and Andrei grab you by your hands and feet and carry you into a clearing behind the hut.'
 
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax8.jpg"></center>'
+				'"You stupid whore. Who do you think you are?!!!" Andrei says angrily. You come to your senses and try to pull away, but he grabs you by the hair, commands the others to hold you down and violently shoves his cock into your mouth.'
+				'"Suck on it, bitch, go deep." you hear him say. "And God forbid, I will kill you if I feel any teeth!"'
+
+				gs 'arousal', 'bj', 5, 'sub', 'gangbang', 'rough', 'deepthroat'
+				gs 'boyStat', 'A172'
+				'Sergei, seeing he can take advantage of the situation, pulls your panties to the side and begins fondling your clitoris.'
+				'Igor grabs you by the hand, takes out his cock, places it in the palm of your hand, leaving you with no choice but to begin jerking him off.'
+				gs 'arousal', 'hj', 5, 'sub', 'gangbang'
+				gs 'arousal', 'vaginal_finger', 5, 'sub', 'gangbang'
+				minut -= 5
+				gs 'stat'
+				
 				act 'Further':
 					*clr & cla
 					minut += 5
 					gs 'stat'
-					'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax10.jpg"></center>'
-					'They make you stand there twisting your arms, so you don''t attempt to escape, while Igor fetches a blanket from the hut...'
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax9.jpg"></center>'
+					'After pleasuring them for a while, Sergei and Andrei grab you by your hands and feet and carry you into a clearing behind the hut.'
 
 					act 'Further':
 						*clr & cla
 						minut += 5
 						gs 'stat'
-						'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax11.jpg"></center>'
-						'The men throw you down on the blanket and pull off you panties...'
+						'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax10.jpg"></center>'
+						'They make you stand there twisting your arms, so you don''t attempt to escape, while Igor fetches a blanket from the hut...'
 
 						act 'Further':
 							*clr & cla
+							minut += 5
 							gs 'stat'
-							'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax12.jpg"></center>'
-							'The men start exploring your body. Sergei grabs you by the face, Igor squeezes your breast, while Andrei starts caressing your clitoris...'
+							'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax11.jpg"></center>'
+							'The men throw you down on the blanket and pull off you panties...'
 
-							gs 'arousal', 'foreplay', 5, 'sub', 'gangbang'
-							gs 'stat'
 							act 'Further':
 								*clr & cla
-								gs 'stat'
-								'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax14.jpg"></center>'
-								'While laying on your back Andrei starts finger-fucking you. Sergei and Igor go down on their knees whip out their cocks and make you jerk them off...'
+								'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax12.jpg"></center>'
+								'The men start exploring your body. Sergei grabs you by the face, Igor squeezes your breast, while Andrei starts caressing your clitoris...'
 
-								gs 'arousal', 'vaginal_finger', 5, 'sub', 'gangbang'
+								gs 'arousal', 'foreplay', 5, 'sub', 'gangbang'
 								gs 'stat'
-
 								act 'Further':
 									*clr & cla
-									dirty_dickA = 0
-									dirty_dickB = 0
-									dirty_dickC = 0
-									hantsexa = rand(1,3)
-									hantsexb = rand(1,3)
-									hantslutsex += rand(9,12)
-									hantersexnude = 1
+									'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax14.jpg"></center>'
+									'While laying on your back Andrei starts finger-fucking you. Sergei and Igor go down on their knees whip out their cocks and make you jerk them off...'
+
+									gs 'arousal', 'vaginal_finger', 5, 'sub', 'gangbang'
 									gs 'stat'
 
-									'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax13.jpg"></center>'
-									'Andrei pulls out of his fingers and the men surround you holding their cocks. Their animal instincts have taken over and they''re ready for some real action.'
-									'"Now that we''re past the foreplay <<$pcs_nickname>>, let''s have some real fun," said Andrei.'
+									act 'Further':
+										*clr & cla
+										dirty_dickA = 0
+										dirty_dickB = 0
+										dirty_dickC = 0
+										hantslutsex += rand(9,12)
+										hantersexnude = 1
+										gs 'stat'
 
-									act 'Suck':gt 'hanters', 'hantersgroupORALasi'
+										'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/backwaterrelax13.jpg"></center>'
+										'Andrei pulls out of his fingers and the men surround you holding their cocks. Their animal instincts have taken over and they''re ready for some real action.'
+										'"Now that we''re past the foreplay <<$pcs_nickname>>, let''s have some real fun," said Andrei.'
+
+										act 'Suck':gt 'hanters', 'hantersgroupORALasi'
+									end
 								end
 							end
 						end
@@ -676,85 +669,84 @@ if hantdanceslut = 3:
 			end
 		end
 	end
-end
-!sex if naked in front of GG hunters
-if hantersexnude = 1 or forest_hantersex = 3 or forest_gopsex = 3:
-	*clr & cla
-	hantslutsex += rand(3,6)
-	gang += 1
-	pcs_dom -= 1
-	dirty_dickA = 0
-	dirty_dickB = 0
-	dirty_dickC = 0
-	boyAsex = 0
-	boyBsex = 0
-	boyCsex = 0
-	boyAsexa = 0
-	boyBsexa = 0
-	boyCsexa = 0
-	if hanterandreisex = 0 and (hantersexnude = 1 or forest_hantersex = 3):hanterandreisex = 1 & guy += 1
-	if hantersergeisex = 0 and (hantersexnude = 1 or forest_hantersex = 3):hantersergeisex = 1 & guy += 1
-	if hanterigorsex = 0 and (hantersexnude = 1 or forest_hantersex = 3):hanterigorsex = 1 & guy += 1
-	gs 'stat'
+	!sex if naked in front of GG hunters
+	if hantersexnude = 1 or forest_hantersex = 3 or forest_gopsex = 3:
+		*clr & cla
+		hantslutsex += rand(3,6)
+		gang += 1
+		pcs_dom -= 1
+		dirty_dickA = 0
+		dirty_dickB = 0
+		dirty_dickC = 0
+		boyAsex = 0
+		boyBsex = 0
+		boyCsex = 0
+		boyAsexa = 0
+		boyBsexa = 0
+		boyCsexa = 0
+		if hanterandreisex = 0 and (hantersexnude = 1 or forest_hantersex = 3):hanterandreisex = 1 & guy += 1
+		if hantersergeisex = 0 and (hantersexnude = 1 or forest_hantersex = 3):hantersergeisex = 1 & guy += 1
+		if hanterigorsex = 0 and (hantersexnude = 1 or forest_hantersex = 3):hanterigorsex = 1 & guy += 1
+		gs 'stat'
 
-	if hantersexnude = 1 or forest_hantersex = 3:'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hanters1.jpg"></center>'
-	if forest_gopsex = 3:'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/3boys.1.jpg"></center>'
-	if hantersexnude = 1 or forest_hantersex = 3:'You approach the men with a playful smile...'
-	'"You know what to do <<$pcs_nickname>>," said one of the men smiling. "Come here, show us how much you want it."'
+		if hantersexnude = 1 or forest_hantersex = 3:'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/hanters1.jpg"></center>'
+		if forest_gopsex = 3:'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/3boys.1.jpg"></center>'
+		if hantersexnude = 1 or forest_hantersex = 3:'You approach the men with a playful smile...'
+		'"You know what to do <<$pcs_nickname>>," said one of the men smiling. "Come here, show us how much you want it."'
 
-	gs 'arousal', 'foreplay', 3, 'sub', 'gangbang'
-	gs 'stat'
+		gs 'arousal', 'foreplay', 3, 'sub', 'gangbang'
+		gs 'stat'
 
-	hantsexa = rand(1,3)
-	hantsexb = rand(1,3)
-	if hantsexa  < 3 : act 'Suck':gt 'hanters', 'hantersgroupORALasi'
-	if hantsexa  = 3 and hantsexb = 1:act 'Suck':gt 'hanters', 'hantersgroupORALsi'
-	if hantsexa  = 3 and hantsexb = 2:act 'Suck':gt 'hanters', 'hantersgroupORALai'
-	if hantsexa  = 3 and hantsexb = 3:act 'Suck':gt 'hanters', 'hantersgroupORALas'
-end
-! sex if GG whore
-if slutgosex = 1 or forest_hantersex = 1 or forest_gopsex = 1:
-	*clr & cla
-	pcs_dom -= 1
-	dirty_dickA = 0
-	dirty_dickB = 0
-	dirty_dickC = 0
-	boyAsex = 0
-	boyBsex = 0
-	boyCsex = 0
-	boyAsexa = 0
-	boyBsexa = 0
-	boyCsexa = 0
-	hantslutsex += rand(3,6)
-	! for a break between the sex, is taken away -1 every hour
-	gs 'underwear', 'remove'
-	if forest_gopsex = 1:
-		gs 'clothing', 'strip', 'gadforest'
-	elseif slutgosex = 1 or forest_hantersex = 1 :
-		gs 'clothing', 'strip', 'backwater'
-	else
-		gs 'clothing', 'strip'
+		hantsexa = rand(1,3)
+		hantsexb = rand(1,3)
+		if hantsexa < 3 : act 'Suck':gt 'hanters', 'hantersgroupORALasi'
+		if hantsexa = 3 and hantsexb = 1:act 'Suck':gt 'hanters', 'hantersgroupORALsi'
+		if hantsexa = 3 and hantsexb = 2:act 'Suck':gt 'hanters', 'hantersgroupORALai'
+		if hantsexa = 3 and hantsexb = 3:act 'Suck':gt 'hanters', 'hantersgroupORALas'
 	end
-	if hanterandreisex = 0 and temphant = 1:hanterandreisex = 1 & guy += 1
-	if hantersergeisex = 0 and temphant = 2:hantersergeisex = 1 & guy += 1
-	if hanterigorsex = 0 and temphant = 3:hanterigorsex = 1 & guy += 1
-	if temphant = 1:gs 'boyStat', 'A172'
-	if temphant = 2:gs 'boyStat', 'A174'
-	if temphant = 3:gs 'boyStat', 'A173'
-	if temphant = 4:gs 'boyStat', 'A63'
-	if temphant = 5:gs 'boyStat', 'A61'
-	if temphant = 6:gs 'boyStat', 'A62'
-	gs 'stat'
+	! sex if GG whore
+	if slutgosex = 1 or forest_hantersex = 1 or forest_gopsex = 1:
+		*clr & cla
+		pcs_dom -= 1
+		dirty_dickA = 0
+		dirty_dickB = 0
+		dirty_dickC = 0
+		boyAsex = 0
+		boyBsex = 0
+		boyCsex = 0
+		boyAsexa = 0
+		boyBsexa = 0
+		boyCsexa = 0
+		hantslutsex += rand(3,6)
+		! for a break between the sex, is taken away -1 every hour
+		gs 'underwear', 'remove'
+		if forest_gopsex = 1:
+			gs 'clothing', 'strip', 'gadforest'
+		elseif slutgosex = 1 or forest_hantersex = 1 :
+			gs 'clothing', 'strip', 'backwater'
+		else
+			gs 'clothing', 'strip'
+		end
+		if hanterandreisex = 0 and temphant = 1:hanterandreisex = 1 & guy += 1
+		if hantersergeisex = 0 and temphant = 2:hantersergeisex = 1 & guy += 1
+		if hanterigorsex = 0 and temphant = 3:hanterigorsex = 1 & guy += 1
+		if temphant = 1:gs 'boyStat', 'A172'
+		if temphant = 2:gs 'boyStat', 'A174'
+		if temphant = 3:gs 'boyStat', 'A173'
+		if temphant = 4:gs 'boyStat', 'A63'
+		if temphant = 5:gs 'boyStat', 'A61'
+		if temphant = 6:gs 'boyStat', 'A62'
+		gs 'stat'
 
-	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/slutgosex1.jpg"></center>'
-	'<<$boydesc>> takes you by the hand and leads you to a clearing next to some trees. He immediately begins to undress you.'
-	'"You know why I''ve brought you here <<$pcs_nickname>>," said the guy smiling.'
+		'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/slutgosex1.jpg"></center>'
+		'<<$boydesc>> takes you by the hand and leads you to a clearing next to some trees. He immediately begins to undress you.'
+		'"You know why I''ve brought you here <<$pcs_nickname>>," said the guy smiling.'
 
-	gs 'arousal', 'foreplay', 5, 'sub'
-	gs 'stat'
+		gs 'arousal', 'foreplay', 5, 'sub'
+		gs 'stat'
 
-	act 'Squat':gt 'hanters', 'hanterslutSTART'
-end
+		act 'Squat':gt 'hanters', 'hanterslutSTART'
+	end
 end
 
 if $ARGS[0]='hantersgroupORALsi':
@@ -776,22 +768,8 @@ if $ARGS[0]='hantersgroupORALsi':
 	'You hear <<$boydesc>> groaning more intensely, indicating he''s ready to cum. You look up at him, smiling with your eyes and speed up you head motion. You keep on pleasuring him until he finishes on your face. He walks away, blissfuly smiling.'
 
 	hantsexa = rand(1,5)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb < 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALsi1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 6:act 'Keep sucking':gt 'hanters', 'hantersgroupORALs'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 7:act 'Keep sucking':gt 'hanters', 'hantersgroupORALi'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 8:act 'Keep sucking':gt 'hanters', 'hantersgroupORALend1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb <= 5:act 'Get down on all fours':gt 'hanters', 'hantersgroupVis1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 6:act 'Get down on all fours':gt 'hanters', 'hantersgroupVi1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 6:act 'Get down on all fours':gt 'hanters', 'hantersgroupVs1'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 5:act 'Sideways':gt 'hanters', 'hantersgroupVsOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 6:act 'Sideways':gt 'hanters', 'hantersgroupVOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 6:act 'Sideways':gt 'hanters', 'hantersgroupVsO'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Straddle':gt 'hanters', 'hantersgroupDPis'
-	if pcs_sleep >= 10 and hantsexa = 5:act 'Keep sucking':gt 'hanters', 'hantersgroupOis'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-end &! --- hantersgroupORALsi ---
+	gs 'hanters', 'rng_1'
+end
 
 if $ARGS[0]='hantersgroupORALsi1':
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/hantersgroupORALsi2.'+rand(0,2)+'.jpg"></center>'
@@ -808,21 +786,7 @@ if $ARGS[0]='hantersgroupORALsi1':
 	gs 'stat'
 
 	hantsexa = rand(1,5)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb < 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALsi1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 6:act 'Keep sucking':gt 'hanters', 'hantersgroupORALs'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 7:act 'Keep sucking':gt 'hanters', 'hantersgroupORALi'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 8:act 'Keep sucking':gt 'hanters', 'hantersgroupORALend1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb <= 5:act 'Get down on all fours':gt 'hanters', 'hantersgroupVis1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 6:act 'Get down on all fours':gt 'hanters', 'hantersgroupVi1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 6:act 'Get down on all fours':gt 'hanters', 'hantersgroupVs1'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 5:act 'Sideways':gt 'hanters', 'hantersgroupVsOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 6:act 'Sideways':gt 'hanters', 'hantersgroupVOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 6:act 'Sideways':gt 'hanters', 'hantersgroupVsO'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Double pounding':gt 'hanters', 'hantersgroupDPis'
-	if pcs_sleep >= 10 and hantsexa = 5:act 'Keep sucking':gt 'hanters', 'hantersgroupOis'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_1'
 end
 
 if $ARGS[0]='hantersgroupORALs':
@@ -846,17 +810,7 @@ if $ARGS[0]='hantersgroupORALs':
 	gs 'stat'
 
 	hantsexa = rand(1,4)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb <= 4 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALs1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 4 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALs1end'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsEnd1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsEnd2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 3 :act 'Straddle':gt 'hanters', 'hantersgroupVs2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 3 :act 'Straddle':gt 'hanters', 'hantersgroupVs2end'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Keep sucking':gt 'hanters', 'hantersgroupOsend'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_2'
 end
 
 if $ARGS[0]='hantersgroupORALs1':
@@ -870,17 +824,7 @@ if $ARGS[0]='hantersgroupORALs1':
 	gs 'stat'
 
 	hantsexa = rand(1,4)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb <= 4 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALs1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 4 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALs1end'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsEnd1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsEnd2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 3 :act 'Straddle':gt 'hanters', 'hantersgroupVs2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 3 :act 'Straddle':gt 'hanters', 'hantersgroupVs2end'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Keep sucking':gt 'hanters', 'hantersgroupOsend'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_2'
 end
 
 if $ARGS[0]='hantersgroupORALs1end':
@@ -962,16 +906,7 @@ if $ARGS[0]='hantersgroupORALi':
 	gs 'stat'
 
 	hantsexa = rand(1,4)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Keep sucking':gt 'hanters', 'hantersgroupORALi1end'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsEnd1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsEnd2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 3 :act 'Straddle':gt 'hanters', 'hantersgroupVi3'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 3 :act 'Straddle':gt 'hanters', 'hantersgroupVi3end'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Keep sucking':gt 'hanters', 'hantersgroupOsend'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_3'
 end
 
 if $ARGS[0]='hantersgroupORALend1':
@@ -1032,18 +967,7 @@ if $ARGS[0]='hantersgroupORALai':
 	gs 'stat'
 
 	hantsexa = rand(1,5)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb <= 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALai1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALi1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVia1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVi2'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVa1'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 6 :act 'Sideways':gt 'hanters', 'hantersgroupViOa'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 6 :act 'Sideways':gt 'hanters', 'hantersgroupViO'
-	if pcs_sleep >= 10 and hantsexa = 4 :act 'Straddle':gt 'hanters', 'hantersgroupDPia'
-	if pcs_sleep >= 10 and hantsexa = 5 :act 'Keep sucking':gt 'hanters', 'hantersgroupOia'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_4'
 end
 
 if $ARGS[0]='hantersgroupORALai1':
@@ -1062,18 +986,7 @@ if $ARGS[0]='hantersgroupORALai1':
 	gs 'stat'
 
 	hantsexa = rand(1,5)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb <= 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALai1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALi1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVia1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVi2'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVa1'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 6 :act 'Sideways':gt 'hanters', 'hantersgroupViOa'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 6 :act 'Sideways':gt 'hanters', 'hantersgroupViO'
-	if pcs_sleep >= 10 and hantsexa = 4 :act 'Straddle':gt 'hanters', 'hantersgroupDPia'
-	if pcs_sleep >= 10 and hantsexa = 5 :act 'Keep sucking':gt 'hanters', 'hantersgroupOia'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_4'
 end
 
 if $ARGS[0]='hantersgroupORALi1':
@@ -1096,15 +1009,7 @@ if $ARGS[0]='hantersgroupORALi1':
 	gs 'stat'
 
 	hantsexa = rand(1,4)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Keep sucking':gt 'hanters', 'hantersgroupORALi1end'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAiEnd1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAiEnd2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 3 :act 'Straddle':gt 'hanters', 'hantersgroupVi3'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 3 :act 'Straddle':gt 'hanters', 'hantersgroupVi3end'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Keep sucking':gt 'hanters', 'hantersgroupOiend'
+	gs 'hanters', 'rng_3'
 end
 
 if $ARGS[0]='hantersgroupORALas':
@@ -1131,18 +1036,7 @@ if $ARGS[0]='hantersgroupORALas':
 	gs 'stat'
 
 	hantsexa = rand(1,4)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb < 6 :act 'Get down on all fours':gt 'hanters', 'hantersgroupVas1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 6 :act 'Get down on all fours':gt 'hanters', 'hantersgroupVa'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 6 :act 'Get down on all fours':gt 'hanters', 'hantersgroupVs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 6 :act 'Lie on your stomach':gt 'hanters', 'hantersgroupVaOs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 6 :act 'Lie on your stomach':gt 'hanters', 'hantersgroupVOs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 6 :act 'Lie on your stomach':gt 'hanters', 'hantersgroupVaO'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsOa'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsO'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAOa'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Keep sucking':gt 'hanters', 'hantersgroupOsa'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_5'
 end
 
 if $ARGS[0]='hantersgroupORALasi':
@@ -1165,24 +1059,7 @@ if $ARGS[0]='hantersgroupORALasi':
 	gs 'stat'
 
 	hantsexa = rand(1,5)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Keep sucking':gt 'hanters', 'hantersgroupORALasi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5:act 'Straddle':gt 'hanters', 'hantersgroupVias'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 3:act 'Straddle':gt 'hanters', 'hantersgroupVia'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 4:act 'Straddle':gt 'hanters', 'hantersgroupVis'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5:act 'Straddle':gt 'hanters', 'hantersgroupVi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 3:act 'Straddle':gt 'hanters', 'hantersgroupVas'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 5:act 'Doggy style':gt 'hanters', 'hantersgroupVaOsHi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 5:act 'Doggy style':gt 'hanters', 'hantersgroupVaOHi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb < 5:act 'Doggy style':gt 'hanters', 'hantersgroupVOsHi'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb < 5:act 'Straddle':gt 'hanters', 'hantersgroupDPasi'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb > 5:act 'Straddle':gt 'hanters', 'hantersgroupDPas'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb = 6:act 'Straddle':gt 'hanters', 'hantersgroupDPsi'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb = 5:act 'Straddle':gt 'hanters', 'hantersgroupDPai'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb > 5:act 'Sideways':gt 'hanters', 'hantersgroupVsOaHi'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb = 5:act 'Sideways':gt 'hanters', 'hantersgroupVsOHi'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb < 5:act 'Sideways':gt 'hanters', 'hantersgroupVOaHi'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_6'
 end
 
 if $ARGS[0]='hantersgroupVias':
@@ -1210,25 +1087,8 @@ if $ARGS[0]='hantersgroupVias':
 	minut -= 5
 	gs 'stat'
 
-	hantsexa = rand(2,5)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Keep sucking':gt 'hanters', 'hantersgroupORALasi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5:act 'Straddle':gt 'hanters', 'hantersgroupVias'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 3:act 'Straddle':gt 'hanters', 'hantersgroupVia'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 4:act 'Straddle':gt 'hanters', 'hantersgroupVis'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5:act 'Straddle':gt 'hanters', 'hantersgroupVi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 3:act 'Straddle':gt 'hanters', 'hantersgroupVas'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 5:act 'Doggy style':gt 'hanters', 'hantersgroupVaOsHi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 5:act 'Doggy style':gt 'hanters', 'hantersgroupVaOHi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb < 5:act 'Doggy style':gt 'hanters', 'hantersgroupVOsHi'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb < 5:act 'Straddle':gt 'hanters', 'hantersgroupDPasi'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb > 5:act 'Straddle':gt 'hanters', 'hantersgroupDPas'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb = 6:act 'Straddle':gt 'hanters', 'hantersgroupDPsi'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb = 5:act 'Straddle':gt 'hanters', 'hantersgroupDPai'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb > 5:act 'Sideways':gt 'hanters', 'hantersgroupVsOaHi'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb = 5:act 'Sideways':gt 'hanters', 'hantersgroupVsOHi'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb < 5:act 'Sideways':gt 'hanters', 'hantersgroupVOaHi'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	hantsexa = rand(2,5)	
+	gs 'hanters', 'rng_6'
 end
 
 if $ARGS[0]='hantersgroupVas':
@@ -1256,18 +1116,7 @@ if $ARGS[0]='hantersgroupVas':
 	gs 'stat'
 
 	hantsexa = rand(1,4)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb < 6 :act 'Get down on all fours':gt 'hanters', 'hantersgroupVas1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 6 :act 'Get down on all fours':gt 'hanters', 'hantersgroupVa'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 6 :act 'Get down on all fours':gt 'hanters', 'hantersgroupVs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 6 :act 'Lie on your stomach':gt 'hanters', 'hantersgroupVaOs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 6 :act 'Lie on your stomach':gt 'hanters', 'hantersgroupVOs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 6 :act 'Lie on your stomach':gt 'hanters', 'hantersgroupVaO'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsOa'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsO'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAOa'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Kneel down':gt 'hanters', 'hantersgroupOsa'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_5'
 end
 
 if $ARGS[0]='hantersgroupVas1':
@@ -1289,19 +1138,8 @@ if $ARGS[0]='hantersgroupVas1':
 	minut -= 5
 	gs 'stat'
 
-	hantsexa = rand(1,4)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb < 6 :act 'Get down on all fours':gt 'hanters', 'hantersgroupVas1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 6 :act 'Get down on all fours':gt 'hanters', 'hantersgroupVa'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 6 :act 'Get down on all fours':gt 'hanters', 'hantersgroupVs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 6 :act 'Lie on your stomach':gt 'hanters', 'hantersgroupVaOs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 6 :act 'Lie on your stomach':gt 'hanters', 'hantersgroupVOs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 6 :act 'Lie on your stomach':gt 'hanters', 'hantersgroupVaO'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsOa'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsO'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAOa'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Kneel down':gt 'hanters', 'hantersgroupOsa'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	hantsexa = rand(1,4)	
+	gs 'hanters', 'rng_5'
 end
 
 if $ARGS[0]='hantersgroupVa':
@@ -1332,17 +1170,7 @@ if $ARGS[0]='hantersgroupVa':
 	gs 'stat'
 
 	hantsexa = rand(1,4)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Keep sucking':gt 'hanters', 'hantersgroupORALa1end'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAa'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAaEnd1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAaEnd2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 3 :act 'Straddle':gt 'hanters', 'hantersgroupVa2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 3 :act 'Straddle':gt 'hanters', 'hantersgroupVa2end'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Kneel down':gt 'hanters', 'hantersgroupOaend'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-
+	gs 'hanters', 'rng_7'
 end
 
 if $ARGS[0]='hantersgroupVs':
@@ -1369,18 +1197,7 @@ if $ARGS[0]='hantersgroupVs':
 	gs 'stat'
 
 	hantsexa = rand(2,4)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb <= 4 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALs1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 4 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALs1end'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAs'
-	if hantsexa = 2 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsEnd1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsEnd2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 3 :act 'Straddle':gt 'hanters', 'hantersgroupVs2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 3 :act 'Straddle':gt 'hanters', 'hantersgroupVs2end'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Kneel down':gt 'hanters', 'hantersgroupOsend'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-
+	gs 'hanters', 'rng_2'
 end
 
 if $ARGS[0]='hantersgroupVi':
@@ -1425,17 +1242,7 @@ if $ARGS[0]='hantersgroupVi':
 	gs 'stat'
 
 	hantsexa = rand(2,4)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Keep sucking':gt 'hanters', 'hantersgroupORALi1end'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAiEnd1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAiEnd2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 3 :act 'Straddle':gt 'hanters', 'hantersgroupVi3'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 3 :act 'Straddle':gt 'hanters', 'hantersgroupVi3end'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Kneel down':gt 'hanters', 'hantersgroupOiend'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-
+	gs 'hanters', 'rng_3'
 end
 
 if $ARGS[0]='hantersgroupVis':
@@ -1472,22 +1279,7 @@ if $ARGS[0]='hantersgroupVis':
 	gs 'stat'
 
 	hantsexa = rand(2,5)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb < 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALsi1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 6:act 'Keep sucking':gt 'hanters', 'hantersgroupORALs'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 7:act 'Keep sucking':gt 'hanters', 'hantersgroupORALi'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 8:act 'Keep sucking':gt 'hanters', 'hantersgroupORALend1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb <= 5:act 'Get down on all fours':gt 'hanters', 'hantersgroupVis1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 6:act 'Get down on all fours':gt 'hanters', 'hantersgroupVi1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 6:act 'Get down on all fours':gt 'hanters', 'hantersgroupVs1'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 5:act 'Sideways':gt 'hanters', 'hantersgroupVsOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 6:act 'Sideways':gt 'hanters', 'hantersgroupVOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 6:act 'Sideways':gt 'hanters', 'hantersgroupVsO'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Straddle':gt 'hanters', 'hantersgroupDPis'
-	if pcs_sleep >= 10 and hantsexa = 5:act 'Kneel down':gt 'hanters', 'hantersgroupOis'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-
+	gs 'hanters', 'rng_8'
 end
 
 if $ARGS[0]='hantersgroupVis1':
@@ -1510,22 +1302,7 @@ if $ARGS[0]='hantersgroupVis1':
 	gs 'stat'
 
 	hantsexa = rand(2,5)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb < 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALsi1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 6:act 'Keep sucking':gt 'hanters', 'hantersgroupORALs'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 7:act 'Keep sucking':gt 'hanters', 'hantersgroupORALi'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 8:act 'Keep sucking':gt 'hanters', 'hantersgroupORALend1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb <= 5:act 'Get down on all fours':gt 'hanters', 'hantersgroupVis1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 6:act 'Get down on all fours':gt 'hanters', 'hantersgroupVi1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 6:act 'Get down on all fours':gt 'hanters', 'hantersgroupVs1'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 5:act 'Sideways':gt 'hanters', 'hantersgroupVsOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 6:act 'Sideways':gt 'hanters', 'hantersgroupVOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 6:act 'Sideways':gt 'hanters', 'hantersgroupVsO'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Straddle':gt 'hanters', 'hantersgroupDPis'
-	if pcs_sleep >= 10 and hantsexa = 5:act 'Kneel down':gt 'hanters', 'hantersgroupOis'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-
+	gs 'hanters', 'rng_1'
 end
 
 if $ARGS[0]='hantersgroupVi1':
@@ -1552,17 +1329,7 @@ if $ARGS[0]='hantersgroupVi1':
 	gs 'stat'
 
 	hantsexa = rand(2,4)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Keep sucking':gt 'hanters', 'hantersgroupORALi1end'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAiEnd1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAiEnd2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 3 :act 'Straddle':gt 'hanters', 'hantersgroupVi3'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 3 :act 'Straddle':gt 'hanters', 'hantersgroupVi3end'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Kneel down':gt 'hanters', 'hantersgroupOiend'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-
+	gs 'hanters', 'rng_3'
 end
 
 if $ARGS[0]='hantersgroupVs1':
@@ -1594,18 +1361,7 @@ if $ARGS[0]='hantersgroupVs1':
 	gs 'stat'
 
 	hantsexa = rand(2,4)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb <= 4 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALs1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 4 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALs1end'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsEnd1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsEnd2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 3 :act 'Straddle':gt 'hanters', 'hantersgroupVs2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 3 :act 'Straddle':gt 'hanters', 'hantersgroupVs2end'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Kneel down':gt 'hanters', 'hantersgroupOsend'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-
+	gs 'hanters', 'rng_2'
 end
 
 if $ARGS[0]='hantersgroupVia':
@@ -1643,19 +1399,7 @@ if $ARGS[0]='hantersgroupVia':
 	gs 'stat'
 
 	hantsexa = rand(2,5)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb <= 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALai1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALi1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVia1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVi2'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVa1'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 6 :act 'Sideways':gt 'hanters', 'hantersgroupViOa'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 6 :act 'Sideways':gt 'hanters', 'hantersgroupViO'
-	if pcs_sleep >= 10 and hantsexa = 4 :act 'Straddle':gt 'hanters', 'hantersgroupDPia'
-	if pcs_sleep >= 10 and hantsexa = 5 :act 'Kneel down':gt 'hanters', 'hantersgroupOia'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-
+	gs 'hanters', 'rng_4'
 end
 
 if $ARGS[0]='hantersgroupVia1':
@@ -1678,19 +1422,7 @@ if $ARGS[0]='hantersgroupVia1':
 	gs 'stat'
 
 	hantsexa = rand(2,5)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and  hantsexa = 1 and hantsexb <= 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALai1'
-	if pcs_sleep >= 10 and  hantsexa = 1 and hantsexb > 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALi1'
-	if pcs_sleep >= 10 and  hantsexa = 2 and hantsexb < 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVia1'
-	if pcs_sleep >= 10 and  hantsexa = 2 and hantsexb = 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVi2'
-	if pcs_sleep >= 10 and  hantsexa = 2 and hantsexb > 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVa1'
-	if pcs_sleep >= 10 and  hantsexa = 3 and hantsexb <= 6 :act 'Sideways':gt 'hanters', 'hantersgroupViOa'
-	if pcs_sleep >= 10 and  hantsexa = 3 and hantsexb > 6 :act 'Sideways':gt 'hanters', 'hantersgroupViO'
-	if pcs_sleep >= 10 and  hantsexa = 4 :act 'Straddle':gt 'hanters', 'hantersgroupDPia'
-	if pcs_sleep >= 10 and  hantsexa = 5 :act 'Kneel down':gt 'hanters', 'hantersgroupOia'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-
+	gs 'hanters', 'rng_4'
 end
 
 if $ARGS[0]='hantersgroupVi2':
@@ -1722,17 +1454,7 @@ if $ARGS[0]='hantersgroupVi2':
 	gs 'stat'
 
 	hantsexa = rand(2,4)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Keep sucking':gt 'hanters', 'hantersgroupORALi1end'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAiEnd1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAiEnd2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 3 :act 'Straddle':gt 'hanters', 'hantersgroupVi3'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 3 :act 'Straddle':gt 'hanters', 'hantersgroupVi3end'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Kneel down':gt 'hanters', 'hantersgroupOiend'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-
+	gs 'hanters', 'rng_3'
 end
 
 if $ARGS[0]='hantersgroupVa1':
@@ -1760,17 +1482,7 @@ if $ARGS[0]='hantersgroupVa1':
 	gs 'stat'
 
 	hantsexa = rand(1,4)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Suck':gt 'hanters', 'hantersgroupORALa1end'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAa'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAaEnd1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAaEnd2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 3 :act 'Straddle':gt 'hanters', 'hantersgroupVa2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 3 :act 'Straddle':gt 'hanters', 'hantersgroupVa2end'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Kneel down':gt 'hanters', 'hantersgroupOaend'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-
+	gs 'hanters', 'rng_7'
 end
 
 if $ARGS[0]='hantersgroupVaOsHi':
@@ -1793,26 +1505,8 @@ if $ARGS[0]='hantersgroupVaOsHi':
 	minut -= 5
 	gs 'stat'
 
-	hantsexa = rand(2,5)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Keep sucking':gt 'hanters', 'hantersgroupORALasi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5:act 'Straddle':gt 'hanters', 'hantersgroupVias'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 3:act 'Straddle':gt 'hanters', 'hantersgroupVia'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 4:act 'Straddle':gt 'hanters', 'hantersgroupVis'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5:act 'Straddle':gt 'hanters', 'hantersgroupVi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 3:act 'Straddle':gt 'hanters', 'hantersgroupVas'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 5:act 'Doggy style':gt 'hanters', 'hantersgroupVaOsHi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 5:act 'Doggy style':gt 'hanters', 'hantersgroupVaOHi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb < 5:act 'Doggy style':gt 'hanters', 'hantersgroupVOsHi'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb < 5:act 'Straddle':gt 'hanters', 'hantersgroupDPasi'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb > 5:act 'Straddle':gt 'hanters', 'hantersgroupDPas'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb = 6:act 'Straddle':gt 'hanters', 'hantersgroupDPsi'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb = 5:act 'Straddle':gt 'hanters', 'hantersgroupDPai'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb > 5:act 'Sideways':gt 'hanters', 'hantersgroupVsOaHi'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb = 5:act 'Sideways':gt 'hanters', 'hantersgroupVsOHi'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb < 5:act 'Sideways':gt 'hanters', 'hantersgroupVOaHi'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-
+	hantsexa = rand(2,5)	
+	gs 'hanters', 'rng_6'
 end
 
 if $ARGS[0]='hantersgroupVOsHi':
@@ -1836,21 +1530,7 @@ if $ARGS[0]='hantersgroupVOsHi':
 	gs 'stat'
 
 	hantsexa = rand(2,5)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb < 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALsi1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 6:act 'Keep sucking':gt 'hanters', 'hantersgroupORALs'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 7:act 'Keep sucking':gt 'hanters', 'hantersgroupORALi'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 8:act 'Keep sucking':gt 'hanters', 'hantersgroupORALend1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb <= 5:act 'Get down on all fours':gt 'hanters', 'hantersgroupVis1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 6:act 'Get down on all fours':gt 'hanters', 'hantersgroupVi1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 6:act 'Get down on all fours':gt 'hanters', 'hantersgroupVs1'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 5:act 'Sideways':gt 'hanters', 'hantersgroupVsOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 6:act 'Sideways':gt 'hanters', 'hantersgroupVOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 6:act 'Sideways':gt 'hanters', 'hantersgroupVsO'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Straddle':gt 'hanters', 'hantersgroupDPis'
-	if pcs_sleep >= 10 and hantsexa = 5:act 'Kneel down':gt 'hanters', 'hantersgroupOis'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_8'
 end
 
 if $ARGS[0]='hantersgroupVaOHi':
@@ -1883,18 +1563,7 @@ if $ARGS[0]='hantersgroupVaOHi':
 	gs 'stat'
 
 	hantsexa = rand(2,5)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb <= 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALai1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALi1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVia1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVi2'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVa1'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 6 :act 'Sideways':gt 'hanters', 'hantersgroupViOa'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 6 :act 'Sideways':gt 'hanters', 'hantersgroupViO'
-	if pcs_sleep >= 10 and hantsexa = 4 :act 'Straddle':gt 'hanters', 'hantersgroupDPia'
-	if pcs_sleep >= 10 and hantsexa = 5 :act 'Kneel down':gt 'hanters', 'hantersgroupOia'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_4'
 end
 
 if $ARGS[0]='hantersgroupDPasi':
@@ -1923,24 +1592,7 @@ if $ARGS[0]='hantersgroupDPasi':
 
 	if lubonus = 0:lubonus += 1
 	hantsexa = rand(2,5)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Keep sucking':gt 'hanters', 'hantersgroupORALasi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5:act 'Straddle':gt 'hanters', 'hantersgroupVias'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 3:act 'Straddle':gt 'hanters', 'hantersgroupVia'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 4:act 'Straddle':gt 'hanters', 'hantersgroupVis'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5:act 'Straddle':gt 'hanters', 'hantersgroupVi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 3:act 'Straddle':gt 'hanters', 'hantersgroupVas'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 5:act 'Doggy style':gt 'hanters', 'hantersgroupVaOsHi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 5:act 'Doggy style':gt 'hanters', 'hantersgroupVaOHi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb < 5:act 'Doggy style':gt 'hanters', 'hantersgroupVOsHi'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb < 5:act 'Straddle':gt 'hanters', 'hantersgroupDPasi'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb > 5:act 'Straddle':gt 'hanters', 'hantersgroupDPas'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb = 6:act 'Straddle':gt 'hanters', 'hantersgroupDPsi'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb = 5:act 'Straddle':gt 'hanters', 'hantersgroupDPai'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb > 5:act 'Sideways':gt 'hanters', 'hantersgroupVsOaHi'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb = 5:act 'Sideways':gt 'hanters', 'hantersgroupVsOHi'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb < 5:act 'Sideways':gt 'hanters', 'hantersgroupVOaHi'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_6'
 end
 
 if $ARGS[0]='hantersgroupDPsi':
@@ -1970,25 +1622,10 @@ if $ARGS[0]='hantersgroupDPsi':
 	gs 'stat'
 
 	hantsexa = rand(2,5)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb < 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALsi1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 6:act 'Keep sucking':gt 'hanters', 'hantersgroupORALs'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 7:act 'Keep sucking':gt 'hanters', 'hantersgroupORALi'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 8:act 'Keep sucking':gt 'hanters', 'hantersgroupORALend1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb <= 5:act 'Get down on all fours':gt 'hanters', 'hantersgroupVis1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 6:act 'Get down on all fours':gt 'hanters', 'hantersgroupVi1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 6:act 'Get down on all fours':gt 'hanters', 'hantersgroupVs1'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 5:act 'Sideways':gt 'hanters', 'hantersgroupVsOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 6:act 'Sideways':gt 'hanters', 'hantersgroupVOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 6:act 'Sideways':gt 'hanters', 'hantersgroupVsO'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Straddle':gt 'hanters', 'hantersgroupDPis'
-	if pcs_sleep >= 10 and hantsexa = 5:act 'Kneel down':gt 'hanters', 'hantersgroupOis'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_8'
 end
 
 if $ARGS[0]='hantersgroupDPas':
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/hantersgroupdpas.jpg"></center>'
 	if hantersexnude = 1 or forest_hantersex = 3:'Andrei starts pounding your vagina while Igor enters your anus, you just have to relax and suck Sergei''s cock...'
 	if forest_gopsex = 3:'Mitka starts pounding your vagina while Vasyan enters your anus, you just have to relax and suck Kolyamba''s cock...'
@@ -2013,19 +1650,9 @@ if $ARGS[0]='hantersgroupDPas':
 	gs 'stat'
 
 	lubonus += rand(2,3)
+	
 	hantsexa = rand(1,4)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb < 6 :act 'Get down on all fours':gt 'hanters', 'hantersgroupVas1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 6 :act 'Get down on all fours':gt 'hanters', 'hantersgroupVa'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 6 :act 'Get down on all fours':gt 'hanters', 'hantersgroupVs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 6 :act 'Lie on your stomach':gt 'hanters', 'hantersgroupVaOs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 6 :act 'Lie on your stomach':gt 'hanters', 'hantersgroupVOs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 6 :act 'Lie on your stomach':gt 'hanters', 'hantersgroupVaO'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsOa'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsO'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAOa'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Kneel down':gt 'hanters', 'hantersgroupOsa'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_5'
 end
 
 if $ARGS[0]='hantersgroupDPai':
@@ -2063,19 +1690,9 @@ if $ARGS[0]='hantersgroupDPai':
 	gs 'arousal', 'vaginal', 5, 'sub', 'gangbang'
 	minut -= 5
 	gs 'stat'
+	
 	hantsexa = rand(2,5)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb <= 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALai1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALi1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVia1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVi2'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVa1'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 6 :act 'Sideways':gt 'hanters', 'hantersgroupViOa'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 6 :act 'Sideways':gt 'hanters', 'hantersgroupViO'
-	if pcs_sleep >= 10 and hantsexa = 4 :act 'Straddle':gt 'hanters', 'hantersgroupDPia'
-	if pcs_sleep >= 10 and hantsexa = 5 :act 'Kneel down':gt 'hanters', 'hantersgroupOia'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_4'
 end
 
 if $ARGS[0]='hantersgroupVsOaHi':
@@ -2104,24 +1721,7 @@ if $ARGS[0]='hantersgroupVsOaHi':
 	gs 'stat'
 
 	hantsexa = rand(2,5)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Keep sucking':gt 'hanters', 'hantersgroupORALasi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5:act 'Straddle':gt 'hanters', 'hantersgroupVias'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 3:act 'Straddle':gt 'hanters', 'hantersgroupVia'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 4:act 'Straddle':gt 'hanters', 'hantersgroupVis'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5:act 'Straddle':gt 'hanters', 'hantersgroupVi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 3:act 'Straddle':gt 'hanters', 'hantersgroupVas'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 5:act 'Doggy style':gt 'hanters', 'hantersgroupVaOsHi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 5:act 'Doggy style':gt 'hanters', 'hantersgroupVaOHi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb < 5:act 'Doggy style':gt 'hanters', 'hantersgroupVOsHi'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb < 5:act 'Straddle':gt 'hanters', 'hantersgroupDPasi'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb > 5:act 'Straddle':gt 'hanters', 'hantersgroupDPas'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb = 6:act 'Straddle':gt 'hanters', 'hantersgroupDPsi'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb = 5:act 'Straddle':gt 'hanters', 'hantersgroupDPai'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb > 5:act 'Sideways':gt 'hanters', 'hantersgroupVsOaHi'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb = 5:act 'Sideways':gt 'hanters', 'hantersgroupVsOHi'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb < 5:act 'Sideways':gt 'hanters', 'hantersgroupVOaHi'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_6'
 end
 
 if $ARGS[0]='hantersgroupVsOHi':
@@ -2155,21 +1755,7 @@ if $ARGS[0]='hantersgroupVsOHi':
 	gs 'stat'
 
 	hantsexa = rand(2,5)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb < 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALsi1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 6:act 'Keep sucking':gt 'hanters', 'hantersgroupORALs'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 7:act 'Keep sucking':gt 'hanters', 'hantersgroupORALi'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 8:act 'Keep sucking':gt 'hanters', 'hantersgroupORALend1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb <= 5:act 'Get down on all fours':gt 'hanters', 'hantersgroupVis1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 6:act 'Get down on all fours':gt 'hanters', 'hantersgroupVi1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 6:act 'Get down on all fours':gt 'hanters', 'hantersgroupVs1'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 5:act 'Sideways':gt 'hanters', 'hantersgroupVsOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 6:act 'Sideways':gt 'hanters', 'hantersgroupVOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 6:act 'Sideways':gt 'hanters', 'hantersgroupVsO'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Straddle':gt 'hanters', 'hantersgroupDPis'
-	if pcs_sleep >= 10 and hantsexa = 5:act 'Kneel down':gt 'hanters', 'hantersgroupOis'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_8'
 end
 
 if $ARGS[0]='hantersgroupVsOi':
@@ -2193,21 +1779,7 @@ if $ARGS[0]='hantersgroupVsOi':
 	gs 'stat'
 
 	hantsexa = rand(2,5)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb < 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALsi1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 6:act 'Keep sucking':gt 'hanters', 'hantersgroupORALs'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 7:act 'Keep sucking':gt 'hanters', 'hantersgroupORALi'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 8:act 'Keep sucking':gt 'hanters', 'hantersgroupORALend1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb <= 5:act 'Get down on all fours':gt 'hanters', 'hantersgroupVis1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 6:act 'Get down on all fours':gt 'hanters', 'hantersgroupVi1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 6:act 'Get down on all fours':gt 'hanters', 'hantersgroupVs1'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 5:act 'Sideways':gt 'hanters', 'hantersgroupVsOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 6:act 'Sideways':gt 'hanters', 'hantersgroupVOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 6:act 'Sideways':gt 'hanters', 'hantersgroupVsO'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Straddle':gt 'hanters', 'hantersgroupDPis'
-	if pcs_sleep >= 10 and hantsexa = 5:act 'Kneel down':gt 'hanters', 'hantersgroupOis'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_8'
 end
 
 if $ARGS[0]='hantersgroupVOi':
@@ -2231,17 +1803,7 @@ if $ARGS[0]='hantersgroupVOi':
 	gs 'stat'
 
 	hantsexa = rand(2,4)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Keep sucking':gt 'hanters', 'hantersgroupORALi1end'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAiEnd1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAiEnd2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 3 :act 'Straddle':gt 'hanters', 'hantersgroupVi3'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 3 :act 'Straddle':gt 'hanters', 'hantersgroupVi3end'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Kneel down':gt 'hanters', 'hantersgroupOiend'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-
+	gs 'hanters', 'rng_3'
 end
 
 if $ARGS[0]='hantersgroupVsO':
@@ -2275,18 +1837,7 @@ if $ARGS[0]='hantersgroupVsO':
 	gs 'stat'
 
 	hantsexa = rand(2,4)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb <= 4 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALs1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 4 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALs1end'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsEnd1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsEnd2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 3 :act 'Straddle':gt 'hanters', 'hantersgroupVs2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 3 :act 'Straddle':gt 'hanters', 'hantersgroupVs2end'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Kneel down':gt 'hanters', 'hantersgroupOsend'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-
+	gs 'hanters', 'rng_2'
 end
 
 if $ARGS[0]='hantersgroupVOaHi':
@@ -2311,19 +1862,7 @@ if $ARGS[0]='hantersgroupVOaHi':
 	gs 'stat'
 
 	hantsexa = rand(2,5)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb <= 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALai1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALi1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVia1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVi2'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVa1'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 6 :act 'Sideways':gt 'hanters', 'hantersgroupViOa'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 6 :act 'Sideways':gt 'hanters', 'hantersgroupViO'
-	if pcs_sleep >= 10 and hantsexa = 4 :act 'Straddle':gt 'hanters', 'hantersgroupDPia'
-	if pcs_sleep >= 10 and hantsexa = 5 :act 'Kneel down':gt 'hanters', 'hantersgroupOia'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-
+	gs 'hanters', 'rng_4'
 end
 
 if $ARGS[0]='hantersgroupViOa':
@@ -2347,19 +1886,7 @@ if $ARGS[0]='hantersgroupViOa':
 	gs 'stat'
 
 	hantsexa = rand(2,5)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb <= 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALai1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALi1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVia1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVi2'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVa1'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 6 :act 'Sideways':gt 'hanters', 'hantersgroupViOa'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 6 :act 'Sideways':gt 'hanters', 'hantersgroupViO'
-	if pcs_sleep >= 10 and hantsexa = 4 :act 'Straddle':gt 'hanters', 'hantersgroupDPia'
-	if pcs_sleep >= 10 and hantsexa = 5 :act 'Kneel down':gt 'hanters', 'hantersgroupOia'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-
+	gs 'hanters', 'rng_4'
 end
 
 if $ARGS[0]='hantersgroupViO':
@@ -2391,17 +1918,7 @@ if $ARGS[0]='hantersgroupViO':
 	gs 'stat'
 
 	hantsexa = rand(2,4)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Keep sucking':gt 'hanters', 'hantersgroupORALi1end'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAiEnd1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAiEnd2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 3 :act 'Straddle':gt 'hanters', 'hantersgroupVi3'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 3 :act 'Straddle':gt 'hanters', 'hantersgroupVi3end'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Kneel down':gt 'hanters', 'hantersgroupOiend'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-
+	gs 'hanters', 'rng_3'
 end
 
 if $ARGS[0]='hantersgroupVaOs':
@@ -2424,20 +1941,8 @@ if $ARGS[0]='hantersgroupVaOs':
 	minut -= 5
 	gs 'stat'
 
-	hantsexa = rand(1,4)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb < 6 :act 'Get down on all fours':gt 'hanters', 'hantersgroupVas1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 6 :act 'Get down on all fours':gt 'hanters', 'hantersgroupVa'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 6 :act 'Get down on all fours':gt 'hanters', 'hantersgroupVs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 6 :act 'Lie on your stomach':gt 'hanters', 'hantersgroupVaOs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 6 :act 'Lie on your stomach':gt 'hanters', 'hantersgroupVOs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 6 :act 'Lie on your stomach':gt 'hanters', 'hantersgroupVaO'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsOa'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsO'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAOa'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Kneel down':gt 'hanters', 'hantersgroupOsa'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-
+	hantsexa = rand(1,4)	
+	gs 'hanters', 'rng_5'
 end
 
 if $ARGS[0]='hantersgroupVOs':
@@ -2461,18 +1966,7 @@ if $ARGS[0]='hantersgroupVOs':
 	gs 'stat'
 
 	hantsexa = rand(2,4)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb <= 4 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALs1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 4 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALs1end'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsEnd1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsEnd2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 3 :act 'Straddle':gt 'hanters', 'hantersgroupVs2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 3 :act 'Straddle':gt 'hanters', 'hantersgroupVs2end'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Kneel down':gt 'hanters', 'hantersgroupOsend'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-
+	gs 'hanters', 'rng_2'
 end
 
 if $ARGS[0]='hantersgroupVaO':
@@ -2498,22 +1992,14 @@ if $ARGS[0]='hantersgroupVaO':
 	gs 'dinsex', 'dinrandswallow'
 	if hantersexnude = 1 or forest_hantersex = 3:'You feel Sergei''s cock throbbing inside your mouth, he starts grunting loudly and releases his spunk inside your mouth. Andrei now alone and warmed up tells you to...'
 	if forest_gopsex = 3:'You feel Mitka''s cock throbbing inside your mouth, he starts grunting loudly and releases his spunk inside your mouth. Kolyamba now alone and warmed up tells you to...'
-	''
+	*nl
 	gs 'arousal', 'bj', 5, 'sub', 'gangbang', 'deepthroat'
 	gs 'arousal', 'vaginal', 5, 'sub', 'gangbang'
 	minut -= 5
 	gs 'stat'
+	
 	hantsexa = rand(1,4)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Suck':gt 'hanters', 'hantersgroupORALa1end'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAa'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAaEnd1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAaEnd2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 3 :act 'Straddle':gt 'hanters', 'hantersgroupVa2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 3 :act 'Straddle':gt 'hanters', 'hantersgroupVa2end'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Kneel down':gt 'hanters', 'hantersgroupOaend'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_7'
 end
 
 if $ARGS[0]='hantersgroupAsOa':
@@ -2538,18 +2024,7 @@ if $ARGS[0]='hantersgroupAsOa':
 	gs 'stat'
 
 	hantsexa = rand(1,4)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb < 6 :act 'Get down on all fours':gt 'hanters', 'hantersgroupVas1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 6 :act 'Get down on all fours':gt 'hanters', 'hantersgroupVa'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 6 :act 'Get down on all fours':gt 'hanters', 'hantersgroupVs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 6 :act 'Lie on your stomach':gt 'hanters', 'hantersgroupVaOs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 6 :act 'Lie on your stomach':gt 'hanters', 'hantersgroupVOs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 6 :act 'Lie on your stomach':gt 'hanters', 'hantersgroupVaO'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsOa'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsO'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAOa'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Kneel down':gt 'hanters', 'hantersgroupOsa'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_5'
 end
 
 if $ARGS[0]='hantersgroupAsO':
@@ -2583,17 +2058,7 @@ if $ARGS[0]='hantersgroupAsO':
 	gs 'stat'
 
 	hantsexa = rand(2,4)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb <= 4 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALs1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 4 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALs1end'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsEnd1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsEnd2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 3 :act 'Straddle':gt 'hanters', 'hantersgroupVs2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 3 :act 'Straddle':gt 'hanters', 'hantersgroupVs2end'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Kneel down':gt 'hanters', 'hantersgroupOsend'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_2'
 end
 
 if $ARGS[0]='hantersgroupAOa':
@@ -2617,16 +2082,7 @@ if $ARGS[0]='hantersgroupAOa':
 	gs 'stat'
 
 	hantsexa = rand(1,4)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Suck':gt 'hanters', 'hantersgroupORALa1end'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAa'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAaEnd1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAaEnd2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 3 :act 'Straddle':gt 'hanters', 'hantersgroupVa2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 3 :act 'Straddle':gt 'hanters', 'hantersgroupVa2end'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Kneel down':gt 'hanters', 'hantersgroupOaend'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_7'
 end
 
 
@@ -2651,21 +2107,7 @@ if $ARGS[0]='hantersgroupDPis':
 	gs 'stat'
 
 	hantsexa = rand(2,5)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb < 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALsi1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 6:act 'Keep sucking':gt 'hanters', 'hantersgroupORALs'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 7:act 'Keep sucking':gt 'hanters', 'hantersgroupORALi'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 8:act 'Keep sucking':gt 'hanters', 'hantersgroupORALend1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb <= 5:act 'Get down on all fours':gt 'hanters', 'hantersgroupVis1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 6:act 'Get down on all fours':gt 'hanters', 'hantersgroupVi1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 6:act 'Get down on all fours':gt 'hanters', 'hantersgroupVs1'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 5:act 'Sideways':gt 'hanters', 'hantersgroupVsOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 6:act 'Sideways':gt 'hanters', 'hantersgroupVOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 6:act 'Sideways':gt 'hanters', 'hantersgroupVsO'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Straddle':gt 'hanters', 'hantersgroupDPis'
-	if pcs_sleep >= 10 and hantsexa = 5:act 'Kneel down':gt 'hanters', 'hantersgroupOis'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_8'
 end
 
 if $ARGS[0]='hantersgroupDPia':
@@ -2689,18 +2131,7 @@ if $ARGS[0]='hantersgroupDPia':
 	gs 'stat'
 
 	hantsexa = rand(2,5)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb <= 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALai1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALi1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVia1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVi2'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVa1'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 6 :act 'Sideways':gt 'hanters', 'hantersgroupViOa'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 6 :act 'Sideways':gt 'hanters', 'hantersgroupViO'
-	if pcs_sleep >= 10 and hantsexa = 4 :act 'Straddle':gt 'hanters', 'hantersgroupDPia'
-	if pcs_sleep >= 10 and hantsexa = 5 :act 'Kneel down':gt 'hanters', 'hantersgroupOia'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_4'
 end
 
 if $ARGS[0]='hantersgroupOis':
@@ -2715,7 +2146,6 @@ if $ARGS[0]='hantersgroupOis':
 
 	if forest_hantersex = 0:act 'Further':hantersexnude = 0 & forest_gopsex = 0 & gt $loc, $metka
 	if forest_hantersex > 0:act 'Further':forest_hantersex = 0 & minut += 60 & gt 'swamp_yard'
-
 end
 
 if $ARGS[0]='hantersgroupOia':
@@ -2732,7 +2162,6 @@ if $ARGS[0]='hantersgroupOia':
 
 	if forest_hantersex = 0:act 'Further':hantersexnude = 0 & forest_gopsex = 0 & gt $loc, $metka
 	if forest_hantersex > 0:act 'Further':forest_hantersex = 0 & minut += 60 & gt 'swamp_yard'
-
 end
 
 if $ARGS[0]='hantersgroupOsa':
@@ -2752,7 +2181,6 @@ if $ARGS[0]='hantersgroupOsa':
 
 	if forest_hantersex = 0:act 'Further':hantersexnude = 0 & forest_gopsex = 0 & gt $loc, $metka
 	if forest_hantersex > 0:act 'Further':forest_hantersex = 0 & minut += 60 & gt 'swamp_yard'
-
 end
 
 if $ARGS[0]='hantersgroupAa':
@@ -2769,16 +2197,7 @@ if $ARGS[0]='hantersgroupAa':
 	gs 'stat'
 
 	hantsexa = rand(1,4)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Suck':gt 'hanters', 'hantersgroupORALa1end'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAa'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAaEnd1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAaEnd2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 3 :act 'Straddle':gt 'hanters', 'hantersgroupVa2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 3 :act 'Straddle':gt 'hanters', 'hantersgroupVa2end'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Kneel down':gt 'hanters', 'hantersgroupOaend'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_7'
 end
 
 if $ARGS[0]='hantersgroupAaEnd1':
@@ -2797,7 +2216,6 @@ if $ARGS[0]='hantersgroupAaEnd1':
 
 	if forest_hantersex = 0:act 'Further':hantersexnude = 0 & forest_gopsex = 0 & gt $loc, $metka
 	if forest_hantersex > 0:act 'Further':forest_hantersex = 0 & minut += 60 & gt 'swamp_yard'
-
 end
 
 if $ARGS[0]='hantersgroupAaEnd2':
@@ -2830,18 +2248,7 @@ if $ARGS[0]='hantersgroupAs':
 	gs 'stat'
 
 	hantsexa = rand(2,4)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb <= 4 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALs1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 4 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALs1end'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsEnd1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsEnd2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 3 :act 'Straddle':gt 'hanters', 'hantersgroupVs2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 3 :act 'Straddle':gt 'hanters', 'hantersgroupVs2end'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Kneel down':gt 'hanters', 'hantersgroupOsend'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-
+	gs 'hanters', 'rng_2'
 end
 
 if $ARGS[0]='hantersgroupAsEnd1':
@@ -2860,7 +2267,6 @@ if $ARGS[0]='hantersgroupAsEnd1':
 
 	if forest_hantersex = 0:act 'Further':hantersexnude = 0 & forest_gopsex = 0 & gt $loc, $metka
 	if forest_hantersex > 0:act 'Further':forest_hantersex = 0 & minut += 60 & gt 'swamp_yard'
-
 end
 
 if $ARGS[0]='hantersgroupAsEnd2':
@@ -2879,7 +2285,6 @@ if $ARGS[0]='hantersgroupAsEnd2':
 
 	if forest_hantersex = 0:act 'Further':hantersexnude = 0 & forest_gopsex = 0 & gt $loc, $metka
 	if forest_hantersex > 0:act 'Further':forest_hantersex = 0 & minut += 60 & gt 'swamp_yard'
-
 end
 
 if $ARGS[0]='hantersgroupAi':
@@ -2894,17 +2299,7 @@ if $ARGS[0]='hantersgroupAi':
 	gs 'stat'
 
 	hantsexa = rand(2,4)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Keep sucking':gt 'hanters', 'hantersgroupORALi1end'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAiEnd1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAiEnd2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 3 :act 'Straddle':gt 'hanters', 'hantersgroupVi3'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 3 :act 'Straddle':gt 'hanters', 'hantersgroupVi3end'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Kneel down':gt 'hanters', 'hantersgroupOiend'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-
+	gs 'hanters', 'rng_3'
 end
 
 if $ARGS[0]='hantersgroupAiEnd1':
@@ -2923,7 +2318,6 @@ if $ARGS[0]='hantersgroupAiEnd1':
 
 	if forest_hantersex = 0:act 'Further':hantersexnude = 0 & forest_gopsex = 0 & gt $loc, $metka
 	if forest_hantersex > 0:act 'Further':forest_hantersex = 0 & minut += 60 & gt 'swamp_yard'
-
 end
 
 if $ARGS[0]='hantersgroupAiEnd2':
@@ -2942,7 +2336,6 @@ if $ARGS[0]='hantersgroupAiEnd2':
 
 	if forest_hantersex = 0:act 'Further':hantersexnude = 0 & forest_gopsex = 0 & gt $loc, $metka
 	if forest_hantersex > 0:act 'Further':forest_hantersex = 0 & minut += 60 & gt 'swamp_yard'
-
 end
 
 if $ARGS[0]='hantersgroupVa2':
@@ -2957,17 +2350,7 @@ if $ARGS[0]='hantersgroupVa2':
 	gs 'stat'
 
 	hantsexa = rand(1,4)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Suck':gt 'hanters', 'hantersgroupORALa1end'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAa'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAaEnd1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAaEnd2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 3 :act 'Straddle':gt 'hanters', 'hantersgroupVa2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 3 :act 'Straddle':gt 'hanters', 'hantersgroupVa2end'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Kneel down':gt 'hanters', 'hantersgroupOaend'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-
+	gs 'hanters', 'rng_7'
 end
 
 if $ARGS[0]='hantersgroupVa2end':
@@ -2985,7 +2368,6 @@ if $ARGS[0]='hantersgroupVa2end':
 
 	if forest_hantersex = 0:act 'Further':hantersexnude = 0 & forest_gopsex = 0 & gt $loc, $metka
 	if forest_hantersex > 0:act 'Further':forest_hantersex = 0 & minut += 60 & gt 'swamp_yard'
-
 end
 
 if $ARGS[0]='hantersgroupVs2':
@@ -3000,18 +2382,7 @@ if $ARGS[0]='hantersgroupVs2':
 	gs 'stat'
 
 	hantsexa = rand(2,4)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb <= 4 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALs1'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 4 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALs1end'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsEnd1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsEnd2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 3 :act 'Straddle':gt 'hanters', 'hantersgroupVs2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 3 :act 'Straddle':gt 'hanters', 'hantersgroupVs2end'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Kneel down':gt 'hanters', 'hantersgroupOsend'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-
+	gs 'hanters', 'rng_2'
 end
 
 if $ARGS[0]='hantersgroupVs2end':
@@ -3029,7 +2400,6 @@ if $ARGS[0]='hantersgroupVs2end':
 
 	if forest_hantersex = 0:act 'Further':hantersexnude = 0 & forest_gopsex = 0 & gt $loc, $metka
 	if forest_hantersex > 0:act 'Further':forest_hantersex = 0 & minut += 60 & gt 'swamp_yard'
-
 end
 
 if $ARGS[0]='hantersgroupVi3':
@@ -3044,17 +2414,7 @@ if $ARGS[0]='hantersgroupVi3':
 	gs 'stat'
 
 	hantsexa = rand(2,4)
-	hantsexb = rand(1,8)
-
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Keep sucking':gt 'hanters', 'hantersgroupORALi1end'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAiEnd1'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAiEnd2'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 3 :act 'Straddle':gt 'hanters', 'hantersgroupVi3'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 3 :act 'Straddle':gt 'hanters', 'hantersgroupVi3end'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Kneel down':gt 'hanters', 'hantersgroupOiend'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-
+	gs 'hanters', 'rng_3'
 end
 
 if $ARGS[0]='hantersgroupVi3end':
@@ -3073,7 +2433,6 @@ if $ARGS[0]='hantersgroupVi3end':
 
 	if forest_hantersex = 0:act 'Further':hantersexnude = 0 & forest_gopsex = 0 & gt $loc, $metka
 	if forest_hantersex > 0:act 'Further':forest_hantersex = 0 & minut += 60 & gt 'swamp_yard'
-
 end
 
 if $ARGS[0]='hantersgroupOsend':
@@ -3209,18 +2568,11 @@ if $ARGS[0]='hanterslutORAL':
 	gs 'stat'
 
 	hantsexa = rand(1,10)
+	
 	if pcs_sleep >= 10 and hantsexa <= 7:'Interrupting you, the guy says...'
 	if pcs_sleep >= 10 and hantsexa > 7:'All of a sudden <<$boydesc>> begins moving faster, making sounds, you quickly realize he''s edging and would be cumming soon.'
-
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Keep sucking':gt 'hanters', 'hanterslutORAL'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Straddle':gt 'hanters', 'hanterslutCOW'
-	if pcs_sleep >= 10 and hantsexa = 3:act 'Jump on the hands':gt 'hanters', 'hanterslutHANDS'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Lean on a tree':gt 'hanters', 'hanterslutTREE'
-	if pcs_sleep >= 10 and hantsexa = 5:act 'Lean on a tree and lift your leg':gt 'hanters', 'hanterslutTREELEG'
-	if pcs_sleep >= 10 and hantsexa = 6:act 'Turn your back':gt 'hanters', 'hanterslutLEG1'
-	if pcs_sleep >= 10 and hantsexa = 7:act 'Face him':gt 'hanters', 'hanterslutLEG2'
-	if pcs_sleep >= 10 and hantsexa > 7:act 'Kneel down':gt 'hanters', 'hanterslutEND'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	
+	gs 'hanters', 'rng_9'
 end
 
 if $ARGS[0]='hanterslutCOW':
@@ -3233,18 +2585,11 @@ if $ARGS[0]='hanterslutCOW':
 	gs 'stat'
 
 	hantsexa = rand(2,10)
+	
 	if pcs_sleep >= 10 and hantsexa <= 7:'You can see that <<$boydesc>> enjoys fucking you in this position...'
 	if pcs_sleep >= 10 and hantsexa > 7:'Suddenly <<$boydesc>> began moving faster, grunting, you quickly realize he was edging and would be cumming soon.'
 
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Keep sucking':gt 'hanters', 'hanterslutORAL'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Straddle':gt 'hanters', 'hanterslutCOW'
-	if pcs_sleep >= 10 and hantsexa = 3:act 'Jump on the hands':gt 'hanters', 'hanterslutHANDS'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Lean on a tree':gt 'hanters', 'hanterslutTREE'
-	if pcs_sleep >= 10 and hantsexa = 5:act 'Lean on a tree':gt 'hanters', 'hanterslutTREELEG'
-	if pcs_sleep >= 10 and hantsexa = 6:act 'Turn your back':gt 'hanters', 'hanterslutLEG1'
-	if pcs_sleep >= 10 and hantsexa = 7:act 'Face him':gt 'hanters', 'hanterslutLEG2'
-	if pcs_sleep >= 10 and hantsexa > 7:act 'Kneel down':gt 'hanters', 'hanterslutEND'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_9'
 end
 
 if $ARGS[0]='hanterslutHANDS':
@@ -3257,18 +2602,11 @@ if $ARGS[0]='hanterslutHANDS':
 	gs 'stat'
 
 	hantsexa = rand(2,10)
+	
 	if pcs_sleep >= 10 and hantsexa <= 7:'<<$boydesc>> lets out some grunts, he really enjoys fucking you in this position...'
 	if pcs_sleep >= 10 and hantsexa > 7:'<<$boydesc>> starts breathing heavily and grunting loudly, you realize he''s edging and is going to finish soon.'
 
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Keep sucking':gt 'hanters', 'hanterslutORAL'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Straddle':gt 'hanters', 'hanterslutCOW'
-	if pcs_sleep >= 10 and hantsexa = 3:act 'Jump on the hands':gt 'hanters', 'hanterslutHANDS'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Lean on a tree':gt 'hanters', 'hanterslutTREE'
-	if pcs_sleep >= 10 and hantsexa = 5:act 'Lean on a tree':gt 'hanters', 'hanterslutTREELEG'
-	if pcs_sleep >= 10 and hantsexa = 6:act 'Turn your back':gt 'hanters', 'hanterslutLEG1'
-	if pcs_sleep >= 10 and hantsexa = 7:act 'Face him':gt 'hanters', 'hanterslutLEG2'
-	if pcs_sleep >= 10 and hantsexa > 7:act 'Kneel down':gt 'hanters', 'hanterslutEND'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_9'
 end
 
 if $ARGS[0]='hanterslutTREE':
@@ -3281,18 +2619,11 @@ if $ARGS[0]='hanterslutTREE':
 	gs 'stat'
 
 	hantsexa = rand(2,10)
+	
 	if pcs_sleep >= 10 and hantsexa <= 7:'<<$boydesc>> tells you that he enjoys fucking you in this position ...'
 	if pcs_sleep >= 10 and hantsexa > 7:'Suddenly <<$boydesc>> began moving faster, grunting, you quickly realize he was edging and would be cumming soon.'
 
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Keep sucking':gt 'hanters', 'hanterslutORAL'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Straddle':gt 'hanters', 'hanterslutCOW'
-	if pcs_sleep >= 10 and hantsexa = 3:act 'Jump on the hands':gt 'hanters', 'hanterslutHANDS'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Lean on a tree':gt 'hanters', 'hanterslutTREE'
-	if pcs_sleep >= 10 and hantsexa = 5:act 'Lean on a tree':gt 'hanters', 'hanterslutTREELEG'
-	if pcs_sleep >= 10 and hantsexa = 6:act 'Turn your back':gt 'hanters', 'hanterslutLEG1'
-	if pcs_sleep >= 10 and hantsexa = 7:act 'Face him':gt 'hanters', 'hanterslutLEG2'
-	if pcs_sleep >= 10 and hantsexa > 7:act 'Kneel down':gt 'hanters', 'hanterslutEND'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_9'
 end
 
 if $ARGS[0]='hanterslutTREELEG':
@@ -3305,18 +2636,11 @@ if $ARGS[0]='hanterslutTREELEG':
 	gs 'stat'
 
 	hantsexa = rand(2,10)
+	
 	if pcs_sleep >= 10 and hantsexa <= 7:'<<$boydesc>> tells you that he could fuck you forever in this position...'
 	if pcs_sleep >= 10 and hantsexa > 7:'Suddenly <<$boydesc>> starts breathing heavily and grunting loudly, you realize he''s edging and is going to finish soon.'
 
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Keep sucking':gt 'hanters', 'hanterslutORAL'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Straddle':gt 'hanters', 'hanterslutCOW'
-	if pcs_sleep >= 10 and hantsexa = 3:act 'Jump on the hands':gt 'hanters', 'hanterslutHANDS'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Lean on a tree':gt 'hanters', 'hanterslutTREE'
-	if pcs_sleep >= 10 and hantsexa = 5:act 'Lean on a tree':gt 'hanters', 'hanterslutTREELEG'
-	if pcs_sleep >= 10 and hantsexa = 6:act 'Turn your back':gt 'hanters', 'hanterslutLEG1'
-	if pcs_sleep >= 10 and hantsexa = 7:act 'Face him':gt 'hanters', 'hanterslutLEG2'
-	if pcs_sleep >= 10 and hantsexa > 7:act 'Kneel down':gt 'hanters', 'hanterslutEND'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_9'
 end
 
 if $ARGS[0]='hanterslutLEG1':
@@ -3329,18 +2653,11 @@ if $ARGS[0]='hanterslutLEG1':
 	gs 'stat'
 
 	hantsexa = rand(2,10)
+	
 	if pcs_sleep >= 10 and hantsexa <= 7:'<<$boydesc>> whispers in your ear that he really enjoys fucking you in this position...'
 	if pcs_sleep >= 10 and hantsexa > 7:'All of a sudden <<$boydesc>> begins moving faster, making sounds, you quickly realize he''s edging and would be cumming soon.'
 
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Keep sucking':gt 'hanters', 'hanterslutORAL'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Straddle':gt 'hanters', 'hanterslutCOW'
-	if pcs_sleep >= 10 and hantsexa = 3:act 'Jump on the hands':gt 'hanters', 'hanterslutHANDS'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Lean on a tree':gt 'hanters', 'hanterslutTREE'
-	if pcs_sleep >= 10 and hantsexa = 5:act 'Lean on a tree':gt 'hanters', 'hanterslutTREELEG'
-	if pcs_sleep >= 10 and hantsexa = 6:act 'Turn your back':gt 'hanters', 'hanterslutLEG1'
-	if pcs_sleep >= 10 and hantsexa = 7:act 'Face him':gt 'hanters', 'hanterslutLEG2'
-	if pcs_sleep >= 10 and hantsexa > 7:act 'Kneel down':gt 'hanters', 'hanterslutEND'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_9'
 end
 
 if $ARGS[0]='hanterslutLEG2':
@@ -3353,18 +2670,11 @@ if $ARGS[0]='hanterslutLEG2':
 	gs 'stat'
 
 	hantsexa = rand(2,10)
+	
 	if pcs_sleep >= 10 and hantsexa <= 7:'<<$boydesc>> tells you that he could fuck you forever in this position...'
 	if pcs_sleep >= 10 and hantsexa > 7:'Suddenly <<$boydesc>> began moving faster, grunting, you quickly realize he was edging and would be cumming soon.'
 
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Keep sucking':gt 'hanters', 'hanterslutORAL'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Straddle':gt 'hanters', 'hanterslutCOW'
-	if pcs_sleep >= 10 and hantsexa = 3:act 'Jump on the hands':gt 'hanters', 'hanterslutHANDS'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Lean on a tree':gt 'hanters', 'hanterslutTREE'
-	if pcs_sleep >= 10 and hantsexa = 5:act 'Lean on a tree':gt 'hanters', 'hanterslutTREELEG'
-	if pcs_sleep >= 10 and hantsexa = 6:act 'Turn your back':gt 'hanters', 'hanterslutLEG1'
-	if pcs_sleep >= 10 and hantsexa = 7:act 'Face him':gt 'hanters', 'hanterslutLEG2'
-	if pcs_sleep >= 10 and hantsexa > 7:act 'Kneel down':gt 'hanters', 'hanterslutEND'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	gs 'hanters', 'rng_9'
 end
 
 if $ARGS[0] = 'hanters_talk':
@@ -3605,93 +2915,137 @@ if $ARGS[0] = 'hantersgroupfaint':
 			act 'Further': gt'swamphouse'
 		end
 	end
-end &! --- hantersgroupfaint ---
-
-if $ARGS[0]='killvar':
-	killvar '$hantersgroupfaint'
-	killvar '$hantersgroupORALsi'
-	killvar '$hantersgroupORALsi1'
-	killvar '$hantersgroupORALs'
-	killvar '$hantersgroupORALs1'
-	killvar '$hantersgroupORALs1end'
-	killvar '$hantersgroupORALi1end'
-	killvar '$hantersgroupORALa1end'
-	killvar '$hantersgroupORALi'
-	killvar '$hantersgroupORALend1'
-	killvar '$hantersgroupORALai'
-	killvar '$hantersgroupORALai1'
-	killvar '$hantersgroupORALi1'
-	killvar '$hantersgroupORALas'
-	killvar '$hantersgroupORALasi'
-	killvar '$hantersgroupVias'
-	killvar '$hantersgroupVas'
-	killvar '$hantersgroupVas1'
-	killvar '$hantersgroupVa'
-	killvar '$hantersgroupVs'
-	killvar '$hantersgroupVi'
-	killvar '$hantersgroupVis'
-	killvar '$hantersgroupVis1'
-	killvar '$hantersgroupVi1'
-	killvar '$hantersgroupVs1'
-	killvar '$hantersgroupVia'
-	killvar '$hantersgroupVia1'
-	killvar '$hantersgroupVi2'
-	killvar '$hantersgroupVa1'
-	killvar '$hantersgroupVaOsHi'
-	killvar '$hantersgroupVOsHi'
-	killvar '$hantersgroupVaOHi'
-	killvar '$hantersgroupDPasi'
-	killvar '$hantersgroupDPsi'
-	killvar '$hantersgroupDPas'
-	killvar '$hantersgroupDPai'
-	killvar '$hantersgroupVsOaHi'
-	killvar '$hantersgroupVsOHi'
-	killvar '$hantersgroupVsOi'
-	killvar '$hantersgroupVOi'
-	killvar '$hantersgroupVsO'
-	killvar '$hantersgroupVOaHi'
-	killvar '$hantersgroupViOa'
-	killvar '$hantersgroupViO'
-	killvar '$hantersgroupVaOs'
-	killvar '$hantersgroupVOs'
-	killvar '$hantersgroupVaO'
-	killvar '$hantersgroupAsOa'
-	killvar '$hantersgroupAsO'
-	killvar '$hantersgroupAOa'
-	killvar '$hantersgroupDPis'
-	killvar '$hantersgroupDPia'
-	killvar '$hantersgroupOis'
-	killvar '$hantersgroupOia'
-	killvar '$hantersgroupOsa'
-	killvar '$hantersgroupAa'
-	killvar '$hantersgroupAaEnd1'
-	killvar '$hantersgroupAaEnd2'
-	killvar '$hantersgroupAs'
-	killvar '$hantersgroupAsEnd1'
-	killvar '$hantersgroupAsEnd2'
-	killvar '$hantersgroupAi'
-	killvar '$hantersgroupAiEnd1'
-	killvar '$hantersgroupAiEnd2'
-	killvar '$hantersgroupVa2'
-	killvar '$hantersgroupVa2end'
-	killvar '$hantersgroupVs2'
-	killvar '$hantersgroupVs2end'
-	killvar '$hantersgroupVi3'
-	killvar '$hantersgroupVi3end'
-	killvar '$hantersgroupOsend'
-	killvar '$hantersgroupOaend'
-	killvar '$hantersgroupOiend'
-	killvar '$hanterslutSTART'
-	killvar '$hanterslutEND'
-	killvar '$hanterslutORAL'
-	killvar '$hanterslutCOW'
-	killvar '$hanterslutHANDS'
-	killvar '$hanterslutTREE'
-	killvar '$hanterslutTREELEG'
-	killvar '$hanterslutLEG1'
-	killvar '$hanterslutLEG2'
-	killvar '$hanters_talk'
 end
+
+if $ARGS[0] = 'rng_1':
+	hantsexb = rand(1,8)
+	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb < 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALsi1'
+	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 6:act 'Keep sucking':gt 'hanters', 'hantersgroupORALs'
+	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 7:act 'Keep sucking':gt 'hanters', 'hantersgroupORALi'
+	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 8:act 'Keep sucking':gt 'hanters', 'hantersgroupORALend1'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb <= 5:act 'Get down on all fours':gt 'hanters', 'hantersgroupVis1'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 6:act 'Get down on all fours':gt 'hanters', 'hantersgroupVi1'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 6:act 'Get down on all fours':gt 'hanters', 'hantersgroupVs1'
+	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 5:act 'Sideways':gt 'hanters', 'hantersgroupVsOi'
+	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 6:act 'Sideways':gt 'hanters', 'hantersgroupVOi'
+	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 6:act 'Sideways':gt 'hanters', 'hantersgroupVsO'
+	if pcs_sleep >= 10 and hantsexa = 4:act 'Straddle':gt 'hanters', 'hantersgroupDPis'
+	if pcs_sleep >= 10 and hantsexa = 5:act 'Keep sucking':gt 'hanters', 'hantersgroupOis'
+	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+end
+
+if $ARGS[0] = 'rng_2':
+	hantsexb = rand(1,8)
+	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb <= 4 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALs1'
+	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 4 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALs1end'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAs'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsEnd1'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsEnd2'
+	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 3 :act 'Straddle':gt 'hanters', 'hantersgroupVs2'
+	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 3 :act 'Straddle':gt 'hanters', 'hantersgroupVs2end'
+	if pcs_sleep >= 10 and hantsexa = 4:act 'Keep sucking':gt 'hanters', 'hantersgroupOsend'
+	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+end
+
+if $ARGS[0] = 'rng_3':
+	hantsexb = rand(1,8)
+	if pcs_sleep >= 10 and hantsexa = 1:act 'Keep sucking':gt 'hanters', 'hantersgroupORALi1end'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAi'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAiEnd1'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAiEnd2'
+	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 3 :act 'Straddle':gt 'hanters', 'hantersgroupVi3'
+	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 3 :act 'Straddle':gt 'hanters', 'hantersgroupVi3end'
+	if pcs_sleep >= 10 and hantsexa = 4:act 'Keep sucking':gt 'hanters', 'hantersgroupOiend'
+	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+end
+
+if $ARGS[0] = 'rng_4':
+	hantsexb = rand(1,8)
+	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb <= 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALai1'
+	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 6 :act 'Keep sucking':gt 'hanters', 'hantersgroupORALi1'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVia1'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVi2'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 6 :act 'Doggy style':gt 'hanters', 'hantersgroupVa1'
+	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 6 :act 'Sideways':gt 'hanters', 'hantersgroupViOa'
+	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 6 :act 'Sideways':gt 'hanters', 'hantersgroupViO'
+	if pcs_sleep >= 10 and hantsexa = 4 :act 'Straddle':gt 'hanters', 'hantersgroupDPia'
+	if pcs_sleep >= 10 and hantsexa = 5 :act 'Keep sucking':gt 'hanters', 'hantersgroupOia'
+	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+end
+
+if $ARGS[0] = 'rng_5':
+	hantsexb = rand(1,8)
+	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb < 6 :act 'Get down on all fours':gt 'hanters', 'hantersgroupVas1'
+	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 6 :act 'Get down on all fours':gt 'hanters', 'hantersgroupVa'
+	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 6 :act 'Get down on all fours':gt 'hanters', 'hantersgroupVs'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 6 :act 'Lie on your stomach':gt 'hanters', 'hantersgroupVaOs'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 6 :act 'Lie on your stomach':gt 'hanters', 'hantersgroupVOs'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 6 :act 'Lie on your stomach':gt 'hanters', 'hantersgroupVaO'
+	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsOa'
+	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAsO'
+	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAOa'
+	if pcs_sleep >= 10 and hantsexa = 4:act 'Keep sucking':gt 'hanters', 'hantersgroupOsa'
+	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+end
+
+if $ARGS[0] = 'rng_6':
+	hantsexb = rand(1,8)
+	if pcs_sleep >= 10 and hantsexa = 1:act 'Keep sucking':gt 'hanters', 'hantersgroupORALasi'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5:act 'Straddle':gt 'hanters', 'hantersgroupVias'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 3:act 'Straddle':gt 'hanters', 'hantersgroupVia'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 4:act 'Straddle':gt 'hanters', 'hantersgroupVis'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5:act 'Straddle':gt 'hanters', 'hantersgroupVi'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 3:act 'Straddle':gt 'hanters', 'hantersgroupVas'
+	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 5:act 'Doggy style':gt 'hanters', 'hantersgroupVaOsHi'
+	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 5:act 'Doggy style':gt 'hanters', 'hantersgroupVaOHi'
+	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb < 5:act 'Doggy style':gt 'hanters', 'hantersgroupVOsHi'
+	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb < 5:act 'Straddle':gt 'hanters', 'hantersgroupDPasi'
+	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb > 6:act 'Straddle':gt 'hanters', 'hantersgroupDPas'
+	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb = 6:act 'Straddle':gt 'hanters', 'hantersgroupDPsi'
+	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb = 5:act 'Straddle':gt 'hanters', 'hantersgroupDPai'
+	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb > 5:act 'Sideways':gt 'hanters', 'hantersgroupVsOaHi'
+	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb = 5:act 'Sideways':gt 'hanters', 'hantersgroupVsOHi'
+	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb < 5:act 'Sideways':gt 'hanters', 'hantersgroupVOaHi'
+	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+end
+
+if $ARGS[0] = 'rng_7':
+	hantsexb = rand(1,8)
+	if pcs_sleep >= 10 and hantsexa = 1:act 'Keep sucking':gt 'hanters', 'hantersgroupORALa1end'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAa'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAaEnd1'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5 :act 'Get down on all fours':gt 'hanters', 'hantersgroupAaEnd2'
+	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 3 :act 'Straddle':gt 'hanters', 'hantersgroupVa2'
+	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 3 :act 'Straddle':gt 'hanters', 'hantersgroupVa2end'
+	if pcs_sleep >= 10 and hantsexa = 4:act 'Kneel down':gt 'hanters', 'hantersgroupOaend'
+	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+end
+
+if $ARGS[0] = 'rng_8':
+	hantsexb = rand(1,8)
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb <= 5:act 'Get down on all fours':gt 'hanters', 'hantersgroupVis1'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 6:act 'Get down on all fours':gt 'hanters', 'hantersgroupVi1'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 6:act 'Get down on all fours':gt 'hanters', 'hantersgroupVs1'
+	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 5:act 'Sideways':gt 'hanters', 'hantersgroupVsOi'
+	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 6:act 'Sideways':gt 'hanters', 'hantersgroupVOi'
+	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 6:act 'Sideways':gt 'hanters', 'hantersgroupVsO'
+	if pcs_sleep >= 10 and hantsexa = 4:act 'Straddle':gt 'hanters', 'hantersgroupDPis'
+	if pcs_sleep >= 10 and hantsexa = 5:act 'Kneel down':gt 'hanters', 'hantersgroupOis'
+	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+end
+
+if $ARGS[0] = 'rng_9':
+	if pcs_sleep >= 10 and hantsexa = 1:act 'Keep sucking':gt 'hanters', 'hanterslutORAL'
+	if pcs_sleep >= 10 and hantsexa = 2:act 'Straddle':gt 'hanters', 'hanterslutCOW'
+	if pcs_sleep >= 10 and hantsexa = 3:act 'Jump on the hands':gt 'hanters', 'hanterslutHANDS'
+	if pcs_sleep >= 10 and hantsexa = 4:act 'Lean on a tree':gt 'hanters', 'hanterslutTREE'
+	if pcs_sleep >= 10 and hantsexa = 5:act 'Lean on a tree and lift your leg':gt 'hanters', 'hanterslutTREELEG'
+	if pcs_sleep >= 10 and hantsexa = 6:act 'Turn your back':gt 'hanters', 'hanterslutLEG1'
+	if pcs_sleep >= 10 and hantsexa = 7:act 'Face him':gt 'hanters', 'hanterslutLEG2'
+	if pcs_sleep >= 10 and hantsexa > 7:act 'Kneel down':gt 'hanters', 'hanterslutEND'
+	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+end
+
 
 --- hanters ---------------------------------
 

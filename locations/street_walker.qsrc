@@ -190,9 +190,9 @@ if $ARGS[0] = 'event1':
 				'"The price is-" you stop in your tracks as you turn to notice a man dressed in all black. You stare for a moment, he''s giving you a weird vibe, looking at you with a cold and calculating gaze. Something tells you to play it cool so you change your answer. "Uh, I''m sorry, sir, can you repeat that? I don''t think I heard you clearly..." You try to lie.'
 				'The man''s eyes narrow dangerously, and as he moves you catch a glimpse of a police badge clipped to his hip. He''s a cop! "Don''t play dumb, girl. Go on, finish what you were going to say before!"'
 
-				act 'Keep on lying': gt 'policelie'
-				act 'Offer him a bribe': gt 'policebribe'
-				act 'Offer him a blowjob': gt 'policeblowjob'
+				act 'Keep on lying': gt 'street_walker', 'policelie'
+				act 'Offer him a bribe': gt 'street_walker', 'policebribe'
+				act 'Offer him a blowjob': gt 'street_walker', 'policeblowjob'
 
 			else
 				'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/police.jpg"></center>'
@@ -200,9 +200,9 @@ if $ARGS[0] = 'event1':
 				'You turn turn around and find that it''s the cop from before. "Y-Yes sir, you did..." You stare down at the ground.'
 				'"So what are you doing here then, whoring again?" he brashly asks.'
 
-				act 'Try to explain': gt 'policeexp'
-				act 'Offer him a bribe': gt 'policebribe'
-				act 'Offer him a blowjob': gt 'policeblowjob'
+				act 'Try to explain': gt 'street_walker', 'policeexp'
+				act 'Offer him a bribe': gt 'street_walker', 'policebribe'
+				act 'Offer him a blowjob': gt 'street_walker', 'policeblowjob'
 			end
 		else
 			*clr & cla
@@ -513,7 +513,7 @@ if $ARGS[0] = 'policelie':
 
 	!!need to add a random trigger here from 1 to 10. <= 4 means Sveta will be going to jail any other number than that she gets driven back to the place where she was picked up.
 
-	act 'Beg him to let you go'
+	act 'Beg him to let you go':
 		*clr & cla
 		!!if he lets you go
 		if rand(1,10) > 4:
@@ -546,7 +546,7 @@ if $ARGS[0] = 'policeexp':
 	'"Alright, alright, I was! I was whoring!" You admit with a huff. "Please...please just give me a break! I don''t want to go to jail...I can''t!" Before the last words are out your mouth, you start to sniffle and soon tears are rolling down your cheeks.'
 
 	!!need to add a random trigger here from 1 to 10. <= 4 means Sveta will be going to jail any other number than that she gets driven back to the place where she was picked up.
-	act 'Beg him to let you go'
+	act 'Beg him to let you go':
 		*clr & cla
 		!!if he lets you go
 		if rand(1,10) > 4:
@@ -580,7 +580,7 @@ if $ARGS[0] = 'policebribe':
 	*nl
 	'"Listen...I have some money...y''know, that I earned tonight?" You start to reach for your pocket, but the cop tenses, obviously weary of what you might be grabbing for. "No, no! It''s just money, I promise!" You reassure him as you slowly pull out a handful of crumpled bills. "This is all I have, and you can have it if...you let me go," You say quietly, your hand held out to him. He looks at you then at the money with an unreadable expression. The silence seems to stretch on forever until you speak up again, trying to further convince him. "Please, sir...I really don''t want to go to jail..."'
 
-	act 'Wait for his reaction': gt 'briberyreaction'
+	act 'Wait for his reaction': gt 'street_walker', 'briberyreaction'
 end
 
 
@@ -645,7 +645,7 @@ if $ARGS[0] = 'briberyreaction':
 		*nl
 		'"Listen, I can either take you to jail or I can fuck you and let you go. Those are your only two options, so take it or leave it," he tells you. As you stand there, his hand moves to the front of his jeans to squeeze his growing erection with a grin.'
 
-		act 'Agree': gt 'policesub1'
+		act 'Agree': gt 'street_walker', 'policesub1'
 		act 'Refuse':
 			*clr & cla
 			prst_bribe = 2
@@ -685,7 +685,7 @@ if $ARGS[0] = 'policesub1':
 		gs 'arousal', 'vaginal_finger', 10, 'rough', 'sub', 'prostitute'
 		gs 'arousal', 'vaginal', 10, 'rough', 'sub', 'prostitute'
 		minut -= 10
-		gs 'arousal', end
+		gs 'arousal', 'end'
 		gs 'stat'
 
 		act 'Run away':gt 'street_walker', 'event1'
@@ -709,7 +709,7 @@ if $ARGS[0] = 'policesub2':
 	gs 'arousal', 'breasts', 10, 'prostitution', 'rough', 'sub'
 	gs 'arousal', 'vaginal', 10, 'rough', 'sub', 'prostitute'
 	minut -= 10
-	gs 'arousal', end
+	gs 'arousal', 'end'
 	gs 'stat'
 
 	act 'Walk away':gt 'street_walker', 'event1'

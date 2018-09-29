@@ -16,19 +16,7 @@ if $ARGS[0] = 'start':
 	minut += 5
 	clr
 	gs 'stat'
-	if night_mode = 1:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(0, 0, 0)
-		lcolor = rgb(106, 90, 205)
-	elseif night_mode = 2:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(20, 20, 20)
-		lcolor = rgb(106, 90, 205)
-	else
-		fcolor = rgb(0, 0, 0)
-		bcolor = rgb(255, 255, 255)
-		lcolor = rgb(106, 90, 205)
-	end
+	gs 'themes', 'indoors'
 	'<center><b><font color="maroon">Sex Toys</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/sexshop/sexshop.jpg"></center>'
 	'Lubricant - 145 <b>₽</b>'
@@ -625,19 +613,7 @@ if $ARGS[0] = 'podval':
 	*clr
 	minut += 5
 	gs 'stat'
-	if night_mode = 1:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(0, 0, 0)
-		lcolor = rgb(106, 90, 205)
-	elseif night_mode = 2:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(20, 20, 20)
-		lcolor = rgb(106, 90, 205)
-	else
-		fcolor = rgb(0, 0, 0)
-		bcolor = rgb(255, 255, 255)
-		lcolor = rgb(106, 90, 205)
-	end
+	gs 'themes', 'indoors'
 	'<center><b><font color="maroon">Basement with cubicles for watching movies</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/sexshop/gloryholebooths1.jpg"></center>'
 	''
@@ -660,19 +636,7 @@ if $ARGS[0] = 'toi':
 	*clr
 	minut += 5
 	gs 'stat'
-	if night_mode = 1:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(0, 0, 0)
-		lcolor = rgb(106, 90, 205)
-	elseif night_mode = 2:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(20, 20, 20)
-		lcolor = rgb(106, 90, 205)
-	else
-		fcolor = rgb(0, 0, 0)
-		bcolor = rgb(255, 255, 255)
-		lcolor = rgb(106, 90, 205)
-	end
+	gs 'themes', 'indoors'
 	'<center><b><font color="maroon">WC</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/shared/bathroom/publictoilet.jpg"></center>'
 	''
@@ -696,19 +660,7 @@ if $ARGS[0] = 'pip':
 	minut += 5
 	gs 'stat'
 	!!gloryholeBooths
-	if night_mode = 1:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(0, 0, 0)
-		lcolor = rgb(106, 90, 205)
-	elseif night_mode = 2:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(20, 20, 20)
-		lcolor = rgb(106, 90, 205)
-	else
-		fcolor = rgb(0, 0, 0)
-		bcolor = rgb(255, 255, 255)
-		lcolor = rgb(106, 90, 205)
-	end
+	gs 'themes', 'indoors'
 
 	'<center><b><font color="maroon">Booth movies</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/shared/sex/gloryhole/ghbooths.jpg"></center>'

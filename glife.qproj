@@ -9,6 +9,7 @@
 	<Location name="onobjsel"/>
 	<Location name="obj_din"/>
 	<Location name="Cheatmenu_din"/>
+	<Location name="themes"/>
 	<Folder name="System">
 		<Location name="counter"/>
 		<Location name="loadg"/>
@@ -41,7 +42,7 @@
 		<Location name="kid"/>
 		<Location name="pattest"/>
 		<Location name="subkid"/>
-		<Location name="_statcheck"/>
+		<Location name="$statcheck"/>
 		<Location name="set_home"/>
 	</Folder>
 	<Folder name="Functions">

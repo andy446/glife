@@ -2,19 +2,7 @@
 
 !!The TG Story Elements
 cls
-if night_mode = 1:
-	fcolor = rgb(255, 255, 255)
-	bcolor = rgb(0, 0, 0)
-	lcolor = rgb(106, 90, 205)
-elseif night_mode = 2:
-	fcolor = rgb(255, 255, 255)
-	bcolor = rgb(20, 20, 20)
-	lcolor = rgb(106, 90, 205)
-else
-	fcolor = rgb(0, 0, 0)
-	bcolor = rgb(255, 255, 255)
-	lcolor = rgb(106, 90, 205)
-end
+gs 'themes', 'indoors'
 
 if $ARGS[0] = 'roomPRE':
 	'<center><b><font color="maroon">Apartment</font></b></center>'

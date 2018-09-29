@@ -10,13 +10,7 @@ $coat_list_line = {
 		clothing_temp = 150 & !clothing widdefault to 150
 	end
 
-	if night_mode = 1:
-		$bgcolor = iif($bgcolor='#0C0B11','#000000','#0C0B11')
-	elseif night_mode = 2:
-		$bgcolor = iif($bgcolor='#0C0B11','#141414','#0C0B11')
-	else
-		$bgcolor = iif($bgcolor='#f3f4ee','#ffffff','#f3f4ee')
-	end
+	gs 'themes', 'clothing', 1
 
 	$RESULT = '<TR bgcolor='+$bgcolor+'>'
 
@@ -80,13 +74,7 @@ if $ARGS[0] = 'view_coat_list':
 	end
 	*nl
 
-	if night_mode = 1:
-		$bgcolor = iif($bgcolor='#0C0B11','#000000','#0C0B11')
-	elseif night_mode = 2:
-		$bgcolor = iif($bgcolor='#0C0B11','#202020','#0C0B11')
-	else
-		$bgcolor = iif($bgcolor='#f3f4ee','#ffffff','#f3f4ee')
-	end
+	gs 'themes', 'clothing', 2
 	
 	'<table><table border=0 cellspacing=0 cellpadding=5><TH></TH><TH>Item no.</TH><TH>Description</TH><TH>Large image</TH><TH>Set as default</TH><TH>Default</TH><TH>Set for sale</TH>'
 

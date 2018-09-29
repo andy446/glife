@@ -10,19 +10,7 @@ clr
 gs 'stat'
 	cla
 	*clr
-	if night_mode = 1:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(0, 0, 0)
-		lcolor = rgb(106, 90, 205)
-	elseif night_mode = 2:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(20, 20, 20)
-		lcolor = rgb(106, 90, 205)
-	else
-		fcolor = rgb(0, 0, 0)
-		bcolor = rgb(255, 255, 255)
-		lcolor = rgb(106, 90, 205)
-	end
+	gs 'themes', 'indoors'
 	'<center><b><font color = maroon>Your normal hotel room</font></b></center>'
 	'<center>You have paid to stay for <<hotelroom1day - daystart>> more nights in the room.</center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/hotel.room.normal.jpg"></center>'
@@ -57,19 +45,7 @@ clr
 gs 'stat'
 	cla
 	*clr
-	if night_mode = 1:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(0, 0, 0)
-		lcolor = rgb(106, 90, 205)
-	elseif night_mode = 2:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(20, 20, 20)
-		lcolor = rgb(106, 90, 205)
-	else
-		fcolor = rgb(0, 0, 0)
-		bcolor = rgb(255, 255, 255)
-		lcolor = rgb(106, 90, 205)
-	end
+	gs 'themes', 'indoors'
 	'<center><b><font color = maroon>Your luxury room</font></b></center>'
 	'<center>You have paid to stay for <<hotelroom1day - daystart>> more nights in the room.</center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/hotel.room.better.jpg"></center>'
@@ -103,19 +79,7 @@ clr
 gs 'stat'
 	cla
 	*clr
-	if night_mode = 1:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(0, 0, 0)
-		lcolor = rgb(106, 90, 205)
-	elseif night_mode = 2:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(20, 20, 20)
-		lcolor = rgb(106, 90, 205)
-	else
-		fcolor = rgb(0, 0, 0)
-		bcolor = rgb(255, 255, 255)
-		lcolor = rgb(106, 90, 205)
-	end
+	gs 'themes', 'indoors'
 	'<center><b><font color = maroon>Your royal suite</font></b></center>'
 	'<center>You have paid to stay for <<hotelroom1day - daystart>> more nights in the room.</center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/hotel.room.best.jpg"></center>'
@@ -157,19 +121,7 @@ $location_type = 'bathroom'
 	minut = minut + 1
 	gs'stat'
 
-	if night_mode = 1:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(0, 0, 0)
-		lcolor = rgb(106, 90, 205)
-	elseif night_mode = 2:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(20, 20, 20)
-		lcolor = rgb(106, 90, 205)
-	else
-		fcolor = rgb(0, 0, 0)
-		bcolor = rgb(255, 255, 255)
-		lcolor = rgb(106, 90, 205)
-	end
+	gs 'themes', 'indoors'
 
 	'<center><b><font color = maroon>The bathroom of your hotel room</font></b></center>'
 	if hotelroom = 1:'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/hotel.room.normal1.jpg"></center>'&'A small and unpretentious bathroom, that is nevertheless quite stylish and has everything you need.'

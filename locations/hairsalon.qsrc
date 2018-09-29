@@ -8,19 +8,7 @@ if $ARGS[0] = 'start':
 	'<center>Next to the check out are two aisles filled with premium merchandise for you hair, including Scrunchies, Hairpins and Shampoo.</center>'
 	clr
 	gs 'stat'
-	if night_mode = 1:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(0, 0, 0)
-		lcolor = rgb(106, 90, 205)
-	elseif night_mode = 2:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(20, 20, 20)
-		lcolor = rgb(106, 90, 205)
-	else
-		fcolor = rgb(0, 0, 0)
-		bcolor = rgb(255, 255, 255)
-		lcolor = rgb(106, 90, 205)
-	end
+	gs 'themes', 'indoors'
 
 	if hour =< 8 or hour >= 20:
 		cls

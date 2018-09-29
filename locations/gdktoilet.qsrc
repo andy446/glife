@@ -8,19 +8,7 @@ if $ARGS[0] = 'start':
 	cls
 	gs 'stat'
 	ghnow = 0
-	if night_mode = 1:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(0, 0, 0)
-		lcolor = rgb(106, 90, 205)
-	elseif night_mode = 2:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(20, 20, 20)
-		lcolor = rgb(106, 90, 205)
-	else
-		fcolor = rgb(0, 0, 0)
-		bcolor = rgb(255, 255, 255)
-		lcolor = rgb(106, 90, 205)
-	end
+	gs 'themes', 'indoors'
 	'<center><b><font color="maroon">Bathroom Entrance</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/bathroom/bathroom_entrance.jpg"></center>'
 

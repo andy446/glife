@@ -193,9 +193,7 @@ if $ARGS[0] = 'event1':
 				act 'Keep on lying': gt 'street_walker', 'policelie'
 				act 'Offer him a bribe': gt 'street_walker', 'policebribe'
 				act 'Offer him a blowjob': gt 'street_walker', 'policeblowjob'
-
 			else
-				'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/police.jpg"></center>'
 				'"Didn''t I tell you to stay away from here?" you hear a familiar voice.'
 				'You turn turn around and find that it''s the cop from before. "Y-Yes sir, you did..." You stare down at the ground.'
 				'"So what are you doing here then, whoring again?" he brashly asks.'

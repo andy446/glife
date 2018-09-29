@@ -1518,8 +1518,6 @@ $cheatmenu['setting'] = {
 	'<center><table cellspacing="0" cellpadding="20" valign="top"><tr>'
 	'<td cellspacing="0" cellpadding="20" valign="top">'
 
-	'Mod management page: <a href="exec:gt ''mod_setting''">Here</a>'
-
 	if Enable_nogameover = 1:
 		'Prevent Non-Drama GAMEOVER: Currently ON - <a href="exec:Enable_nogameover = 0 & dynamic $cheatmenu[''setting'']">Turn OFF</a>'
 	else

@@ -5,19 +5,7 @@ if $ARGS[0] = '1':
 	menu_off = 1
 	dyadyamishaevent = 1
 	dick = 18
-	if night_mode = 1:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(0, 0, 0)
-		lcolor = rgb(106, 90, 205)
-	elseif night_mode = 2:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(20, 20, 20)
-		lcolor = rgb(106, 90, 205)
-	else
-		fcolor = rgb(0, 0, 0)
-		bcolor = rgb(255, 255, 255)
-		lcolor = rgb(106, 90, 205)
-	end
+	gs 'themes', 'indoors'
 
 	'You agree to help, and leave the cafe with uncle Misha. When you reach his apartment, he takes you by the hand and pulls you to his bedroom, locking the door with a key behind him. Roughly grabbing you by your hair, he pulls you down to your knees and unbuttons his pants with his other hand. His erect cock springs to life, which he impatiently pushes against your pursed lips.'
 	'"Open your mouth, whore. You know why you are here", he commands, slapping your cheeks with his hand.'
@@ -95,19 +83,7 @@ if $ARGS[0] = '1-1':
 	money += 200
 	gs 'stat'
 
-	if night_mode = 1:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(0, 0, 0)
-		lcolor = rgb(106, 90, 205)
-	elseif night_mode = 2:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(20, 20, 20)
-		lcolor = rgb(106, 90, 205)
-	else
-		fcolor = rgb(0, 0, 0)
-		bcolor = rgb(255, 255, 255)
-		lcolor = rgb(106, 90, 205)
-	end
+	gs 'themes', 'indoors'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/misha/sex/mishasex.jpg"></center>'
 	'You leave the cafe with uncle Misha and go to his apartment. He once again locks the door behind him and then turns towards you. Knowing you''re here of your own volition this time, he is a bit more daring in his demands: "<<$pcs_nickname>>, take off your clothes."'
 	'You know what he wants and give him a quick striptease, taking off your clothes and performing a little dance as you do. It''s not very good, but uncle Misha appreciates the effort anyway. He gets comfortable and watches you slowly reveal your soon to be naked body, and encourages you to do a few erotic poses for him. "Very nice <<$pcs_nickname>>, now suck", he says as he pulls out his cock and pulls your face closer to it. You obediently move over to him and close your lips around his dick, gently sucking him off. From the smell of it, the tongue bath you''re giving it is the first wash it has had in a while.'

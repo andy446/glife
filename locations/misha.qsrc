@@ -1,18 +1,6 @@
 # misha
 if $ARGS[0] = '1':
-	if night_mode = 1:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(0, 0, 0)
-		lcolor = rgb(106, 90, 205)
-	elseif night_mode = 2:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(20, 20, 20)
-		lcolor = rgb(106, 90, 205)
-	else
-		fcolor = rgb(0, 0, 0)
-		bcolor = rgb(255, 255, 255)
-		lcolor = rgb(106, 90, 205)
-	end
+	gs 'themes', 'indoors'
 	gs 'boyStat','A54'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/misha/sex/misha.pre0,<<rand(0,1)>>.jpg"></center>'
 	'You enter Uncle Misha''s apartment. He lets you in and you take a seat, as he glances down the hallway once more to see if anyone saw you enter. Content that the hallway is empty, he closes the door behind him. He then immediately reaches for his pants and pulls out his large cock with a lewd grin on his face.'
@@ -73,19 +61,7 @@ if $ARGS[0] = '1_2nd_part':
 end
 !!
 if $ARGS[0] = '2':
-	if night_mode = 1:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(0, 0, 0)
-		lcolor = rgb(106, 90, 205)
-	elseif night_mode = 2:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(20, 20, 20)
-		lcolor = rgb(106, 90, 205)
-	else
-		fcolor = rgb(0, 0, 0)
-		bcolor = rgb(255, 255, 255)
-		lcolor = rgb(106, 90, 205)
-	end
+	gs 'themes', 'indoors'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/garage/father/sex/father.misha.pre0,0.jpg"></center>'
 	'They both drop their pants to their ankles, revealing their hard cocks.'
 	'Your stepfather instructs you, "Well, <<$pcs_nickname>>, given your history I''m sure you know what to do with these. Get started."'

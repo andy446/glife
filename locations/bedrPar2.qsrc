@@ -11,19 +11,7 @@ if $ARGS[0] = '':
 	clr
 	minut += 1
 	gs 'stat'
-	if night_mode = 1:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(0, 0, 0)
-		lcolor = rgb(106, 90, 205)
-	elseif night_mode = 2:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(20, 20, 20)
-		lcolor = rgb(106, 90, 205)
-	else
-		fcolor = rgb(0, 0, 0)
-		bcolor = rgb(255, 255, 255)
-		lcolor = rgb(106, 90, 205)
-	end
+	gs 'themes', 'indoors'
 	'<center><h1><font color="maroon">Master bedroom</font></h1></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/home/bedrpar2.jpg"></center>'
 	*nl

@@ -6,19 +6,7 @@ if $ARGS[0] = 'start':
 	if sound = 0 and hour >= 8 and hour < 17:PLAY 'sound/office.mp3',30 & PLAY 'sound/office2.mp3',30
 	clr
 	gs 'stat'
-	if night_mode = 1:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(0, 0, 0)
-		lcolor = rgb(106, 90, 205)
-	elseif night_mode = 2:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(20, 20, 20)
-		lcolor = rgb(106, 90, 205)
-	else
-		fcolor = rgb(0, 0, 0)
-		bcolor = rgb(255, 255, 255)
-		lcolor = rgb(106, 90, 205)
-	end
+	gs 'themes', 'indoors'
 	'<center><b><font color="maroon">Office building</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/residential/office/clener.jpg"></center>'
 	'You notice several ads on one of the walls. As you look through them you see a notice that someone is searching for cleaners.'

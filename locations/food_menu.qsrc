@@ -1,22 +1,7 @@
 # food_menu
 menu_off = 1
 food_loc = 1
-if night_mode = 1:
-	$fcolor1 = '#FFFFFF'
-	$bcolor1 = '#202020'
-	$bcolor2 = '#303030'
-	$bcolor3 = '#000000'
-elseif night_mode = 2:
-	$fcolor1 = '#FFFFFF'
-	$bcolor1 = '#202020'
-	$bcolor2 = '#303030'
-	$bcolor3 = '#141414'
-else
-	$fcolor1 = '#000000'
-	$bcolor1 = '#FFFFFF'
-	$bcolor2 = '#e6f2ff'
-	$bcolor3 = '#FFFFFF'
-end
+gs 'themes', 'food_menu'
 
 *clr & cla
 act 'Back':killvar 'food_loc' & gt $loc, $metka

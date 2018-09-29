@@ -33,19 +33,7 @@ if $shoplocation = 'main':
 	'<br>Most of the space in the supermarket is taken up by the <a href="exec:$shoplocation = ''grocery'' & gt ''shop'', ''move''">grocery department</a>, but the store has many smaller departments as well. <a href="exec:$shoplocation=''cosmetics'' & gt ''shop'', ''move''">Cosmetics</a>, <a href="exec:$shoplocation = ''hardware'' & gt ''shop'', ''move''">hardware</a>, <a href="exec:$shoplocation = ''clothing'' & gt ''shop'', ''move''">clothing</a> and the department of <a href="exec:$shoplocation = ''tech'' & gt ''shop'', ''move''">household appliances</a>. Not far from the entrance is a <a href="exec:$shoplocation = ''icecream'' & gt ''shop'', ''move''">counter selling ice cream</a>.'
 	clr
 	gs 'stat'
-	if night_mode = 1:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(0, 0, 0)
-		lcolor = rgb(106, 90, 205)
-	elseif night_mode = 2:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(20, 20, 20)
-		lcolor = rgb(106, 90, 205)
-	else
-		fcolor = rgb(0, 0, 0)
-		bcolor = rgb(255, 255, 255)
-		lcolor = rgb(106, 90, 205)
-	end
+	gs 'themes', 'indoors'
 	!! The store in the town and in the altstart only
 	if $loc = 'pavCommercial' and StoryLine = 1:
 		if week < 6 and hour >= 8 and hour < 16:
@@ -249,19 +237,7 @@ if $shoplocation = 'grocery':
 	*P FUNC ('$single_stock_item', 1, 'Cheap Bottle of wine', 200, 'wine', $CURLOC, '', iif(bag > 0, 0, 1), 'You need a handbag')
 	*P '</table></center>'
 	gs 'stat'
-	if night_mode = 1:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(0, 0, 0)
-		lcolor = rgb(106, 90, 205)
-	elseif night_mode = 2:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(20, 20, 20)
-		lcolor = rgb(106, 90, 205)
-	else
-		fcolor = rgb(0, 0, 0)
-		bcolor = rgb(255, 255, 255)
-		lcolor = rgb(106, 90, 205)
-	end
+	gs 'themes', 'indoors'
 
 	act 'Leave the grocery':gt 'shop', 'start'
 end
@@ -306,19 +282,7 @@ if $shoplocation= 'cosmetics':
 	*P FUNC ('$single_stock_item', 1, 'Comb', 150, 'greben', $CURLOC, '', iif(bag > 0, 0, 1), 'You need a handbag')
 	*P '</table></center>'
 	gs 'stat'
-	if night_mode = 1:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(0, 0, 0)
-		lcolor = rgb(106, 90, 205)
-	elseif night_mode = 2:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(20, 20, 20)
-		lcolor = rgb(106, 90, 205)
-	else
-		fcolor = rgb(0, 0, 0)
-		bcolor = rgb(255, 255, 255)
-		lcolor = rgb(106, 90, 205)
-	end
+	gs 'themes', 'indoors'
 
 	act 'Leave the cosmetics department':
 		gt 'shop', 'start'
@@ -356,19 +320,7 @@ if $shoplocation = 'hardware':
 	*nl
 
 	gs 'stat'
-	if night_mode = 1:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(0, 0, 0)
-		lcolor = rgb(106, 90, 205)
-	elseif night_mode = 2:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(20, 20, 20)
-		lcolor = rgb(106, 90, 205)
-	else
-		fcolor = rgb(0, 0, 0)
-		bcolor = rgb(255, 255, 255)
-		lcolor = rgb(106, 90, 205)
-	end
+	gs 'themes', 'indoors'
 
 	act 'Leave the hardware department':gt 'shop', 'start'
 
@@ -428,19 +380,7 @@ if $shoplocation = 'clothing':
 		end
 		'Women''s clothing at unbeatable prices, panties and bras 300<b>₽</b> each'
 		gs 'stat'
-		if night_mode = 1:
-			fcolor = rgb(255, 255, 255)
-			bcolor = rgb(0, 0, 0)
-			lcolor = rgb(106, 90, 205)
-		elseif night_mode = 2:
-			fcolor = rgb(255, 255, 255)
-			bcolor = rgb(20, 20, 20)
-			lcolor = rgb(106, 90, 205)
-		else
-			fcolor = rgb(0, 0, 0)
-			bcolor = rgb(255, 255, 255)
-			lcolor = rgb(106, 90, 205)
-		end
+		gs 'themes', 'indoors'
 
 		act 'Leave the women''s clothing department':gt 'shop', 'start'
 
@@ -605,19 +545,7 @@ if $shoplocation = 'tech':
 	*P FUNC ('$single_stock_item', 1, 'Webcam', 2000, 'webcamera', $CURLOC, '', iif((npc_rel['A11']>=30 and webcamera = 0) or (camwhore = 1 and webcamera = 0), 0, 1), 'You have no use for this')
 	*P '</table></center>'
 	gs 'stat'
-	if night_mode = 1:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(0, 0, 0)
-		lcolor = rgb(106, 90, 205)
-	elseif night_mode = 2:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(20, 20, 20)
-		lcolor = rgb(106, 90, 205)
-	else
-		fcolor = rgb(0, 0, 0)
-		bcolor = rgb(255, 255, 255)
-		lcolor = rgb(106, 90, 205)
-	end
+	gs 'themes', 'indoors'
 
 	act 'Leave the appliance department':gt 'shop', 'start'
 end

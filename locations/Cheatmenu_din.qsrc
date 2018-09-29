@@ -1589,10 +1589,13 @@ $cheatmenu['display'] = {
 	!night_mode 0: dynamic
 	!night_mode 1: black
 	!night_mode 2: grey
-	if night_mode = 0:'Girl Life Theme Selection: Dynamic | <a href="exec:night_mode = 1 & dynamic $cheatmenu[''display''] & gs ''$menu_obnovit''">Pitch Black</a> | <a href="exec:night_mode = 2 & dynamic $cheatmenu[''display''] & gs ''$menu_obnovit''">Modern Grey</a>'
-	if night_mode = 1:'Girl Life Theme Selection: <a href="exec:night_mode = 0 & dynamic $cheatmenu[''display''] & gs ''$menu_obnovit''">Dynamic</a> | Pitch Black | <a href="exec:night_mode = 2 & dynamic $cheatmenu[''display''] & gs ''$menu_obnovit''">Modern Grey</a>'
-	if night_mode = 2:'Girl Life Theme Selection: <a href="exec:night_mode = 0 & dynamic $cheatmenu[''display''] & gs ''$menu_obnovit''">Dynamic</a> | <a href="exec:night_mode = 1 & dynamic $cheatmenu[''display''] & gs ''$menu_obnovit''">Pitch Black</a> | Modern Grey'
-	'<font color="grey">Dynamic theme (default) will change colour based on the game hour.</font>'
+	!night_mode 99: no theme
+	if night_mode = 0:'Girl Life Theme Selection: Dynamic | <a href="exec:night_mode = 1 & dynamic $cheatmenu[''display''] & gs ''$menu_obnovit''">Pitch Black</a> | <a href="exec:night_mode = 2 & dynamic $cheatmenu[''display''] & gs ''$menu_obnovit''">Modern Grey</a> | <a href="exec:night_mode = 99 & dynamic $cheatmenu[''display''] & gs ''$menu_obnovit''">No Theme</a>'
+	if night_mode = 1:'Girl Life Theme Selection: <a href="exec:night_mode = 0 & dynamic $cheatmenu[''display''] & gs ''$menu_obnovit''">Dynamic</a> | Pitch Black | <a href="exec:night_mode = 2 & dynamic $cheatmenu[''display''] & gs ''$menu_obnovit''">Modern Grey</a> | <a href="exec:night_mode = 99 & dynamic $cheatmenu[''display''] & gs ''$menu_obnovit''">No Theme</a>'
+	if night_mode = 2:'Girl Life Theme Selection: <a href="exec:night_mode = 0 & dynamic $cheatmenu[''display''] & gs ''$menu_obnovit''">Dynamic</a> | <a href="exec:night_mode = 1 & dynamic $cheatmenu[''display''] & gs ''$menu_obnovit''">Pitch Black</a> | Modern Grey | <a href="exec:night_mode = 99 & dynamic $cheatmenu[''display''] & gs ''$menu_obnovit''">No Theme</a>'
+	if night_mode = 99:'Girl Life Theme Selection: <a href="exec:night_mode = 0 & dynamic $cheatmenu[''display''] & gs ''$menu_obnovit''">Dynamic</a> | <a href="exec:night_mode = 1 & dynamic $cheatmenu[''display''] & gs ''$menu_obnovit''">Pitch Black</a> | <a href="exec:night_mode = 2 & dynamic $cheatmenu[''display''] & gs ''$menu_obnovit''">Modern Grey</a> | No Theme'
+
+	'<font color="grey">Dynamic theme (default) will change colour based on the game hour. No theme will remove table backgrounds.</font>'
 	*nl
 	if Enable_faceturn = 1:
 		'Always show face: Currently ON - <a href="exec:Enable_faceturn = 0 & dynamic $cheatmenu[''display'']">Turn OFF</a>'

@@ -4,19 +4,7 @@ if $ARGS[0] = 'start':
     $location_type = 'public_indoors'
 	cls
 	gs 'stat'
-	if night_mode = 1:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(0, 0, 0)
-		lcolor = rgb(106, 90, 205)
-	elseif night_mode = 2:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(20, 20, 20)
-		lcolor = rgb(106, 90, 205)
-	else
-		fcolor = rgb(0, 0, 0)
-		bcolor = rgb(255, 255, 255)
-		lcolor = rgb(106, 90, 205)
-	end
+	gs 'themes', 'indoors'
 	'<center><b><font color="maroon">Danilovich sporting goods</font></b></center>'
 	'<center><img src="images/locations/city/citycenter/mall/sportshop/sportshop.jpg"></center>'
 	*nl

@@ -4,19 +4,7 @@ if $ARGS[0] = 'start':
 	clr
 	*clr
 	gs 'stat'
-	if night_mode = 1:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(0, 0, 0)
-		lcolor = rgb(106, 90, 205)
-	elseif night_mode = 2:
-		fcolor = rgb(255, 255, 255)
-		bcolor = rgb(20, 20, 20)
-		lcolor = rgb(106, 90, 205)
-	else
-		fcolor = rgb(0, 0, 0)
-		bcolor = rgb(255, 255, 255)
-		lcolor = rgb(106, 90, 205)
-	end
+	gs 'themes', 'indoors'
 	'<center><b><font color="maroon">Pet Emporium</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/mall/pet shop/shop.jpg"</center>'
 	if saveparQW = 1 and saveparQWfailed = 0:

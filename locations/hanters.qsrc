@@ -746,7 +746,7 @@ if slutgosex = 1 or forest_hantersex = 1 or forest_gopsex = 1:
 	if temphant = 6:gs 'boyStat', 'A62'
 	gs 'stat'
 
-	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/hantersgroup/slutgosex1.jpg"></center>'
+	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/slutgosex1.jpg"></center>'
 	'<<$boydesc>> takes you by the hand and leads you to a clearing next to some trees. He immediately begins to undress you.'
 	'"You know why I''ve brought you here <<$pcs_nickname>>," said the guy smiling.'
 

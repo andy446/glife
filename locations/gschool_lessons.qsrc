@@ -3203,17 +3203,17 @@ if $ARGS[0] = 'npc_data':
 	grupTipe[47] = 5
 	$npcGo[47] = '<a href="exec:numnpc = 47 & gt ''Snpc''"><<$npc_firstname[''A159'']>> <<$npc_lastname[''A159'']>></a>'
 
+!!Vanya Yanka
+	$school_static_num[59] = 'A165'
+	npcPol[59] = 0
+	grupTipe[59] = 2
+	$npcGo[59] = '<a href="exec:numnpc = 59 & gt ''Snpc''"><<$npc_firstname[''A165'']>> <<$npc_lastname[''A165'']>></a>'
+	
 !!Nikolai Volkov
 	$school_static_num[61] = 'A189'
 	npcPol[61] = 0
 	grupTipe[61] = 4
 	$npcGo[61] = '<a href="exec:numnpc = 61 & gt ''Snpc''"><<$npc_firstname[''A189'']>> <<$npc_lastname[''A189'']>></a>'
-
-!!Vanya Yanka
-	$school_static_num[62] = 'A165'
-	npcPol[62] = 0
-	grupTipe[62] = 2
-	$npcGo[62] = '<a href="exec:numnpc = 62 & gt ''Snpc''"><<$npc_firstname[''A165'']>> <<$npc_lastname[''A165'']>></a>'
 
 !!
 !!===========================Female Students=======================

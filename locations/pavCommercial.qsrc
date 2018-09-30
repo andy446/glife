@@ -94,10 +94,10 @@ end
 
 '<br>Centered along the main street is the <a href="exec:minut += 15 & gt ''pavtrain''">train station</a> that is always open and running. For those with a car, the end of the street leads to a <a href="exec:minut += 5 & gt ''zaprF'', ''start''">gas station</a> which is usually the last stop people make before heading out onto the nearby highway.'
 
-if week < 6 and hour >= 9 and hour <= 18:
+if (week < 6 and hour >= 9 and hour <= 18) or (week = 6 and hour >= 10 and hour <= 15):
 	$desc_txt4 = '<a href="exec:minut += 3 & gt ''postoffice'', ''start''">post office</a>'
 else
-	$desc_txt4 = '<a href="exec:msg ''post office, which is closed right now. It will reopen again at 9:00''">post office</a>'
+	$desc_txt4 = '<a href="exec:msg ''post office, which is closed right now. It will reopen again on monday at 9:00''">post office</a>'
 end
 
 if (week < 6 and hour >= 9 and hour <= 16) or (week = 6 and hour >= 9 and hour <= 13):

@@ -90,7 +90,7 @@ else
 	$Pharmname = 'For easy access, there''s even a pharmacy attached to it but it''s currently closed for the day.'
 end
 
-'Centered along the main street is the <a href="exec:minut += 15 & gt ''vokzalG''">train station</a> that is always open and running. For those with a car, the end of the street leads to a <a href="exec:minut += 5 & gt ''zaprF'', ''start''">gas station</a> which is usually the last stop people make before heading out onto the nearby highway.<br>'
+'Centered along the main street is the <a href="exec:minut += 15 & gt ''pavtrain''">train station</a> that is always open and running. For those with a car, the end of the street leads to a <a href="exec:minut += 5 & gt ''zaprF'', ''start''">gas station</a> which is usually the last stop people make before heading out onto the nearby highway.<br>'
 
 if week < 6 and hour >= 9 and hour <= 18:
 	$desc_txt4 = '<a href="exec:minut += 3 & gt ''postoffice'', ''start''">post office</a>'
@@ -131,7 +131,6 @@ else
 end
 
 '<br>If you continue past the shops, you''ll eventually find a <<$desc_txt2>> Beyond that is <a href="exec:minut += 15 & gt ''Gshveyfab'', ''start''">Paris Commune</a>, a large garment factory owned by G&M situated in the industrial area on the outskirts of town.</br>'
-
 
 if workPTU > 2:act '<b>Go to the hostel</b>':gt 'etoexhib', 'pos40'
 

@@ -2,9 +2,6 @@
 !!Background Options
 cls
 gs 'themes', 'indoors'
-$pcs_firstname = 'Svetlana'
-$pcs_lastname = 'Lebedev'
-$pcs_nickname = 'Sveta'
 
 !!******************** TG Start Background Options ******************************
 if $ARGS[0] = 'TGStart':
@@ -95,7 +92,13 @@ if $ARGS[0] = 'SGStart':
 	dynamic $currentpursetype + '_purses[<<currentpursenumber>>] = 1'
 
 !!	********************
-	!! player name is set in preSYS.qsrc
+
+	!!Default Names
+	$pcs_firstname = 'Svetlana'
+	$pcs_lastname = 'Lebedev'
+	$pcs_nickname = 'Sveta'
+
+	!!Player names are set here
 	$temp_firstname = '<<$pcs_firstname>>'
 	$pcs_firstname = input("What is your first name? (Leave blank for Svetlana)")
 	if $pcs_firstname = '':$pcs_firstname = '<<$temp_firstname>>'

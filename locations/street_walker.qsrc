@@ -65,6 +65,7 @@ if $ARGS[0] = 'work':
 	gs 'street_walker', 'start'
 	'You do a last minute check of your outfit and makeup, in a reflection in the window of a store. Yep you look good and like your are open for business. With a final look you turn and make your way down the sidewalk looking for a customer.'
 	act 'Work the street': gt 'street_walker', 'event1'
+	act 'Leave (don''t work)': gt 'street_walker', 'end'
 end
 
 if $ARGS[0] = 'event1':
@@ -101,17 +102,17 @@ if $ARGS[0] = 'event1':
 					'You walk over smiling to the other girls, but all you are meet with is dark and dangerous looks. Then one of them speaks up. "What the fuck do you want bitch?"'
 					'Taken a bit aback by the anger you say "I was just coming over to talk and see how the night is going for you guys, been kinda slow for me." Trying to be friendly.'
 					'One of them snarls as the others move to partial circle you. "Listen bitch, this is our street, so get the fuck off it before you get hurt!"'
-					act 'Leave to work a new street':
-						cla
-						*nl
-						'You turn and walk away, you can hear the other girls behind you, calling you all sorts of names'
-						act 'Continue': gt 'street_walker', 'event1'
-					end
 					act 'Leave and stop working for the night':
 						cla
 						*nl
 						'You turn and walk away, you can hear the other girls behind you, calling you all sorts of names'
 						act 'Continue': gt 'street_walker', 'end'
+					end
+					act 'Leave to work a new street':
+						cla
+						*nl
+						'You turn and walk away, you can hear the other girls behind you, calling you all sorts of names'
+						act 'Continue': gt 'street_walker', 'work'
 					end
 					!!act 'Tell her to fuck off':
 					!!i will expand this later when I have time. For now want to get this out for this release.
@@ -132,8 +133,8 @@ if $ARGS[0] = 'event1':
 						'You shake your head no. "No I work only for myself"'
 						'The other girls exchange a unease look, then one of them tells you. "You should really change your mind, if you work for Ruslan most of the guys know to pay up and the gopniks know to leave you alone, otherwise you can find yourself in a bad spot."'
 						'You smile to her. "Thanks for the advice, I will think about it." With that they make a excuse that then need to get back to work, you can tell they really don''t want to be seen hanging out with you.'
-						act 'Keep working the street': gt 'street_walker', 'event1'
 						act 'Stop working for the night': gt 'street_walker', 'end'
+						act 'Keep working the street': gt 'street_walker', 'event1'
 					end
 				end
 			end
@@ -272,7 +273,7 @@ if $ARGS[0] = 'blowjob':
 					'You spend a few moments straighten up your clothes and checking your makeup as he drives you back to the street corner he picked you up on, he pulled up to the curb and stops. Now he seems impatient for you to get out, as he looks around to see if anyone is watching. You sigh and get out of the car, closing the door. With that he quickly pulls away.'
 					gs 'arousal', 'cummoisseur', 5, 'prostitution'
 					!!here need code to add the money for the act. We talked about it some in the dev forums how to do the price, no clue how you guys want to code that.
-					act 'Get dropped off': gt 'street_walker', 'event1'
+					act 'Get dropped off': gt 'street_walker', 'work'
 				end
 			end
 		end
@@ -309,7 +310,7 @@ if $ARGS[0] = 'vaginal':
 					'You spend a few moments getting cleaned up and dressed, as you do he gets out and gets back into the drivers seat and drives you back to the street corner he picked you up on, he pulled up to the curb and stops. Now he seems impatient for you to get out, as he looks around to see if anyone is watching. You sigh and get out of the car, closing the door. With that he quickly pulls away.'
 					gs 'arousal', 'cummoisseur', 5, 'prostitution'
 					!!here need code to add the money for the act. We talked about it some in the dev forums how to do the price, no clue how you guys want to code that.
-					act 'Get dropped off': gt 'street_walker', 'event1'
+					act 'Get dropped off': gt 'street_walker', 'work'
 				end
 			end
 		end
@@ -361,7 +362,7 @@ if $ARGS[0] = 'anal':
 									'You spend a few moments getting cleaned up and dressed, as you do he gets out of the back and gets back into the drivers seat. He waits for you to finish getting dressed, cleaned up and put your seat belt back on before he drives you back to the street corner he picked you up on, he pulled up to the curb and stops. Once stopped he passes you back a wad of cash, as you get out of the car he opens his window and says. "I had a great time, maybe I will see you again." With that he rolls up his window and drives off.'
 									gs 'arousal', 'cummoisseur', 5, 'prostitution'
 									!!here need code to add the money for the act. We talked about it some in the dev forums how to do the price, no clue how you guys want to code that.
-									act 'Get dropped off': gt 'street_walker', 'event1'
+									act 'Get dropped off': gt 'street_walker', 'work'
 								end
 							end
 						end
@@ -410,7 +411,7 @@ if $ARGS[0] = 'anal':
 									'You spend a few moments getting cleaned up and dressed, as you do he gets out of the back and gets back into the drivers seat. He doesn''t even wait for you to finish getting cleaned up and dressed. During the drive back he tosses a wad of cash back, most of it ending up on the floor. You quickly gather it all up as he stops at the same curb he picked you up from. You barely even close the door after you get out before he pulls away.'
 									gs 'arousal', 'cummoisseur', 5, 'prostitution'
 									!!here need code to add the money for the act. We talked about it some in the dev forums how to do the price, no clue how you guys want to code that.
-									act 'Get dropped off': gt 'street_walker', 'event1'
+									act 'Get dropped off': gt 'street_walker', 'work'
 								end
 							end
 						end
@@ -462,9 +463,8 @@ if $ARGS[0] = 'policeblowjob':
 							gs 'arousal', 'end'
 							gs 'stat'
 							!!this act should go to which ever event location Sveta left. If she was in event1 when picked up then returned to event1, if event2 then returned to event2. No clue how to code that
-							act 'Get dropped off':gt 'street_walker', 'event1'
+							act 'Get dropped off':gt 'street_walker', 'work'
 						end
-
 					else
 						act 'Finish him':
 							*clr & cla
@@ -479,7 +479,6 @@ if $ARGS[0] = 'policeblowjob':
 							gs 'stat'
 
 							act 'Drive to the police station': gt 'police_station', 'entrance', 'prst'
-
 						end
 					end
 				end
@@ -520,7 +519,7 @@ if $ARGS[0] = 'policelie':
 			'You keep your gaze glued to the ground until you hear him sigh heavily. "Get out of here. If I see you again, I''m taking you in, understand?"'
 			'You look up in disbelief, unable to figure out what to say for a moment. "O-oh, of course! You won''t see me again, I promise!" Not wanting to miss your chance, you get the hell out of there.'
 
-			act 'Walk away':gt 'street_walker', 'event1'
+			act 'Walk away':gt 'street_walker', 'work'
 		else
 			'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/arrest.jpg"></center>'
 			*nl
@@ -555,7 +554,7 @@ if $ARGS[0] = 'policeexp':
 			'He clears his throat awkwardly. "Yeah, I am...but you better head straight home. I don''t want to see you out here again, understand?"'
 			'You quickly nod, wiping away the tears as you compose yourself. "Thank you!" You say, but he just responds with a grunt before waving you away.'
 
-			act 'Walk away':gt 'street_walker', 'event1'
+			act 'Walk away':gt 'street_walker', 'work'
 		else
 			'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/arrest.jpg"></center>'
 			*nl
@@ -602,7 +601,7 @@ if $ARGS[0] = 'briberyreaction':
 		*nl
 		'You swallow hard, his words sending a shiver down your spine. "Now get out of here before I change my mind," he orders roughly. You don''t even bother responding as you quickly shuffle down the street until the cop is out of sight.'
 
-		act 'Walk away':gt 'street_walker', 'event1'
+		act 'Walk away':gt 'street_walker', 'work'
 	elseif temp_rand <= 7:
 		!!elseif he refuses the bribe and arrests you, lose all the money the player earned
 		prst_bribe = 2
@@ -658,6 +657,8 @@ end
 
 
 if $ARGS[0] = 'policesub1':
+	police_sub_counter += 1
+	if police_sub_counter > 4: gt 'street_walker', 'policesub2'
 	*clr & cla
 	gs 'pain', 2, 'twist', 'pinch'
 	gs 'pain', 4, 'nipples', 'pinch'
@@ -686,7 +687,7 @@ if $ARGS[0] = 'policesub1':
 		gs 'arousal', 'end'
 		gs 'stat'
 
-		act 'Run away':gt 'street_walker', 'event1'
+		act 'Run away':gt 'street_walker', 'work'
 	end
 end
 
@@ -710,7 +711,7 @@ if $ARGS[0] = 'policesub2':
 	gs 'arousal', 'end'
 	gs 'stat'
 
-	act 'Walk away':gt 'street_walker', 'event1'
+	act 'Walk away':gt 'street_walker', 'work'
 end
 
 if $ARGS[0] = 'end':

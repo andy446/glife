@@ -38,7 +38,7 @@ if $ARGS[0] = '1':
 end
 if $ARGS[0] = '1_2nd_part':
 	*clr
-	mish_rand1 = (0,100)
+	mish_rand1 = rand(0,100)
 	if mish_rand1 <= 60:'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/misha/sex/misha1,<<rand(0,7)>>.jpg"></center>'
 	if mish_rand1 > 60:'<center><video autoplay loop src="images/characters/pavlovsk/resident/misha/sex/misha1,<<rand(0,3)>>.mp4"></video></center>'
 	dynamic $temp

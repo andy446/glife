@@ -317,101 +317,99 @@ if $ARGS[0] = 'vaginal':
 end
 
 if $ARGS[0] = 'anal':
-	if RAND(1,8) > 1:
+	*clr & cla
+	streetworkanal = RAND(1,2)
+	if streetworkanal = 1:
 		*clr & cla
-		streetworkanal = RAND(1,2)
-		if streetworkanal = 1:
+		minut += 1
+		gs 'stat'
+		'<center><h4><font color="maroon">Street</font></h4></center>'
+		'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/sex/analo1.jpg"></center>'
+		'With the price settled, you step back to the back door and slide into the backseat behind the older guy, he is easily old enough to be your father. Once you close the door, he looks at you in the review mirror. "Put on your seat belt. Safty first."'
+		act 'Go for a ride':
 			*clr & cla
-			minut += 1
-			gs 'stat'
-			'<center><h4><font color="maroon">Street</font></h4></center>'
-			'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/sex/analo1.jpg"></center>'
-			'With the price settled, you step back to the back door and slide into the backseat behind the older guy, he is easily old enough to be your father. Once you close the door, he looks at you in the review mirror. "Put on your seat belt. Safty first."'
-			act 'Go for a ride':
+			'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/rideback.jpg"></center>'
+			'Then pulls away from the curb and drives for a little bit till he finds a pretty deserted area and stops the car and says. "This looks good." Then he gets out of the car and walks to the back door, you slide over giving him room as he gets in the back with you.'
+			act 'Get Undressed':
 				*clr & cla
-				'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/rideback.jpg"></center>'
-				'Then pulls away from the curb and drives for a little bit till he finds a pretty deserted area and stops the car and says. "This looks good." Then he gets out of the car and walks to the back door, you slide over giving him room as he gets in the back with you.'
-				act 'Get Undressed':
+				'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/sex/analo2.jpg"></center>'
+				'He looks you over a moment. "Can you undress" When you start to he quickly adds. "Slowly" You smile to him and make a show of slowly getting naked for him, you can see him already licking his lips. Once you are fully naked you slowly unbutton his pants, pulling them and his underwear down.'
+				gs 'arousal', 'flash', 2, 'prostitution', 'exhibitionism'
+				act 'Suck his dick':
 					*clr & cla
-					'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/sex/analo2.jpg"></center>'
-					'He looks you over a moment. "Can you undress" When you start to he quickly adds. "Slowly" You smile to him and make a show of slowly getting naked for him, you can see him already licking his lips. Once you are fully naked you slowly unbutton his pants, pulling them and his underwear down.'
-					gs 'arousal', 'flash', 2, 'prostitution', 'exhibitionism'
-					act 'Suck his dick':
+					'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/sex/analo3.jpg"></center>'
+					'With his hard dick standing tall to get your attention, you lean over and take his dick into your mouth and start sucking his cock, working the shaft or his balls with one of your hands. He just leans back and moans softly obviously enjoying what you are doing.'
+					gs 'arousal', 'bj', 5, 'prostitution'
+					act 'Get fucked':
 						*clr & cla
-						'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/sex/analo3.jpg"></center>'
-						'With his hard dick standing tall to get your attention, you lean over and take his dick into your mouth and start sucking his cock, working the shaft or his balls with one of your hands. He just leans back and moans softly obviously enjoying what you are doing.'
-						gs 'arousal', 'bj', 5, 'prostitution'
-						act 'Get fucked':
+						'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/sex/analo4.jpg"></center>'
+						'After a time he speaks up. "Lay back, I want to fuck you." You raise up and then lay back in the seat spreading your legs as you do. He moves between your legs, he rubs your clit a bit to get you wetter, once he feels you are wet enough he slides his dick inside of you and starts to slowly fuck you. The wetter you get the faster he starts to fuck you.'
+						gs 'arousal', 'vaginal', 10, 'prostitution'
+						act 'Take it in the ass':
 							*clr & cla
-							'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/sex/analo4.jpg"></center>'
-							'After a time he speaks up. "Lay back, I want to fuck you." You raise up and then lay back in the seat spreading your legs as you do. He moves between your legs, he rubs your clit a bit to get you wetter, once he feels you are wet enough he slides his dick inside of you and starts to slowly fuck you. The wetter you get the faster he starts to fuck you.'
-							gs 'arousal', 'vaginal', 10, 'prostitution'
-							act 'Take it in the ass':
+							'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/sex/analo5.jpg"></center>'
+							'When he pulls out he starts to use his hands to help you roll over as he says "Roll over and get on your knee''s I want to fuck that pretty little ass of yours now." With his help you quickly roll over and get on your elbows and knees, with your ass up for him. You feel him press his dick against your anus before he slides it in. When you tense up a bit, he stops to give you a moment to get us to it before he slides it the rest of the way in.'
+							'He slowly works his way balls deep into your ass, taking his time. It is sweet of him but not really necessary, you are use to being fucked and you are here for the money. Moaning loudly, like you are loving it, you know guys like that. He picks up the pace and starts fucking your ass harder.'
+							gs 'arousal', 'anal', 5, 'prostitution'
+							act 'Finish him':
 								*clr & cla
-								'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/sex/analo5.jpg"></center>'
-								'When he pulls out he starts to use his hands to help you roll over as he says "Roll over and get on your knee''s I want to fuck that pretty little ass of yours now." With his help you quickly roll over and get on your elbows and knees, with your ass up for him. You feel him press his dick against your anus before he slides it in. When you tense up a bit, he stops to give you a moment to get us to it before he slides it the rest of the way in.'
-								'He slowly works his way balls deep into your ass, taking his time. It is sweet of him but not really necessary, you are use to being fucked and you are here for the money. Moaning loudly, like you are loving it, you know guys like that. He picks up the pace and starts fucking your ass harder.'
-								gs 'arousal', 'anal', 5, 'prostitution'
-								act 'Finish him':
-									*clr & cla
-									money += 2500
-									gs 'cum_call','face', 'prostitute customer'
-									'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/sex/analo6.jpg"></center>'
-									'He grunts out, "I''m about to cum" As he pulls out of your ass, you turn around and start jerking him off with your hand, aiming his cock right at your face. Within moment hot sprays of cum start splattering against your face, you keep jerking him until you have milked him of every last drop.'
-									'You spend a few moments getting cleaned up and dressed, as you do he gets out of the back and gets back into the drivers seat. He waits for you to finish getting dressed, cleaned up and put your seat belt back on before he drives you back to the street corner he picked you up on, he pulled up to the curb and stops. Once stopped he passes you back a wad of cash, as you get out of the car he opens his window and says. "I had a great time, maybe I will see you again." With that he rolls up his window and drives off.'
-									gs 'arousal', 'cummoisseur', 5, 'prostitution'
-									!!here need code to add the money for the act. We talked about it some in the dev forums how to do the price, no clue how you guys want to code that.
-									act 'Get dropped off': gt 'street_walker', 'event1'
-								end
+								money += 2500
+								gs 'cum_call','face', 'prostitute customer'
+								'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/sex/analo6.jpg"></center>'
+								'He grunts out, "I''m about to cum" As he pulls out of your ass, you turn around and start jerking him off with your hand, aiming his cock right at your face. Within moment hot sprays of cum start splattering against your face, you keep jerking him until you have milked him of every last drop.'
+								'You spend a few moments getting cleaned up and dressed, as you do he gets out of the back and gets back into the drivers seat. He waits for you to finish getting dressed, cleaned up and put your seat belt back on before he drives you back to the street corner he picked you up on, he pulled up to the curb and stops. Once stopped he passes you back a wad of cash, as you get out of the car he opens his window and says. "I had a great time, maybe I will see you again." With that he rolls up his window and drives off.'
+								gs 'arousal', 'cummoisseur', 5, 'prostitution'
+								!!here need code to add the money for the act. We talked about it some in the dev forums how to do the price, no clue how you guys want to code that.
+								act 'Get dropped off': gt 'street_walker', 'event1'
 							end
 						end
 					end
 				end
 			end
-		else
+		end
+	else
+		*clr & cla
+		minut += 1
+		gs 'stat'
+		'<center><h4><font color="maroon">Street</font></h4></center>'
+		'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/sex/analy1.jpg"></center>'
+		'With the price settled, you step back to the back door and slide into the backseat behind him. He looks at you in the review mirror and eyes you up and down. You smile to him and lean back to give him a good look.'
+		gs 'arousal', 'foreplay', 10, 'unknown'
+		act 'Go for a ride':
 			*clr & cla
-			minut += 1
-			gs 'stat'
-			'<center><h4><font color="maroon">Street</font></h4></center>'
-			'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/sex/analy1.jpg"></center>'
-			'With the price settled, you step back to the back door and slide into the backseat behind him. He looks at you in the review mirror and eyes you up and down. You smile to him and lean back to give him a good look.'
-			gs 'arousal', 'foreplay', 10, 'unknown'
-			act 'Go for a ride':
+			'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/rideback.jpg"></center>'
+			'Then pulls away from the curb and drives for a little bit till he finds a pretty deserted area and stops the car and says. "This looks good." Then he gets out of the car and walks to the back door, you slide over giving him room as he gets in the back with you.'
+			act 'Get Undressed':
 				*clr & cla
-				'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/rideback.jpg"></center>'
-				'Then pulls away from the curb and drives for a little bit till he finds a pretty deserted area and stops the car and says. "This looks good." Then he gets out of the car and walks to the back door, you slide over giving him room as he gets in the back with you.'
-				act 'Get Undressed':
+				'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/sex/analy2.jpg"></center>'
+				'He looks you over a moment. "Get undressed I want to see what I am paying for." You smile to him and make a show of slowly getting naked for him, you can see him already licking his lips. Once you are fully naked you slowly unbutton his pants, pulling them and his underwear down.'
+				gs 'arousal', 'flash', 2, 'prostitution', 'exhibitionism'
+				act 'Suck his dick':
 					*clr & cla
-					'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/sex/analy2.jpg"></center>'
-					'He looks you over a moment. "Get undressed I want to see what I am paying for." You smile to him and make a show of slowly getting naked for him, you can see him already licking his lips. Once you are fully naked you slowly unbutton his pants, pulling them and his underwear down.'
-					gs 'arousal', 'flash', 2, 'prostitution', 'exhibitionism'
-					act 'Suck his dick':
+					'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/sex/analy3.jpg"></center>'
+					'With his hard dick standing tall to get your attention, you lean over and take his dick into your mouth and start sucking his cock, working the shaft or his balls with one of your hands. He just leans back and moans softly obviously enjoying what you are doing. You feel his hand slap you on the ass a few times, before he slides a finger into your pussy to get it nice and wet, then slides his finger into your ass and finders your ass as you blow him.'
+					gs 'arousal', 'bj', 5, 'prostitution'
+					act 'Get fucked':
 						*clr & cla
-						'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/sex/analy3.jpg"></center>'
-						'With his hard dick standing tall to get your attention, you lean over and take his dick into your mouth and start sucking his cock, working the shaft or his balls with one of your hands. He just leans back and moans softly obviously enjoying what you are doing. You feel his hand slap you on the ass a few times, before he slides a finger into your pussy to get it nice and wet, then slides his finger into your ass and finders your ass as you blow him.'
-						gs 'arousal', 'bj', 5, 'prostitution'
-						act 'Get fucked':
+						'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/sex/analy4.jpg"></center>'
+						'After a time he speaks up. "Lay back, I want to fuck you." You raise up and then lay back in the seat spreading your legs as you do. He moves between your legs and his dick inside of you and starts to fuck you. He slowly picks up his pace fucking you faster, then he pulls out and slaps you on the hip. "Roll over bitch, I want to fuck your ass."'
+						gs 'arousal', 'vaginal', 10, 'prostitution'
+						act 'Take it in the ass':
 							*clr & cla
-							'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/sex/analy4.jpg"></center>'
-							'After a time he speaks up. "Lay back, I want to fuck you." You raise up and then lay back in the seat spreading your legs as you do. He moves between your legs and his dick inside of you and starts to fuck you. He slowly picks up his pace fucking you faster, then he pulls out and slaps you on the hip. "Roll over bitch, I want to fuck your ass."'
-							gs 'arousal', 'vaginal', 10, 'prostitution'
-							act 'Take it in the ass':
+							'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/sex/analy5.jpg"></center>'
+							'You roll over and get on your elbows and knees, with your ass up for him. You feel him press his dick against your anus before he shoves it in. When you tense up a bit, he grabs ahold of your hips so you can''t pull away and shoves it the rest of the way into your ass..'
+							'He pounds his way balls deep into your ass, he picks up the pace and starts fucking your ass harder. He starts slapping your ass, as he pounds it as hard and fast as he can.'
+							gs 'arousal', 'anal', 5, 'prostitution'
+							act 'Finish him':
 								*clr & cla
-								'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/sex/analy5.jpg"></center>'
-								'You roll over and get on your elbows and knees, with your ass up for him. You feel him press his dick against your anus before he shoves it in. When you tense up a bit, he grabs ahold of your hips so you can''t pull away and shoves it the rest of the way into your ass..'
-								'He pounds his way balls deep into your ass, he picks up the pace and starts fucking your ass harder. He starts slapping your ass, as he pounds it as hard and fast as he can.'
-								gs 'arousal', 'anal', 5, 'prostitution'
-								act 'Finish him':
-									*clr & cla
-									money += 2500
-									gs 'cum_call','breasts', 'prostitute customer'
-									'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/sex/analy6.jpg"></center>'
-									'He grunts out, "I''m about to cum" As he pulls out of your ass, he roughly flips you over and straddles you, as he starts jerking off. Soon his cum is flying landing all over you breasts.'
-									'You spend a few moments getting cleaned up and dressed, as you do he gets out of the back and gets back into the drivers seat. He doesn''t even wait for you to finish getting cleaned up and dressed. During the drive back he tosses a wad of cash back, most of it ending up on the floor. You quickly gather it all up as he stops at the same curb he picked you up from. You barely even close the door after you get out before he pulls away.'
-									gs 'arousal', 'cummoisseur', 5, 'prostitution'
-									!!here need code to add the money for the act. We talked about it some in the dev forums how to do the price, no clue how you guys want to code that.
-									act 'Get dropped off': gt 'street_walker', 'event1'
-								end
+								money += 2500
+								gs 'cum_call','breasts', 'prostitute customer'
+								'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/sex/analy6.jpg"></center>'
+								'He grunts out, "I''m about to cum" As he pulls out of your ass, he roughly flips you over and straddles you, as he starts jerking off. Soon his cum is flying landing all over you breasts.'
+								'You spend a few moments getting cleaned up and dressed, as you do he gets out of the back and gets back into the drivers seat. He doesn''t even wait for you to finish getting cleaned up and dressed. During the drive back he tosses a wad of cash back, most of it ending up on the floor. You quickly gather it all up as he stops at the same curb he picked you up from. You barely even close the door after you get out before he pulls away.'
+								gs 'arousal', 'cummoisseur', 5, 'prostitution'
+								!!here need code to add the money for the act. We talked about it some in the dev forums how to do the price, no clue how you guys want to code that.
+								act 'Get dropped off': gt 'street_walker', 'event1'
 							end
 						end
 					end

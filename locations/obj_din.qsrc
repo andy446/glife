@@ -2404,7 +2404,7 @@ if $ARGS[0] = 'records':
 	*nl
 	if (work = 1 or cheatWork = 1) and workKafe > 0:'You are working as a waitress at The Roadhouse cafe. You need to come to work between 11 and 12, working days: Tuesday, Wednesday and Thursday. At work, you can receive tips from customers, and payment is received on 25th of each month.'
 	*nl
-	if (work = 1 or cheatWork = 1) and workhosp > 0:'You work as a nurse in the Pavlovsk clinic. You need to come to work between 8 and 9, during the week. Salary is automatically transferred on 25th of each month.'
+	if (work = 1 or cheatWork = 1) and workhosp > 0:'You work as a nurse in the city residential area clinic. You need to come to work between 8 and 9, during the week. Salary is automatically transferred on 25th of each month.'
 	*nl
 	if (work = 1 or cheatWork = 1) and worksalon > 0:'You work as a masseuse in the city at the Beauty Bar. You need to come to work with 9 to 10, working days, Monday, Wednesday, Friday. Salary is automatically transferred on 25th of each month.'
 	*nl

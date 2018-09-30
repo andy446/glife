@@ -1411,5 +1411,10 @@ i = loc_count - 1
 	i -=1
 if i > -1 :jump 'loopCloLoc'
 
+if vidageday > 1080: vidageday = 1080
+if blizoruk < 10: blizoruk -= 1
+if blizoruk < 100: blizoruk -= rand(0,1)
+if blizoruk < 0: blizoruk = 0
+
 --- cikl ---------------------------------
 

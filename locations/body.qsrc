@@ -449,10 +449,32 @@ if dounspell = 0:
 		$pcdesc_breasts = 'whorishly oversized'
 	end
 	
-!!This sets weight
-!! This variable is actually only used ONCE, when stripping, to see if you fall off the pole from being too heavy. I am reluctant to touch it, since the math is not explained. Maybe later.
+!! This sets weight
+!! This variable is actually only used ONCE (apart from the BMI), when stripping, to see if you fall off the pole from being too heavy. I am reluctant to touch it, since the math is not explained. Maybe later.
 !! Weight = (height in cm x bottom of average weight in kilos for a 170cm female / 170cm + (hip modifier + 2 x overrun fat)/4 + cup size
 	pcs_weight = (pcs_hgt * 62 / 170) + (vhips + (vofat * 2)) / 4 + tits
+	
+!!BMI Calculation
+	bmi_calc = 10000 * pcs_weight / (pcs_hgt * pcs_hgt)
+	
+!!BMI Descriptions
+	if bmi_calc < 16:
+		$bmi_desc = 'You are severely underweight.'
+	elseif bmi_calc >= 16 and bmi_calc < 19:
+		$bmi_desc = 'You are underweight'
+	elseif bmi_calc >= 19 and bmi_calc < 25:
+		$bmi_desc = 'You have a normal, healthy weight.'
+	elseif bmi_calc >= 25 and bmi_calc < 30:
+		$bmi_desc = 'You are overweight.'
+	elseif bmi_calc >= 30 and bmi_calc < 35:
+		$bmi_desc = 'You are moderately obese.'
+	elseif bmi_calc >= 35 and bmi_calc < 40:
+		$bmi_desc = 'You are severely obese.'
+	elseif bmi_calc >= 40 and bmi_calc < 45:
+		$bmi_desc = 'You are very severely obese.'
+	elseif bmi_calc >= 45:
+		$bmi_desc = 'You are morbidly obese.'
+	end
 end
 
 !!! Maruda Hair Mod

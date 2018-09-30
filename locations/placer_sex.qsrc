@@ -61,9 +61,9 @@ if $args[0] = 'meet':
 			guy += kol_man
 			ciklkm = kol_man
 			if dormrapeQW = 0:dormrapeQW = 1
-			rand1=rand(0,100)
-			if rand1<10:'<center><img <<$set_imgh>> src="images/locations/pavlovsk/park/gop/sex/gop/gopgang2.jpg"></center>'
-			if rand1>=10:'<center><video autoplay loop src="images/locations/pavlovsk/park/sex/orgy1,'+rand(0,4)+'.mp4"></video></center>'
+			placer_rand1 = rand(0,100)
+			if placer_rand1 < 10:'<center><img <<$set_imgh>> src="images/locations/pavlovsk/park/gop/sex/gop/gopgang2.jpg"></center>'
+			if placer_rand1 >= 10:'<center><video autoplay loop src="images/locations/pavlovsk/park/sex/orgy1,'+rand(0,4)+'.mp4"></video></center>'
 			:markdormrape
 			minut += 15
 

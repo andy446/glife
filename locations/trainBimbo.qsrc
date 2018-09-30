@@ -3,6 +3,7 @@
 if $ARGS[0] = 'pos1':
 	cla
 	*clr
+	menu_off = 1
 	minut += 30
 	pcs_horny += 10
 	gs 'stat'
@@ -14,9 +15,10 @@ if $ARGS[0] = 'pos1':
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/trainstation/vokbimbo11.jpg"></center>'
 		'You are standing in the middle of the stations mens room naked and covered in sperm.'
 	end
-	temp = rand(1, 10)
-
-	if temp > 8:
+	bimbo_temp = rand(1, 10)
+	bimbo_rand1 = rand(0,100)
+	
+	if bimbo_temp > 8:
 		'The restroom door opens and a young man comes in. He is taken aback by surprise, when he see''s you in the men''s room.'
 		act 'Pretend to straighten your hair.':gt 'trainbimbo', 'pos4'
 		if pcs_horny > 50:
@@ -26,7 +28,7 @@ if $ARGS[0] = 'pos1':
 				gt 'trainbimbo', 'pos2'
 			end
 		end
-	elseif temp < 3:
+	elseif bimbo_temp < 3:
 		'The restroom door opens and a older man in his fifties comes in. He is taken aback by surprise, when he see''s you in the men''s room.'
 		act 'Pretend to straighten your hair.':gt 'trainbimbo', 'pos4'
 		if pcs_horny > 50:
@@ -36,7 +38,7 @@ if $ARGS[0] = 'pos1':
 				gt 'trainbimbo', 'pos3'
 			end
 		end
-	elseif temp = 5:
+	elseif bimbo_temp = 5:
 		'The restroom door opens and a group of drunk guys come in. They are taken aback by surprise, when they see you in the men''s room.'
 		act 'Pretend to straighten your hair.':gt 'trainbimbo', 'pos4'
 		if pcs_horny > 70:
@@ -63,8 +65,8 @@ if $ARGS[0] = 'pos22':
 	cla
 	*clr
 	gs 'stat'
-	if rand1<40:'<center><img <<$set_imgh>> src="images/locations/pavlovsk/trainstation/bimbo.boy0.jpg"></center>'
-	if rand1>=40:'<center><img <<$set_imgh>> src="images/shared/sex/blowjob/bimbo.knees'+rand(0,6)+'.jpg"></center>'
+	if bimbo_rand1 < 40:'<center><img <<$set_imgh>> src="images/locations/pavlovsk/trainstation/bimbo.boy0.jpg"></center>'
+	if bimbo_rand1 >= 40:'<center><img <<$set_imgh>> src="images/shared/sex/blowjob/bimbo.knees'+rand(0,6)+'.jpg"></center>'
 	'You burst into the stall without knocking. The man is standing there with his pants unbuttoned, dick hanging out and looking at you with surprise. You get down on your knees and wrap your lips around his cock.'
 
 	act'Suck':
@@ -76,9 +78,9 @@ if $ARGS[0] = 'pos22':
 		spafinloc = 12
 		gs 'cum_manage'
 		stat['bj'] += 1
-		if rand1<10:'<center><img <<$set_imgh>> src="images/locations/pavlovsk/trainstation/sex/vokbimbo22.jpg"></center>'
-		if rand1>=10 and rand1<40:'<center><img <<$set_imgh>> src="images/locations/pavlovsk/trainstation/sex/bimbo.boy0,'+rand(0,5)+'.jpg"></center>'
-		if rand1>=40:'<center><video autoplay loop src="images/locations/pavlovsk/trainstation/sex/bimbo0,'+rand(0,13)+'.mp4"></video></center>'
+		if bimbo_rand1 < 10:'<center><img <<$set_imgh>> src="images/locations/pavlovsk/trainstation/sex/vokbimbo22.jpg"></center>'
+		if bimbo_rand1 >= 10 and bimbo_rand1 < 40:'<center><img <<$set_imgh>> src="images/locations/pavlovsk/trainstation/sex/bimbo.boy0,'+rand(0,5)+'.jpg"></center>'
+		if bimbo_rand1 >= 40:'<center><video autoplay loop src="images/locations/pavlovsk/trainstation/sex/bimbo0,'+rand(0,13)+'.mp4"></video></center>'
 		'As you are sucking his dick, it quickly gets hard, as you work his shaft with your lips and boobing head, you fondles his balls with your hand. It doesn''t take to long until he starts moaning and places his hands on your head.'
 
 		act 'Swallow':
@@ -107,7 +109,7 @@ if $ARGS[0] = 'pos22':
 
 			act 'leave the stall':gt'trainbimbo','pos1'
 		end
-			
+
 	end
 
 	act'Give':
@@ -116,8 +118,8 @@ if $ARGS[0] = 'pos22':
 		gs'stat'
 		minut += 10
 		pcs_horny += 20
-		if rand1<30:'<center><img <<$set_imgh>> src="images/locations/pavlovsk/trainstation/sex/bimbo.boy1,'+rand(0,5)+'.jpg"></center>'
-		if rand1>=30:'<center><video autoplay loop src="images/locations/pavlovsk/trainstation/sex/bimbo.boy1,'+rand(0,8)+'.mp4"></video></center>'
+		if bimbo_rand1 < 30:'<center><img <<$set_imgh>> src="images/locations/pavlovsk/trainstation/sex/bimbo.boy1,'+rand(0,5)+'.jpg"></center>'
+		if bimbo_rand1 >= 30:'<center><video autoplay loop src="images/locations/pavlovsk/trainstation/sex/bimbo.boy1,'+rand(0,8)+'.mp4"></video></center>'
 		dynamic $sexstart
 		gs 'dinsex','vaginal_sex',10
 		gs 'dinsex','sexcum'
@@ -127,11 +129,11 @@ if $ARGS[0] = 'pos22':
 			pcs_horny += 10 & 'You have not managed to cum.'
 		else
 			pcs_horny = 0 & orgasm += 1 & 'When you feel him cumming, your own orgasm sweeps through you.'
-		end	
+		end
 
 		act 'Leave the stall.':gt 'trainbimbo', 'pos1'
 	end
-	
+
 	act 'Leave':gt 'pavtrainhall', 'male'
 end
 
@@ -160,11 +162,11 @@ if $ARGS[0] = 'pos33':
 	minut += 5
 	pcs_horny += 10
 	gs 'stat'
-	if rand1<10:'<center><img <<$set_imgh>> src="images/locations/pavlovsk/trainstation/sex/vokbimbo33.jpg"></center>'
-	if rand1>=10:'<center><video autoplay loop src="images/locations/pavlovsk/trainstation/sex/bimbo0,'+rand(0,13)+'.mp4"></video></center>'
+	if bimbo_rand1 < 10:'<center><img <<$set_imgh>> src="images/locations/pavlovsk/trainstation/sex/vokbimbo33.jpg"></center>'
+	if bimbo_rand1 >= 10:'<center><video autoplay loop src="images/locations/pavlovsk/trainstation/sex/bimbo0,'+rand(0,13)+'.mp4"></video></center>'
 	'As you open your mouth to start sucking the guy, he grabs the you by your hair and before you can react he shoves his dick into your mouth and down your throat.'
-    'You start gagging and struggling to breath, after a bit he stops forcing himself so deep in your mouth, giving you time to recover.'
-    'He repeats these actions several times,while you start taking off your clothes.'
+	'You start gagging and struggling to breath, after a bit he stops forcing himself so deep in your mouth, giving you time to recover.'
+	'He repeats these actions several times,while you start taking off your clothes.'
 
 	act 'Pull your panties off and masturbate':gt 'trainbimbo', 'pos333'
 end
@@ -178,9 +180,7 @@ if $ARGS[0] = 'pos333':
 	gs 'cum_manage'
 	stat['bj'] += 1
 	gs 'stat'
-	if rand1<20:'<center><img <<$set_imgh>> src="images/locations/pavlovsk/trainstation/vokbimbo333.jpg"></center>'
-	if rand1>=20 and rand1<60:'<center><video autoplay loop src="images/locations/pavlovsk/trainstation/bimbo.strip'+rand(0,6)+'.mp4"></video></center>'
-	if rand1>=60:'<center><img <<$set_imgh>> src="images/locations/pavlovsk/trainstation/bimbo.strip'+rand(0,5)+'.jpg"></center>'
+	'<center><video autoplay loop src="images/locations/pavlovsk/trainstation/bimbo.strip'+rand(0,6)+'.mp4"></video></center>'
 	'You start rubbing your clit as the guy fucks your mouth and throat. After a bit you are completely naked, once you he pulls you up and pushes you are he pushes you down on the floor where you sprawl before him, you clothes laying around you, as he says.'
 	if rand(0,1) = 0:
 		'"You''re hot and give great head, but I think I want to try that tight little ass of yours."'
@@ -202,8 +202,7 @@ if $ARGS[0] = 'pos3333':
 	gs 'stat'
 	horand = rand (1, 100)
 
-	if rand1<10:'<center><img <<$set_imgh>> src="images/locations/pavlovsk/trainstation/sex/vokbimbo3333.jpg"></center>'
-	if rand1>=10:'<center><video autoplay loop src="images/locations/pavlovsk/trainstation/sex/bimbo3,'+rand(0,7)+'.mp4"></video></center>'
+	'<center><video autoplay loop src="images/locations/pavlovsk/trainstation/sex/bimbo3,'+rand(0,7)+'.mp4"></video></center>'
 	'He turns your face to the wall and enters your ass from behind. You are not prepared for this, with no lubrication on your ass and only your slavia on his dick the pain is sharp, you wince and tear up. You try to pull away, but strong hands hold you firm, as you struggle more he pushes you tight up against the wall leaving you no where to go.'
 	'He pounds your ass furiously, balls deep with out mercy, the more you whimper the harder he pounds you. He seems to have a supernatural stamina as he ravishes your ass, you completely lose track of time, as tears start to stream down your face.'
 	'"Like that girl? Yeah I know a little slut like you, loves having your ass tore up, you can be my ass whore anytime, ha ha!" With these words began to twitch and you can feel his spurts of hot sperm shooting deep into your ass. Once he has finished cumming in you ass, he pushes your head against the wall while he pulls his dick out of you and wipes it off on your butt cheeks, with a final laugh he lets you go and leaves.'
@@ -211,7 +210,7 @@ if $ARGS[0] = 'pos3333':
 		pcs_horny += 10 & 'You have not managed to cum.'
 	else
 		pcs_horny = 0 & orgasm += 1 & 'When you feel him cumming, your own orgasm sweeps through you.'
-	end	
+	end
 
 	act 'Next':gt 'trainbimbo', 'pos33333'
 end
@@ -227,8 +226,8 @@ if $ARGS[0] = 'pos3334':
 	pcs_vag += 1
 	horand = rand (1, 100)
 !!random two imagestoiletvag1 and toiletvag2
-	if rand1<10:'<center><img <<$set_imgh>> src="images/locations/pavlovsk/trainstation/sex/toiletvag1.jpg"></center>'
-	if rand1>=10:'<center><video autoplay loop src="images/locations/pavlovsk/trainstation/sex/toiletvag3.mp4"></video></center>'
+	if bimbo_rand1 < 10:'<center><img <<$set_imgh>> src="images/locations/pavlovsk/trainstation/sex/toiletvag1.jpg"></center>'
+	if bimbo_rand1 >= 10:'<center><video autoplay loop src="images/locations/pavlovsk/trainstation/sex/toiletvag3.mp4"></video></center>'
 	'He turns your face to the wall and enters your pussy from behind. You are not prepared for this, it hurts as he forces himself into you. You try to pull away but his quite strong hands hold you in place. Unable to pull away you start rubbing your clit and getting yourself wet.'
 	'He abuses your poor vagina while he lets loose variable vulgar comments to you. He uses use for a long time, and to your surprise once you get yourself wet the pain gradually starts to recede, you begin to enjoy his rough handling of your body, and you begin to moan softly.'
 	'"So, you actually like it slut? If you visit here again, you can be a my toilet whore any time, ha ha!" With these words began to twitch and you can feel his spurts of hot sperm shooting deep into your ass. Once he has finished cumming in you ass, he pushes your head against the wall while he pulls his dick out of you and wipes it off on your butt cheeks, with a final laugh he lets you go and leaves.'
@@ -236,10 +235,10 @@ if $ARGS[0] = 'pos3334':
 		pcs_horny += 10 & 'You have not managed to cum.'
 	else
 		pcs_horny = 0 & orgasm += 1 & 'When you feel him cumming, your own orgasm sweeps through you.'
-	end	
+	end
 	'After he finishing inside you he lets you go, and begins to make himself presentable.'
 	gs 'stat'
-	
+
 	act 'Next':gt 'trainbimbo', 'pos33333'
 end
 
@@ -249,8 +248,7 @@ if $ARGS[0] = 'pos33333':
 	minut += 5
 	body_write = 1
 	gs 'stat'
-	if rand1<40:'<center><img <<$set_imgh>> src="images/locations/pavlovsk/trainstation/vokbimbo33333.jpg"></center>'
-	if rand1>=40:'<center><video autoplay loop src="images/locations/pavlovsk/trainstation/sex/bimbo.cum.body0.mp4"></video></center>'
+	'<center><video autoplay loop src="images/locations/pavlovsk/trainstation/sex/bimbo.cum.body0.mp4"></video></center>'
 	'He pushes you down on the dirty floor and he starts jerking off standing over you. Soon his spurts of hot sperm start raining down all over you body. Once he is finished cumming on you, he pulls out a marker and writes on your chest Pussy Whore. "This way it will be clear to everyone what you really are, ha ha ha!" He pulled up his pants and left you there lying on the floor covered in cum.'
 
 	act 'dress':gt 'trainbimbo', 'pos1'
@@ -271,6 +269,7 @@ end
 if $ARGS[0] = 'pos5':
 	cla
 	*clr
+	menu_off = 1
 	minut += 50
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/trainstation/vokbimbo1.jpg"></center>'
@@ -302,7 +301,7 @@ if $ARGS[0] = 'pos66':
 	*clr
 	pcs_makeup = 0
 	gang += 1
-	
+
 	randpeople = rand(3, 12)
 	fucker = 1
 	iscumvag = 0

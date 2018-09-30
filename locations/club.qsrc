@@ -222,7 +222,7 @@ if $ARGS[0] = 'tou':
 	''
 
 	act 'Leave the toilet':gt 'club', 'inside'
-	
+
 	act 'Look in the mirror': gt 'mirror', 'start'
 	if pcs_hairbsh = 0: act 'Brush your hair': gt 'mirror', 'brush'
 
@@ -270,19 +270,19 @@ if $ARGS[0] = 'dance':
 
 					gs 'arousal', 'foreplay', 30, 'sub'
 					gs 'stat'
-					
+
 					if pcs_horny < 90:
 						act 'Go to the dance floor':gt 'club', 'dance'
 					end
 
 					act 'Kiss':
 						cla
-						
+
 						dansexclub = rand(0, 1)
 
 						if dansexclub = 1:
 							'You''re passionately kissing the guy, while he''s continously groping you, always dedicating one of his hands to either your tits or your ass. "Why don''t we go to the VIP-Area. There we''ll have a bit more privacy.", he says inbetween kisses.'
-							
+
 							gs 'arousal', 'kiss', 15, 'sub'
 							gs 'stat'
 							picrand = 38
@@ -297,7 +297,7 @@ if $ARGS[0] = 'dance':
 
 							gs 'arousal', 'kiss', 15, 'sub'
 							gs 'stat'
-							
+
 							if pcs_horny < 70:
 								act 'Go to the dance floor':gt 'club', 'dance'
 							end
@@ -369,7 +369,7 @@ if $ARGS[0] = 'dance':
 							picrand = rand(29, 41)
 							'<center><img <<$set_imgh>> src="images/shared/sex/blowjob/bj<<picrand>>.jpg"></center>'
 							'You kneel down and wrap your <<$liptalk>> around his cock and you begin to suck on it. Alexei helped by moving his hips back and forth, you notice his moving is in sync to the beat of the music he''s playing. After a few minutes he groans, "You better swallow it all, I don''t want anyone to clean up our mess."'
-							
+
 							gs 'arousal', 'bj', 10, 'sub'
 							gs 'stat'
 
@@ -390,7 +390,7 @@ if $ARGS[0] = 'dance':
 
 								gs 'arousal', 'end'
 								gs 'stat'
-								
+
 								act 'Leave the booth':gt 'club', 'dance'
 							end
 						end
@@ -448,7 +448,7 @@ if $ARGS[0] = 'bar':
 			gs 'arousal', 'bj', 10, 'sub'
 			gs 'arousal', 'end'
 			gs 'stat'
-							
+
 			act 'Leave':gt 'down'
 
 			exit
@@ -465,7 +465,7 @@ if $ARGS[0] = 'bar':
 			gs 'arousal', 'bj', 10, 'sub'
 			gs 'arousal', 'end'
 			gs 'stat'
-			
+
 			act 'Leave':gt 'down'
 
 			exit
@@ -488,7 +488,7 @@ if $ARGS[0] = 'bar':
 			gs 'arousal', 'voyeur', 10
 			gs 'arousal', 'end'
 			gs 'stat'
-			
+
 			act 'Leave':gt 'down'
 
 			exit
@@ -501,7 +501,7 @@ if $ARGS[0] = 'bar':
 			gs 'arousal', 'voyeur', 10
 			gs 'arousal', 'end'
 			gs 'stat'
-			
+
 			act 'Leave':gt 'down'
 
 			exit
@@ -514,7 +514,7 @@ if $ARGS[0] = 'bar':
 			gs 'arousal', 'voyeur', 10
 			gs 'arousal', 'end'
 			gs 'stat'
-			
+
 			act 'Leave':gt 'down'
 
 			exit
@@ -527,7 +527,7 @@ if $ARGS[0] = 'bar':
 			gs 'arousal', 'voyeur', 10
 			gs 'arousal', 'end'
 			gs 'stat'
-			
+
 			act 'Leave':gt 'down'
 
 			exit
@@ -540,7 +540,7 @@ if $ARGS[0] = 'bar':
 			gs 'arousal', 'voyeur', 10
 			gs 'arousal', 'end'
 			gs 'stat'
-			
+
 			act 'Leave':gt 'down'
 
 			exit
@@ -553,7 +553,7 @@ if $ARGS[0] = 'bar':
 			gs 'arousal', 'voyeur', 10
 			gs 'arousal', 'end'
 			gs 'stat'
-			
+
 			act 'Leave':gt 'down'
 
 			exit
@@ -566,7 +566,7 @@ if $ARGS[0] = 'bar':
 			gs 'arousal', 'foreplay', 10
 			gs 'arousal', 'end'
 			gs 'stat'
-			
+
 			act 'Leave':gt 'down'
 
 			exit
@@ -579,7 +579,7 @@ if $ARGS[0] = 'bar':
 			gs 'arousal', 'foreplay', 10
 			gs 'arousal', 'end'
 			gs 'stat'
-			
+
 			act 'Leave':gt 'down'
 
 			exit
@@ -592,7 +592,7 @@ if $ARGS[0] = 'bar':
 			gs 'arousal', 'foreplay', 10
 			gs 'arousal', 'end'
 			gs 'stat'
-			
+
 			act 'Leave':gt 'down'
 
 			exit
@@ -605,7 +605,7 @@ if $ARGS[0] = 'bar':
 			gs 'arousal', 'voyeur', 10
 			gs 'arousal', 'end'
 			gs 'stat'
-			
+
 			act 'Leave':gt 'down'
 
 			exit
@@ -618,7 +618,7 @@ if $ARGS[0] = 'bar':
 			gs 'arousal', 'voyeur', 10
 			gs 'arousal', 'end'
 			gs 'stat'
-			
+
 			act 'Leave':gt 'down'
 
 			exit
@@ -631,7 +631,7 @@ if $ARGS[0] = 'bar':
 			gs 'arousal', 'voyeur', 10
 			gs 'arousal', 'end'
 			gs 'stat'
-			
+
 			act 'Leave':gt 'down'
 
 			exit
@@ -640,7 +640,7 @@ if $ARGS[0] = 'bar':
 			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/nightclub/club21.jpg"></center>'
 			'You see a girl as drunk as you attempting taking a picture of her panties.'
 			'You''re too drunk to continue partying here. The security has to escort you out.'
-			
+
 			gs 'arousal', 'voyeur', 10
 			gs 'arousal', 'end'
 			gs 'stat'
@@ -657,7 +657,7 @@ if $ARGS[0] = 'bar':
 			gs 'arousal', 'voyeur', 10
 			gs 'arousal', 'end'
 			gs 'stat'
-			
+
 			act 'Leave':gt 'down'
 
 			exit
@@ -670,7 +670,7 @@ if $ARGS[0] = 'bar':
 			gs 'arousal', 'voyeur', 10
 			gs 'arousal', 'end'
 			gs 'stat'
-			
+
 			act 'Leave':gt 'down'
 
 			exit
@@ -683,7 +683,7 @@ if $ARGS[0] = 'bar':
 			gs 'arousal', 'voyeur', 10
 			gs 'arousal', 'end'
 			gs 'stat'
-			
+
 			act 'Leave':gt 'down'
 
 			exit
@@ -696,7 +696,7 @@ if $ARGS[0] = 'bar':
 			gs 'arousal', 'voyeur', 10
 			gs 'arousal', 'end'
 			gs 'stat'
-			
+
 			act 'Leave':gt 'down'
 
 			exit
@@ -739,7 +739,7 @@ if $ARGS[0] = 'sex':
 
 	gs 'arousal', 'foreplay', 5
 	gs 'stat'
-	
+
 	act 'Give him a blowjob':
 		cla
 		*clr
@@ -805,7 +805,7 @@ if $ARGS[0] = 'sex':
 
 			gs 'arousal', 'end'
 			gs 'stat'
-			
+
 			act 'Stand up':gt 'club', 'tou'
 		end
 	end
@@ -824,19 +824,19 @@ if $ARGS[0] = 'sex':
 		'You look at him, "Don''t you dare to cum inside.". In between his grunts he nods and a few seconds later he cums outside of you, you are relived that he at least acts a bit like a gentleman.'
 		spafinloc = 14
 		gs 'cum_manage'
-		
+
 		gs 'arousal', 'vaginal', 5, 'sub'
 		gs 'stat'
-		
+
 		if pcs_horny > 90:
 			$orgasm_or = 'custom'
 			$orgasm_txt = 'As you heartbeat slows and you are beginning to catch your breath, you realise your arousal has peaked, a warmth fills you and your eyes lose focus.'
 		end
 		'You recover to find yourself alone in the cubicle and quickly re-dress.'
-		
+
 		gs 'arousal', 'end'
 		gs 'stat'
-		
+
 		act 'Leave cubicle':gt 'club', 'tou'
 	end
 end
@@ -859,7 +859,7 @@ if $ARGS[0] = 'bar0':
 
 		gs 'arousal', 'kiss', 5, 'lesbian'
 		gs 'stat'
-		
+
 		act 'Tell her to meet at the toilet':gt 'club', 'lezbsort'
 
 		act 'Strip her':
@@ -871,7 +871,7 @@ if $ARGS[0] = 'bar0':
 
 			gs 'arousal', 'foreplay', 5, 'lesbian'
 			gs 'stat'
-		
+
 			act 'Lick her pussy':
 				cla
 				*clr
@@ -881,7 +881,7 @@ if $ARGS[0] = 'bar0':
 
 				gs 'arousal', 'cuni_give', 5, 'lesbian'
 				gs 'stat'
-		
+
 				act 'Switch positions':
 					cla
 					*clr
@@ -893,7 +893,7 @@ if $ARGS[0] = 'bar0':
 					$orgasm_or = 'yes'
 					gs 'arousal', 'cuni', 5, 'lesbian'
 					gs 'stat'
-		
+
 					if dildo = 0:
 						cla
 						*clr
@@ -901,7 +901,7 @@ if $ARGS[0] = 'bar0':
 
 						gs 'arousal', 'end'
 						gs 'stat'
-						
+
 						act 'Leave':gt 'club', 'inside'
 					elseif dildo > 0:
 						act 'Get dildo':
@@ -915,7 +915,7 @@ if $ARGS[0] = 'bar0':
 							gs 'arousal', 'vaginal_vibe_give', 5, 'lesbian'
 							minut -= 5
 							gs 'stat'
-		
+
 							act 'Give her one':
 								cla
 								*clr
@@ -929,7 +929,7 @@ if $ARGS[0] = 'bar0':
 								minut -= 5
 								gs 'arousal', 'end'
 								gs 'stat'
-		
+
 								act 'Leave':gt 'club', 'inside'
 							end
 						end
@@ -962,7 +962,7 @@ if $ARGS[0] = 'bar1':
 
 			gs 'arousal', 'cuni', 10, 'dom'
 			gs 'stat'
-			
+
 			act 'Turn him down':gt 'club', 'bar'
 			act 'Suck his cock':gt 'club', 'bar2'
 			act 'Let him fuck you':gt 'club', 'bar3'
@@ -984,7 +984,7 @@ if $ARGS[0] = 'bar2':
 
 	gs 'arousal', 'bj', 10, 'sub'
 	gs 'stat'
-	
+
 	act 'Post':gt 'club', 'bar3'
 
 	act 'Continue to suck':
@@ -1000,7 +1000,7 @@ if $ARGS[0] = 'bar2':
 
 		gs 'arousal', 'end'
 		gs 'stat'
-		
+
 		act 'Move away':gt 'club', 'inside'
 	end
 end
@@ -1015,10 +1015,10 @@ if $ARGS[0] = 'bar3':
 	'<center><b><font color="maroon">Bar</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/nightclub/sex/barsex.jpg"></center>'
 	t = rand(0, 2)
-	
+
 	gs 'arousal', 'vaginal', 10, 'sub', 'rough'
 	gs 'stat'
-	
+
 	if $pantyworntype = 'none':
 		'You sit down sideways on one of the stools. The guy unzips his cock and quickly enters your pussy. Both of you start to moan in pleasure and he kisses your neck gently. He roughly fucks you for several minutes before suddenly cumming deep inside your pussy'
 		spafinloc = 0
@@ -1036,17 +1036,17 @@ if $ARGS[0] = 'bar3':
 	end
 
 	gs 'cum_manage'
-	
+
 	gs 'arousal', 'end'
 	gs 'stat'
-	
+
 	act 'Leave':gt 'club', 'inside'
 end
 
 if $ARGS[0] = 'rape':
 	cla
 	*clr
-	
+
 	SUB += 5
 	rape += 1
 	'<center><b><font color="maroon">Bar</font></b></center>'
@@ -1059,7 +1059,7 @@ if $ARGS[0] = 'rape':
 
 		gs 'arousal', 'bj', 10, 'sub', 'deepthroat'
 		gs 'stat'
-	
+
 		act 'Further':
 			barraperand1 = rand(0, 1)
 
@@ -1075,7 +1075,7 @@ if $ARGS[0] = 'rape':
 				dynamic $venerasiakOral
 				gs 'arousal', 'end'
 				gs 'stat'
-				
+
 				act 'Leave':gt 'club', 'inside'
 			elseif barraperand1 = 1:
 				cla
@@ -1092,7 +1092,7 @@ if $ARGS[0] = 'rape':
 				gs 'arousal', 'vaginal', 10, 'sub', 'rough'
 				gs 'arousal', 'end'
 				gs 'stat'
-	
+
 				act 'Leave':gt 'club', 'inside'
 			end
 		end
@@ -1105,7 +1105,7 @@ if $ARGS[0] = 'rape':
 		gs 'arousal', 'vaginal', 10, 'sub', 'rough'
 		gs 'arousal', 'end'
 		gs 'stat'
-				
+
 		act 'Leave':gt 'club', 'inside'
 	end
 end
@@ -1113,7 +1113,7 @@ end
 if $ARGS[0] = 'lezbsort':
 	cla
 	*clr
-	
+
 	girl += 1
 	'<center><b><font color="maroon">WC</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/nightclub/sex/lezbsort.jpg"></center>'
@@ -1130,16 +1130,16 @@ if $ARGS[0] = 'lezbsort1':
 	'<center><b><font color="maroon">WC</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/nightclub/sex/sortukuni.jpg"></center>'
 	'You remove her pants and sit down on the toilet. She happily does as you told her. She spreads her legs and you begin to lick her cunt furiously. She moans heavily and plays with her erect nipples. Some time later you make cum.'
-	
+
 	dynamic $venerasiak
 	gs 'arousal', 'cuni_give', 10, 'sub', 'lesbian'
 	gs 'stat'
-				
+
 	if hour >= 15 or hour <= 3:act 'Now it''s your turn':gt 'club', 'lezbsort2'
 
 	gs 'arousal', 'end'
 	gs 'stat'
-	
+
 	act 'Leave her':gt 'club', 'tou'
 end
 
@@ -1154,12 +1154,12 @@ if $ARGS[0] = 'lezbsort2':
 	dynamic $venerasiakOral
 	gs 'arousal', 'cuni', 10, 'sub', 'lesbian'
 	gs 'stat'
-	
+
 	if hour >= 15 or hour <= 3:act 'Lick her':gt 'club', 'lezbsort1'
 
 	gs 'arousal', 'end'
 	gs 'stat'
-	
+
 	act 'Leave her':gt 'club', 'tou'
 end
 

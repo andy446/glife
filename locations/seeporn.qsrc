@@ -2,7 +2,7 @@
 !! this is triggered by going to see porn with the brother in the altstart
 gs 'stat'
 'You and the boys sit down around the TV, Kolka puts on a DVD and immediately the screen is filled with porn.'
-
+see_rand1 = rand(0,100)
 act 'watch porn':
 	cls
 	minut += 15
@@ -82,12 +82,12 @@ act 'watch porn':
 						brotherSexCount -= 1
 
 						gs 'stat'
-						'Kolka tells guys that he should take you home.' 
-						'As soon as you leave the school building your brother whispers; "Let''s look for a quiet place, I''m still horny."' 
+						'Kolka tells guys that he should take you home.'
+						'As soon as you leave the school building your brother whispers; "Let''s look for a quiet place, I''m still horny."'
 						'Soon you find a secluded spot and Kolka says, "This looks good. Bend over."'
-						if rand1<5:'<center><img <<$set_imgh>> src="images/shared/sex/public/boysex.jpg"></center>'
-						if rand1>=5 and rand1<30:'<center><video autoplay loop src="images/shared/sex/public/publ1,<<rand(0,2)>>.mp4"></video></center>'
-						if rand1>=30:'<center><img <<$set_imgh>> src="images/shared/sex/public/publ1,<<rand(0,6)>>.jpg"></center>'
+						if see_rand1 < 5:'<center><img <<$set_imgh>> src="images/shared/sex/public/boysex.jpg"></center>'
+						if see_rand1 >= 5 and see_rand1 < 30:'<center><video autoplay loop src="images/shared/sex/public/publ1,<<rand(0,2)>>.mp4"></video></center>'
+						if see_rand1 >= 30:'<center><img <<$set_imgh>> src="images/shared/sex/public/publ1,<<rand(0,6)>>.jpg"></center>'
 						'You let your brother fuck you from behind.'
 						dynamic $sexstart
 						gs 'dinsex','vaginal_sex',10
@@ -344,9 +344,9 @@ if $ARGS[0] = 'SeePornPalevo':
 			gang += 1
 			gs 'stat'
 
-			if rand1<30:'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/grounds/seeporn/sex/seepornblowbang.jpg"></center>'
-			if rand1>=30:'<center><video autoplay loop src="images/locations/pavlovsk/school/grounds/seeporn/sex/seepornbro0,<<rand(0,2)>>.mp4"></video></center>'
-			'Your silence is taken as consent, Zhendos gets his dick out and pulls your face toward it, You dutifully wrapped your lips around it and began to suck.' 
+			if see_rand1 < 30:'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/grounds/seeporn/sex/seepornblowbang.jpg"></center>'
+			if see_rand1 >= 30:'<center><video autoplay loop src="images/locations/pavlovsk/school/grounds/seeporn/sex/seepornbro0,<<rand(0,2)>>.mp4"></video></center>'
+			'Your silence is taken as consent, Zhendos gets his dick out and pulls your face toward it, You dutifully wrapped your lips around it and began to suck.'
 			'Your brother Kolka and Mishan also get their members out and stand around you, you start to masturbate and suck dick. You find the unusual and awkward situation a little exciting.'
 
 			act 'Suck':
@@ -381,7 +381,7 @@ if $ARGS[0] = 'SeePornPalevo':
 				pcs_horny += 10
 				if brotherSex < 6:brotherSex = 6
 				gs 'stat'
-				
+
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/grounds/seeporn/sex/seepornbbcum.jpg"></center>'
 				'The boys don''t last long and cum right in your face, Soon almost all of your face is covered in a layer of sperm and it''s dripping on to your clothes. The boys laugh "That''s right, good girl".'
 
@@ -419,7 +419,7 @@ if $ARGS[0] = 'SeePornPalevo':
 				gs 'stat'
 				if brotherSex < 6:brotherSex = 6
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/grounds/seeporn/sex/seeporndouble2.jpg"></center>'
-				'You diligently continue to suck two dicks at the same time, the guys moaning and moving their hips trying to shove them into you deeper.' 
+				'You diligently continue to suck two dicks at the same time, the guys moaning and moving their hips trying to shove them into you deeper.'
 				'Your brother is looking at you closely and with his hand down his pants, while loudly telling details about what a dirty whore you are.'
 				'Just as you feel that this situation is beginning to slow you. You unzip your brothers pants and start alternate between his cock on its own and both of his friends at the same time.'
 				'The boys don''t last long and almost simultaneously finish on your face. Seen too much damn porn, juvenile perverts.'
@@ -444,10 +444,10 @@ if $ARGS[0] = 'SeePornPalevo':
 					spafinloc = 7
 					sexpartkno = 1
 					gs 'cum_manage'
-					
+
 					gs 'stat'
 					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/grounds/seeporn/sex/seepornbjcum<<rand(2,3)>>.jpg"></center>'
-					'Doing nothing but close your eyes, you sit humbly on your knees, without disturbing them while they cum. Then it hits you, the pungent smell of sperm.' 
+					'Doing nothing but close your eyes, you sit humbly on your knees, without disturbing them while they cum. Then it hits you, the pungent smell of sperm.'
 					'You feel like a hot sticky goo covers your entire face, individual droplets fall on to your neck and hair.'
 					'"This is for you, instead of face masks", laugh the boys. Real funny, you wipe your eyes and angrily stare at them.'
 

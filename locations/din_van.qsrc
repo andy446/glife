@@ -1473,5 +1473,9 @@ if $ARGS[0] = 'shave_options':
 	act 'Return':menu_off = 0 & gt $loc, $metka
 end
 
+if breastpump > 0 and bp_unbox >= 1:
+	act 'Use breast pump' :gt 'lact_lib', 'bp_milking'
+end
+
 --- din_van ---------------------------------
 

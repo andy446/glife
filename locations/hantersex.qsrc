@@ -363,9 +363,6 @@ end
 if $ARGS[0] = 'doubleloveOral12':
 	*clr & cla
 	lubonus += 1
-	hantsexa = rand(1,6)
-	gs 'stat'
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/doubleloveOral12.'+rand(1,2)+'.jpg"></center>'
 	'You kneel in front of guys and begin sucking their dicks, taking turns and paying attention to each one...'
 
@@ -383,22 +380,16 @@ if $ARGS[0] = 'doubleloveOral12':
 	'<<$textsexhanter5>>'
 	gs 'arousal', 'bj', 5, 'sub', 'group'
 	gs 'stat'
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Kneel':gt 'hantersex', 'doubleloveOralCum12'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Doggy':gt 'hantersex', 'doubleloveDog112'
-	if pcs_sleep >= 10 and hantsexa = 3:act 'Doggy':gt 'hantersex', 'doubleloveDog212'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Lie on your side':gt 'hantersex', 'doubleloveSide12'
-	if pcs_sleep >= 10 and hantsexa = 5:act 'Sit down':gt 'hantersex', 'doubleloveCow112'
-	if pcs_sleep >= 10 and hantsexa = 6:act 'Sit down':gt 'hantersex', 'doubleloveCow212'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+
+	gs 'hantersex', 'rng_1'
 end
 
 if $ARGS[0] = 'doubleloveOralCum12_1':
-	gs 'cum_call', 'mouth', $boy, 1
-	swallow += 1
-	hantsexa = rand(1,2)
-	gs 'stat'
+	*clr & cla
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/doubleloveOralCum12_1.jpg"></center>'
 	'You kneel in front of guys and begin sucking their dicks, taking turns and paying attention to each one...'
+	gs 'cum_call', 'mouth', $boy, 1
+	swallow += 1
 	if temphant = 1 or temphant = 3:gs 'boyStat', 'A174'
 	if temphant = 2:gs 'boyStat', 'A173'
 	if temphant = 4 or temphant = 6:gs 'boyStat', 'A61'
@@ -414,20 +405,18 @@ if $ARGS[0] = 'doubleloveOralCum12_1':
 	'<<$textsexhanter6>>'
 	gs 'arousal', 'bj', 5, 'sub', 'group'
 	gs 'stat'
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Lie on your side':gt 'hantersex', 'doubleloveSide2'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Suck':gt 'hantersex', 'doubleloveOral2'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+	
+	
+	gs 'hantersex', 'rng_2'
 end
 
 if $ARGS[0] = 'doubleloveOralCum12_2':
 	*clr & cla
-	gs 'cum_call', 'mouth', $boy, 1
-	swallow += 1
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/doubleloveOralCum12_2.jpg"></center>'
 	'You kneel in front of guys and begin sucking their dicks, taking turns and paying attention to each one...'
-	hantsexa = rand(1,2)
-	gs 'stat'
-
+	gs 'cum_call', 'mouth', $boy, 1
+	swallow += 1
+	
 	if temphant <= 2:gs 'boyStat', 'A172'
 	if temphant = 3:gs 'boyStat', 'A173'
 	if temphant = 4 or temphant = 5:gs 'boyStat', 'A63'
@@ -443,17 +432,13 @@ if $ARGS[0] = 'doubleloveOralCum12_2':
 	'<<$textsexhanter6>>'
 	gs 'arousal', 'bj', 5, 'sub', 'group'
 	gs 'stat'
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Sit down':gt 'hantersex', 'doubleloveCow1'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Suck':gt 'hantersex', 'doubleloveOral1'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-end &! --- doubleloveOralCum12_2 ---
+	
+	gs 'hantersex', 'rng_3'	
+end
 
 if $ARGS[0] = 'doubleloveDog112':
 	*clr & cla
-	minut += 5
-	lubonus += 1
-	hantsexa = rand(1,7)
-	gs 'stat'
+	lubonus += 1	
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/doubleloveDog112.'+rand(1,3)+'.jpg"></center>'
 	'You bend over in between the boys and suck one cock, while the second penetrates you from behind...'
 
@@ -474,24 +459,15 @@ if $ARGS[0] = 'doubleloveDog112':
 	gs 'arousal', 'anal', 5, 'sub', 'group'
 	minut -= 5
 	gs 'stat'
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Kneel':gt 'hantersex', 'doubleloveOralCum12'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Doggy':gt 'hantersex', 'doubleloveDogCum112_1'
-	if pcs_sleep >= 10 and hantsexa = 3:act 'Doggy':gt 'hantersex', 'doubleloveDogCum112_2'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Doggy':gt 'hantersex', 'doubleloveDog212'
-	if pcs_sleep >= 10 and hantsexa = 5:act 'Lie on your side':gt 'hantersex', 'doubleloveSide12'
-	if pcs_sleep >= 10 and hantsexa = 6:act 'Sit down':gt 'hantersex', 'doubleloveCow112'
-	if pcs_sleep >= 10 and hantsexa = 7:act 'Sit down':gt 'hantersex', 'doubleloveCow212'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-end &! --- doubleloveDog112 ---
+	
+	gs 'hantersex', 'rng_4'
+end
 
 if $ARGS[0] = 'doubleloveDogCum112_1':
 	*clr & cla
-	gs 'cum_call', 'anus', $boy, 1
-	hantsexa = rand(1,2)
-	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/doubleloveDogCum112_1.jpg"></center>'
 	'You bend over in between the boys and suck one cock, while the second penetrates you from behind...'
-
+	gs 'cum_call', 'anus', $boy, 1
 	if temphant = 1 or temphant = 3:gs 'boyStat', 'A174'
 	if temphant = 2:gs 'boyStat', 'A173'
 	if temphant = 4 or temphant = 6:gs 'boyStat', 'A61'
@@ -510,20 +486,17 @@ if $ARGS[0] = 'doubleloveDogCum112_1':
 	gs 'arousal', 'anal', 5, 'sub', 'group', 'rough'
 	minut -= 5
 	gs 'stat'
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Lie on your side':gt 'hantersex', 'doubleloveSide2'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Suck':gt 'hantersex', 'doubleloveOral2'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-end &! --- doubleloveDogCum112_1 ---
+	
+	gs 'hantersex', 'rng_2'
+end 
 
 if $ARGS[0] = 'doubleloveDogCum112_2':
 	*clr & cla
-	gs 'cum_call', 'mouth', $boy, 1
-	swallow += 1
-	hantsexa = rand(1,2)
-	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/doubleloveDogCum112_2.jpg"></center>'
 	'You bend over in between the boys and suck one cock, while the second penetrates you from behind...'
-
+	gs 'cum_call', 'mouth', $boy, 1
+	swallow += 1
+	
 	if temphant <= 2:gs 'boyStat', 'A172' & boyAsexa += 1
 	if temphant = 3:gs 'boyStat', 'A173' & boyAsexa += 1
 	if temphant = 4 or temphant = 5:gs 'boyStat', 'A63' & boyAsexa += 1
@@ -542,17 +515,13 @@ if $ARGS[0] = 'doubleloveDogCum112_2':
 	gs 'arousal', 'anal', 5, 'sub', 'group'
 	minut -= 5
 	gs 'stat'
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Sit down':gt 'hantersex', 'doubleloveCow1'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Suck':gt 'hantersex', 'doubleloveOral1'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-end &! --- doubleloveDogCum112_2 ---
+	
+	gs 'hantersex', 'rng_3'
+end 
 
 if $ARGS[0] = 'doubleloveDog212':
 	*clr & cla
 	lubonus += 1
-	hantsexa = rand(1,7)
-	gs 'stat'
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/doubleloveDog212.'+rand(1,3)+'.jpg"></center>'
 	'You bend over in between the boys and suck one cock, while the second penetrates you from behind...'
 
@@ -573,25 +542,16 @@ if $ARGS[0] = 'doubleloveDog212':
 	gs 'arousal', 'anal', 5, 'sub', 'group'
 	minut -= 5
 	gs 'stat'
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Kneel':gt 'hantersex', 'doubleloveOralCum12'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Doggy':gt 'hantersex', 'doubleloveDogCum212_1'
-	if pcs_sleep >= 10 and hantsexa = 3:act 'Doggy':gt 'hantersex', 'doubleloveDogCum212_2'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Doggy':gt 'hantersex', 'doubleloveDog112'
-	if pcs_sleep >= 10 and hantsexa = 5:act 'Lie on your side':gt 'hantersex', 'doubleloveSide12'
-	if pcs_sleep >= 10 and hantsexa = 6:act 'Sit down':gt 'hantersex', 'doubleloveCow112'
-	if pcs_sleep >= 10 and hantsexa = 7:act 'Sit down':gt 'hantersex', 'doubleloveCow212'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-end &! --- doubleloveDog212 ---
+	
+	gs 'hantersex', 'rng_4'
+end
 
 if $ARGS[0] = 'doubleloveDogCum212_1':
 	*clr & cla
-	gs 'cum_call', 'anus', $boy, 1
-	hantsexa = rand(1,2)
-	gs 'stat'
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/doubleloveDogCum212_1.jpg"></center>'
 	'You bend over in between the boys and suck one cock, while the second penetrates you from behind...'
-
+	gs 'cum_call', 'anus', $boy, 1
+	
 	if temphant <= 2:gs 'boyStat', 'A172'
    	if temphant = 3:gs 'boyStat', 'A173'
 	if temphant = 4 or temphant = 5:gs 'boyStat', 'A63'
@@ -610,21 +570,17 @@ if $ARGS[0] = 'doubleloveDogCum212_1':
 	gs 'arousal', 'anal', 5, 'sub', 'group', 'rough'
 	minut -= 5
 	gs 'stat'
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Sit down':gt 'hantersex', 'doubleloveCow1'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Suck':gt 'hantersex', 'doubleloveOral1'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-end &! --- doubleloveDogCum212_1 ---
+	
+	gs 'hantersex', 'rng_3'
+end
 
 if $ARGS[0] = 'doubleloveDogCum212_2':
 	*clr & cla
-	gs 'cum_call', 'mouth', $boy, 1
-	swallow += 1
-	hantsexa = rand(1,2)
-	gs 'stat'
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/doubleloveDogCum212_2.jpg"></center>'
 	'You bend over in between the boys and suck one cock, while the second penetrates you from behind...'
-
+	gs 'cum_call', 'mouth', $boy, 1
+	swallow += 1
+	
 	if temphant = 1 or temphant = 3:gs 'boyStat', 'A174' & boyBsexa += 1
 	if temphant = 2:gs 'boyStat', 'A173' & boyBsexa += 1
 	if temphant = 4 or temphant = 6:gs 'boyStat', 'A61' & boyBsexa += 1
@@ -643,17 +599,13 @@ if $ARGS[0] = 'doubleloveDogCum212_2':
 	gs 'arousal', 'anal', 5, 'sub', 'group'
 	minut -= 5
 	gs 'stat'
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Lie on your side':gt 'hantersex', 'doubleloveSide2'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Suck':gt 'hantersex', 'doubleloveOral2'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-end &! --- doubleloveDogCum212_2 ---
+	
+	gs 'hantersex', 'rng_2'
+end
 
 if $ARGS[0] = 'doubleloveSide12':
 	*clr & cla
 	lubonus += 1
-	hantsexa = rand(1,7)
-	gs 'stat'
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/doubleloveSide12.'+rand(1,2)+'.jpg"></center>'
 	'You lie on your side with a member in front of your face, and the other one penetrating you from behind...'
 
@@ -674,25 +626,16 @@ if $ARGS[0] = 'doubleloveSide12':
 	gs 'arousal', 'anal', 5, 'sub', 'group'
 	minut -= 5
 	gs 'stat'
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Kneel':gt 'hantersex', 'doubleloveOralCum12'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Doggy':gt 'hantersex', 'doubleloveDog212'
-	if pcs_sleep >= 10 and hantsexa = 3:act 'Doggy':gt 'hantersex', 'doubleloveDog112'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Lie on your side':gt 'hantersex', 'doubleloveSideCum12_1'
-	if pcs_sleep >= 10 and hantsexa = 5:act 'Lie on your side':gt 'hantersex', 'doubleloveSideCum12_2'
-	if pcs_sleep >= 10 and hantsexa = 6:act 'Sit down':gt 'hantersex', 'doubleloveCow112'
-	if pcs_sleep >= 10 and hantsexa = 7:act 'Sit down':gt 'hantersex', 'doubleloveCow212'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-end &! --- doubleloveSide12 ---
+	
+	gs 'hantersex', 'rng_1'
+end
 
 if $ARGS[0] = 'doubleloveSideCum12_1':
 	*clr & cla
-	gs 'cum_call', 'anus', $boy, 1
-	hantsexa = rand(1,2)
-	gs 'stat'
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/doubleloveSideCum12_1.jpg"></center>'
 	'You lie on your side with a member in front of your face, and the other one penetrating you from behind...'
-
+	gs 'cum_call', 'anus', $boy, 1
+	
 	if temphant <= 2:gs 'boyStat', 'A172'
    	if temphant = 3:gs 'boyStat', 'A173'
 	if temphant = 4 or temphant = 5:gs 'boyStat', 'A63'
@@ -711,22 +654,18 @@ if $ARGS[0] = 'doubleloveSideCum12_1':
 	gs 'arousal', 'anal', 5, 'sub', 'group'
 	minut -= 5
 	gs 'stat'
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Sit down':gt 'hantersex', 'doubleloveCow1'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Suck':gt 'hantersex', 'doubleloveOral1'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-end &! --- doubleloveSideCum12_1 ---
+	
+	gs 'hantersex', 'rng_3'
+end
 
 if $ARGS[0] = 'doubleloveSideCum12_2':
 	*clr & cla
 	lubonus += 1
-	gs 'cum_call', 'mouth', $boy, 1
-	swallow += 1
-	hantsexa = rand(1,2)
-	gs 'stat'
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/doubleloveSideCum12_2.jpg"></center>'
 	'You lie on your side with a member in front of your face, and the other one penetrating you from behind...'
-
+	gs 'cum_call', 'mouth', $boy, 1
+	swallow += 1
+	
 	if temphant = 1 or temphant = 3:gs 'boyStat', 'A174' & boyBsexa += 1
 	if temphant = 2:gs 'boyStat', 'A173' & boyBsexa += 1
 	if temphant = 4 or temphant = 6:gs 'boyStat', 'A61' & boyBsexa += 1
@@ -745,17 +684,13 @@ if $ARGS[0] = 'doubleloveSideCum12_2':
 	gs 'arousal', 'anal', 5, 'sub', 'group'
 	minut -= 5
 	gs 'stat'
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Lie on your side':gt 'hantersex', 'doubleloveSide2'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Suck':gt 'hantersex', 'doubleloveOral2'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-end &! --- doubleloveSideCum12_2 ---
+	
+	gs 'hantersex', 'rng_2'
+end
 
 if $ARGS[0] = 'doubleloveCow112':
 	*clr & cla
 	lubonus += 1
-	hantsexa = rand(1,8)
-	gs 'stat'
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/doubleloveCow112.'+rand(1,2)+'.jpg"></center>'
 	'One of the guys lays on the ground and you mount him. The second puts his cock in your mouth...'
 
@@ -776,27 +711,19 @@ if $ARGS[0] = 'doubleloveCow112':
 	gs 'arousal', 'anal', 5, 'sub', 'group'
 	minut -= 5
 	gs 'stat'
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Kneel':gt 'hantersex', 'doubleloveOralCum12'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Doggy':gt 'hantersex', 'doubleloveDog112'
-	if pcs_sleep >= 10 and hantsexa = 3:act 'Doggy':gt 'hantersex', 'doubleloveDog212'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Lie on your side':gt 'hantersex', 'doubleloveSide12'
-	if pcs_sleep >= 10 and hantsexa = 5:act 'Sit down':gt 'hantersex', 'doubleloveCowCum112_1'
-	if pcs_sleep >= 10 and hantsexa = 6:act 'Sit down':gt 'hantersex', 'doubleloveCowCum112_2'
-	if pcs_sleep >= 10 and hantsexa = 7:act 'Sit down':gt 'hantersex', 'doubleloveCow212'
+
+	hantsexa = rand(1,8)
+	gs 'hantersex', 'rng_5'
 	if pcs_sleep >= 10 and hantsexa = 8:act 'Sit down':gt 'hantersex', 'doubleloveCowCum1'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-end &! --- doubleloveCow112 ---
+end
 
 if $ARGS[0] = 'doubleloveCowCum112_1':
 	*clr & cla
 	lubonus += 1
-	gs 'cum_call', 'anus', $boy, 1
-	hantsexa = rand(1,2)
-	gs 'stat'
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/doubleloveCowCum112_1.jpg"></center>'
 	'One of the guys lays on the ground and you mount him. The second puts his cock in your mouth...'
-
+	gs 'cum_call', 'anus', $boy, 1
+	
 	if temphant = 1 or temphant = 3:gs 'boyStat', 'A174'
 	if temphant = 2:gs 'boyStat', 'A173'
 	if temphant = 4 or temphant = 6:gs 'boyStat', 'A61'
@@ -815,22 +742,18 @@ if $ARGS[0] = 'doubleloveCowCum112_1':
 	gs 'arousal', 'anal', 5, 'sub', 'group', 'rough'
 	minut -= 5
 	gs 'stat'
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Lie on your side':gt 'hantersex', 'doubleloveSide2'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Suck':gt 'hantersex', 'doubleloveOral2'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-end &! --- doubleloveCowCum112_1 ---
+	
+	gs 'hantersex', 'rng_2'
+end
 
 if $ARGS[0] = 'doubleloveCowCum112_2':
 	*clr & cla
 	lubonus += 1
-	gs 'cum_call', 'mouth', $boy, 1
-	swallow += 1
-	hantsexa = rand(1,2)
-	gs 'stat'
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/doubleloveCowCum112_2.jpg"></center>'
 	'One of the guys lays on the ground and you mount him. The second puts his cock in your mouth...'
-
+	gs 'cum_call', 'mouth', $boy, 1
+	swallow += 1
+	
 	if temphant <= 2:gs 'boyStat', 'A172' & boyAsexa += 1
 	if temphant = 3:gs 'boyStat', 'A173' & boyAsexa += 1
 	if temphant = 4 or temphant = 5:gs 'boyStat', 'A63' & boyAsexa += 1
@@ -849,14 +772,12 @@ if $ARGS[0] = 'doubleloveCowCum112_2':
 	gs 'arousal', 'anal', 5, 'sub', 'group'
 	minut -= 5
 	gs 'stat'
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Sit down':gt 'hantersex', 'doubleloveCow1'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Suck':gt 'hantersex', 'doubleloveOral1'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-end &! --- doubleloveCowCum112_2 ---
+	
+	gs 'hantersex', 'rng_3'
+end
 
 if $ARGS[0] = 'doubleloveCow212':
-	hantsexa = rand(1,7)
-
+	*clr & cla
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/doubleloveCow212.'+rand(1,2)+'.jpg"></center>'
 	'One of the guys lays on the ground and you mount him. The second puts his cock in your mouth...'
 
@@ -877,23 +798,17 @@ if $ARGS[0] = 'doubleloveCow212':
 	gs 'arousal', 'anal', 5, 'sub', 'group'
 	minut -= 5
 	gs 'stat'
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Kneel':gt 'hantersex', 'doubleloveOralCum12'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Doggy':gt 'hantersex', 'doubleloveDog112'
-	if pcs_sleep >= 10 and hantsexa = 3:act 'Doggy':gt 'hantersex', 'doubleloveDog212'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Lie on your side':gt 'hantersex', 'doubleloveSide12'
-	if pcs_sleep >= 10 and hantsexa = 5:act 'Sit down':gt 'hantersex', 'doubleloveCowCum212_1'
-	if pcs_sleep >= 10 and hantsexa = 6:act 'Sit down':gt 'hantersex', 'doubleloveCowCum212_2'
-	if pcs_sleep >= 10 and hantsexa = 7:act 'Sit down':gt 'hantersex', 'doubleloveCow112'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-end &! --- doubleloveCow212 ---
+	
+	hantsexa = rand(1,7)
+	gs 'hantersex', 'rng_5'
+end
 
 if $ARGS[0] = 'doubleloveCowCum212_1':
-	gs 'cum_call', 'anus', $boy, 1
-	hantsexa = rand(1,2)
-
+	*clr & cla
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/doubleloveCowCum212_1.jpg"></center>'
 	'One of the guys lays on the ground and you mount him. The second puts his cock in your mouth...'
-
+	gs 'cum_call', 'anus', $boy, 1
+	
 	if temphant = 1 or temphant = 3:gs 'boyStat', 'A174'
 	if temphant = 2:gs 'boyStat', 'A173'
 	if temphant = 4 or temphant = 6:gs 'boyStat', 'A61'
@@ -912,19 +827,17 @@ if $ARGS[0] = 'doubleloveCowCum212_1':
 	gs 'arousal', 'anal', 5, 'sub', 'group', 'rough'
 	minut -= 5
 	gs 'stat'
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Lie on your side':gt 'hantersex', 'doubleloveSide2'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Suck':gt 'hantersex', 'doubleloveOral2'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-end &! --- doubleloveCowCum212_1 ---
+	
+	gs 'hantersex', 'rng_2'
+end 
 
 if $ARGS[0] = 'doubleloveCowCum212_2':
-	gs 'cum_call', 'mouth', $boy, 1
-	swallow += 1
-	hantsexa = rand(1,2)
-
+	*clr & cla
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/doubleloveCowCum212_2.jpg"></center>'
 	'One of the guys lays on the ground and you mount him. The second puts his cock in your mouth...'
-
+	gs 'cum_call', 'mouth', $boy, 1
+	swallow += 1
+	
 	if temphant <= 2:gs 'boyStat', 'A172' & boyAsexa += 1
 	if temphant = 3:gs 'boyStat', 'A173' & boyAsexa += 1
 	if temphant = 4 or temphant = 5:gs 'boyStat', 'A63' & boyAsexa += 1
@@ -943,13 +856,12 @@ if $ARGS[0] = 'doubleloveCowCum212_2':
 	gs 'arousal', 'anal', 5, 'sub', 'group'
 	minut -= 5
 	gs 'stat'
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Sit down':gt 'hantersex', 'doubleloveCow1'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Suck':gt 'hantersex', 'doubleloveOral1'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-end &! --- doubleloveCowCum212_2 ---
+	
+	gs 'hantersex', 'rng_3'
+end
 
 if $ARGS[0] = 'doubleloveSide2':
-	hantsexa = rand(1,2)
+	*clr & cla
 	if temphant = 1 or temphant = 3:gs 'boyStat', 'A174' & boyBsexa += 1
 	if temphant = 2:gs 'boyStat', 'A173' & boyBsexa += 1
 	if temphant = 4 or temphant = 6:gs 'boyStat', 'A61' & boyBsexa += 1
@@ -964,12 +876,15 @@ if $ARGS[0] = 'doubleloveSide2':
 	gs 'arousal', 'anal', 5, 'sub', 'group'
 	minut -= 5
 	gs 'stat'
+	
+	hantsexa = rand(1,2)
 	if pcs_sleep >= 10 and hantsexa = 1:act 'Lie on your side':gt 'hantersex', 'doubleloveSideCum2'
 	if pcs_sleep >= 10 and hantsexa = 2:act 'Suck':gt 'hantersex', 'doubleloveOral2'
 	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-end &! --- doubleloveSide2 ---
+end
 
 if $ARGS[0] = 'doubleloveSideCum2':
+	*clr & cla
 	gs 'cum_call', 'anus', $boy, 1
 	if temphant = 1 or temphant = 3:gs 'boyStat', 'A174'
 	if temphant = 2:gs 'boyStat', 'A173'
@@ -988,10 +903,10 @@ if $ARGS[0] = 'doubleloveSideCum2':
 	gs 'stat'
 	if forest_hantersex = 0:act 'Further':gt $loc, $metka
 	if forest_hantersex > 0:act 'Further':forest_hantersex = 0 & minut += 60 & gt 'swamp_yard'
-end &! --- doubleloveSideCum2 ---
+end
 
 if $ARGS[0] = 'doubleloveCow1':
-	hantsexa = rand(1,2)
+	*clr & cla
 	if temphant <= 2:gs 'boyStat', 'A172' & boyAsexa += 1
 	if temphant = 3:gs 'boyStat', 'A173' & boyAsexa += 1
 	if temphant = 4 or temphant = 5:gs 'boyStat', 'A63' & boyAsexa += 1
@@ -1006,10 +921,9 @@ if $ARGS[0] = 'doubleloveCow1':
 	gs 'arousal', 'anal', 5, 'sub', 'group'
 	minut -= 5
 	gs 'stat'
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Kneel':gt 'hantersex', 'doubleloveCow1'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Doggy':gt 'hantersex', 'doubleloveOral1'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-end &! --- doubleloveCow1 ---
+	
+	gs 'hantersex', 'rng_3'
+end
 
 if $ARGS[0] = 'doubleloveCowCum1':
 	gs 'cum_call', 'anus', $boy, 1
@@ -1030,10 +944,10 @@ if $ARGS[0] = 'doubleloveCowCum1':
 	gs 'stat'
 	if forest_hantersex = 0:act 'Further':gt $loc, $metka
 	if forest_hantersex > 0:act 'Further':forest_hantersex = 0 & minut += 60 & gt 'swamp_yard'
-end &! --- doubleloveCowCum1 ---
+end
 
 if $ARGS[0] = 'doubleloveOral1':
-	hantsexa = rand(1,5)
+	*clr & cla
 	if temphant <= 2:gs 'boyStat', 'A172'
 	if temphant = 3:gs 'boyStat', 'A173'
 	if temphant = 4 or temphant = 5:gs 'boyStat', 'A63' & boyAsexa += 1
@@ -1049,12 +963,12 @@ if $ARGS[0] = 'doubleloveOral1':
 	gs 'stat'
 	if pcs_sleep >= 10:act 'Suck on':gt 'hantersex', 'doubleloveOralCum1'
 	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-end &! --- doubleloveOral1 ---
+end 
 
 if $ARGS[0] = 'doubleloveOralCum1':
+	*clr & cla
 	gs 'cum_call', 'mouth', $boy, 1
 	swallow += 1
-	hantsexa = rand(1,5)
 	if temphant <= 2:gs 'boyStat', 'A172'
 	if temphant = 3:gs 'boyStat', 'A173'
 	if temphant = 4 or temphant = 5:gs 'boyStat', 'A63'
@@ -1071,9 +985,10 @@ if $ARGS[0] = 'doubleloveOralCum1':
 	gs 'stat'
 	if forest_hantersex = 0:act 'Further':gt $loc, $metka
 	if forest_hantersex > 0:act 'Further':forest_hantersex = 0 & minut += 60 & gt 'swamp_yard'
-end &! --- doubleloveOralCum1 ---
+end
 
 if $ARGS[0] = 'doubleloveOral2':
+	*clr & cla
 	if temphant = 1 or temphant = 3:gs 'boyStat', 'A174'
 	if temphant = 2:gs 'boyStat', 'A173'
 	if temphant = 4 or temphant = 6:gs 'boyStat', 'A61'
@@ -1090,12 +1005,12 @@ if $ARGS[0] = 'doubleloveOral2':
 	gs 'stat'
 	if pcs_sleep >= 10:act 'Suck on':gt 'hantersex', 'doubleloveOralCum2'
 	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-end &! --- doubleloveOral2 ---
+end
 
 if $ARGS[0] = 'doubleloveOralCum2':
+	*clr & cla
 	gs 'cum_call', 'mouth', $boy, 1
 	swallow += 1
-	hantsexa = rand(1,5)
 	if temphant = 1 or temphant = 3:gs 'boyStat', 'A174'
 	if temphant = 2:gs 'boyStat', 'A173'
 	if temphant = 4 or temphant = 6:gs 'boyStat', 'A61'
@@ -1113,13 +1028,13 @@ if $ARGS[0] = 'doubleloveOralCum2':
 	gs 'stat'
 	if forest_hantersex = 0:act 'Further':gt $loc, $metka
 	if forest_hantersex > 0:act 'Further':forest_hantersex = 0 & minut += 60 & gt 'swamp_yard'
-end &! --- doubleloveOralCum2 ---
+end
 
 if $ARGS[0] = 'doubleloveOralCum12':
+	*clr & cla
 	gs 'cum_call', 'mouth', $boy, 1
 	swallow += 1
 	gs 'cum_call', 'face', $boy, 1
-	hantsexa = rand(1,5)
 	lubonus = 0
 	if $clothingworntype = 'nude':gs 'cum_call', 'stomach', $boy, 1
 	if ($clothingworntype ! 'nude' and $clothingworntype ! 'swimwear'):gs 'cum_call', 'clothesgroin', $boy, 1
@@ -1134,7 +1049,7 @@ if $ARGS[0] = 'doubleloveOralCum12':
 	if forest_hantersex = 0:act 'Further':gt $loc, $metka
 	if forest_hantersex > 0:act 'Further':forest_hantersex = 0 & minut += 60 & gt 'swamp_yard'
 
-end &! --- doubleloveOralCum12 ---
+end
 ! Sex GG vs the guy in the hut
 if $ARGS[0] = 'sluthomeSTART':
 	hantsexa = rand(1,3)
@@ -1152,28 +1067,23 @@ end &! --- sluthomeSTART ---
 if $ARGS[0] = 'sluthomeORAL1':
 	*clr & cla
 	lubonus += 1
-	hantsexa = rand(1,5)
-	gs 'stat'
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeoral1.'+rand(1,3)+'.jpg"></center>'
 	'You slowly put his dick in your mouth and begin to suck on it...'
 	gs 'oral','start'
 	'<<$textsexhanter2>>'
 	gs 'arousal', 'bj', 5, 'sub'
 	gs 'stat'
-	if hantsexa = 1:act 'Suck on':gt 'hantersex', 'sluthomeORAL2'
-	if hantsexa = 2:act 'Suck on':gt 'hantersex', 'sluthomeOralCum2'
-	if hantsexa = 3:act 'Suck on':gt 'hantersex', 'sluthomeORAL3'
-	if hantsexa = 4:act 'Suck on':gt 'hantersex', 'sluthomeOralCum3'
-	if hantsexa = 5:act 'Panties':gt 'hantersex', 'sluthomeTanga'
-end &! --- sluthomeORAL1 ---
+	
+	hantsexa = rand(1,5)
+	gs 'hantersex', 'rng_6'
+end
 
 if $ARGS[0] = 'sluthomeOralCum1':
-	gs 'cum_call', 'mouth', $boy, 1
-	swallow += 1
-
+	*clr & cla
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeoralcum1.jpg"></center>'
 	'Without warning, the guy begins to cum.'
+	gs 'cum_call', 'mouth', $boy, 1
+	swallow += 1
 
 	gs 'oral','start'
 	gs 'dinsex', 'dinrandswallow'
@@ -1185,8 +1095,7 @@ if $ARGS[0] = 'sluthomeOralCum1':
 end &! --- sluthomeOralCum1 ---
 
 if $ARGS[0] = 'sluthomeORAL2':
-	hantsexa = rand(1,4)
-
+	*clr & cla
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeoral2.'+rand(1,3)+'.jpg"></center>'
 	'You continue sucking on his dick...'
 
@@ -1194,19 +1103,18 @@ if $ARGS[0] = 'sluthomeORAL2':
 	'<<$textsexhanter2>>'
 	gs 'arousal', 'bj', 5, 'sub', 'group'
 	gs 'stat'
-	if hantsexa = 1:act 'Suck on':gt 'hantersex', 'sluthomeOralCum2'
-	if hantsexa = 2:act 'Suck on':gt 'hantersex', 'sluthomeORAL3'
-	if hantsexa = 3:act 'Suck on':gt 'hantersex', 'sluthomeOralCum3'
-	if hantsexa = 4:act 'Panties':gt 'hantersex', 'sluthomeTanga'
-end &! --- sluthomeORAL2 ---
+	
+	hantsexa = rand(2,5)
+	gs 'hantersex', 'rng_6'
+end 
 
 if $ARGS[0] = 'sluthomeOralCum2':
-	gs 'cum_call', 'mouth', $boy, 1
-	swallow += 1
-
+	*clr & cla
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeoralcum2.jpg"></center>'
 	'Without warning, the guy begins to cum.'
-
+	gs 'cum_call', 'mouth', $boy, 1
+	swallow += 1
+	
 	gs 'oral','start'
 	gs 'dinsex', 'dinrandswallow'
 	'<<$textsexhanter3>>'
@@ -1214,11 +1122,10 @@ if $ARGS[0] = 'sluthomeOralCum2':
 	gs 'arousal', 'end'
 	gs 'stat'
 	act 'Further':gt'swamphouse'
-end &! --- sluthomeOralCum2 ---
+end
 
 if $ARGS[0] = 'sluthomeORAL3':
-	hantsexa = rand(1,2)
-
+	*clr & cla
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeoral3.'+rand(1,2)+'.jpg"></center>'
 	'<<$boydesc>> pushes his whole weight against your head, forcing you to swallow more of his <<dick>> cm dick.'
 	if dick > pcs_throat:'Immediately your gag reflex kicks in you feel tears forming in your eyes.'
@@ -1226,16 +1133,18 @@ if $ARGS[0] = 'sluthomeORAL3':
 	*pl
 	gs 'arousal', 'bj', 5, 'sub', 'deepthroat'
 	gs 'stat'
+	
+	hantsexa = rand(1,2)
 	if hantsexa = 1:act 'Suck on':gt 'hantersex', 'sluthomeOralCum3'
 	if hantsexa = 2:act 'Panties':gt 'hantersex', 'sluthomeTanga'
-end &! --- sluthomeORAL3 ---
+end
 
 if $ARGS[0] = 'sluthomeOralCum3':
-	gs 'cum_call', 'mouth', $boy, 1
-	swallow += 1
-
+	*clr & cla
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeoralcum3.jpg"></center>'
 	'<<$boydesc>> pushes his whole weight against your head, forcing you to swallow more of his <<dick>> cm dick.'
+	gs 'cum_call', 'mouth', $boy, 1
+	swallow += 1
 	if dick > pcs_throat:'Immediately your gag reflex kicks in you feel tears forming in your eyes.'
 	if dick < pcs_throat:'Fortunately your throat is well trained and you swallow the guy''s whole dick without any difficulties.'
 	'<<$boydesc>> he began to move faster and you realized that he was already ready to cum...'
@@ -1246,11 +1155,10 @@ if $ARGS[0] = 'sluthomeOralCum3':
 	gs 'arousal', 'end'
 	gs 'stat'
 	act 'Further':gt'swamphouse'
-end &! --- sluthomeOralCum3 ---
+end
 
 if $ARGS[0] = 'sluthomeORAL4':
-	hantsexa = rand(1,7)
-
+	*clr & cla
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeoral4.'+rand(1,3)+'.jpg"></center>'
 	'You continue sucking on his dick...'
 
@@ -1259,17 +1167,13 @@ if $ARGS[0] = 'sluthomeORAL4':
 	'<<$textsexhanter2>>'
 	gs 'arousal', 'bj', 5, 'sub'
 	gs 'stat'
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Suck on':gt 'hantersex', 'sluthomeOralCum4'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Doggy':gt 'hantersex', 'sluthomeAnalDog1'
-	if pcs_sleep >= 10 and hantsexa = 3:act 'Doggy':gt 'hantersex', 'sluthomeAnalDogCum1'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Sit down':gt 'hantersex', 'sluthomeAnalCow1'
-	if pcs_sleep >= 10 and hantsexa = 5:act 'Sit down':gt 'hantersex', 'sluthomeAnalCowCum1'
-	if pcs_sleep >= 10 and hantsexa = 6:act 'Lie on your side':gt 'hantersex', 'sluthomeAnalSide1'
-	if pcs_sleep >= 10 and hantsexa = 7:act 'Lie on your side':gt 'hantersex', 'sluthomeAnalSideCum1'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-end &! --- sluthomeORAL4 ---
+	
+	hantsexa = rand(1,13)
+	gs 'hantersex', 'rng_7'
+end
 
 if $ARGS[0] = 'sluthomeOralCum4':
+	*clr & cla
 	gs 'cum_call', 'mouth', $boy, 1
 	gs 'cum_call', 'face', $boy, 1
 	swallow += 1
@@ -1283,125 +1187,97 @@ if $ARGS[0] = 'sluthomeOralCum4':
 	gs 'arousal', 'end'
 	gs 'stat'
 	act 'Further':gt'swamphouse'
-end &! --- sluthomeOralCum4 ---
+end
 
 if $ARGS[0] = 'sluthomeTanga':
-	gs 'underwear', 'remove'
-	hantsexa = rand(1,6)
-
+	*clr & cla
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthometanga.jpg"></center>'
 	'- <<$pcs_nickname>>, let''s take off your panties - said <<$boydesc>>. -  Then the real fun can begin.'
 	'You quickly sat down on the bed and pulled off your last piece of clothing. He did promise you some fun..'
 
+	gs 'underwear', 'remove'
 	gs 'arousal', 'foreplay', 5, 'sub'
 	gs 'stat'
 
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Doggy':gt 'hantersex', 'sluthomeAnalDog1'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Doggy':gt 'hantersex', 'sluthomeAnalDogCum1'
-	if pcs_sleep >= 10 and hantsexa = 3:act 'Sit down':gt 'hantersex', 'sluthomeAnalCow1'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Sit down':gt 'hantersex', 'sluthomeAnalCowCum1'
-	if pcs_sleep >= 10 and hantsexa = 5:act 'Lie on your side':gt 'hantersex', 'sluthomeAnalSide1'
-	if pcs_sleep >= 10 and hantsexa = 6:act 'Lie on your side':gt 'hantersex', 'sluthomeAnalSideCum1'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-end &! --- sluthomeTanga ---
+	hantsexa = rand(1,13)
+	gs 'hantersex', 'rng_7'
+end
 
 if $ARGS[0] = 'sluthomeAnalDog1':
-	if boyAsexa = 0: boyAsexa = 1
-	hantsexa = rand(1,10)
-
+	*clr & cla
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeanaldog1.'+rand(1,2)+'.jpg"></center>'
 	'<<$boydesc>> bends you over the couch and begins pound your ass...'
+	if boyAsexa = 0: boyAsexa = 1
 	gs 'dinSex','boy_wants_anal','lubri' & gs 'dinsex','analsex'
 	'<<$textsexhanter4>>'
 	gs 'arousal', 'anal', 5, 'sub'
 	gs 'stat'
 	dirty_dickA += 1
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Doggy':gt 'hantersex', 'sluthomeAnalDog2'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Doggy':gt 'hantersex', 'sluthomeAnalDogCum2'
-	if pcs_sleep >= 10 and hantsexa = 3:act 'Sit down':gt 'hantersex', 'sluthomeAnalCow1'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Sit down':gt 'hantersex', 'sluthomeAnalCowCum1'
-	if pcs_sleep >= 10 and hantsexa = 5:act 'Sit down':gt 'hantersex', 'sluthomeAnalCow2'
-	if pcs_sleep >= 10 and hantsexa = 6:act 'Sit down':gt 'hantersex', 'sluthomeAnalCowCum2'
-	if pcs_sleep >= 10 and hantsexa = 7:act 'Lie on your side':gt 'hantersex', 'sluthomeAnalSide1'
-	if pcs_sleep >= 10 and hantsexa = 8:act 'Lie on your side':gt 'hantersex', 'sluthomeAnalSideCum1'
-	if pcs_sleep >= 10 and hantsexa = 9:act 'Lie on your side':gt 'hantersex', 'sluthomeAnalSide2'
-	if pcs_sleep >= 10 and hantsexa = 10:act 'Lie on your side':gt 'hantersex', 'sluthomeAnalSideCum2'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-end &! --- sluthomeAnalDog1 ---
+	
+	hantsexa = rand(2,13)
+	gs 'hantersex', 'rng_7'
+end
 
 if $ARGS[0] = 'sluthomeAnalDogCum1':
-	gs 'cum_call', 'anus', $boy, 1
-
+	*clr & cla
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeanaldogcum1.jpg"></center>'
 	'You feel his pace quicken and your are sure he is about to cum.'
+	gs 'cum_call', 'anus', $boy, 1
 	gs 'dinSex','boy_wants_anal','lubri' & gs 'dinsex','analsex'
 	'<<$textsexhanter3>>'
 	gs 'arousal', 'anal', 5, 'sub'
 	gs 'arousal', 'end'
 	gs 'stat'
 	act 'Further':gt'swamphouse'
-end &! --- sluthomeAnalDogCum1 ---
+end
 
 if $ARGS[0] = 'sluthomeAnalDog2':
-	if boyAsexa = 0: boyAsexa = 1
-	hantsexa = rand(1,5)
-
+	*clr & cla
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeanaldog2.'+rand(1,2)+'.jpg"></center>'
 	'You bend over the couch as position yourself so <<$boydesc>> could go into your ass deeper...'
+	if boyAsexa = 0: boyAsexa = 1
 	gs 'dinSex','boy_wants_anal','lubri' & gs 'dinsex','analsex'
 	'<<$textsexhanter4>>'
 	gs 'arousal', 'anal', 5, 'sub'
 	gs 'stat'
 	dirty_dickA += 1
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Suck':gt 'hantersex', 'sluthomeORAL4'
-	if pcs_sleep >= 10 and hantsexa = 3:act 'Sit down':gt 'hantersex', 'sluthomeAnalCow1'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Sit down':gt 'hantersex', 'sluthomeAnalCowCum1'
-	if pcs_sleep >= 10 and hantsexa = 5:act 'Lie on your side':gt 'hantersex', 'sluthomeAnalSide1'
-	if pcs_sleep >= 10 and hantsexa = 6:act 'Lie on your side':gt 'hantersex', 'sluthomeAnalSideCum1'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-end &! --- sluthomeAnalDog2 ---
+	
+	hantsexa = rand(1,13)
+	gs 'hantersex', 'rng_7'
+end
 
 if $ARGS[0] = 'sluthomeAnalDogCum2':
-	gs 'cum_call', 'anus', $boy, 1
-
+	*clr & cla
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeanaldogcum2.jpg"></center>'
 	'You feel his pace quicken and your are sure he is about to cum.'
+	gs 'cum_call', 'anus', $boy, 1
 	gs 'dinSex','boy_wants_anal','lubri' & gs 'dinsex','analsex'
 	'<<$textsexhanter3>>'
 	gs 'arousal', 'anal', 5, 'sub', 'rough'
 	gs 'arousal', 'end'
 	gs 'stat'
 	act 'Further': gt'swamphouse'
-end &! --- sluthomeAnalDogCum2 ---
+end
 
 if $ARGS[0] = 'sluthomeAnalCow1':
-	if boyAsexa = 0: boyAsexa = 1
-	hantsexa = rand(1,10)
-
+	*clr & cla
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeanalcow1.'+rand(1,3)+'.jpg"></center>'
 	'<<$boydesc>> he lies on his back, you climb on top of him...'
+	
+	if boyAsexa = 0: boyAsexa = 1
 	gs 'dinSex','boy_wants_anal','lubri' & gs 'dinsex','analsex'
 	'<<$textsexhanter4>>'
 	gs 'arousal', 'anal', 5, 'sub'
 	gs 'stat'
 	dirty_dickA += 1
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Doggy':gt 'hantersex', 'sluthomeAnalDog1'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Doggy':gt 'hantersex', 'sluthomeAnalDogCum1'
-	if pcs_sleep >= 10 and hantsexa = 3:act 'Doggy':gt 'hantersex', 'sluthomeAnalDog2'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Doggy':gt 'hantersex', 'sluthomeAnalDogCum2'
-	if pcs_sleep >= 10 and hantsexa = 5:act 'Sit down':gt 'hantersex', 'sluthomeAnalCow2'
-	if pcs_sleep >= 10 and hantsexa = 6:act 'Sit down':gt 'hantersex', 'sluthomeAnalCowCum2'
-	if pcs_sleep >= 10 and hantsexa = 7:act 'Lie on your side':gt 'hantersex', 'sluthomeAnalSide1'
-	if pcs_sleep >= 10 and hantsexa = 8:act 'Lie on your side':gt 'hantersex', 'sluthomeAnalSideCum1'
-	if pcs_sleep >= 10 and hantsexa = 9:act 'Lie on your side':gt 'hantersex', 'sluthomeAnalSide2'
-	if pcs_sleep >= 10 and hantsexa = 10:act 'Lie on your side':gt 'hantersex', 'sluthomeAnalSideCum2'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-end &! --- sluthomeAnalCow1 ---
+	
+	hantsexa = rand(2,13)
+	gs 'hantersex', 'rng_7'
+end
 
 if $ARGS[0] = 'sluthomeAnalCowCum1':
-	minut += 5
+	*clr & cla
 	gs 'cum_call', 'anus', $boy, 1
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeanalcowcum1.jpg"></center>'
 	'You feel his pace quicken and your are sure he is about to cum.'
 	gs 'dinSex','boy_wants_anal','lubri' & gs 'dinsex','analsex'
@@ -1409,29 +1285,31 @@ if $ARGS[0] = 'sluthomeAnalCowCum1':
 	gs 'arousal', 'anal', 5, 'sub', 'rough'
 	gs 'arousal', 'end'
 	gs 'stat'
+	
 	act 'Further':gt'swamphouse'
-end &! --- sluthomeAnalCowCum1 ---
+end
 
 if $ARGS[0] = 'sluthomeAnalCow2':
-	if boyAsexa = 0: boyAsexa = 1
-	hantsexa = rand(1,3)
-
+	*clr & cla
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeanalcow2.'+rand(1,2)+'.jpg"></center>'
 	'<<$boydesc>> he lies on his back, you climb on top of him...'
+	if boyAsexa = 0: boyAsexa = 1
 	gs 'dinSex','boy_wants_anal','lubri' & gs 'dinsex','analsex'
 	'<<$textsexhanter4>>'
 	gs 'arousal', 'anal', 5, 'sub'
 	gs 'stat'
 	dirty_dickA += 1
+	
+	hantsexa = rand(1,3)
 	if pcs_sleep >= 10 and hantsexa = 1:act 'Suck':gt 'hantersex', 'sluthomeORAL4'
 	if pcs_sleep >= 10 and hantsexa = 2:act 'Lie on your side':gt 'hantersex', 'sluthomeAnalSide1'
 	if pcs_sleep >= 10 and hantsexa = 3:act 'Lie on your side':gt 'hantersex', 'sluthomeAnalSideCum1'
 	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-end &! --- sluthomeAnalCow2 ---
+end
 
 if $ARGS[0] = 'sluthomeAnalCowCum2':
+	*clr & cla
 	gs 'cum_call', 'anus', $boy, 1
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeanalcowcum2.jpg"></center>'
 	'You feel his pace quicken and your are sure he is about to cum.'
 	gs 'dinSex','boy_wants_anal','lubri' & gs 'dinsex','analsex'
@@ -1439,125 +1317,93 @@ if $ARGS[0] = 'sluthomeAnalCowCum2':
 	gs 'arousal', 'anal', 5, 'sub', 'rough'
 	gs 'stat'
 	act 'Further':gt'swamphouse'
-end &! --- sluthomeAnalCowCum2 ---
+end
 
 if $ARGS[0] = 'sluthomeAnalSide1':
+	*clr & cla
+	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeanalside1.'+rand(1,2)+'.jpg"></center>'
+	'<<$boydesc>> puts you on the side, and begins to penetrate your ass.'
 	pose = 0
 	if boyAsexa = 0: boyAsexa = 1
 	dirty_dickA += 1
-	hantsexa = rand(1,10)
-
-	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeanalside1.'+rand(1,2)+'.jpg"></center>'
-	'<<$boydesc>> puts you on the side, and begins to penetrate your ass.'
 	gs 'dinSex','boy_wants_anal','lubri' & gs 'dinsex','analsex'
 	'<<$textsexhanter4>>'
 	gs 'arousal', 'anal', 5, 'sub'
 	gs 'stat'
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Doggy':gt 'hantersex', 'sluthomeAnalDog1'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Doggy':gt 'hantersex', 'sluthomeAnalDogCum1'
-	if pcs_sleep >= 10 and hantsexa = 3:act 'Doggy':gt 'hantersex', 'sluthomeAnalDog2'
-	if pcs_sleep >= 10 and hantsexa = 4:act 'Doggy':gt 'hantersex', 'sluthomeAnalDogCum2'
-	if pcs_sleep >= 10 and hantsexa = 5:act 'Sit down':gt 'hantersex', 'sluthomeAnalCow1'
-	if pcs_sleep >= 10 and hantsexa = 6:act 'Sit down':gt 'hantersex', 'sluthomeAnalCowCum1'
-	if pcs_sleep >= 10 and hantsexa = 7:act 'Sit down':gt 'hantersex', 'sluthomeAnalCow2'
-	if pcs_sleep >= 10 and hantsexa = 8:act 'Sit down':gt 'hantersex', 'sluthomeAnalCowCum2'
-	if pcs_sleep >= 10 and hantsexa = 9:act 'Lie on your side':gt 'hantersex', 'sluthomeAnalSide2'
-	if pcs_sleep >= 10 and hantsexa = 10:act 'Lie on your side':gt 'hantersex', 'sluthomeAnalSideCum2'
-	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-end &! --- sluthomeAnalSide1 ---
+	
+	hantsexa = rand(2,13)
+	gs 'hantersex', 'rng_7'
+end
 
 if $ARGS[0] = 'sluthomeAnalSideCum1':
-	gs 'cum_call', 'anus', $boy, 1
-
+	*clr & cla
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeanalsidecum1.jpg"></center>'
 	'You feel his pace quicken and your are sure he is about to cum.'
+	gs 'cum_call', 'anus', $boy, 1
 	gs 'dinSex','boy_wants_anal','lubri' & gs 'dinsex','analsex'
 	'<<$textsexhanter3>>'
 	gs 'arousal', 'anal', 5, 'sub', 'rough'
 	gs 'arousal', 'end'
 	gs 'stat'
 	act 'Further':gt'swamphouse'
-end &! --- sluthomeAnalSideCum1 ---
+end
 
 if $ARGS[0] = 'sluthomeAnalSide2':
-	pose = 0
-	if boyAsexa = 0:boyAsexa = 1
-	hantsexa = rand(1,2)
-
+	*clr & cla
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeanalside2.'+rand(1,2)+'.jpg"></center>'
 	'<<$boydesc>> puts you on the side, and begins to penetrate your ass.'
+	pose = 0
+	if boyAsexa = 0:boyAsexa = 1
 	gs 'dinSex','boy_wants_anal','lubri' & gs 'dinsex','analsex'
 	'<<$textsexhanter4>>'
 	gs 'arousal', 'anal', 5, 'sub'
 	gs 'stat'
 	dirty_dickA += 1
+	
+	hantsexa = rand(1,2)
 	if pcs_sleep >= 10 and hantsexa = 1:act 'Suck':gt 'hantersex', 'sluthomeORAL4'
 	if pcs_sleep >= 10 and hantsexa = 2:act 'Kneel':gt 'hantersex', 'sluthomeOralCum4'
 	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
-end &! --- sluthomeAnalSide2 ---
+end
 
 if $ARGS[0] = 'sluthomeAnalSideCum2':
-	gs 'cum_call', 'anus', $boy, 1
-
+	*clr & cla
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeanalsidecum2.jpg"></center>'
 	'You feel his pace quicken and your are sure he is about to cum.'
+	gs 'cum_call', 'anus', $boy, 1
 	gs 'dinSex','boy_wants_anal','lubri' & gs 'dinsex','analsex'
 	'<<$textsexhanter3>>'
 	gs 'arousal', 'anal', 5, 'sub', 'rough'
 	gs 'arousal', 'end'
 	gs 'stat'
 	act 'Further':gt'swamphouse'
-end &! --- sluthomeAnalSideCum2 ---
+end
 
 
 if $ARGS[0] = 'hantersgrOasi':
-	minut += 5
-	pose = 0
-	pcs_horny += rand(10,20)
-
+	*clr & cla
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/dancesexoasi1.'+rand(1,3)+'.jpg"></center>'
 	'You began to suck all the guys around you, alternating between each member.'
-
+	pose = 0
+	pcs_horny += rand(10,20)
+	
 	gs 'boyStat', 'A172'
 	gs 'arousal', 'bj', 5, 'sub', 'deepthroat', 'gangbang'
 	gs 'boyStat', 'A174'
 	gs 'arousal', 'bj', 5, 'sub', 'deepthroat', 'gangbang'
 	gs 'boyStat', 'A173'
 	gs 'arousal', 'bj', 5, 'sub', 'deepthroat', 'gangbang'
+	minut -= 10
 	*pl
 	gs 'stat'
+	
 	hantsexa = rand(1,10)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Suck on':gt 'hantersex', 'hantersgrOasi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVaOsi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVOsi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVaO'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVaOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVsOai'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVsO'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb < 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVOai'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVsOi'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb <= 5:act 'Get on all fours':gt 'hantersex', 'hantersgrViOas'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb > 5:act 'Get on all fours':gt 'hantersex', 'hantersgrViO'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb <= 5:act 'Sit down':gt 'hantersex', 'hantersgrVsOia'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgrVsOi1'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb < 5:act 'Sit down':gt 'hantersex', 'hantersgrVaOis'
-	if pcs_sleep >= 10 and hantsexa = 6 and hantsexb = 5:act 'Sit down':gt 'hantersex', 'hantersgrVO'
-	if pcs_sleep >= 10 and hantsexa = 6 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgrVaOs'
-	if pcs_sleep >= 10 and hantsexa = 7 and hantsexb <= 5:act 'Lie on your side':gt 'hantersex', 'hantersgrV2aOsi'
-	if pcs_sleep >= 10 and hantsexa = 7 and hantsexb > 5:act 'Lie on your side':gt 'hantersex', 'hantersgrV2aOs'
-	if pcs_sleep >= 10 and hantsexa = 8 and hantsexb <= 4:act 'Sit down':gt 'hantersex', 'hantersgrDPVaAiOs'
-	if pcs_sleep >= 10 and hantsexa = 8 and hantsexb > 4:act 'Sit down':gt 'hantersex', 'hantersgrDPVaAOs'
-	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAiOsa'
-	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAiO'
-	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb < 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAOsa'
-	if pcs_sleep >= 10 and hantsexa = 10:act 'Lie on your back':gt 'hantersex', 'hantersgrO3'
-	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-end &! --- hantersgrOasi ---
+	gs 'hantersex', 'rng_8'
+end 
 
 if $ARGS[0] = 'hantersgrVaOsi':
+	*clr & cla
 	pose = 0
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgrvaosi1.'+rand(1,2)+'.jpg"></center>'
 	'The guys put you on the bed, Andrei gets down between your legs, while Igor and Sergei put their members in front of your face...'
 
@@ -1576,39 +1422,14 @@ if $ARGS[0] = 'hantersgrVaOsi':
 	gs 'arousal', 'vaginal', 5, 'sub', 'group', 'rough'
 	minut -= 5
 	gs 'stat'
+	
 	hantsexa = rand(2,10)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Suck on':gt 'hantersex', 'hantersgrOasi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVaOsi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVOsi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVaO'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVaOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVsOai'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVsO'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb < 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVOai'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVsOi'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb <= 5:act 'Get on all fours':gt 'hantersex', 'hantersgrViOas'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb > 5:act 'Get on all fours':gt 'hantersex', 'hantersgrViO'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb <= 5:act 'Sit down':gt 'hantersex', 'hantersgrVsOia'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgrVsOi1'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb < 5:act 'Sit down':gt 'hantersex', 'hantersgrVaOis'
-	if pcs_sleep >= 10 and hantsexa = 6 and hantsexb = 5:act 'Sit down':gt 'hantersex', 'hantersgrVO'
-	if pcs_sleep >= 10 and hantsexa = 6 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgrVaOs'
-	if pcs_sleep >= 10 and hantsexa = 7 and hantsexb <= 5:act 'Lie on your side':gt 'hantersex', 'hantersgrV2aOsi'
-	if pcs_sleep >= 10 and hantsexa = 7 and hantsexb > 5:act 'Lie on your side':gt 'hantersex', 'hantersgrV2aOs'
-	if pcs_sleep >= 10 and hantsexa = 8 and hantsexb <= 4:act 'Sit down':gt 'hantersex', 'hantersgrDPVaAiOs'
-	if pcs_sleep >= 10 and hantsexa = 8 and hantsexb > 4:act 'Sit down':gt 'hantersex', 'hantersgrDPVaAOs'
-	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAiOsa'
-	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAiO'
-	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb < 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAOsa'
-	if pcs_sleep >= 10 and hantsexa = 10:act 'Lie on your back':gt 'hantersex', 'hantersgrO3'
-	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgrVaOsi ---
+	gs 'hantersex', 'rng_8'
+end
 
 if $ARGS[0] = 'hantersgrVOsi':
+	*clr & cla
 	pose = 0
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgrvosi.jpg"></center>'
 	'Andrei roughly fucks you for a while before deciding he has better things to do and unceremoniously cumming inside you...'
 
@@ -1631,21 +1452,13 @@ if $ARGS[0] = 'hantersgrVOsi':
 	gs 'arousal', 'vaginal', 5, 'sub', 'group', 'rough'
 	minut -= 5
 	gs 'stat'
-	hantsexa = rand(1,3)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Sit down':gt 'hantersex', 'hantersgr2VsO'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2AiOs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2AiO'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2AOs'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 5:act 'Sit down':gt 'hantersex', 'hantersgr2AOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgr2AsO'
-	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgrVOsi ---
+	
+	gs 'hantersex', 'rng_9'
+end
 
 if $ARGS[0] = 'hantersgrVaO':
+	*clr & cla
 	pose = 0
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgrvao.jpg"></center>'
 	'Sergei and Igor enjoy being sucked by you for a while before deciding they have better things to do and unceremoniously cumming all over you...'
 
@@ -1676,17 +1489,13 @@ if $ARGS[0] = 'hantersgrVaO':
 	gs 'arousal', 'vaginal', 5, 'sub', 'group', 'rough'
 	minut -= 5
 	gs 'stat'
-	hantsexa = rand(1,3)
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Sit down':gt 'hantersex', 'hantersgr1Va'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Lie on your back':gt 'hantersex', 'hantersgrO1'
-	if pcs_sleep >= 10 and hantsexa = 3:act 'Sit down':gt 'hantersex', 'hantersgr1Aa'
-	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgrVaO ---
+	
+	gs 'hantersex', 'rng_12'
+end
 
 if $ARGS[0] = 'hantersgrVaOi':
+	*clr & cla
 	pose = 0
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgrvaoi.jpg"></center>'
 	'Sergei enjoys being sucked by you for a while before deciding he has better things to do and unceremoniously cumming all over you...'
 
@@ -1711,21 +1520,13 @@ if $ARGS[0] = 'hantersgrVaOi':
 	gs 'arousal', 'vaginal', 5, 'sub', 'group', 'rough'
 	minut -= 5
 	gs 'stat'
-	hantsexa = rand(1,3)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2VaOi'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2VO'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb < 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2VOi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb <= 4:act 'Get on all fours':gt 'hantersex', 'hantersgr2ViOa'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 4:act 'Get on all fours':gt 'hantersex', 'hantersgr2ViO'
-	if pcs_sleep >= 10 and hantsexa = 3:act 'Lie on your back':gt 'hantersex', 'hantersgrO2'
-	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
 
-end &! --- hantersgrVaOi ---
+	gs 'hantersex', 'rng_10'
+end
 
 if $ARGS[0] = 'hantersgrVsOai':
+	*clr & cla
 	pose = 0
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgrvsoai1.'+rand(1,4)+'.jpg"></center>'
 	'The guys put you on the bed, Sergei gets down between your legs, while Igor and Andrei put their members in front of your face...'
 
@@ -1746,39 +1547,14 @@ if $ARGS[0] = 'hantersgrVsOai':
 	gs 'arousal', 'vaginal', 5, 'sub', 'group', 'rough'
 	minut -= 5
 	gs 'stat'
+	
 	hantsexa = rand(2,10)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Suck on':gt 'hantersex', 'hantersgrOasi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVaOsi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVOsi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVaO'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVaOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVsOai'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVsO'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb < 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVOai'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVsOi'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb <= 5:act 'Get on all fours':gt 'hantersex', 'hantersgrViOas'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb > 5:act 'Get on all fours':gt 'hantersex', 'hantersgrViO'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb <= 5:act 'Sit down':gt 'hantersex', 'hantersgrVsOia'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgrVsOi1'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb < 5:act 'Sit down':gt 'hantersex', 'hantersgrVaOis'
-	if pcs_sleep >= 10 and hantsexa = 6 and hantsexb = 5:act 'Sit down':gt 'hantersex', 'hantersgrVO'
-	if pcs_sleep >= 10 and hantsexa = 6 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgrVaOs'
-	if pcs_sleep >= 10 and hantsexa = 7 and hantsexb <= 5:act 'Lie on your side':gt 'hantersex', 'hantersgrV2aOsi'
-	if pcs_sleep >= 10 and hantsexa = 7 and hantsexb > 5:act 'Lie on your side':gt 'hantersex', 'hantersgrV2aOs'
-	if pcs_sleep >= 10 and hantsexa = 8 and hantsexb <= 4:act 'Sit down':gt 'hantersex', 'hantersgrDPVaAiOs'
-	if pcs_sleep >= 10 and hantsexa = 8 and hantsexb > 4:act 'Sit down':gt 'hantersex', 'hantersgrDPVaAOs'
-	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAiOsa'
-	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAiO'
-	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb < 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAOsa'
-	if pcs_sleep >= 10 and hantsexa = 10:act 'Lie on your back':gt 'hantersex', 'hantersgrO3'
-	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgrVsOai ---
+	gs 'hantersex', 'rng_8'
+end
 
 if $ARGS[0] = 'hantersgrVOai':
+	*clr & cla
 	pose = 0
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgrvoai.jpg"></center>'
 	'Sergei roughly fucks you for a while before deciding he has better things to do and unceremoniously cumming inside you...'
 
@@ -1801,21 +1577,13 @@ if $ARGS[0] = 'hantersgrVOai':
 	gs 'arousal', 'vaginal', 5, 'sub', 'group', 'rough'
 	minut -= 5
 	gs 'stat'
-	hantsexa = rand(1,3)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2VaOi'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2VO'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb < 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2VOi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb <= 4:act 'Be on all fours':gt 'hantersex', 'hantersgr2ViOa'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 4:act 'Be on all fours':gt 'hantersex', 'hantersgr2ViO'
-	if pcs_sleep >= 10 and hantsexa = 3:act 'Lie on your back':gt 'hantersex', 'hantersgrO2'
-	if pcs_sleep < 10:act 'To lose consciousness':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgrVOai ---
+	
+	gs 'hantersex', 'rng_10'
+end
 
 if $ARGS[0] = 'hantersgrVsOi':
+	*clr & cla
 	pose = 0
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgrvsoi.jpg"></center>'
 	'Andrei enjoys being sucked by you for a while before deciding he has better things to do and unceremoniously cumming all over you...'
 
@@ -1841,21 +1609,13 @@ if $ARGS[0] = 'hantersgrVsOi':
 	gs 'arousal', 'vaginal', 5, 'sub', 'group', 'rough'
 	minut -= 5
 	gs 'stat'
-	hantsexa = rand(1,3)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Sit down':gt 'hantersex', 'hantersgr2VsO'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2AiOs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2AiO'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2AOs'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 5:act 'Sit down':gt 'hantersex', 'hantersgr2AOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgr2AsO'
-	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgrVsOi ---
+	
+	gs 'hantersex', 'rng_9'
+end
 
 if $ARGS[0] = 'hantersgrVsO':
+	*clr & cla
 	pose = 0
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgrvso.jpg"></center>'
 	'Sergei and Igor enjoy being sucked by you for a while before deciding they have better things to do and unceremoniously cumming all over you...'
 
@@ -1888,13 +1648,12 @@ if $ARGS[0] = 'hantersgrVsO':
 	gs 'arousal', 'end'
 	gs 'stat'
 	if pcs_sleep >= 10:act 'Sit down':gt 'hantersex', 'hantersgr1As'
-	if pcs_sleep < 10:act 'To lose consciousness':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgrVsO ---
+	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
+end
 
 if $ARGS[0] = 'hantersgrViOas':
+	*clr & cla
 	pose = 1
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgrvioas1.'+rand(1,4)+'.jpg"></center>'
 	'You get down on all fours. Igor begins to penetrate you from behind, while Sergei and Andrei put their members in front of your face...'
 
@@ -1915,37 +1674,13 @@ if $ARGS[0] = 'hantersgrViOas':
 	gs 'arousal', 'vaginal', 5, 'sub', 'group', 'rough'
 	minut -= 5
 	gs 'stat'
+	
 	hantsexa = rand(2,10)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Suck on':gt 'hantersex', 'hantersgrOasi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVaOsi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVOsi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVaO'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVaOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVsOai'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVsO'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb < 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVOai'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVsOi'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb <= 5:act 'Get on all fours':gt 'hantersex', 'hantersgrViOas'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb > 5:act 'Get on all fours':gt 'hantersex', 'hantersgrViO'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb <= 5:act 'Sit down':gt 'hantersex', 'hantersgrVsOia'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgrVsOi1'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb < 5:act 'Sit down':gt 'hantersex', 'hantersgrVaOis'
-	if pcs_sleep >= 10 and hantsexa = 6 and hantsexb = 5:act 'Sit down':gt 'hantersex', 'hantersgrVO'
-	if pcs_sleep >= 10 and hantsexa = 6 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgrVaOs'
-	if pcs_sleep >= 10 and hantsexa = 7 and hantsexb <= 5:act 'Lie on your side':gt 'hantersex', 'hantersgrV2aOsi'
-	if pcs_sleep >= 10 and hantsexa = 7 and hantsexb > 5:act 'Lie on your side':gt 'hantersex', 'hantersgrV2aOs'
-	if pcs_sleep >= 10 and hantsexa = 8 and hantsexb <= 4:act 'Sit down':gt 'hantersex', 'hantersgrDPVaAiOs'
-	if pcs_sleep >= 10 and hantsexa = 8 and hantsexb > 4:act 'Sit down':gt 'hantersex', 'hantersgrDPVaAOs'
-	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAiOsa'
-	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAiO'
-	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb < 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAOsa'
-	if pcs_sleep >= 10 and hantsexa = 10:act 'Lie on your back':gt 'hantersex', 'hantersgrO3'
-	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgrViOas ---
+	gs 'hantersex', 'rng_8'
+end 
 
 if $ARGS[0] = 'hantersgrViO':
+	*clr & cla
 	pose = 1
 
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgrvio.jpg"></center>'
@@ -1983,12 +1718,11 @@ if $ARGS[0] = 'hantersgrViO':
 
 	if pcs_sleep >= 10:act 'Lie on your back':gt 'hantersex', 'hantersgr1Ai'
 	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgrViO ---
+end
 
 if $ARGS[0] = 'hantersgrVsOia':
+	*clr & cla
 	pose = 1
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgrvsoia1.'+rand(1,3)+'.jpg"></center>'
 	'Sergei sat down on the bed, and pulled you on top of him, while Igor and Andrei put their dicks in front of your face...'
 
@@ -2010,38 +1744,12 @@ if $ARGS[0] = 'hantersgrVsOia':
 	minut -= 5
 	gs 'stat'
 	hantsexa = rand(2,10)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Suck on':gt 'hantersex', 'hantersgrOasi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVaOsi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVOsi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVaO'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVaOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVsOai'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVsO'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb < 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVOai'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVsOi'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb <= 5:act 'Get on all fours':gt 'hantersex', 'hantersgrViOas'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb > 5:act 'Get on all fours':gt 'hantersex', 'hantersgrViO'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb <= 5:act 'Sit down':gt 'hantersex', 'hantersgrVsOia'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgrVsOi1'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb < 5:act 'Sit down':gt 'hantersex', 'hantersgrVaOis'
-	if pcs_sleep >= 10 and hantsexa = 6 and hantsexb = 5:act 'Sit down':gt 'hantersex', 'hantersgrVO'
-	if pcs_sleep >= 10 and hantsexa = 6 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgrVaOs'
-	if pcs_sleep >= 10 and hantsexa = 7 and hantsexb <= 5:act 'Lie on your side':gt 'hantersex', 'hantersgrV2aOsi'
-	if pcs_sleep >= 10 and hantsexa = 7 and hantsexb > 5:act 'Lie on your side':gt 'hantersex', 'hantersgrV2aOs'
-	if pcs_sleep >= 10 and hantsexa = 8 and hantsexb <= 4:act 'Sit down':gt 'hantersex', 'hantersgrDPVaAiOs'
-	if pcs_sleep >= 10 and hantsexa = 8 and hantsexb > 4:act 'Sit down':gt 'hantersex', 'hantersgrDPVaAOs'
-	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAiOsa'
-	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAiO'
-	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb < 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAOsa'
-	if pcs_sleep >= 10 and hantsexa = 10:act 'Lie on your back':gt 'hantersex', 'hantersgrO3'
-	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgrVsOia ---
+	gs 'hantersex', 'rng_8'
+end
 
 if $ARGS[0] = 'hantersgrVsOi1':
+	*clr & cla
 	pose = 1
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgrvsoi1.1.jpg"></center>'
 	'Andrei enjoys being sucked by you for a while before deciding he has better things to do and unceremoniously cumming all over you...'
 
@@ -2067,21 +1775,13 @@ if $ARGS[0] = 'hantersgrVsOi1':
 	gs 'arousal', 'vaginal', 5, 'sub', 'group', 'rough'
 	minut -= 5
 	gs 'stat'
-	hantsexa = rand(1,3)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Sit down':gt 'hantersex', 'hantersgr2VsO'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2AiOs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2AiO'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2AOs'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 5:act 'Sit down':gt 'hantersex', 'hantersgr2AOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgr2AsO'
-	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgrVsOi1 ---
+	
+	gs 'hantersex', 'rng_9'
+end
 
 if $ARGS[0] = 'hantersgrVaOis':
+	*clr & cla
 	pose = 1
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgrvaois1.'+rand(1,3)+'.jpg"></center>'
 	'Andrei sat down on the bed, and pulled you on top of him, while Igor and Sergei put their dicks in front of your face...'
 
@@ -2102,39 +1802,14 @@ if $ARGS[0] = 'hantersgrVaOis':
 	gs 'arousal', 'vaginal', 5, 'sub', 'group', 'rough'
 	minut -= 5
 	gs 'stat'
+	
 	hantsexa = rand(2,10)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Suck on':gt 'hantersex', 'hantersgrOasi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVaOsi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVOsi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVaO'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVaOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVsOai'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVsO'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb < 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVOai'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVsOi'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb <= 5:act 'Get on all fours':gt 'hantersex', 'hantersgrViOas'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb > 5:act 'Get on all fours':gt 'hantersex', 'hantersgrViO'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb <= 5:act 'Sit down':gt 'hantersex', 'hantersgrVsOia'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgrVsOi1'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb < 5:act 'Sit down':gt 'hantersex', 'hantersgrVaOis'
-	if pcs_sleep >= 10 and hantsexa = 6 and hantsexb = 5:act 'Sit down':gt 'hantersex', 'hantersgrVO'
-	if pcs_sleep >= 10 and hantsexa = 6 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgrVaOs'
-	if pcs_sleep >= 10 and hantsexa = 7 and hantsexb <= 5:act 'Lie on your side':gt 'hantersex', 'hantersgrV2aOsi'
-	if pcs_sleep >= 10 and hantsexa = 7 and hantsexb > 5:act 'Lie on your side':gt 'hantersex', 'hantersgrV2aOs'
-	if pcs_sleep >= 10 and hantsexa = 8 and hantsexb <= 4:act 'Sit down':gt 'hantersex', 'hantersgrDPVaAiOs'
-	if pcs_sleep >= 10 and hantsexa = 8 and hantsexb > 4:act 'Sit down':gt 'hantersex', 'hantersgrDPVaAOs'
-	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAiOsa'
-	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAiO'
-	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb < 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAOsa'
-	if pcs_sleep >= 10 and hantsexa = 10:act 'Lie on your back':gt 'hantersex', 'hantersgrO3'
-	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgrVaOis ---
+	gs 'hantersex', 'rng_8'
+end
 
 if $ARGS[0] = 'hantersgrVaOs':
+	*clr & cla
 	pose = 1
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgrvaos.jpg"></center>'
 	'Igor enjoys being sucked by you for a while before deciding he has better things to do and unceremoniously cumming all over you...'
 
@@ -2159,19 +1834,13 @@ if $ARGS[0] = 'hantersgrVaOs':
 	gs 'arousal', 'vaginal', 5, 'sub', 'group', 'rough'
 	minut -= 5
 	gs 'stat'
-	hantsexa = rand(1,2)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 4:act 'Lie on your side':gt 'hantersex', 'hantersgr2VaOs'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb <= 4:act 'Lie on your side':gt 'hantersex', 'hantersgr2VaO'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgr2DPVaAs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb <= 5:act 'Sit down':gt 'hantersex', 'hantersgr2DPVaA'
-	if pcs_sleep < 10:act 'To lose consciousness':gt 'hantersex', 'hantersexfaint'
 
-end &! --- hantersgrVaOs ---
+	gs 'hantersex', 'rng_11'
+end 
 
 if $ARGS[0] = 'hantersgrVO':
+	*clr & cla
 	pose = 1
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgrvo.jpg"></center>'
 	'You begin to cum after the marathon of sex you have engaged in.'
 	'Seeing you cum the guys around you quickly do as well.'
@@ -2208,12 +1877,11 @@ if $ARGS[0] = 'hantersgrVO':
 	gs 'stat'
 
 	act 'Pass out': gt 'hantersex', 'hantersGrEnd'
-
-end &! --- hantersgrVO ---
+end
 
 if $ARGS[0] = 'hantersgrV2aOsi':
+	*clr & cla
 	pose = 1
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgrv2aosi1.'+rand(1,3)+'.jpg"></center>'
 	'Andrei put you on your side and began to get down between your legs, while Igor and Sergei stood in front of your face with their dicks waiting...'
 
@@ -2235,39 +1903,14 @@ if $ARGS[0] = 'hantersgrV2aOsi':
 	gs 'arousal', 'vaginal', 5, 'sub', 'group', 'rough'
 	minut -= 5
 	gs 'stat'
+	
 	hantsexa = rand(2,10)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Suck on':gt 'hantersex', 'hantersgrOasi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVaOsi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVOsi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVaO'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVaOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVsOai'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVsO'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb < 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVOai'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVsOi'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb <= 5:act 'Get on all fours':gt 'hantersex', 'hantersgrViOas'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb > 5:act 'Get on all fours':gt 'hantersex', 'hantersgrViO'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb <= 5:act 'Sit down':gt 'hantersex', 'hantersgrVsOia'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgrVsOi1'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb < 5:act 'Sit down':gt 'hantersex', 'hantersgrVaOis'
-	if pcs_sleep >= 10 and hantsexa = 6 and hantsexb = 5:act 'Sit down':gt 'hantersex', 'hantersgrVO'
-	if pcs_sleep >= 10 and hantsexa = 6 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgrVaOs'
-	if pcs_sleep >= 10 and hantsexa = 7 and hantsexb <= 5:act 'Lie on your side':gt 'hantersex', 'hantersgrV2aOsi'
-	if pcs_sleep >= 10 and hantsexa = 7 and hantsexb > 5:act 'Lie on your side':gt 'hantersex', 'hantersgrV2aOs'
-	if pcs_sleep >= 10 and hantsexa = 8 and hantsexb <= 4:act 'Sit down':gt 'hantersex', 'hantersgrDPVaAiOs'
-	if pcs_sleep >= 10 and hantsexa = 8 and hantsexb > 4:act 'Sit down':gt 'hantersex', 'hantersgrDPVaAOs'
-	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAiOsa'
-	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAiO'
-	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb < 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAOsa'
-	if pcs_sleep >= 10 and hantsexa = 10:act 'Lie on your back':gt 'hantersex', 'hantersgrO3'
-	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgrV2aOsi ---
+	gs 'hantersex', 'rng_8'
+end
 
 if $ARGS[0] = 'hantersgrV2aOs':
+	*clr & cla
 	pose = 1
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgrv2aos.jpg"></center>'
 	'Igor enjoys being sucked by you for a while before deciding he has better things to do and unceremoniously cumming all over you...'
 
@@ -2291,19 +1934,13 @@ if $ARGS[0] = 'hantersgrV2aOs':
 	gs 'arousal', 'vaginal', 5, 'sub', 'group', 'rough'
 	minut -= 5
 	gs 'stat'
-	hantsexa = rand(1,2)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 4:act 'Lie on your side':gt 'hantersex', 'hantersgr2VaOs'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb <= 4:act 'Lie on your side':gt 'hantersex', 'hantersgr2VaO'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgr2DPVaAs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb <= 5:act 'Sit down':gt 'hantersex', 'hantersgr2DPVaA'
-	if pcs_sleep < 10:act 'To lose consciousness':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgrV2aOs ---
+	
+	gs 'hantersex', 'rng_11'
+end
 
 if $ARGS[0] = 'hantersgrDPVaAiOs':
+	*clr & cla
 	pose = 1
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgrdpvaaios1.'+rand(1,2)+'.jpg"></center>'
 	'Andrei lays down on the couch and pulls you on top of him, Igor straddles you and lines up to penetrate your second hole, while Sergei expects you to suck his dick too...'
 	
@@ -2323,39 +1960,14 @@ if $ARGS[0] = 'hantersgrDPVaAiOs':
 	minut -=10
 	*pl
 	gs 'stat'
+	
 	hantsexa = rand(2,10)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Suck on':gt 'hantersex', 'hantersgrOasi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVaOsi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVOsi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVaO'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVaOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVsOai'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVsO'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb < 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVOai'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVsOi'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb <= 5:act 'Get on all fours':gt 'hantersex', 'hantersgrViOas'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb > 5:act 'Get on all fours':gt 'hantersex', 'hantersgrViO'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb <= 5:act 'Sit down':gt 'hantersex', 'hantersgrVsOia'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgrVsOi1'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb < 5:act 'Sit down':gt 'hantersex', 'hantersgrVaOis'
-	if pcs_sleep >= 10 and hantsexa = 6 and hantsexb = 5:act 'Sit down':gt 'hantersex', 'hantersgrVO'
-	if pcs_sleep >= 10 and hantsexa = 6 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgrVaOs'
-	if pcs_sleep >= 10 and hantsexa = 7 and hantsexb <= 5:act 'Lie on your side':gt 'hantersex', 'hantersgrV2aOsi'
-	if pcs_sleep >= 10 and hantsexa = 7 and hantsexb > 5:act 'Lie on your side':gt 'hantersex', 'hantersgrV2aOs'
-	if pcs_sleep >= 10 and hantsexa = 8 and hantsexb <= 4:act 'Sit down':gt 'hantersex', 'hantersgrDPVaAiOs'
-	if pcs_sleep >= 10 and hantsexa = 8 and hantsexb > 4:act 'Sit down':gt 'hantersex', 'hantersgrDPVaAOs'
-	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAiOsa'
-	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAiO'
-	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb < 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAOsa'
-	if pcs_sleep >= 10 and hantsexa = 10:act 'Lie on your back':gt 'hantersex', 'hantersgrO3'
-	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgrDPVaAiOs ---
+	gs 'hantersex', 'rng_8'
+end
 
 if $ARGS[0] = 'hantersgrDPVaAOs':
+	*clr & cla
 	pose = 1
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgrdpvaaos.jpg"></center>'
 	'After a while <<$boydesc2>> moaned and you felt like your ass fills with heat. He gets up and walks away.'
 
@@ -2373,20 +1985,13 @@ if $ARGS[0] = 'hantersgrDPVaAOs':
 	gs 'cum_call', 'anus', $boy, 1
 
 	gs 'stat'
-	hantsexa = rand(1,2)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 4:act 'Lie on your side':gt 'hantersex', 'hantersgr2VaOs'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb <= 4:act 'Lie on your side':gt 'hantersex', 'hantersgr2VaO'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgr2DPVaAs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb <= 5:act 'Sit down':gt 'hantersex', 'hantersgr2DPVaA'
-	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgrDPVaAOs ---
+	
+	gs 'hantersex', 'rng_11'
+end
 
 if $ARGS[0] = 'hantersgrAiOsa':
-	minut += 5
+	*clr & cla
 	pose = 0
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgraiosa.jpg"></center>'
 	'The guys put you on your back, Igor spreads your legs and puts the tip of his dick against your ass, while Andrei and Sergei over you and put their members in front of your face...'
 
@@ -2408,39 +2013,14 @@ if $ARGS[0] = 'hantersgrAiOsa':
 	gs 'arousal', 'bj', 5, 'sub', 'group'
 	minut -= 5
 	gs 'stat'
+	
 	hantsexa = rand(2,10)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Suck on':gt 'hantersex', 'hantersgrOasi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVaOsi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVOsi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVaO'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVaOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVsOai'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVsO'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb < 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVOai'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVsOi'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb <= 5:act 'Get on all fours':gt 'hantersex', 'hantersgrViOas'
-	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb > 5:act 'Get on all fours':gt 'hantersex', 'hantersgrViO'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb <= 5:act 'Sit down':gt 'hantersex', 'hantersgrVsOia'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgrVsOi1'
-	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb < 5:act 'Sit down':gt 'hantersex', 'hantersgrVaOis'
-	if pcs_sleep >= 10 and hantsexa = 6 and hantsexb = 5:act 'Sit down':gt 'hantersex', 'hantersgrVO'
-	if pcs_sleep >= 10 and hantsexa = 6 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgrVaOs'
-	if pcs_sleep >= 10 and hantsexa = 7 and hantsexb <= 5:act 'Lie on your side':gt 'hantersex', 'hantersgrV2aOsi'
-	if pcs_sleep >= 10 and hantsexa = 7 and hantsexb > 5:act 'Lie on your side':gt 'hantersex', 'hantersgrV2aOs'
-	if pcs_sleep >= 10 and hantsexa = 8 and hantsexb <= 4:act 'Sit down':gt 'hantersex', 'hantersgrDPVaAiOs'
-	if pcs_sleep >= 10 and hantsexa = 8 and hantsexb > 4:act 'Sit down':gt 'hantersex', 'hantersgrDPVaAOs'
-	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAiOsa'
-	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAiO'
-	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb < 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAOsa'
-	if pcs_sleep >= 10 and hantsexa = 10:act 'Lie on your back':gt 'hantersex', 'hantersgrO3'
-	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgrAiOsa ---
+	gs 'hantersex', 'rng_8'
+end
 
 if $ARGS[0] = 'hantersgrAiO':
+	*clr & cla
 	pose = 0
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgraio.jpg"></center>'
 	'Andrei and Sergei enjoy being sucked by you for a while before deciding they have better things to do and unceremoniously cumming all over you...'
 
@@ -2474,13 +2054,12 @@ if $ARGS[0] = 'hantersgrAiO':
 	gs 'stat'
 	if pcs_sleep >= 10:act 'Lie on your back':gt 'hantersex', 'hantersgr1Ai'
 	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgrAiO ---
+end
 
 if $ARGS[0] = 'hantersgrO3':
+	*clr & cla
 	minut += 1
 	pose = 0
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgro3.'+rand(1,4)+'.jpg"></center>'
 	'The guys drag you to your kness and surround you. They began to masturbate in front of your face, sometimes inserting their member into your mouth, and you get ready for the cum about to cover you...'
 
@@ -2493,20 +2072,17 @@ if $ARGS[0] = 'hantersgrO3':
 		gs 'cum_call', 'mouth', $boy, 1
 		swallow += 1
 		gs 'stat'
-
 		'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgro3cum1.'+rand(1,6)+'.jpg"></center>'
 		'Finally all the guys start to cum. Jets of sperm cover your face, hit you in the mouth and drip all over your body too...'
 
 		if hantersexnude = 0:act 'Pass out': gt 'hantersex', 'hantersGrEnd'
 		if hantersexnude = 1:act 'Further': hantersexnude = 0 & gt'swamphouse'
 	end
-
-end &! --- hantersgrO3 ---
-
+end
 
 if $ARGS[0] = 'hantersgrAOsa':
+	*clr & cla
 	pose = 0
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgraosa.jpg"></center>'
 	'Igor roughly fucks you for a while before deciding he has better things to do and unceremoniously cumming inside you...'
 
@@ -2528,26 +2104,19 @@ if $ARGS[0] = 'hantersgrAOsa':
 	gs 'arousal', 'bj', 5, 'sub', 'group'
 	minut -= 5
 	gs 'stat'
-	hantsexa = rand(1,2)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 4:act 'Lie on your side':gt 'hantersex', 'hantersgr2VaOs'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb <= 4:act 'Lie on your side':gt 'hantersex', 'hantersgr2VaO'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgr2DPVaAs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb <= 5:act 'Sit down':gt 'hantersex', 'hantersgr2DPVaA'
-	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgrAOsa ---
+	
+	gs 'hantersex', 'rng_11'
+end
 
 if $ARGS[0] = 'hantersgr2VaOi':
+	*clr & cla
 	pose = 0
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgr2vaoi.jpg"></center>'
 	'The guys put you on your back, Andrei spreads your legs and puts the tip of his dick against your pussy, while Igor puts his member in front of your face...'
 
 	gs 'boyStat', 'A173'
 	gs 'oral','start'
 	if klismaday ! daystart and dirty_dickC > 0:'<<$textsexhanter>>' & pcs_mood -= 5 & pcs_horny -= 20
-
 
 	gs 'boyStat', 'A172'
 	if boyAsex = 0: boyAsex = 1
@@ -2557,21 +2126,13 @@ if $ARGS[0] = 'hantersgr2VaOi':
 	gs 'arousal', 'bj', 5, 'sub', 'group'
 	minut -= 5
 	gs 'stat'
-	hantsexa = rand(1,3)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2VaOi'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2VO'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb < 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2VOi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb <= 4:act 'Get on all fours':gt 'hantersex', 'hantersgr2ViOa'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 4:act 'Get on all fours':gt 'hantersex', 'hantersgr2ViO'
-	if pcs_sleep >= 10 and hantsexa = 3:act 'Lie on your back':gt 'hantersex', 'hantersgrO2'
-	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgr2VaOi ---
+	
+	gs 'hantersex', 'rng_10'
+end
 
 if $ARGS[0] = 'hantersgr2VOi':
+	*clr & cla
 	pose = 0
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgr2voi.jpg"></center>'
 	'Andrei roughly fucks you for a while before deciding he has better things to do and unceremoniously cumming inside you...'
 
@@ -2591,12 +2152,11 @@ if $ARGS[0] = 'hantersgr2VOi':
 	gs 'stat'
 	if pcs_sleep >= 10:act 'Lie on your back':gt 'hantersex', 'hantersgr1Ai'
 	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgr2VOi ---
+end
 
 if $ARGS[0] = 'hantersgr2VO':
+	*clr & cla
 	pose = 0
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgr2vo.jpg"></center>'
 	'The guys climax at the same time and cover you in their cum.'
 	'They get you to clean their dicks off before walking away and leaving you alone.'
@@ -2621,12 +2181,11 @@ if $ARGS[0] = 'hantersgr2VO':
 	minut -= 5
 	gs 'stat'
 	act 'Pass out': gt 'hantersex', 'hantersGrEnd'
-
-end &! --- hantersgr2VO ---
+end
 
 if $ARGS[0] = 'hantersgr2ViOa':
+	*clr & cla
 	pose = 1
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgr2vioa1.'+rand(1,2)+'.jpg"></center>'
 	'The guys put you all fours, Igor spreads your legs and puts the tip of his dick against your pussy, while Andrei puts his member in front of your face...'
 
@@ -2643,21 +2202,13 @@ if $ARGS[0] = 'hantersgr2ViOa':
 	gs 'arousal', 'bj', 5, 'sub', 'group'
 	minut -= 5
 	gs 'stat'
-	hantsexa = rand(1,3)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2VaOi'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2VO'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb < 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2VOi'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb <= 4:act 'Get on all fours':gt 'hantersex', 'hantersgr2ViOa'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 4:act 'Get on all fours':gt 'hantersex', 'hantersgr2ViO'
-	if pcs_sleep >= 10 and hantsexa = 3:act 'Lie on your back':gt 'hantersex', 'hantersgrO2'
-	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgr2ViOa ---
+	
+	gs 'hantersex', 'rng_10'
+end
 
 if $ARGS[0] = 'hantersgr2ViO':
+	*clr & cla
 	pose = 1
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgr2vio.jpg"></center>'
 	'Andrei enjoys being sucked by you for a while before deciding he has better things to do and unceremoniously cumming all over you...'
 
@@ -2681,12 +2232,11 @@ if $ARGS[0] = 'hantersgr2ViO':
 	gs 'stat'
 	if pcs_sleep >= 10:act 'Lie on your back':gt 'hantersex', 'hantersgr1Ai'
 	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgr2ViO ---
+end
 
 if $ARGS[0] = 'hantersgr2VsO':
+	*clr & cla
 	pose = 1
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgr2vso.jpg"></center>'
 	'Igor enjoys being sucked by you for a while before deciding he has better things to do and unceremoniously cumming all over you...'
 
@@ -2711,12 +2261,11 @@ if $ARGS[0] = 'hantersgr2VsO':
 	gs 'stat'
 	if pcs_sleep >= 10:act 'Sit down':gt 'hantersex', 'hantersgr1As'
 	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgr2VsO ---
+end
 
 if $ARGS[0] = 'hantersgr2VaOs':
+	*clr & cla
 	pose = 1
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgr2vaos.jpg"></center>'
 	'Andrei put you on your side and began penetrate you from behind, while Sergei put his dick in your face...'
 
@@ -2733,19 +2282,13 @@ if $ARGS[0] = 'hantersgr2VaOs':
 	gs 'arousal', 'bj', 5, 'sub', 'group'
 	minut -= 5
 	gs 'stat'
-	hantsexa = rand(1,2)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 4:act 'Lie on your side':gt 'hantersex', 'hantersgr2VaOs'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb <= 4:act 'Lie on your side':gt 'hantersex', 'hantersgr2VaO'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgr2DPVaAs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb <= 5:act 'Sit down':gt 'hantersex', 'hantersgr2DPVaA'
-	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgr2VaOs ---
+	
+	gs 'hantersex', 'rng_11'
+end
 
 if $ARGS[0] = 'hantersgr2VaO':
+	*clr & cla
 	pose = 1
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgr2vao.jpg"></center>'
 	'Sergei enjoys being sucked by you for a while before deciding he has better things to do and unceremoniously cumming all over you...'
 
@@ -2768,17 +2311,13 @@ if $ARGS[0] = 'hantersgr2VaO':
 	gs 'arousal', 'bj', 5, 'sub', 'group'
 	minut -= 5
 	gs 'stat'
-	hantsexa = rand(1,3)
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Sit down':gt 'hantersex', 'hantersgr1Va'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Lie on your back':gt 'hantersex', 'hantersgrO1'
-	if pcs_sleep >= 10 and hantsexa = 3:act 'Sit down':gt 'hantersex', 'hantersgr1Aa'
-	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgr2VaO ---
+	
+	gs 'hantersex', 'rng_12'
+end
 
 if $ARGS[0] = 'hantersgr2AiOs':
+	*clr & cla
 	pose = 0
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgr2aios.jpg"></center>'
 	'The guys put you on your back, with Igor in between your legs, and Sergei with his dick in front of your face...'
 
@@ -2796,19 +2335,12 @@ if $ARGS[0] = 'hantersgr2AiOs':
 	gs 'arousal', 'bj', 5, 'sub', 'group'
 	minut -= 5
 	gs 'stat'
-	hantsexa = rand(1,3)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Sit down':gt 'hantersex', 'hantersgr2VsO'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2AiOs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2AiO'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2AOs'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 5:act 'Sit down':gt 'hantersex', 'hantersgr2AOi'
-	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgr2AsO'
-	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgr2AiOs ---
+	
+	gs 'hantersex', 'rng_9'
+end
 
 if $ARGS[0] = 'hantersgr2AOs':
+	*clr & cla
 	pose = 0
 
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgr2aos.jpg"></center>'
@@ -2829,12 +2361,11 @@ if $ARGS[0] = 'hantersgr2AOs':
 	gs 'stat'
 	if pcs_sleep >= 10:act 'Sit down':gt 'hantersex', 'hantersgr1As'
 	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgr2AOs ---
+end
 
 if $ARGS[0] = 'hantersgr2AiO':
+	*clr & cla
 	pose = 0
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgr2aio.jpg"></center>'
 	'Sergei enjoys being sucked by you for a while before deciding he has better things to do and unceremoniously cumming all over you...'
 
@@ -2860,12 +2391,11 @@ if $ARGS[0] = 'hantersgr2AiO':
 	gs 'stat'
 	if pcs_sleep >= 10:act 'Lie on your back':gt 'hantersex', 'hantersgr1Ai'
 	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgr2AiO ---
+end
 
 if $ARGS[0] = 'hantersgr2AOi':
+	*clr & cla
 	pose = 1
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgr2aoi.jpg"></center>'
 	'Sergei enjoys being sucked by you for a while before deciding he has better things to do and unceremoniously cumming all over you...'
 
@@ -2884,12 +2414,11 @@ if $ARGS[0] = 'hantersgr2AOi':
 	gs 'stat'
 	if pcs_sleep >= 10:act 'Lie on your back':gt 'hantersex', 'hantersgr1Ai'
 	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgr2AOi ---
+end
 
 if $ARGS[0] = 'hantersgr2AsO':
+	*clr & cla
 	pose = 1
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgr2aso.jpg"></center>'
 	'Igor enjoys being sucked by you for a while before deciding he has better things to do and unceremoniously cumming all over you...'
 
@@ -2914,12 +2443,11 @@ if $ARGS[0] = 'hantersgr2AsO':
 	gs 'stat'
 	if pcs_sleep >= 10:act 'Sit down':gt 'hantersex', 'hantersgr1As'
 	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgr2AsO ---
+end
 
 if $ARGS[0] = 'hantersgr2DPVaAs':
+	*clr & cla
 	pose = 1
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgr2dpvaas1.'+rand(1,3)+'.jpg"></center>'
 	'Andrei lay on the couch, and pulled you on top of him, while Sergei immediately began to aim for you second hole...'
 
@@ -2932,15 +2460,9 @@ if $ARGS[0] = 'hantersgr2DPVaAs':
 	gs 'dinsex2','doublepenetration',10,'sub','gangbang'
 	*pl
 	gs 'stat'
-	hantsexa = rand(1,2)
-	hantsexb = rand(1,8)
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 4:act 'Lie on your side':gt 'hantersex', 'hantersgr2VaOs'
-	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb <= 4:act 'Lie on your side':gt 'hantersex', 'hantersgr2VaO'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgr2DPVaAs'
-	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb <= 5:act 'Sit down':gt 'hantersex', 'hantersgr2DPVaA'
-	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgr2DPVaAs ---
+	
+	gs 'hantersex', 'rng_11'
+end
 
 if $ARGS[0] = 'hantersgr2DPVaA':
 	pose = 1
@@ -2957,15 +2479,12 @@ if $ARGS[0] = 'hantersgr2DPVaA':
 	'After a while <<$boydesc2>> moaned and you felt like your ass fills with heat. He finished and went outside, you stayed with Andrei'
 	gs 'cum_call', 'anus', $boy2, 1
 	gs 'stat'
-	hantsexa = rand(1,3)
-	if pcs_sleep >= 10 and hantsexa = 1:act 'Sit down':gt 'hantersex', 'hantersgr1Va'
-	if pcs_sleep >= 10 and hantsexa = 2:act 'Lie on your back':gt 'hantersex', 'hantersgrO1'
-	if pcs_sleep >= 10 and hantsexa = 3:act 'Sit down':gt 'hantersex', 'hantersgr1Aa'
-	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
-
-end &! --- hantersgr2DPVaA ---
+	
+	gs 'hantersex', 'rng_12'
+end
 
 if $ARGS[0] = 'hantersgrO2':
+	*clr & cla
 	minut += 1
 	pose = 0
 	gs 'cum_call', 'face', $boy, 1
@@ -2978,72 +2497,69 @@ if $ARGS[0] = 'hantersgrO2':
 	'Sergei and Igor put you on your back and begin to cum on you. A jet of sperm hit in your mouth and face and another hit your breasts and stomach. For fun, the guys wrote on your body to commemorate the event...'
 
 	act 'Pass out': gt 'hantersex', 'hantersGrEnd'
-
-end &! --- hantersgrO2 ---
+end
 
 if $ARGS[0] = 'hantersgr1Va':
-	minut += 5
+	*clr & cla
 	pose = 1
 
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgr1va.jpg"></center>'
 	'Andrei quickened his pace and you feel him cum deep inside of you.'
-
+	'Andrei gets up and walks away.'
+	
 	gs 'boyStat', 'A172'
 	if boyAsex = 0: boyAsex = 1
 	gs 'arousal', 'vaginal', 5, 'sub'
 	gs 'stat'
 
-	'Andrei gets up and walks away.'
-
 	act 'Pass out': gt 'hantersex', 'hantersGrEnd'
-
-end &! --- hantersgr1Va ---
+end
 
 if $ARGS[0] = 'hantersgr1Ai':
-	minut += 5
+	*clr & cla
 	pose = 0
-
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgr1ai.jpg"></center>'
 	'Igor quickened his pace and you feel him cum deep inside of you.'
-
+	'Andrei gets up and walks away.'
+	
 	gs 'boyStat', 'A173'
 	if boyCsexa = 0: boyCsexa = 1
 	gs 'arousal', 'anal', 5, 'sub', 'rough'
 	gs 'stat'
 
-	'Andrei gets up and walks away.'
-
 	act 'Pass out': gt 'hantersex', 'hantersGrEnd'
-end &! --- hantersgr1Ai ---
+end
 
 if $ARGS[0] = 'hantersgr1Aa':
-	minut += 5
+	*clr & cla
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgr1aa.jpg"></center>'
 	'Andrei quickened his pace and you feel him cum deep inside of you.'
+	'Andrei gets up and walks away.'
 	
 	gs 'boyStat', 'A172'
 	if boyAsexa = 0: boyAsexa = 1
 	gs 'arousal', 'anal', 5, 'sub', 'rough'
 	gs 'stat'
-	'Andrei gets up and walks away.'
-
+	
 	act 'Pass out': gt 'hantersex', 'hantersGrEnd'
-end &! --- hantersgr1Aa ---
+end
 
 if $ARGS[0] = 'hantersgr1As':
+	*clr & cla
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/dance/hantersgr1as.jpg"></center>'
 	'Sergei quickened his pace and you feel him cum deep inside of you.'
+	'Sergei gets up and walks away.'
 	
 	gs 'boyStat', 'A174'
 	npc_sex[$boy] += 1
 	gs 'arousal', 'anal', 5, 'sub', 'rough'
 	gs 'stat'
-	'Sergei gets up and walks away.'
 	
 	act 'Pass out': gt 'hantersex', 'hantersGrEnd'
-end &! --- hantersgr1As --
+end
 
 if $ARGS[0] = 'hantersgrO1':
+	*clr & cla
 	minut += 1
 	gs 'cum_call', 'face', $boy, 1,'','',20
 	gs 'cum_call', 'mouth', $boy, 1,'','',20
@@ -3054,10 +2570,11 @@ if $ARGS[0] = 'hantersgrO1':
 	'Andrei put you on your back and then shot his cum all over you. Jets of sperm hit in your mouth, and on your face and hair.'
 
 	act 'Pass out': gt 'hantersex', 'hantersGrEnd'
-end &! --- hantersgrO1 ---
+end
 
 ! loss of consciousness
 if $ARGS[0] = 'hantersexfaint':
+	*clr & cla
 	minut += 1
 	pcs_horny += rand(5,10)
 	gs 'stat'
@@ -3102,9 +2619,10 @@ if $ARGS[0] = 'hantersexfaint':
 			act 'Further': gt'swamphouse'
 		end
 	end
-end &! --- hantersexfaint ---
+end
 
 if $ARGS[0] = 'hantersGrEnd':
+	*clr & cla
 	minut += 1
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/dancesexson.jpg"></center>'
 	'As soon as the guys moved away from you, you instantly passed out from exhaustion...'
@@ -3122,7 +2640,151 @@ if $ARGS[0] = 'hantersGrEnd':
 		gs 'stat'
 		act 'Further': gt'SwampHouse'
 	end
-end &! --- hantersGrEnd ---
+end
+
+if $ARGS[0] = 'rng_1':
+	hantsexa = rand(1,6)
+	if pcs_sleep >= 10 and hantsexa = 1:act 'Kneel':gt 'hantersex', 'doubleloveOralCum12'
+	if pcs_sleep >= 10 and hantsexa = 2:act 'Doggy':gt 'hantersex', 'doubleloveDog112'
+	if pcs_sleep >= 10 and hantsexa = 3:act 'Doggy':gt 'hantersex', 'doubleloveDog212'
+	if pcs_sleep >= 10 and hantsexa = 4:act 'Lie on your side':gt 'hantersex', 'doubleloveSide12'
+	if pcs_sleep >= 10 and hantsexa = 5:act 'Sit down':gt 'hantersex', 'doubleloveCow112'
+	if pcs_sleep >= 10 and hantsexa = 6:act 'Sit down':gt 'hantersex', 'doubleloveCow212'
+	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+end
+
+if $ARGS[0] = 'rng_2':
+	hantsexa = rand(1,2)
+	if pcs_sleep >= 10 and hantsexa = 1:act 'Lie on your side':gt 'hantersex', 'doubleloveSide2'
+	if pcs_sleep >= 10 and hantsexa = 2:act 'Suck':gt 'hantersex', 'doubleloveOral2'
+	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+end
+
+if $ARGS[0] = 'rng_3':
+	hantsexa = rand(1,2)
+	if pcs_sleep >= 10 and hantsexa = 1:act 'Sit down':gt 'hantersex', 'doubleloveCow1'
+	if pcs_sleep >= 10 and hantsexa = 2:act 'Suck':gt 'hantersex', 'doubleloveOral1'
+	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+end
+
+if $ARGS[0] = 'rng_4':
+	hantsexa = rand(1,7)
+	if pcs_sleep >= 10 and hantsexa = 1:act 'Kneel':gt 'hantersex', 'doubleloveOralCum12'
+	if pcs_sleep >= 10 and hantsexa = 2:act 'Doggy':gt 'hantersex', 'doubleloveDogCum112_1'
+	if pcs_sleep >= 10 and hantsexa = 3:act 'Doggy':gt 'hantersex', 'doubleloveDogCum112_2'
+	if pcs_sleep >= 10 and hantsexa = 4:act 'Doggy':gt 'hantersex', 'doubleloveDog212'
+	if pcs_sleep >= 10 and hantsexa = 5:act 'Lie on your side':gt 'hantersex', 'doubleloveSide12'
+	if pcs_sleep >= 10 and hantsexa = 6:act 'Sit down':gt 'hantersex', 'doubleloveCow112'
+	if pcs_sleep >= 10 and hantsexa = 7:act 'Sit down':gt 'hantersex', 'doubleloveCow212'
+	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+end
+
+if $ARGS[0] = 'rng_5':
+	if pcs_sleep >= 10 and hantsexa = 1:act 'Kneel':gt 'hantersex', 'doubleloveOralCum12'
+	if pcs_sleep >= 10 and hantsexa = 2:act 'Doggy':gt 'hantersex', 'doubleloveDog112'
+	if pcs_sleep >= 10 and hantsexa = 3:act 'Doggy':gt 'hantersex', 'doubleloveDog212'
+	if pcs_sleep >= 10 and hantsexa = 4:act 'Lie on your side':gt 'hantersex', 'doubleloveSide12'
+	if pcs_sleep >= 10 and hantsexa = 5:act 'Sit down':gt 'hantersex', 'doubleloveCowCum112_1'
+	if pcs_sleep >= 10 and hantsexa = 6:act 'Sit down':gt 'hantersex', 'doubleloveCowCum112_2'
+	if pcs_sleep >= 10 and hantsexa = 7:act 'Sit down':gt 'hantersex', 'doubleloveCow212'
+	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+end
+
+if $ARGS[0] = 'rng_6':
+	if hantsexa = 1:act 'Suck on':gt 'hantersex', 'sluthomeORAL2'
+	if hantsexa = 2:act 'Suck on':gt 'hantersex', 'sluthomeOralCum2'
+	if hantsexa = 3:act 'Suck on':gt 'hantersex', 'sluthomeORAL3'
+	if hantsexa = 4:act 'Suck on':gt 'hantersex', 'sluthomeOralCum3'
+	if hantsexa = 5:act 'Panties':gt 'hantersex', 'sluthomeTanga'
+end
+
+if $ARGS[0] = 'rng_7':
+	if pcs_sleep >= 10 and hantsexa = 1:act 'Suck on':gt 'hantersex', 'sluthomeOralCum4'
+	if pcs_sleep >= 10 and hantsexa = 2:act 'Doggy':gt 'hantersex', 'sluthomeAnalDog1'
+	if pcs_sleep >= 10 and hantsexa = 3:act 'Doggy':gt 'hantersex', 'sluthomeAnalDogCum1'
+	if pcs_sleep >= 10 and hantsexa = 4:act 'Doggy':gt 'hantersex', 'sluthomeAnalDog2'
+	if pcs_sleep >= 10 and hantsexa = 5:act 'Doggy':gt 'hantersex', 'sluthomeAnalDogCum2'
+	if pcs_sleep >= 10 and hantsexa = 6:act 'Sit down':gt 'hantersex', 'sluthomeAnalCow1'
+	if pcs_sleep >= 10 and hantsexa = 7:act 'Sit down':gt 'hantersex', 'sluthomeAnalCowCum1'
+	if pcs_sleep >= 10 and hantsexa = 8:act 'Sit down':gt 'hantersex', 'sluthomeAnalCow2'
+	if pcs_sleep >= 10 and hantsexa = 9:act 'Sit down':gt 'hantersex', 'sluthomeAnalCowCum2'
+	if pcs_sleep >= 10 and hantsexa = 10:act 'Lie on your side':gt 'hantersex', 'sluthomeAnalSide1'
+	if pcs_sleep >= 10 and hantsexa = 11:act 'Lie on your side':gt 'hantersex', 'sluthomeAnalSideCum1'
+	if pcs_sleep >= 10 and hantsexa = 12:act 'Lie on your side':gt 'hantersex', 'sluthomeAnalSide2'
+	if pcs_sleep >= 10 and hantsexa = 13:act 'Lie on your side':gt 'hantersex', 'sluthomeAnalSideCum2'
+	if pcs_sleep < 10:act 'Pass out':gt 'hanters', 'hantersgroupfaint'
+end
+
+if $ARGS[0] = 'rng_8':
+	hantsexb = rand(1,8)
+	if pcs_sleep >= 10 and hantsexa = 1:act 'Suck on':gt 'hantersex', 'hantersgrOasi'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVaOsi'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVOsi'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVaO'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVaOi'
+	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVsOai'
+	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrVsO'
+	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb < 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVOai'
+	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb = 4:act 'Lie on your back':gt 'hantersex', 'hantersgrVsOi'
+	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb <= 5:act 'Get on all fours':gt 'hantersex', 'hantersgrViOas'
+	if pcs_sleep >= 10 and hantsexa = 4 and hantsexb > 5:act 'Get on all fours':gt 'hantersex', 'hantersgrViO'
+	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb = 5:act 'Sit down':gt 'hantersex', 'hantersgrVsOia'
+	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgrVsOi1'
+	if pcs_sleep >= 10 and hantsexa = 5 and hantsexb < 5:act 'Sit down':gt 'hantersex', 'hantersgrVaOis'
+	if pcs_sleep >= 10 and hantsexa = 6 and hantsexb <= 5:act 'Sit down':gt 'hantersex', 'hantersgrVO'
+	if pcs_sleep >= 10 and hantsexa = 6 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgrVaOs'
+	if pcs_sleep >= 10 and hantsexa = 7 and hantsexb <= 5:act 'Lie on your side':gt 'hantersex', 'hantersgrV2aOsi'
+	if pcs_sleep >= 10 and hantsexa = 7 and hantsexb > 5:act 'Lie on your side':gt 'hantersex', 'hantersgrV2aOs'
+	if pcs_sleep >= 10 and hantsexa = 8 and hantsexb <= 4:act 'Sit down':gt 'hantersex', 'hantersgrDPVaAiOs'
+	if pcs_sleep >= 10 and hantsexa = 8 and hantsexb > 4:act 'Sit down':gt 'hantersex', 'hantersgrDPVaAOs'
+	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAiOsa'
+	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAiO'
+	if pcs_sleep >= 10 and hantsexa = 9 and hantsexb < 5:act 'Lie on your back':gt 'hantersex', 'hantersgrAOsa'
+	if pcs_sleep >= 10 and hantsexa = 10:act 'Lie on your back':gt 'hantersex', 'hantersgrO3'
+	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
+end
+
+if $ARGS[0] = 'rng_9':
+	hantsexa = rand(1,3)
+	hantsexb = rand(1,8)
+	if pcs_sleep >= 10 and hantsexa = 1:act 'Sit down':gt 'hantersex', 'hantersgr2VsO'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2AiOs'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2AiO'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb < 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2AOs'
+	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb <= 5:act 'Sit down':gt 'hantersex', 'hantersgr2AOi'
+	if pcs_sleep >= 10 and hantsexa = 3 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgr2AsO'
+	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
+end
+
+if $ARGS[0] = 'rng_10':
+	hantsexa = rand(1,3)
+	hantsexb = rand(1,8)
+	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2VaOi'
+	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb = 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2VO'
+	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb < 5:act 'Lie on your back':gt 'hantersex', 'hantersgr2VOi'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb <= 4:act 'Get on all fours':gt 'hantersex', 'hantersgr2ViOa'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 4:act 'Get on all fours':gt 'hantersex', 'hantersgr2ViO'
+	if pcs_sleep >= 10 and hantsexa = 3:act 'Lie on your back':gt 'hantersex', 'hantersgrO2'
+	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
+end
+
+if $ARGS[0] = 'rng_11':
+	hantsexa = rand(1,2)
+	hantsexb = rand(1,8)
+	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb > 4:act 'Lie on your side':gt 'hantersex', 'hantersgr2VaOs'
+	if pcs_sleep >= 10 and hantsexa = 1 and hantsexb <= 4:act 'Lie on your side':gt 'hantersex', 'hantersgr2VaO'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb > 5:act 'Sit down':gt 'hantersex', 'hantersgr2DPVaAs'
+	if pcs_sleep >= 10 and hantsexa = 2 and hantsexb <= 5:act 'Sit down':gt 'hantersex', 'hantersgr2DPVaA'
+	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
+end
+
+if $ARGS[0] = 'rng_12':
+	hantsexa = rand(1,3)
+	if pcs_sleep >= 10 and hantsexa = 1:act 'Sit down':gt 'hantersex', 'hantersgr1Va'
+	if pcs_sleep >= 10 and hantsexa = 2:act 'Lie on your back':gt 'hantersex', 'hantersgrO1'
+	if pcs_sleep >= 10 and hantsexa = 3:act 'Sit down':gt 'hantersex', 'hantersgr1Aa'
+	if pcs_sleep < 10:act 'Pass out':gt 'hantersex', 'hantersexfaint'
+end
 
 
 --- hantersex ---------------------------------

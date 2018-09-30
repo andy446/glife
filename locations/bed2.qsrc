@@ -443,6 +443,7 @@ if $ARGS[0] = 'succubinit':
 	if preg = 1:
 		preg = 0
 		pregtime = 0
+		pregtalk = 0
 		thinkpreg = 0
 		knowpreg = 0
 		pregchem = 0

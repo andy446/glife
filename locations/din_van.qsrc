@@ -905,7 +905,7 @@ if $ARGS[0] = 'private':
 		dynamic $toymanage
 	end
 
-	'<a href="exec:msg ''Your body fat is = (<<salo>>)''">Check weight on the scales</a>'
+	'<a href="exec:msg ''<center>Your weight is <<pcs_weight>> kg<br>Your body mass index (BMI) is (<<bmi_calc>>)</center>''">Check weight on the scales</a>'
 
 	gs 'din_van', 'prvt_pee'
 

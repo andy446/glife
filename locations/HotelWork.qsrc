@@ -14,7 +14,7 @@ if $ARGS[0] = 'hotcouple':
 		'She begins to reach under your skirt and starts removing your underwear'
 		'Once removed she places the panties in your hand; you can feel they are already soaking wet.'
 	else
-		'She begins to reach under your skirt and notices you are not wearing any underwear. “hmm free access, how kinky ", she says while removing her own panties and placing them in your hand.' 
+		'She begins to reach under your skirt and notices you are not wearing any underwear. “hmm free access, how kinky ", she says while removing her own panties and placing them in your hand.'
 		'You can feel the panties are already soaking wet.'
 	end
 	'Motya is sitting in a chair next to the bed and is happily watching this scene unfold.'
@@ -144,7 +144,7 @@ if $ARGS[0] = 'firsthotelprosevent':
 		gs 'boyStat', $npclastgenerated
 		'As you continue servicing Pavlin''s manhood, the black guy moves behind you. He suddenly grabs you by the hips and yanks you up to a standing position.'
 		if pcs_vag = 0:'As you feel the massive member rub up against your exposed snatch, your heart skips a beat. "Oh god, am I really about to lose my virginity to a black man?!?! What would my family think of me if they knew? And why do I feel so excited about it?" You think, mind racing with emotion. '
-		'He places one calloused hand on you back and starts pushing his big <<dick>> cm schlong inside your dripping pussy. "Oh fuck!" You groan as he buries himself inside you.'	
+		'He places one calloused hand on you back and starts pushing his big <<dick>> cm schlong inside your dripping pussy. "Oh fuck!" You groan as he buries himself inside you.'
 		if pcs_vag = 0:'As the thick, dark dick slams into you, you yelp in pain as tears roll down your cheeks. It feels as if your being split in half and you''re sure there''s some blood leaking from your conquered maidenhead. "Too late to turn back now." you think. "My virginity is his. It will always be his. God, how am i going to explain this to my mother?"'
 		' '
 		'Mr. Black gives you little time to adjust to his size before he''s pounding away in force.'
@@ -159,7 +159,7 @@ if $ARGS[0] = 'firsthotelprosevent':
 			*clr & cla
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/sex/hotel_threesome3.jpg"></center>'
 			'Suddenly you feel the black cock slide out of your pussy, your hole gaping wide and wet. A moment later you feel his thick fingers rubbing lube on and around your anus.'
-			if pcs_vag ! 0 and pcs_ass = 0:'Oh fuck, he''s going to take that virginity too? It''s the only one I have left.'	
+			if pcs_vag ! 0 and pcs_ass = 0:'Oh fuck, he''s going to take that virginity too? It''s the only one I have left.'
 			'The fear wells up inside you once again, but you push it down. "Well, I did agree to do whatever they wanted." You reason, and brace for impact.'
 			' '
 			'You feel the impossibly large, bell-shaped head of his cock push up against your back door.'
@@ -267,7 +267,7 @@ if $ARGS[0] = 'maid':
 					'"Well, well, well, if it isn''t our favorite little voyeur. Come to earn your money back I assume?" He says arrogantly as his eyes devour you body.'
 					' '
 					if pcs_dom > 75:
-						'"Yes I have." You say, not letting the man''s lecherous gaze intimidate you. "I will play the little bitch for you, but on my terms." You let your assertive words sink in for a moment before continuing.' 
+						'"Yes I have." You say, not letting the man''s lecherous gaze intimidate you. "I will play the little bitch for you, but on my terms." You let your assertive words sink in for a moment before continuing.'
 						' '
 						'"You will pay me DOUBLE what you took and, after we are done, I don''t have to deal with you anymore."'
 						'The man laughs, "Ha ha, take a look at this slut, thinking she can boss me around." The oaf suddenly slaps you across the face without warning, the loud smack echoing in the empty hallway.'
@@ -285,14 +285,14 @@ if $ARGS[0] = 'maid':
 						'"Just bring that tight ass in here and have some fun with us. I promise you''ll get what you''re after." The devious look on his face gives you second thoughts, but you enter the room anyways, feeling completely out of options.'
 						prosmoneyhot = 1
 
-						act 'Enter the room':gt 'HotelWork','firsthotelprosevent'	
+						act 'Enter the room':gt 'HotelWork','firsthotelprosevent'
 					else
 						'"Y.. Y.. yes I have." You say with a quivering voice. "I need that money back, please! I''ll do anything you ask!" You beg and drop your eyes to the floor in submission.'
 						''
 						'"Just bring that tight ass in here and have some fun with us. I promise you''ll get what you''re after." The devious look on his face gives you second thoughts, but you enter the room anyways, feeling completely out of options.'
 						prosmoneyhot = 2
 
-						act 'Enter the room':gt 'HotelWork','firsthotelprosevent'	
+						act 'Enter the room':gt 'HotelWork','firsthotelprosevent'
 					end
 				end
 			end
@@ -302,7 +302,7 @@ if $ARGS[0] = 'maid':
 			threesomewatched = 0
 			maid_cloth = 0
 			maidtime += 1
-			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/hotel.corr.jpg"></center>'			
+			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/hotel.corr.jpg"></center>'
 			'After several hours of hard work, you finish your maid shift. You return to the locker room and take off the skimpy maid uniform, putting your own clothes back on. Leaving the uniform in a neat pile on the table, you grab your things and make your way to the hotel lobby. On you way to the lobby you pass the room where the 2 men were enjoying themselves with a girl. You try to resist the urge to peep again.'
 			act'Walk past the door an go to the lobby':
 				threesomewatched = 0
@@ -375,11 +375,11 @@ if $ARGS[0] = 'maid':
 							' '
 							'After several minutes you see the girl beginning to relax and get used to the dick in her ass. She begins moaning in pleasure as the hard member continues pumping away inside her.'
 							'<center><video autoplay loop src="images/locations/city/citycenter/studio/sex/threea.mp4"></video></center>'
-							'The man with his dick in her mouth moves his hands to the girl''s breasts and start pinching her nipples roughly.' 
+							'The man with his dick in her mouth moves his hands to the girl''s breasts and start pinching her nipples roughly.'
 							'The girl obediently continues sucking but looks at the man with pleading eyes, hoping this would convince him to stop. Unfortunately for her the cruel bastard takes this as encouragement. '
 							'Without warning the man grabs one of her nipples and gives it a firm twist. You are sure that if the girl didn''t have a mouth full of dick, her scream would have been loud enough for the entire floor to hear.'
 							'Finally the man relents from his torture and starts focusing on her mouth again. He places both hands on her head and begins face-fucking her, pushing his big cock into her mouth all the way to the base. You reckon that this girl is a deep throat specialist as she seems unfazed by the rough throat-fucking.'
-							
+
 							act 'Continue to watch in silence':
 								*clr & cla
 								gs 'stat'
@@ -397,7 +397,7 @@ if $ARGS[0] = 'maid':
 									' '
 									'One of the men steps off the bed and walks to you, "Ok whore, show''s over." He grips your arm like a vice and pushes you out the door.'
 									'"If you want your money back, maybe next time you''ll think about joining the show instead of just watching." says the man before closing the door in your face. You think about pounding on the door and demanding you money back from the thief, but decide not to push your luck.'
-				
+
 								act 'Go to the lobby':gt 'hotelhole'
 							end
 							if pcs_horny > 90:
@@ -409,7 +409,7 @@ if $ARGS[0] = 'maid':
 									orgasm += 1
 									pcs_mood += 15
 									pcs_willpwr += 15
-									'<center><img <<$set_imgh>> src="images/shared/sex/mast/finger.jpg"></center>'								
+									'<center><img <<$set_imgh>> src="images/shared/sex/mast/finger.jpg"></center>'
 									'You can''t take it any longer and you start moving your hand towards your pussy. You begin rubbing your swelling womanhood through your clothes.'
 									'"It looks like our audience is really enjoying herself, so let''s give her a proper show." The man says as he slides his slimy dick out of the slut''s abused esophagus.'
 									'The second guy happily agrees and shows his enthusiasm by roughly spanking the girl. "You heard him, bitch, sit on my cock so I can pound that filthy cunt from below." He crudely orders.'
@@ -426,7 +426,7 @@ if $ARGS[0] = 'maid':
 									'The men continue relentlessly pounding, their stamina seemingly endless. You notice the young woman''s breath becoming more and more ragged until she suddenly throws her head back and screams in an earth-shattering orgasm. Taking their cue, the men both pick up their pace before groaning in unison as they flood the girls bowels and cunt with their cum. After a moment the two boys shove the girl out from between them carelessly, now finished with their fucktoy. The satisfied slut immediately collapses on the bed, utterly spent, thick globs of seed slowly leaking from her used holes.'
 									'One of the men steps off the bed and walks to you, "Ok whore, show''s over." He grips your arm like a vice and pushes you out the door.'
 									'"If you want your money back, maybe next time you''ll think about joining the show instead of just watching." says the man before closing the door in your face. You think about pounding on the door and demanding you money back from the thief, but decide not to push your luck.'
-																
+
 									act 'Go to the lobby':gt 'hotelhole'
 								end
 							end
@@ -442,20 +442,20 @@ if $ARGS[0] = 'maid':
 			cla
 			*clr
 			pcs_mood -= 3
-			
+
 			gs'stat'
-			
 			if soniaPS ! 5:maidrand = rand(0,100)
 			if soniaPS = 5:maidrand = rand(0,130)
-			
+
 			if maidstat < 100:maidstat+=rand(0,1)
-			
+
 			!! MJ: from 0,100 to 0,50 -- roughly the same as before.
 			chai1 = rand(0,100 - (maidstat/2))
-			
+			hotel_rand1 - rand(0,100)
+
 			!! MJ: from 50,51 to 50,150 -- More often but less.
 			if chai1 < 25:chai = rand(20,60) + rand(0, maidstat)
-			
+
 			if maidrand <= 10:
 				minut += 35
 				gs 'stat'
@@ -465,7 +465,7 @@ if $ARGS[0] = 'maid':
 				if maidstat >= 20 and maidstat<50:'Your maid skills have improved a fair bit. You clean the room far more effectively now, but the bed sheets still give you trouble. Nevertheless, they look better than when you first started.'
 				if maidstat >= 50 and maidstat<70:'You are pretty good at cleaning rooms, and the room looks quite clean when you''re done with it. There are still some small wrinkles in the bed sheets, but it''s nothing a guest would complain about.'
 				if maidstat >= 70:'You''re a very experienced maid by now. You know how to clean up all sorts of spots and stains with ease, and the bed sheets look perfect when you do them.'
-				
+
 				if chai > 0:money += chai & 'While you''re cleaning the room, you find some money underneath a pillow. Looks like someone left you a <<chai>> <b>₽</b> tip!' & chai=0
 
 				act'Continue':gt 'hotelwork', 'maid'
@@ -485,8 +485,8 @@ if $ARGS[0] = 'maid':
 					'Just when you were about to leave the room you notice a folder lying on the ground beneath the desk. '
 					'You go and pick it up but when you place it back with the other folders on the desk you notice there are some pictures sticking out.'
 					'It looks like security footage from the lobby.'
-					
-					'Should you take a look?' 
+
+					'Should you take a look?'
 					act 'No, this is none of my business':
 						cla
 						if maidstat < 100:maidstat+=1
@@ -508,7 +508,7 @@ if $ARGS[0] = 'maid':
 					act'Continue':gt 'hotelwork', 'maid'
 				end
 			end
-			
+
 			if maidrand > 15 and maidrand <= 20:
 				hotelcouple = max(1 , hotelcouple)
 				gs 'stat'
@@ -554,7 +554,7 @@ if $ARGS[0] = 'maid':
 				gs 'stat'
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/work/maid.work1,0.jpg"></center>'
 				'You work in the hotel restaurant, moving dirty dishes to the kitchen and preparing tables for the next guests.'
-				
+
 				if chai > 0:money += chai &'While you move to pick up a tray, you find some money tucked under a plate. Looks like someone left you a <<chai>> <b>₽</b> tip!'&chai=0
 
 				act'Continue':gt 'hotelwork', 'maid'
@@ -570,7 +570,7 @@ if $ARGS[0] = 'maid':
 				'She even took all his clothes'
 				'You felt sorry for the man but there was not much more you could do for him'
 				'Just when you were about to leave the room you notice that the man is sitting on the edge of the bed and is on the verge of tears. He doesn''t know what to do now.'
-				
+
 				act'Leave the room':gt 'hotelwork', 'maid'
 
 				act'Try to cheer up the man with your hand':
@@ -595,7 +595,7 @@ if $ARGS[0] = 'maid':
 
 					act'Continue':gt 'hotelwork', 'maid'
 				end
-				
+
 				act'Try to cheer up the man with your mouth':
 					*clr & cla
 					gs 'stat'
@@ -638,7 +638,7 @@ if $ARGS[0] = 'maid':
 							end
 						end
 						act 'Take his cock out of your mouth':
-							cla 
+							cla
 							spafinloc = 11
 							gs 'cum_manage'
 							'You quickly move your head back and suddenly the cock starts spurting jets of sperm on to your face.'
@@ -659,7 +659,7 @@ if $ARGS[0] = 'maid':
 
 				act'Continue':gt'hotelwork','maid'
 			end
-			if maidrand>60 and maidrand<=70:
+			if maidrand > 60 and maidrand <= 70:
 				minut+=45
 				gs'stat'
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/work/maid.work3,'+rand(0,4)+'.jpg"></center>'
@@ -669,7 +669,7 @@ if $ARGS[0] = 'maid':
 				act'Continue':gt'hotelwork','maid'
 			end
 
-			if maidrand>70 and maidrand<=75:
+			if maidrand > 70 and maidrand <= 75:
 				minut+=10
 				gs'stat'
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/work/maid.event0.jpg"></center>'
@@ -693,14 +693,14 @@ if $ARGS[0] = 'maid':
 					act'Keep walking':gt'hotelwork','maid'
 				end
 			end
-			if maidrand>75 and maidrand<=85:
+			if maidrand > 75 and maidrand <= 85:
 				'<center><video autoplay loop src="images/locations/pavlovsk/hotel/sex/1,'+rand(0,7)+'.mp4"></video></center>'
 				'You open the door to the next room, and immediately freeze in place when you hear a loud moaning coming from inside. Curious as you are, you decide to sneak a peek and see what''s happening in the room. You see a couple fucking enthusiastically on the bed, completely oblivious to your presence.'
 				gs 'arousal', 'voyeur', 10
 				gs 'stat'
 
 				act'Get back to work':gt'hotelwork','maid'
-				
+
 				act'Watch them for a while':
 					cla
 					'Making sure you don''t make a sound, you put your things away and watch them for a while, softly fondling yourself through your clothes. It feels great, and the couple on the bed look like they''re having a great time as well. Even though you want to keep watching them, you realize you have to get back to work before you''re missed.'
@@ -711,33 +711,33 @@ if $ARGS[0] = 'maid':
 					act'Get back to work':gt'hotelwork','maid'
 				end
 			end
-			if maidrand>85 and maidrand<=95:
+			if maidrand > 85 and maidrand <= 95:
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/sex/maid.event3,'+rand(0,7)+'.jpg"></center>'
 				'You open the door to the next room, and immediately freeze in place when you hear a loud moaning coming from inside. Curious as you are, you decide to sneak a peek and see what''s happening in the room. You carefully put your things away and look around the corner, and you see a girl... but she''s not with one man, but two! They''re fucking her quite roughly.'
 				gs 'arousal', 'voyeur', 10
 				gs 'stat'
 
 				act'Get back to work':gt'hotelwork','maid'
-				
+
 				act'Watch them for a while':
 					cla
 					'You decide to watch them for a while longer, and idly begin to fondle yourself through your clothes. The men are quite demanding, commanding the girl around like she''s their plaything. They continuously talk her down, using degrading language. She obediently does everything they order her to do, but gets spanked once when she''s not quick enough. In the corner of the room, you see some coils of rope and several cuffs sticking out of an opened bag. It looks like she''s in for a long night...'
 					'You''d love to keep watching and see what else they have in store for her, but you realize you really have to get back to work before you''re missed.'
-					threesomewatched += 1 
+					threesomewatched += 1
 					gs 'arousal', 'voyeur', 10
 					gs 'arousal', 'end'
 					gs 'stat'
 					act'Get back to work':gt'hotelwork','maid'
 				end
 			end
-			if maidrand>95 and maidrand<=100:
+			if maidrand > 95 and maidrand <= 100:
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/sex/maid.event4,'+rand(0,6)+'.jpg"></center>'
 				'You open the door to the next room, and immediately freeze in place when you hear a somewhat desperate moaning coming from inside. Curious as you are, you decide to sneak a peek and see what''s happening in the room. You carefully put your things away and look around the corner, and you see a girl... but she''s not with one man, but with a whole group of men! From what you can see, there are at least five of them, taking turns fucking her however they like.'
 				gs 'arousal', 'voyeur', 10
 				gs 'stat'
 
 				act'Get back to work':gt'hotelwork','maid'
-				
+
 				act'Watch them for a while':
 					cla
 					'You decide to watch them for a while longer, and idly begin to fondle yourself through your clothes. You notice they''re quite rough with the girl, and sometimes she''s struggling a bit. Should you say something to the manager? Then again... how would you explain watching them? You decide against it, figuring the girl will probably be okay.'
@@ -748,15 +748,15 @@ if $ARGS[0] = 'maid':
 					act'Get back to work':gt'hotelwork','maid'
 				end
 			end
-			if maidrand >100 and maidrand<=110:
+			if maidrand >100 and maidrand <= 110:
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/sonia/sex/hotel/sonia.hotel.boy0,'+rand(0,4)+'.jpg"></center>'
 				'You open the door to the next room, and immediately freeze in place when you hear gagging sounds coming from inside. Curious as you are, you decide to sneak a peek and see what''s happening in the room. When you look around the corner, you see a girl giving a guy an enthusiastic blowjob, happily gagging on his cock while she tries to take it down her throat over and over. Wait a minute... that''s Sonia, from your class!'
 				gs 'arousal', 'voyeur', 5
 				gs 'stat'
-				
+
 				act'Get back to work':gt'hotelwork','maid'
-				
-				if rand1<=60:
+
+				if hotel_rand1 <= 60:
 
 					act'Keep watching':
 						*clr & cla
@@ -769,7 +769,7 @@ if $ARGS[0] = 'maid':
 						act'Get back to work':gt'hotelwork','maid'
 					end
 				end
-				if rand1>60:
+				if hotel_rand1 > 60:
 
 					act'Keep watching':
 						*clr & cla
@@ -785,23 +785,23 @@ if $ARGS[0] = 'maid':
 							gs 'arousal', 'voyeur', 3
 							gs 'arousal', 'end'
 							gs 'stat'
-							
+
 							act'Get back to work':gt'hotelwork','maid'
 						end
 					end
 				end
 			end
 
-			if maidrand >110 and maidrand<=120:
+			if maidrand >110 and maidrand <= 120:
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/sonia/sex/hotel/sonia.hotel.boy.nigga0,'+rand(0,2)+'.jpg"></center>'
 				'You open the door to the next room, and immediately freeze in place when you hear gagging sounds coming from inside. Curious as you are, you decide to sneak a peek and see what''s happening in the room. When you look around the corner, you see Sonia giving a black guy an enthusiastic blowjob, happily gagging on his cock while she tries to take it down her throat over and over. Obviously it''s not working; his cock is way too big for her.'
 				'She adjusts her strategy, diligently sucking the head of his cock and licking his balls instead.'
 				gs 'arousal', 'voyeur', 10
 				gs 'stat'
-				
+
 				act'Get back to work':gt'hotelwork','maid'
-				
-				if rand1<=60:
+
+				if hotel_rand1 <= 60:
 
 					act'Keep watching':
 						*clr & cla
@@ -814,7 +814,7 @@ if $ARGS[0] = 'maid':
 						act'Get back to work':gt'hotelwork','maid'
 					end
 				end
-				if rand1>60:
+				if hotel_rand1 > 60:
 
 					act'Keep watching':
 						*clr & cla
@@ -837,15 +837,15 @@ if $ARGS[0] = 'maid':
 				end
 			end
 
-			if maidrand >120 and maidrand<=130:
+			if maidrand >120 and maidrand <= 130:
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/sonia/sex/hotel/sonia.hotel.two.nigga0,'+rand(0,1)+'.jpg"></center>'
 				'You open the door to the next room, and immediately freeze in place when you hear gagging sounds coming from inside. Curious as you are, you decide to sneak a peek and see what''s happening in the room. When you look around the corner, you see Sonia with not one, but two huge black guys. She''s happily sucking their enormous dicks in turn, massaging the one she doesn''t currently have in her mouth with her delicate fingers.'
 				gs 'arousal', 'voyeur', 10
 				gs 'stat'
-				
+
 				act'Get back to work':gt'hotelwork','maid'
-				
-				if rand1<=60:
+
+				if hotel_rand1 <= 60:
 
 					act'Keep watching':
 						*clr & cla
@@ -858,7 +858,7 @@ if $ARGS[0] = 'maid':
 						act'Get back to work':gt'hotelwork','maid'
 					end
 				end
-				if rand1>60:
+				if hotel_rand1 > 60:
 					act'Keep watching':
 						*clr & cla
 						'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/sonia/sex/hotel/sonia.hotel.two.nigga1,'+rand(0,3)+'.jpg"></center>'

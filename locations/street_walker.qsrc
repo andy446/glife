@@ -436,7 +436,7 @@ if $ARGS[0] = 'anal':
 								gs 'arousal', 'end'
 								gs 'stat'
 								!!here need code to add the money for the act. We talked about it some in the dev forums how to do the price, no clue how you guys want to code that.
-								act 'Get dropped off': gt 'street_walker', 'event1'
+								act 'Get dropped off': gt 'street_walker', 'work'
 							end
 						end
 					end

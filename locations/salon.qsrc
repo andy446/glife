@@ -244,7 +244,7 @@ end
 
 if $ARGS[0] = 'ozdormas':
 	minut += 60
-	vidageday -= 3
+	vidageday += 3
 	money -= 2500
 	gs 'stat'
 	if salonrand = 0:
@@ -277,7 +277,7 @@ end
 if $ARGS[0] = 'omoloshenie':
 	minut += 60
 	inhib_exp += rand(1,5)
-	vidageday -= 50
+	vidageday += 50
 	money -= 25000
 	gs 'body_shape', 'basebeautycalc', 1
 	if salonrand = 0 and masha = 0:gt 'salon', '0'

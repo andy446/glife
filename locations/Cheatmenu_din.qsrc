@@ -455,9 +455,14 @@ $cheatmenu['rename'] = {
 }
 
 $cheatmenu['looks'] = {
-	gs'stat'
 	*clr & cla
+	if pcs_hgt < 100:
+		pcs_hgt = 100
+	elseif pcs_hgt > 200:
+		pcs_hgt = 200
+	end
 	gs 'obj_din', 'cheattabs'
+	gs'stat'
 	'<center><h1>Cheat Menu - Character Appearance</h1></center>'
 	*nl
 	'<center><table  width="90%" cellspacing="0" cellpadding="0" valign="top">'
@@ -485,11 +490,6 @@ $cheatmenu['looks'] = {
 	*nl
 	'<a href=>You are <<pcs_hgt>> centimetres tall</a>'
 	'<a href="exec:pcs_hgt = input(''Enter <<$pcs_nickname>>s height in centimetres<br><br>(default 170, min 100, max 200)'') & dynamic $cheatmenu[''looks'']">Change <<$pcs_nickname>>''s height</a>'
-	if pcs_hgt < 100:
-		pcs_hgt = 100
-	elseif pcs_hgt > 200:
-		pcs_hgt = 200
-	end
 	*nl
 	'You have <<$titsize>> breasts'
 	if tits => 0 and tits < 11:'<a href="exec:silicone += 5 & dynamic $cheatmenu[''looks'']">Enlarge breasts(silicone)</a>'

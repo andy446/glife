@@ -528,6 +528,9 @@ if $ARGS[0] = 'start':
 end
 
 if $ARGS[0] = 'sis_prov':
+	
+	$AnjaMsg = ''
+	
 	if $loc = 'bedrPar' and (hour >= 7 or hour < 23):
 		gs 'family'
 
@@ -552,8 +555,6 @@ if $ARGS[0] = 'sis_prov':
 				end
 			end
 		end
-	else
-		$AnjaMsg = ''
 	end
 end
 

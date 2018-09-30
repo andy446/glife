@@ -24,7 +24,7 @@ $breastfeed = {
 	end
 	'You gently lay <<$kidname[ks]>> back <<$babyloc>>.'
 	act 'Done':
-		if pcs_mothername = '':
+		if $pcs_mothername = '':
 			$pcs_mothername = input("What name do you wish your children to call you by?")
 		end
 		gt 'kid', 'start'
@@ -124,7 +124,7 @@ $homework = {
 
 if $ARGS[0] = 'start':
 	gs 'stat'
-	if pcs_mothername = '':
+	if $pcs_mothername = '':
 		$pcs_mothername = input("What name do you wish your children to call you by?")
 	end
 	if kid > 0:

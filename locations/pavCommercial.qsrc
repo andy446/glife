@@ -97,7 +97,7 @@ end
 if (week < 6 and hour >= 9 and hour <= 18) or (week = 6 and hour >= 10 and hour <= 15):
 	$desc_txt4 = '<a href="exec:minut += 3 & gt ''postoffice'', ''start''">post office</a>'
 else
-	$desc_txt4 = '<a href="exec:msg ''post office, which is closed right now. It will reopen again on monday at 9:00''">post office</a>'
+	$desc_txt4 = '<a href="exec:msg ''post office, which is closed right now. It will reopen again at 9:00 and at 10:00 on saturdays.''">post office</a>'
 end
 
 if (week < 6 and hour >= 9 and hour <= 16) or (week = 6 and hour >= 9 and hour <= 13):

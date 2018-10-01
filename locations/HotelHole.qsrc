@@ -593,6 +593,7 @@ if $ARGS[0] = 'PregBDSM' :
 									unintendedabort = 1
 									!! RecovH has a decay of 1.1/hour or ~ 27/day, the recovery period is ~2-3 weeks
 									RecovH = rand(375,575) 
+									pregchem = 0
 									knowpregloss = 2
 									thinkpreg = 0
 									knowpreg = 0

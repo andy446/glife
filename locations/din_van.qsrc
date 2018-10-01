@@ -254,7 +254,7 @@ $brit = {
 					elseif pubestyle >= 9:
 						'You lather up your legs and carefully shave them. Once you''re finished gliding your hands over your smooth legs, ensuring you didn''t miss a spot, you spend some time trimming back your small neat bush as well.'
 					elseif pubestyle >= 10:
-						'You lather up your legs and carefully shave them. Once you''re finished gliding your hands over your smooth legs, ensuring you didn''t miss a spot, you spend some time trimming back your  bush as well.'
+						'You lather up your legs and carefully shave them. Once you''re finished gliding your hands over your smooth legs, ensuring you didn''t miss a spot, you spend some time trimming back your	 bush as well.'
 					end
 					dynamic $dryOff
 				end
@@ -563,7 +563,7 @@ $pirTongue = {
 
 	i = 1
 	:looptongue_pir
-		if dyneval('RESULT = PirsA<<i>>_owned') = 1:*p '<a href="exec:pirsA = <<i>> & pierWearCount += 1 & dynamic $pirManage"><img src="images/pc/body/piercings/a<<i>>.jpg" 	height="250" ></a>'
+		if dyneval('RESULT = PirsA<<i>>_owned') = 1:*p '<a href="exec:pirsA = <<i>> & pierWearCount += 1 & dynamic $pirManage"><img src="images/pc/body/piercings/a<<i>>.jpg"	height="250" ></a>'
 		i += 1
 	if i <= 4:jump 'looptongue_pir'
 }
@@ -573,7 +573,7 @@ $pirLip = {
 
 	i = 1
 	:looplip_pir
-		if dyneval('RESULT = PirsB<<i>>_owned') = 1:*p '<a href="exec:pirsB = <<i>> & pierWearCount += 1 & dynamic $pirManage"><img src="images/pc/body/piercings/b<<i>>.jpg" 	height="250" ></a>'
+		if dyneval('RESULT = PirsB<<i>>_owned') = 1:*p '<a href="exec:pirsB = <<i>> & pierWearCount += 1 & dynamic $pirManage"><img src="images/pc/body/piercings/b<<i>>.jpg"	height="250" ></a>'
 		i += 1
 	if i <= 6:jump 'looplip_pir'
 }
@@ -583,7 +583,7 @@ $pirEars = {
 
 	i = 1
 	:loopears_pir
-		if dyneval('RESULT = PirsC<<i>>_owned') = 1:*p '<a href="exec:pirsC = <<i>> & pierWearCount += 1 & dynamic $pirManage"><img src="images/pc/body/piercings/c<<i>>.jpg" 	height="250" ></a>'
+		if dyneval('RESULT = PirsC<<i>>_owned') = 1:*p '<a href="exec:pirsC = <<i>> & pierWearCount += 1 & dynamic $pirManage"><img src="images/pc/body/piercings/c<<i>>.jpg"	height="250" ></a>'
 		i += 1
 	if i <= 24:jump 'loopears_pir'
 }
@@ -593,7 +593,7 @@ $pirNose = {
 
 	i = 1
 	:loopnose_pir
-		if dyneval('RESULT = PirsD<<i>>_owned') = 1:*p '<a href="exec:pirsD = <<i>> & pierWearCount += 1 & dynamic $pirManage"><img src="images/pc/body/piercings/d<<i>>.jpg" 	height="250" ></a>'
+		if dyneval('RESULT = PirsD<<i>>_owned') = 1:*p '<a href="exec:pirsD = <<i>> & pierWearCount += 1 & dynamic $pirManage"><img src="images/pc/body/piercings/d<<i>>.jpg"	height="250" ></a>'
 		i += 1
 	if i <= 7:jump 'loopnose_pir'
 }
@@ -603,7 +603,7 @@ $pirBrow = {
 
 	i = 1
 	:loopbrow_pir
-		if dyneval('RESULT = PirsE<<i>>_owned') = 1:*p '<a href="exec:pirsE = <<i>> & pierWearCount += 1 & dynamic $pirManage"><img src="images/pc/body/piercings/e<<i>>.jpg" 	height="250" ></a>'
+		if dyneval('RESULT = PirsE<<i>>_owned') = 1:*p '<a href="exec:pirsE = <<i>> & pierWearCount += 1 & dynamic $pirManage"><img src="images/pc/body/piercings/e<<i>>.jpg"	height="250" ></a>'
 		i += 1
 	if i <= 2:jump 'loopbrow_pir'
 }
@@ -613,7 +613,7 @@ $pirNips = {
 
 	i = 1
 	:loopnipple_pir
-		if dyneval('RESULT = PirsF<<i>>_owned') = 1:*p '<a href="exec:pirsF = <<i>> & pierWearCount += 1 & dynamic $pirManage"><img src="images/pc/body/piercings/f<<i>>.jpg" 	height="250" ></a>'
+		if dyneval('RESULT = PirsF<<i>>_owned') = 1:*p '<a href="exec:pirsF = <<i>> & pierWearCount += 1 & dynamic $pirManage"><img src="images/pc/body/piercings/f<<i>>.jpg"	height="250" ></a>'
 		i += 1
 	if i <= 4:jump 'loopnipple_pir'
 }
@@ -623,7 +623,7 @@ $pirNavel = {
 
 	i = 1
 	:loopnavel_pir
-		if dyneval('RESULT = PirsN<<i>>_owned') = 1:*p '<a href="exec:pirsN = <<i>> & pierWearCount += 1 & dynamic $pirManage"><img src="images/pc/body/piercings/n<<i>>.jpg" 	height="250" ></a>'
+		if dyneval('RESULT = PirsN<<i>>_owned') = 1:*p '<a href="exec:pirsN = <<i>> & pierWearCount += 1 & dynamic $pirManage"><img src="images/pc/body/piercings/n<<i>>.jpg"	height="250" ></a>'
 		i += 1
 	if i <= 4:jump 'loopnavel_pir'
 }
@@ -633,7 +633,7 @@ $pirPubic = {
 
 	i = 1
 	:looppubic_pir
-		if dyneval('RESULT = PirsG<<i>>_owned') = 1:*p '<a href="exec:pirsG = <<i>> & pierWearCount += 1 & dynamic $pirManage"><img src="images/pc/body/piercings/g<<i>>.jpg" 	height="250" ></a>'
+		if dyneval('RESULT = PirsG<<i>>_owned') = 1:*p '<a href="exec:pirsG = <<i>> & pierWearCount += 1 & dynamic $pirManage"><img src="images/pc/body/piercings/g<<i>>.jpg"	height="250" ></a>'
 		i += 1
 	if i <= 7:jump 'looppubic_pir'
 }
@@ -972,16 +972,16 @@ if $ARGS[0] = 'private':
 		end
 	end
 	
-    !!breast pump is now in the menu, not on the screen
-    if breastpump > 0 and bp_unbox >= 1:
-        act 'Use breast pump':
-            gt 'lact_lib', 'bp_milking'
-        end
-    elseif breastpump > 0 and bp_unbox <= 0:
-        '<a href="exec: gt ''lact_lib'', ''bp_unbox_event''">Unbox</a> your breast pump'
-    elseif breastpump <= 0 and pcs_horny >= temp_var:
-        gs 'lact_lib', 'massage'
-    end
+	!!breast pump is now in the menu, not on the screen
+	if breastpump > 0 and bp_unbox >= 1:
+		act 'Use breast pump':
+			gt 'lact_lib', 'bp_milking'
+		end
+	elseif breastpump > 0 and bp_unbox <= 0:
+		'<a href="exec: gt ''lact_lib'', ''bp_unbox_event''">Unbox</a> your breast pump'
+	elseif breastpump <= 0:
+		gs 'lact_lib', 'massage'
+	end
 end
 
 if $ARGS[0] = 'misery':

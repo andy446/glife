@@ -42,7 +42,8 @@ if $ARGS[0] = 'start':
 	else
 		'Hello miss <<$pcs_lastname>>, how is your pregnancy?'
 		if kid = 0 and pregchem > 0:act 'It is going well':gt 'experiment', 'deskTalk'
-		if kid > 0:act 'I already gave birth':gt 'experiment', 'deskTalk'
+		if kid > 0 and knowpreg = 1:act 'I already gave birth, but I''m also pregnant again':gt 'experiment', 'deskTalk'
+		if kid > 0 and knowpreg = 0:act 'I already gave birth':gt 'experiment', 'deskTalk'
 		if kid = 0 and pregchem = 0:act 'I had an abortion':gt 'experiment', 'deskTalk'
 	end
 
@@ -57,7 +58,7 @@ if $ARGS[0] = 'deskTalk':
 	if kid = 0 and pregchem > 0:
 		'"That is good to hear. Can I help you somehow?"'
 		act 'No':gt 'poli', 'start'
-	elseif kid > 0 and pregchem = 0:
+	elseif kid > 0 and (pregchem = 0 or (pregchem > 0 and knowpreg = 0)):
 		'"Wonderful! Anyway, can I help you somehow? Are you maybe interested in rejoining the experiment?" she curiously asks.'
 		'"That''s still a possibility?" you surprisingly ask.'
 		'"Of course it is miss <<$pcs_lastname>>. We don''t discriminate if you''ve had a child or not, on the contrary." she re-assures you.'
@@ -65,6 +66,10 @@ if $ARGS[0] = 'deskTalk':
 		'"Indeed. If I remember correctly you were in need of money, weren''t you? Think about it..."'
 		act 'No way I''m going through that again!':gt 'experiment', 'deskTalk:refuse'
 		act 'Yes, I need the money..':gt 'experiment', 'deskTalk:volunteer'
+		act 'Leave':gt 'poli', 'start'
+	elseif kid > 0 and knowpreg = 1:
+		'"I already gave birth, but I''m also pregnant again." you say.'
+		'"That''s wonderful! We need to wait until you have given birth again if you want to rejoin the experiment." she says with a smile.'
 		act 'Leave':gt 'poli', 'start'
 	elseif kid = 0 and pregchem = 0:
 		'"Oh, that is unfortunate, but not unexpected. Why are you here again, tell me? Do you want to rejoin the experiment again? Have you changed your mind, or do you need the money? Our doctors would definitely welcome to test on a subject that underwent a pregnancy termination..." she asks.'

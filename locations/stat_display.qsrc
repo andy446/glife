@@ -1253,7 +1253,7 @@ if StoryLine = 1:
 	if sisboyday + 1 = daystart and hour < 19 and (npc_QW['A33'] = 3 or npc_QW['A33'] = 5 or npc_QW['A33'] = 7 or (npc_QW['A33'] = 9 and sisboytrioQW ! 1)):$stat_msg += '<BR>' & $stat_msg += '<BR>You promised your sister not to go into your room at 18:00.'
 	if sisboyday + 1 = daystart and hour < 19 and sisboytrioQW = 1:$stat_msg += '<BR>' & $stat_msg += '<BR>You promised your sister to meet her in your room at 18:00.'
 
-	if week = 6 and hour < 9 and detention_set = 1:$stat_msg += '<BR><b>You have a detention this morning and must be at school between 8 and 9.</b>'
+	if week = 6 and hour < 9 and detention_set = 1 and SchoolAtestat = 0:$stat_msg += '<BR><b>You have a detention this morning and must be at school between 8 and 9.</b>'
 	if gopnik_initiation = 1 and gopnik_initiation_day = daystart and hour > 15 and hour < 21: $stat_msg += '<BR><b>Meet Lena and Lera at the apartment garages at eight</b>'
 	if nerd_night_game = 1 and nerd_night_game_day = daystart and hour > 15 and hour < 21: $stat_msg += '<BR><b>Join nerds at the community center at eight</b>'
 	if InvitationToDimkaNYparty = 1 and month = 12 and day = 31: $stat_msg += '<BR><b>Go to the residential area between 15:00 and 18:00 to go to Dimka''s New Year party.</b>'

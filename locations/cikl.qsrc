@@ -1364,7 +1364,8 @@ end
 
 if bcream_used >= 1:
     bcream_used = 0
-    temp = rand(0,5)
+    temp = rand(0,max(nbsize-genbsize+5,5)) / max(nbsize-genbsize,1)
+    if temp > 0: temp = 1
     nbsize += temp
     if temp > 0:'Feels like your breasts have grown slightly.'
 end

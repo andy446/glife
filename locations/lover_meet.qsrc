@@ -181,7 +181,7 @@ if $ARGS[0] = 'start':
 					else
 						'This should not fire off at all: TongueKiss'
 					end
-				elseif cumloc[11] = 1 or (cumloc[6] = 1 or cumloc[7] = 1) and pervConstant = 1 and loverGender[lover_number] = 0:
+				elseif (cumloc[11] = 1 or cumloc[6] = 1 or cumloc[7] = 1) and pervConstant = 1 and loverGender[lover_number] = 0:
 					if cumloc[11] = 1:
 						if haraklover[lover_number] = 0:
 							loverrelation[lover_number] += 2
@@ -209,7 +209,7 @@ if $ARGS[0] = 'start':
 							'<<$tXec>> can see sperm on your ass, but by the bulge in <<$tXyr>> pants you know it only turns <<$tXem>> on.'
 						end
 					end
-				elseif cumloc[11] = 1 or (cumloc[6] = 1 or cumloc[7] = 1) and (pervConstant ! 1 or loverGender[lover_number] = 0):
+				elseif (cumloc[11] = 1 or cumloc[6] = 1 or cumloc[7] = 1) and (pervConstant ! 1 or loverGender[lover_number] = 0):
 					if cumloc[11] = 1:
 						gs 'lover', 'remove', lover_number
 						'<<$tXec>> notices the sperm on your face, "H-Hey- <<$pcs_firstname>>! What the...?! You dirty whore!", <<$tXe>> then pushes you out of <<$tXyr>> face. "We are through, I don''t want to see your face again!'
@@ -250,7 +250,7 @@ if $ARGS[0] = 'start':
 						gs 'arousal', 'kiss', 5
 						gs 'stat'
 					end
-				elseif cumloc[11] = 1 or (cumloc[6] = 1 or cumloc[7] = 1) or cumloc[12] = 1 and pervConstant = 1:
+				elseif (cumloc[11] = 1 or cumloc[6] = 1 or cumloc[7] = 1 or cumloc[12] = 1) and pervConstant = 1:
 					if cumloc[11] = 1:
 						if haraklover[lover_number] = 0:
 							loverrelation[lover_number] += 2
@@ -296,7 +296,7 @@ if $ARGS[0] = 'start':
 						end
 					end
 				else 
-					if cumloc[11] = 1 or (cumloc[6] = 1 or cumloc[7] = 1) and pervConstant ! 1:
+					if (cumloc[11] = 1 or cumloc[6] = 1 or cumloc[7] = 1) and pervConstant ! 1:
 						if cumloc[11] = 1:
 							gs 'lover', 'remove', lover_number
 							'<<$tXec>> notices the sperm on your face, "<<$pcs_firstname>>! What the...?! You dirty whore!", <<$tXe>> then pushes you out of <<$tXyr>> face. "We are through, I don''t want to see your face again!'
@@ -338,7 +338,7 @@ if $ARGS[0] = 'start':
 						gs 'arousal', 'kiss', 5
 						gs 'stat'
 					end
-				elseif cumloc[11] = 1 or (cumloc[6] = 1 or cumloc[7] = 1) or cumloc[12] = 1 and pervConstant = 1:
+				elseif (cumloc[11] = 1 or cumloc[6] = 1 or cumloc[7] = 1 or cumloc[12] = 1) and pervConstant = 1:
 					if cumloc[11] = 1:
 						if haraklover[lover_number] = 0:
 							loverrelation[lover_number] += 2
@@ -368,7 +368,7 @@ if $ARGS[0] = 'start':
 							'<<$tXec>> can see sperm on your ass, but by the bulge in <<$tXyr>> pants you know it only turns <<$tXem>> on.'
 						end
 					end
-				elseif cumloc[11] = 1 or (cumloc[6] = 1 or cumloc[7] = 1) and pervConstant ! 1:
+				elseif (cumloc[11] = 1 or cumloc[6] = 1 or cumloc[7] = 1) and pervConstant ! 1:
 					if cumloc[11] = 1:
 						gs 'lover', 'remove', lover_number
 						'<<$tXec>> notices the sperm on your face, "H-Hey- <<$pcs_firstname>>! What the...?! You dirty whore!", <<$tXe>> then pushes you out of <<$tXyr>> face. "We are through, I don''t want to see your face again!'

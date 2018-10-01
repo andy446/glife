@@ -101,8 +101,11 @@ if $ARGS[0] = 'menu':
 	$loc = 'gkafe'
 	$metka = ''
 	act 'See the menu':gs 'food_menu'
-	if money >= 350:
+	if (StoryLine = 0 or (StoryLine > 0 and SchoolBlock = 1)) and money >= 350:
 		act 'Eat and run (0:20) (350 <b>₽</b>)':money -= 350 & gt 'food', 'f_food'
+	end
+	if storyline > 0 and SchoolBlock = 0:
+		act 'Eat and run (0:20)': gt 'food', 'f_food'
 	end
 end
 

@@ -86,8 +86,8 @@ end
 if lernSkill >= 8: intel_exp += 1 & lernSkill = 0
 if lern >= 10: intel_exp += 1 & lern = 0
 
-if pav_sex >= 25:KatjaKnowBJ = 1
-if pav_sex >= 50 or preg > 0:KatjaKnowSex = 1
+if pav_slut >= 75:KatjaKnowBJ = 1
+if pav_slut >= 125 or preg > 0:KatjaKnowSex = 1
 
 shameless = guy + stat['bj'] + stat['anal'] + stat['hj'] + ((slutty + gang) * 2)
 moneySUM = money + karta + stolmoney

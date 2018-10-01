@@ -240,7 +240,7 @@ if $ARGS[0] = 'snkayf':
 	end
 
 	if snkz = 6:
-		$clothingworntype = 'nude'
+		gs 'clothing', 'strip'
 		hour += 2
 		gt'Glake'
 	end

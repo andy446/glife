@@ -79,7 +79,6 @@ $mobile_check = {
 	killvar 'lover_number'
 }
 
-
 $d_salf = {
 	*clr & cla
 	'<center><h1>Tissues</h1></center>'
@@ -687,7 +686,11 @@ $d_cycreport_update = {
 
 
 $d_cycreport_upduedate = {
-	temp = (280 + daylastperiod) - daystart
+	!! Ovulation is ~7d after menstruation
+	!! Human gastation period: 280 days
+	!! ovu_calc: Days since last ovulation
+	ovu_calc = daystart - lastmens + 7
+	temp = 280 - ovu_calc
 	pregdueday = day
 	pregduemonth = month
 	pregdueyear = year

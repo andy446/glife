@@ -1,6 +1,9 @@
 # gdk
 music_loop = 0
 CLOSE ALL
+$menu_loc = 'gdk'
+$menu_arg = ''
+menu_off = 0
 $metka = $ARGS[0]
 $loc = $CURLOC
 $location_type = 'public_outdoors'

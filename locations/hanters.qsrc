@@ -792,7 +792,6 @@ end
 if $ARGS[0]='hantersgroupORALs':
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/hantersgroupORALs.jpg"></center>'
 	if hantersexnude = 1 or forest_hantersex = 3:'Sergei grabs you by the head and shoves his cock into your mouth. Igor, feeling left out and just stands there with his cock out. You look at Igor with lust while sucking Sergei''s cock. Igor pushes Sergei away and shoves his cock inside your mouth.'
-	'"There, there, don''t fight I can do you both at the same time." you say. You start altering between their cocks, pleasuring them both.'
 	if forest_gopsex = 3:'Kolyamba grabs you by the head and shoves his cock into your mouth. Vasyan, feeling left out and just stands there with his cock out. You look at Vasyan with lust while sucking Kolyamba''s cock. Vasyan pushes Kolyamba away and shoves his cock inside your mouth.'
 	'"There, there, don''t fight I can do you both at the same time." you say. You start altering between their cocks, pleasuring them both.'
 
@@ -934,7 +933,7 @@ if $ARGS[0]='hantersgroupORALend1':
 	swallow += 1
 	if hantersexnude = 1 or forest_hantersex = 3:'The men order you to swallow all of the sperm. You enthusiasticly open your mouth ready to recive their loads. The men started groaning loudly and began cumming, the quantity of sperm was so overwhelming that you were not able to swallow all of it and some of drips onto your face. You see the displeasure in Sergeis'' and Igors'' faces not being able to swallow it all...'
 	if forest_gopsex = 3:'The men order you to swallow all of the sperm. You enthusiasticly open your mouth ready to recive their loads. The men started groaning loudly and began cumming, the quantity of sperm was so overwhelming that you were not able to swallow all of it and some of drips onto your face. You see the displeasure in Kolambas'' with Vasyas'' faces not being able to swallow it all...'
-	''
+	*nl
 	gs 'arousal', 'bj', 5, 'sub', 'gangbang'
 	gs 'arousal', 'end'
 	gs 'stat'

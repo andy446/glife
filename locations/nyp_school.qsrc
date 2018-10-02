@@ -138,7 +138,7 @@ if $ARGS[0] = 'start':
 					act 'Drink some more':pcs_hydra += 10 & gt 'nyp_school', 'drink more'
 					if grupTipe = 5:
 						!!If Sveta is a outcast this should be the only option and the above options should not show up, if Sveta is a outcast. If Sveta is not a outcast then the go stand against the wall alone should not show up.
-						act 'Go stand against the wall alone.':gt 'nyp_school', 'outcast'
+						act 'Go stand against the wall alone':gt 'nyp_school', 'outcast'
 					else
 						act 'Hangout with the cool kids and jocks':gt 'nyp_school', 'cool jocks'
 						act 'Hangout with the nerds':gt 'nyp_school', 'nerds'
@@ -754,7 +754,7 @@ if $ARGS[0] = 'gopniks':
 			act 'Hangout until the party ends':gt 'nyp_school', 'end'
 		end
 	end
-	act 'Go pick on someone.':
+	act 'Go pick on someone':
 		cla & *clr
 		minut += 5
 		gs 'stat'
@@ -970,10 +970,10 @@ end
 if $ARGS[0] = 'slut':
 	*clr & cla
 	gs 'stat'
-	'Once in the bathroom Vasily immediately pulls down his pants and says, "Suck my cock bitch.I know that you''ve been anticipating this the whole party."'
+	'Once in the bathroom Vasily immediately pulls down his pants and says, "Suck my cock bitch. I know that you''ve been anticipating this the whole party."'
 	act 'Suck him off':
 		*clr & cla
-		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/newyear/sex/nyp_schoolbj.jpg"></center>'
+		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/newyear/sex/snybj.jpg"></center>'
 		'You kneel down infront of Vasily and begin sucking his cock. After a few moments you hear the door open and a few guys from your class wander in. Before you know it all the boys in your class, except Kotova, who was rumored to have already passed out, are surrounding you. You hear someone unzipping their fly, pulling out their cock. Shortly thereafter the others follow suit.'
 		$rand_boy = $npc_firstname['A9']
 		pav_sex += 60
@@ -984,7 +984,7 @@ if $ARGS[0] = 'slut':
 		act 'Serve classmates':
 			*clr & cla
 			gs 'stat'
-			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/newyear/sex/nyp_schoolfilming.jpg"></center>'
+			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/newyear/sex/snyfilming.jpg"></center>'
 			'You slurp on one cock in your mouth, while you use your hands to jerk off two others, casually looking up you see that Nosov has taken out a camera and started filming it all. "Don''t worry, <<$pcs_nickname>> this is for all our private collections. I''m sure no one will spread this video around." he winks.'
 			gs 'gschool_events', 'rand_boy_arg1',1,2
 			gs 'boyStat', $static_num, '2'
@@ -998,7 +998,7 @@ if $ARGS[0] = 'slut':
 			act 'Try to please them all':
 				*clr & cla
 				gs 'stat'
-				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/newyear/sex/nyp_schoolblowbang.jpg"></center>'
+				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/newyear/sex/snyblowbang.jpg"></center>'
 				'You suck more cocks than you can count, constantly changing from one to another while always making sure that you''re jerking off two others. You completely lose track of how many guys there are, all you know is that they''re surrounding you and are awaiting their turn as they hold their bare cocks out.'
 				gs 'gschool_events', 'rand_boy_arg1',3,4
 				gs 'boyStat', $static_num, '4'
@@ -1012,7 +1012,7 @@ if $ARGS[0] = 'slut':
 				act 'Keep doing it':
 					*clr & cla
 					gs 'stat'
-					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/newyear/sex/nyp_schoolblowbang2.jpg"></center>'
+					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/newyear/sex/snyblowbang2.jpg"></center>'
 					'Some of them grow tired of waiting and start slapping their cocks against your head and face as they await for your mouth or one of your hands to become available. By now you''re starting to feel fatigued as your mouth and hands are already getting tired.'
 					gs 'gschool_events', 'rand_boy_arg1',1,2
 					gs 'boyStat', $static_num, '6'
@@ -1026,7 +1026,7 @@ if $ARGS[0] = 'slut':
 					act 'Struggle through':
 						*clr & cla
 						gs 'stat'
-						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/newyear/sex/nyp_schoolblowbang3.jpg"></center>'
+						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/newyear/sex/snyblowbang3.jpg"></center>'
 						'Your jaw starts to ache from sucking so many cocks, but the guys aren''t easing up as they continue to pile on. You look at them pleadingly but they just turn away as they tell you that they won''t fall for your tricks as everyone knows that you''ve done this many times before.'
 						gs 'gschool_events', 'rand_boy_arg1',1,2,3,4
 						gs 'boyStat', $static_num
@@ -1035,7 +1035,7 @@ if $ARGS[0] = 'slut':
 						gs 'stat'
 						act 'Keep sucking':
 							*clr & cla
-							'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/newyear/sex/nyp_schoolcum.jpg"></center>'
+							'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/newyear/sex/snycum.jpg"></center>'
 							'Just as you''re about to break, you finally feel one of them twitch inside the mouth and cums in it. All of a sudden you feel another shoot his sperm onto your face and so begin the rest of them to cum. It''s like everyone waited for the first one to finish just so they wouldn''t last the least. By the time the last one finishes you have lost count of the number of mouth fulls of cum you swallowed and leaving your face completely covered in sperm.'
 							minut += 15
 							gs 'cum_call', 'mouth', $boy, 1
@@ -1068,7 +1068,7 @@ if $ARGS[0] = 'drink more':
 	gs 'stat'
 	if grupTipe = 5:
 		!!If Sveta is a outcast this should be the only option and the above options should not show up, if Sveta is a outcast. If Sveta is not a outcast then the go stand against the wall alone should not show up.
-		act 'Go stand against the wall alone.':gt 'nyp_school', 'outcast'
+		act 'Go stand against the wall alone':gt 'nyp_school', 'outcast'
 	else
 		act 'Drink some more':gt 'nyp_school', 'drink more'
 		act 'Hangout with the cool kids and jocks':gt 'nyp_school', 'cool jocks'

@@ -31,10 +31,7 @@ end
 if hour = 0 and $prevloc = 'HotelRoom':
 	if resepseen = 1:
 	hotresepQW = 3
-
-		*clr
-		cls
-		cla
+		*clr & cla
 		observ_exp += 3
 		gs 'stat'
 		'You creep down to the lobby, and then around the corner, carefully, you sneak a glimpse.'
@@ -50,9 +47,7 @@ if hour = 0 and $prevloc = 'HotelRoom':
 		'"Oh Mister Leonidovich," she says pouting like a little girl, "I am so sorry, I have been bad daddy."'
 		'At that moment you figure out they are just playing a game and being caught flashing was all part of their weird little role play.'
 		act 'Continue':
-
-			*clr
-			cls
+			*clr & cla
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/sex/resep_event9.jpg"></center>'
 			 'She needs his foregiveness and kisses his mouth while he undresses her.'
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/sex/resep_event3.jpg"></center>'
@@ -64,9 +59,7 @@ if hour = 0 and $prevloc = 'HotelRoom':
 			 'All of a sudden, she moves the dick between her breasts and starts fucking it through the space between them.'
 			'"Miss Tanich, you should slow down, I don''t want to blow my load before I get to try that sweet little pussy of yours."'
 			act 'Continue':
-
-				*clr
-				cls
+				*clr & cla
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/sex/resep_event5.jpg"></center>'
 				'So Miss Tanich releases his cock and pushes him down on to the bench. And then she turns around, props herself up so her cunt rests on top of his cock and she slowly lowers her hips down as his cock spears her pussy.'
 				'She starts riding him furiously while he reaches his hands around her body and squeezes her juicy breasts.'
@@ -77,8 +70,7 @@ if hour = 0 and $prevloc = 'HotelRoom':
 				gs 'arousal', 'voyeur',60
 				gs 'arousal', 'end'
 				act 'Continue':
-					*clr
-					cls
+					*clr & cla
 					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/hotel/sex/resep_event7.jpg"></center>'
 					'"Ok, my turn now," the manager suddenly yelled.'
 					'It seems like the desk girl knew exactly what he meant by that since she dismounted him and placed herself on her hands and knees.'
@@ -89,7 +81,6 @@ if hour = 0 and $prevloc = 'HotelRoom':
 					'"Thank you Miss Tanich, I believe your monthly bonus is again very much deserved"'
 					'Miss Tanich just smiled at him while showing off her pussy and cum stained buttocks.'
 					'You have seen enough and quietly go back to your room'
-
 
 					act 'Continue':
 						if hotelroom = 1:gt'hotelroom','normal'
@@ -600,8 +591,9 @@ if $ARGS[0] = 'PregBDSM' :
 									abortionbirthdate = daystart
 									cycle = 4
 									unintendedabort = 1
-									RecovH = rand(7,70)
-									RecovH += pregchem
+									!! RecovH has a decay of 1.1/hour or ~ 27/day, the recovery period is ~2-3 weeks
+									RecovH = rand(375,575) 
+									pregchem = 0
 									knowpregloss = 2
 									thinkpreg = 0
 									knowpreg = 0

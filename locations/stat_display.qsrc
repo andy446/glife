@@ -510,10 +510,26 @@ if thinkpreg = 0 and knowpreg = 0 and cycle ! 6 and pillcon2 <= 30000 and succub
 		elseif daystart - lastmens > 84:
 			$stat_msg += '<BR><font color = #AB052A><b>You should consider the possibility of a pregnancy, since apparently you no longer have periods.</b></font>'
 		end
-	elseif abortionbirthdate ! 0 and daystart - abortionbirthdate <= 60:
-		$stat_msg += '<BR><font color = #705243><b>You are probably still in your recovery period. Nothing to worry about.</b></font>'
-	elseif abortionbirthdate ! 0 and daystart - abortionbirthdate > 60:
+	!!Recovery period after an abortion is ~14-21 days
+	elseif abortionbirthdate ! 0 and daystart - abortionbirthdate <= 13:
+		$stat_msg += '<BR><font color = #705243><b>You are still in your recovery period. Nothing to worry about.</b></font>'
+	elseif abortionbirthdate ! 0 and daystart - abortionbirthdate > 13 and daystart - abortionbirthdate <= 16:
+		$stat_msg += '<BR><font color = #705243><b>You are maybe still in your recovery period, but there could be a risk.</b></font>'	
+	elseif abortionbirthdate ! 0 and daystart - abortionbirthdate > 16 and daystart - abortionbirthdate <= 21:
+		$stat_msg += '<BR><font color = #820000><b>You should have recovered from you abortion by know... Right?</b></font>'
+	elseif abortionbirthdate ! 0 and daystart - abortionbirthdate > 21:
+		$stat_msg += '<BR><font color = #820000><b>You should have definitely recovered from your abortion by now.</b></font>'				
+	!!Recovery period after giving birth is ~42-70 days
+	elseif pregbirthdate ! 0 and daystart - pregbirthdate <= 41:
+		$stat_msg += '<BR><font color = #705243><b>You are still in your recovery period. Nothing to worry about.</b></font>'
+	elseif pregbirthdate ! 0 and daystart - pregbirthdate > 41 and daystart - pregbirthdate <= 48:
+		$stat_msg += '<BR><font color = #705243><b>You are probably still in your recovery period.</b></font>'
+	elseif pregbirthdate ! 0 and daystart - pregbirthdate > 48 and daystart - pregbirthdate <= 55:
+		$stat_msg += '<BR><font color = #705243><b>You are maybe still in your recovery period, but there could be a risk.</b></font>'	
+	elseif pregbirthdate ! 0 and daystart - pregbirthdate > 55 and daystart - pregbirthdate <= 70:
 		$stat_msg += '<BR><font color = #820000><b>You should have recovered by know... Right?</b></font>'
+	elseif pregbirthdate ! 0 and daystart - pregbirthdate > 70:
+		$stat_msg += '<BR><font color = #820000><b>You should have definitely recovered from giving birth by now.</b></font>'		
 	end
 end
 if implant_day > 0:

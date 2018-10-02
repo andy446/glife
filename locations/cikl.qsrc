@@ -133,6 +133,11 @@ if i <= 147:jump 'loopprice'
 
 if coatH[defaultcoat] <= 0: defaultcoat = 0
 
+!! Abortion and pregnancy recovery resets if finished
+
+if abortionbirthdate ! 0 and daystart - abortionbirthdate > 24: abortionbirthdate = 0
+if pregbirthdate ! 0 and daystart - pregbirthdate > 73: pregbirthdate = 0
+
 !!------------------------------------------------------------------------------------------------------------
 !!	Bimbo
 !!------------------------------------------------------------------------------------------------------------

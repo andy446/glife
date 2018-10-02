@@ -134,7 +134,8 @@ if mira = 0:
 			end
 		end
 	end
-	if stanok > 0:'Your razor will last for <b><<stanok>></b> more shavings. <a href="exec:gs ''din_van'', ''shave_options''">Shave Options</a>. There''s a small shaving <a href="exec:gt ''mirror'', ''start''">mirror</a> resting on the window sill, where you can ' + iif(pcs_hairbsh = 0,'<a href="exec:GT ''mirror'',''brush''">brush</a>','brush') + ' your hair.'
+	if stanok > 0:'Your razor will last for <b><<stanok>></b> more shavings. <a href="exec:gs ''din_van'', ''shave_options''">Shave Options</a>.'
+	'There''s a small shaving <a href="exec:gt ''mirror'', ''start''">mirror</a> resting on the window sill, which you can use to ' + iif(pcs_hairbsh = 0,'<a href="exec:GT ''mirror'',''brush''">brush</a>','brush') + ' your hair.'
 
 	!WD: heal chafe
 	if mosolmaz>0:'On a shelf is a tube of ointment for chafing, which will be enough for <b><<mosolmaz>></b> applications.'
@@ -174,26 +175,6 @@ if mira = 0:
 
 	dynamic $brit
 
-	if dirtyclothes = 1 and $loc = 'Gadbana':
-		act 'Wash your clothes (1:00)':
-			cla
-			*clr
-			minut += 60
-			dirtyclothes = 0
-			pcs_mood -= 10
-			cumspclnt = 6 & gs 'cum_cleanup'
-			gs 'stat'
-			if $clothingworntype = 'nude':
-				'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/basinwash.jpg"></center>'
-			else
-				'<center><img <<$set_imgh>> src="images/locations/gadukino/village/washclothes1.jpg"></center>'
-				 'You undress and wash your dirty clothes.'
-			end
-			*nl
-			'You soak your muddy clothes and underwear in the basin and pour in washing powder, then you scrub them until they are finally clean.'
-			act 'Finish':gt $loc, $metka
-		end
-	end
 	if breastpump > 0 and bp_unbox >= 1:
 		act 'Use breast pump':
 			gt 'lact_lib', 'bp_milking'

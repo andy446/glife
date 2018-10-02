@@ -676,14 +676,6 @@ if cheatNoSweat = 0:
 	:statDswtEnd
 end
 
-if dirtyclothes = 1 and swamp_clothes = 0:
-	if pcs_sweat > 40:
-		$stat_msg +='<br><font color = red>You are <a href="exec:view''images/locations/gadukino/hunters/dirtyclothes1.jpg''">covered</a> from head to toe in the mud.</font><BR>'
-	else
-		$stat_msg +='<br><font color = red>Your <a href="exec:view''images/locations/gadukino/hunters/dirtyclothes2.jpg''">clothes</a> are dirty.</font><BR>'
-	end
-end
-
 if lactate <= 0 and prolactinlvl >= 100:
 	$stat_msg += '<BR>'+iif(night_mode > 0,'<font color = white>','<font color = black>')+'Your breasts feel weirdly engorged and sore.</font><BR>'
 end
@@ -1099,6 +1091,8 @@ elseif $pantyworntype = 'none' and $clothingworntype ! 'swimwear':
 		$stat_msg += '<BR><b><font color= #AB052A>You are not wearing panties, but you are dressed as a hooker, so that''s hardly surprising.</font></b>'
 	elseif PCloBimbo = 1 or bimbolevel > 0 and PCloSkirt > 3 and cheatBimbo = 0:
 		$stat_msg += '<BR><b><font color = #FF00FF>You like, totally forgot to put on any panties. You are such a bimbo.</font></b>'
+	elseif $clothingworntype = 'cheap' and clothingwornnumber = '414':
+		$stat_msg += '<BR><b><font color = "yellow">You are wearing an old hessian sack the hunters gave you.</font></b>'
 	elseif PCloSkirt > 3:
 		if pcs_inhib > 50:
 			$stat_msg += '<BR><b><font color=#0064FF>You feel liberated not wearing panties as your naked ass flashes from under your short skirt.</font></b>'
@@ -1122,8 +1116,9 @@ elseif $pantyworntype = 'none' and $clothingworntype ! 'swimwear':
 	end
 elseif PCloBimbo = 1 and cheatBimbo = 0:
 	$stat_msg += '<BR><b><font color = #FF00FF>You are dressed as a bimbo</font></b>'
+elseif $clothingworntype = 'cheap' and clothingwornnumber = '414':
+	$stat_msg += '<BR><b><font color = "yellow">You are wearing an old hessian sack the hunters gave you.</font></b>'
 end
-!$stat_msg += '<BR>'
 
 if mosol >= 50:
 	$stat_msg += '<BR><b><font color="red">Your pussy itches a great deal and is affecting your mood, you should use some cream or stop wearing pants without underwear.</font></b>'

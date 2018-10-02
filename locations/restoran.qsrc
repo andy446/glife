@@ -15,8 +15,9 @@ if $ARGS[0] = 'start':
 
 	if vladimirday = daystart and vladimirQW = 21 and hour = 20: gt 'qwmeet'
 
-	act 'Approach the maître d'' ': gt 'restoran', 'maitred'
 	act 'Leave the restaurant': minut += 5 & gt 'down'
+
+	act 'Approach the maître d'' ': gt 'restoran', 'maitred'
 end
 
 if $ARGS[0] = 'maitred':
@@ -108,7 +109,7 @@ if $ARGS[0] = 'comtable':
 	'<center><b><font color="maroon">Babel, Common Room</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/expensiverest/maitredseat.jpg"></center>'
 	'You are escorted to your seat by the maître d''. You sit and and prepare to order a wonderful meal in the busy restaurant.'
-	act 'See the menu': gs 'food_menu'
+	act 'Order from the menu (0:05)': gs 'food_menu'
 
 	act 'Get up from the table': gt 'restoran', 'zal'
 end
@@ -124,7 +125,7 @@ if $ARGS[0] = 'viptable':
 	'<center><b><font color="maroon">Babel, VIP room</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/expensiverest/chefrecommends.jpg"></center>'
 	'You sit and prepare to order a wonderful meal, recommended by the chef. You''ll be dining with pleasure in the peaceful and luxurious VIP Room.'
-	act 'See the menu': gs 'food_menu'
+	act 'Order from the menu (0:05)': gs 'food_menu'
 
 	act 'Get up from the table': gt 'restoran', 'vip'
 end

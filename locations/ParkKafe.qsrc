@@ -9,26 +9,25 @@ if $ARGS[0] = 'start':
 	menu_off = 0
 	$location_type = 'public_indoors'
 	'<center><B><font color=maroon>Park Cafe</font></B></center>'
-	*nl
 	'<center><img <<$set_imgh>> src="images/locations/city/centralpark/parkcafe.jpg"></center>'
+	*nl
 
-	act 'See the menu':gs 'food_menu'
+	act 'Leave the cafe': killvar 'pk_rand' & minut += 5 & gt 'park', 'start'
+
+	act 'Order from the menu (0:05)':pk_rand = rand(1, 7) & gs 'food_menu'
 	if money >= 350:
-		act 'Eat and run (0:20) (350 <b>₽</b>)':money -= 350 & gt 'food', 'f_food'
+		act 'Order take-out (0:20) (350 <b>₽</b>)':money -= 350 & gt 'food', 'f_food'
 	end
 	'Whilst sitting and eating in the summer cafe. You take a moment and enjoy the beautiful scenery.'
 
-	arand = rand(1, 7)
+	if pk_rand = 1:'You look around and notice the cafe visitors, strolling past is a <a href="exec:gt ''ParkKafe'', ''youth''">Youth</a>.'
+	if pk_rand = 2:'You look around and notice the cafe visitors, sitting alone is a young <a href="exec:gt ''ParkKafe'', ''the_boy''">Man</a>.'
+	if pk_rand = 3:'You are watching the world go by, when you see some <a href="exec:gt ''ParkKafe'', ''negros''">Africans</a>.'
+	if pk_rand = 4:'You are watching the world go by, when you see a <a href="exec:gt ''ParkKafe'', ''woman''">woman</a> looking imperious.'
+	if pk_rand = 5:'You look around and notice the cafe visitors, you see a solid older <a href="exec:gt ''ParkKafe'', ''man''">man</a>.'
+	if pk_rand = 6:'You are watching the cafe visitors and notice two <a href="exec:gt ''ParkKafe'', ''Armenians''">Armenians</a> sitting at a table.'
+	if pk_rand = 7:'You are watching the cafe visitors and notice two <a href="exec:gt ''ParkKafe'', ''guys''">sporty guys</a> sitting at a table and drinking beer.'
 
-	if arand = 1:'You look around and notice the cafe visitors, strolling past is a <a href="exec:gt ''ParkKafe'', ''youth''">Youth</a>.'
-	if arand = 2:'You look around and notice the cafe visitors, sitting alone is a young <a href="exec:gt ''ParkKafe'', ''the_boy''">Man</a>.'
-	if arand = 3:'You are watching the world go by, when you see some <a href="exec:gt ''ParkKafe'', ''negros''">Africans</a>.'
-	if arand = 4:'You are watching the world go by, when you see a <a href="exec:gt ''ParkKafe'', ''woman''">woman</a> looking imperious.'
-	if arand = 5:'You look around and notice the cafe visitors, you see a solid older <a href="exec:gt ''ParkKafe'', ''man''">man</a>.'
-	if arand = 6:'You are watching the cafe visitors and notice two <a href="exec:gt ''ParkKafe'', ''Armenians''">Armenians</a> sitting at a table.'
-	if arand = 7:'You are watching the cafe visitors and notice two <a href="exec:gt ''ParkKafe'', ''guys''">sporty guys</a> sitting at a table and drinking beer.'
-
-	act 'Leave': minut += 5 & gt 'park', 'start'
 end
 
 if $ARGS[0] = 'guys':

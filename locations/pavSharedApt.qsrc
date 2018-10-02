@@ -846,37 +846,8 @@ if $ARGS[0] = 'pcsRoom':
 	dynamic $wearpan
 	dynamic $removepan
 	!gs 'subkid'
-	if pcs_sleep <= 80:
-		if $clothingworntype = 'nude':
-			$sleep_txt = 'Go to sleep'
-		else
-			$sleep_txt = 'Undress and go to sleep'
-		end
-		if succubusQW = 2:
-			act '<<$sleep_txt>>':
-				if $clothingworntype ! 'nude': gs 'clothing', 'strip'
-				gt 'bed2', 'succhoice'
-			end
-		else
-			act '<<$sleep_txt>>':
-				if disable_autosave = 0:
-					if StoryLine = 0:
-						savegame 'autosave.sav'
-					else
-						savegame 'autosave_alt.sav'
-					end
-				end
-				if $clothingworntype ! 'nude': gs 'clothing', 'strip'
-				if magf2bdo = 2:
-					gt 'bed2', 'magbstchoice'
-				else
-					gt 'bed2', 'sleep'
-				end
-			end
-			killvar '$sleep_txt'
-		end
-	end
-end
+
+	act 'Relax on your bed': gt 'bed', 'start'
 
 if $ARGS[0] = 'sofabed':
 	$menu_loc = 'pavSharedApt'

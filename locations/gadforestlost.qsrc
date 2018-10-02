@@ -16,7 +16,6 @@ if $ARGS[0] = 'forestrescue':
 
 	minut += 150
 	lost_girl = 0
-	dirtyclothes = 0
 	forest_lostday = 0
 	hanters = 0
 	gs 'clothing', 'swamp_clothes', 0
@@ -39,11 +38,11 @@ if $ARGS[0] = 'forestrescue':
 
 	'You get ready quickly and follow the forest ranger out of the woods.'
 
-	if $clothingworntype ! 'nude':
+	if $clothingworntype ! 'nude' or swamp_clothes = 0:
 		'You can''t wait to get back to your grandparents house and have a bath and a nice hot meal.'
 
 		act 'To your grandparents house':gt'Gadhouse'
-	elseif $clothingworntype = 'nude':
+	elseif $clothingworntype = 'nude' or swamp_clothes = 1:
 		'The ranger looks you up and down and you feel like he is about to ask you something but he decides against it.'
 		'You remember you left your clothes by the edge of the woods and ask the ranger to take you there instead.'
 
@@ -257,9 +256,8 @@ if $ARGS[0] = 'gadforestlostfinish':
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gadjoy.jpg"></center>'
 	'You look over and realize that you finally see lights shining from distant houses, glad to get out of this alive you rush forward.'
 
-	!clear lost flags by illume, clear dirtyclothes flag by rachels
+	!clear lost flags by illume
 	lost_girl = 0
-	dirtyclothes = 0
 	forest_lostday = 0
 	hanters = 0
 	gs 'clothing', 'swamp_clothes', 0

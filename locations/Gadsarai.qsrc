@@ -323,7 +323,7 @@ if $ARGS[0] = '':
 			*clr & cla
 			minut += 15
 			gs 'stat'
-			if vcard = 0:
+			if vcard = 0 and vcard_trash = 0:
 				*clr & cla
 				if RAND(0,5) >= 4:
 					gs 'stat'
@@ -409,7 +409,10 @@ if $ARGS[0] = '':
 		end
 
 		if vcard > 0:
-			act 'Take card from the vintage deck of erotic cards':card_deck = 0 & gt 'card'
+			act 'Look at your deck of vintage porn cards':card_deck = 0 & gt 'card'
+		end
+		if card > 0:
+			act 'Look at your deck of new porn cards':card_deck = 1 & gt 'card'
 		end
 
 		if pcs_horny >= 50:

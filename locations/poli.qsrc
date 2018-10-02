@@ -145,8 +145,8 @@ if $ARGS[0] = 'start':
 			thinkpreg = 0
 			knowpreg = 0
 			cycle = 4
-			RecovH = rand(7,70)
-			RecovH += pregchem
+			!! RecovH has a decay of 1.1/hour or ~ 27/day, the recovery period is ~2-3 weeks
+			RecovH = rand(375,575) 
 			pregchem = 0
 			knowpregloss = 2
 			abortrand = rand(0, 10)
@@ -199,7 +199,6 @@ if $ARGS[0] = 'start':
 		act 'Give birth':
 			*clr & cla
 			menu_off = 1
-			cnt = 0
 			if kid > 0:minut += rand(300,660) else minut += rand(120,480)
 			'<center><img <<$set_imgh>> src="images/locations/shared/clinic/birthing.jpg"></center>'
 			'You lay on the bed and your feet are put in stirrups.'
@@ -209,7 +208,6 @@ if $ARGS[0] = 'start':
 				sterilewb += 1
 				nextbaby = arrpos('$kidname', 'unborn')
 				kid += 1
-				cnt += 1
 				BabyEmbryo -= 1
 				daykid[nextbaby] = day
 				monthkid[nextbaby] = month
@@ -226,15 +224,16 @@ if $ARGS[0] = 'start':
 				end
 			if BabyEmbryo > 0:'You do not have much time to stare at your <<$polreb[nextbaby]>>, because you are having an another contraction. Your next baby is coming!' & jump 'multikidloop'
 			preg = 0
-			RecovH = rand(7*cnt,70)
-			abortionbirthdate = daystart
+			!! RecovH has a decay of 1.1/hour or ~ 27/day, the recovery period is ~6-10 weeks
+			RecovH = rand(1175,1875)
+			pregbirthdate = daystart
 			thinkpreg = 0
 			knowpreg = 0
 			knowpregrecover = 1
 			vidage += 1
 			pregtalk = 0
+			pregchem = 0
 			cycle = 4
-			killvar 'cnt'
 			gs 'cum_cleanup', 'reset'
 			dynamic $d_cycreport_choice
 			gs 'stat'

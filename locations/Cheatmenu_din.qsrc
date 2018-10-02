@@ -1473,8 +1473,9 @@ $cheatmenu['remove_preg'] = {
 	thinkpreg = 0
 	knowpreg = 0
 	cycle = 4
-	RecovH = rand(7,70)
-	RecovH += pregchem
+	!! RecovH has a decay of 1.1/hour or ~ 27/day, the recovery period is 1 week
+	RecovH = 189 
+	pregchem = 0	
 	knowpregloss = 2
 	!! I am not sure, why is it here this cycle, but I leave it so (rachels)
 	nextbaby = arrsize('yearkid')

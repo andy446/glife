@@ -18,6 +18,8 @@ if $ARGS[0] = 'main':
 	'Opening hours: 14:00 to 04:00'
 	*nl
 
+	act 'Leave the cafe':minut += 2 & gt 'nord'
+
 	if hour >= 14 or hour < 4:
 		if npc_Qstlvl['A89'] = 0:
 			if barrnd = 1:'Behind the bar you see a smiling <a href="exec:gt ''lakecafe'', ''barmensha''">barmaid</a>, who is currently polishing some glasses.'
@@ -60,17 +62,15 @@ if $ARGS[0] = 'main':
 
 		'The diner has a single <a href="exec:gt ''laketoilet'', ''main''">toilet</a> available, for both males and females.'
 
-		act 'See the menu':gs 'food_menu'
+		act 'Order from the menu (0:05)':gs 'food_menu'
 		if money >= 350:
-			act 'Eat and run (0:20) (350 <b>₽</b>)':money -= 350 & gt 'food', 'f_food'
+			act 'Order take-out (0:20) (350 <b>₽</b>)':money -= 350 & gt 'food', 'f_food'
 		end
 	end
 
 	if LCwork2 >= 1 and LCwork2day ! daystart and hour = 18:
-		act 'Offer to help out the kitchen (1:30)':gt 'LCwork', 'Kitchen'
+		act 'Help out the kitchen (1:30)':gt 'LCwork', 'Kitchen'
 	end
-
-	act 'Leave':minut += 2 & gt 'nord'
 end
 
 if $ARGS[0] = 'barmensha':
@@ -103,6 +103,8 @@ if $ARGS[0] = 'barmensha':
 	elseif npc_Qstlvl['A89'] = 1:
 		'Eugene smiles as she sees you approach the bar, and says cheerfully: "Hi, <<$pcs_nickname>>! What''s up?"'
 	end
+
+	act 'Leave Eugene so she can work':gt 'lakecafe', 'main'
 
 	if hour >= 14 or hour < 4:
 		if npc_Qstlvl['A89'] = 0:
@@ -328,8 +330,6 @@ if $ARGS[0] = 'barmensha':
 			end
 		end
 	end
-
-	act 'Leave Eugene so she can work':gt 'lakecafe', 'main'
 
 	if npc_horny['A89'] > 50:
 		'Eugene smiles at you, with a glimmer in her eye.'

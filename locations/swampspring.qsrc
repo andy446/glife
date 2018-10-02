@@ -1,8 +1,11 @@
 # swampspring
 
-$location_type = 'secluded'
-$metka = ''
 $loc = 'swampspring'
+$metka = ''
+$menu_loc = 'swamp_yard'
+$menu_arg = ''
+menu_off = 0
+$location_type = 'secluded'
 
 gs 'gadukino_event', 'sound'
 gs 'stat'
@@ -22,9 +25,10 @@ else
 		'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/swampspring_winter_night.jpg"></center>'
 	end
 end
-
+*nl
 'You''ve come across a natural spring with pure natural water.'
 
+act 'Go back to the hut':minut += 5 & gt 'swamp_yard'
 
 if pcs_hydra < 150:
 	act 'Drink the water':
@@ -56,7 +60,6 @@ if bucket < 10:
 		act 'Finish':gt 'swampspring'
 	end
 end
-act 'Leave':minut += 5 & gt 'swamp_yard'
 
 --- swampspring ---------------------------------
 

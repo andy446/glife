@@ -1516,7 +1516,11 @@ if $ARGS[0] = 'holodilnik':
 			pcs_mood += 20
 			fat += 2
 			pcs_energy += 50
-			water += 40
+			if pcs_hydra >= 100:
+				pcs_hydra += 20
+			else
+				pcs_hydra += 40
+			end
 			cumspclnt = 2
 			gs 'cum_cleanup'
 			pcs_breath = 0

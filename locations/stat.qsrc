@@ -569,7 +569,6 @@ if minut >= 60:
 	end
 
 	! vovan edition, from 1.2.5
-	if clearclothes > 0: clearclothes -= 1
 	if hantersAndreisex > 0: hantersAndreisex -= 1
 	if hantersSergeisex > 0: hantersSergeisex -= 1
 	if hantersIgorsex > 0: hantersIgorsex -= 1

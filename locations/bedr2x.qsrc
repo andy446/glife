@@ -17,10 +17,19 @@ elektro = elektro + 1
 gs'stat'
 gs 'themes', 'indoors'
 '<center><img <<$set_imgh>> src="images/locations/city/residential/apartment/bedr2.jpg"></center>'
+*nl
 if pcs_magik >= 6 and spellbefshild = 1 and tobiQW = 0:gt'tobiQW','start'
-'Bright and beautiful bedroom, with modern and stylish furniture. The room is dominated by <a href="exec:GT ''bed'',''start''">full sized bed</a> with an <a href="exec:gt ''budilnik'', ''start''">alarm clock</a>.'
-'Near the entrance stands a modern <a href="exec:gt ''wardrobe'', ''start''">wardrobe</a> (where you can choose outfits and organize your clothing). Against the wall is a table with a <a href="exec:GT ''mirror'',''start''">mirror</a> above it.'
-if komp = 1:'On the bedside table is your <a href="exec:GT ''Komp'',''start''">laptop</a>.'
+'A bright and beautiful bedroom, with modern and stylish furniture.'
+*nl
+'The room is dominated by <a href="exec:GT ''bed'',''start''">full sized bed</a>'
+'There is an <a href="exec:gt ''budilnik'', ''start''">alarm clock</a> on the bedside table.'
+*nl
+'Near the entrance stands a modern <a href="exec:gt ''wardrobe'', ''start''">wardrobe</a>.'
+*nl
+'Against the wall is a table with a <a href="exec:GT ''mirror'',''start''">mirror</a> above it.'
+*nl
+if komp = 1:'On the other bedside table is your <a href="exec:GT ''Komp'',''start''">laptop</a>.'
+*nl
 if husbandrinkday = daystart:
 	if husbanstrapon = 1:'Your husband is still passed out drunk, after you used a anal plug on him.'
 	if husbanstrapon = 2:'Your husband is still passed out drunk, after you stuck a dildo in his ass.'
@@ -216,6 +225,8 @@ end
 
 gs 'events', 'read_porn'
 gs 'subkid'
+
+act 'Relax on your bed': gt 'bed', 'start'
 
 --- bedr2x ---------------------------------
 

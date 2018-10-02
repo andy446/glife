@@ -1,16 +1,18 @@
 # bedrPar
+
 CLOSE ALL
-$metka = ''
 $loc = 'bedrPar'
+$metka = ''
 $location_type = 'private'
 $locclass = 'bedr'
 $menu_loc = 'bedrPar'
 $menu_arg = ''
 menu_off = 0
-clr
+*clr & cla
 minut += 1
 gs 'stat'
 gs 'themes', 'indoors'
+
 if saveparQW = 2:
 	cls
 	'As soon as you enter the room you rush over to <<$namepopu2>>''s  cage and pour the contents of the vial in to his water bowl.'
@@ -62,7 +64,7 @@ end
 *nl
 'This is the small bedroom you share with your sister, Anya. On one side of the room is a <a href="exec:gt ''wardrobe'', ''start''">wardrobe</a> where you can choose outfits and organise your clothing.'
 *nl
-'Your <a href="exec:gt ''bed2''">bed</a> stands opposite the wardrobe, and your <a href="exec:gt ''stol'' ,''stolPar''">desk</a> is next to it. Your sister''s bed is in the other corner.'
+'Your <a href="exec:gt ''bed'', ''start''">bed</a> stands opposite the wardrobe, and your <a href="exec:gt ''stol'' ,''stolPar''">desk</a> is next to it. Your sister''s bed is in the other corner.'
 *nl
 if popugai2 = 1:
 	'<a href="exec:GT ''popu'',''start2''"><<$namepopu2>></a> is sitting in his cage'
@@ -242,36 +244,9 @@ elseif kid >= 1 and breastpump = 1 and bp_unbox = 1 and pcs_inbition > 30:
 end
 gs 'lact_lib', 'massage'
 
-if pcs_sleep <= 80:
-	if $clothingworntype = 'nude':
-		$sleep_txt = 'Go to sleep'
-	else
-		$sleep_txt = 'Undress and go to sleep'
-	end
-	if succubusQW = 2:
-		act '<<$sleep_txt>>':
-			if $clothingworntype ! 'nude': gs 'clothing', 'strip'
-			gt 'bed2', 'succhoice'
-		end
-	else
-		act '<<$sleep_txt>>':
-			if disable_autosave = 0:
-				if StoryLine = 0:
-					savegame 'autosave.sav'
-				else
-					savegame 'autosave_alt.sav'
-				end
-			end
-			if $clothingworntype ! 'nude': gs 'clothing', 'strip'
-			if magf2bdo = 2:
-				gt 'bed2', 'magbstchoice'
-			else
-				gt 'bed2', 'sleep'
-			end
-		end
-		killvar '$sleep_txt'
-	end
-end
+
+act 'Relax on your bed': gt 'bed', 'start'
+
 
 if $ARGS[0] = 'intro':
 	cla & *clr

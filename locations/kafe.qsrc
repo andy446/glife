@@ -17,15 +17,14 @@ if $ARGS[0] = 'start':
 	'Sitting at one end of the bar, you see <a href="exec:gt ''kafe'', ''vlad''">the owner</a> of the diner, busy with paperwork.'
 	*nl
 	'They serve American style meals'
+
+	act 'Leave the diner': minut += 5 & gt 'street'
+
 	if QWdogReiq = 3 and week = 7 and hour >= 12:
-		act 'Sit down at the table and wait for Margaret':gt 'kafe2', 'margo'
+		act 'Sit down and wait for Margaret':gt 'kafe2', 'margo'
 	end
 
-	!!act 'Agree':gt 'cafe3', 'wc'
-
 	act 'Sit down at a table': gt 'kafe', 'table'
-
-	act 'Leave': minut += 5 & gt 'street'
 end
 
 if $ARGS[0] = 'table':
@@ -43,14 +42,15 @@ if $ARGS[0] = 'table':
 	'Sitting at one end of the bar, you see <a href="exec:gt ''kafe'', ''vlad''">the owner</a> of the diner, busy with paperwork.'
 	*nl
 	'They serve American style meals'
-	act 'See the menu':gs 'food_menu'
+
+	act 'Get up from the table':gt 'kafe', 'start'
+
+	act 'Order from the menu (0:05)':gs 'food_menu'
 	if rand(1, 10) > 5:
 		gs 'boy'
 		'A man comes over to your table <<$boybody>> <<$boybod>> <<$boyface>> introducing himself as <<$boydesc>>.'
 		xgt 'kafe', 'razvod'
 	end
-
-	act 'Get up from the table':gt 'kafe', 'start'
 end
 
 if $ARGS[0] = 'vlad':
@@ -851,43 +851,45 @@ if $ARGS[0] = 'razvod':
 	menu_off = 0
 	$location_type = 'event'
 	cla
-	!!*clr
-	!!act 'Get up from the table':gt 'kafe', 'start'
+	act 'Get up from the table':gt 'kafe', 'start'
+
+	act 'Order from the menu (0:05)':gs 'food_menu'
+
 	deyst = rand(0, 3)
 	if deyst = 0:
 		'<<$boydesc>> invites you to dance.'
-		act 'Dance':gt 'cafe2', 'dance'
+		act 'Dance with him':gt 'cafe2', 'dance'
 		if pcs_horny < 75:
 			act 'Leave': minut += 5 & gt 'street'
 		end
 	elseif deyst = 1:
 		'<<$boydesc>> asks permission to sit down at the same table as you.'
-		act 'Drink':gt 'cafe2', 'booze'
+		act 'Drink with him':gt 'cafe2', 'booze'
 		if pcs_horny < 75:
 			act 'Leave': minut += 5 & gt 'street'
 		end
 	elseif deyst = 2:
 		'<<$boydesc>> invites you to a nearby party which he is going to.'
-		act 'Agree':gt 'cafe2', 'kompashka'
+		act 'Agree to party':gt 'cafe2', 'kompashka'
 		if pcs_horny < 75:
 			act 'Leave': minut += 5 & gt 'street'
 		end
 	elseif deyst = 3:
 		'<<$boydesc>> is incredibly drunk and you feel tipsy just from the smell of booze on him. "Hey baby, got some spare time? Come have fun in the outhouse."'
-		act 'Agree':gt 'cafe3', 'toilet'
+		act 'Meet in bathroom':gt 'cafe3', 'toilet'
 		if pcs_horny < 95:
 			act 'Leave':
 				cla
 				if rand(0, 400) < pcs_apprnc:
 					'"Come on, baby, I will give you two thousand <b>₽</b>. Daddy wants to have fun."'
-					act 'Agree':
+					act 'Meet in bathroom':
 						money += 2000
 						gt 'cafe3', 'toilet'
 					end
 				else
 					'"Well, okay, get out of here, you are ugly anyway."'
 				end
-				act 'Fuck you': minut += 5 & gt 'street'
+				act 'Tell him to fuck off': minut += 5 & gt 'street'
 			end
 		end
 	end

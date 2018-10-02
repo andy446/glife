@@ -132,7 +132,6 @@ if $ARGS[0] = 'forest':
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/village/findvel.jpg"></center>'
 
 	act 'Bike to the village (0:25)':
-		dirtyclothes = 0
 		gs 'clothing', 'swamp_clothes', 0
 		if $clothingworntype ! 'nude' or pcs_inhib > 50:
 			cls
@@ -182,7 +181,6 @@ if $ARGS[0] = 'swamp':
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/village/findvel.jpg"></center>'
 
 	act 'Bike to the village (1:15)':
-		dirtyclothes = 0
 		gs 'clothing', 'swamp_clothes', 0
 		if $clothingworntype ! 'nude' or pcs_inhib > 50:
 			cls

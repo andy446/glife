@@ -831,6 +831,7 @@ end
 
 if $ARGS[0] = 'swamp_clothes':
 	if ARGS[1] = 1:
+	!hessian clothing to owned, sets size and equipped.
 		cheap[414] = 1
 		cheapS[414] = 0
 		cheapH[414] = 100
@@ -839,6 +840,7 @@ if $ARGS[0] = 'swamp_clothes':
 		gs 'clothing', 'wear', 'cheap', 414
 	end
 	if ARGS[1] = 0:
+	!hessian clothing no longer owned, but not unequipped.
 		cheap[414] = 0
 		swamp_clothes = 0
 	end

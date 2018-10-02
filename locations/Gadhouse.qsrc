@@ -134,9 +134,9 @@ if $ARGS[0] = 'Main':
 	gs 'stat'
 	'<center><H4>Your Grandparents'' Cottage</H4></center>'
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/village/izba.jpg"></center>'
-	'A fairly simple cottage in the village of Gadukino which your grandparents call home. In the main room there is a huge <a href="exec:gt ''wardrobe'', ''start''">wardrobe</a> (where you can choose outfits and organize your clothing), and a <a href="exec:gad = 1 & gt ''bed2''">bed</a> where you can rest. The bed is more comfortable than it looks.'
+	'A fairly simple cottage in the village of Gadukino which your grandparents call home. In the main room there is a huge <a href="exec:gt ''wardrobe'', ''start''">wardrobe</a> (where you can choose outfits and organize your clothing), and a <a href="exec:gad = 1 & gt ''bed'', ''start''">bed</a> where you can rest. The bed is more comfortable than it looks.'
 	'There is an old <a href="exec:gt ''TV'',''gad''">television</a> in the living room. It''s positioned next to a body length <a href="exec:gt ''mirror'', ''start''">mirror</a>.'
-	'You can check your weight on your grandma''s old mechanical <a href="exec:msg ''<center>Your weight is <<pcs_weight>> kg<br>Your body mass index (BMI) is <<bmi_calc>>. <<$bmi_desc>></center>''">scales</a>.'
+	'You can check your weight on your grandma''s old mechanical <a href="exec:msg ''<center>Your weight is <<pcs_weight>> kg<br>Your body mass index (BMI) is <<bmi_calc>>.<br><<$bmi_desc>></center>''">scales</a>.'
 
 	if hour < 8:
 		temp = RAND(0,9)
@@ -195,10 +195,10 @@ if $ARGS[0] = 'Main':
 	end
 
 	act 'Go outside':
-		if $clothingworntype ! 'nude':
+		if $clothingworntype ! 'nude' and swamp_clothes = 0:
 			minut += 1 & gt 'Gaddvor'
-		else
-			msg'<b><font color = red>You can''t leave the house naked! You need to get dressed first.</font></b>'
+		elseif $clothingworntype = 'nude' or swamp_clothes = 1:
+			msg'<b><font color = red>You can''t leave the like this! You need to put some clothes on first.</font></b>'
 			gt 'Gadhouse', 'Main'
 		end
 	end
@@ -388,6 +388,7 @@ if $ARGS[0] = 'Main':
 	end
 
 	if rand (0,2) ! 0:gs 'din_bad' & dynamic $mobile_check
+	act 'Relax on your bed': gt 'bed', 'start'
 end
 
 if $ARGS[0]='grandma':

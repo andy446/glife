@@ -66,9 +66,9 @@ if $ARGS[0] = 'lobby':
 	*nl
 	'Alongside the windows are tables, each for about four to six people.'
 	nroad = 20
-	act 'Hotel bar': gt 'brothel', 'bar'
-	act 'Lobby bathroom': gt 'brothel', 'lobby:toilet'
-	act 'Leave':gt 'road'
+	act 'Leave the hotel':gt 'road'
+	act 'Visit the Hotel bar': gt 'brothel', 'bar'
+	act 'Visit the bathroom': gt 'brothel', 'lobby:toilet'
 end
 
 if $ARGS[0] = 'lobby:toilet':
@@ -87,7 +87,7 @@ if $ARGS[0] = 'lobby:toilet':
 	'<center><img <<$set_imgh>> src="images/locations/shared/brothel/hoteltoilet.jpg"></center>'
 	*nl
 
-	act 'Leave':gt 'brothel', 'lobby'
+	act 'Return to the lobby':gt 'brothel', 'lobby'
 
 	act 'Look into the mirror': gt 'mirror', 'start'
 	if pcs_hairbsh = 0: act 'Brush your hair': gt 'mirror', 'brush'
@@ -123,9 +123,9 @@ if $ARGS[0] = 'bar':
 		*nl
 		'<font color=#<<$red_font>>>You are wasted. Lying your head on the bar, barely keeping awake. The barman starts to be nervous, probably afraid of scaring away the regular guests.</font>'
 	end
+	act 'Leave the bar':gt 'brothel', 'lobby'
 	act 'Order something':gt 'brothel', 'bar:order'
 	act 'Just sit here':gt 'brothel', 'bar:sit'
-	act 'Leave the bar':gt 'brothel', 'lobby'
 end
 
 if $ARGS[0] = 'bar:sit':
@@ -184,8 +184,8 @@ if $ARGS[0] = 'bar:order':
 		! if hotelWhore = 1:
 			! act 'Order a Blue-blooded Russian.':gt 'brothel','bar:order:password'
 		! end
-		act 'See the menu': gs 'food_menu'
-		act 'Return':gt 'brothel', 'bar'
+		act 'Cancel order':gt 'brothel', 'bar'
+		act 'Order from the menu (0:05)': gs 'food_menu'
 	end
 end
 

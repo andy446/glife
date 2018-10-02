@@ -15,7 +15,7 @@ goswamp = 1
 gs 'gadukino_event', 'sound'
 gs 'stat'
 
-cls
+*clr * cla
 
 '<center><H4>Swamp</H4></center>'
 
@@ -32,12 +32,15 @@ else
 		'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/swamp_winter_night.jpg"></center>'
 	end
 end
-
+*nl
 'You are in the swamp area of the forest.'
-'It is considered dangerous to hike here day unless extremely physically fit and should be avoided at night no matter what.'
-'But you can find a lot of mushrooms and berries here.'
-
+'It is considered dangerous to hike in this area, unless physically fit, and should always be avoided at night.'
+*nl
+'You can find a lot of mushrooms and berries here.'
+*nl
 'There''s a small visible path to a clearing that leads to <a href="exec: gt ''swamp_yard'' ">the hut</a>, used by the hunters.'
+*nl
+act 'Go to the hut': gt 'swamp_yard'
 
 if hour >= 6 and hour <= 21 and month >= 6 and month <= 9:
 	act 'Walk into the forest':gs 'clothing', 'swamp_clothes', 0 & minut += 30 & gt 'gadforest','4'

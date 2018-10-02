@@ -18,15 +18,15 @@ if $ARGS[0] = 'start':
 
 	if BistroBoss > 0:'<a href="exec:gt ''burger'', ''boss''">The Office of the Director</a> Anatoly Borisovich'
 
-	act 'Leave':
+	act 'Leave the diner':
 		cla
 		minut += 1
 		gt 'down'
 	end
 
-	act 'See the menu':gs 'food_menu'
+	act 'Order from the menu (0:05)':gs 'food_menu'
 	if money >= 315:
-		act 'Eat and run (0:20) (315 <b>₽</b>)':money -= 315 & gt 'food', 'f_food'
+		act 'Order take-out (0:20) (315<b>₽</b>)':money -= 315 & gt 'food', 'f_food'
 	end
 
 	if IvanPodstavaQW = 2:

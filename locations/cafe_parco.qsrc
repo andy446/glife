@@ -11,9 +11,9 @@ if $args[0]= 'start':
 	'The newly opened cafe "Del Parco", with its striking facade, there are lots of tables and a summer terrace. Opening hours between 14.00 to 21.00.'
 
 	if hour >= 14 and hour < 21:
-		act 'Enter': gt 'cafe_parco', 'inner'
+		act 'Enter the cafe': gt 'cafe_parco', 'inner'
 	end
-	act 'Go back to the square': gt 'gskver', 'start'
+	act 'Return to the square': gt 'gskver', 'start'
 end
 
 if $args[0]= 'inner':
@@ -24,12 +24,12 @@ if $args[0]= 'inner':
 	$loc = 'cafe_parco'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/park/cafe/caffe_del_parco_in.jpg"></center>'
 
-	act 'See the menu':gs 'food_menu'
-	if money >= 350:
-		act 'Eat and run (0:20) (350 <b>₽</b>)':money -= 350 & gt 'food', 'f_food'
-	end
+	act 'Exit the cafe': gt 'gskver', 'start'
 
-	act 'Go back outside': gt 'gskver', 'start'
+	act 'Order from the menu (0:05)':gs 'food_menu'
+	if money >= 350:
+		act 'Order take-out (0:20) (350 <b>₽</b>)':money -= 350 & gt 'food', 'f_food'
+	end
 
 	gs 'family'
 

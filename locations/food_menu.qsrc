@@ -4,8 +4,12 @@ food_loc = 1
 gs 'themes', 'food_menu'
 
 *clr & cla
-act 'Back':killvar 'food_loc' & gt $loc, $metka
-
+act 'Return':
+	killvar 'food_loc'
+	minut += 5
+	gs 'stat'
+	gt $loc, $metka
+end
 killvar '$_drink'
 killvar '$_eat'
 if $loc = 'burger':
@@ -52,7 +56,7 @@ if $loc = 'gkafe':
 	'<center><b><font color="maroon">Borislav''s cafe</font></b></center>'
 	*nl
 	'<center><img <<$set_imgh>> src="images/shared/drinks/cafedrinks.jpg"</center><br>'
-	if storyline > 0 and SchoolBlock = 0:
+	if home_owned[2] = 1 or SchoolBlock = 0:
 		$_eat['0,name'] = 'Vegetarian Piroshki'
 		$_eat['0,type'] = 'pirosh'
 		$_eat['0,price'] = 'Free'

@@ -79,7 +79,6 @@ $mobile_check = {
 	killvar 'lover_number'
 }
 
-
 $d_salf = {
 	*clr & cla
 	'<center><h1>Tissues</h1></center>'
@@ -687,60 +686,57 @@ $d_cycreport_update = {
 
 
 $d_cycreport_upduedate = {
-	temp = (280 + daylastperiod) - daystart
+	!! Ovulation is ~7d after menstruation
+	!! Implantation takes several days: Average is 5
+	!! Human gastation period: 280 days
+	!! ovu_calc: Days since last ovulation
+	ovu_calc = daystart - lastmens + 7 + 5
+	temp = 280 - ovu_calc
 	pregdueday = day
 	pregduemonth = month
 	pregdueyear = year
+	
+	temp += pregdueday
+	pregdueday = 0
+	
 	:pregduedateloop
-	if pregduemonth = 1 and temp > 31 - pregdueday:
+	if pregduemonth = 1 and temp > 31:
 		pregduemonth += 1
-		temp -= 31 - pregdueday
-		pregdueday = 0
-	elseif pregduemonth = 2 and temp > 28 - pregdueday:
+		temp -= 31
+	elseif pregduemonth = 2 and temp > 28:
 		pregduemonth += 1
-		temp -= 28 - pregdueday
-		pregdueday = 0
-	elseif pregduemonth = 3 and temp > 31 - pregdueday:
+		temp -= 28
+	elseif pregduemonth = 3 and temp > 31:
 		pregduemonth += 1
-		temp -= 31 - pregdueday
-		pregdueday = 0
-	elseif pregduemonth = 4 and temp > 30 - pregdueday:
+		temp -= 31
+	elseif pregduemonth = 4 and temp > 30:
 		pregduemonth += 1
-		temp -= 30 - pregdueday
-		pregdueday = 0
-	elseif pregduemonth = 5 and temp > 31 - pregdueday:
+		temp -= 30
+	elseif pregduemonth = 5 and temp > 31:
 		pregduemonth += 1
-		temp -= 31 - pregdueday
-		pregdueday = 0
-	elseif pregduemonth = 6 and temp > 30 - pregdueday:
+		temp -= 31
+	elseif pregduemonth = 6 and temp > 30:
 		pregduemonth += 1
-		temp -= 30 - pregdueday
-		pregdueday = 0
-	elseif pregduemonth = 7 and temp > 31 - pregdueday:
+		temp -= 30
+	elseif pregduemonth = 7 and temp > 31:
 		pregduemonth += 1
-		temp -= 31 - pregdueday
-		pregdueday = 0
-	elseif pregduemonth = 8 and temp > 31 - pregdueday:
+		temp -= 31
+	elseif pregduemonth = 8 and temp > 31:
 		pregduemonth += 1
-		temp -= 31 - pregdueday
-		pregdueday = 0
-	elseif pregduemonth = 9 and temp > 30 - pregdueday:
+		temp -= 31
+	elseif pregduemonth = 9 and temp > 30:
 		pregduemonth += 1
-		temp -= 30 - pregdueday
-		pregdueday = 0
-	elseif pregduemonth = 10 and temp > 31 - pregdueday:
+		temp -= 30
+	elseif pregduemonth = 10 and temp > 31:
 		pregduemonth += 1
-		temp -= 31 - pregdueday
-		pregdueday = 0
-	elseif pregduemonth = 11 and temp > 30 - pregdueday:
+		temp -= 31
+	elseif pregduemonth = 11 and temp > 30:
 		pregduemonth += 1
-		temp -= 30 - pregdueday
-		pregdueday = 0
-	elseif pregduemonth = 12 and temp > 31 - pregdueday:
+		temp -= 30
+	elseif pregduemonth = 12 and temp > 31:
 		pregduemonth = 1
 		pregdueyear += 1
-		temp -= 31 - pregdueday
-		pregdueday = 0
+		temp -= 31
 	else
 		pregdueday = temp
 		temp = 0

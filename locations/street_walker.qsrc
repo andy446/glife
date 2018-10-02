@@ -1,9 +1,6 @@
 # street_walker
 
 if $ARGS[0] = 'start':
-	$menu_loc = 'street_walker'
-	$menu_arg = 'work'
-	menu_off = 0
 	if prst_loc = 0:
 		if sound = 0:
 			if month >=11 and month <= 12 or month >=1 and month <=3:
@@ -30,7 +27,7 @@ if $ARGS[0] = 'start':
 		end
 		gs 'stat'
 		'<center><h2>St. Petersburg</h2></center>'
-		'<center><b>City center</b></center>'
+		'<center><b>Red Light District</b></center>'
 		if month >= 11 or month <= 3:
 			'<center><img <<$set_imgh>> src="images/locations/city/industrial/industwn.jpg"></center>'
 		else
@@ -58,6 +55,9 @@ if $ARGS[0] = 'start':
 end
 
 if $ARGS[0] = 'work':
+	$menu_loc = 'street_walker'
+	$menu_arg = 'work'
+	menu_off = 0
 	if $loc = 'down':
 		prst_loc = 0
 	elseif $loc = 'Nord':
@@ -221,20 +221,39 @@ if $ARGS[0] = 'event1':
 			'You smile to him. "That depends on what you want to do." You take a little time listening to his wants and telling him the price before he decides.'
 			!!it should be 50/50 is the first one, than 50/50 the second or last
 			if RAND(0,1) = 0:
-				'He decides he wants a blowjob. With that and the price decided you get into the car.'
-				act 'continue': gt 'street_walker', 'blowjob'
+				'He decides he wants a blowjob.'
+				act 'Accept':
+					cla
+					*nl
+					'With that and the price decided you get into the car.'
+					act 'Continue': gt 'street_walker', 'blowjob'
+				end
+				act 'Decline': gt 'street_walker', 'work'
 			elseif RAND(0,1) = 0:
-				'He decides he wants a fuck. With that and the price decided you get into the car.'
-				act 'continue': gt 'street_walker', 'vaginal'
+				'He decides he wants a fuck.'
+				act 'Accept':
+					cla
+					*nl
+					'With that and the price decided you get into the car.'
+					act 'Continue': gt 'street_walker', 'vaginal'
+				end
+				act 'Decline': gt 'street_walker', 'work'
 			else
-				'He decides he wants a anal. With that and the price decided you get into the car.'
-				act 'continue': gt 'street_walker', 'anal'
+				'He decides he wants a anal.'
+				act 'Accept':
+					cla
+					*nl
+					'With that and the price decided you get into the car.'
+					act 'Continue': gt 'street_walker', 'anal'
+				end
+				act 'Decline': gt 'street_walker', 'work'
 			end
 		end
 	else
 		*clr & cla
 		minut += 15
 		city_prostitute += 1
+		gs 'stat'
 		if month >= 11 or month <= 3:
 			'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/workingw1.jpg"></center>'
 		else
@@ -512,6 +531,7 @@ if $ARGS[0] = 'policeblowjob':
 	else
 		prst_bribe = 1
 		*nl
+		'<center><img <<$set_imgh>> src="images/locations/shared/police/arrested.jpg"></center>'
 		'"What is wrong with you girl? Are you trying to solicitate a member of the law?" the police office angrily responds.'
 		'"N-No officer. I was just thinking the two of us could have a good time..." you try once again, maybe he misunderstood you.'
 		'"That''s it! You''re coming with me, whore!" he turns you around, cuffs you and leads you to the police car. He shoves you in the back and quickly drives off towards the police station.'
@@ -546,7 +566,7 @@ if $ARGS[0] = 'policelie':
 
 			act 'Walk away':gt 'street_walker', 'work'
 		else
-			'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/arrest.jpg"></center>'
+			'<center><img <<$set_imgh>> src="images/locations/shared/police/arrested.jpg"></center>'
 			*nl
 			'"The only way you''re going to learn is if you''re punished," he shakes his head in disgust. "Turn around, hands behind your back." In a matter of seconds, you''re cuffed and being tossed into the back seat of an unmarked police car. You sit in silence as he drives you back to the police station for booking.'
 
@@ -581,7 +601,7 @@ if $ARGS[0] = 'policeexp':
 
 			act 'Walk away':gt 'street_walker', 'work'
 		else
-			'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/arrest.jpg"></center>'
+			'<center><img <<$set_imgh>> src="images/locations/shared/police/arrested.jpg"></center>'
 			*nl
 			'"Save it for someone that cares, whore!" Without hesitation, he has you spun around, your arm twisted behind your back as he reaches for his handcuffs. Your crying only gets louder as he drags you to his unmarked police car and shoves you into the back. On the drive back to the station, he gets tired of hearing you and turns on the radio, drowning you out completely.'
 
@@ -589,8 +609,6 @@ if $ARGS[0] = 'policeexp':
 		end
 	end
 end
-
-
 
 if $ARGS[0] = 'policebribe':
 	*clr & cla
@@ -604,8 +622,6 @@ if $ARGS[0] = 'policebribe':
 
 	act 'Wait for his reaction': gt 'street_walker', 'briberyreaction'
 end
-
-
 
 if $ARGS[0] = 'briberyreaction':
 	*clr & cla
@@ -632,7 +648,7 @@ if $ARGS[0] = 'briberyreaction':
 		prst_bribe = 2
 		gs 'pain', 6, 'armL', 'break'
 		gs 'stat'
-		'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/arrest.jpg"></center>'
+		'<center><img <<$set_imgh>> src="images/locations/shared/police/arrested.jpg"></center>'
 		*nl
 		'His lips turn up into a disgusted sneer. Before you can react, he slaps your hand away, the money exploding out into the air and onto the ground. "You think I can be paid off, whore?!" he snarls as you stand there holding your red and stinging hand. You knew there was a chance this could happen, but you didn''t expect him to get physical.'
 		*nl
@@ -644,7 +660,7 @@ if $ARGS[0] = 'briberyreaction':
 	elseif temp_rand <= 9:
 	!!elseif he takes the bribe but still arrests you
 		prst_bribe = 2
-		'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/arrest.jpg"></center>'
+		'<center><img <<$set_imgh>> src="images/locations/shared/police/arrested.jpg"></center>'
 		*nl
 		'The cop sighs heavily before taking the money. He takes a moment to count it, occasionally glancing your way as he does. "It''s one thing to be a whore, but to be dumb too?" he laughs cruelly as he pockets the money. You stare at him, hurt and confused before you realize that he''s still planning to arrest you. Your first instinct is to run, maybe he''s just trying to scare you and won''t chase after you, but if he''s being serious then it could mean you getting hurt.'
 		*nl
@@ -672,6 +688,7 @@ if $ARGS[0] = 'briberyreaction':
 			*clr & cla
 			prst_bribe = 2
 			gs 'stat'
+			'<center><img <<$set_imgh>> src="images/locations/shared/police/arrested.jpg"></center>'
 			'"No...no, I can''t do that..." You tell him as you pull your hand back and pocket your money again. The officer looks disappointed but doesn''t seem to dwell on it. He probably has another girl like you he''s forced into fucking him...'
 			'"Fine by me, slut. Hands behind your back," he orders and you comply. In a matter of seconds, you''re cuffed and in the back of his unmarked car being driven to the station to be booked.'
 
@@ -679,7 +696,6 @@ if $ARGS[0] = 'briberyreaction':
 		end
 	end
 end
-
 
 if $ARGS[0] = 'policesub1':
 	police_sub_counter += 1
@@ -715,7 +731,6 @@ if $ARGS[0] = 'policesub1':
 		act 'Run away':gt 'street_walker', 'work'
 	end
 end
-
 
 if $ARGS[0] = 'policesub2':
 	*clr & cla

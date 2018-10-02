@@ -83,6 +83,8 @@ if $ARGS[0] = 'start':
 		end
 	end
 
+	act 'Move away from the mirror':gt 'mirror','fin'
+	
 	! WD: Cheat Unused ~ 'AutoLipBalm'
 
 	!! Added the makeup setting.
@@ -197,8 +199,6 @@ if $ARGS[0] = 'start':
 		end
 	end
 	
-
-
 !	if (pcs_makeup <= 1 and kosmetica > 0) or (lipbalm > 0 and pcs_lipbalm <= 0 and pcs_hairbsh = 0):
 !		act 'Do the works': gt 'mirror', 'works'
 !	end
@@ -219,71 +219,63 @@ if $ARGS[0] = 'start':
 !		'Currently the level you have set is for thick make-up.'
 !	end
 
-if $routine1 ! '':
+	if $routine1 ! '':
+		'Make-up routine 1 is called ''<<$routine1custname>> ''and consists of : '
+		if mid($routine1,1,1) = 0:'No make-up'
+		if mid($routine1,1,1) = 1:'Light make-up'
+		if mid($routine1,1,1) = 2:'Vibrant make-up'
+		if mid($routine1,1,1) = 3:'Thick make-up'
+		if mid($routine1,2,1) = 0:'No Lipbalm'
+		if mid($routine1,2,1) = 1:'Lipbalm'
+		if mid($routine1,3,1) = 0:'No fake lashes'
+		if mid($routine1,3,1) = 1:'Normal fake lashes'
+		if mid($routine1,3,1) = 2:'Mink fake lashes'
+		''
+	end
 
-	'Make-up routine 1 is called ''<<$routine1custname>> ''and consists of : '
-	if mid($routine1,1,1) = 0:'No make-up'
-	if mid($routine1,1,1) = 1:'Light make-up'
-	if mid($routine1,1,1) = 2:'Vibrant make-up'
-	if mid($routine1,1,1) = 3:'Thick make-up'
-	if mid($routine1,2,1) = 0:'No Lipbalm'
-	if mid($routine1,2,1) = 1:'Lipbalm'
-	if mid($routine1,3,1) = 0:'No fake lashes'
-	if mid($routine1,3,1) = 1:'Normal fake lashes'
-	if mid($routine1,3,1) = 2:'Mink fake lashes'
-	''
-end
+	if $routine2 ! '':
+		'Make-up routine 2 is called ''<<$routine2custname>>'' and consists of : '
+		if mid($routine2,1,1) = 0:'No make-up'
+		if mid($routine2,1,1) = 1:'Light make-up'
+		if mid($routine2,1,1) = 2:'Vibrant make-up'
+		if mid($routine2,1,1) = 3:'Thick make-up'
+		if mid($routine2,2,1) = 0:'No Lipbalm'
+		if mid($routine2,2,1) = 1:'Lipbalm'
+		if mid($routine2,3,1) = 0:'No fake lashes'
+		if mid($routine2,3,1) = 1:'Normal fake lashes'
+		if mid($routine2,3,1) = 2:'Mink fake lashes'
+		''
+	end
 
-if $routine2 ! '':
+	if $routine3 ! '':
+		'Make-up routine 3 is called ''<<$routine3custname>>'' and consists of : '
+		if mid($routine3,1,1) = 0:'No make-up'
+		if mid($routine3,1,1) = 1:'Light make-up'
+		if mid($routine3,1,1) = 2:'Vibrant make-up'
+		if mid($routine3,1,1) = 3:'Thick make-up'
+		if mid($routine3,2,1) = 0:'No Lipbalm'
+		if mid($routine3,2,1) = 1:'Lipbalm'
+		if mid($routine3,3,1) = 0:'No fake lashes'
+		if mid($routine3,3,1) = 1:'Normal fake lashes'
+		if mid($routine3,3,1) = 2:'Mink fake lashes'
+		''
+	end
 
-	'Make-up routine 2 is called ''<<$routine2custname>>'' and consists of : '
-	if mid($routine2,1,1) = 0:'No make-up'
-	if mid($routine2,1,1) = 1:'Light make-up'
-	if mid($routine2,1,1) = 2:'Vibrant make-up'
-	if mid($routine2,1,1) = 3:'Thick make-up'
-	if mid($routine2,2,1) = 0:'No Lipbalm'
-	if mid($routine2,2,1) = 1:'Lipbalm'
-	if mid($routine2,3,1) = 0:'No fake lashes'
-	if mid($routine2,3,1) = 1:'Normal fake lashes'
-	if mid($routine2,3,1) = 2:'Mink fake lashes'
-	''
-end
-
-if $routine3 ! '':
-
-	'Make-up routine 3 is called ''<<$routine3custname>>'' and consists of : '
-	if mid($routine3,1,1) = 0:'No make-up'
-	if mid($routine3,1,1) = 1:'Light make-up'
-	if mid($routine3,1,1) = 2:'Vibrant make-up'
-	if mid($routine3,1,1) = 3:'Thick make-up'
-	if mid($routine3,2,1) = 0:'No Lipbalm'
-	if mid($routine3,2,1) = 1:'Lipbalm'
-	if mid($routine3,3,1) = 0:'No fake lashes'
-	if mid($routine3,3,1) = 1:'Normal fake lashes'
-	if mid($routine3,3,1) = 2:'Mink fake lashes'
-	''
-end
-
-if $routine4 ! '':
-
-	'Make-up routine 4 is called ''<<$routine4custname>>'' and consists of : '
-	if mid($routine4,1,1) = 0:'No make-up'
-	if mid($routine4,1,1) = 1:'Light make-up'
-	if mid($routine4,1,1) = 2:'Vibrant make-up'
-	if mid($routine4,1,1) = 3:'Thick make-up'
-	if mid($routine4,2,1) = 0:'No Lipbalm'
-	if mid($routine4,2,1) = 1:'Lipbalm'
-	if mid($routine4,3,1) = 0:'No fake lashes'
-	if mid($routine4,3,1) = 1:'Normal fake lashes'
-	if mid($routine4,3,1) = 2:'Mink fake lashes'
-	''
-end
-
-
-	gs 'stat'
-
-	act 'Move away from the mirror':gt 'mirror','fin'
+	if $routine4 ! '':
+		'Make-up routine 4 is called ''<<$routine4custname>>'' and consists of : '
+		if mid($routine4,1,1) = 0:'No make-up'
+		if mid($routine4,1,1) = 1:'Light make-up'
+		if mid($routine4,1,1) = 2:'Vibrant make-up'
+		if mid($routine4,1,1) = 3:'Thick make-up'
+		if mid($routine4,2,1) = 0:'No Lipbalm'
+		if mid($routine4,2,1) = 1:'Lipbalm'
+		if mid($routine4,3,1) = 0:'No fake lashes'
+		if mid($routine4,3,1) = 1:'Normal fake lashes'
+		if mid($routine4,3,1) = 2:'Mink fake lashes'
+		''
+	end
 	
+	gs 'stat'	
 end &! --- start ---
 
 
@@ -316,6 +308,8 @@ $createcustroutine = {
 	end	
 	
 	$routine = str(makeupSetting) + str(custlipbalm) + str(custlashes)
+	
+	act 'Exit':gt 'mirror','start'
 	
 	if $routine1 ! '':
 		act 'Remove <<$routine1custname>>':
@@ -385,7 +379,6 @@ $createcustroutine = {
 			'max 4 routines allowed, please remove one before adding a new one'
 		end
 	end
-	act 'exit':gt 'mirror','start'
 }
 
 

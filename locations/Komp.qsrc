@@ -250,7 +250,7 @@ if $ARGS[0] = 'znak':
 				haraklover[lover_number] = 0
 				'You find a guy named <<$loverdesc[lover_number]>>, and send him your number after checking out his profile. You hope he will call you!'
 
-				act 'Leave':gt 'Komp', 'brows'
+				act 'Leave this website':gt 'Komp', 'brows'
 			end
 
 			act 'Look for a normal guy':
@@ -260,7 +260,7 @@ if $ARGS[0] = 'znak':
 				haraklover[lover_number] = 1
 				'You find a guy named <<$loverdesc[lover_number]>>, and send him your number after checking out his profile. You hope he will call you!'
 
-				act 'Leave':gt 'Komp', 'brows'
+				act 'Leave this website':gt 'Komp', 'brows'
 			end
 
 			act 'Look for a strong man':

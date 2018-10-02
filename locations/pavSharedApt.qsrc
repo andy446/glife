@@ -848,7 +848,8 @@ if $ARGS[0] = 'pcsRoom':
 	!gs 'subkid'
 
 	act 'Relax on your bed': gt 'bed', 'start'
-
+end
+	
 if $ARGS[0] = 'sofabed':
 	$menu_loc = 'pavSharedApt'
 	$menu_arg = 'sofabed'

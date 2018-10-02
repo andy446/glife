@@ -133,9 +133,9 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 			act 'Get dressed':
 				cla
 				*clr
-				'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/swampdvornude1.jpg</center>'
+				'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/swampdvornude1.jpg"</center>'
 				*nl
-				'You put your clothes back on'
+				'You put your clothes back on.'
 				gs 'underwear', 'wear'
 				gs 'clothing', 'recover_lost_clothes', 'swamphouse', 1
 				gs 'stat'

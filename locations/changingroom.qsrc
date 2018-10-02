@@ -30,6 +30,8 @@ if $ARGS[0] = 'view_swim_list':
 		'<center>You cannot go swimming or sunbathing when the temperature below 15C, so there is no point in getting changed.</center>'
 	end
 
+	act 'Leave':gt $loc, $metka
+	
 	if $clothingworntype = 'swimwear':
 		act 'Put your regular clothes back on':
 			gs 'underwear', 'wear'
@@ -37,9 +39,6 @@ if $ARGS[0] = 'view_swim_list':
 			gt 'changingroom', 'view_swim_list'
 		end
 	end
-
-	act 'Leave':gt $loc, $metka
-
 end
 
 if $ARGS[0] = 'view_swim_item':
@@ -53,14 +52,13 @@ if $ARGS[0] = 'view_swim_item':
 	FUNC('$attributes_swimwear', $ARGS[1], ARGS[2])
 	FUNC('$clothing_name', $ARGS[1], ARGS[2])
 
-
 	$RESULT = '(strength '
 	dynamic '$RESULT += <<$ARGS[1]>>H[<<ARGS[2]>>]'
 	$RESULT += ')'
 	'<<$RESULT>>'
 
-
 	act 'Return':gt 'changingroom', 'view_swim_list'
+	
 	!! if the clothing is worn out
 	if dyneval('RESULT = <<$ARGS[1]>>H[<<ARGS[2]>>]') <= 0:
 		'This item is worn and is not suitable for further wear.'

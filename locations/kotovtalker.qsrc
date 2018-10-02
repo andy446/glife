@@ -2,7 +2,7 @@
 !!!!!!!!!!!!!!!!!
 !!!Vitek Cats!!!
 !!!!!!!!!!!!!!!!!
-if numnpc = 9 and pav_slut < 25 and kotovLoveQW >= 0 and (npc_rel[$static_num] >= 80 or hotcat >= 5):
+if numnpc = 9 and pav_slut < 100 and kotovLoveQW >= 0 and (npc_rel[$static_num] >= 80 or hotcat >= 5):
 	if $loc = 'gdkin':
 		if alko < 3:
 			'<<$npc_firstname[$static_num]>> "<<$pcs_nickname>> Hey, let''s get drunk and then do something dumb."'
@@ -89,7 +89,7 @@ if numnpc = 9 and pav_slut < 25 and kotovLoveQW >= 0 and (npc_rel[$static_num] >
 		'<<$npc_firstname[$static_num]>> "Hey <<$pcs_nickname>>, I''m busy. I''ll catch up with you later." He says as he turns back to talk to his friends.'
 		act 'Continue': gt 'gschool_lessons', 'short_break'
 	end
-elseif kotovLoveQW > 0 and pav_slut >= 25:
+elseif kotovLoveQW > 0 and pav_slut >= 100:
 	'Vitek scowled and tells you "Well <<$pcs_nickname>>, whats this garbage I hear about what you and <<$gnikname>> did? The whole town already knows, the guys have been telling me all about it. You fucking bitch! "'
 
 	act 'Accuse him of sleeping around':
@@ -107,8 +107,8 @@ elseif kotovLoveQW > 0 and pav_slut >= 25:
 		act 'Argue that it''s not true':
 			cls
 			sub += 20
-			if pav_sex > 25: pav_sex = 25
-			if pav_prostitute > 25: pav_prostitute = 25
+			if pav_sex > 100: pav_sex = 100
+			if pav_prostitute > 100: pav_prostitute = 100
 			gs 'stat'
 			'It takes a bit but you convince Vitek that all this was just gossip and none of it was true. Vitek frowned, "I''ll knock their teeth out if they whisper one more word about you then. Don''t worry, baby I will shut their yapping mouths."'
 
@@ -117,7 +117,7 @@ elseif kotovLoveQW > 0 and pav_slut >= 25:
 		end
 	end
 elseif $loc = 'gdkin':
-	if pav_slut < 50:
+	if pav_slut < 125:
 		'<<$npc_firstname[$static_num]>> "<<$pcs_nickname>> Hey, let''s get drunk and then do something dumb."'
 
 		act 'Refuse':npc_rel[$static_num] -= 5 & gt $loc, $metka
@@ -135,7 +135,7 @@ elseif $loc = 'gdkin':
 
 			act 'Move away':gt $loc, $metka
 		end
-	elseif pav_slut >= 50:
+	elseif pav_slut >= 125:
 		'<<$npc_firstname[$static_num]>> "Then what the fuck are you doing here cumwhore? Came to suck some dick?"'
 
 		act 'Leave':npc_rel[$static_num] -= 5 & gt $loc, $metka

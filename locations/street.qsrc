@@ -119,7 +119,7 @@ end
 
 if hour >= 5 and hour <= 23:'The <a href="exec:gt ''metro'', ''start''">Metro</a> Station is within a 5 minute walk from here.'
 if hour >= 8 and hour <= 20:'The <a href="exec: minut += 3 & gt ''shop'', ''start''">supermarket</a> is not far from here.'
-if hour >= 8 and hour <= 20:'The <a href="exec:gt ''poli'', ''start''">clinic</a> is also nearby.'
+if (hour >= 8 and hour <= 20) or preg = 2:'The <a href="exec:gt ''poli'', ''start''">clinic</a> is also nearby.'
 if hour >= 6 and hour <= 9 and military = 1 and week = 6:'There is a <a href="exec:minut += 60 & gt ''Military'', ''start''">military bus</a> waiting on the other side of the street.'
 if hour >= 8 and hour <= 14 and week ! 1:'You could go shopping at the noisy local <a href="exec: minut += 10 & gt ''rinok'', ''start''">marketplace</a>.'
 if hour >= 8 and hour <= 15 and week < 6:'Near the market is a <a href="exec: minut += 10 & gt ''rinok'', ''tailor''">tailor shop</a> where you can get your clothes resized if needed.'

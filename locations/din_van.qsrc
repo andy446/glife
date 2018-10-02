@@ -639,6 +639,7 @@ $pirPubic = {
 }
 
 $pirManage = {
+	cla
 	menu_off = 1
 	*nl
 	if pirsA > 0:
@@ -706,7 +707,7 @@ $pirManage = {
 		*nl
 	end
 
-	act'Back':menu_off = 0 & gt $loc, $metka
+	act 'Continue': menu_off = 0 & gt $loc, $metka
 }
 
 $enema = {
@@ -864,10 +865,10 @@ if $ARGS[0] = 'private':
 		'<a href="exec:dynamic $use_bcream & gt $loc, $metka">Apply breast cream.</a> Uses left: <<bcream_have>>.'
 	end
 
-	if pirsA + pirsB + pirsC + pirsD + pirsE + pirsF + pirsN + pirsG + pirsGL > 0:'<a href="exec:dynamic $pirManage">Manage Piercings.</a>'
+	if pirsA + pirsB + pirsC + pirsD + pirsE + pirsF + pirsN + pirsG + pirsGL > 0:'<a href="exec:dynamic $pirManage">Manage your piercings</a>'
 
-	if fillimplant = 1 and siliconeBag >= 1:'<a href="exec:cls & siliconeBag -= 1 & silicone += 10 & gt $loc, $metka">Inject silicone into breast implants.</a>'
-	if fillimplant = 1 and silicone >= 20:'<a href="exec:cls & silicone -= 10 & gt $loc, $metka">Drain silicone from breast implants.</a>'
+	if fillimplant = 1 and siliconeBag >= 1:'<a href="exec:cls & siliconeBag -= 1 & silicone += 10 & gt $loc, $metka">Inject silicone into your breast implants.</a>'
+	if fillimplant = 1 and silicone >= 20:'<a href="exec:cls & silicone -= 10 & gt $loc, $metka">Drain silicone from your breast implants.</a>'
 
 	dynamic $bteeth
 
@@ -1470,7 +1471,8 @@ if $ARGS[0] = 'shave_options':
 	*nl
 	'<center>Your current routine <<$shave_chosen>> <br><<$shave_time>></center>'
 	'</table></center>'
-
+	
+	act 'Return':menu_off = 0 & gt $loc, $metka
 	act 'Set image height for this view':
 		shave_img_hgt = input("Enter height in pixels you want for images on this page<br>(default 100, min 50, max 500)")
 		if shave_img_hgt < 50:
@@ -1480,7 +1482,6 @@ if $ARGS[0] = 'shave_options':
 		end
 		gt 'din_van', 'shave_options'
 	end
-	act 'Return':menu_off = 0 & gt $loc, $metka
 end
 
 --- din_van ---------------------------------

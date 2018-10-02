@@ -9,27 +9,27 @@
 !MiraLoc = 4 (Mira at field)
 !MiraLoc = 5 (Mira with gop)
 !---------------------------------------------
-	
+
 if $ARGS[0] = '1':
 	*clr & cla
 	! figure out if Sveta came from Mira code or not. events play out differently whether with Mira or not
 	PC_arrive = iif($loc ! 'Miroslava', 1 , 0)
 
 	! edge of forest
-	$loc = 'gadforest'	
+	$loc = 'gadforest'
 	$metka = '1'
 	$location_type = 'secluded'
-	
+
 	$menu_loc = 'gadforest'
 	$menu_arg = '1'
 	menu_off = 0
-	
+
 	clothesAtLocation = FUNC('lost_clothes_here',$CURLOC)
 	gs 'gadukino_event', 'sound'
 	gs'stat'
-	
+
 	*clr & cla
-	
+
 	! Add to knowledge of forest
 	if goforest < 20:goforest += rand(0,1)
 	! chance to get lost
@@ -58,13 +58,13 @@ if $ARGS[0] = '1':
 			'You are at the edge of the forest. Night in the forest during wintertime is very scary and uncomfortable.'
 		end
 	end
-	
+
 	if forestpicnic = 1:'On the edge of the forest you see people. Apparently they are having a family <a href="exec:gt ''gadforest_event'',''picnic''">picnic</a>.'
 	if MiraLoc = 3:'Nearby is <a href="exec: gt ''Miroslava'' ">Mira</a>.'
 	if clothesAtLocation = 1:'Your clothes are nearby on the ground.'
 	if findvel = 2:'Leaning up against a tree is your old <a href="exec:gt ''bicycle'',''forest''">bike</a>.'
 	if goforest < 10:'You don''t know this part of the forest very well, it''s best if you don''t go any deeper into the woods.'
-	
+
 	! Sveta arrive without Mira events
 	if PC_arrive = 1:
 		if temper >= 15 and sunWeather = 1 and hour>=6 and hour<=20 and miratalkforest = 1:gt 'gadforest_event', 'nude_event'
@@ -92,7 +92,7 @@ if $ARGS[0] = '1':
 				gs 'clothing', 'strip', 'gadforest'
 				gs 'exhibitionism', 3
 				gs 'stat'
-				
+
 				'You don''t hesitate and quickly get undressed, your clothes are left laying in a pile.'
 
 				act'Continue':gt'gadforest','1'
@@ -106,7 +106,7 @@ if $ARGS[0] = '1':
 			end
 		end
 	end
-	
+
 	if clothesAtLocation = 1 and $clothingworntype = 'nude':
 		act 'Get dressed':
 			cla
@@ -122,7 +122,7 @@ if $ARGS[0] = '1':
 			act 'Back': gt 'gadforest','1'
 		end
 	end
-	
+
 	! if Sveta left the forest without retrieving her clothes
 	if clothesAtLocation = 1 and $clothingworntype ! 'nude':
 		if $clothingworntype = 'cheap' and clothingwornnumber = 414:
@@ -151,7 +151,7 @@ if $ARGS[0] = '1':
 			end
 		end
 	end
-	
+
 	if hour >= 6 and hour <= 20 and sunWeather = 1:
 		act 'Go for a walk in the woods':
 			cla
@@ -186,11 +186,11 @@ if $ARGS[0] = '1':
 					'You walk with Mira through the snowy woods, enjoying the sounds of the forest and the fresh air.'
 				end
 			end
-			
+
 			act 'Continue':gt 'gadforest','1'
 		end
 	end
-	
+
 	if hour >= 6 and hour <= 20 and month >= 6 and month <= 9 and boletus + bilberry < 10 and edge_forestday ! daystart:
 		act 'Look for mushrooms and berries':
 			cla
@@ -200,7 +200,7 @@ if $ARGS[0] = '1':
 			edge_forestday = daystart
 			if goforest < 20:goforest += rand(0,1)
 			gs 'stat'
-			
+
 			! no mushroom pickers or mushroom pickers moved deeper into the forest
 			if mushroom_pickers = 0 or mushroom_pickers = 2:
 				cla
@@ -238,14 +238,14 @@ if $ARGS[0] = '1':
 			act 'Continue':gt 'gadforest','1'
 		end
  	end
- 	
+
 	if hour >= 6 and hour <= 20 and month >= 6 and month <= 9 and MiraLoc ! 3:
 		act 'Go further into the forest':
 			if goforest >= lostrand:minut += 30 & gt 'gadforest','2'
 			if goforest < lostrand:gt 'gadforest', 'gadforestloststart'
 	 	end
 	end
-	
+
 	if goswamp = 1 and MiraLoc ! 3:
 		! day time chance to get stuck in swamp. ps. use bike to get there 100% of the time by illume
 		if hour >= 6 and hour < 20:
@@ -262,13 +262,10 @@ if $ARGS[0] = '1':
 			act 'Go to the swamp':gt 'gadforest_event', 'swamp_road'
 		end
 	end
-	
+
 	act 'Leave the woods':
-		dirtyclothes = 0
-		gs 'clothing', 'swamp_clothes', 0
-		gs 'stat'
-		if $clothingworntype = 'nude':
-			if $CloLosTyp[$CURLOC] = '' or gadforest_clothestorn = 1:
+		if $clothingworntype = 'nude' or swamp_clothes = 1:
+			if ($CloLosTyp[$CURLOC] = '' or gadforest_clothestorn = 1) swamp_clothes = 0:
 				! no clothes here, they must be ripped apart enough times in the woods or swamp to get destroyed.
 				! This may be a good exhibition or rape event entry point
 				inhib_exp += rand(0,2)
@@ -276,12 +273,16 @@ if $ARGS[0] = '1':
 				'You sneak out the woods, hiding your naked body in the shadows and moving toward grandparents house.'
 				'You successfully reach home without anyone noticing.'
 				cla
+				minut += 30
+				gs 'stat'
 				act 'Go home':gt'Gadhouse'
 			else
-				'<B>You should get dressed before leaving the woods.</B>'
+				'<B>You should pick up your clothes and get dressed before leaving the woods.</B>'
 			end
 		else
-			minut += 30 & gt'gadroad'
+			minut += 30
+			gs 'stat'
+			gt 'gadroad'
 		end
 	end
 	if rand(1,10)> 9: gs 'gadforest', 'torncloth'
@@ -291,17 +292,17 @@ end
 if $ARGS[0] = '2':
 	*clr & cla
 	! slightly inside forest
-	$loc = 'gadforest'	
+	$loc = 'gadforest'
 	$metka = '2'
 	$location_type = 'secluded'
-	
+
 	$menu_loc = 'gadforest'
 	$menu_arg = '2'
 	menu_off = 0
-	
+
 	gs 'gadukino_event', 'sound'
 	gs'stat'
-	
+
 	! Add to knowledge of forest
 	if goforest < 40:goforest += rand(0,1)
 	! Determine where Sveta got lost in the forest
@@ -311,7 +312,7 @@ if $ARGS[0] = '2':
 	foresteventrand = rand(1,10)
 	new_boletus = 0
 	new_bilberry = 0
-	
+
 	'<center><H4>Forest</H4></center>'
 	if month >= 4 and month <= 10:
 		if hour >= 6 and hour < 22:
@@ -388,7 +389,7 @@ if $ARGS[0] = '2':
 			act 'Continue':gt 'gadforest','2'
 		end
 	end
-	
+
 	if hour >= 6 and hour <= 20 and month >= 6 and month <= 9:
 		act 'Go further into the forest':
 			if goforest >= lostrand:minut += 30 & gt 'gadforest','3'
@@ -401,17 +402,17 @@ end
 if $ARGS[0] = '3':
 	*clr & cla
 	! deep inside forest
-	$loc = 'gadforest'	
+	$loc = 'gadforest'
 	$metka = '3'
 	$location_type = 'secluded'
-	
+
 	$menu_loc = 'gadforest'
 	$menu_arg = '3'
 	menu_off = 0
-	
+
 	gs 'gadukino_event', 'sound'
 	gs'stat'
-	
+
 	! Add to knowledge of forest
 	if goforest < 60:goforest += rand(0,1)
 	lost = 3
@@ -421,7 +422,7 @@ if $ARGS[0] = '3':
 	foresteventrand = rand(1,10)
 	new_boletus = 0
 	new_bilberry = 0
-	
+
 	'<center><H4>Deep Forest</H4></center>'
 	if month >= 4 and month <= 10:
 		if hour >= 6 and hour < 22:
@@ -452,7 +453,7 @@ if $ARGS[0] = '3':
 		if goforest >= lostrand:minut += 30 & gt 'gadforest','2'
 		if goforest < lostrand:gt 'gadforest', 'gadforestloststart'
 	end
-	
+
 	if hour >= 6 and hour <= 20 and month >= 6 and month <= 9 and boletus + bilberry < 10 and thicketday ! daystart:
 
 	act 'Look for mushrooms and berries':
@@ -472,7 +473,7 @@ if $ARGS[0] = '3':
 			act 'Continue':gt 'gadforest','3'
 		end
 	end
-	
+
 	if hour >= 6 and hour <= 20 and month >= 6 and month <= 9:
 
 		act 'Go further into the forest':
@@ -486,17 +487,17 @@ end
 if $ARGS[0] = '4':
 	*clr & cla
 	! forest near swamp
-	$loc = 'gadforest'	
+	$loc = 'gadforest'
 	$metka = '4'
 	$location_type = 'secluded'
-	
+
 	$menu_loc = 'gadforest'
 	$menu_arg = '4'
 	menu_off = 0
-	
+
 	gs 'gadukino_event', 'sound'
 	gs'stat'
-	
+
 	! Add to knowledge of forest
 	if goforest < 80:goforest += rand(0,1)
 	lost = 4
@@ -507,7 +508,7 @@ if $ARGS[0] = '4':
 	dirty = 0
 	new_boletus = 0
 	new_bilberry = 0
-	
+
 	'<center><H4>Forest near the Swamp</H4></center>'
 	if month >= 4 and month <= 10:
 		if hour >= 6 and hour < 22:
@@ -557,7 +558,7 @@ if $ARGS[0] = '4':
 			act 'Continue':gt 'gadforest','4'
 		end
 	end
-	
+
 	act 'Go further into the swamp':
 		if goforest >= lostrand and goswamp = 1:minut += 30 & gt 'swamp'
 		if goforest >= lostrand and goswamp = 0:minut += 30 & gt 'gadforestswamp','1'

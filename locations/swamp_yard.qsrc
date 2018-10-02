@@ -55,7 +55,6 @@ end
 'The yard in front of the hut.'
 'Behind the hut there is a <a href="exec: gt ''swampspring'' ">spring</a>, if you continue a little further down there is a small <a href="exec: gt ''backwater'' ">creek</a> with relatively clean water.'
 if findvel = 3:'On the side of the hut is an old <a href="exec:gt ''bicycle'',''swamp''">bike</a>.'
-if clearclothes > 0 and clearclothesH = 0: 'You can dry your clothes in the meadow.'
 if hanters > 0 and hantersKnow = 0:'You spot some unfamiliar <a href="exec: gt ''hanters'', ''start'' ">people</a> standing in front of the hut.'
 if hanters > 0 and hantersKnow > 0 and hour >= 8 and hour < 20:'You notice the <a href="exec: gt ''hanters'', ''start'' ">hunters</a> standing in the front yard.'
 
@@ -148,7 +147,7 @@ if hanterhelp = 2 and hantersKnow = 0:
 			'"I''m Andrei," replied the older man, "and these are my friends, from the city, Igor and Sergei."'
 			'"Is your lastname possibly <<$pcs_lastname>>?" he asked. You look at him and nodded approvingly.'
 			'"Don''t be afraid <<$pcs_nickname>>, you look a lot like your mother when she was younger. I... Hmmm... that''s good to know, I''m also from Gadukino." said Andrei.'
-			if pcs_sweat > 0 or dirtyclothes = 1:
+			if pcs_sweat > 0:
 				'"Go on, take a bath and wash your clothes, they''re quite dirty," Andrei continued.'
 				'"Where?"'
 				'"Well, it''s still warm outside, so you can wash up in the creek, just follow the path behind the hut, you can''t miss it. Or if you want use the basin over there, collect the water from the spring and heat it on the oven." said Andrei.'
@@ -161,7 +160,7 @@ if hanterhelp = 2 and hantersKnow = 0:
 			'You look at him feeling a bit uncomfortable.'
 			'"Don''t be afraid, I''m also from Gadukino, you look just like your mother when she was younger, and I see you''re also been blessed with good looks." he said.'
 			'"I''m Andrei," he says, adding "and these are my friends, from the city, Igor and Sergei.'
-			if pcs_sweat > 3 or dirtyclothes = 1:
+			if pcs_sweat > 3:
 				hantersKnowSlut = 1
 				hantersRape = 1
 				'"Go and take a bath and wash your clothes, you''re dirty as hell... and you look disgusting..." said Andrei. "Go on now, while we think what to do with you.'
@@ -383,7 +382,7 @@ if hour >= 8 and hour < 20:
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/swampdvornude.jpg"></center>'
 			'Seeing some men in the yard, you try to cover up your private parts...'
 
-			if FUNC('lost_clothes_here','swamphouse') = 1 and clearclothes = 0 and $lastwornclothingtype ! 'nude':
+			if FUNC('lost_clothes_here','swamphouse') = 1 and $lastwornclothingtype ! 'nude':
 				act'Get dressed':
 					*clr & cla
 					minut += 5
@@ -1018,10 +1017,7 @@ if StoryLine = 1 and lost_girl > 0 and daystart > lost_girl:
 	minut += 150
 	lost_girl = 0
 	forest_lostday = 0
-	dirtyclothes = 0
 	hanters = 0
-	gs 'clothing', 'swamp_clothes', 0
-	gs 'clothing', 'recover_lost_clothes', 'swamphouse', 1
 	gs 'stat'
 
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/forester.jpg"></center>'

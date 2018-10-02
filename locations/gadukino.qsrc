@@ -172,7 +172,7 @@ if $ARGS[0] = '':
 			act 'Go Hunting (this can take a lot of time)': suchunt = 1 & gt 'gadukino', 'succubus_hunt'
 		end
 
-		act 'Go to the highway':minut += 30 & nroad = 10 & dirtyclothes = 0 & gt 'road'
+		act 'Go to the highway':minut += 30 & nroad = 10 & gt 'road'
 	end
 end
 

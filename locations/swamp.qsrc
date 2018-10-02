@@ -15,7 +15,7 @@ goswamp = 1
 gs 'gadukino_event', 'sound'
 gs 'stat'
 
-*clr * cla
+*clr & cla
 
 '<center><H4>Swamp</H4></center>'
 

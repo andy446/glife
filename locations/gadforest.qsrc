@@ -265,7 +265,7 @@ if $ARGS[0] = '1':
 
 	act 'Leave the woods':
 		if $clothingworntype = 'nude' or swamp_clothes = 1:
-			if ($CloLosTyp[$CURLOC] = '' or gadforest_clothestorn = 1) swamp_clothes = 0:
+			if ($CloLosTyp[$CURLOC] = '' or gadforest_clothestorn = 1) and swamp_clothes = 0:
 				! no clothes here, they must be ripped apart enough times in the woods or swamp to get destroyed.
 				! This may be a good exhibition or rape event entry point
 				inhib_exp += rand(0,2)

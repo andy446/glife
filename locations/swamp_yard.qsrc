@@ -1,8 +1,11 @@
 # swamp_yard
 
-$location_type = 'secluded'
-$metka = ''
 $loc = 'swamp_yard'
+$metka = ''
+$menu_loc = 'swamp_yard'
+$menu_arg = ''
+menu_off = 0
+$location_type = 'secluded'
 
 gs 'gadukino_event', 'sound'
 gs 'stat'

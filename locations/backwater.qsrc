@@ -1,8 +1,11 @@
 # backwater
 
 $location_type = 'secluded'
-$metka = ''
 $loc = 'backwater'
+$metka = ''
+$menu_loc = 'backwater'
+$menu_arg = ''
+menu_off = 0
 gs 'gadukino_event', 'sound'
 cls
 gs'stat'
@@ -25,8 +28,10 @@ else
 		'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/backwater_winter_night.jpg"></center>'
 	end
 end
+*nl
 
 'A small creek with relatively clean water. If the weather is warm you can clean yourself up. Also, if your clothes are dirty you can wash them here.'
+*nl
 if clothesAtLocation = 1:'Your clothes lie on the shore.'
 
 if $clothingworntype = 'nude':
@@ -47,65 +52,90 @@ if $clothingworntype = 'nude':
 		else
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/backwaterswim1.jpg"></center>'
 		end
+			*nl
 		'You washed yourself in the creek.'
 
-		act 'Further':gt 'backwater'
-	end
-	if arrsize('sparrvol') > 0:
-		act 'Wash off sperm':
-			cla
-			*clr
-			dynamic $showerdin
-			lubonus = 0
-			pcs_sweat -= 1
-			minut += 10
-			if hantersRape = 1: hantersRape = 2
-			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/backwaterswim1.jpg"></center>'
-			'You carefully wash off the sperm in the creek.'
-			act 'Further':gt 'backwater'
-		end
-	end
-else
-	if (cumloc[6] = 1 or cumloc[7] = 1):
-		act 'Clean the sperm off your clothes':
-			cla
-			cumspclnt = 6 & gs 'cum_cleanup'
-			minut += 5
-			if hantersRape = 1: hantersRape = 2
-			gs'stat'
-			'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/cumwash.jpg"></center>'
-			'You clean the cum stains off your clothes.'
-				act 'Finish':gt 'backwater'
-		end
+		act 'Finish':gt 'backwater'
 	end
 end
-
-if temper >= 10:
-	act 'Wash your face':
+if cumloc[11] = 1 or cumloc[12] = 1:
+	act 'Clean the sperm from your face (0:10)':
 		cla
 		*clr
-		minut += 5
 		pcs_makeup = 1
 		cumspclnt = 9
-		face_write = 0
-		gs 'cum_cleanup'
-		cumspclnt = 11
 		gs 'cum_cleanup'
 		cumspclnt = 13
 		gs 'cum_cleanup'
 		if pcs_sweat > 19 : pcs_sweat -= 5
+		minut += 10
+		if hantersRape = 1: hantersRape = 2
+		gs 'stat'
+
+		'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/backwaterswim1.jpg"></center>'
+		*nl
+		'You carefully wash off the sperm in the creek.'
+		act 'Finish':gt 'backwater'
+	end
+end
+if body_write > 0 or face_write > 0:
+	act 'Wash the writings off your body (0:10)':
+		cla
+		*clr
+		body_write = 0
+		face_write = 0
+		minut += 10
+		gs'stat'
+
+		'<center><img <<$set_imgh>> src="images/shared/home/bathroom/wash1.jpg"></center>'
+		*nl
+		'You wash off the indecent inscriptions on your body.'
+
+		act 'Finish':menu_off = 0 & gt $loc, $metka
+	end
+end
+if cumloc[6] = 1 or cumloc[7] = 1:
+	act 'Wipe the cum off your clothes (0:10)':
+		cla
+		*clr
+		cumspclnt = 6
+		gs 'cum_cleanup'
+		minut += 10
+		if hantersRape = 1: hantersRape = 2
+		gs'stat'
+
+		'<center><img <<$set_imgh>> src="images/locations/gadukino/hunters/cumwash.jpg"></center>'
+		*nl
+		'You clean the cum stains off your clothes.'
+
+		act 'Finish':gt 'backwater'
+	end
+end
+
+if spdirty > 0:
+	act 'Quick wash (0:15)':
+		cla
+		*clr
+		cumspclnt = 4
+		gs 'cum_cleanup'
+		if pcs_sweat < 30:
+			pcs_sweat = 15 + rand(0,4)
+		else
+			pcs_sweat -= 10 + rand(0,4)
+		end
+		minut += 15
+		if hantersRape = 1: hantersRape = 2
 		gs'stat'
 		'<center><img <<$set_imgh>> src="images/shared/home/bathroom/facesp.jpg"></center>'
 		*nl
 		'You carefully wash your face, removing any impurities.'
-		act 'Further':gt 'backwater'
-		if hantersRape = 1: hantersRape = 2
+		act 'Finish':gt 'backwater'
 	end
 end
 
 if clothesAtLocation = 0:
 	if $clothingworntype ! 'nude' and temper >= 15:
-		act'Undress':
+		act'Get undressed':
 			if hantersKnowSlut > 0 or hanters = 0 or hour < 8 or hour >= 20 or pcs_inhib > 35:
 				cla
 				*clr
@@ -129,6 +159,8 @@ if clothesAtLocation = 0:
 				act'Back':gt'backwater'
 			end
 		end
+	else
+	'It''s too cold to undress. Maybe you should bathe inside the hut'
 	end
 else
 	if $clothingworntype ! 'nude':
@@ -148,7 +180,6 @@ else
 			'You pick up your clothes laying on the ground and get dressed.'
 			gt $loc, $metka
 		end
-
 	end
 end
 

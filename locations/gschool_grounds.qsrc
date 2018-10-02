@@ -18,7 +18,7 @@ if $ARGS[0] = 'main':
 	'Pavlovsk''s only school, all the local children go here for their education. Next to the school is the athletic field, a parking lot for the teachers, just beyond the parking lot is a grove of trees, and past that is the old school building. After the new school was built the old one was supposed to get renovated and used for advance classes but budget cuts meant the project was canceled and now the old school building stands empty. Though many of the kids use it to skip class or as a place to sneak off to drink or have sex.'
 
 	if ((hour = 6 and minut >= 30) or (hour >= 7 and hour < 18)) and StoryLine > 0 and SchoolAtestat = 0 and kanikuli = 0:
-		'With the school open you can go to the <a href="exec:gt ''gschool_grounds'',''change_room''">changing rooms</a> by the gym and change your outfit.'
+		'With the school open you can go to the <a href="exec: minut += 1 & gt ''gschool_grounds'',''change_room''">changing rooms</a> by the gym and change your outfit.'
 	end
 
 	if day = nyp_day and month = 12 and age <= 17 and StoryLine = 1 and SchoolAtestat = 0 and SchoolBlock = 0:
@@ -131,7 +131,7 @@ if $ARGS[0] = 'main':
 
 	act 'Return to town': minut += 2 & gt 'pavResidential'
 	
-	act 'Go to the sports field': gt 'gschool_grounds', 'sports'
+	act 'Go to the sports field': minut += 1 & gt 'gschool_grounds', 'sports'
 
 	if week = 6 and hour = 8 and StoryLine > 0 and SchoolAtestat = 0 and detention_set = 1 and schoolBlock = 0:
 		act 'Go to detention': gt 'gschool_detention', 'start'
@@ -173,28 +173,30 @@ if $ARGS[0] = 'main':
 		gt 'dimaRevenge', 5	
 	elseif week < 6 and hour = 7 and dimaRevenge = 4 and dimaRevChoice = 6:
 		gt 'dimaRevenge', dimaRevenge
-	elseif week <= 5 and hour = 14 and NikoVolkovQW = 5 and NikoDate = 1 and NikoDate_Day ! daystart or NikoEv = 11 and NikoDate_Day ! daystart:
-		'You can see <a href="exec:gt ''NikoEv'', ''Niko Dates''">Nikolai Volkov</a> smoking outside of the school.'
-	elseif week <= 5 and hour = 14 and NikoVolkovQW = 10 and NikoEv >= 17 and NikoEv <= 20 and NikoDate_Day ! daystart:
-		'<a href="exec:gt ''NikoEv2'', ''Events''">Nikolai Volkov</a> is smoking outside of the school.'
 	end
 
-	if week = 1 and NikoIntro = 0 and hour = 14:
-		gt 'NikoEv', 'Intro'
-	elseif week <= 5 and hour = 14 and NikoVolkovQW = 5 and NikoEv = 6 and NikoDate = 0 and NikoDate_Day ! daystart:
-		gt 'NikoDates', 'After School'
-	elseif week <= 5 and hour = 14 and NikoVolkovQW = 5 and NikoEv = 8 and NikoDate = 0 and NikoDate_Day ! daystart:
-		gt 'NikoDates', 'After School 2'
-	elseif week <= 5 and hour = 14 and NikoVolkovQW = 10 and NikoEv = 22 and NikoDate_Day ! daystart:
-		gt 'NikoEv2', 'Recovery'
-	end
-
-	if hour >= 14 and pav_slut >= 75 and SchoolGossip > 0 and afterschoolday ! daystart:gt 'gschool_sex', 'suck'
+	if hour >= 14 and pav_slut >= 125 and SchoolGossip > 0 and afterschoolday ! daystart:gt 'gschool_sex', 'suck'
 
 	if week = 1 and kanikuli = 0 and arthakQW = 10 and apmeetday ! daystart and hour >= 14:gt 'artgar'
 
 	if hour = 14 and week < 6 and kanikuli = 0:
 
+		if NikoDate_Day ! daystart:
+			if NikoIntro = 0:
+				gt 'NikoEv', 'Intro'
+			elseif NikoVolkovQW = 5 and NikoEv = 6 and NikoDate = 0:
+				gt 'NikoDates', 'After School'
+			elseif NikoVolkovQW = 5 and NikoEv = 8 and NikoDate = 0:
+				gt 'NikoDates', 'After School 2'		
+			elseif (NikoVolkovQW = 5 and NikoDate = 1) or NikoEv = 11:
+				'You can see <a href="exec:gt ''NikoEv'', ''Niko Dates''">Nikolai Volkov</a> smoking outside of the school.'
+			elseif NikoVolkovQW = 10 and NikoEv >= 17 and NikoEv <= 20:
+				'<a href="exec:gt ''NikoEv2'', ''Events''">Nikolai Volkov</a> is smoking outside of the school.'
+			elseif NikoVolkovQW = 10 and NikoEv = 22:
+				gt 'NikoEv2', 'Recovery'
+			end
+		end
+		
 		if ivan_afterschool = 1:
 			act 'Meet Ivan after school': gt 'gschool_sex', 'afterschool'
 		end
@@ -288,8 +290,8 @@ if $ARGS[0] = 'sports':
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school//grounds/fieldwinter.jpg"></center>'
 	end
 	'There is a football field and around it is a track, often before and after school kids use the field and track.'
-
-	act 'Leave the sports field':gt 'gschool_grounds', 'main'
+	
+	act 'Leave the sports field': minut += 1 & gt 'gschool_grounds', 'main'
 
 	if schoolrunday ! daystart and $clothingworntype = 'exercise' and $shoeworntype = 'trainers':
 		act 'Go for a run (1 hour)':
@@ -312,7 +314,7 @@ if $ARGS[0] = 'sports':
 	end
 
 	if hour >= 9 and hour < 18 and StoryLine > 0 and SchoolAtestat = 0 and kanikuli = 0:
-		'With the school open you can go to the <a href="exec:gt ''gschool_grounds'',''change_room''">changing rooms</a> by the gym and change your outfit.'
+		'With the school open you can go to the <a href="exec: minut += 1 & gt ''gschool_grounds'',''change_room''">changing rooms</a> by the gym and change your outfit.'
 	end
 
 	if week = 6 and schoolSorev = 2 and hour = 10 and SchoolBlock = 0:
@@ -369,7 +371,6 @@ if $ARGS[0] = 'bulding':
 		Before you can deny anything he continues: "I don''t even need that video to ruin your life. Just you wait. Soon the whole school will know what a whore you are."
 		His words fill you with dread as you make your way to class.'
 	end		
-
 
 	if zverSlutQW = 1 and week = 1 and lariskaQwestDay < daystart and lariskaQwestDay ! 0 and zverRageQW = 2:
 		zverSlutQW = 2
@@ -599,7 +600,6 @@ if $ARGS[0] = 'change_room':
 	$locM = 'gschool_grounds'
 	$metkaM = 'change_room'
 	*clr & cla
-	minut += 5
 	gs 'stat'
 
 	act 'Leave the school building':
@@ -607,6 +607,7 @@ if $ARGS[0] = 'change_room':
 			msg'<b><font color = red>You need to get dressed.</font></b>'
 			gt 'gschool_grounds', 'change_room'
 		else
+			minut += 1
 			gt 'gschool_grounds', 'main'
 		end
 	end
@@ -616,6 +617,7 @@ if $ARGS[0] = 'change_room':
 			msg'<b><font color = red>You need to get dressed.</font></b>'
 			gt 'gschool_grounds', 'change_room'
 		else
+			minut += 1
 			gt 'gschool_grounds', 'sports'
 		end
 	end
@@ -636,7 +638,6 @@ if $ARGS[0] = 'change_room':
 	dynamic $removepan
 
 	if pirsA + pirsB + pirsC + pirsD + pirsE + pirsF + pirsN + pirsG + pirsGL > 0:'<a href="exec:dynamic $pirManage">Manage Piercings</a>'
-
 end
 
 --- gschool_grounds ---------------------------------

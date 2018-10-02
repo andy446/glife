@@ -432,7 +432,8 @@ if $ARGS[0] = 'end':
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/shared/sex/cum/facial/facial'+rand(1,23)+'.jpg"></center>'
 	'Having wiped cum from your eyes you see Dimka walk over to the table and take out a hidden camera. He stopped the recording and looked at his friend, "Hey Gosha, the vid came out perfect."'
-
+	if DimaRudeQW = 0: DimaRudeQW += 1
+	if dimafilm = 0: dimaFilm = 1
 	if NosovRevenge = 1:
 		NosovRevenge = 2
 		daynosovrevenge = daystart

@@ -100,7 +100,7 @@ if $ARGS[0] = 'start':
 	end
 
 	if home_owned[2] = 1: act '<b>Go home</b> (Parents'' Apartment)': minut += 5 & GT 'korrPar'
-	act 'Return to the residential street':minut += 2 & gt 'pavResidential'
+	act 'Walk to the residential street':minut += 2 & gt 'pavResidential'
 	act 'Go to the Southern apartment building':minut += 1 & gt 'pod_ezd', 'etaj_1'
 	act 'Go to the Eastern apartment building':
 		minut += 1

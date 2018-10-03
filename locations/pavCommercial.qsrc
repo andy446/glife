@@ -139,7 +139,9 @@ end
 
 if workPTU > 2:act '<b>Go to the hostel</b>':gt 'etoexhib', 'pos40'
 
-act 'Go to the residential area':minut += 5 & gt 'pavResidential'
+act 'Walk to the residential area':minut += 5 & gt 'pavResidential'
+
+act 'Walk to the train station':minut += 15 & gt 'pavtrain'
 
 act 'Walk to the city highway':minut += 15 & nroad = 20 & gt 'road'
 

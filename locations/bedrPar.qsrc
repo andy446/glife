@@ -167,10 +167,10 @@ else
 
 
 	if vcard > 0:
-		act 'Look at your deck of vintage porn cards':card_deck = 0 & gt 'card'
+		act 'View your vintage porn cards':card_deck = 0 & gt 'card'
 	end
 	if card > 0:
-		act 'Look at your deck of new porn cards':card_deck = 1 & gt 'card'
+		act 'View your new porn cards':card_deck = 1 & gt 'card'
 	end
 
 	if dur > 0:'You have hidden <<dur>> doses of Pale Lady.'

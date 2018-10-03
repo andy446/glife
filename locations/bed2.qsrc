@@ -78,7 +78,7 @@ if $ARGS[0] = '':
 !!Braid hair skill
 
 	if canBraidHair = 1 and hBraids = 0 and (pcs_hairlng > 80 and pcs_hairlng <= 800):
-		act 'Spend some time braiding your hair':
+		act 'Braid your hair (0:30)':
 			cls
 			hbraids = 15
 			minut += 30
@@ -88,7 +88,7 @@ if $ARGS[0] = '':
 	end
 
 	if hbraids > 0:
-		act 'Spend some time removing your braids':
+		act 'Remove your braids (0:30)':
 			cls
 			hbraids = 0
 			minut += 30

@@ -166,6 +166,7 @@
 		<Location name="preNT"/>
 		<Location name="preCUST"/>
 		<Location name="preALT"/>
+		<Location name="preCSB"/>
 	</Folder>
 	<Folder name="NPCManage">
 		<Location name="npccleanc"/>

@@ -116,6 +116,10 @@ if attsklupdate = 0:
 	i = 0 & x = 1
 	:rstloop
 	expadj = func('_difficulty','getexpadj')
+	
+	!! Trait ''Everything is new again'', gained from the cursed school boy start
+	if csb_start = 1 and daystart <= 84: expadj += expadj/2
+	
 	tl = 0
 	:trtrstloop
 	tltp = 0

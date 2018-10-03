@@ -27,27 +27,191 @@ if $ARGS[0] = 'TGStart':
 	end
 end
 
+if $ARGS[0] = 'CSBStart':
+	*clr & cla	
+	$pcs_dna = func('dna','generate',$npc_dna['A29'],$npc_dna['A35'])
+
+	StoryLine = 1
+
+	!! NPC Data and Relations
+	gs 'npcstatic1'
+	gs 'npcstatic2'
+	gs 'npcstatic3'
+	gs 'npcstatic4'
+	gs 'npcstatic5'
+	
+	gs 'gschool_lessons', 'npc_data'
+
+	r = 1
+	:default_friendship_loop
+	$school_static_num = $school_static_num[r]
+	if grupTipe[r] ! 5:npc_rel[$school_static_num] = 30
+	r += 1
+	if r <= 65:jump 'default_friendship_loop'
+
+	npc_rel['A11'] = 40
+	npc_rel['A28'] = 60
+	npc_rel['A29'] = 60
+	npc_rel['A30'] = 50
+	npc_rel['A31'] = 50
+	npc_rel['A32'] = 50
+	npc_rel['A33'] = 70
+	npc_rel['A34'] = 50
+	
+	!! Sveta was an outcast (good girl start)
+	gs 'preSYS', 'outcast'
+	gs 'preSYS', 'socialgroup_setting', -5, -5, 0, -20, 0, 0
+	
+	npc_rel['A25'] -= 5
+	
+	home_owned[2] = 1
+	gs 'set_home', 2
+					
+	if player_avatar = 0:
+		pcs_eyesize = 3
+		pcs_lip = 2
+		pcs_lashes = 1
+		pcs_haircol = 3
+		pcs_eyecol = 3
+		pcs_hairlng = 300
+	end
+	
+	if birthday_set = 0:
+		birthday = 1
+		birthmonth = 4
+		birthday_set = 1
+	end
+	
+	birthyear = 2000
+	school_year = 2000
+	yearlefttemp = 1
+	
+	!!Looks
+	pcs_hgt = 170
+	salo = 80
+	genbsize = 17
+	pcs_pubes = 30
+	pcs_leghair = 12
+	pcs_makeup = 1
+	pcs_skin = 40
+	dick = 0
+	
+	!!Basic	
+	pcs_energy = 60
+	pcs_hydra = 60
+	pcs_sleep = 70
+
+	!!Attributes
+	pcs_inhib = 5
+	pcs_stren = 30
+	strenbuf = 10
+	pcs_agil = 30
+	agilbuf = 10
+	pcs_vital = 30
+	vitalbuf = 10
+	pcs_intel = 30
+	pcs_react = 30
+	pcs_sprt = 20
+	pcs_chrsm = 35
+	pcs_prcptn = 40
+	
+	!!Skills
+	pcs_def = 20
+	pcs_run = 20
+	pcs_gaming = 20
+	pcs_humint = 20
+	pcs_observ = 20
+	
+	!!Money, School, ...
+	money = 2000
+	pcs_grades = 40
+	prezikProver = 3
+	brothersawpirsF = 0
+	
+	'<center><img <<$set_imgh>> src="images/pre/csb/petercsb.jpg"></center>'
+	'Your name is Peter Ivanov. You''ve got blond hair and blue eyes. Your parents died shortly after you were born, and your great uncle Ivan took you in. He works at a construction company out of one of the suburbs of St. Petersburg. He''s a man''s man and has never been very close to you, choosing to let you make your own way as long as it does not embarrass him publicly. You''ve grown to be quite independent, but lack any real defining qualities.'
+	
+	date_toggle = args[1]
+	if birthday < 10 and birthmonth < 10:
+		$startdob = 'Your birthday: <B>0<<birthmonth>>/0<<birthday>>/<<birthyear>></B> (MM/DD/YYYY)'
+	elseif birthday < 10 and birthmonth >= 10:
+		$startdob = 'Your birthday: <B><<birthmonth>>/0<<birthday>>/<<birthyear>></B> (MM/DD/YYYY)'
+	elseif birthday >= 10 and birthmonth < 10:
+		$startdob = 'Your birthday: <B>0<<birthmonth>>/<<birthday>>/<<birthyear>></B> (MM/DD/YYYY)'
+	elseif birthday >= 10 and birthmonth >= 10:
+		$startdob = 'Your birthday: <B><<birthmonth>>/<<birthday>>/<<birthyear>></B> (MM/DD/YYYY)'
+	end
+
+	if player_avatar = 0:
+		*nl
+		'<a href="exec:gt ''begin'', ''birthday''"><<$startdob>></a>.'
+	else
+		*nl
+		'<<$startdob>>'
+	end
+	
+	act 'Continue':
+		*clr & cla
+		'<center><img <<$set_imgh>> src="images/pre/csb/petercsb.jpg"></center>'
+		*nl
+		'You have two options when it comes to beginning your game:'
+		*nl
+		'Starting in August, at the end of the summer holiday, very close to the new school year <i>(recommended for new players)</i>, or starting in June, at the beginning of the summer holiday.'
+		
+		if date_toggle ! 1:
+			if birthmonth >= 7: birthyear -= 1
+			if birthmonth = 6 and day > 1: birthyear -= 1
+		end
+		
+		killvar '$startdob'
+		killvar 'date_toggle'
+		
+		kanikuli = 5
+		$holyday = '<b>Summer holidays</b>'
+		
+		act 'Start at the end of August':
+			month = 8
+			$month = 'August'
+			monthbabkapay = month
+			day = 26
+			week = 5
+			hour = 9
+			kanicont = 6
+			gt 'preCUST', 'Done', 'CSB'
+		end
+
+		act 'Start at the beginning of June':
+			month = 6
+			$month = 'June'
+			monthbabkapay = month
+			day = 1
+			week = 3
+			kanicont = 92
+			Gspassed = 1
+			dostupindorf = 1
+			gt 'preCUST', 'Done', 'CSB'
+		end
+	end
+end
+
 !!******************** SG Start Background Options ******************************
 if $ARGS[0] = 'SGStart':
-
 
 	$pcs_dna = func('dna','generate',$npc_dna['A29'],$npc_dna['A35'])
 
 	StoryLine = 1
 
-	month = 8
-!!	Last friday in August 2016
-	$month = 'August'
-	day = 26
-	week = 5
-	hour = 9
-	kanikuli = 5
-	$holyday = '<b>Summer holidays</b>'
-
+	birthyear = 2000
+	school_year = 2000
+	yearlefttemp = 1
+	
 	if player_avatar = 0:
 		birthmonth = 4
 		birthday = 1
 		pcs_haircol = 1
+		pcs_eyesize = 2
+		pcs_lip = 1
+		pcs_lashes = 1
 	end
 
 !!	Body
@@ -71,27 +235,17 @@ if $ARGS[0] = 'SGStart':
 	pcs_prcptn = 30
 	pcs_magik = 0
 
-	
-	if player_avatar = 0:
-		pcs_eyesize = 2
-		pcs_lip = 1
-		pcs_lashes = 1
-	end
-
 	pcs_heels = 5
 	pcs_makupskl = 20
 	pcs_pubes = 30
 	pcs_leghair = 12
 	pcs_makeup = 1
 
-	home_owned[2] = 1
 	money = 2000
 	pcs_grades = 75
 	prezikProver = 3
 	brothersawpirsF = 0
 	dynamic $currentpursetype + '_purses[<<currentpursenumber>>] = 1'
-
-!!	********************
 
 	!!Default Names
 	$pcs_firstname = 'Svetlana'
@@ -129,12 +283,7 @@ if $ARGS[0] = 'SGStart':
 	'Your <<$npc_usedname[''A30'']>> lives in the same building as you do, though you rarely see her except when you pass her in the stairwell. She is your mother''s sister. <<$npc_usedname[''A54'']>>, as everyone calls him, is best friends with your stepfather. <<$npc_firstname[''A11'']>> <<$npc_lastname[''A11'']>>, your childhood friend, is the same age as you and grew up living in the same apartment building on the floor above yours. His father, <<$npc_firstname[''A112'']>>, is an old friend of your mother''s.'
 
 	act 'Re-enter name/s': gt 'preSYS', 'SGStart'
-	act 'Continue':
-		birthyear = 2000
-		yearlefttemp = 1
-		school_year = 2000
-		gt 'preSYS', 'SGStart2'
-	end
+	act 'Continue':	gt 'preSYS', 'SGStart2'
 end
 
 if $ARGS[0] = 'SGStart2':
@@ -170,26 +319,30 @@ if $ARGS[0] = 'SGStart2':
 		end
 		killvar '$startdob'
 		killvar 'date_toggle'
-		act 'Start at the end of August':
+		
+		$holyday = '<b>Summer holidays</b>'
+		
 		!!This is the default start
+		act 'Start at the end of August':
+			month = 8
+			$month = 'August'
+			day = 26
+			week = 5
+			hour = 9
+			kanikuli = 5
 			kanicont = 6
 			gt 'preSYS', 'SGStart3'
 		end
 
-		!!This is to prevent to player from starting at 14
-		if birthmonth = 6 and yearlefttemp = 2:
-			act '<i>Start at the beginning of June</i> Restricted due PC age, set birthday before June or after July to unlock': gt 'preSYS', 'SGStart2', 1
-		else
-			act 'Start at the beginning of June':
-				month = 6
-				$month = 'June'
-				day = 1
-				week = 3
-				kanicont = 92
-				Gspassed = 1
-				dostupindorf = 1
-				gt 'preSYS', 'SGStart3'
-			end
+		act 'Start at the beginning of June':
+			month = 6
+			$month = 'June'
+			day = 1
+			week = 3
+			kanicont = 92
+			Gspassed = 1
+			dostupindorf = 1
+			gt 'preSYS', 'SGStart3'
 		end
 	end
 end

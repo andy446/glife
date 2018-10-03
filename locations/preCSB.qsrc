@@ -1,0 +1,13 @@
+# preCSB
+!!Background Options
+music_loop = 0
+CLOSE ALL
+gs 'themes', 'indoors'
+
+if $ARGS[0] = 'intro_0':
+	*clr & cla
+	!! PLACEHOLDER		
+	end
+end
+
+--- preCSB ---------------------------------

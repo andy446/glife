@@ -21,30 +21,34 @@ if $ARGS[0] = 'start':
 		*nl
 		'An elderly nurse is sitting behind a desk.'
 	end
+	
+	if succubusflag = 0: 
+		if unrelated_preg = 1 and knowpreg = 1:
+			*nl
+			'You are pregnant and they don''t take on pregnant candidates.'
+		elseif exp_form = 0 and experimentAbsolved = 0 and (knowpreg = 0 or unrelated_preg = 0):
+			*nl
+			'You are warmly welcomed by the woman sitting behind the desk, "Hello miss, can I help you?"'
+			'"I read an advert that you are looking for people to test some kind of new treatment... And that you compensate the subjects for it." you reply.'
+			'"Yes, that is true. If you want to apply, please read and fill in this form." She hands you over the form.'
 
-	if unrelated_preg = 1 and knowpreg = 1:
-		*nl
-		'You are pregnant and they don''t take on pregnant candidates.'
-	elseif exp_form = 0 and experimentAbsolved = 0 and (knowpreg = 0 or unrelated_preg = 0):
-		*nl
-		'You are warmly welcomed by the woman sitting behind the desk, "Hello miss, can I help you?"'
-		'"I read an advert that you are looking for people to test some kind of new treatment... And that you compensate the subjects for it." you reply.'
-		'"Yes, that is true. If you want to apply, please read and fill in this form." She hands you over the form.'
-
-		act 'Take the form':gt 'experiment', 'form'
-	elseif exp_form = 1 and experimentAbsolved = 0 and (knowpreg = 0 or unrelated_preg = 0):
-		act 'Go to the area marked in the book to start the experiment':gt 'experiment', 'form:filled'
-	elseif shouted = 1:
-		*nl
-		'"Hello miss <<$pcs_lastname>>, you are not going to shout at me again, will you?" the woman behind the desk asks.'
-		act '<i>Angrily shout at her for ruining your life</i>':gt 'experiment', 'deskTalk:shout'
-		act 'No, I am sorry about that..':gt 'experiment', 'deskTalk' & shouted = 0
+			act 'Take the form':gt 'experiment', 'form'
+		elseif exp_form = 1 and experimentAbsolved = 0 and (knowpreg = 0 or unrelated_preg = 0):
+			act 'Go to the area marked in the book to start the experiment':gt 'experiment', 'form:filled'
+		elseif shouted = 1:
+			*nl
+			'"Hello miss <<$pcs_lastname>>, you are not going to shout at me again, will you?" the woman behind the desk asks.'
+			act '<i>Angrily shout at her for ruining your life</i>':gt 'experiment', 'deskTalk:shout'
+			act 'No, I am sorry about that..':gt 'experiment', 'deskTalk' & shouted = 0
+		else
+			'Hello miss <<$pcs_lastname>>, how is your pregnancy?'
+			if kid = 0 and pregchem > 0:act 'It is going well':gt 'experiment', 'deskTalk'
+			if kid > 0 and knowpreg = 1:act 'I already gave birth, but I''m also pregnant again':gt 'experiment', 'deskTalk'
+			if kid > 0 and knowpreg = 0:act 'I already gave birth':gt 'experiment', 'deskTalk'
+			if kid = 0 and pregchem = 0:act 'I had an abortion':gt 'experiment', 'deskTalk'
+		end
 	else
-		'Hello miss <<$pcs_lastname>>, how is your pregnancy?'
-		if kid = 0 and pregchem > 0:act 'It is going well':gt 'experiment', 'deskTalk'
-		if kid > 0 and knowpreg = 1:act 'I already gave birth, but I''m also pregnant again':gt 'experiment', 'deskTalk'
-		if kid > 0 and knowpreg = 0:act 'I already gave birth':gt 'experiment', 'deskTalk'
-		if kid = 0 and pregchem = 0:act 'I had an abortion':gt 'experiment', 'deskTalk'
+		'You have a really bad feeling about this place. It''s no place for a succubus.'
 	end
 
 	act 'Leave':gt 'poli', 'start'

@@ -28,29 +28,7 @@ if $ARGS[0] = 'TGStart':
 end
 
 if $ARGS[0] = 'CSBStart':
-	*clr & cla
-	'<center><img <<$set_imgh>> src="images/pre/csb/petercsb.jpg"></center>'
-	'Your name is Peter Ivanov. You''ve got blond hair and blue eyes. Your parents died shortly after you were born, and your great uncle Ivan took you in. He works at a construction company out of one of the suburbs of St. Petersburg. He''s a man''s man and has never been very close to you, choosing to let you make your own way as long as it does not embarrass him publicly. You''ve grown to be quite independent, but lack any real defining qualities.'
-	
-	date_toggle = args[1]
-	if birthday < 10 and birthmonth < 10:
-		$startdob = 'Your birthday: <B>0<<birthmonth>>/0<<birthday>>/<<birthyear>></B> (MM/DD/YYYY)'
-	elseif birthday < 10 and birthmonth >= 10:
-		$startdob = 'Your birthday: <B><<birthmonth>>/0<<birthday>>/<<birthyear>></B> (MM/DD/YYYY)'
-	elseif birthday >= 10 and birthmonth < 10:
-		$startdob = 'Your birthday: <B>0<<birthmonth>>/<<birthday>>/<<birthyear>></B> (MM/DD/YYYY)'
-	elseif birthday >= 10 and birthmonth >= 10:
-		$startdob = 'Your birthday: <B><<birthmonth>>/<<birthday>>/<<birthyear>></B> (MM/DD/YYYY)'
-	end
-
-	if player_avatar = 0:
-		*nl
-		'<a href="exec:gt ''begin'', ''birthday''"><<$startdob>></a>.'
-	else
-		*nl
-		'<<$startdob>>'
-	end
-	
+	*clr & cla	
 	$pcs_dna = func('dna','generate',$npc_dna['A29'],$npc_dna['A35'])
 
 	StoryLine = 1
@@ -93,12 +71,15 @@ if $ARGS[0] = 'CSBStart':
 		pcs_eyesize = 3
 		pcs_lip = 2
 		pcs_lashes = 1
-		pcs_haircol = 0
+		pcs_haircol = 3
+		pcs_eyecol = 3
 		pcs_hairlng = 300
-		$pcs_eyecol = 'blue'
-		$glacol2 = 'blue'
+	end
+	
+	if birthday_set = 0:
 		birthday = 1
 		birthmonth = 4
+		birthday_set = 1
 	end
 	
 	birthyear = 2000
@@ -147,6 +128,28 @@ if $ARGS[0] = 'CSBStart':
 	prezikProver = 3
 	brothersawpirsF = 0
 	
+	'<center><img <<$set_imgh>> src="images/pre/csb/petercsb.jpg"></center>'
+	'Your name is Peter Ivanov. You''ve got blond hair and blue eyes. Your parents died shortly after you were born, and your great uncle Ivan took you in. He works at a construction company out of one of the suburbs of St. Petersburg. He''s a man''s man and has never been very close to you, choosing to let you make your own way as long as it does not embarrass him publicly. You''ve grown to be quite independent, but lack any real defining qualities.'
+	
+	date_toggle = args[1]
+	if birthday < 10 and birthmonth < 10:
+		$startdob = 'Your birthday: <B>0<<birthmonth>>/0<<birthday>>/<<birthyear>></B> (MM/DD/YYYY)'
+	elseif birthday < 10 and birthmonth >= 10:
+		$startdob = 'Your birthday: <B><<birthmonth>>/0<<birthday>>/<<birthyear>></B> (MM/DD/YYYY)'
+	elseif birthday >= 10 and birthmonth < 10:
+		$startdob = 'Your birthday: <B>0<<birthmonth>>/<<birthday>>/<<birthyear>></B> (MM/DD/YYYY)'
+	elseif birthday >= 10 and birthmonth >= 10:
+		$startdob = 'Your birthday: <B><<birthmonth>>/<<birthday>>/<<birthyear>></B> (MM/DD/YYYY)'
+	end
+
+	if player_avatar = 0:
+		*nl
+		'<a href="exec:gt ''begin'', ''birthday''"><<$startdob>></a>.'
+	else
+		*nl
+		'<<$startdob>>'
+	end
+	
 	act 'Continue':
 		*clr & cla
 		'<center><img <<$set_imgh>> src="images/pre/csb/petercsb.jpg"></center>'
@@ -169,6 +172,7 @@ if $ARGS[0] = 'CSBStart':
 		act 'Start at the end of August':
 			month = 8
 			$month = 'August'
+			monthbabkapay = month
 			day = 26
 			week = 5
 			hour = 9
@@ -179,6 +183,7 @@ if $ARGS[0] = 'CSBStart':
 		act 'Start at the beginning of June':
 			month = 6
 			$month = 'June'
+			monthbabkapay = month
 			day = 1
 			week = 3
 			kanicont = 92

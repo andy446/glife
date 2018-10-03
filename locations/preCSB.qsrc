@@ -1,5 +1,5 @@
 # preCSB
-!!Background Options
+
 music_loop = 0
 CLOSE ALL
 gs 'themes', 'indoors'
@@ -198,25 +198,24 @@ if $ARGS[0] = 'intro_6_looks':
 	*clr & cla
 	if player_avatar = 1:
 		'<center><img HEIGHT = 478 src="images/avatar.jpg"></center>'
-		'She looks exactly like in the picture.'
+		'She looks exactly like in the picture she send you.'
 		act 'Meet her': gt 'preCSB', 'intro_7'
 	else
 		'<center><b><font color = maroon>GIRLFRIEND CUSTOMIZATION</font></b></center>'
 		'<center><img <<$set_imgh>> src="<<FUNC(''$face_image'')>>"></center>'
 		*nl
 		
-		gs 'preCSB', 'hair'
-		gs 'preCSB', 'eyes'
+		'<center><a href="exec:gs ''preCSB'', ''hair''"><img src="images/pre/shared/hair icon.png"></a> <a href="exec:gs ''preCSB'', ''eyes''"><img src="images/pre/shared/eye icon.png"></a></center>'
 		
-		act 'Meet her': gt 'preCSB', 'intro_7'
+		act '<b>Finish customization</b>': gt 'preCSB', 'intro_7'
 	end
 end
 
 if $ARGS[0] = 'intro_7':
 	*clr & cla
 	'<center><img <<$set_imgh>> src="<<FUNC(''$face_image'')>>"></center>'
-	'She''s shorter than you but rather tall for a woman, with a body that is neither too fat nor especially skinny. On her chest rest a pair of decently-sized breasts. Her <<$pcs_haircol>> <<$pcdesc_hairlength>> hair is <<$curly>>.'
-	'She has <<$glaza2>> with <<$pcs_lashes>>'+iif(glass > 0, 'hidden behind a pair of cheap glasses.', '.')
+	'She''s shorter than you but rather tall for a woman, with a body that is neither too fat nor especially skinny. On her chest rest a pair of decently-sized breasts. Her <<$curly>><<$pcdesc_hairlength>> hair is <<$pcs_haircol>>.'
+	'She has <<$pcs_eyecol>> eye with <<$pcs_lashes>>'+iif(glass > 0, ' hidden behind a pair of cheap glasses.', '.')
 	'She looks like she has spent some time in front of the mirror trying to pretty herself up, and her clothes are very clean. Despite that, she still looks rather average. Like she is the type of girl that would be a background character in another person''s life. Little wonder she isn''t very popular.'
 	
 	act 'Go for a walk':
@@ -235,8 +234,12 @@ if $ARGS[0] = 'intro_7':
 				'You see a large stone at the ruins and sit <<$pcs_nickname>> down. You put your arm around her shoulders, and she leans into you. You turn to look at her face, she looks back. You lean in to plant a kiss on her lips...'
 				
 				act 'What''s that sound?':
-					!!Background dark
 					*clr & cla
+					!!Background: Black
+					fcolor = rgb(255, 255, 255)
+					bcolor = rgb(0, 0, 0)
+					lcolor = rgb(106, 90, 205)
+					
 					'<center><img <<$set_imgh>> src="images/pre/alt/tunnel1pre.jpg"></center>'
 					'A loud crack runs through the ruins. The ground gives way beneath you, sending both of you tumbling down into a dark hole. Miraculously you both manage to land with only minor scrapes and bruises. You curse and look around at your surroundings.'
 					'You seem to be in an underground chamber of some sort. Looking up you see that climbing out is not an option. There is also an old gate one one side of the chamber but it''s either locked or rusted shut. Looks like the only way out is the tunnel on the other side of the chamber.'
@@ -272,8 +275,12 @@ if $ARGS[0] = 'intro_7':
 										'The workers shift has long since finished so sneaking out is not too hard. The site is on a highway so hopefully you can make it back before people notice that <<$pcs_nickname>> is missing. It''s already late in the afternoon. You hope that you can get back before dark.'
 
 										act 'Walk towards Gaduyinko':
-											!!Background dark grey
 											*clr & cla
+											!!Background: Grey
+											fcolor = rgb(255, 255, 255)
+											bcolor = rgb(20, 20, 20)
+											lcolor = rgb(106, 90, 205)
+											
 											'<center><img <<$set_imgh>> src="images/pre/alt/road.jpg"></center>'
 											'You and <<$pcs_nickname>> walk along the road for several hours. The sun has started to set, the trees casting long shadows across the road. <<$pcs_nickname>> is lagging behind, getting tired.'
 											'You stick your hands in your pockets, slowing down to let her catch up. You feel a hard object and pull out the amulet to look at it.'
@@ -281,7 +288,7 @@ if $ARGS[0] = 'intro_7':
 											'Suddenly, <<$pcs_nickname>> grabs your arm.'
 											'"Who''s that?"'
 											
-											act 'Look up': gt 'preCSB', 'intro_08'
+											act 'Look up': gt 'preCSB', 'intro_8'
 										end												
 									end
 								end
@@ -297,6 +304,10 @@ end
 
 if $ARGS[0] = 'intro_8':
 	*clr & cla
+	!!Background: Grey
+	fcolor = rgb(255, 255, 255)
+	bcolor = rgb(20, 20, 20)
+	lcolor = rgb(106, 90, 205)
 	'<center><img <<$set_imgh>> src="images/pre/csb/shadowyfigurecsb.jpg"></center>'
 	'You look up to see a dark figure in a long coat. The shadows cast by the setting sun obscure his figure, but you can see him striding purposefully towards you.' 
 	'All of a sudden a cold chill of fear run through you. Two teenagers alone, in the dark, on the side of a road, in the middle of nowhere, being approached by a tall figure cloaked in shadows? There are dozens of horror stories that begin this way, and you don''t want to stick around to find out how it ends.'
@@ -308,8 +319,12 @@ if $ARGS[0] = 'intro_8':
 
 		act 'Keep running':
 			*clr & cla
+			!!Background:Black
+			fcolor = rgb(255, 255, 255)
+			bcolor = rgb(0, 0, 0)
+			lcolor = rgb(106, 90, 205)
+			
 			'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gadforestlost_night4.jpg"></center>'
-			!!Background black
 			'You drag <<$pcs_nickname>> along in a mad dash to escape the dark figure. You twist and turn, trying to lose him in the woods. After a few minutes you feel <<$pcs_nickname>>''s hand rip out of your grasp. You look back to see her collapsing on the ground, panting in exhaustion. There''s no sign of the man anywhere. You think you lost him. You sigh in relief.'
 
 			act 'Continue':
@@ -326,7 +341,7 @@ if $ARGS[0] = 'intro_8':
 						'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/wolf.jpg"></center>'
 						'You panic and lash backwards with your hands, causing the other wolf to spring backwards out of range. Yet another wolf rushes in from the side, tearing into your shoulder.'
 						
-						act 'Scream in pai':
+						act 'Scream in pain':
 							*clr & cla
 							'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gadforest_night2.jpg"></center>'
 							'You let out a scream of pain, every thought being buried under the wild panic of adrenaline. You try to get up to run, but a pair of jaws bites deep into your thigh, sending you to the ground.' 
@@ -348,6 +363,10 @@ end
 
 if $ARGS[0] = 'intro_9':
 	*clr & cla
+	!!Background:Black
+	fcolor = rgb(255, 255, 255)
+	bcolor = rgb(0, 0, 0)
+	lcolor = rgb(106, 90, 205)
 	'<center><img <<$set_imgh>> src="images/pre/csb/dyingforest.jpg"></center>'
 	'...'
 	wait 3000
@@ -358,9 +377,12 @@ if $ARGS[0] = 'intro_9':
 	'Darkness consumes your thoughts for some time. Eventually, images begin to form in your mind and you soon find yourself in a middle of a dream. The strange amulet stands before you and out of it comes a ghost of some sort. Before you even realize what you are doing, you find yourself staring deep into the ghost''s eyes which then turn into two planet earths.'
 	'"Most who look at the world see only the mundane, but there is more to it. Much more. Now you see that too. You have the potential to shape it all, but first, you have company."'
 
-	act 'Wake up':
-		!!Background White
+	act 'Wake up':		
 		*clr & cla
+		!!Background: White
+		bcolor = rgb(BColorBase, BColorBase, BColorBase)
+		lcolor = rgb(106, 90, 205)
+		fcolor = rgb(0, 0, 0)
 		'<center><img <<$set_imgh>> src="images/pre/shared/karinpre.jpg"></center>'
 		'You open your eyes to see you are in a hospital room. Next to you is an unfamiliar red-haired girl.'
 		'"Ah, you woke up," she chirped. "We found you half-dead, you know. You almost didn''t make it. There wasn''t anything that I could do for the girl though. Those wolves really did a number on the two of you. Running half-exhausted through the forest must have made you a pretty tempting target. Then again, given how you picked up that amulet, you probably wouldn''t have lasted much longer even if you had managed to get away."'
@@ -466,7 +488,6 @@ if $ARGS[0] = 'intro_9':
 																
 																act 'Continue':
 																	*clr & cla
-																	csb_start = 1
 																	'<center><img <<$set_imgh>> src="images/system/schoolboy.jpg"></center>'
 																	'Welcome to the Cursed Schoolboy version! You may have lost your masculinity and your old life, but you''ve gained new possibilities in return! Will you try to live your new life as a mere schoolgirl, or do you have grander aspirations with your newfound knowledge of magic? The choice is yours!'
 																	!!'Now, would you like to dive right into the action? Or would you rather take some time to get used to your new body and life?'
@@ -516,9 +537,8 @@ if $ARGS[0] = 'intro_end':
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/home/bedrpar.jpg"></center>'
 			'It will take some more time for you to get completely used to your new body and life as <<$pcs_firstname>>. For now, you should just focus on getting out of bed.'
 			
-			act' Get out of bed and get dressed':
-				*clr & cla
-				
+			act 'Continue':
+				cla
 				showstat 1
 				showobjs 1
 				
@@ -534,14 +554,45 @@ if $ARGS[0] = 'intro_end':
 				msg 'You have gained the trait ''Everything is New Again''! <br>Being thrust into a new life has forced you to reevaluate and relearn everything. You pick up new skills more quickly for a short time.'
 				
 				gs 'stat'
-				if month = 6:
-					gt 'gadhouse'
-				else
-					gt 'bedrPar'
-				end
+				
+				act 'Continue': gt 'preCSB', 'game_start'
 			end
 		end
 	end
+end
+
+if $ARGS[0] = 'game_start':
+	*clr & cla
+	'<center><img <<$set_imgh>> src="images/system/schoolboy.jpg"></center>'
+	*nl
+	'You can choose from two starting locations:'
+	*nl
+	'In the Pavlovsk start you awaken at your parent''s home in the provincial town of Pavlovsk <i>(Recommended for new players)</i>. In the Gadukino start you are visiting your grandparent''s house in the small farming village of Gadukino.'
+
+	act 'Pavlovsk Start': gt 'preCSB', 'pav_start'
+	act 'Gadukino Start': gt 'preCSB', 'gad_start'
+end
+
+if $ARGS[0] = 'pav_start':
+	*clr & cla
+	'<center><h2>Pavlovsk</h2></center>'
+	'<center><img <<$set_imgh>> src="images/pre/alt/gorodok.jpg"></center>'
+	*nl
+	'<center>A provincial town in a rural area of Russia, it looks much like all the other towns in the region. Population: about 15000 inhabitants.</center>'
+	
+	act 'Get out of bed and get dressed': gt 'bedrPar'
+	act 'Change location': gt 'preCSB', 'game_start'
+end
+
+if $ARGS[0] = 'gad_start':
+	*clr & cla
+	'<center><h2>Gadukino</h2></center>'
+	'<center><img <<$set_imgh>> src="images/pre/alt/gadukino.jpg"></center>'
+	*nl
+	'<center>A small farming village with many rickety wooden houses and even more ruins of houses. This village has seen better times.</center>'
+	
+	act 'Get out of bed and get dressed': gt 'gadhouse'
+	act 'Change location': gt 'preCSB', 'game_start'
 end
 
 !!------------------------
@@ -582,6 +633,8 @@ if $ARGS[0] = 'hair':
 	if pcs_haircol = 2 and curly > 0:$hair += '<a href="exec:defcurly = 0 & curly = 0 & gs ''preCSB'', ''hair''">curly</a>, <a href="exec:gs ''preCSB'', ''pcs_haircol'' & gs ''preCSB'', ''hair''">red</a> hair.'& $hair2 = 'curls' & $hair3 = 'red hair'
 	if pcs_haircol = 3 and curly > 0:$hair += '<a href="exec:defcurly = 0 & curly = 0 & gs ''preCSB'', ''hair''">curly</a>, <a href="exec:gs ''preCSB'', ''pcs_haircol'' & gs ''preCSB'', ''hair''">blonde</a> hair.' &$hair2 = 'curls' & $hair3 = 'blond curls'
 
+	'<center><i><<$hair>></i>'
+	
 	nathcol = pcs_haircol
 	
 	act'<center><b>Done</b></center>': gt 'preCSB', 'intro_6_looks'

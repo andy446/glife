@@ -531,6 +531,8 @@ if $ARGS[0] = 'intro_end':
 				minut = 0
 				hour = 9
 				
+				msg 'You have gained the trait ''Everything is New Again''! <br>Being thrust into a new life has forced you to reevaluate and relearn everything. You pick up new skills more quickly for a short time.'
+				
 				gs 'stat'
 				if month = 6:
 					gt 'gadhouse'

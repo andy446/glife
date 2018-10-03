@@ -160,7 +160,7 @@ if $ARGS[0] = 'description':
 	'You are <<pcs_hgt>>cm tall and <a href="exec:gs ''obj_din'', ''show_body''"><<$body>></a>.'
 	'Your breasts would be considered an EU <a href="exec:gs ''obj_din'', ''show_tits''"><<$titsize>></a>.'
 	'<<$nipplesize>>'
-
+	*nl
 	if preg = 1:
 		if denypreg = 1 and pregtime > 75:
 			'You seem to be putting on a bit of weight, your belly is definitely bigger.'
@@ -180,7 +180,7 @@ if $ARGS[0] = 'description':
 			'You''ve noticed that your breasts seem firmer lately and your nipples seem to be sticking out more.'
 		end
 	end
-
+	*nl
 	'<<$lip>>'
 	'<<$pcs_throat>>'
 	'<<$skin>>'

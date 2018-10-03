@@ -453,7 +453,7 @@ if $ARGS[0] = 'intro_9':
 															'<center><img <<$set_imgh>> src="images/pre/csb/newspapercsb.jpg"></center>'
 															'There is a news report about about a teenage boy, whose remains were found by a group of hunters half-eaten by wolves.'
 															'You give Tatiana a bewildered look. She has an enigmatic smile, "Well, I am a magician. That''s something that I can do. Reinhold has definitely lost the trail; there''s no reason he should suspect the power been passed to a girl. You took <<$pcs_firstname>>''s place, and she took yours. The body that ''died'' in the woods was a perfect copy of your old self, from your absorbed amulet energy down to the placement of every single hair."'
-															'"Anyways, your "mother" will be by in a couple hours to pick you up; she thinks that you''ve got some amnesia from a head injury and mental trauma from seeing your "boyfriend" get eaten alive by wolves, so you should probably be covered for any slip-ups. Just play the part of the traumatized little schoolgirl and it should be all good. Have fun~"'
+															'"Anyways, your ''mother'' will be by in a couple hours to pick you up; she thinks that you''ve got some amnesia from a head injury and mental trauma from seeing your ''boyfriend'' get eaten alive by wolves, so you should probably be covered for any slip-ups. Just play the part of the traumatized little schoolgirl and it should be all good. Have fun."'
 															'She gets up and heads to the door, opening it up to reveal a tall man with red hair and face tattoos. "Come on, Gustav, let''s go." The pair disappears into the hall, leaving you with your thoughts.'
 															
 															act 'Think about your situation':
@@ -469,7 +469,7 @@ if $ARGS[0] = 'intro_9':
 																	csb_start = 1
 																	'<center><img <<$set_imgh>> src="images/system/schoolboy.jpg"></center>'
 																	'Welcome to the Cursed Schoolboy version! You may have lost your masculinity and your old life, but you''ve gained new possibilities in return! Will you try to live your new life as a mere schoolgirl, or do you have grander aspirations with your newfound knowledge of magic? The choice is yours!'
-																	'Now, would you like to dive right into the action? Or would you rather take some time to get used to your new body and life?'
+																	!!'Now, would you like to dive right into the action? Or would you rather take some time to get used to your new body and life?'
 																	
 																	act 'Start main game!': gt 'preCSB', 'intro_end'
 																	
@@ -518,8 +518,19 @@ if $ARGS[0] = 'intro_end':
 			
 			act' Get out of bed and get dressed':
 				*clr & cla
+				
+				showstat 1
+				showobjs 1
+				
+				!!Stuff from the backpack, phone
+				money += 5000
+				prezik = 3
+				pornMagazine = 40
+				balans = 200
+				
 				minut = 0
 				hour = 9
+				
 				gs 'stat'
 				if month = 6:
 					gt 'gadhouse'

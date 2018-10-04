@@ -20,12 +20,15 @@ end
 
 if $ARGS[0] = 'events':
 	if exhibitionQW = 1:
-		act 'Search for flashing woman':
+		act 'Find the flashing woman':
 			if hour > 9 and hour <= 18 and rand(0,3) = 0:
 				gt 'kseniyaQW', 'event2'
 			else
+				cla
+				minut += 5
 				*nl
 				'You look around the park but can''t find her'
+				act 'Continue': gt $loc, $metka
 			end
 		end
 	elseif exhibitionQW = 2:
@@ -33,8 +36,11 @@ if $ARGS[0] = 'events':
 			if hour > 9 and hour <= 18 and rand(0,3) = 0:
 				gt 'kseniyaQW', 'event3'
 			else
+				cla
+				minut += 5
 				*nl
 				'You look around the park but can''t find her'
+				act 'Continue': gt $loc, $metka
 			end
 		end
 	end

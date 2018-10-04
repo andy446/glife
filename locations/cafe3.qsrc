@@ -250,13 +250,13 @@ if $ARGS[0] = 'toilet':
 		'<center><img <<$set_imgh>> src="images/locations/city/residential/cafe/sex/vagtualet.jpg"></center>'
 		'You attempt to abandon your hot lover but he refuses, he turns your back to him and bends you forwards.'
 		'You feel <<$boydesc>> bare your ass and something solid against your vagina.'
-		'You''re fucked doggy style in the outhouse.'
+		'You''re fucked doggy style in the toilet.'
 		dynamic $vagend
 		gs 'arousal', 'vaginal', 15, 'sub', 'rough'
 		gs 'arousal', 'end'
 		gs 'stat'
 
-		act 'Leave':gt 'street'
+		act 'Leave':gt 'kafe', 'start'
 	end
 
 	act 'Suck it':
@@ -291,7 +291,7 @@ if $ARGS[0] = 'toilet':
 			if bjrand >= 50 or repa = 6:'<center><img <<$set_imgh>> src="images/shared/sex/cum/facial/facial<<picrand>>.jpg"></center>'
 
 
-			act 'Leave':gt 'street'
+			act 'Leave':gt 'kafe', 'start'
 		end
 
 		act 'Suck on':
@@ -309,7 +309,7 @@ if $ARGS[0] = 'toilet':
 				gs 'arousal', 'end'
 				gs 'stat'
 
-				act 'Leave':gt 'street'
+				act 'Leave':gt 'kafe', 'start'
 			end
 
 			act 'Spit out':
@@ -322,7 +322,7 @@ if $ARGS[0] = 'toilet':
 				gs 'arousal', 'end'
 				gs 'stat'
 				
-				act 'Leave':gt 'street'
+				act 'Leave':gt 'kafe', 'start'
 			end
 		end
 	end

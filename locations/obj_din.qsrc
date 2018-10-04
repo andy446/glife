@@ -59,8 +59,11 @@ if $ARGS[0] = 'settingtabs':
 	if menu_page = 4:'<th><a href="exec:menu_page = 0 & dynamic $cheatmenu[''setting'']">Gameplay Settings</a></th><th><a href="exec:menu_page = 1 & dynamic $cheatmenu[''display'']">Display Settings</a></th><th><a href="exec:menu_page = 2 & dynamic $cheatmenu[''status'']">Status Window Settings</a></th>'+iif(settingmode = 1,'','<th><a href="exec:menu_page = 3 & dynamic $cheatmenu[''theme'']">Phone Theme Settings</a></th>')+'<th>Mods</th>'
 	'</tr></table></b></center>'
 	if settingmode = 1:
-		!value= 2, call from Character creation
-		act '<center><b>Return to character creation</b></center>': killvar 'menu_page' & gt 'begin', 'start'
+		act '<center><b>Return to character creation</b></center>':
+			killvar 'menu_page'
+			settingmode = 0
+			gt 'begin', 'start'
+		end
 	else
 		!call from Menu - Game settings
 		act 'Enter cheat menu': killvar 'menu_page' & gs '$menu_cheat'

@@ -6,6 +6,7 @@ if $ARGS[0] = 'start':
 	$menu_loc = 'kafe'
 	$menu_arg = 'start'
 	menu_off = 0
+	kafe_food = (pcs_ate + pcs_drank)
 	$location_type = 'public_indoors'
 	CLOSE ALL
 	if sound = 0:PLAY 'sound/cafe.mp3',30
@@ -17,7 +18,7 @@ if $ARGS[0] = 'start':
 	'Sitting at one end of the bar, you see <a href="exec:gt ''kafe'', ''vlad''">the owner</a> of the diner, busy with paperwork.'
 	*nl
 	'They serve American style meals'
-
+	*nl
 	act 'Leave the diner': minut += 5 & gt 'street'
 
 	if QWdogReiq = 3 and week = 7 and hour >= 12:
@@ -46,10 +47,12 @@ if $ARGS[0] = 'table':
 	act 'Get up from the table':gt 'kafe', 'start'
 
 	act 'Order from the menu (0:05)':gs 'food_menu'
-	if rand(1, 10) > 5:
-		gs 'boy'
-		'A man comes over to your table <<$boybody>> <<$boybod>> <<$boyface>> introducing himself as <<$boydesc>>.'
-		xgt 'kafe', 'razvod'
+	if kafe_food < (pcs_ate + pcs_drank):
+		if rand(1, 10) > 5:
+			gs 'boy'
+			'A man comes over to your table <<$boybody>> <<$boybod>> <<$boyface>> introducing himself as <<$boydesc>>.'
+			xgt 'kafe', 'razvod'
+		end
 	end
 end
 
@@ -875,7 +878,7 @@ if $ARGS[0] = 'razvod':
 			act 'Leave': minut += 5 & gt 'street'
 		end
 	elseif deyst = 3:
-		'<<$boydesc>> is incredibly drunk and you feel tipsy just from the smell of booze on him. "Hey baby, got some spare time? Come have fun in the outhouse."'
+		'<<$boydesc>> is incredibly drunk and you feel tipsy just from the smell of booze on him. "Hey baby, got some spare time? Come have fun in the toilet."'
 		act 'Meet in bathroom':gt 'cafe3', 'toilet'
 		if pcs_horny < 95:
 			act 'Leave':

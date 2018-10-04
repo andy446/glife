@@ -465,7 +465,7 @@ if $ARGS[0] = 'rabota':
 				'The website hides your stream for viewers from your region, so the chance of being recognized by someone you know in real life is very low.'
 				'If you''re interested in becoming a webcam girl, please fill in this questionnaire below.</i>'
 				
-				if pcs_inhib >= 50 or exhibitionist_lvl > 1 or (pcs_inhib >= 40 and exhibitionist_lvl > 0):
+				if pcs_inhib >= 40 or exhibitionist_lvl > 1 or (pcs_inhib >= 35 and exhibitionist_lvl > 0):
 					act 'Fill in the questionnaire':
 						cls
 						camwhore = 1

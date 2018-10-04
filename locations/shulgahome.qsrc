@@ -15,6 +15,7 @@ gs 'stat'
 if npc_rel['A112'] < 30:$serg_obr = ' uncle' else $serg_obr = ''
 
 'You''re at the door to the Shulgin apartment.'
+act 'Leave':minut += 1 & gt'pod_ezd','etaj_3'
 !Entry conditions:
 if week < 6 and hour >= 10 and hour < 16:
 	'When you ring the doorbell, no one comes to answer the door. Apparently both '+func('gopsex','hide','Shulga_var_name')+' and Sergey are not at home.'
@@ -39,7 +40,6 @@ else
 	'The door is opened by '+func('gopsex','hide','Shulga_var_name')+' and you are invited in.' & act 'Enter':gt 'shulgahall'
 end
 
-act 'Leave':minut += 1 & gt'pod_ezd','etaj_3'
 
 --- shulgahome ---------------------------------
 

@@ -85,7 +85,7 @@ if pcs_sleep > 100: pcs_sleep = 100
 $stat_imgtool_msg=''
 $stat_imgextra_msg=''
 
-if Enable_showstatimg = 1 or Enable_statimg_loc > 0:
+if Enable_showstatimg = 1:
 	!There are 3 display mode, with toobar / top / bottom, controlled by Enable_statimg_loc
 	if Enable_statimg_face = 0:
 		$stat_imgtool_msg += '<a href="exec:Enable_statimg_face = 1 & gs ''$menu_obnovit''">◇Face</a>'

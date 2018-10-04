@@ -10,11 +10,14 @@ if $ARGS[0] = 'start':
 	'<b>Transformation Start:</b>'
 	'You are Mikhail Kuznetsov, a fairly average, 35 year old businessman who finds an artefact that changes everything about him and his life. Features magic.'
 	*nl
-	'<b>School girl Start:</b>'
+	'<b>School Girl Start:</b>'
 	'You are a school girl in the most lustful town in Russia. Will you study hard and keep your purity for that special someone or become a sex addicted whore? Or anything in between, the possibilities are endless. No magic.'
 	*nl
-	'<b>Cursed schoolgirl Start:</b>'
+	'<b>Cursed Schoolgirl Start:</b>'
 	'Marvel as we recklessly squish both of the above into one start. You are a school girl who finds the amulet and not much changes, except the magic, actually that''s quite a big change.'
+	*nl
+	'<b>Cursed Schoolboy Start:</b>'
+	'You are Peter Ivanov, a fairly average teenage boy who, while trying to escape a bad situation, ends up in the body of a school girl. Now you have to deal with a new body, new desires, and your new life in the most lustful town in Russia. Features magic.'
 	*nl
 	'<b>New in Town Start:</b>'
 	'You''re controlled by your overbearing mother and can''t take it any more. It is time to find a new life in the city away from her influence. For the first time you can make your own decisions and mistakes. No magic.'
@@ -47,6 +50,15 @@ if $ARGS[0] = 'start':
 		showstat 0
 		altQS = 1
 		gt 'preSYS', 'SGStart'
+	end
+	
+	act '<center><b>Cursed Schoolboy Start</b></center>':
+		cla
+		settingmode = 0
+		showstat 0
+		altQS = 1
+		csb_start = 1
+		gt 'preSYS', 'CSBStart'
 	end
 
 	act '<center><b>New in Town Start</b></center>':
@@ -212,7 +224,6 @@ if $ARGS[0] = 'eyes':
 	if pcs_eyecol = 3:$pcs_eyecol = 'blue' & $glacol2 = 'blue'
 	if glass <= 0:$glass = '' & glassvnesh = 0
 	if glass = 1:$glass = ' You wear silly glasses in a cheap frame.' & glassvnesh = 10
-	if glass = 2:$glass = ' You wear glasses.' & glassvnesh = 0
 	if pcs_lashes > 2:pcs_lashes = 2
 	if pcs_lashes = 0:$pcs_lashes = 'with short eyelashes'
 	if pcs_lashes = 1:$pcs_lashes = 'with normal eyelashes'
@@ -235,8 +246,8 @@ if $ARGS[0] = 'eyes':
 	if pcs_lashes > 0:'<center><a href="exec:pcs_lashes -= 1 & gs ''begin'', ''eyes''">Shorten lashes</a></center>'
 	if pcs_eyesize < 3:'<center><a href="exec:pcs_eyesize += 1 & gs ''begin'', ''eyes''">Larger eyes</a></center>'
 	if pcs_eyesize > 0:'<center><a href="exec:pcs_eyesize -= 1 & gs ''begin'', ''eyes''">Smaller eyes</a></center>'
-	if glass = 0 and glass < 2:'<center><a href="exec:glass = 2 & gs ''begin'', ''eyes''">Wear glasses</a></center>'
-	if glass > 0 and glass <= 2:'<center><a href="exec:glass = 0 & gs ''begin'', ''eyes''">Remove glasses</a></center>'
+	if glass = 0:'<center><a href="exec:glass = 1 & gs ''begin'', ''eyes''">Wear glasses</a></center>'
+	if glass = 1:'<center><a href="exec:glass = 0 & gs ''begin'', ''eyes''">Remove glasses</a></center>'
 
 	if player_avatar = 1:
 		act'<center><b>Done</b></center>': gt'begin','description_real_character'
@@ -257,10 +268,14 @@ end
 if $ARGS[0] = 'birthday':
 	cls
 	'<center><b><font color = maroon>CHARACTER CUSTOMIZATION</font></b></center>'
-	if player_avatar = 1:
-		'<center><img HEIGHT = 478 src="images/avatar.jpg"></center>'
+	if csb_start ! 1:
+		if player_avatar = 1:
+			'<center><img HEIGHT = 478 src="images/avatar.jpg"></center>'
+		else
+			'<center><img <<$set_imgh>> src="<<FUNC(''$face_image'')>>"></center>'
+		end
 	else
-		'<center><img <<$set_imgh>> src="<<FUNC(''$face_image'')>>"></center>'
+		'<center><img <<$set_imgh>> src="images/pre/csb/petercsb.jpg"></center>'
 	end
 	'<center>Choose your date of birth:</center>'
 	*nl
@@ -313,10 +328,14 @@ if $ARGS[0] = 'birthday':
 	'<center><a href="exec:birthmonth = 11 & gs ''begin'', ''birthday''">November</a></center>'
 	'<center><a href="exec:birthmonth = 12 & gs ''begin'', ''birthday''">December</a></center>'
 
-	if player_avatar = 1:
-		act'<center><b>Done</b></center>': gt 'begin', 'description_real_character'
+	if csb_start ! 1:
+		if player_avatar = 1:
+			act'<center><b>Done</b></center>': gt 'begin', 'description_real_character'
+		else
+			act'<center><b>Done</b></center>': gt 'preSYS', 'SGStart2'
+		end
 	else
-		act'<center><b>Done</b></center>': gt 'preSYS', 'SGStart2'
+		act'<center><b>Done</b></center>': gt 'preSys', 'CSBStart'
 	end
 end
 

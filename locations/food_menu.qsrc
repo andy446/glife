@@ -1,4 +1,7 @@
 # food_menu
+!pcs_drank and pcs_ate variables track how much Sveta consumes each day. Vars are reset each day.
+!food_loc returns food and beverage menus back to the food_menu.
+
 menu_off = 1
 food_loc = 1
 gs 'themes', 'food_menu'
@@ -15,8 +18,8 @@ killvar '$_eat'
 if $loc = 'burger':
 	'<center><b><font color="maroon">Diner Bystroeshka</font></b></center>'
 	*nl
-	!'<center><img <<$set_imgh>> src="images/shared/menus/burger.png"</center><br>'
-	'<center><img <<$set_imgh>> src="images/shared/drinks/dinerdrinks.jpg"</center><br>'
+	'<center><img <<$set_imgh>> src="images/shared/menus/burger.png"</center><br>'
+	!'<center><img <<$set_imgh>> src="images/shared/drinks/dinerdrinks.jpg"</center><br>'
 	$_eat['0,name'] = 'Onion Rings'
 	$_eat['0,type'] = 'onring'
 	$_eat['0,price'] = 80

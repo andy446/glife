@@ -1,5 +1,103 @@
 # lact_lib
 
+!! WARNING - Do not play around with this function yet, it is still in development and not fully functional.
+if $ARGS[0] = 'view_milk_bottles':
+
+	!! func('lact_lib', 'view_milk_bottles', location)
+	!! use gs 'lact_lib','view_milk_bottles', '1'
+	!! locations
+	!! 0 = unknown
+	!! 1 = parent bathroom
+	!! 2 = parent fridge
+	!! 3 = Resident Area Appartment Bathroom
+	!! 4 = Resident Area Appartment Fridge
+	!! 5 = Grandparents Bathroom
+	!! 6 = Villa Bathroom
+	!! 7 = Villa Fridge
+	!! 8 = Shared Apartment Bathroom
+	!! 9 = Shared Apartment Fridge
+	!! milk bottle array indices
+	!! mbarrtype: Size of milk bottle. Normal bottles are 150ml and large bottles are 250ml. Values are ml*10
+	!! mbarrfill: Filled milk volume in the bottle. Values are in ml*10 and can''t surpass mbarrtype
+	!! mbarrmage: timestamp the milk was pumped.
+	!! mbarrcool: Is the milk cooled? 0 = no, 1 = normal cooler, 2 = frozen
+	!! mbarrstat: State of the milk: fresh, old, rancid
+	!! mbarrtemp: Temperature of the milk: hot, warm, medium, chilly, cold
+	!! mbarrloca: Location of the bottle. Parents Bathroom, Parents Fridge, City Apartment Fridge... and so on. (see above list)
+	'You check the bottles that you store here.'
+	temp_var = (bpbottlem + bpbottles) - 1
+	i = 0
+	:vmbloop
+	if i <= temp_var:
+		if mbarrloca[i] = ARGS[1]:
+			if mbarrfill[i] <=0:
+				mbarrfill[i] = 0 
+				'A empty <<mbarrtype[i]/10>>ml bottle. You can use it to store your breast milk.'
+			else
+				'A <<mbarrtype[i]/10>>ml bottle. There is <<mbarrfill[i]/10>>ml of milk in the bottle.'
+			end
+		end
+		i += 1
+		jump 'vmbloop'
+	end
+	
+end
+!! WARNING - Do not play around with this function yet, it is still in development and not fully functional.
+if $ARGS[0] = 'time_stamp':
+	!! use func('lact_lib','time_stamp')
+	!! This function creates a time stamp in minutes. It takes the current in game time and converts it to total minutes from year 01.01.0000 to in game now.
+	!! Used to check breast milk age in bottles. Can be used for other functions if needed.
+	temp_timestamp = 0
+	temp_timestamp += year * 365 * 24 * 60
+	ts_i = 1
+	if month > 1:
+		:ts_loop
+		if (month - 1) => ts_i:
+			if ts_i = 1 or ts_i = 3 or ts_i = 5 or ts_i = 7 or ts_i = 8 or ts_i = 10 or ts_i = 12:
+				temp_timestamp += 44640
+			elseif ts_i = 4 or ts_i = 6 or ts_i = 9 or ts_i = 11:
+				temp_timestamp += 43200
+			elseif ts_i = 2:
+				temp_timestamp += 40320
+			end
+			ts_i += 1
+			jump 'ts_loop'
+		end
+	end
+	temp_timestamp += (day - 1) * 24 * 60
+	temp_timestamp += hour * 60
+	temp_timestamp += minut
+	result = temp_timestamp
+end
+!! WARNING - Do not play around with this function yet, it is still in development and not fully functional.
+if $ARGS[0] = 'update_mbottle':
+	!! func('lact_lib', 'update_mbottle', bottle_id)
+	!! use result = func('lact_lib','update_mbottle', '0')
+	!! this function is used to update milk bottles. Temperature
+	!! Room temperature. Freshly expressed breast milk can be kept at room temperature for up to six hours. However, use or proper storage within four hours is optimal. If the room is especially warm, the limit is also four hours.
+	!! Insulated cooler. Freshly expressed breast milk can be stored in an insulated cooler with ice packs for up to one day.
+	!! Refrigerator. Freshly expressed breast milk can be stored in the back of the refrigerator for up to five days in clean conditions. However, use or freezer storage within three days is optimal.
+	!! Deep freezer. Freshly expressed breast milk can be stored in the back of a deep freezer for up to 12 months. However, using the frozen milk within six months is optimal.
+	!! milk bottle array indices
+	!! mbarrtype: Size of milk bottle. Normal bottles are 150ml and large bottles are 250ml. Values are ml*10
+	!! mbarrfill: Filled milk volume in the bottle. Values are in ml*10 and can''t surpass mbarrtype
+	!! mbarrmage: timestamp the milk was pumped.
+	!! mbarrcool: Is the milk cooled? 0 = no, 1 = normal cooler, 2 = frozen
+	!! mbarrstat: State of the milk: fresh, old, rancid
+	!! mbarrtemp: Temperature of the milk: hot, warm, medium, cold, frozen
+	!! mbarrloca: Location of the bottle.
+	if mbarrcool[ARGS[1]] = 0:
+		if (mbarrage[ARGS[1]] + 60) < func('lact_lib','time_stamp'):
+			mbarrtemp[ARGS[1]] = 'warm'
+			mbarrstat[ARGS[1]] = 'fresh'
+		end
+	elseif mbarrcool[ARGS[1]] = 1:
+	elseif mbarrcool[ARGS[1]] = 2:
+	else
+	end
+
+end
+
 if $ARGS[0] = '$get_bfat_tissue':
 	!! func('lact_lib', 'get_bfattissue', npc_nbsize, npc_lactatemm)
 	!! function to get breast fat tissue amount. Can be used for NPC as well as PC.

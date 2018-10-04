@@ -44,7 +44,7 @@ else
 	'<br>You have no Mods activated.'
 end
 '</center>'
-act 'Install new mod':
+act ''+iif(settingmode = 1, '<center><b>Install new mod</b></center>','Install new mod')+'':
 	killvar 'mod_info'
 	$mod_temp=input('input mod name (as for the example image above, input <B>isample</B>)')
 	if $mod_temp='':exit
@@ -61,7 +61,7 @@ act 'Install new mod':
 	$mod_desc[mod_list] = $mod_info[3]
 	gt curloc
 end
-act 'Disable all mods':
+act ''+iif(settingmode = 1, '<center><b>Disable all mods</b></center>','Disable all mods')+'':
 	if input('Are you sure? ALL mod will be disabled!<br>please input <b>qqq</B> to confirm') = 'qqq':
 		KILLQST
 		set mod_list=0

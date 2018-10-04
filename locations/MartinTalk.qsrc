@@ -6,7 +6,7 @@ gs 'stat'
 gs 'themes', 'indoors'
 
 if $ARGS[0] = '':
-	cls
+	*clr & cla
 	'<center><img <<$set_imgh>> src="images/locations/city/industrial/bar/MartinTalk.jpg"></center>'
 		
 	if MartinTalkVar = 0:
@@ -34,7 +34,7 @@ if $ARGS[0] = '':
 		*nl
 		'With that, he directs his attention at another visitor of the bar. You notice that you''ve been holding your breath and release it now, glad you didn''t piss him off. Watching Martin from afar, you nurse on your beverage until you find it empty.'
 		
-		act 'Finish your drink': gt 'qwBarPolet'
+		act 'Finish your drink': gt 'qwBarPolet', 'bar'
 	
 	elseif MartinTalkVar = 1:
 		MartinTalkVar = 2
@@ -52,7 +52,7 @@ if $ARGS[0] = '':
 		'"Guess I better get back to work," he says, and you agree, glad that he broke the uncomfortable silence and leaves you to your beverage.'
 		'Maybe you can satisfy your curiosity about him at a later date. If he talks to you at all, that is.'
 		
-		act 'Finish your drink': gt 'qwBarPolet'
+		act 'Finish your drink': gt 'qwBarPolet', 'bar'
 		
 	elseif MartinTalkVar = 2:
 		MartinTalkVar = 3
@@ -86,7 +86,7 @@ if $ARGS[0] = '':
 		*nl
 		'With that, he leaves you to your drink. Minutes pass as you enjoy your beverage, only stopping when you find your glass empty.'
 		
-		act 'Finish your drink': gt 'qwBarPolet'
+		act 'Finish your drink': gt 'qwBarPolet', 'bar'
 		
 	elseif MartinTalkVar = 3 and npc_rel['A216'] >= 20:
 		MartinTalkVar = 4
@@ -112,7 +112,7 @@ if $ARGS[0] = '':
 		'And armed with that knowledge and a newfound ease, you chat and joke with Martin a while longer before another patron demands his attention.'
 		$OpenInnerThought+'Hm... Maybe I really should try and talk to him when he''s starting to clean up and close for the night - I think he starts throwing people out around quarter to Midnight.'+$CloseInnerThought
 		
-		act 'Finish your drink': gt 'qwBarPolet'
+		act 'Finish your drink': gt 'qwBarPolet', 'bar'
 				
 	elseif MartinTalkVar = 4 and npc_rel['A216'] >= 28:
 		MartinTalkVar = 5
@@ -136,7 +136,7 @@ if $ARGS[0] = '':
 		'"Suuure," you say and watch Martin walk off.'
 		'Either there was a point to this that you missed completely, or you really look <b>that</b> skinny to him.'
 		
-		act 'Finish your drink': gt 'qwBarPolet'
+		act 'Finish your drink': gt 'qwBarPolet', 'bar'
 	
 	elseif MartinTalkVar = 5:
 		MartinTalkVar = 6
@@ -163,7 +163,7 @@ if $ARGS[0] = '':
 		'"And do you find me attractive?" You ask innocently.'
 		'"That''s for me to know and for you to find out, <<$pcs_nickname>>." With that, he turns and leaves you to drink and ponder his noncommittal answer.'
 		
-		act 'Finish your drink': gt 'qwBarPolet'
+		act 'Finish your drink': gt 'qwBarPolet', 'bar'
 	
 	elseif MartinTalkVar = 6 and npc_rel['A216'] >= 35:
 		MartinTalkVar = 7
@@ -196,7 +196,7 @@ if $ARGS[0] = '':
 		*nl
 		'For a fraction of a second, it looks like he is going to say something, but instead he just gives you a warm smile and you respond in kind, before Martin has to go back to work, leaving you to enjoy your drink in peace.'
 		
-		act 'Finish your drink': gt 'qwBarPolet'
+		act 'Finish your drink': gt 'qwBarPolet', 'bar'
 	
 	elseif MartinTalkVar = 7:
 		MartinTalkVar = 8
@@ -380,7 +380,7 @@ if $ARGS[0] = '':
 		'He sighs deeply; not at your question, you feel, but at his own answer: "Life happened, corazón. Life can make or break someone''s faith. Me, I eventually figured that either there was no god or the filio di puta had a really twisted sense of humor and didn''t deserve my faith." The bitterness in his voice is almost palpable.'
 		
 		act 'What happened to him?':
-			cls
+			*clr & cla
 			'<center><img <<$set_imgh>> src="images/locations/city/industrial/bar/MartinTalk.jpg"></center>'
 			'The question is burning under your nails: What could have brought this man to the other end of the world? But you realize that he has opened up to you in good faith, not because you pressed him for answer. He would only tell you as much as he wanted to, and pushing him would get you nowhere.'
 			'So, you do what friends do: You try not to be an ass.' 
@@ -406,7 +406,7 @@ if $ARGS[0] = '':
 			end
 			
 			act 'Raving lunacy':
-				cls
+				*clr & cla
 				'<center><img <<$set_imgh>> src="images/locations/city/industrial/bar/MartinTalk.jpg"></center>'
 				'Martin listens patiently, and when you finish, he gives you that same understanding look he always wears when one of his patrons gets something heavy off their chest.'
 				'"Who am I to judge you?" He reaches out for your hand, takes it into his large one, and squeezes it gently. "If that''s how you feel, that''s how you feel; don''t let somebody else take that away from you. I envy those who have faith in something, regardless of whether it''s something they witness out on the street or something they see all around them. If it''s real to you, that''s enough."'
@@ -418,7 +418,7 @@ if $ARGS[0] = '':
 				*nl
 				'For a moment, you want to talk back, stop him from deflecting your heartfelt compliment like that, but then you just smile and hold your tongue because you notice that Martin hasn''t let go of your hand and, after his laughter has subsided, he''s giving you a smile full of gratitude.'
 				
-				act 'Finish your drink': gt 'qwBarPolet'
+				act 'Finish your drink': gt 'qwBarPolet', 'bar'
 			end
 		end
 		
@@ -474,7 +474,7 @@ if $ARGS[0] = '':
 			
 		if SchoolAtestat = 0: 
 			act '"I''m still going to school"':
-				cls
+				*clr & cla
 				'<center><img <<$set_imgh>> src="images/locations/city/industrial/bar/MartinTalk.jpg"></center>'
 				'"No, actually, I''m still going to school."'
 				'You regret your words almost immediately when Martin''s face darkens. "Still going to school, huh? What about you being 18?"'
@@ -494,7 +494,7 @@ if $ARGS[0] = '':
 						*nl
 						'You don''t think you''re off the hook - this definitely hurt your relationship with him. But it''s probably a good sign that he didn''t throw you out, so if you give him some space and keep your conversation with him light, you could probably recover from this.'
 
-						act 'Finish your drink': gt 'qwBarPolet'
+						act 'Finish your drink': gt 'qwBarPolet', 'bar'
 					
 					else
 						npc_rel['A216'] -= 20
@@ -535,7 +535,7 @@ if $ARGS[0] = '':
 					*nl
 					'You just about managed to save the situation, and you are pretty sure this could have gone A LOT worse, but Martin definitely needs a moment to cool it, and you are suddenly very grateful to have a drink in front of you and a moment to yourself.'
 					
-					act 'Finish your drink': gt 'qwBarPolet'
+					act 'Finish your drink': gt 'qwBarPolet', 'bar'
 				end
 			end
 		end
@@ -553,7 +553,7 @@ if $ARGS[0] = '':
 				'"It can get pretty wild there during the weekend, I heard," Martin comments, "and drunk people can be unpredictable. You watch yourself, okay?"'
 				'"I always do," you reply with a smile, touched by his concern.'
 				
-				act 'Finish your drink': gt 'qwBarPolet'
+				act 'Finish your drink': gt 'qwBarPolet', 'bar'
 			end
 		end
 		
@@ -594,7 +594,7 @@ if $ARGS[0] = '':
 				'"Like I said, I''m fine," you placate him once again. "It makes sense. I gotta make breakfast and all that, and I have a big room to myself, AND the apartment is right in the city center, so, really, it''s all I could ask for."'
 				'"Well, as long as you''re happy with it." Martin, however, doesn''t sound very happy. Could he be jealous of Nicholas?'
 				
-				act 'Finish your drink': gt 'qwBarPolet'
+				act 'Finish your drink': gt 'qwBarPolet', 'bar'
 			end
 		end
 		
@@ -774,7 +774,7 @@ if $ARGS[0] = '':
 		'Well, it doesn''t really matter now. It''s probably the best you could have hoped for: You have friend and experienced lover you can hook up with whenever you feel like it and who just told you that neither of you have to worry about the other''s feelings too much.'
 		'After all, you weren''t actually looking for a serious relationship with a man old enough to be your father, were you?'
 		
-		act 'Finish your drink': gt 'qwBarPolet'
+		act 'Finish your drink': gt 'qwBarPolet', 'bar'
 		
 		
 	elseif MartinTalkVar = 11 and MartinSex = 1 and npc_rel['A216'] >= 64:
@@ -804,7 +804,7 @@ if $ARGS[0] = '':
 		*nl
 		'You cannot outright see the effect of your words, but the telltale hints of it alone somehow make your drink taste better.'
 		
-		act 'Finish your drink': gt 'qwBarPolet'
+		act 'Finish your drink': gt 'qwBarPolet', 'bar'
 	
 	elseif MartinTalkVar = 12 and MartinSex = 1 and npc_rel['A216'] >= 70:
 		MartinTalkVar = 13
@@ -856,7 +856,7 @@ if $ARGS[0] = '':
 		'With that, he turns around and, rather than serving patrons, retreats to wash some glasses and check the register, apparently needing some space to pull himself together again.'
 		'Whatever happened to his brothers seems to deeply trouble him.'
 		
-		act 'Finish your drink': gt 'qwBarPolet'
+		act 'Finish your drink': gt 'qwBarPolet', 'bar'
 		
 	elseif npc_rel['A216'] < 20:
 		'As usual, Martin brings you your drink of choice. He seems to be in a talkative mood today, though, because he stays with you and strikes up a conversation.'
@@ -865,7 +865,7 @@ if $ARGS[0] = '':
 		*nl
 		'Still, you manage to keep it going for a while and by the time another patron wants to order something, you feel like you''ve gotten to know each other a little better, even if you''re still a ways away from becoming best friends.'
 		
-		act 'Finish your drink': gt 'qwBarPolet'
+		act 'Finish your drink': gt 'qwBarPolet', 'bar'
 	
 	elseif MartinSex = 1:
 		pcs_horny += rand(0,1)
@@ -879,7 +879,7 @@ if $ARGS[0] = '':
 		*nl
 		'So, when one of the regulars calls for Martin, you lick your <<$pcdesc_lipsrandom>> lips lasciviously and thank him for the drink in a low, sexy voice before Martin goes back to work, his walk a little funnier than before.'
 		
-		act 'Finish your drink': gt 'qwBarPolet'
+		act 'Finish your drink': gt 'qwBarPolet', 'bar'
 	
 	else
 		'As always, Martin brings you your beverage of choice. Rather then leave to look after his other patrons, though, he sticks around and the two of you chat for a while.'
@@ -888,12 +888,12 @@ if $ARGS[0] = '':
 		*nl
 		'Neither of you finds out anything mindblowing about the other, but you still feel like you and Martin know each other a little better now, your friendship with him growing stronger the more time you spend with him.'
 		
-		act 'Finish your drink': gt 'qwBarPolet'
+		act 'Finish your drink': gt 'qwBarPolet', 'bar'
 	end
 end
 
 if $ARGS[0] = 'MartinTalkHobby':
-	cls
+	*clr & cla
 	'<center><img <<$set_imgh>> src="images/locations/city/industrial/bar/MartinTalk.jpg"></center>'
 	'"All that counts is that you enjoy doing it," Martin comments encouragingly. He seems to want to say or ask something else, but both of you notice something out of the corner of your eyes:' 
 	'A new patron is calling him over, so it looks like this heart-to-heart is coming to an end soon.'
@@ -904,7 +904,7 @@ if $ARGS[0] = 'MartinTalkHobby':
 	*nl
 	'You''ve done some friendly flirting with Martin before, but something about the way he said this before turning to serve another customer made your belly tingle.'
 
-	act 'Finish your drink': gt 'qwBarPolet'
+	act 'Finish your drink': gt 'qwBarPolet', 'bar'
 end
 
 if $ARGS[0] = 'MartinTalkApartment':
@@ -960,7 +960,7 @@ if $ARGS[0] = 'MartinTalkApartment':
 		'"Okay..." He says slowly, raising an eyebrow. Before he can make any further inquiries, a nearby patron calls for him, saving you from further embarrassment and giving you time to get your story straight, should he ask again.'
 	end
 	
-	act 'Finish your drink': gt 'qwBarPolet'
+	act 'Finish your drink': gt 'qwBarPolet', 'bar'
 end
 
 

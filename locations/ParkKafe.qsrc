@@ -1,36 +1,60 @@
 # ParkKafe
 
 if $ARGS[0] = 'start':
-	minut = +5
-	$metka = 'start'
 	$loc = 'ParkKafe'
+	$metka = 'start'
 	$menu_loc = 'ParkKafe'
 	$menu_arg = 'start'
 	menu_off = 0
 	$location_type = 'public_indoors'
+	minut = +5
+	gs 'stat'
+	park_food = (pcs_ate + pcs_drank)
 	'<center><B><font color=maroon>Park Cafe</font></B></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/centralpark/parkcafe.jpg"></center>'
 	*nl
 
 	act 'Leave the cafe': gt 'parkKafe', 'end'
 
-	act 'Order from the menu (0:05)':pk_rand = rand(1, 7) & gs 'food_menu'
+	act 'Sit down at a table':
+		gt 'parkKafe', 'table'
+	end
+
 	if money >= 350:
 		act 'Order take-out (0:20) (350 <b>₽</b>)':money -= 350 & gt 'food', 'f_food'
 	end
 	'Whilst sitting and eating in the summer cafe. You take a moment and enjoy the beautiful scenery.'
+	*nl
+end
 
-	if pk_rand = 1:'You look around and notice the cafe visitors, strolling past is a <a href="exec:gt ''ParkKafe'', ''youth''">Youth</a>.'
-	if pk_rand = 2:'You look around and notice the cafe visitors, sitting alone is a young <a href="exec:gt ''ParkKafe'', ''the_boy''">Man</a>.'
-	if pk_rand = 3:'You are watching the world go by, when you see some <a href="exec:gt ''ParkKafe'', ''negros''">Africans</a>.'
-	if pk_rand = 4:'You are watching the world go by, when you see a <a href="exec:gt ''ParkKafe'', ''woman''">woman</a> looking imperious.'
-	if pk_rand = 5:'You look around and notice the cafe visitors, you see a solid older <a href="exec:gt ''ParkKafe'', ''man''">man</a>.'
-	if pk_rand = 6:'You are watching the cafe visitors and notice two <a href="exec:gt ''ParkKafe'', ''Armenians''">Armenians</a> sitting at a table.'
-	if pk_rand = 7:'You are watching the cafe visitors and notice two <a href="exec:gt ''ParkKafe'', ''guys''">sporty guys</a> sitting at a table and drinking beer.'
-
+if $ARGS[0] = 'table':
+	*clr & cla
+	$loc = 'ParkKafe'
+	$metka = 'table'
+	$menu_loc = 'ParkKafe'
+	$menu_arg = 'table'
+	menu_off = 0
+	'<center><B><font color=maroon>Park Cafe</font></B></center>'
+	'<center><img <<$set_imgh>> src="images/locations/city/centralpark/parkcafe.jpg"></center>'
+	*nl
+	'Whilst sitting and eating in the summer cafe. You take a moment and enjoy the beautiful scenery.'
+	act 'Get up from the table': gt 'parkKafe', 'start'
+	act 'Order from the menu (0:05)': gs 'food_menu'
+	if park_food < (pcs_ate + pcs_drank):
+		pk_rand = rand(1, 7)
+		*nl
+		if pk_rand = 1:'You look around and notice the cafe visitors, strolling past is a <a href="exec:gt ''ParkKafe'', ''youth''">Youth</a>.'
+		if pk_rand = 2:'You look around and notice the cafe visitors, sitting alone is a young <a href="exec:gt ''ParkKafe'', ''the_boy''">Man</a>.'
+		if pk_rand = 3:'You are watching the world go by, when you see some <a href="exec:gt ''ParkKafe'', ''negros''">Africans</a>.'
+		if pk_rand = 4:'You are watching the world go by, when you see a <a href="exec:gt ''ParkKafe'', ''woman''">woman</a> looking imperious.'
+		if pk_rand = 5:'You look around and notice the cafe visitors, you see a solid older <a href="exec:gt ''ParkKafe'', ''man''">man</a>.'
+		if pk_rand = 6:'You are watching the cafe visitors and notice two <a href="exec:gt ''ParkKafe'', ''Armenians''">Armenians</a> sitting at a table.'
+		if pk_rand = 7:'You are watching the cafe visitors and notice two <a href="exec:gt ''ParkKafe'', ''guys''">sporty guys</a> sitting at a table and drinking beer.'
+	end
 end
 
 if $ARGS[0] = 'guys':
+	menu_off = 1
 	cla
 
 	if rand(0, 1) = 0:
@@ -123,6 +147,7 @@ if $ARGS[0] = 'klof 1':
 end
 
 if $ARGS[0] = 'Armenians':
+	menu_off = 1
 	cla
 
 	if rand(0, 1) = 0:
@@ -357,6 +382,7 @@ if $ARGS[0] = 'end':
 	minut += 5
 	gs 'stat'
 	killvar 'pk_rand'
+	killvar 'park_food'
 	if $ARGS[1] = 'street':
 		gt 'street'
 	elseif $ARGS[1] = 'cafe':

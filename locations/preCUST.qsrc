@@ -363,7 +363,7 @@ if $ARGS[0] = 'Done':
 
 !! Adding underwear and default shoes and assigning them
 
-	if $ARGS[1] ! 'CSB'
+	if $ARGS[1] ! 'CSB':
 		cheap_panties[37] = 1
 		cheap_bras[11] = 1
 		$pantyworntype = 'cheap'

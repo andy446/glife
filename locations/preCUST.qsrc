@@ -575,6 +575,7 @@ if $ARGS[0] = 'Done':
 		LutH = 0
 		daylastperiod -= FocH/24
 	elseif temprand = 2:
+		lastovulation = daystart
 		cycle = 2
 		unfertegg = 1
 		ferteggage = rand(0,44)

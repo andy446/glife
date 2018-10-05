@@ -206,8 +206,7 @@ if $ARGS[0] = 'start':
 	if introDone = 0:gt 'pavSharedApt', 'intro'
 	minut += 2
 	gs 'stat'
-
-
+	
 	if courtletter_date <= daystart and courtletter_date ! 0:
 		gt 'sentence', 'letter'
 	end
@@ -237,11 +236,11 @@ if $ARGS[0] = 'start':
 
 	'<center><h3>Hallway</h3></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/sharedapt/hallway.jpg"></center>'
-	'It is week number '+weekNum+'.'
+	'It is week number <<weekNum>>.'
 
 	if weekNum < rentWeekNum:
 		if rentLeft > 0:
-			'You have left '+rentLeft+' <b>₽</b> of rent to pay for the next week.'
+			'You have left <<rentLeft>> <b>₽</b> of rent to pay for the next week.'
 			if servitudeLvl >= 1:
 				'You may still pay it in <a href="exec:gt ''pavSharedApt'', ''payCash''">cash</a>, if you want.'
 			else
@@ -250,7 +249,6 @@ if $ARGS[0] = 'start':
 		else
 			'You have already paid the whole rent for the next week.'
 		end
-
 	elseif weekNum >= rentWeekNum:
 		if rentLeft = 0:
 			!rent was forepaid, everything OK, proceed to next week
@@ -259,13 +257,13 @@ if $ARGS[0] = 'start':
 			rentWeekNum = weekNum + 1
 		elseif rentLeft > 0:
 			!rent was not fully paid
-			'You did not pay the whole rent for this week.'
+			'You did not pay the whole rent for this week. You still have to pay <<rentLeft>> <b>₽</b>.'
 			if money >= rentLeft:
 				!not enough cash to pay it manually
 				'You still can pay it in <a href="exec:gt ''pavSharedApt'', ''payCash''">cash</a>, otwerwise you''ll be kicked out!'
 			else
 				!in future add some way to serve your way out
-				'You do not have enough money to pay the rest of the rent in cash, even if you wanted to. Guess you''ll have to find a new living place..'
+				'You do not have enough money to pay the rest of the rent in cash, even if you wanted to. Guess you''ll have to find a new living place...'
 				rentPaid = 0
 				pavSharedAptEnabled = 0
 			end
@@ -342,7 +340,7 @@ if $ARGS[0] = 'payService':
 	minut += 1
 	'The amount '+price+' <b>₽</b> was taken in account of your weekly rent.'
 	servicePaid += price
-	act 'Continue':gt $loc, $metka
+	act 'Continue':gt 'pavSharedApt', 'start'
 end
 
 if $ARGS[0] = 'rentSetup':

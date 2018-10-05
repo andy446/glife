@@ -820,6 +820,7 @@ if $ARGS[0] = 'testarea:start:treatmentStart:wakeup3':
 	pillcon = 0
 
 	! cause ovulation
+	lastovulation = daystart
 	cycle = 2
 	ovulate = 24+rand(24,48)
 	EggRH = 320+rand(160, 320)
@@ -1114,6 +1115,7 @@ if $ARGS[0] = 'testarea:treatment:bed:wait:event':
 					'The nurse pulls the plug out of your pussy, "Hmm, it seems you''ll need a fresh dose of sperm soon. The old one has been almost absorbed."'
 					'With these words she rams the plug back in.'
 					if cycle <= 1 or cycle > 2 and fertEgg = 0 and pregchem = 0:
+						lastovulation = daystart
 						cycle = 2
 						ovulate = 24+rand(24,48)
 						EggRH = 320+rand(160, 320)
@@ -2190,6 +2192,7 @@ if $ARGS[0] = 'testarea:treatment:room:event:nurse:check':
 	end
 
 	if cycle <= 1 or cycle > 2 and fertEgg = 0 and pregchem = 0:
+		lastovulation = daystart
 		cycle = 2
 		ovulate = 24+rand(24,48)
 		EggRH = 320+rand(160, 320)

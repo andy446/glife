@@ -25,7 +25,7 @@ elseif pcs_throat <= 5:
 	$throattipe = 'narrow'
 elseif pcs_throat <= 10:
 	thpic = 2
-	$pcs_throat = 'Your slightly-experienced mouth leads to a sensitive <a href="exec:view''images/pc/body/throat/th2.jpg''">throat</a>  with an easily-triggered gag reflex.'
+	$pcs_throat = 'Your slightly-experienced mouth leads to a sensitive <a href="exec:view''images/pc/body/throat/th2.jpg''">throat</a> with an easily-triggered gag reflex.'
 	rand_throat = rand(0)
 	if rand_throat = 0:$pcdesc_throatrandom = 'delicate'
 	$pcdesc_throat = 'delicate'

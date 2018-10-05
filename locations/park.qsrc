@@ -122,7 +122,7 @@ if $ARGS[0] = 'start':
 		end
 	end
 
-	if $clothingworntype = 'exercise' and parkrunday ! daystart:
+	if $clothingworntype = 'exercise' and $shoeworntype = 'trainers' and hour > 5 and hour < 23 and parkrunday ! daystart:
 		act 'Jog through the park (1:00)':
 			cla
 			*clr
@@ -195,6 +195,8 @@ if $ARGS[0] = 'start':
 
 			act 'Complete jog':gt 'park', 'start'
 		end
+	elseif ($clothingworntype ! 'exercise' or $shoeworntype = 'trainers') and hour > 5 and hour < 23 and parkrunday ! daystart:
+		'You could go for a run in the park if you were wearing sports clothes and shoes.'
 	end
 
 	if hour <= 7 or hour >= 21:

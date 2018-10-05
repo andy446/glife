@@ -1,21 +1,5 @@
 # gdksport
 
-
-!!Ivan npc_static id = 'A3'
-!{Change log 14/03/2016
-reformatted to use arguments
-standardized prices and number of lessons to 300 <b>₽</b> for 30 lessons
-removed dynamic call from 'Wash in shower'
-reduced dance skill gain to 0-2 per lesson
-capped dance skill at 75 for lessons
-reduced dance skill requirement for Albina quest to 75
-added alternate starts to Albona quest based on relationship level
-moved content of 'volley' to 'gdksport','volley'
-fixed missing ShowerIvan = 1 and ShowerIvan = 2 variables
-29/03/2016
-fixed Lariska quest start to run even if the fight was more than a week ago
-}
-
 if $ARGS[0] = 'start':
 	CLOSE ALL
 	*clr & cla
@@ -35,16 +19,24 @@ if $ARGS[0] = 'start':
 	*nl
 	'In the locker room is a <a href="exec:GT ''mirror'',''start''">mirror</a>, where you can ' + iif(pcs_hairbsh = 0,'<a href="exec:GT ''mirror'',''brush''">brush</a>','brush') + ' your hair.'
 	*nl
+	'The sports section of the community center closes at 20:00. You need to start a class before 18:00'
+	*nl
+	
+	if $clothingworntype ! 'exercise': 'You are not dressed in sports clothes.'
+	if $shoeworntype ! 'trainers': 'You are not wearing training shoes.'
 	
 	if kotovLoveQW > 0 and hour = 16:
+		*nl
 		'You see <a href="exec:minut += 3 & gt ''kotovEv''">Vitek Kotov</a> with a large sports bag entering the sports club.'
 	elseif npc_rel['A3'] >= 80 and hour = 17 and ivansportday ! daystart:
+		*nl
 		'You see <a href="exec:minut += 3 & gt ''IvanEv''">Ivan Prokhorov</a> with a large sports bag entering the sports club.'
 	end
 
 	if npc_rel['A5'] >= 80 and fedorKozlovQW = 0 and pcs_apprnc >= 20 and fedorkozbreak < 2 and GorSlut < 2: gt 'gdksport', 'Fedor First Date'
 
 	if week <= 5 and hour >= 16 and hour < 18 and fedorKozlovQW >= 20:
+		*nl
 		'You can see <a href="exec:gt ''FedorMisc'', ''Fedor Workout''">Fedor</a> on his phone next to some punching bags.'
 	end
 
@@ -82,19 +74,13 @@ if $ARGS[0] = 'start':
 
 	gs 'wardrobe', 'sports_outfit_option'
 
-	if albinaQWdance > 0 or gsAboDance > 0 or gsAboBeg > 0 or gsAboVolley > 0:
-		if $clothingworntype ! 'exercise':'You are not dressed in sports clothes.'
-		if $shoeworntype ! 'trainers':'You are not wearing training shoes.'
-	end
-
 	if pcs_sweat > 19:
 		act 'Wash in the shower':gt 'gdksport', 'shower'
 	end
-	if hour < 14 or hour >= 20: exit
 
 	*nl
 
-	if pcs_stam > 20 and $clothingworntype = 'exercise' and $shoeworntype = 'trainers':
+	if pcs_stam > 20 and $clothingworntype = 'exercise' and $shoeworntype = 'trainers' and hour < 18:
 		if gsAboBeg > 0 and pregTalkTrack = 0:
 			act 'Take a track lesson, you have <<gsAboBeg>> lessons remaining':gt 'gdksport', 'racing2'
 		end
@@ -122,25 +108,22 @@ if $ARGS[0] = 'start':
 		if gsAboDance > 0 and albinaQWdance = 0 and pregTalkStarlets = 0:
 			act 'Take a dance lesson, you have <<gsAboDance>> lessons remaining':gt 'gdksport', 'dance2'
 		end
-		if albinaQWdance > 0 and AlbinaBlokDance = 0 and ZvezdEnd = 0 and pregTalkStarlets = 0:
+		if albinaQWdance > 0 and AlbinaBlokDance = 0 and ZvezdEnd = 0 and pregTalkStarlets = 0 and startletsday ! daystart:
 			if pregtime >= 90:
 				act 'Train with Starlets':gt 'gdksport', 'Starletsreact'
 			else
 				act 'Train with Starlets':gt 'gdksport', 'starlets'
 			end
 		end
-	elseif $clothingworntype ! 'exercise':
-		'You need to wear exercise clothing before you can take part in any athletic activities.'
-	elseif $shoeworntype ! 'trainers':
-		'You need to wear exercise shoes before you can take part in any athletic activities.'
-	else
+	elseif pcs_stam <= 20:
+		*nl
 		'You are too tired to do any exercise. You need to rest and replenish your stamina.'
 	end
 end
 
 if $ARGS[0] = 'racing1':
-	cls
 	menu_off = 1
+	*clr & cla
 	gs 'stat'
 	'Race training cost 300 <b>₽</b> for 30 lessons.'
 
@@ -148,7 +131,7 @@ if $ARGS[0] = 'racing1':
 	
 	if money >= 300 and gsAboBeg = 0:
 		act 'Buy 30 racing lessons (300 <b>₽</b>)':
-			cls
+			*clr & cla
 			money -= 300
 			gsAboBeg += 30
 			gs 'stat'
@@ -159,8 +142,8 @@ if $ARGS[0] = 'racing1':
 end
 
 if $ARGS[0] = 'dance1':
-	cls
 	menu_off = 1
+	*clr & cla
 	gs 'stat'
 	'Dance lessons cost 300 <b>₽</b> for 30 lessons.'
 
@@ -168,7 +151,7 @@ if $ARGS[0] = 'dance1':
 	
 	if money >= 300 and gsAboDance = 0:
 		act 'Buy 30 dance lessons (300 <b>₽</b>)':
-			cls
+			*clr & cla
 			money -= 300
 			gsAboDance += 30
 			gs 'stat'
@@ -179,8 +162,8 @@ if $ARGS[0] = 'dance1':
 end
 
 if $ARGS[0] = 'vball1':
-	cls
 	menu_off = 1
+	*clr & cla
 	gs 'stat'
 	'Volleyball lessons cost 300 <b>₽</b> for 30 visits.'
 
@@ -188,7 +171,7 @@ if $ARGS[0] = 'vball1':
 	
 	if money >= 300 and gsAboVolley = 0:
 		act 'Buy 30 volleyball lessons (300 <b>₽</b>)':
-			cls
+			*clr & cla
 			money -= 300
 			gsAboVolley += 30
 			gs 'stat'
@@ -242,8 +225,8 @@ if $ARGS[0] = 'dance2':
 end
 
 if $ARGS[0] = 'albina1':
-	cls
 	menu_off = 1
+	*clr & cla
 	numnpc = 23
 	$static_num = 'A23'
 	gs 'stat'
@@ -252,7 +235,7 @@ if $ARGS[0] = 'albina1':
 	'At the end of the class, a few girls enter the dance studio, including Albina Barlovskaya. You''ve seen Albina around, but you know almost nothing about her.'
 
 	act 'Say hello to Albina':
-		cls
+		*clr & cla
 		gs 'stat'
 		'<center><b><font color="maroon"><<$npc_firstname[$static_num]>> <<$npc_lastname[$static_num]>></font></b></center>'
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/<<numnpc>>.jpg"></center>'
@@ -262,7 +245,7 @@ if $ARGS[0] = 'albina1':
 		'Albina gave you an arrogant look, "Not bad? Well, maybe in comparison with other local bowlegged cows, but I doubt that you can dance on a professional level."'
 
 		act 'I do not care':
-			cls
+			*clr & cla
 			pcs_dom += 1
 			npc_rel[$static_num] -= 5
 			gs 'stat'
@@ -275,7 +258,7 @@ if $ARGS[0] = 'albina1':
 		end
 
 		act 'I know how to dance':
-			cls
+			*clr & cla
 			gs 'stat'
 			'<center><b><font color="maroon"><<$npc_firstname[$static_num]>> <<$npc_lastname[$static_num]>></font></b></center>'
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/<<numnpc>>.jpg"></center>'
@@ -290,8 +273,8 @@ if $ARGS[0] = 'albina1':
 end
 
 if $ARGS[0] = 'albina2':
-	cls
 	menu_off = 1
+	*clr & cla
 	numnpc = 23
 	$static_num = 'A23'
 	gs 'stat'
@@ -300,7 +283,7 @@ if $ARGS[0] = 'albina2':
 	'At the end of the class, a few girls enter the dance studio, including Albina Barlovskaya. You know Albina from school and you have a pretty good relationship.'
 
 	act 'Say hello to Albina':
-		cls
+		*clr & cla
 		gs 'stat'
 		'<center><b><font color="maroon"><<$npc_firstname[$static_num]>> <<$npc_lastname[$static_num]>></font></b></center>'
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/<<numnpc>>.jpg"></center>'
@@ -310,7 +293,7 @@ if $ARGS[0] = 'albina2':
 		'"Pretty good, huh?" Albina answered with in a condescending tone, "Well, I''ve seen some of the dancers that take lessons here. It wouldn''t take much to be better them those bow-legged cows. I doubt you''re up to any kind of professional standard though."'
 
 		act 'I do not care':
-			cls
+			*clr & cla
 			pcs_dom += 1
 			npc_rel[$static_num] -= 5
 			gs 'stat'
@@ -323,7 +306,7 @@ if $ARGS[0] = 'albina2':
 		end
 
 		act 'I know how to dance':
-			cls
+			*clr & cla
 			gs 'stat'
 			'<center><b><font color="maroon"><<$npc_firstname[$static_num]>> <<$npc_lastname[$static_num]>></font></b></center>'
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/<<numnpc>>.jpg"></center>'
@@ -338,8 +321,8 @@ if $ARGS[0] = 'albina2':
 end
 
 if $ARGS[0] = 'albina3':
-	cls
 	menu_off = 1
+	*clr & cla
 	numnpc = 23
 	$static_num = 'A23'
 	gs 'stat'
@@ -348,7 +331,7 @@ if $ARGS[0] = 'albina3':
 	'At the end of the class, a few girls enter the dance studio, including Albina Barlovskaya. You know Albina from school and you have a very close relationship.'
 
 	act 'Say hello to Albina':
-		cls
+		*clr & cla
 		gs 'stat'
 		'<center><b><font color="maroon"><<$npc_firstname[$static_num]>> <<$npc_lastname[$static_num]>></font></b></center>'
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/<<numnpc>>.jpg"></center>'
@@ -358,7 +341,7 @@ if $ARGS[0] = 'albina3':
 		'"Pretty good, huh?" Albina answered with laugh, "Well, I''ve seen some of the dancers that take lessons here. It wouldn''t take much to be better them those bow-legged cows. Do you think you''re up to any kind of professional level?"'
 
 		act 'Not really':
-			cls
+			*clr & cla
 			npc_rel[$static_num] -= 5
 			gs 'stat'
 			'<center><b><font color="maroon"><<$npc_firstname[$static_num]>> <<$npc_lastname[$static_num]>></font></b></center>'
@@ -370,7 +353,7 @@ if $ARGS[0] = 'albina3':
 		end
 
 		act 'I know how to dance':
-			cls
+			*clr & cla
 			gs 'stat'
 			'<center><b><font color="maroon"><<$npc_firstname[$static_num]>> <<$npc_lastname[$static_num]>></font></b></center>'
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/<<numnpc>>.jpg"></center>'
@@ -385,8 +368,8 @@ if $ARGS[0] = 'albina3':
 end
 
 if $ARGS[0] = 'albina4':
-	cls
 	menu_off = 1
+	*clr & cla
 	numnpc = 23
 	$static_num = 'A23'
 	minut += 15
@@ -401,13 +384,13 @@ if $ARGS[0] = 'albina4':
 		'Maybe after you''ve had your child you might try out for them.'
 	else
 		act 'Ask if you can join':
-			cls
+			*clr & cla
 			minut += 15
 			gs 'stat'
 			'You asked to join the dance group. Albina grinned, "Can you? We all worked hard to get here so you''ll have to prove yourself. Show us that you know how to dance." Albina started the music and girls gathered to watch you dance.'
 
 			act 'Dance':
-				cls
+				*clr & cla
 				minut += 5
 				if pcs_inhib < 40:inhib_exp += rand(1,2)
 				gs 'stat'
@@ -415,7 +398,7 @@ if $ARGS[0] = 'albina4':
 				'"You dance like a country bumpkin, of course, but you do have some potential." Albina mused as you stood panting before her.'
 
 				act 'Will you take me for your team?':
-					cls
+					*clr & cla
 					albinaQWdance = 1
 					minut += 5
 					gs 'stat'
@@ -431,8 +414,11 @@ if $ARGS[0] = 'albina4':
 end
 
 if $ARGS[0] = 'starlets':
-	cls
 	menu_off = 1
+	*clr & cla
+
+	startletsday = daystart
+	
 	timemult = 8
 	loopcount = 1
 	:starletstimeloop
@@ -484,7 +470,7 @@ if $ARGS[0] = 'starlets':
 			'Albina gathered the girls. Today we have a small small show planned. Each of you will receive <<albpayrand*1000>>. The show will take a couple of hours.'
 
 			act 'Do the show':
-				cls
+				*clr & cla
 				timemult = 8
 				loopcount = 1
 				:showtimeloop
@@ -542,7 +528,7 @@ if $ARGS[0] = 'starlets':
 					if wealthmanrand <= 7:
 						'After talking Albina came to you. "<<$pcs_nickname>>, we need to talk."'
 						act 'About what?':
-							cls
+							*clr & cla
 							minut += 15
 							gs 'stat'
 							'You asked Albina what she wanted to talk about.'
@@ -554,7 +540,7 @@ if $ARGS[0] = 'starlets':
 							end
 
 							act 'Refuse and leave':
-								cls
+								*clr & cla
 								minut += 15
 								otkazDanceWhore = 1
 								DanceWhoreT = 0
@@ -565,7 +551,7 @@ if $ARGS[0] = 'starlets':
 							end
 
 							act 'Agree':
-								cls
+								*clr & cla
 								money += danceWhorePay * 1000
 								DanceWhore += 1
 								DanceWhoreT += 1
@@ -589,7 +575,7 @@ if $ARGS[0] = 'starlets':
 				end
 
 				act 'Drive back':
-					cls
+					*clr & cla
 					minut += 15
 					gs 'stat'
 					'You got in the car along with the rest of the troupe, and shortly you returned to town.'
@@ -603,8 +589,8 @@ if $ARGS[0] = 'starlets':
 end
 
 if $ARGS[0] = 'cab_home':
-	cls
 	menu_off = 1
+	*clr & cla
 	minut += 15
 	gs 'stat'
 	'You called a taxi and it took you back to town.'
@@ -618,8 +604,7 @@ if $ARGS[0] = 'cab_home':
 end
 
 if $ARGS[0] = 'racing2':
-	cla
-	*clr
+	*clr & cla
 	menu_off = 1
 	gsAboBeg -= 1
 	timemult = 8
@@ -638,8 +623,7 @@ if $ARGS[0] = 'racing2':
 end
 
 if $ARGS[0] = 'vball2':
-	cla
-	*clr
+	*clr & cla
 	menu_off = 1
 	gsAboVolley -= 1
 	if alko < 2:
@@ -675,8 +659,7 @@ if $ARGS[0] = 'vball2':
 end
 
 if $ARGS[0] = 'vball3':
-	cla
-	*clr
+	*clr & cla
 	menu_off = 1
 	gsAboVolley -= 1
 	gs 'stat'
@@ -715,8 +698,7 @@ if $ARGS[0] = 'vball3':
 end
 
 if $ARGS[0] = 'vball4':
-	cla
-	*clr
+	*clr & cla
 	menu_off = 1
 	volkomday = daystart
 	timemult = 8
@@ -751,8 +733,7 @@ if $ARGS[0] = 'vball4':
 end
 
 if $ARGS[0] = 'vball5':
-	cla
-	*clr
+	*clr & cla
 	menu_off = 1
 	timemult = 8
 !	loopcount = 1
@@ -841,11 +822,11 @@ if $ARGS[0] = 'volley':
 
 			act 'Ask to play':
 				if seealko = 1:
-					cls
+					*clr & cla
 					'The coach refuses to let you play because he caught you drinking.'
 					act 'Continue':volltime = 2 & gt 'gdksport', 'volley'
 				else
-					cls
+					*clr & cla
 					gs 'stat'
 
 					if npc_rel['A69'] >= rand(0, 80):
@@ -868,8 +849,7 @@ if $ARGS[0] = 'volley':
 
 	!! 2nd half
 	elseif volltime = 2:
-		*clr
-		cla
+		*clr & cla
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/gym/volley/game5.jpg"></center>'
 		'Break is over and the team starts the second half.'
 
@@ -943,8 +923,8 @@ if $ARGS[0] = 'volley':
 end
 
 if $ARGS[0] = 'shower':
-	cls
 	menu_off = 1
+	*clr & cla
 	$location_type = 'bathroom'
 	dynamic $showerdin
 	minut += 15
@@ -964,7 +944,7 @@ if $ARGS[0] = 'shower':
 		'You enter the women''s shower and turning the water on begin to lather your body with a washcloth. Suddenly, you hear the door creak as it opened and you remember that you forgot to lock it.'
 		'You looked around and saw Ivan Prokhorov standing in the doorway looking at you. "Hi <<$pcs_nickname>>. Can I join you? The men''s shower is full." Ivan smiled after these words.'
 		act 'Throw Ivan out':
-			cls
+			*clr & cla
 			IvanShowerQW = 1
 			gs 'stat'
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/ivan/sex/community/shower1.jpg"></center>'
@@ -974,13 +954,13 @@ if $ARGS[0] = 'shower':
 		end
 
 		act 'Uh, what?':
-			cls
+			*clr & cla
 			gs 'stat'
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/ivan/shower2.jpg"></center>'
 			'You''re completely surprised and confused by Ivan''s sudden appearance, you are struck speechless. Ivan takes your inaction and silence as consent, as he walks into the shower room and closes the door behind him.'
 
 			act 'Escape from the shower':
-				cls
+				*clr & cla
 				IvanShowerQW = 1
 				gs 'stat'
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/ivan/sex/community/shower1.jpg"></center>'
@@ -1011,14 +991,14 @@ end
 
 if $ARGS[0] = 'ShowerWithIvan':
 	menu_off = 1
-	cls
+	*clr & cla
 	'<center><video autoplay loop src="images/shared/home/bathroom/dush.mp4"></video></center>'
 	'Ivan walks over to you, pulling his boxer shorts and stepping out of them as they fall around his ankles. Stepping into the shower with you, getting himself wet under the shower. His muscular body was very close to yours.'
 	'You tried not to look at him but your eyes involuntarily dropped to his groin where his thick cock hung and swung as he moved. Ivan seeing where you was looking winked, "Want to wash me?"'
 	gs 'arousal', 'foreplay', 5
 	gs 'stat'
 	act 'Lather Ivan':
-		cls
+		*clr & cla
 		gs 'boyStat', 'A3'
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/ivan/sex/community/shower.jpg"></center>'
 		'You took your washcloth and began to lather Ivan''s body. As you move around him, you can''t help but notice his <<dick>>cm <<$dick_girth>> cock began to rise up and getting hard, you feel it brush against your thigh.'
@@ -1026,7 +1006,7 @@ if $ARGS[0] = 'ShowerWithIvan':
 		gs 'arousal', 'foreplay', 5
 		gs 'stat'
 		act 'Give blowjob':
-			cls
+			*clr & cla
 
 			if npcSex[3] = 0:npcSex[3] = 1 & guy += 1
 
@@ -1048,7 +1028,7 @@ if $ARGS[0] = 'ShowerWithIvan':
 
 				if agape > 0:
 					act 'Continue':
-						cls
+						*clr & cla
 						if pcs_throat < dick:pcs_throat += 1
 						spafinloc = 12
 						gs 'cum_manage'
@@ -1070,7 +1050,7 @@ if $ARGS[0] = 'ShowerWithIvan':
 					end
 				else
 					act 'Turn around and bend over':
-						cls
+						*clr & cla
 						IvanShowerQW = 1
 						lubonus = 2
 						spafinloc = 3
@@ -1123,8 +1103,8 @@ end
 
 
 if $ARGS[0] = 'Ivan_bored':
-	cls
 	menu_off = 1
+	*clr & cla
 	minut += 5
 	pcs_horny += 10
 	gs'stat'
@@ -1134,7 +1114,7 @@ if $ARGS[0] = 'Ivan_bored':
 	act 'Leave': gt 'gschool_lessons', 'short_break'
 	
 	act 'Go into the bathroom with Ivan':
-		cls
+		*clr & cla
 		pcs_horny += 20
 		gs 'boyStat', 'A3'
 		gs 'stat'
@@ -1148,7 +1128,7 @@ if $ARGS[0] = 'Ivan_bored':
 		minut -= 5
 		gs 'stat'
 		act 'Let him':
-			cls
+			*clr & cla
 			lubonus = 2
 			spafinloc = 3
 			gs 'Cum_Manage'
@@ -1186,8 +1166,8 @@ end
 
 
 if $ARGS[0] = 'Fedor First Date':
-	cls
 	menu_off = 1
+	*clr & cla
 	numnpc = 5
 	gs 'stat'
 	'<center><b><h4><font color="blue"><<"Fyodor [Fedor] Kozlov">></font></h4></b></center>'
@@ -1199,14 +1179,14 @@ if $ARGS[0] = 'Fedor First Date':
 	end
 
 	act 'Agree':
-		cls
+		*clr & cla
 		minut += 15
 		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/fedor/fedorev/park/walk.jpg"></center>'
 		'"I would like that." you said with a smile and Fedor responds: "Good, I hear that this movie will have us in stiches." with a delighted look on his face as he wraps his arm around yours then walks you to the movie theater.'
 
 		act 'Watch a movie':
-			cls
+			*clr & cla
 			minut += 90
 			pcs_mood += 90
 			gs 'stat'
@@ -1214,7 +1194,7 @@ if $ARGS[0] = 'Fedor First Date':
 			'Fedor presentes the tickets at the entrance and together you walked into the theater. You look around and notice that the seats were mostly empty so Fedor leads you to the front row and both got seated. The lights dim then the movie starts. Fedor sits motionless and only occasionally glancing at you. The movie was quite interesting and you couldn''t help but laugh occasionally at the wackiness of the movie. When the movie ends, the lights turn on and Fedor walks you out. "<<$pcs_firstname>>. You seem like a cool girl. Maybe we could go out together. What do you say?"'
 
 			act 'Agree':
-				cls
+				*clr & cla
 				npc_rel['A5'] += 20
 				fedorKozlovQW = 10
 				minut += 15
@@ -1225,7 +1205,7 @@ if $ARGS[0] = 'Fedor First Date':
 				act 'Leave':gt 'pavResidential'
 			end
 			act 'Refuse':
-				cls
+				*clr & cla
 				if fedorkozbreak = 0:fedorKozlovQW = 0
 				if fedorkozbreak = 1:fedorKozlovQW = -1
 				npc_rel['A5'] = 75
@@ -1244,7 +1224,7 @@ if $ARGS[0] = 'Fedor First Date':
 		end
 	end
 	act 'Refuse':
-		cls
+		*clr & cla
 		npc_rel['A5'] = 70
 		gs 'stat'
 		'<center><b><h4><font color="blue"><<"Fyodor ">><<"[Fedor]">><<" Kozlov">></font></h4></b></center>'

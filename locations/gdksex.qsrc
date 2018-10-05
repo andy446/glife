@@ -44,6 +44,7 @@ if $ARGS[0] = 'outside':
 							minut += 30
 							gs 'boy', 'details'
 							bmFrend[Tboynum] = 1
+							gs 'boyfrend', 'start'
 							gs'stat'
 
 							'You smile and give the guy your phone number, which he writes down diligently.'
@@ -176,6 +177,7 @@ if $ARGS[0] = 'outside':
 							gs 'boy', 'details'
 							minut += 30
 							bmFrend[Tboynum] = 1
+							gs 'boyfrend', 'start'
 							gs 'stat'
 							'You smile and give the guy your phone number, which he writes down diligently.'
 							'"I hope I''ll see you again soon, <<$pcs_nickname>>. I''ll call you!" he says as he packs up his things. You get up as well, and chat for a while longer while you head back to the disco.'

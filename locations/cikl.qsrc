@@ -158,15 +158,15 @@ if cheatBimbo = 0: bimbo += snapshotY
 
 !!Once bimbolevel is set to 1, must use the withdrawal in stat to return to 0
 if bimbo > 0 or bimbolevel > 0:
-    if bimbo < 10:
-        bimbo -= 1
-    elseif bimbo < 20:
-    	bimbolevel = 1
-    elseif bimbo < 30:
-    	bimbolevel = 2
-    else
-        bimbolevel = 3
-    end
+	if bimbo < 10:
+		bimbo -= 1
+	elseif bimbo < 20:
+		bimbolevel = 1
+	elseif bimbo < 30:
+		bimbolevel = 2
+	else
+		bimbolevel = 3
+	end
 end
 
 if bimbo >= 40: bimbo = 40
@@ -198,15 +198,15 @@ snapshotY = 0
 !!------------------------------------------------------------------------------------------------------------
 
 if pcs_exhib > 0 or exhibitionist_lvl > 0:
-    if pcs_exhib < 10:
-        pcs_exhib -= 1
-    elseif pcs_exhib < 20:
-    	exhibitionist_lvl = 1
-    elseif pcs_exhib < 30:
-    	exhibitionist_lvl = 2
-    else
-        exhibitionist_lvl = 3
-    end
+	if pcs_exhib < 10:
+		pcs_exhib -= 1
+	elseif pcs_exhib < 20:
+		exhibitionist_lvl = 1
+	elseif pcs_exhib < 30:
+		exhibitionist_lvl = 2
+	else
+		exhibitionist_lvl = 3
+	end
 end
 
 !!Inhibition increases from wearing revealing clothing
@@ -1022,7 +1022,7 @@ end
 
 if day = 25:
 	!! meynold payment
-	if  mey_vika['mey_vika_qw'] >= 35 and mey_tamara['help_count'] < 10 and mey_tamara['qw_end'] = 0:
+	if	mey_vika['mey_vika_qw'] >= 35 and mey_tamara['help_count'] < 10 and mey_tamara['qw_end'] = 0:
 		karta += 10000
 		'<b><font color=green>For your efforts aunt Tamara gave you 10,000 rubles</font></b>'
 		mey_tamara['help_count'] = 0
@@ -1230,6 +1230,8 @@ if home_owned[4] > 0: ArendHouseSL4 -= 1
 
 killvar 'holyday'
 killvar 'kanikuli'
+killvar 'pcs_ate'
+killvar 'pcs_drank'
 
 !!sisboyparty
 !!-1 - don''t go to the party
@@ -1368,27 +1370,27 @@ if natholi = 1:
 end
 
 if bcream_used >= 1:
-    bcream_used = 0
-    temp = rand(0,max(nbsize-genbsize+5,5)) / max(nbsize-genbsize,1)
-    if temp > 0: temp = 1
-    nbsize += temp
-    if temp > 0:'Feels like your breasts have grown slightly.'
+        bcream_used = 0
+        temp = rand(0,max(nbsize-genbsize+5,5)) / max(nbsize-genbsize,1)
+        if temp > 0: temp = 1
+        nbsize += temp
+        if temp > 0:'Feels like your breasts have grown slightly.'
 end
 if steroid_dose >= 1:
-    if lashair < 1:
-        pcs_pubes += steroid_dose
-        pcs_leghair += steroid_dose
-    end
-    steroid_dose = 0
+	if lashair < 1:
+		pcs_pubes += steroid_dose
+		pcs_leghair += steroid_dose
+	end
+	steroid_dose = 0
 end
 if aphrodisiac_overdose = 1:aphrodisiac_overdose = 0
-if aphrodisiac_timer ! 0:aphrodisiac_timer  = 0
+if aphrodisiac_timer ! 0:aphrodisiac_timer	= 0
 
 if mentats_dose = 1:
-    mentats_dose = 0
+	mentats_dose = 0
 elseif mentats_dose > 1:
-    pain['head'] += 20 * mentats_dose
-    mentats_dose = 0
+	pain['head'] += 20 * mentats_dose
+	mentats_dose = 0
 end
 
 !!Appearance base calculation call

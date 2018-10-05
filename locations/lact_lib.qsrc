@@ -1,5 +1,240 @@
 # lact_lib
 
+if $ARGS[0] = 'view_milk_bottles':
+	!! func('lact_lib', 'view_milk_bottles', location_id)
+	!! use gs 'lact_lib','view_milk_bottles', 2
+	!! locations
+	!! 0 = lost
+	!! 1 = in svetas hand
+	!! 2 = in svetas bag
+	!! 3 = parent bathroom
+	!! 4 = parent fridge
+	!! 5 = Resident Area Appartment Bathroom
+	!! 6 = Resident Area Appartment Fridge
+	!! 7 = Grandparents Bathroom
+	!! 8 = Villa Bathroom
+	!! 9 = Villa Fridge
+	!! 10 = Shared Apartment Bathroom
+	!! 11 = Shared Apartment Fridge
+	!! Locations are not used yet but are implemented. I will add this on another day.
+	!! milk bottle array indices
+	!! mbarrtype: Size of milk bottle. Normal bottles are 150ml and large bottles are 250ml. Values are ml*10
+	!! mbarrfill: Filled milk volume in the bottle. Values are in ml*10 and can''t surpass mbarrtype
+	!! mbarrmage: timestamp the milk was pumped.
+	!! mbarrcool: Is the milk cooled? 0 = no, 1 = normal cooler, 2 = deep freezer
+	!! $mbarrstat: State of the milk: fresh, normal, old, rancid
+	!! $mbarrtemp: Temperature of the milk: hot, warm, normal, cold, frozen
+	!! mbarrloca: Location of the bottle.
+	*clr
+	cla
+	!! Checking for unregistered bottles.
+	gs 'lact_lib', 'reg_bottle_count'
+	'You check the bottles that you store here.<br>'
+	temp_var = (bpbottlem + bpbottles) - 1
+	vmb_i = 0
+	milkedvolume = 0
+	:vmbloop
+	if vmb_i <= temp_var:
+		if mbarrloca[vmb_i] = ARGS[1]:
+			gs 'lact_lib', 'update_mbottle', vmb_i
+			if mbarrfill[vmb_i] <=0:
+				mbarrfill[vmb_i] = 0 
+				'<br><<vmb_i + 1>>. - An empty <<mbarrtype[vmb_i]/10>>ml bottle. You can use it to store your breast milk.'
+			else
+				'<br><<vmb_i + 1>>. - A <<mbarrtype[vmb_i]/10>>ml bottle. There is <<mbarrfill[vmb_i]/10>>ml of milk in the bottle. <a href="exec:msg ''<center>You open the bottle and check the milk inside.<br>You can feel the milk is <<$mbarrtemp[vmb_i]>> and it smells <<$mbarrstat[vmb_i]>>.</center>''">Check the content</a>'
+				milkedvolume += mbarrfill[vmb_i]
+				!! '| <a href="exec:func(''lact_lib'',''empty_milk_bottle'',''vmb_i'')">Empty the bottle</a>'
+			end
+		end
+		vmb_i += 1
+		jump 'vmbloop'
+	end
+	if milkedvolume > 0:
+		'<br><a href="exec:gt''lact_lib'',''empty_milk_bottles''">Pour the milk into the sink</a>'
+	end
+	act 'Back':gt 'lact_lib', 'bp_milking'
+end
+
+!! empty bottle function
+if $ARGS[0] = 'empty_milk_bottles':
+	!! use gt 'lact_lib', 'empty_milk_bottles'
+	*clr
+	cla
+	temp_var = (bpbottlem + bpbottles) - 1
+	emb_i = 0
+	:emb_loop
+	if emb_i <= temp_var:
+		mbarrfill[emb_i] = 0
+		mbarrmage[emb_i] = 0
+		mbarrcool[emb_i] = 0
+		$mbarrstat[emb_i] = 'none'
+		$mbarrtemp[emb_i] = 'none'
+		emb_i += 1
+		jump 'emb_loop'
+	end
+	'<center><img <<$set_imgh>> src="images/pc/body/tits/milk_sink.jpg"></center>'
+	'<center>You pour all of your collected breast milk into the sink and clean up the bottles.</center>'
+	minute += temp_var
+	act 'Finish':menu_off = 0 & gt $loc, $metka
+	!!gt 'lact_lib','view_milk_bottles',1
+end
+
+!! fill a bottle function
+if $ARGS[0] = 'fill_milk_bottle':
+	!! use func('lact_lib','fill_milk_bottle',bottle_id,milk_amount)
+	!! example func('lact_lib','fill_milk_bottle',3,300)
+	if ARGS[2] > mbarrtype[ARGS[1]]:
+		'ERROR - More milk going into bottle than the bottle can hold.'
+	else
+		mbarrfill[ARGS[1]] = ARGS[2]
+		mbarrmage[ARGS[1]] = func('lact_lib','time_stamp')
+		mbarrcool[ARGS[1]] = 0
+		$mbarrstat[ARGS[1]] = 'fresh'
+		$mbarrtemp[ARGS[1]] = 'warm'
+	end	
+end
+
+!! Time Stamp function for milk bottles.
+if $ARGS[0] = 'time_stamp':
+	!! use func('lact_lib','time_stamp')
+	!! This function creates a time stamp in minutes. It takes the current in game time and converts it to total minutes from year 01.01.0000 to in game now.
+	!! Used to check breast milk age in bottles. Can be used for other functions if needed.
+	temp_timestamp = 0
+	temp_timestamp += year * 365 * 24 * 60
+	ts_i = 1
+	if month > 1:
+		:ts_loop
+		if (month - 1) => ts_i:
+			if ts_i = 1 or ts_i = 3 or ts_i = 5 or ts_i = 7 or ts_i = 8 or ts_i = 10 or ts_i = 12:
+				temp_timestamp += 44640
+			elseif ts_i = 4 or ts_i = 6 or ts_i = 9 or ts_i = 11:
+				temp_timestamp += 43200
+			elseif ts_i = 2:
+				temp_timestamp += 40320
+				if (year mod 4) = 0 and (year mod 100) ! 0 or (year mod 400) = 0:
+					temp_timestamp += 1440
+				end
+			end
+			ts_i += 1
+			jump 'ts_loop'
+		end
+	end
+	temp_timestamp += (day - 1) * 24 * 60
+	temp_timestamp += hour * 60
+	temp_timestamp += minut
+	result = temp_timestamp
+end
+
+!! Update Milk bottle function
+if $ARGS[0] = 'update_mbottle':
+	!! func('lact_lib', 'update_mbottle', bottle_id)
+	!! use result = func('lact_lib','update_mbottle', '0')
+	!! this function is used to update milk bottles whenever the milk is pumped or sveta checkes the bottles in her stash.
+	!! Room temperature. Freshly expressed breast milk can be kept at room temperature for up to six hours. However, use or proper storage within four hours is optimal. If the room is especially warm, the limit is also four hours.
+	!! Insulated cooler. Freshly expressed breast milk can be stored in an insulated cooler with ice packs for up to one day.
+	!! Refrigerator. Freshly expressed breast milk can be stored in the back of the refrigerator for up to five days in clean conditions. However, use or freezer storage within three days is optimal.
+	!! Deep freezer. Freshly expressed breast milk can be stored in the back of a deep freezer for up to 12 months. However, using the frozen milk within six months is optimal.
+	!! milk bottle array indices
+	!! mbarrtype: Size of milk bottle. Normal bottles are 150ml and large bottles are 250ml. Values are ml*10
+	!! mbarrfill: Filled milk volume in the bottle. Values are in ml*10 and can''t surpass mbarrtype
+	!! mbarrmage: timestamp the milk was pumped.
+	!! mbarrcool: Is the milk cooled? 0 = no, 1 = normal cooler, 2 = deep freezer
+	!! $mbarrstat: State of the milk: fresh, normal, old, rancid
+	!! $mbarrtemp: Temperature of the milk: hot, warm, normal temparture, cold, frozen
+	!! mbarrloca: Location of the bottle.
+	if mbarrfill[ARGS[1]] > 0:
+		if mbarrfill[ARGS[1]] > mbarrtype[ARGS[1]]: mbarrfill[ARGS[1]] = mbarrtype[ARGS[1]]
+		if mbarrmage[ARGS[1]] <= 0: mbarrmage[ARGS[1]] = func('lact_lib','time_stamp')
+		if mbarrcool[ARGS[1]] = 0:
+			if (mbarrmage[ARGS[1]] + 60) >= func('lact_lib','time_stamp'):
+				$mbarrtemp[ARGS[1]] = 'warm'
+				$mbarrstat[ARGS[1]] = 'fresh'
+			elseif (mbarrmage[ARGS[1]] + 60) < func('lact_lib','time_stamp') and (mbarrmage[ARGS[1]] + 360) >= func('lact_lib','time_stamp'):
+				$mbarrtemp[ARGS[1]] =  'normal temparture'
+				$mbarrstat[ARGS[1]] = 'normal'
+			elseif (mbarrmage[ARGS[1]] + 360) < func('lact_lib','time_stamp') and (mbarrmage[ARGS[1]] + 1440) >= func('lact_lib','time_stamp'):
+				$mbarrtemp[ARGS[1]] = 'normal temparture'
+				$mbarrstat[ARGS[1]] = 'old'
+			else
+				$mbarrtemp[ARGS[1]] = 'normal temparture'
+				$mbarrstat[ARGS[1]] = 'rancid'
+			end
+		elseif mbarrcool[ARGS[1]] = 1:
+			if (mbarrmage[ARGS[1]] + 1440) >= func('lact_lib','time_stamp'):
+				$mbarrtemp[ARGS[1]] = 'cold'
+				$mbarrstat[ARGS[1]] = 'fresh'
+			elseif (mbarrmage[ARGS[1]] + 1440) < func('lact_lib','time_stamp') and (mbarrmage[ARGS[1]] + 4320) >= func('lact_lib','time_stamp'):
+				$mbarrtemp[ARGS[1]] = 'cold'
+				$mbarrstat[ARGS[1]] = 'normal'
+			elseif (mbarrmage[ARGS[1]] + 4320) < func('lact_lib','time_stamp') and (mbarrmage[ARGS[1]] + 7200) >= func('lact_lib','time_stamp'):
+				$mbarrtemp[ARGS[1]] = 'cold'
+				$mbarrstat[ARGS[1]] = 'old'
+			else
+				$mbarrtemp[ARGS[1]] = 'cold'
+				$mbarrstat[ARGS[1]] = 'rancid'
+			end
+		elseif mbarrcool[ARGS[1]] = 2:
+			if (mbarrmage[ARGS[1]] + 10080) >= func('lact_lib','time_stamp'):
+				$mbarrtemp[ARGS[1]] = 'frozen'
+				$mbarrstat[ARGS[1]] = 'fresh'
+			elseif (mbarrmage[ARGS[1]] + 10080) < func('lact_lib','time_stamp') and (mbarrmage[ARGS[1]] + 262080) >= func('lact_lib','time_stamp'):
+				$mbarrtemp[ARGS[1]] = 'frozen'
+				$mbarrstat[ARGS[1]] = 'normal'
+			elseif (mbarrmage[ARGS[1]] + 262080) < func('lact_lib','time_stamp') and (mbarrmage[ARGS[1]] + 525600) >= func('lact_lib','time_stamp'):
+				$mbarrtemp[ARGS[1]] = 'frozen'
+				$mbarrstat[ARGS[1]] = 'old'
+			else
+				$mbarrtemp[ARGS[1]] = 'frozen'
+				$mbarrstat[ARGS[1]] = 'rancid'
+			end
+		else
+			$mbarrtemp[ARGS[1]] = 'warm'
+			$mbarrstat[ARGS[1]] = 'fresh'
+		end
+	else
+		$mbarrtemp[ARGS[1]] = 'none'
+		$mbarrstat[ARGS[1]] = 'none'
+		mbarrmage[ARGS[1]] = 0
+		mbarrfill[ARGS[1]] = 0
+	end
+end
+
+if $ARGS[0] = 'useable_sbottle_count':
+	!! use result = func('lact_lib','useable_sbottle_count',)
+	!! function will give you the amount of 150ml bottles that sveta can use at the moment.
+	usbc_i = 0
+	bottlecounter = 0
+	if reg_bottles_count > 0:
+		:usbc_loop
+		if usbc_i <= (reg_bottlem_count + reg_bottles_count):
+			if mbarrtype[usbc_i] = 1500 and mbarrfill[usbc_i] = 0:
+				bottlecounter += 1
+			end
+			usbc_i += 1
+			jump 'usbc_loop'
+		end
+	end
+	result = bottlecounter
+end
+
+if $ARGS[0] = 'useable_mbottle_count':
+	!! use result = func('lact_lib','useable_mbottle_count')
+	!! function will give you the amount of 250ml bottles that sveta can use at the moment.
+	umbc_i = 0
+	bottlecounter = 0
+	if reg_bottlem_count > 0:
+		:umbc_loop
+		if umbc_i <= (reg_bottlem_count + reg_bottles_count):
+			if mbarrtype[umbc_i] = 2500 and mbarrfill[umbc_i] = 0:
+				bottlecounter += 1
+			end
+			umbc_i += 1
+			jump 'umbc_loop'
+		end
+	end
+	result = bottlecounter
+end
+
 if $ARGS[0] = '$get_bfat_tissue':
 	!! func('lact_lib', 'get_bfattissue', npc_nbsize, npc_lactatemm)
 	!! function to get breast fat tissue amount. Can be used for NPC as well as PC.
@@ -516,8 +751,8 @@ end
 if $ARGS[0] = 'bp_milking':
 	pumptime = 0
 	pumptype = 0
+	gs 'lact_lib', 'reg_bottle_count'
 	if pump_bottletype < 1500: pump_bottletype = 1500
-	if bpbottles <= 0: bpbottles = 1
 	if $location_type ! 'bathroom' and pcs_inhib < 30:
 		'You aren''t confident enough to do that here.'
 			act 'Finish': menu_off = 0 & gt $loc, $metka
@@ -531,14 +766,36 @@ if $ARGS[0] = 'bp_milking':
 		cla
 		'<center><img <<$set_imgh>> src="images/pc/body/tits/breast_pump.jpg"></center>'
 		'How long do you want to pump your breasts with the manual breast pump?'
-		if bpbottlem > 0:
-			if pump_bottletype = 1500:
+		if func('lact_lib','useable_sbottle_count') > 0 and func('lact_lib','useable_mbottle_count') > 0:
+			if func('lact_lib','useable_sbottle_count') > 0 and pump_bottletype = 1500:
 				'Current bottle size in use: &gt;150ml | <a href="exec:pump_bottletype = 2500 & gt ''lact_lib'', ''bp_milking''">250ml</a>'
-			else
+			elseif func('lact_lib','useable_mbottle_count') > 0:
+				pump_bottletype = 2500
 				'Current bottle size in use <a href="exec:pump_bottletype = 1500 & gt ''lact_lib'', ''bp_milking''">150ml</a> | &gt;250ml'
+			else
+				'this should not end up here - got to tfg forums.'
+			end
+		elseif func('lact_lib','useable_sbottle_count') > 0 and func('lact_lib','useable_mbottle_count') <= 0:
+			pump_bottletype = 1500
+			'You currently use a 150ml bottle on your breast pump.'
+		elseif func('lact_lib','useable_sbottle_count') <= 0 and func('lact_lib','useable_mbottle_count') > 0:
+			pump_bottletype = 2500
+			'You currently use a 250ml bottle on your breast pump.'
+		else
+			if pcs_knowsmilkbottles > 0:
+				'You have no bottles left to use. Please empty bottles or buy new ones in the pharmacy.'
+			else
+				'You have no bottles left to use. Please empty bottles or check if you can additional ones in the pharmacy.'
+				pcs_knowsmilkbottles = 1
 			end
 		end
-		if lactatemv > 0:
+		if (bpbottlem + bpbottles) = 1:
+			'You have one bottle. You can check it <a href="exec:gs ''lact_lib'',''view_milk_bottles'', 1">here</a>'
+		elseif (bpbottlem + bpbottles) > 1:
+			'You have <<bpbottlem + bpbottles>> bottles. You can check them <a href="exec:gs ''lact_lib'',''view_milk_bottles'', 1">here</a>'
+		end
+		
+		if lactatemv > 0 and (func('lact_lib','useable_sbottle_count') > 0 or func('lact_lib','useable_mbottle_count') > 0):
 			pumptime = (func('lact_lib','$get_breastmilk_time', 3, (lactatemv/10)))
 			if pumptime > 5:
 				pumptime -= 2
@@ -580,22 +837,24 @@ if $ARGS[0] = 'bp_milking':
 				end
 			end
 		end
-		act '15 Minutes':
-			pumptime = 15
-			gt 'lact_lib', 'milking'
-		end
-		act '30 Minutes':
-			pumptime = 30
-			gt 'lact_lib', 'milking'
-		end
-		act 'Custom':
-			pumptime = input ("How long do you plan to pump your breasts? (Not more than 60 minutes)")
-			if pumptime <= 0 or pumptime > 60:
-				minut += 2
-				act 'Don''t pump':menu_off = 0 & gt $loc, $metka
-				act 'back':gt 'lact_lib', 'bp_milking'
-			elseif pumptime > 0 and pumptime <= 60:
+		if (func('lact_lib','useable_sbottle_count') > 0 or func('lact_lib','useable_mbottle_count') > 0):
+			act '15 Minutes':
+				pumptime = 15
 				gt 'lact_lib', 'milking'
+			end
+			act '30 Minutes':
+				pumptime = 30
+				gt 'lact_lib', 'milking'
+			end
+			act 'Custom':
+				pumptime = input ("How long do you plan to pump your breasts? (Not more than 60 minutes)")
+				if pumptime <= 0 or pumptime > 60:
+					minut += 2
+					act 'Don''t pump':menu_off = 0 & gt $loc, $metka
+					act 'back':gt 'lact_lib', 'bp_milking'
+				elseif pumptime > 0 and pumptime <= 60:
+					gt 'lact_lib', 'milking'
+				end
 			end
 		end
 		act 'Massage your breasts': gt 'lact_lib','man_milking'
@@ -622,6 +881,7 @@ if $ARGS[0] = 'man_milking':
 	pumptime = 0
 	*clr
 	cla
+	gs 'lact_lib', 'reg_bottle_count'
 	'How long do you want to massage your breasts?'
 	if lactatemv > 0:
 		pumptime = (func('lact_lib','$get_breastmilk_time', 5, (lactatemv/10)))
@@ -709,6 +969,10 @@ if $ARGS[0] = 'bp_unbox_event':
 		else
 			'<center><img <<$set_imgh>> src="images/pc/body/tits/pump_unboxing_bath.jpg"></center>'
 		end
+		!! creating first 150ml bottle
+		bpbottles += 1
+		gs 'lact_lib', 'reg_bottle_count'
+		!! Actions
 		if (pcs_inhib > 40 and $location_type = 'private') or $location_type = 'bathroom':
 			act 'Try out how it works':
 				*clr
@@ -853,76 +1117,175 @@ if $ARGS[0] = 'bp_unbox_event':
 	end
 end
 
+if $ARGS[0] = 'reg_bottle_count':
+	if reg_bottles_count <= 0: reg_bottles_count = 0
+	if reg_bottlem_count <= 0: reg_bottlem_count = 0
+	if (reg_bottlem_count + reg_bottles_count) < (bpbottlem + bpbottles):
+		:rbc_loop
+		rbc_index = (reg_bottlem_count + reg_bottles_count) - 1
+		if (bpbottles - reg_bottles_count) > 0:
+			reg_bottles_count += 1
+			rbc_index = (reg_bottlem_count + reg_bottles_count) - 1
+			mbarrtype[rbc_index] = 1500
+			mbarrfill[rbc_index] = 0
+			mbarrmage[rbc_index] = 0
+			mbarrcool[rbc_index] = 0
+			$mbarrstat[rbc_index] = 'none'
+			$mbarrtemp[rbc_index] = 'none'
+			mbarrloca[rbc_index] = 1
+			jump 'rbc_loop'
+		end
+		if (bpbottlem - reg_bottlem_count) > 0:
+			reg_bottlem_count += 1
+			rbc_index = (reg_bottlem_count + reg_bottles_count) - 1
+			mbarrtype[rbc_index] = 2500
+			mbarrfill[rbc_index] = 0
+			mbarrmage[rbc_index] = 0
+			mbarrcool[rbc_index] = 0
+			$mbarrstat[rbc_index] = 'none'
+			$mbarrtemp[rbc_index] = 'none'
+			mbarrloca[rbc_index] = 1
+			jump 'rbc_loop'
+		end
+	end
+end
+
 !!	milking
 !!	never use directly. Always use bp_milking, man_milking or sex_milking
-
 if $ARGS[0] = 'milking':
-	!!	if pumptime <= 0 or pumptime > 60:
-	!!		act 'Finish':gt $loc, $metka
-	!!	end
-	if pumptype = 1:
-		pumptime = (pumptime*6)/10
-	end
-
-		!!	:loop
-		!!	if k < kid:
-		!!	gs 'kid','kidlist'
-		!!	k += 1
-		!!	jump 'loop'
-		!! end
+	gs 'lact_lib', 'reg_bottle_count'
 	if lactate > 0 and pain['nipples'] < 60:
 		milkedvolume = func('lact_lib','$get_breastmilk', 3, pumptime)
+		!!act 'Finish':menu_off = 0 & gt $loc, $metka
+		bp_used_mbottle = 0
+		bp_used_sbottle = 0
+		bp_useable_sbottle = func('lact_lib','useable_sbottle_count')
+		bp_useable_mbottle = func('lact_lib','useable_mbottle_count')
 		'<center><img <<$set_imgh>> src="images/pc/body/tits/pump_lactating.jpg"></center>'
 		if pumptime > 1:
 			'You attach the pump to your breast and start rythmically squeezing the bulb for <<pumptime>> minutes.'
 		else
 			'You attach the pump to your breast and start rythmically squeezing the bulb for one minute.'
 		end
-		!!	Fill the bottles :D
-		if milkedvolume > pump_bottletype and (bpbottles*1500 + bpbottlem*2500) = pump_bottletype:
+		if milkedvolume > pump_bottletype and (bp_useable_sbottle*1500 + bp_useable_mbottle*2500) = pump_bottletype:
 			'During pumping you have to empty the collecting bottle as it filled up with your milk.'
 			'You give it a few more pumps and detach the pump.<br>You filled the bottle with <<pump_bottletype/10>>ml of your milk.'
 			'To collect all your pumped milk you should probably check if the pharmacy has additional bottles for your breast pump.'
-			pcs_knowsmilkbottles = 1
-		elseif milkedvolume > pump_bottletype and (bpbottles*1500 + bpbottlem*2500) > pump_bottletype:
+			if (bp_useable_sbottle - bp_used_sbottle) > 0:
+				bottlecounter = 0
+				:sbottle_loneloop
+				if bottlecounter < (bpbottlem + bpbottles) and milkedvolume > 1500:
+					if mbarrtype[bottlecounter] = 1500 and mbarrfill[bottlecounter] = 0:
+						func('lact_lib','fill_milk_bottle',bottlecounter,1500)
+						jump 'bottlefull_loopbreak'
+					end
+					bottlecounter += 1
+					jump 'sbottle_loneloop'
+				end
+			elseif (bp_useable_mbottle - bp_used_mbottle) > 0 and milkedvolume > 2500:
+				bottlecounter = 0
+				:mbottle_loneloop
+				if bottlecounter < (bpbottlem + bpbottles):
+					if mbarrtype[bottlecounter] = 2500 and mbarrfill[bottlecounter] = 0:
+						func('lact_lib','fill_milk_bottle',bottlecounter,2500)
+						jump 'bottlefull_loopbreak'
+					end
+					bottlecounter += 1
+					jump 'mbottle_loneloop'
+				end
+			else
+				'unhandled case - you shouldn''t end up here. Please report this in the bug section of Girl Life in the tfg-forums.'
+				'first fork case'
+				'bp_used_mbottle: <<bp_used_mbottle>>'
+				'bp_used_sbottle: <<bp_used_sbottle>>'
+				'milkedvolume: <<milkedvolume>>'
+				'pump_bottletype: <<pump_bottletype>>'
+				'bp_useable_sbottle: <<bp_useable_sbottle>>'
+				'bp_useable_mbottle: <<bp_useable_mbottle>>'
+			end
+			:bottlefull_loopbreak
+			pcs_knowsmilkbottles = 1		
+		elseif milkedvolume > pump_bottletype and (bp_useable_sbottle*1500 + bp_useable_mbottle*2500) > pump_bottletype:
 			!!	Checking which bottletype is used and filling those bottles up before the other type is used.
-			bp_used_mbottle = 0
-			bp_used_sbottle = 0
 			:sbottleloop
-			if pump_bottletype < 2500 and milkedvolume >= 1500 and bp_used_sbottle < bpbottles:
+			if pump_bottletype < 2500 and milkedvolume >= 1500 and bp_used_sbottle < bp_useable_sbottle:
 				bp_used_sbottle += 1
 				milkedvolume -= 1500
+				bottlecounter = 0
+				:sbottle_searchloop
+				if bottlecounter < (bpbottlem + bpbottles):
+					if mbarrtype[bottlecounter] = 1500 and mbarrfill[bottlecounter] = 0:
+						func('lact_lib','fill_milk_bottle',bottlecounter,1500)
+						jump 'sbottle_searchloopbreak'
+					end
+					bottlecounter += 1
+					jump 'sbottle_searchloop'
+				end
+				:sbottle_searchloopbreak
 				jump 'sbottleloop'
 			end
 			:mbottleloop
-			if pump_bottletype >= 2500 and milkedvolume >= 2500 and bp_used_mbottle < bpbottlem:
+			if pump_bottletype >= 2500 and milkedvolume >= 2500 and bp_used_mbottle < bp_useable_mbottle:
 				bp_used_mbottle += 1
 				milkedvolume -= 2500
+				bottlecounter = 0
+				:mbottle_searchloop
+				if bottlecounter < (bpbottlem + bpbottles):
+					if mbarrtype[bottlecounter] = 2500 and mbarrfill[bottlecounter] = 0:
+						func('lact_lib','fill_milk_bottle',bottlecounter,2500)
+						jump 'mbottle_searchloopbreak'
+					end
+					bottlecounter += 1
+					jump 'mbottle_searchloop'
+				end
+				:mbottle_searchloopbreak
 				jump 'mbottleloop'
-			end
+			end			
 			!!	Checking for the milkedvolume and if there are bottles left. if yes - use these bottles
-			if milkedvolume > 0 and (((bpbottlem - bp_used_mbottle) > 0) or ((bpbottles - bp_used_sbottle) > 0)):
+			if milkedvolume > 0 and (((bp_useable_mbottle - bp_used_mbottle) > 0) or ((bp_useable_sbottle - bp_used_sbottle) > 0)):
 				:altfill01
-				if pump_bottletype < 2500 and milkedvolume >= 2500 and bp_used_mbottle < bpbottlem:
+				if pump_bottletype < 2500 and milkedvolume >= 2500 and bp_used_mbottle < bp_useable_mbottle:
 					bp_used_mbottle += 1
 					milkedvolume -= 2500
+					bottlecounter = 0
+					:sbottle_altsearchloop
+					if bottlecounter < (bpbottlem + bpbottles):
+						if mbarrtype[bottlecounter] = 2500 and mbarrfill[bottlecounter] = 0:
+							func('lact_lib','fill_milk_bottle',bottlecounter,2500)
+							jump 'sbottle_altsearchloopbreak'
+						end
+						bottlecounter += 1
+						jump 'sbottle_altsearchloop'
+					end
+					:sbottle_altsearchloopbreak
 					jump 'altfill01'
 				end
 				:altfill02
-				if pump_bottletype >= 2500 and milkedvolume >= 1500 and bp_used_sbottle < bpbottles:
+				if pump_bottletype >= 2500 and milkedvolume >= 1500 and bp_used_sbottle < bp_useable_sbottle:
 					bp_used_sbottle += 1
 					milkedvolume -= 1500
+					bottlecounter = 0
+					:mbottle_altsearchloop
+					if bottlecounter < (bpbottlem + bpbottles):
+						if mbarrtype[bottlecounter] = 1500 and mbarrfill[bottlecounter] = 0:
+							func('lact_lib','fill_milk_bottle',bottlecounter,1500)
+							jump 'mbottle_altsearchloopbreak'
+						end
+						bottlecounter += 1
+						jump 'mbottle_altsearchloop'
+					end
+					:mbottle_altsearchloopbreak
 					jump 'altfill02'
 				end
 			end
 			!!	by this point all bottles should have been used up. Everything else needs to end up in the drain.
-			if milkedvolume > 0 and bpbottlem = bp_used_mbottle and bpbottles = bp_used_sbottle:
+			if milkedvolume > 0 and bp_useable_mbottle = bp_used_mbottle and bp_useable_sbottle = bp_used_sbottle:
 				'During pumping you have to switch the collecting bottle as it filled up with your milk. Unfortunately you don''t have enough bottles to collect all your milk.'
 				'You had to pour <<milkedvolume/10>>ml of your breast milk into the sink.'
 				milkedvolume = ((bp_used_mbottle*2500) + (bp_used_sbottle*1500))
-			elseif milkedvolume > 0 and milkedvolume < 1500 and (bpbottles - bp_used_sbottle) > 0:
+			elseif milkedvolume > 0 and milkedvolume < 1500 and (bp_useable_sbottle - bp_used_sbottle) > 0:
 				'During pumping you have to switch the collecting bottle as it filled up with your milk.'
-			elseif milkedvolume > 0 and milkedvolume < 2500 and milkedvolume > 1500 and (bpbottlem - bp_used_mbottle) > 0:
+			elseif milkedvolume > 0 and milkedvolume < 2500 and milkedvolume > 1500 and (bp_useable_mbottle - bp_used_mbottle) > 0:
 				'During pumping you have to switch the collecting bottle as it filled up with your milk.'
 			else
 				'During pumping you have to switch the collecting bottle as it filled up with your milk.'
@@ -931,7 +1294,7 @@ if $ARGS[0] = 'milking':
 				'<center><img <<$set_imgh>> src="images/pc/body/tits/bottles_full.jpg"></center>'
 				if milkedvolume = ((bp_used_mbottle*2500) + (bp_used_sbottle*1500)):
 					'You pumped <<milkedvolume/10>>ml of milk from your breasts, collecting it in:'
-					if bp_used_sbottle = 1:
+					if bp_useable_sbottle = 1:
 						'One 150ml bottle'
 					elseif bp_used_sbottle > 1:
 						'<<bp_used_sbottle>> x 150ml bottles'
@@ -953,23 +1316,47 @@ if $ARGS[0] = 'milking':
 					elseif bp_used_mbottle > 1:
 						'<<bp_used_mbottle>> x 250ml bottles'
 					end
-					if (bpbottles - bp_used_sbottle) > 0 and milkedvolume <= 1500:
+					if (bp_useable_sbottle - bp_used_sbottle) > 0 and milkedvolume <= 1500:
+						bottlecounter = 0
+						:sbottle_restsearchloop
+						if bottlecounter < (bpbottlem + bpbottles):
+							if mbarrtype[bottlecounter] = 1500 and mbarrfill[bottlecounter] = 0:
+								func('lact_lib','fill_milk_bottle',bottlecounter,milkedvolume)
+								jump 'sbottlefilled_break'
+							end
+							bottlecounter += 1
+							jump 'sbottle_restsearchloop'
+						end
+						:sbottlefilled_break
 						'You also stored <<milkedvolume/10>>ml of breast milk in a 150ml bottle.'
-					elseif (bpbottlem - bp_used_mbottle) > 0 and milkedvolume <= 2500:
+					elseif (bp_useable_mbottle - bp_used_mbottle) > 0 and milkedvolume <= 2500:
+						bottlecounter = 0
+						:mbottle_restsearchloop
+						if bottlecounter < (bpbottlem + bpbottles):
+							if mbarrtype[bottlecounter] = 2500 and mbarrfill[bottlecounter] = 0:
+								func('lact_lib','fill_milk_bottle',bottlecounter,milkedvolume)
+								jump 'mbottlefilled_break'
+							end
+							bottlecounter += 1
+							jump 'mbottle_restsearchloop'
+						end
+						:mbottlefilled_break
 						'You also stored <<milkedvolume/10>>ml of breast milk in a 250ml bottle.'
 					else
 						'unhandled case - you shouldn''t end up here. Please report this in the bug section of Girl Life in the tfg-forums.'
+						'second fork case'
 						'bp_used_mbottle: <<bp_used_mbottle>>'
 						'bp_used_sbottle: <<bp_used_sbottle>>'
 						'milkedvolume: <<milkedvolume>>'
 						'pump_bottletype: <<pump_bottletype>>'
-						'bpbottles: <<bpbottles>>'
-						'bpbottlem: <<bpbottlem>>'
+						'bp_useable_sbottle: <<bp_useable_sbottle>>'
+						'bp_useable_mbottle: <<bp_useable_mbottle>>'
 					end
 					milkedvolume += bp_used_mbottle*2500 + bp_used_sbottle*1500
 				end
 			else
 				'unhandled case - you shouldn''t end up here. Please report this in the bug section of Girl Life in the tfg-forums.'
+				'third fork case'
 				'bp_used_mbottle: <<bp_used_mbottle>>'
 				'bp_used_sbottle: <<bp_used_sbottle>>'
 				'milkedvolume: <<milkedvolume>>'
@@ -979,6 +1366,41 @@ if $ARGS[0] = 'milking':
 			end
 		else
 			'You give it a few more pumps and detach the pump.<br>You filled the bottle with <<milkedvolume/10>>ml of your milk.'
+			if (bp_useable_sbottle - bp_used_sbottle) > 0 and milkedvolume <= 1500:
+				bottlecounter = 0
+				:single_sbottle_searchloop
+				if bottlecounter < (bpbottlem + bpbottles):
+					if mbarrtype[bottlecounter] = 1500 and mbarrfill[bottlecounter] = 0:
+						func('lact_lib','fill_milk_bottle',bottlecounter,milkedvolume)
+						jump 'single_sbottlefilled_break'
+					end
+					bottlecounter += 1
+					jump 'single_sbottle_searchloop'
+				end
+				:single_sbottlefilled_break
+			elseif (bp_useable_mbottle - bp_used_mbottle) > 0 and milkedvolume <= 2500:
+				bottlecounter = 0
+				:single_mbottle_searchloop
+				if bottlecounter < (bpbottlem + bpbottles):
+					if mbarrtype[bottlecounter] = 2500 and mbarrfill[bottlecounter] = 0:
+						func('lact_lib','fill_milk_bottle',bottlecounter,milkedvolume)
+						jump 'single_mbottlefilled_break'
+					end
+					bottlecounter += 1
+					jump 'single_mbottle_searchloop'
+				end
+				:single_mbottlefilled_break
+			else
+				'unhandled case - you shouldn''t end up here. Please report this in the bug section of Girl Life in the tfg-forums.'
+				'second fork case'
+				'bp_used_mbottle: <<bp_used_mbottle>>'
+				'bp_used_sbottle: <<bp_used_sbottle>>'
+				'milkedvolume: <<milkedvolume>>'
+				'pump_bottletype: <<pump_bottletype>>'
+				'bp_useable_sbottle: <<bp_useable_sbottle>>'
+				'bp_useable_mbottle: <<bp_useable_mbottle>>'
+			end
+			milkedvolume += bp_used_mbottle*2500 + bp_used_sbottle*1500
 		end
 		breastcounter += 1
 		if energytomilkpump > 0 and pcs_energy = 0:
@@ -1040,6 +1462,13 @@ if $ARGS[0] = 'milking':
 		act 'Pour it into the sink':
 			*clr
 			cla
+			piits_i = 0
+			:piits_emptyloop
+			if piits_i < (bpbottlem + bpbottles):
+				if mbarrmage[piits_i] = (func('lact_lib','time_stamp') + pumptime):mbarrfill[piits_i] = 0
+				piits_i += 1
+				jump 'piits_emptyloop'
+			end
 			if milkedvolume > 1500 and bpbottles <= 1:
 				'<center><img <<$set_imgh>> src="images/pc/body/tits/milk_sink.jpg"></center>'
 				'<center>You pour 150ml of your breast milk into the sink and clean up your breastpump.</center>'
@@ -1053,13 +1482,29 @@ if $ARGS[0] = 'milking':
 				menu_off = 0 & gt $loc, $metka
 			end
 		end
+		act 'Leave it here':
+			*clr
+			cla
+			'You screw the cap onto the bottle and put it away.'
+			act 'Finish':
+				milkedvolume = 0
+				menu_off = 0 & gt $loc, $metka
+			end
+		end
 		if pcs_hydra < 100:
 			act 'Drink it':
 				*clr
 				cla
 				'<center><img <<$set_imgh>> src="images/pc/body/tits/milk_drink.jpg"></center>'
 				'<center>You drink your own breast milk and clean up your breastpump.</center>'
-				'<center>The milk is still warm from your breasts.</center>'
+				'<center>The milk is still warm from your breasts.</center>'				
+				di_i = 0
+				:di_emptyloop
+				if di_i < (bpbottlem + bpbottles):
+					if mbarrmage[di_i] = (func('lact_lib','time_stamp') + pumptime):mbarrfill[di_i] = 0
+					di_i += 1
+					jump 'di_emptyloop'
+				end
 				pcs_health += milkedvolume/400
 				pcs_energy += milkedvolume/500
 				if pcs_hydra >= 100:
@@ -1081,7 +1526,6 @@ end
 
 !!	engorged_morning
 !!	use href="exec:gt ''lact_lib'',''engorged_morning''"
-
 if $ARGS[0] = 'engorged_morning':
 	minut += 5
 	'<center><img <<$set_imgh>> src="images/pc/body/tits/lactate_start.jpg"></center>'

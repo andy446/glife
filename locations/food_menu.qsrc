@@ -1,4 +1,7 @@
 # food_menu
+!pcs_drank and pcs_ate variables track how much Sveta consumes each day. Vars are reset each day.
+!food_loc returns food and beverage menus back to the food_menu.
+
 menu_off = 1
 food_loc = 1
 gs 'themes', 'food_menu'
@@ -15,8 +18,8 @@ killvar '$_eat'
 if $loc = 'burger':
 	'<center><b><font color="maroon">Diner Bystroeshka</font></b></center>'
 	*nl
-	!'<center><img <<$set_imgh>> src="images/shared/menus/burger.png"</center><br>'
-	'<center><img <<$set_imgh>> src="images/shared/drinks/dinerdrinks.jpg"</center><br>'
+	'<center><img <<$set_imgh>> src="images/shared/menus/burger.png"</center><br>'
+	!'<center><img <<$set_imgh>> src="images/shared/drinks/dinerdrinks.jpg"</center><br>'
 	$_eat['0,name'] = 'Onion Rings'
 	$_eat['0,type'] = 'onring'
 	$_eat['0,price'] = 80
@@ -431,7 +434,7 @@ end
 $_str = '<table border="0" width="800" cellpadding="0" cellspacing="1">'
 food_loop = 0
 :loop_diner_drinks
-$_str += '<tr><td bgcolor='+iif(food_loop mod 2 = 0,'<<$bcolor1>>','<<$bcolor2>>')+' height="30" width="40%" align="center"><font color="<<$fcolor1>>">'+$_eat['<<food_loop>>,name']+'</td><td bgcolor='+iif(food_loop mod 2 = 0,'<<$bcolor1>>','<<$bcolor2>>')+' height="30" width="10%" align="right">'+iif(money >= val($_eat['<<food_loop>>,price']),'<a href="exec:gt''food'',$_eat[''<<food_loop>>,type''],<<food_loop>>">'+$_eat['<<food_loop>>,price']+'</a>',$_eat['<<food_loop>>,price'])+''+iif($_eat['<<food_loop>>,price'] ! '','<font color="<<$fcolor1>>"><b> ₽. </b>', '')+'</td><td bgcolor=<<$bcolor3>> border="0" width="50" cellpadding="0" cellspacing="0" ></td><td bgcolor='+iif(food_loop mod 2 = 0,'<<$bcolor1>>','<<$bcolor2>>')+' height="30" width="40%" align="center"><font color="<<$fcolor1>>">'+$_drink['<<food_loop>>,name']+'</td><td bgcolor='+iif(food_loop mod 2 = 0,'<<$bcolor1>>','<<$bcolor2>>')+' height="30" width="10%" align="right">'+iif(money >= val($_drink['<<food_loop>>,price']),'<a href="exec:gt''beverage'',$_drink[''<<food_loop>>,type''],<<food_loop>>">'+$_drink['<<food_loop>>,price']+'</a>',$_drink['<<food_loop>>,price'])+''+iif($_drink['<<food_loop>>,price'] ! '','<font color="<<$fcolor1>>"><b> ₽. </b>', '')+'</td></tr>'
+$_str += '<tr><td bgcolor='+iif(food_loop mod 2 = 0,'<<$bcolor1>>','<<$bcolor2>>')+' height="30" width="40%" align="center"><font color="<<$fcolor1>>">'+$_eat['<<food_loop>>,name']+'</td><td bgcolor='+iif(food_loop mod 2 = 0,'<<$bcolor1>>','<<$bcolor2>>')+' height="30" width="10%" align="right">'+iif(money >= val($_eat['<<food_loop>>,price']),'<a href="exec:pcs_ate += 1 & gt''food'',$_eat[''<<food_loop>>,type''],<<food_loop>>">'+$_eat['<<food_loop>>,price']+'</a>',$_eat['<<food_loop>>,price'])+''+iif($_eat['<<food_loop>>,price'] ! '','<font color="<<$fcolor1>>"><b> ₽. </b>', '')+'</td><td bgcolor=<<$bcolor3>> border="0" width="50" cellpadding="0" cellspacing="0" ></td><td bgcolor='+iif(food_loop mod 2 = 0,'<<$bcolor1>>','<<$bcolor2>>')+' height="30" width="40%" align="center"><font color="<<$fcolor1>>">'+$_drink['<<food_loop>>,name']+'</td><td bgcolor='+iif(food_loop mod 2 = 0,'<<$bcolor1>>','<<$bcolor2>>')+' height="30" width="10%" align="right">'+iif(money >= val($_drink['<<food_loop>>,price']),'<a href="exec:pcs_drank += 1 & gt''beverage'',$_drink[''<<food_loop>>,type''],<<food_loop>>">'+$_drink['<<food_loop>>,price']+'</a>',$_drink['<<food_loop>>,price'])+''+iif($_drink['<<food_loop>>,price'] ! '','<font color="<<$fcolor1>>"><b> ₽. </b>', '')+'</td></tr>'
 food_loop += 1
 if food_loop < arrsize('$_drink')/3:jump 'loop_diner_drinks'
 $_str += '</table></center></font>'

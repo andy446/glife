@@ -368,11 +368,11 @@ if $ARGS[0] = 'SGStart3':
 
 !!default friendship is 30 for all students, except Vasily Shulgin who starts at 60
 	r = 1
-	:default_friendship_loop
+	:default_friendship_loop1
 	$school_static_num = $school_static_num[r]
 	if grupTipe[r] ! 5:npc_rel[$school_static_num] = 30
 	r += 1
-	if r <= 65:jump 'default_friendship_loop'
+	if r <= 65:jump 'default_friendship_loop1'
 
 	npc_rel['A11'] = 60
 

@@ -1157,7 +1157,7 @@ if $ARGS[0] = 'spSexGiantdildo':
 			act 'Definitely!':sp_dildo = -2 & step = 200 & gt 'pavShared_sp', 'spSexGiantdildo'
 		elseif dildoLike = 1:
 			'<font color=#<<$sp_font>>>"Does that mean that you will be willing to do it sometime again?"</font>'
-			act 'Yes':sp_dildo = 1 & step = 200 & gt 'pavSharedApt', 'spSexGiantdildo'
+			act 'Yes':sp_dildo = 1 & step = 200 & gt 'pavShared_sp', 'spSexGiantdildo'
 			act 'Rather not':sp_dildo = -1 & step = 200 & gt 'pavShared_sp', 'spSexGiantdildo'
 		elseif dildoLike = 2:
 			'<font color=#<<$nd_font>>>"You are such a cool girl <<$pcs_firstname>>!"</font>'
@@ -1193,7 +1193,7 @@ if $ARGS[0] = 'spSexGiantdildo':
 		step = 0
 		gs 'arousal', 'end'
 		gs 'stat'
-		$loc = 'pavSharedApt' & $metka = 'start' & gt 'pavSharedApt', 'payService'
+		gt 'pavSharedApt', 'payService'
 	end
 end
 

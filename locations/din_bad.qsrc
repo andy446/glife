@@ -686,12 +686,11 @@ $d_cycreport_update = {
 
 
 $d_cycreport_upduedate = {
-	!! Ovulation is ~7d after menstruation
-	!! Implantation takes several days: Average is 5
 	!! Human gastation period: 280 days
-	!! ovu_calc: Days since last ovulation
-	ovu_calc = daystart - lastmens + 7 + 5
-	temp = 280 - ovu_calc
+	!! Implantation takes several days: Average is 5
+	!! implant_calc: Calculation of an implantation date of the egg in the uterus
+	implant_calc = daystart - lastovulation + 5
+	temp = 280 - implant_calc
 	pregdueday = day
 	pregduemonth = month
 	pregdueyear = year

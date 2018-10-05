@@ -529,6 +529,7 @@ if $ARGS[0] = 'cyc1':
 			if temprand > 20: EggRH += 410
 		end
 		FocH = 0
+		lastovulation = daystart
 		Ovulate = 24 + rand(0,20)
 		cycle = 2
 		ferteggage = 0

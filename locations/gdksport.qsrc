@@ -15,31 +15,26 @@ if $ARGS[0] = 'start':
 	gs 'themes', 'indoors'
 	'<center><b><font color="maroon">community center</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/gym/volley/gdksport.jpg"></center>'
-	'The community center sports club offers lessons in <a href="exec: gt ''gdksport'',''racing1''">Racing</a>, <a href="exec:gt ''gdksport'',''dance1''">Dance</a> and <a href="exec:gt ''gdksport'',''vball1''">Volleyball</a>.'
+	'The community center sports club offers lessons in <a href="exec: gt ''gdksport'',''racing1''">Racing</a>, <a href="exec:gt ''gdksport'',''dance1''">Dance</a> and <a href="exec:gt ''gdksport'',''vball1''">Volleyball</a>.All lessons start before 18:00'
 	*nl
 	'In the locker room is a <a href="exec:GT ''mirror'',''start''">mirror</a>, where you can ' + iif(pcs_hairbsh = 0,'<a href="exec:GT ''mirror'',''brush''">brush</a>','brush') + ' your hair.'
-	*nl
-	'The sports section of the community center closes at 20:00. You need to start a class before 18:00'
-	*nl
-	
-	if $clothingworntype ! 'exercise': 'You are not dressed in sports clothes.'
-	if $shoeworntype ! 'trainers': 'You are not wearing training shoes.'
 	
 	if kotovLoveQW > 0 and hour = 16:
-		*nl
 		'You see <a href="exec:minut += 3 & gt ''kotovEv''">Vitek Kotov</a> with a large sports bag entering the sports club.'
 	elseif npc_rel['A3'] >= 80 and hour = 17 and ivansportday ! daystart:
-		*nl
 		'You see <a href="exec:minut += 3 & gt ''IvanEv''">Ivan Prokhorov</a> with a large sports bag entering the sports club.'
 	end
 
 	if npc_rel['A5'] >= 80 and fedorKozlovQW = 0 and pcs_apprnc >= 20 and fedorkozbreak < 2 and GorSlut < 2: gt 'gdksport', 'Fedor First Date'
 
 	if week <= 5 and hour >= 16 and hour < 18 and fedorKozlovQW >= 20:
-		*nl
 		'You can see <a href="exec:gt ''FedorMisc'', ''Fedor Workout''">Fedor</a> on his phone next to some punching bags.'
 	end
 
+	*nl	
+	if $clothingworntype ! 'exercise': 'You are not dressed in sports clothes.'
+	if $shoeworntype ! 'trainers': 'You are not wearing training shoes.'
+	
 	act 'Go outside':
 		if $clothingworntype = 'nude':
 			msg'<b><font color = red>You need to get dressed before leaving.</font></b>'

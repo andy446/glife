@@ -1141,9 +1141,12 @@ if young_shop_work = 1:
 	end
 end
 
+if courthearing_date - 1 = daystart: $stat_msg += '<BR><b><font color="red">You have a court hearing tomorrow between 07:00 and 11:00.</font></b>'
+if courthearing_date = daystart and hour < 11: $stat_msg += '<BR><b><font color="red">You have a court hearing today between 07:00 and 11:00.</font></b>'
+
 if young_shop_work1 = 1:
 	if hour = 9 and minut <= 5 and week >= 6 and inWorkYoungShop = 0:
-		'You are late for work at Pussy-Cats.'
+		$stat_msg += 'You are late for work at Pussy-Cats.'
 	elseif hour = 9 and week >= 6 and inWorkYoungShop = 0 and misscheck ! daystart:
 		misscheck = daystart
 		young_shop_miss += 1

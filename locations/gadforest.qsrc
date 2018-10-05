@@ -264,20 +264,39 @@ if $ARGS[0] = '1':
 	end
 
 	act 'Leave the woods':
-		if $clothingworntype = 'nude' or swamp_clothes = 1:
-			if ($CloLosTyp[$CURLOC] = '' or gadforest_clothestorn = 1) and swamp_clothes = 0:
-				! no clothes here, they must be ripped apart enough times in the woods or swamp to get destroyed.
-				! This may be a good exhibition or rape event entry point
-				inhib_exp += rand(0,2)
-				gadforest_clothestorn = 0
-				'You sneak out the woods, hiding your naked body in the shadows and moving toward grandparents house.'
-				'You successfully reach home without anyone noticing.'
-				cla
-				minut += 30
-				gs 'stat'
-				act 'Go home':gt'Gadhouse'
+		if $clothingworntype = 'nude':
+			*clr & cla
+			inhib_exp += rand(0,2)
+			if hour >= 6 and hour < 22:
+				if rand(0,100) > 50:
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gadukino_nude.jpg"></center>'
+				else
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gadukino_back.jpg"></center>'
+				end
 			else
-				'<B>You should pick up your clothes and get dressed before leaving the woods.</B>'
+				if rand(0,100) > 50:
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gadukino_nude.jpg"></center>'
+				else
+					'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gadukino_back_night.jpg"></center>'
+				end
+			end
+			if clothesAtLocation = 0:
+				inhib_exp += rand(0,2)
+				'You seem to have misplaced your clothes! You have little choice but to sneak out the woods, hiding your naked body in shadow and moving toward your grandparents house. You wonder where you might have left your clothes.'
+			elseif gadforest_clothestorn = 1:
+				! no clothes here, they must be ripped apart enough times in the woods or swamp to get destroyed.
+				gadforest_clothestorn = 0
+				'Your clothes were torn to shreds in the woods, leaving you with no choice but to head back completely naked, hiding your naked body in shadow and move toward your grandparents house as stealthily as possible.'
+			elseif clothesAtLocation = 1:
+				'You decide to stash your belongings and sneak out the woods completely naked, purely for the thrill of it, hiding your naked body in shadow and moving toward your grandparents house, avoiding any well lit areas.'
+			end
+			act 'Run back home naked':
+				minut += 30
+				gt'gadforest', 'caught'
+			end
+		elseif $clothingworntype = 'cheap' and clothingwornnumber = 414:
+			if clothesAtLocation = 1:
+				'You should pickup your clothes and get dressed before you leave'
 			end
 		else
 			minut += 30
@@ -287,6 +306,44 @@ if $ARGS[0] = '1':
 	end
 	if rand(1,10)> 9: gs 'gadforest', 'torncloth'
 	gs 'stat'
+end
+
+if $ARGS[0] = 'caught':
+	*clr & cla
+	caught_rand = rand(0, 100)
+	if caught_rand > 90:
+		inhib_exp += rand(0,3)
+		grandma_trouble += rand(7,10)
+		gs 'arousal', 'voyeur', 10, 'exhibitionism'
+		gs 'arousal', 'end'
+		gs 'stat'
+		'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gadukino_old_woman.jpg"></center>'
+		'You''ve been spotted walking home naked by all the women of the village. They are all sitting there scolding you. Your grandparents are definitely going to find out about this.'
+	elseif caught_rand > 70:
+		inhib_exp += rand(0,4)
+		grandma_trouble += rand(1,3)
+		gs 'arousal', 'voyeur', 10, 'exhibitionism'
+		gs 'arousal', 'end'
+		gs 'stat'
+		'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gadukino_old_woman'+rand(1,5)+'.jpg"></center>'
+		'You''ve been spotted walking home naked by a woman from the village. You want to hope she doesn''t tell your grandparents.'
+	elseif caught_rand > 50:
+		inhib_exp += rand(0,3)
+		grandma_trouble += rand(1,3)
+		gs 'arousal', 'voyeur', 10, 'exhibitionism'
+		gs 'arousal', 'end'
+		gs 'stat'
+		'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gadukino_old_man'+rand(1,5)+'.jpg.jpg"></center>'
+		'You''ve been spotted walking home naked by a man from the village. You want to hope she doesn''t tell your grandparents.'
+	else
+		grandma_trouble += rand(0,1)
+		gs 'arousal', 'voyeur', 10, 'exhibitionism'
+		gs 'arousal', 'end'
+		gs 'stat'
+		'<center><img <<$set_imgh>> src="images/locations/gadukino/grandparents/Gaddvor_nude.jpg"></center>'
+		'Luckily no one saw you outside naked, but there''s a thrill in almost getting caught.'
+	end
+	act 'Continue': gt'Gaddvor'
 end
 
 if $ARGS[0] = '2':

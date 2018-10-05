@@ -7,6 +7,7 @@ $metkaM = ''
 $locM = 'Gadbana'
 $location_type = 'bathroom'
 frost = 0
+clothesAtLocation = FUNC('lost_clothes_here','Gadbana')
 
 '<center><h4>bath</h4></center>'
 
@@ -16,32 +17,39 @@ frost = 0
 gs 'stat'
 
 if mira = 0:
-	if $clothingworntype = 'nude':
+	if clothesAtLocation = 1 and $clothingworntype = 'nude':
 		act 'Get dressed and leave':
 			minut += 1
-			gs 'clothing', 'wear_last_worn'
+			gs 'clothing', 'recover_lost_clothes', 'Gadbana', 1
 			gs 'underwear', 'wear'
+			gs 'stat'
 			gt 'Gaddvor'
 		end
 	end
 	if $clothingworntype ! 'nude':
 		act 'Go outside':minut += 1 & gt'Gaddvor'
-	elseif $clothingworntype = 'nude' and ($pantyworntype ! 'none' or $braworntype ! 'none'):
-		act 'Go outside in your underwear':
-			cls
-			minut += 1
-			'<center><img <<$set_imgh>> src="images/locations/gadukino/grandparents/gaddvor_nude.jpg"></center>'
-			'Luckily no one saw you outside in your underwear, but there''s a thrill in almost getting caught'
-			gs 'arousal', 'voyeur', 10
-			act 'Continue': gt 'Gaddvor'
-		end
 	elseif $clothingworntype = 'nude':
 		act 'Go outside naked':
-			cls
+			*clr & cla
 			minut += 1
-			'<center><img <<$set_imgh>> src="images/locations/gadukino/grandparents/Gaddvor_nude.jpg"></center>'
-			'Luckily no one saw you outside naked, but there''s a thrill in almost getting caught'
-			gs 'arousal', 'voyeur', 10
+			inhib_exp += rand(0,2)
+			grandma_trouble += rand(0,1)
+			'<center><img <<$set_imgh>> src="images/locations/gadukino/grandparents/Gaddvor_nude.jpg"></center>''It''s certainly risky leaving the hosue like this, and while it''s unlikely anyone saw you go outside naked, there''s a thrill in almost getting caught'
+			gs 'clothing', 'recover_lost_clothes', 'Gadbana'
+			gs 'arousal', 'voyeur', 10, 'exhibitionism'
+			gs 'stat'
+			act 'Continue': gt 'Gaddvor'
+		end
+	elseif $clothingworntype = 'nude' and ($pantyworntype ! 'none' or $braworntype ! 'none'):
+		act 'Go outside in your underwear':
+			*clr & cla
+			minut += 1
+			inhib_exp += rand(0,2)
+			grandma_trouble += rand(0,1)
+			'<center><img <<$set_imgh>> src="images/locations/gadukino/grandparents/gaddvor_nude.jpg"></center>''It''s certainly risky leaving the hosue like this, and while it''s unlikely anyone saw you go outside in your underwear, there''s a thrill in almost getting caught'
+			gs 'clothing', 'recover_lost_clothes', 'Gadbana'
+			gs 'arousal', 'voyeur', 10, 'exhibitionism'
+			gs 'stat'
 			act 'Continue': gt 'Gaddvor'
 		end
 	end
@@ -89,7 +97,7 @@ if mira = 0:
 		minut += 25
 		dynamic $showerdin
 		if frost > 0:frost = 0
-		gs 'clothing', 'strip'
+		gs 'clothing', 'strip', 'Gadbana'
 		gs 'underwear', 'remove'
 		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/locations/gadukino/village/mit.jpg"></center>'
@@ -105,7 +113,7 @@ if mira = 0:
 	if $clothingworntype ! 'nude':
 		act 'Remove clothes':
 			minut += 1
-			gs 'clothing', 'strip'
+			gs 'clothing', 'strip', 'Gadbana'
 			gs 'stat'
 			gt 'Gadbana'
 		end
@@ -200,7 +208,7 @@ else
 	!125st
 	act 'Undress':
 		cls
-		gs 'clothing', 'strip'
+		gs 'clothing', 'strip', 'Gadbana'
 		gs 'underwear', 'remove'
 		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/characters/village/mira/miraban.jpg"></center>'
@@ -234,22 +242,29 @@ else
 				gs 'arousal', 'end'
 				gs 'stat'
 
-				act 'Get dressed and leave':
-					cla
-					mira = 0
-					minut += 1
-					gs 'clothing', 'wear_last_worn'
-					gs 'underwear', 'wear'
-					act 'Continue': gt 'Gaddvor'
+				if clothesAtLocation = 1 and $clothingworntype = 'nude':
+					act 'Get dressed and leave':
+						cla
+						mira = 0
+						minut += 1
+						gs 'clothing', 'recover_lost_clothes', 'Gaddvor', 1
+						gs 'underwear', 'wear'
+						gs 'stat'
+						act 'Continue': gt 'Gaddvor'
+					end
 				end
 
 				act 'Go outside naked':
 					*clr & cla
 					mira = 0
 					minut += 1
+					grandma_trouble += rand(0,1)
 					'<center><img <<$set_imgh>> src="images/locations/gadukino/grandparents/Gaddvor_nude.jpg"></center>'
 					'Luckily no one saw you outside naked, but there''s a thrill in almost getting caught'
-					gs 'arousal', 'voyeur', 10
+					gs 'clothing', 'recover_lost_clothes', 'Gaddvor'
+					gs 'arousal', 'voyeur', 10, 'exhibitionism'
+					gs 'arousal', 'end'
+					gs 'stat'
 					act 'Continue': gt 'Gaddvor'
 				end
 			end

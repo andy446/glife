@@ -27,6 +27,7 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 
 	'<center><H4>Meadow</H4></center>'
 	'<center><img <<$set_imgh>> src="images/locations/gadukino/meadow/meadow1_<<rand(0,5)>>.jpg"></center>'
+	*nl
 	'A quiet and deserted open field of grass and wildflowers in the forest, well hidden from civilization.'
 
 	!125s
@@ -70,15 +71,21 @@ if $ARGS[0] = 'start' or $ARGS[0] = '':
 	if sunWeather = 1:
 		if pcs_stam >=15 or (pcs_stam >= 10 and bookYog + obruch > 0):
 			if $clothingworntype ! 'exercise' and pcs_inhib < 35 and Miraloc ! 2:
-				'You could do some exercises here if you were wearing <a href="exec: gt ''exercise'', ''workout''">workout clothes</a>.'
-			elseif $clothingworntype ! 'exercise' and $clothingworntype ! 'nude' and pcs_inhib >= 35 and Miraloc ! 2 and temper >= 10:
-				'Your meadow is a perfect place to do some exercises. There is no one around, so you could do it <a href="exec: gs ''clothing'', ''strip'', ''Meadow''& gs ''underwear'', ''remove'' & gt ''exercise'', ''workout'', ''nude'', ''Meadow''">in the nude</a>.'
-			elseif $clothingworntype ! 'exercise' and $clothingworntype = 'nude' and pcs_inhib >= 35 and Miraloc ! 2 and temper >= 10:
-				'Your meadow is a perfect place to do some exercises. There is no one around, so you could do it <a href="exec: gs ''underwear'', ''remove'' & gt ''exercise'', ''workout'', ''nude'', ''Meadow''"> in the nude</a>.'
+				*nl
+				'You could do some exercises here if you were wearing <a href="exec: gt ''Meadow'', ''workout''">exercise clothes</a>.'
+				act 'Exercise': gt 'Meadow', 'workout'
+			elseif pcs_inhib >= 35 and Miraloc ! 2 and temper >= 10:
+				*nl
+				'Your meadow is a perfect place to do some <a href="exec: gt ''Meadow'', ''workout''">exercises</a>. There is no one around, so you could probably <a href="exec: gs ''clothing'', ''strip'', ''Meadow''& gs ''underwear'', ''remove'' & gt ''Meadow'', ''workout'', ''nude''">exercise nude</a>.'
+				act 'Exercise': gt 'Meadow', 'workout'
+				act 'Exercise nude': gt 'Meadow', 'workout', 'nude'
 			elseif Miraloc = 2:
+				*nl
 				'It''s a nice day to exercise, but you don''t feel comfortable working out with an audience.'
 			else
-				'Your meadow is a perfect place to do some <a href="exec: gt ''exercise'', ''workout''">exercises</a>.'
+				*nl
+				'Your meadow is a perfect place to do some <a href="exec: gt ''Meadow'', ''workout''">exercises</a>.'
+				act 'Exercise': gt 'Meadow', 'workout'
 			end
 		else
 			'Your meadow is a perfect place to do some exercises, but you don''t have the energy right now.'
@@ -1048,7 +1055,26 @@ if $ARGS[0] = 'mirameadow':
 	end
 end
 
-!125e
+if $ARGS[0] = 'workout':
+	*clr & cla
+	if $ARGS[1] = 'nude':
+		'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/nudeforest1.2.jpg"></center>'
+		*nl
+		if exhibitionQW < 3: 
+			'Your cheeks feel hot with embarrassment as you strip off your clothes. You giggle nervously at the thought of getting caught in the nude, the thought terrifies you but it also excites you.'
+		else
+			'You strip off your clothes. The thought of getting caught in the nude excites you.'
+		end
+		clothesAtLocation = FUNC('lost_clothes_here','Meadow')
+		gs 'clothing', 'strip', $sportloc
+		gs 'arousal', 'voyeur', 15, 'exhibitionism'
+		gs 'arousal', 'end'
+		minut -= 15
+		act 'Continue': gt 'exercise', 'workout'
+	else
+		gt 'exercise', 'workout'
+	end
+end
 
 --- Meadow ---------------------------------
 

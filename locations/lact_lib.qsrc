@@ -1161,6 +1161,7 @@ if $ARGS[0] = 'milking':
 		bp_used_sbottle = 0
 		bp_useable_sbottle = func('lact_lib','useable_sbottle_count')
 		bp_useable_mbottle = func('lact_lib','useable_mbottle_count')
+		pump_timestamp = func('lact_lib','time_stamp')
 		'<center><img <<$set_imgh>> src="images/pc/body/tits/pump_lactating.jpg"></center>'
 		if pumptime > 1:
 			'You attach the pump to your breast and start rythmically squeezing the bulb for <<pumptime>> minutes.'
@@ -1465,7 +1466,7 @@ if $ARGS[0] = 'milking':
 			piits_i = 0
 			:piits_emptyloop
 			if piits_i < (bpbottlem + bpbottles):
-				if mbarrmage[piits_i] = (func('lact_lib','time_stamp') + pumptime):mbarrfill[piits_i] = 0
+				if mbarrmage[piits_i] = (pump_timestamp):mbarrfill[piits_i] = 0
 				piits_i += 1
 				jump 'piits_emptyloop'
 			end
@@ -1501,7 +1502,7 @@ if $ARGS[0] = 'milking':
 				di_i = 0
 				:di_emptyloop
 				if di_i < (bpbottlem + bpbottles):
-					if mbarrmage[di_i] = (func('lact_lib','time_stamp') + pumptime):mbarrfill[di_i] = 0
+					if mbarrmage[di_i] = (pump_timestamp):mbarrfill[di_i] = 0
 					di_i += 1
 					jump 'di_emptyloop'
 				end

@@ -1442,6 +1442,8 @@ $cheatmenu['force_preg'] = {
 	if RecovH ! 0: RecovH = 0
 	preg = 1
 	cycle = 5
+	!!Setting implantation date for the due date calculation
+	lastovulation = daystart - 5
 	PregChem = 150
 	$wombthfath = 'A sperm donor'
 	babyembryo += 1

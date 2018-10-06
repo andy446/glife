@@ -67,7 +67,7 @@ if $ARGS[0] = 'start':
 		gt 'wardrobe', 'start'
 	end
 
-	gs 'wardrobe', 'sports_outfit_option'
+	gs 'wardrobe', 'sports_outfit'
 
 	if pcs_sweat > 19:
 		act 'Wash in the shower':gt 'gdksport', 'shower'

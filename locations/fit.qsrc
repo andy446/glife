@@ -107,7 +107,6 @@ if $ARGS[0] = 'dressing room':
 		gt 'mirror', 'start'
 	end
 
-	gs 'wardrobe', 'sports_outfit_option'
 	act 'Change outfit':
 		cla
 		gt 'wardrobe', 'start'
@@ -118,6 +117,8 @@ if $ARGS[0] = 'dressing room':
 	else
 		act 'Change into swimwear': gt 'changingroom', 'view_swim_list'
 	end
+
+	gs 'wardrobe', 'sports_outfit'
 
 	if abonement > 0:
 		if $clothingworntype = 'exercise' and $shoeworntype = 'trainers' and pcs_stam >= 40:

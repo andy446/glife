@@ -27,11 +27,12 @@ if $ARGS[0] = '':
 
 	'<center><b><font color="maroon">Disco</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_yaho.jpg"></center>'
+	*nl
 
 	if NikoVolkovQW = 5 and NikoEv = 7 and NikoDate_Day ! daystart:gt 'NikoDates', 'Disco'
 
 	if hour >= 20 and hour <= 23:
-		if StoryLine = 1 and SchoolAtestat = 0:'The club and you see a few <a href="exec:gt ''SgrupDisco''">of the people you know</a>.'
+		if StoryLine = 1 and SchoolAtestat = 0:'At the disco you see a few of your <a href="exec:gs ''SgrupDisco''">classmates</a>. Some of them dancing, while others stick to their own groups and talk.'
 		if soniaslut < 5:soniaslut += 1
 
 		if dimaRevenge = 7 and dimaRevChoice = 4 and dimadisco = 0:
@@ -46,9 +47,10 @@ if $ARGS[0] = '':
 		end
 
 		act 'Go outside':gt 'gdk'
-		
+
 		act 'Dance (0:15)':
 			*clr & cla
+			'<center><b><font color="maroon">Disco</font></b></center>'
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_dance.jpg"></center>'
 			if pcs_inhib < 40:inhib_exp += rand(1,2)
 			if (cumloc[6] = 1 or cumloc[7] = 1) or cumloc[11] = 1:
@@ -72,6 +74,7 @@ if $ARGS[0] = '':
 
 				if rand(0,7)=1 and katja_disco_end=1 and (alko > 1 or pcs_horny => 80) and KatjaHorny > 60:
 					*clr
+					'<center><b><font color="maroon">Disco</font></b></center>'
 					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/katja_dance.jpg"></center>'
 					'While you are dancing you notice Katya out on the dance floor as well.'
 					Act 'Dance with Katya':gt 'gdkin', 'Katja_dance'
@@ -83,20 +86,24 @@ if $ARGS[0] = '':
 				elseif alko >= 3:
 					if $pantyworntype = 'none' and PCloSkirt > 2:
 						*clr
+						'<center><b><font color="maroon">Disco</font></b></center>'
 						'<center><video autoplay loop src="images/locations/pavlovsk/community/disco/club_dance2.mp4"></video></center>'
 						'You''re a bit tipsy and you forget that you don''t have any panties on. As you dance around moving your body, your skirt rides up, exposing your pussy to the observant people on the dance floor.'
 					else
 						*clr
+						'<center><b><font color="maroon">Disco</font></b></center>'
 						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_dance7.jpg"></center>'
 						'You''re a bit tipsy, but you''re having a lot of fun out on the dance floor anyways, you''re not paying much attention to anyone else or even the music.'
 					end
 				elseif alko > 3:
 					if $pantyworntype = 'none' and PCloSkirt > 2:
 						*clr
+						'<center><b><font color="maroon">Disco</font></b></center>'
 						'<center><video autoplay loop src="images/locations/pavlovsk/community/disco/club_dance2.mp4"></video></center>'
 						'You''re drunk and you forget that you don''t have any panties on. As you dance around moving your body, your skirt rides up, exposing your pussy to the observant people on the dance floor with you.'
 					else
 						*clr
+						'<center><b><font color="maroon">Disco</font></b></center>'
 						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_dance7.jpg"></center>'
 						'You''re drunk, but you''re having a lot of fun out on the dance floor anyways, you''re not even paying attention to anyone else or even the music.'
 					end
@@ -131,6 +138,7 @@ if $ARGS[0] = '':
 			pcs_mood -= 5
 			frost = 0
 			gs 'stat'
+			'<center><b><font color="maroon">Disco</font></b></center>'
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_yaho.jpg"></center>'
 
 			if (cumloc[6] = 1 or cumloc[7] = 1) or cumloc[11] = 1:
@@ -143,7 +151,7 @@ if $ARGS[0] = '':
 
 				exit
 			end
-		
+
 			if alko >= 6 and rand (1, 100) < 3:	gt 'gevent', '6'
 
 			if alko >= 6:
@@ -190,28 +198,31 @@ if $ARGS[0] = '':
 		'The Club closes. The main lights go on, the music fades and everyone beings to leave.'
 		act 'Go outside':gt 'gdk'
 	end
-	
+	act 'Look for your classmates': gs 'SgrupDisco'
 	act 'Go to the toilets': gt 'gdktoilet', 'start'
 end
 
-if $ARGS[0] = 'Katja_dance':	
+if $ARGS[0] = 'Katja_dance':
 	minut += 15
 	gs'stat'
-	*clr & cla 
+	*clr & cla
 	dancerand=rand(1,5)
-	if $pantyworntype = 'none': 
+	if $pantyworntype = 'none':
+	'<center><b><font color="maroon">Disco</font></b></center>'
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/katja_dance1_2.jpg"></center>'
 		inhib_exp += rand(1,2)
 		'You dance with Katja attracting views of men from across the room. And when you consider that you not wearing panties, and your occasional spiraling of your skirt shows that fact off, it helps explain the attention.'
 	else
 		if pcs_inhib < 40:inhib_exp += rand(1,2)
+		'<center><b><font color="maroon">Disco</font></b></center>'
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/katja_dance1_1.jpg"></center>'
 		'You dance with Katja attracting views of men from across the room.'
 	end
 	act 'Expose Katja':
 		KatjaHorny += 20
-		*clr & cla 
-		if dancerand = 1: 
+		*clr & cla
+		if dancerand = 1:
+			'<center><b><font color="maroon">Disco</font></b></center>'
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/katja_dance2_2.jpg"></center>'
 			inhib_exp += rand(1,2)
 			'During the dance you have decided to fool around and embraced Katja, pulling aside her top a bit to show off a nipple. Which causes an approving roar from all around and an embarrassed squeak from Katja.'
@@ -219,36 +230,42 @@ if $ARGS[0] = 'Katja_dance':
 			gs 'stat'
 			act 'Dance on':
 				*clr & cla
+				'<center><b><font color="maroon">Disco</font></b></center>'
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/katja_dance2_1.jpg"></center>'
 				'One of the guys dancing moved in closer to the two of you, unable to stand watching the two of you dancing and touching each other like that, he slides his hand under her skirt.'
 				act 'Stick out tongue':
 					*clr & cla
+					'<center><b><font color="maroon">Disco</font></b></center>'
 					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/katja_dance1_3.jpg"></center>'
 					'Rebuffing the guy you and Katja pushed him away and turned to the crowd of guys around you. Katja hugs you and sticks out her tongue at the guys. The rebuffed guys looks around and thinks better of it and gets lost among the other dancers.'
 					gs 'arousal', 'end'
 					gs 'stat'
 					act 'Move on': gt 'gdkin'
 				end
-			end	
-		elseif dancerand = 2:	
+			end
+		elseif dancerand = 2:
+			'<center><b><font color="maroon">Disco</font></b></center>'
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/katja_dance3.jpg"></center>'
 			inhib_exp += rand(1,2)
 			'Dancing with Katja you can''t control yourself, you pull Katja close to you, putting your hands on her boobs and burying your face in her cleavage. Katja moans slightly at your actions, while the boys gathered around shout encouragements to the two of you.'
 			gs 'arousal', 'foreplay', 5, 'lesbian'
 			gs 'stat'
 		elseif dancerand = 3:
+			'<center><b><font color="maroon">Disco</font></b></center>'
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/katja_dance4.jpg"></center>'
 			inhib_exp += rand(1,2)
 			'Dancing with Katya and moving quite actively, you do not notice how your breasts fell out from your clothes, exposing your nipples. But the guys sure noticed that where around you.'
 			gs 'arousal', 'flashlite', 5
 			gs 'stat'
 		elseif dancerand = 4:
+			'<center><b><font color="maroon">Disco</font></b></center>'
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/katja_dance5.jpg"></center>'
 			inhib_exp += rand(1,2)
 			'During the dance you turn to face Katja, the two of you dance close together, faces near each other. You lean in and give her a passionate kiss, you can hear the cheering of the guys. You barely notice the guys, more of a faint background noise, as you lose yourself in the moment.'
 			gs 'arousal', 'kiss_give', 5, 'lesbian'
 			gs 'stat'
 		elseif dancerand = 5:
+			'<center><b><font color="maroon">Disco</font></b></center>'
 			'<center><video autoplay loop src="images/characters/pavlovsk/school/girl/katja/katja_dance6.mp4"></video></center>'
 			inhib_exp += rand(1,2)
 			'You dance with Katya paying little attention to what is happening around you, when one of the guys around you reaches out and pulls down your top, baring your breasts for everyone to see. Without ceasing to dance you pull your top back up, to the disgruntled cries of the guys around you.'
@@ -257,6 +274,7 @@ if $ARGS[0] = 'Katja_dance':
 		end
 		act 'Stick out tongue':
 			*clr & cla
+			'<center><b><font color="maroon">Disco</font></b></center>'
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/katja_dance1_3.jpg"></center>'
 			'Looking at the crowd of guys around you, you hug Katja and stick out your tongue at them, letting them know they can look at you all they like but that''s all they''re going to get.'
 			gs 'arousal', 'end'
@@ -269,6 +287,7 @@ end
 if $ARGS[0] = 'kotov_love':
 	cls
 	gs 'stat'
+	'<center><b><font color="maroon">Disco</font></b></center>'
 	'<center><b><font color="maroon"><<$npc_firstname[''A9'']>> <<$npc_lastname[''A9'']>></font></b></center>'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/9.jpg"></center>'
 	'Vitek walks up to you and the guy. "What is this garbage? Who''s this guy?" Vitek shoves the guy and angrily says "Well who the fuck are you? This is my girl, you want me to bust you up?"'
@@ -336,6 +355,7 @@ if $ARGS[0] = 'dance_vrp':
 	if pcs_danc < 50 and pcs_agil >=pcs_danc:danc_exp += 1
 	if pcs_inhib < 40:inhib_exp += rand(1,2)
 	gs 'stat'
+	'<center><b><font color="maroon">Disco</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_dance5.jpg"></center>'
 	'You accepted the offer, the guy took you by the hand and brought you out onto the dance floor, where you started dancing together.'
 
@@ -345,6 +365,7 @@ if $ARGS[0] = 'dance_vrp':
 			gs 'gdkin', 'reverse_reakt_dance'
 		elseif DPtipe = 2:
 			*clr
+			'<center><b><font color="maroon">Disco</font></b></center>'
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_dance6.jpg"></center>'
 			'The drunk guy pushes into you, grinding his body up against yours. You feel your soft breasts literally flatten against the man''s chest.'
 			gs 'arousal', 'foreplay', 5
@@ -359,6 +380,7 @@ if $ARGS[0] = 'dance_vrp':
 			gs 'gdkin', 'reakt_dance'
 		elseif DPtipe = 2:
 			*clr
+			'<center><b><font color="maroon">Disco</font></b></center>'
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_dance8.jpg"></center>'
 			'A guy grabs your ass and squeezes it, he pulls you into a hug and kisses you passionately.'
 			gs 'arousal', 'foreplay', 5
@@ -380,10 +402,11 @@ if $ARGS[0] = 'dance_vrp':
 	end
 
 	act 'Stop and move away': gt 'gdkin'
-	
+
 	act 'Continue to dance with him':
 		*clr & cla
 		gs 'stat'
+		'<center><b><font color="maroon">Disco</font></b></center>'
 		if $pantyworntype = 'none' and alko >= 3 and PCloSkirt > 2:
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_dance9.jpg"></center>'
 		elseif alko > 0:
@@ -398,7 +421,7 @@ if $ARGS[0] = 'dance_vrp':
 				gt 'gdkin'
 			end
 		end
-		
+
 		if DPgrup = 1:
 			$npc_usedname[$npclastcalled] = $npc_nickname[$npclastcalled]
 			$boydesc = $npc_nickname[$npclastcalled]
@@ -439,7 +462,7 @@ if $ARGS[0] = 'dance_vrp':
 							gt 'gdkin'
 						end
 					end
-					
+
 					act 'Go to the hotel':gt 'gdksex', 'hotel'
 				end
 			elseif DPtipe = 2:
@@ -451,17 +474,19 @@ if $ARGS[0] = 'dance_vrp':
 				act 'Go to the hotel':gt 'gdksex', 'hotel'
 			end
 		end
-				
+
 		if kotovLoveQW > 0: gt 'gdkin', 'kotov_love'
 	end
-	
+
 	if pcs_danc >= 50 and alko >= 3 and pcs_horny >= 50:
 		act 'Dance sexily':
 			*clr & cla
 			if $pantyworntype = 'none' and PCloSkirt > 2:
-					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_dance4.jpg"></center>'
+				'<center><b><font color="maroon">Disco</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_dance4.jpg"></center>'
 				'Trying to move your body as erotically as possible, you lean forward while doing a complex dance move, completely forgetting that you''re not wearing panties. Now your dance partner knows as well and it seems he will likely never forget.'
 			else
+				'<center><b><font color="maroon">Disco</font></b></center>'
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_dance3.jpg"></center>'
 				'You are taking advantage of your ability to dance, sexy moves cause your partner to stare at you. But he seems stunned by how great you look or maybe by how well you move, either way he suddenly moves away and disappears into the crowd.'
 			end
@@ -537,7 +562,7 @@ if $ARGS[0] = 'dance_partner':
 	end
 end
 
-if $ARGS[0] = 'familiar':	
+if $ARGS[0] = 'familiar':
 	cls
 	gs 'stat'
 
@@ -546,16 +571,19 @@ if $ARGS[0] = 'familiar':
 	if bmTip[Tboynum] = 0:
 		$niknameboy = 'Guy'
 		rudeboy = 1
+		'<center><b><font color="maroon">Disco</font></b></center>'
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/normal3.jpg"></center>'
 		'A man dressed in jeans and T-shirt, invites you to dance. You don''t recognize him but he seems familiar.'
 	elseif bmTip[Tboynum] = 1:
 		$niknameboy = 'Gopnik'
 		rudeboy = 2
+		'<center><b><font color="maroon">Disco</font></b></center>'
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/gopnik3.jpg"></center>'
 		'A man dressed in sweatpants and sweatshirts, invites you to dance. You don''t recognize him but he seems familiar.'
 	elseif bmTip[Tboynum] = 2:
 		$niknameboy = 'Man'
 		rudeboy = 0
+		'<center><b><font color="maroon">Disco</font></b></center>'
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/suit4.jpg"></center>'
 		'A man dressed in a nice suit and expensive shoes, invites you to dance. You don''t recognize him but he seems familiar.'
 	end
@@ -568,11 +596,13 @@ if $ARGS[0] = 'too_drunk_dance':
 	if StoryLine = 1 and SchoolAtestat = 0:
 		cls
 		gs 'stat'
+		'<center><b><font color="maroon">Disco</font></b></center>'
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_dance_alco1.jpg"></center>'
 		'Katja Meynold approached you. "<<$pcs_nickname>>, are you drunk? Let''s get you home, I''ll help you."'
 
 		act 'Go with Katja':
 			*clr & cla
+			'<center><b><font color="maroon">Disco</font></b></center>'
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/disco/club_dance.jpg"></center>'
 			minut += 15
 			npc_rel['A14'] = 100

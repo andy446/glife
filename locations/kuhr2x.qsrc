@@ -1,7 +1,10 @@
 # kuhr2x
 CLOSE ALL
-$metka = ''
 $loc = 'kuhr2x'
+$metka = ''
+$menu_loc = 'kuhr2x'
+$menu_arg = ''
+menu_off = 0
 $locclass = 'kitr'
 
 clr
@@ -14,6 +17,10 @@ gs 'themes', 'indoors'
 
 '<center><b><font color = maroon>Kitchen</font></b></center>'
 '<center><img <<$set_imgh>> src="images/locations/oldtown/apartment/kuhr2x.jpg"></center>'
+
+act 'Return to the corridor':
+	gt 'korr2x'
+end
 
 if kransloman = 1:
 	cla
@@ -70,15 +77,7 @@ if husband > 0 and husbandrink ! 10:
 	end
 end
 
-if pranik > 0:
-	if pranik = 1:
-		'You only have a couple of tea biscuits for a snack.'
-	else
-		'You have enough tea biscuits for <b><<pranik>></b> more snacks.'
-	end
-	dynamic $pranik
-end
-
+dynamic $pranik
 dynamic $edaD
 dynamic $fatdel
 dynamic $driwater
@@ -508,10 +507,6 @@ if dildo > 0 and pcs_horny >= 50:
 			act 'Breathe':gt 'kuhr2x'
 		end
 	end
-end
-
-act 'Return to the corridor':
-	gt 'korr2x'
 end
 
 --- kuhr2x ---------------------------------

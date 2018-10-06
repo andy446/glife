@@ -263,7 +263,25 @@ if $ARGS[0] = 'wake':
 
 	if daystart < 10 and StoryLine = 0 and ntstart = 0:'The first thing you think as you wake up is, "Damn! It''s is not a dream, I really am a woman now."'
 	if daystart >= 10 and daystart < 30 and StoryLine = 0 and ntstart = 0:'Looking at your female body, you are still a little surprised it''s actually you.'
-
+	if slept_in = 1 and kanikuli = 0 and StoryLine = 1 and SchoolAtestat = 0 and SchoolBlock = 0 and week < 6 and hour >= 9 and hour < 14:
+		if schoolprogul > 2 and schoolPredupr = 2:
+			pcs_mood -= 35
+			gs 'stat'
+			msg '<center>Damn it''s <<$mid(100+hour,2,2)>>:<<$mid(100+minut,2,2)>>. It''s too late to go to school now!<br><<$npc_nickname[''A29'']>> will be furious. I don''t know what she might do...</center>'
+		elseif schoolprogul > 2 and schoolPredupr = 1:
+			pcs_mood -= 30
+			gs 'stat'
+			msg '<center>Damn it''s <<$mid(100+hour,2,2)>>:<<$mid(100+minut,2,2)>>. It''s too late to go to school now!<br><<$npc_nickname[''A29'']>> will be very angry if I miss another day of school.</center>'
+		elseif schoolprogul > 2 and schoolPredupr = 0:
+			pcs_mood -= 25
+			gs 'stat'
+			msg '<center>Damn it''s <<$mid(100+hour,2,2)>>:<<$mid(100+minut,2,2)>>. It''s too late to go to school now!<br><<$npc_nickname[''A29'']>> will be angry to find out I missed a day of school.</center>'
+		else
+			pcs_mood -= 20
+			gs 'stat'
+			msg '<center>Damn it''s <<$mid(100+hour,2,2)>>:<<$mid(100+minut,2,2)>>. It''s too late to go to school now!<br><<$npc_nickname[''A29'']>> will be very upset if I''m not at school every day.</center>'
+		end
+	end
 	if kanikuli = 0 and StoryLine = 1 and SchoolAtestat = 0 and SchoolBlock = 0 and week < 6 and hour >= 4 and hour < 9:
 		if slept_in = 1 and hour >= 8 and hour < 9:
 			pcs_mood -= 10
@@ -334,6 +352,8 @@ if $ARGS[0] = 'end':
 	strip_here = 0
 	if bedpanty = 1:
 		gs 'underwear', 'remove'
+	else
+		gs 'underwear', 'wear'
 	end
 	if fullmorrout = 1 and $loc = 'bedrPar':
 		gt 'vanrPar'

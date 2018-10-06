@@ -622,7 +622,9 @@ if $ARGS[0] = 'kitchen':
 	! food
 	if eda > 0:
 		if cltarelka = 0 or edahot > 0:$edagot = ''
-		if cltarelka > 0 and edahot = 0:$edagot = '<a href="exec:dynamic $edagotd">Cook meal (0:30) for yourself</a>'
+		if cltarelka > 0 and edahot = 0:
+			$edagot = '<a href="exec:dynamic $edagotd">Cook a meal  for yourself (0:30)</a>'
+		end
 		'In the refrigerator there''s enough (your own) food for <b><<eda>></b> servings. <<$edagot>>'
 	end
 	if edahot > 0:'<a href="exec: dynamic $edahotd ">On the table is ready meal (0:30).</a>'
@@ -632,30 +634,10 @@ if $ARGS[0] = 'kitchen':
 		'<a href="exec: gt ''pavSharedApt'', ''cookForGuys''">Cook meal (1:30) for the guys</a>'
 	end
 
-	act 'Have a snack (0:05)':gs 'food', 'snack'
-
-	act 'Drink some water (0:05)':gs 'beverage', 'bev_wat'
-
-	act 'Have a cup of tea (0:05)':
-		minut += 5
-		if pcs_hydra >= 100:
-			'You don''t need any more tea.'
-		else
-			pcs_hydra += 80
-			cumspclnt = 2
-			gs 'cum_cleanup'
-			pcs_breath = 0
-			pcs_mood += rand(3, 6)
-			gs 'stat'
-			'You make a refreshing cup of tea and everything seems a little better.'
-		end
-		act 'Get up from the table':gt 'pavSharedApt', 'kitchen'
-	end
-
-	if pranik > 0:
-		'You have <<pranik>> tea biscuits.'
-		dynamic $pranik
-	end
+	dynamic $edasnack
+	dynamic $driwater
+	dynamic $dritea
+	dynamic $pranik
 	dynamic $edaD
 	dynamic $fatdel
 	dynamic $lekarstvo

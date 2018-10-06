@@ -139,6 +139,17 @@ $cheatmenu['Bandit'] = {
 	end
 }
 
+$cheatmenu['fight'] = {
+	if fight_cheat = 0:
+		fight_cheat = 1
+		dynamic $cheatmenu['permanent']
+		exit
+	elseif fight_cheat = 1:
+		fight_cheat = 0
+		dynamic $cheatmenu['permanent']
+	end
+}
+
 $cheatmenu['age'] = {
 	:tooyoung
 	age = year - ((pcs_dob - (pcs_dob mod 10000)) / 10000)
@@ -314,6 +325,8 @@ $cheatmenu['permanent'] = {
 	if bedvibrator = 1:$cheatVib = 'Currently ON'
 	if cheatBandit = 0:$cheatBandit = 'Currently OFF'
 	if cheatBandit = 1:$cheatBandit = 'Currently ON'
+	if fight_cheat = 0:$fight_cheat = 'Currently OFF'
+	if fight_cheat = 1:$fight_cheat = 'Currently ON'
 	if cheat_NoPregnancy = 0:$cheat_NoPregnancy = 'Currently OFF'
 	if cheat_NoPregnancy = 1:$cheat_NoPregnancy = 'Currently ON'
 	if cheatBimbo = 0:$cheatBimbo = 'Currently OFF'
@@ -343,6 +356,7 @@ $cheatmenu['permanent'] = {
 
 	'Enable sleeping with vibrator inserted: <a href="exec:dynamic $cheatmenu[''Vibrator'']"><<$cheatVib>></a>'
 	'Bandit always horny: <a href="exec:dynamic $cheatmenu[''Bandit'']"><<$cheatBandit>></a>'
+	'Avoid fights: <a href="exec:dynamic $cheatmenu[''fight'']"><<$fight_cheat>></a>'
 	'Remove the bimbo trait and the effects of wearing bimbo clothes: <a href="exec:dynamic $cheatmenu[''BimboCloth'']"><<$cheatBimbo>></a>'
 	*nl
 	'Set arousal to always be at 50 or more: <a href="exec:dynamic $cheatmenu[''cheatHorny'']"><<$cheatHorny>></a>'
@@ -1606,24 +1620,16 @@ $cheatmenu['display'] = {
 
 	'<font color="grey">Dynamic theme (default) will change colour based on the game hour. No theme will remove table backgrounds.</font>'
 	*nl
-	if Enable_faceturn = 1:
-		'Always show face: Currently ON - <a href="exec:Enable_faceturn = 0 & dynamic $cheatmenu[''display'']">Turn OFF</a>'
-	else
-		'Always show face: Currently OFF - <a href="exec:Enable_faceturn = 1 & dynamic $cheatmenu[''display'']">Turn ON</a>'
-	end
-	*nl
-	if disable_LoadSave = 0:
-		'Save/Load Buttons: Currently Image - <a href="exec:disable_LoadSave = 2 & dynamic $cheatmenu[''display''] & gs ''stat''">Select Text</a>'
-	elseif disable_LoadSave = 1:
-		'Save/Load Buttons: Currently OFF - <a href="exec:disable_LoadSave = 0 & dynamic $cheatmenu[''display''] & gs ''stat''">Select Image</a>'
-	elseif disable_LoadSave = 2:
-		'Save/Load Buttons: Currently Text - <a href="exec:disable_LoadSave = 1 & dynamic $cheatmenu[''display''] & gs ''stat''">Turn OFF</a>'
-	end
-	*nl
 	if Enable_tablemap = 1:
 		'List friends in table: Currently ON - <a href="exec:Enable_tablemap = 0 & dynamic $cheatmenu[''display'']">Turn OFF</a>'
 	else
 		'List friends in table: Currently OFF - <a href="exec:Enable_tablemap = 1 & dynamic $cheatmenu[''display'']">Turn ON</a>'
+	end
+	*nl
+	if Enable_faceturn = 1:
+		'Always show face: Currently ON - <a href="exec:Enable_faceturn = 0 & dynamic $cheatmenu[''display'']">Turn OFF</a>'
+	else
+		'Always show face: Currently OFF - <a href="exec:Enable_faceturn = 1 & dynamic $cheatmenu[''display'']">Turn ON</a>'
 	end
 	*nl
 	if Enable_Android = 1:
@@ -1643,6 +1649,14 @@ $cheatmenu['status'] = {
 	'<center><h1>Status Window Settings</h1></center>'
 	'<center><table cellspacing="0" cellpadding="20" valign="top"><tr>'
 	'<td cellspacing="0" cellpadding="20" valign="top">'
+	if disable_LoadSave = 0:
+		'Save/Load Buttons: Currently Image - <a href="exec:disable_LoadSave = 2 & dynamic $cheatmenu[''status''] & gs ''stat''">Select Text</a>'
+	elseif disable_LoadSave = 1:
+		'Save/Load Buttons: Currently OFF - <a href="exec:disable_LoadSave = 0 & dynamic $cheatmenu[''status''] & gs ''stat''">Select Image</a>'
+	elseif disable_LoadSave = 2:
+		'Save/Load Buttons: Currently Text - <a href="exec:disable_LoadSave = 1 & dynamic $cheatmenu[''status''] & gs ''stat''">Turn OFF</a>'
+	end
+	*nl
 	!disabled inner thought font selection during char creation, as it breaks menu.
 	if settingmode = 0:
 		'<a href="exec:gs ''shortgs'',''fonts'', ''$cheatmenu[''''display'''']'',''$OpenInnerThought'',''$CloseInnerThought'' ">Set</a> the font style of inner thoughts'
@@ -1670,9 +1684,9 @@ $cheatmenu['status'] = {
 	elseif Enable_scalepic = 0:
 		'Scalebar is now as <b>Character</b>, you can switch to <a href="exec:Enable_scalepic = 1 & dynamic $cheatmenu[''status''] & gs ''stat''">Image</a> or <a href="exec:Enable_scalepic = 2 & dynamic $cheatmenu[''status''] & gs ''stat''">Table</a>'
 		if cheatStatusBars = 1:
-			' <a href="exec:cheatStatusBars = 0 & dynamic $cheatmenu[''status''] & gs ''stat''">Switch to larger status bars</a>'
+			'Set status bar size: Currently Small - <a href="exec:cheatStatusBars = 0 & dynamic $cheatmenu[''status''] & gs ''stat''">Set large</a>'
 		else
-			' <a href="exec:cheatStatusBars = 1 & dynamic $cheatmenu[''status''] & gs ''stat''">Switch to smaller status bars</a>'
+			'Set status bar size: Currently Large - <a href="exec:cheatStatusBars = 1 & dynamic $cheatmenu[''status''] & gs ''stat''">Set small</a>'
 		end
 	elseif Enable_scalepic = 2:
 		'Scalebar is now as <b>Table</b>, you can switch to <a href="exec:Enable_scalepic = 0 & dynamic $cheatmenu[''status''] & gs ''stat''">Image</a> or <a href="exec:Enable_scalepic = 1 & dynamic $cheatmenu[''status''] & gs ''stat''">Character</a>'

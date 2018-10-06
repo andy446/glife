@@ -27,7 +27,9 @@ if $ARGS[0] = '':
 	'<center><b><font color="maroon">Bathroom</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/home/vanrpar.jpg"></center>'
 	'The bathroom is very small and unimpressive. Nevertheless, it has everything you need:'
+	*nl
 	'A shower, toilet, sink, <a href="exec:GT ''mirror'',''start''">mirror</a>, where you can ' + iif(pcs_hairbsh = 0,'<a href="exec:GT ''mirror'',''brush''">brush</a>','brush') + ' your hair, and even a bath tub.'
+	*nl
 
 	gs 'din_van', 'private'
 end

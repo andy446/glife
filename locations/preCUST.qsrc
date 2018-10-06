@@ -138,6 +138,7 @@ if $ARGS[0] = 'Done':
 	$excer_name[2] = 'Default 2'
 	$excer_name[3] = 'Default 3'
 	$excer_name[4] = 'Default 4'
+	$excer_name[5] = 'Default 5'
 
 	gs 'fight', 'Wrestlergen'
 

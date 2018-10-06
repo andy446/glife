@@ -22,10 +22,6 @@ end
 if $ARGS[0] = 'workout':
 	*clr & cla
 	exer_menu = 0
-	$ex_name1 = '<<$excer_name[1]>>'
-	$ex_name2 = '<<$excer_name[2]>>'
-	$ex_name3 = '<<$excer_name[3]>>'
-	$ex_name4 = '<<$excer_name[4]>>'
 	gs 'exercise', 'routines'
 	clothesAtLocation = FUNC('lost_clothes_here',$loc)
 	if $clothingworntype = 'nude' and clothesAtLocation = 1:
@@ -57,10 +53,8 @@ if $ARGS[0] = 'workout':
 		if exer_stam[2] ! 0 and pcs_stam > exer_stam[2]: act '<<$excer_name[2]>> - (<<exer_stam[2]>> stamina)': exercisex = 2 & gt 'exercise', 'auto'
 		if exer_stam[3] ! 0 and pcs_stam > exer_stam[3]: act '<<$excer_name[3]>> - (<<exer_stam[3]>> stamina)': exercisex = 3 & gt 'exercise', 'auto'
 		if exer_stam[4] ! 0 and pcs_stam > exer_stam[4]: act '<<$excer_name[4]>> - (<<exer_stam[4]>> stamina)': exercisex = 4 & gt 'exercise', 'auto'
-	else
-		if $loc = 'Meadow':
-			gs 'wardrobe', 'sports_outfit_option', 'workout'
-		end
+		if exer_stam[5] ! 0 and pcs_stam > exer_stam[5]: act '<<$excer_name[5]>> - (<<exer_stam[5]>> stamina)': exercisex = 5 & gt 'exercise', 'auto'
+	elseif $clothingworntype ! 'nude' or $clothingworntype ! 'exercise':
 		'<b>You need to equip the proper attire before you can exercise</b>'
 	end
 	act 'Define routines': gt 'exercise', 'setup'
@@ -204,11 +198,12 @@ if $ARGS[0] = 'routines':
 	*nl
 	'<center><table>'
 	'<TD><b>Routine</b></TD><TD><b>Push ups</b></TD><TD><b>Crunches</b></TD><TD><b>Jump rope</b></TD><TD><b>Yoga</TD><TD><b>Hula hoop</b></TD>'
-	'<TR><TD width="100" cellspacing="2" align="left">'+iif(exer_menu = 1,'<a href="exec:$excer_name[1] = input (''Enter name for exercise routine 1'') & gs ''exercise'', ''rename'' & gt ''exercise'', ''setup''"><<$excer_name[1]>>:</a> ','<<$excer_name[1]>>:</a> ')+'</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout0[1]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout1[1]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout2[1]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout3[1]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout4[1]*15>></b> minutes</TD>'
-	'<TR><TD width="100" cellspacing="2" align="left">'+iif(exer_menu = 1,'<a href="exec:$excer_name[2] = input (''Enter name for exercise routine 2'') & gs ''exercise'', ''rename'' & gt ''exercise'', ''setup''"><<$excer_name[2]>>:</a> ','<<$excer_name[2]>>:</a> ')+'</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout0[2]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout1[2]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout2[2]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout3[2]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout4[2]*15>></b> minutes</TD>'
-	'<TR><TD width="100" cellspacing="2" align="left">'+iif(exer_menu = 1,'<a href="exec:$excer_name[3] = input (''Enter name for exercise routine 3'') & gs ''exercise'', ''rename'' & gt ''exercise'', ''setup''"><<$excer_name[3]>>:</a> ','<<$excer_name[3]>>:</a> ')+'</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout0[3]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout1[3]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout2[3]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout3[3]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout4[3]*15>></b> minutes</TD>'
-	'<TR><TD width="100" cellspacing="2" align="left">'+iif(exer_menu = 1,'<a href="exec:$excer_name[4] = input (''Enter name for exercise routine 4'') & gs ''exercise'', ''rename'' & gt ''exercise'', ''setup''"><<$excer_name[4]>>:</a> ','<<$excer_name[4]>>:</a> ')+'</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout0[4]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout1[4]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout2[4]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout3[4]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout4[4]*15>></b> minutes</TD>'
-	'<TR><TD colspan="7"><br><br><center><a href="exec:gt ''exercise'', ''setup''">Define up to 4 automated exercise routines.</a></center></TD></TR>'
+	'<TR><TD width="100" cellspacing="2" align="left">'+iif(exer_menu = 1,'<a href="exec:$excer_name[1] = input (''<center>Enter name for exercise routine 1<br>Leave blank to restore default name.</center>'') & gs ''exercise'', ''rename'' & gt ''exercise'', ''setup''"><<$excer_name[1]>>:</a> ','<<$excer_name[1]>>:</a> ')+'</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout0[1]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout1[1]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout2[1]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout3[1]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout4[1]*15>></b> minutes</TD>'
+	'<TR><TD width="100" cellspacing="2" align="left">'+iif(exer_menu = 1,'<a href="exec:$excer_name[2] = input (''<center>Enter name for exercise routine 2<br>Leave blank to restore default name.</center>'') & gs ''exercise'', ''rename'' & gt ''exercise'', ''setup''"><<$excer_name[2]>>:</a> ','<<$excer_name[2]>>:</a> ')+'</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout0[2]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout1[2]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout2[2]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout3[2]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout4[2]*15>></b> minutes</TD>'
+	'<TR><TD width="100" cellspacing="2" align="left">'+iif(exer_menu = 1,'<a href="exec:$excer_name[3] = input (''<center>Enter name for exercise routine 3<br>Leave blank to restore default name.</center>'') & gs ''exercise'', ''rename'' & gt ''exercise'', ''setup''"><<$excer_name[3]>>:</a> ','<<$excer_name[3]>>:</a> ')+'</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout0[3]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout1[3]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout2[3]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout3[3]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout4[3]*15>></b> minutes</TD>'
+	'<TR><TD width="100" cellspacing="2" align="left">'+iif(exer_menu = 1,'<a href="exec:$excer_name[4] = input (''<center>Enter name for exercise routine 4<br>Leave blank to restore default name.</center>'') & gs ''exercise'', ''rename'' & gt ''exercise'', ''setup''"><<$excer_name[4]>>:</a> ','<<$excer_name[4]>>:</a> ')+'</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout0[4]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout1[4]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout2[4]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout3[4]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout4[4]*15>></b> minutes</TD>'
+	'<TR><TD width="100" cellspacing="2" align="left">'+iif(exer_menu = 1,'<a href="exec:$excer_name[5] = input (''<center>Enter name for exercise routine 5<br>Leave blank to restore default name.</center>'') & gs ''exercise'', ''rename'' & gt ''exercise'', ''setup''"><<$excer_name[5]>>:</a> ','<<$excer_name[5]>>:</a> ')+'</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout0[5]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout1[5]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout2[5]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout3[5]*15>></b> minutes</TD><TD width="100" cellspacing="2" align="left"><b><<exer_rout4[5]*15>></b> minutes</TD>'
+	'<TR><TD colspan="7"><br><br><center><a href="exec:gt ''exercise'', ''setup''">Define up to 5 automated exercise routines.</a></center></TD></TR>'
 	'</table></center>'
 	*nl
 end
@@ -220,25 +215,31 @@ if $ARGS[0] = 'setup':
 	act 'Return': gt 'exercise', 'workout'
 	act 'Define <<$excer_name[1]>>':i = 1 & gt 'exercise', 'matrix'
 	act 'Rename <<$excer_name[1]>>':
-		$excer_name[1] = input ("<center>Enter name for exercise routine 1</center>")
+		$excer_name[1] = input ('<center>Enter name for exercise routine 1<br>Leave blank to restore default name.</center>')
 		gs 'exercise', 'rename'
 		gt 'exercise', 'setup'
 	end
 	act 'Define <<$excer_name[2]>>':i = 2 & gt 'exercise', 'matrix'
 	act 'Rename <<$excer_name[2]>>':
-		$excer_name[2] = input ("<center>Enter name for exercise routine 2</center>")
+		$excer_name[2] = input ('<center>Enter name for exercise routine 2<br>Leave blank to restore default name.</center>')
 		gs 'exercise', 'rename'
 		gt 'exercise', 'setup'
 	end
 	act 'Define <<$excer_name[3]>>':i = 3 & gt 'exercise', 'matrix'
 	act 'Rename <<$excer_name[3]>>':
-		$excer_name[3] = input ("<center>Enter name for exercise routine 3</center>")
+		$excer_name[3] = input ('<center>Enter name for exercise routine 3<br>Leave blank to restore default name.</center>')
 		gs 'exercise', 'rename'
 		gt 'exercise', 'setup'
 	end
 	act 'Define <<$excer_name[4]>>':i = 4 & gt 'exercise', 'matrix'
 	act 'Rename <<$excer_name[4]>>':
-		$excer_name[4] = input ("<center>Enter name for exercise routine 4</center>")
+		$excer_name[4] = input ('<center>Enter name for exercise routine 4<br>Leave blank to restore default name.</center>')
+		gs 'exercise', 'rename'
+		gt 'exercise', 'setup'
+	end
+	act 'Define <<$excer_name[5]>>':i = 5 & gt 'exercise', 'matrix'
+	act 'Rename <<$excer_name[5]>>':
+		$excer_name[5] = input ('<center>Enter name for exercise routine 5<br>Leave blank to restore default name.</center>')
 		gs 'exercise', 'rename'
 		gt 'exercise', 'setup'
 	end
@@ -246,10 +247,11 @@ if $ARGS[0] = 'setup':
 end
 
 if $ARGS[0] = 'rename':
-	if $excer_name[1] = '': $excer_name[1] = '<<$ex_name1>>'
-	if $excer_name[2] = '': $excer_name[2] = '<<$ex_name2>>'
-	if $excer_name[3] = '': $excer_name[3] = '<<$ex_name3>>'
-	if $excer_name[4] = '': $excer_name[4] = '<<$ex_name4>>'
+	if $excer_name[1] = '':$excer_name[1] = 'Default 1'
+	if $excer_name[2] = '':$excer_name[2] = 'Default 2'
+	if $excer_name[3] = '':$excer_name[3] = 'Default 3'
+	if $excer_name[4] = '':$excer_name[4] = 'Default 4'
+	if $excer_name[5] = '':$excer_name[5] = 'Default 5'
 end
 
 

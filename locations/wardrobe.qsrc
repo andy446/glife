@@ -91,9 +91,9 @@ if $ARGS[0] = 'start':
 		gt 'wardrobe', 'start'
 	end
 
-	act 'Manage saved clothing sets': gt 'wardrobe', 'default'
+	act 'Organise your wardrobe': org_loc = 1 & gt 'clothing', 'view_clothing_list', 'wardrobe'
 
-	act 'Organise stored clothing': org_loc = 1 & gt 'clothing', 'view_clothing_list', 'wardrobe'
+	act 'Manage saved clothing sets': gt 'wardrobe', 'default'
 
 	act 'Set image size for this view':
 		ward_img_hgt = input("Enter height in pixels you want for images on this page <br>(Default 150, min 50, max 500)")
@@ -120,24 +120,22 @@ end
 if $ARGS[0] = 'default':
 	gs 'stat'
 	'<center><b>Default outfits</b></center>'
-	'<center><font color="grey">You can overwrite, but you cannot delete this entry.</font></center>'
+	'<center><font color="grey">You can overwrite and rename default outfits, but you cannot delete a default outfit.</font></center>'
 	*nl
-	'<center><table width="400">'
+	'<center><table width="600">'
 	'<tr><td>'
-	'<b><<$sports_clothing_name>>:</b> <a href="exec:gs ''wardrobe'', ''sports_entry_wear''">Wear</a> | <a href="exec:gs ''wardrobe'', ''sports_entry_set''">Overwrite</a>'
+	'<b><<$sports_clothing_name>>:</b> <a href="exec:gs ''wardrobe'', ''sports_entry_wear''">Wear</a> | <a href="exec:gs ''wardrobe'', ''sports_entry_set''">Overwrite</a> | <a href="exec:$sports_clothing_name = ''default sports outfit'' & gt ''wardrobe'', ''default''">Reset name</a>'
 	'</td></tr>'
 	'</table></center>'
 	'<center><b>Custom outfits</b></center>'
 	'<center><font color="grey">Choose your clothing, then select "Set as default outfit" to save your clothing choice</font></center>'
 	*nl
-	'<center><table width="400">'
+	'<center><table width="600">'
 	'<tr><td>'
-	act 'Return': gt 'wardrobe', 'start'
-	
 	if ARRSIZE('defclothingnumber') > 0:
 		i = 0
 		:loopdefclothing
-		'<b><<$def_clothing_name[i]>>:</b> <a href="exec:gs ''wardrobe'', ''default_entry_wear'', <<i>>">Wear</a> | <a href="exec:gs ''wardrobe'', ''default_entry_set'', <<i>>">Overwrite</a> | <a href="exec:gs ''wardrobe'', ''default_entry_delete'', <<i>>">Delete</a>'
+		'<b><<$def_clothing_name[i]>>:</b> <a href="exec:gs ''wardrobe'', ''default_entry_wear'', <<i>>">Wear</a> | <a href="exec:gs ''wardrobe'', ''default_entry_set'', <<i>>">Overwrite</a> | <a href="exec:$def_clothing_name[<<i>>] = ''Custom <<i>>'' & gt ''wardrobe'', ''default''">Reset name</a> | <a href="exec:gs ''wardrobe'', ''default_entry_delete'', <<i>>">Delete</a>'
 		i += 1
 		if i < ARRSIZE('defclothingnumber'):jump 'loopdefclothing'
 	end
@@ -274,8 +272,13 @@ if $ARGS[0] = 'default_entry_set':
 	defpursenumber[i] = currentpursenumber
 	defcoat[i] = defaultcoat
 
-	$def_clothing_name[i] = input ('Enter name for for this outfit (Leave blank for default)')
-	if $def_clothing_name[i] = '': $def_clothing_name[i] = 'Custom <<i>>'
+	$def_clothing_temp = '<<$def_clothing_name[i]>>'
+	$def_clothing_name[i] = input ('<center>Enter a name for for this outfit set<br><font color="grey">Leaving blank will reuse current name.</font></center>')
+	if $def_clothing_name[i] = '' and $def_clothing_temp = '':
+		$def_clothing_name[i] = 'Custom <<i>>'
+	elseif $def_clothing_name[i] = '':
+		$def_clothing_name[i] = '<<$def_clothing_temp>>'
+	end
 	gt 'wardrobe', 'default'
 end
 
@@ -298,6 +301,36 @@ if $ARGS[0] = 'default_entry_delete':
 end
 
 !!-- sports outfit stuff
+
+if $ARGS[0] = 'sports_entry_set':
+	gs 'stat'
+	if $clothingworntype ! 'exercise' OR $shoeworntype ! 'trainers':
+		MSG 'The sports outfit needs to include exercise clothes and training shoes'
+		gt 'wardrobe', 'start'
+	else
+		gs 'stat'
+		$sportsclothingtype = $clothingworntype
+		sportsclothingnumber = clothingwornnumber
+		$sportsbratype = $braworntype
+		sportsbranumber = brawornnumber
+		$sportspantytype = $pantyworntype
+		sportspantynumber = pantywornnumber
+		$sportsshoetype = $shoeworntype
+		sportsshoenumber = shoewornnumber
+		$sportspursetype = $currentpursetype
+		sportspursenumber = currentpursenumber
+		sportscoat = defaultcoat
+
+		$sports_clothing_temp = '<<$sports_clothing_name>>'
+		$sports_clothing_name = input ('<center>Enter a name for for this outfit set<br><font color="grey">Leaving blank will reuse current name.</font></center>')
+		if $sports_clothing_name = '' and $sports_clothing_temp = '':
+			$sports_clothing_name = 'default sports outfit'
+		elseif $sports_clothing_name = '':
+			$sports_clothing_name = '<<$sports_clothing_temp>>'
+		end
+		gt 'wardrobe', 'default'
+	end
+end
 
 if $ARGS[0] = 'sports_entry_wear':
 	gs 'stat'
@@ -350,31 +383,6 @@ if $ARGS[0] = 'sports_entry_wear':
 		else
 			gt $loc, $metka
 		end
-	end
-end
-
-if $ARGS[0] = 'sports_entry_set':
-	gs 'stat'
-	if $clothingworntype ! 'exercise' OR $shoeworntype ! 'trainers':
-		MSG 'The sports outfit needs to include exercise clothes and training shoes'
-		gt 'wardrobe', 'start'
-	else
-		gs 'stat'
-		$sportsclothingtype = $clothingworntype
-		sportsclothingnumber = clothingwornnumber
-		$sportsbratype = $braworntype
-		sportsbranumber = brawornnumber
-		$sportspantytype = $pantyworntype
-		sportspantynumber = pantywornnumber
-		$sportsshoetype = $shoeworntype
-		sportsshoenumber = shoewornnumber
-		$sportspursetype = $currentpursetype
-		sportspursenumber = currentpursenumber
-		sportscoat = defaultcoat
-
-		$sports_clothing_name = input ('Enter name for for this outfit (Leave blank for default)')
-		if $sports_clothing_name = '': $sports_clothing_name = 'default sports outfit'
-		gt 'wardrobe', 'default'
 	end
 end
 

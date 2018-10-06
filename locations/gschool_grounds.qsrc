@@ -311,6 +311,8 @@ if $ARGS[0] = 'sports':
 
 			act 'Continue': gt 'gschool_grounds', 'sports'
 		end
+	elseif schoolrunday ! daystart and ($clothingworntype ! 'exercise' or $shoeworntype ! 'trainers'):
+		'You could go for a run here if you were wearing sports clothes and shoes.'
 	end
 
 	if hour >= 9 and hour < 18 and StoryLine > 0 and SchoolAtestat = 0 and kanikuli = 0:

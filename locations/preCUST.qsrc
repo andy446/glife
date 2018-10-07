@@ -520,12 +520,17 @@ if $ARGS[0] = 'Done':
 	end
 	
 !!setting default exercise outfit
+	if $ARGS[1] ! 'CSB':
+		sportspantynumber = 37
+		sportsbranumber = 11
+	else
+		sportspantynumber = 5
+		sportsbranumber = 12
+	end
 	$sportsbratype = 'cheap'
-	sportsbranumber = 11
 	$sportspantytype = 'cheap'
-	sportspantynumber = 37
 	sportsshoenumber = 21
-	sportscoat = 5
+	sportscoat = 5	
 	$sportspursetype = $currentpursetype
 	sportspursenumber = currentpursenumber
 	$sports_clothing_name = 'default sports outfit'

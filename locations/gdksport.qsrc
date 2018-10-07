@@ -15,7 +15,7 @@ if $ARGS[0] = 'start':
 	gs 'themes', 'indoors'
 	'<center><b><font color="maroon">community center</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/community/gym/volley/gdksport.jpg"></center>'
-	'The community center sports club offers lessons in <a href="exec: gt ''gdksport'',''racing1''">Racing</a>, <a href="exec:gt ''gdksport'',''dance1''">Dance</a> and <a href="exec:gt ''gdksport'',''vball1''">Volleyball</a>.All lessons start before 18:00'
+	'The community center sports club offers lessons in <a href="exec: gt ''gdksport'',''racing1''">Racing</a>, <a href="exec:gt ''gdksport'',''dance1''">Dance</a> and <a href="exec:gt ''gdksport'',''vball1''">Volleyball</a>. All lessons start before 18:00'
 	*nl
 	'In the locker room is a <a href="exec:GT ''mirror'',''start''">mirror</a>, where you can ' + iif(pcs_hairbsh = 0,'<a href="exec:GT ''mirror'',''brush''">brush</a>','brush') + ' your hair.'
 	

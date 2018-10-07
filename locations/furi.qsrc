@@ -38,14 +38,14 @@ act 'Try to get a lift':
 	act 'Refuse and leave':minut += 5 & gt $curloc
 
 	act 'Tell him you''ll suck him off':
-		cls
+		*clr & cla
 		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/locations/highway/furi.jpg"></center>'
 		'After you make sure no one else can hear you say it, you move your head closer to the driver and say: "How about I give you a blowjob?"'
 		'The driver laughs and says: "Sounds good, I wouldn''t mind some road head. Do you have a condom?"'
 
 		act 'No':
-			cls
+			*clr & cla
 			gs 'stat'
 			'"Uhh... no?" you admit, which upsets the man.'
 			'He shoos you away and says: "Do you think I''m crazy? I get sluts like you in my truck all the time, I''m not touching you without a condom! My wife would kill me if I came home with an STD!"'
@@ -54,7 +54,7 @@ act 'Try to get a lift':
 			act 'Leave':minut += 5 & gt $curloc
 
 			act 'Try to persuade him':
-				cls
+				*clr & cla
 				gs 'stat'
 				'"Wait, please! Sir, you have to understand... I normally never do this! I''m clean, I swear!" you beg him. "Please, I really need this lift!"'
 				'The driver has another close look at you and sighs: "Damn you... you''re too cute, how could I say no? Fine, get in the truck before I change my mind."'
@@ -64,23 +64,19 @@ act 'Try to get a lift':
 			end
 		end
 
-		if prezik + prezikcount + preziksabo > 0:
+		if prezik > 0:
 			act 'Yes':
-				cls
+				*clr & cla
 				gs 'stat'
 				'You nod: "Yes, I do."'
 				'"Excellent... I love it when they come prepared", the driver smiles. He opens the door and invites you in: "Milady, after you!"'
 
-				act 'Change your mind and leave':minut += 5 & gt $curloc
+				act 'Change your mind and leave': minut += 5 & gt $curloc
 				act 'Get into the truck':
 					minut += 5 
-					furisex = 0 
-					if prezikcount > 0:
-						prezikcount -= 1
-					elseif preziksabo > 0:
-						preziksabo -=1
-					end
-					gt 'furisex' 
+					furisex = 0
+					prezik -= 1
+					gt 'furisex'
 				end
 			end
 		end

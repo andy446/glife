@@ -280,8 +280,14 @@ $din_Table_Condom_Menu = {
 	act 'Return':gt 'stol', 'bc'
 }
 
+!! Condom System
+!! prezik: Number of condoms sveta wants to use (normal or damaged)
+!! prezikcount: Number of condoms sveta don''t want to use (normal)
+!! preziksabo: Number of condoms seveta don''t want to use (damaged)
+!! preziktyp: 0 - Offer condom / 1 - don''t offer condom / 2 - offer damaged ones
+!! to check if sveta wants to use a condom use if prezik > 0:
+
 $din_Do_Condom_Counts = {
-	!{set condom count and type}
 	*clr & cla
 	'<center><h1>Condoms</h1></center>'
 	'<center><img <<$set_imgh>> src="<<FUNC(''$purse_image'',	$currentpursetype, currentpursenumber)>>"></center>'

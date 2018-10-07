@@ -55,6 +55,7 @@ if $ARGS[0] = '':
 			killvar '$sleep_txt'
 		end
 	end
+	act 'Get out of bed': killvar '$sleep_txt' & gt $loc, $metka
 	act 'Take a nap (1:00)':
 		if pcs_sleep >= 10 and pcs_sleep <= 90:
 			pcs_sleep += 10
@@ -72,8 +73,6 @@ if $ARGS[0] = '':
 			'You are not tired enough to sleep, even for a short nap.'
 		end
 	end
-
-	act 'Get out of bed': killvar '$sleep_txt' & gt $loc, $metka
 
 !!Braid hair skill
 

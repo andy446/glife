@@ -2,7 +2,7 @@
 $location_type = 'public_indoors'
 
 if $ARGS[0] = 'start' or gaptek_loc = 1 or $message ! '':
-	cls
+	*clr & cla
 	CLOSE ALL
 	if sound = 0:PLAY 'sound/shop.mp3',30
 	gs 'stat'
@@ -43,7 +43,8 @@ if $ARGS[0] = 'start' or gaptek_loc = 1 or $message ! '':
 	end
 	'</center>'
 	*pl '<center><table align="center" width=80%>'
-	*P FUNC ('$stock_item', 5, 'condoms', 500, 'prezikcount', $CURLOC, $ARGS[0], StoryLine, 'Aunt will tell <<$npc_nickname[''A29'']>>!')
+	if preziktype = 0: *P FUNC ('$stock_item', 5, 'condoms', 500, 'prezik', $CURLOC, $ARGS[0])
+	if preziktype = 1 or preziktype = 2: *P FUNC ('$stock_item', 5, 'condoms', 500, 'prezikcount', $CURLOC, $ARGS[0])
 	*P FUNC ('$stock_item', 1, 'pregnancy test', 530, 'pregtest', $CURLOC, $ARGS[0], StoryLine, 'Aunt will tell <<$npc_nickname[''A29'']>>!')
 	*P FUNC ('$stock_item', 1, 'birth control pills', 1870, 'tabletki', $CURLOC, $ARGS[0], StoryLine, 'Aunt will tell <<$npc_nickname[''A29'']>>!')
 	*P FUNC ('$stock_item', 10, 'antibiotics', 580, 'lekarstvo', $CURLOC, $ARGS[0])
@@ -61,9 +62,8 @@ if $ARGS[0] = 'start' or gaptek_loc = 1 or $message ! '':
 		*P FUNC ('$stock_item', 3, 'Breastmilk Bottle S', 930, 'bpbottles', $CURLOC, $ARGS[0])
 		*P FUNC ('$stock_item', 2, 'Breastmilk Bottle M', 930, 'bpbottlem', $CURLOC, $ARGS[0])
 	end
-	if pcs_knows_nipplecream > 0:
-		*P FUNC ('$stock_item', 20, 'Nipplebalm', 600, 'bpnipplebalm', $CURLOC, $ARGS[0])
-	end
+	if pcs_knows_nipplecream > 0: *P FUNC ('$stock_item', 20, 'Nipplebalm', 600, 'bpnipplebalm', $CURLOC, $ARGS[0])
+
 	*P '</table></center>'
 	!! for original start we can just use stockitem, for alt start there are other plot elements involved
 	!strip polt-related item, other use new system
@@ -72,7 +72,7 @@ if $ARGS[0] = 'start' or gaptek_loc = 1 or $message ! '':
 
 	if npc_QW['A29'] >= 2:
 		act 'Ask about the "garden"':
-			cls
+			*clr & cla
 			gaptekfirst = 1
 			gs 'stat'
 			'<center><b><font color="maroon">Pharmacy</font></b></center>'
@@ -147,10 +147,8 @@ if $ARGS[0] = 'start' or gaptek_loc = 1 or $message ! '':
 
 		if money >= 1870:
 			if gatabletkiday ! daystart and npc_QW['A29'] >= 2:
-				act 'Buy birth control pills (1870 <b>₽</b>) <<iif(tabletki > 0, ''[left:<b>'' + tabletki + ''</b>]'', '''')>>':
-!!Apostrope fix for notepad display''''
-					cla
-					*clr
+				act 'Buy birth control pills (1870 <b>₽</b>)':
+					*clr & cla
 					portion = input ("How many packages do you want to buy?")
 					if portion <= 0:
 						cla
@@ -180,8 +178,7 @@ if $ARGS[0] = 'start' or gaptek_loc = 1 or $message ! '':
 
 			if klisma = 0 and npc_QW['A29'] >= 2 and gaptekfirst = 1:
 				act 'Buy the enema kit (1250 <b>₽</b>)':
-					cla
-					*clr
+					*clr & cla
 					klisma = 1
 					minut += 5
 					money -= 1250
@@ -194,8 +191,7 @@ if $ARGS[0] = 'start' or gaptek_loc = 1 or $message ! '':
 
 			if KandidNapr = 1:
 				act 'Buy tablets for your yeast infection (1,050 <b>₽</b>)':
-					cla
-					*clr
+					*clr & cla
 					money -= 1050
 					Kandidoz = 0
 					'<center><img <<$set_imgh>> src="images/locations/shared/store/kassa.jpg"></center>'
@@ -210,14 +206,12 @@ end
 
 if $ARGS[0] = 'garden':
 	*nl
-	'<center>Condoms: 500 ₽ per pack - You currently have <b><<prezikcount>></b></center>'
+	'<center>Condoms: 500 ₽ per pack - You currently have '+iif(preziktype = 0, '<<prezik>>', '<<prezikcount>>')+' undamaged condoms</center>'
 	'<center>Pregnancy test: 530 ₽ per pack - You currently have <b><<pregtest>></b></center>'
 	if money >= 145 and galubri = 1 and npc_QW['A29'] >= 2 and gaptekfirst = 1 and galubriday ! daystart:'<center>Lubricant: 145 ₽ each - You currently have <b><<lubri>></b></center>'
 	if money >= 500 and npc_QW['A29'] >= 2 and gaptekfirst = 1 and gaprezikday ! daystart:
-		act 'Buy condoms (500 <b>₽</b>) <<iif(prezikcount > 0, ''[left:<b>'' + prezikcount + ''</b>]'', '''')>>':
-!!Apostrope fix for notepad display''''
-			cla
-			*clr
+		act 'Buy condoms (500 <b>₽</b>)':
+			*clr & cla
 			portion = input("How many packages you want to buy? (One package contains 5 condoms)")
 
 			if portion <= 0:
@@ -232,7 +226,9 @@ if $ARGS[0] = 'garden':
 			if portion > 5 and npc_QW['A29'] >= 3:portion = 5 & 'Your aunt laughs and shakes her head. "I''m sorry <<$pcs_nickname>>, I can only give you five. With the amounts you''re buying, the condom factory can barely keep up delivering new stock."'
 
 			if portion * 500 <= money:
-				prezik += portion * 5
+				minut += 5
+				if preziktype = 0: prezik += portion * 5
+				if preziktype = 1 or preziktype = 2: prezikcount += portion * 5
 				minut += 5
 				money -= portion * 500
 				gaprezikday = daystart

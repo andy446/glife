@@ -38,7 +38,7 @@ if $ARGS[0] = '':
                     prezikday = daystart
                     prezikProver = 0
                     '<center><img <<$set_imgh>> src="images/shared/accessories/birthcontrol/condoms_steal.jpg"></center>'
-                    'After you make sure you''re not seen, you quickly search your parents'' room for their condom stash and take a few. Now you have '+iif(preziktype = 0, '<<prezik>>', '<<prezikcount>>')+' normal condoms.'
+                    'After you make sure you''re not seen, you quickly search your parents'' room for their condom stash and take a few. Now you have '+iif(preziktype = 0, '<<prezik>>', '<<prezikcount>>')+' undamaged condoms.'
                     act 'Continue': gt $loc, $metka
                 end
             else

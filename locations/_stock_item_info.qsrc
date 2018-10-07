@@ -3,9 +3,9 @@
 !base medical item and icon from Russian 1.2.5, code by illume
 !useage: '<td align="center"><<FUNC(''$stock_item_info'', $ARGS[3])>></td>' + _
 
-
 !medical item
 $item_info['prezikcount'] = '<center><b>Condoms</b></center><br>Condoms prevent the exchange of body fluids during sexual activity, thereby preventing infection and conception. Condoms cannot be used again.'
+$item_info['prezik'] = '<center><b>Condoms</b></center><br>Condoms prevent the exchange of body fluids during sexual activity, thereby preventing infection and conception. Condoms cannot be used again.'
 $item_info['pregtest'] = '<center><b>Pregnancy test</b></center><br>Pregnancy test is strip that you hold in the urine stream or dip into a sample of urine. An area on the end of the test strip changes color if hCG is present, meaning you are pregnant. The test strip can only be used once.'
 $item_info['tabletki'] = '<center><b>Birth control pills</b></center><br>Combination pills contain synthetic forms of the hormones estrogen and progestin. Most pills in each cycle are active, which means they contain hormones. The remaining pills are inactive, which means they don’t contain hormones<br>Application: one pill a day.'
 $item_info['vitamin'] = '<center><b>Vitamin drinks</b></center><br>A complete multivitamin in a fun-to-chew gummy, specially formulated to provide nutritional support for growing teenage girls.<br>Application: one pill a day.'

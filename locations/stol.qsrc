@@ -1,18 +1,14 @@
 # stol
-!{change log
-31 March, 2016
-Added birth control control options to desk in Pavlovsk and "Bric-a-Brac drawer"
-}
+
 if $ARGS[0] = 'start':
-	cla
-	*clr
+	*clr & cla
+	menu_off = 1
 	'<center><h1>Desk</h1></center>'
 	'<center><img <<$set_imgh>> src="images/shared/home/bedroom/stol.jpg"></center>'
 	*nl
 	gs 'stat'
 	'Bric-a-brac drawer.'
 
-	act 'Check birth control': gt 'stol', 'bc'
 	if lubri > 0:'Lubricant, enough for <<lubri>> time(s).'
 	if krem > 0:'Sunblock, enough for <<krem>> more application(s).'
 	if abonement > 0:'Fitness center subscription, valid for <<abonement>> more visit(s)'
@@ -28,10 +24,9 @@ if $ARGS[0] = 'start':
 		'<a href="exec:dynamic $use_aphrodisiac & gt ''stol'', ''start''"><b>Chew aphrodisiac gum.</b></a> Uses left: <<aphrodisiac_have>>.'
 	end
 
-	act 'Close the drawer':
-		cla
-		gt 'stol', 'fin'
-	end
+	act 'Close the drawer':	gt $loc, $metka
+	
+	act 'Check birth control': gt 'stol', 'bc'
 
 	if money > 0:
 		act 'Put some money in the drawer':
@@ -45,7 +40,7 @@ if $ARGS[0] = 'start':
 				money -= stolIN
 			end
 
-			gt 'stol', 'fin'
+			gt 'stol', 'start'
 		end
 	end
 
@@ -62,18 +57,14 @@ if $ARGS[0] = 'start':
 				!!'You debited <<kartaOUT>> <b>₽</b>, now on your account <<karta>> <b>₽</b>.'
 			end
 
-			gt 'stol', 'fin'
+			gt 'stol', 'start'
 		end
 	end
 end
 
-if $ARGS[0] = 'fin':
-	cla
-	gt $loc, $metka
-end
-
 if $ARGS[0] = 'stolPar':
 	*clr & cla
+	menu_off = 1
 	gs'stat'
 	'<center><h1>Desk</h1></center>'
 	'<center><img <<$set_imgh>> src="images/shared/home/bedroom/stol.jpg"></center>'
@@ -161,7 +152,7 @@ if $ARGS[0] = 'bc':
 			'You have <<iif(preziktype = 2, prezikcount, prezikcount+prezik)>> normal, and <<iif(preziktype = 2, prezik+preziksabo, preziksabo)>> sabotaged <a href="exec:dynamic $din_Table_Condom_Menu"><b>condoms.</b></a>'
 		elseif preziktype < 2 and preziksabo = 0:
 			'You have <<prezik+prezikcount>> <a href="exec:dynamic $din_Table_Condom_Menu"><b>condoms.</b></a>'
-		END
+		end
 		*nl
 	else
 		'You are out of condoms.'

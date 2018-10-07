@@ -8,22 +8,18 @@ if $ARGS[0] = 'start':
 	$shoplocation = 'main'
 end
 
-if $ARGS[0] = 'start' or $ARGS[0] = 'move':
-	minut += 1
-end
+if $ARGS[0] = 'start' or $ARGS[0] = 'move': minut += 1
 
 !! Main area
 if $shoplocation = 'main':
-	cla
-	*clr
-
+	*clr & cla
 	'<center><b><font color="maroon">Supermarket</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/shared/store/shop.jpg"></center>'
 
 	if hour < 8 or hour > 20:
 		'The supermarket is currently closed.'
 
-		act 'Leave the store':minut += 1 & gt $loc
+		act 'Leave the store':minut += 3 & gt $loc
 		exit
 	end
 
@@ -31,15 +27,11 @@ if $shoplocation = 'main':
 	'There is a branch of communication giants <a href="exec:$shoplocation = ''megafon'' & gt ''shop'', ''move''">MegaFon</a>.'
 	'On the other side is on the wall <a href="exec: gs ''noticeboard'',''start''">Public notice board</a>, where you can check various private and official advertisement.'
 	'<br>Most of the space in the supermarket is taken up by the <a href="exec:$shoplocation = ''grocery'' & gt ''shop'', ''move''">grocery department</a>, but the store has many smaller departments as well. <a href="exec:$shoplocation=''cosmetics'' & gt ''shop'', ''move''">Cosmetics</a>, <a href="exec:$shoplocation = ''hardware'' & gt ''shop'', ''move''">hardware</a>, <a href="exec:$shoplocation = ''clothing'' & gt ''shop'', ''move''">clothing</a> and the department of <a href="exec:$shoplocation = ''tech'' & gt ''shop'', ''move''">household appliances</a>. Not far from the entrance is a <a href="exec:$shoplocation = ''icecream'' & gt ''shop'', ''move''">counter selling ice cream</a>.'
-	clr
 	gs 'stat'
 	gs 'themes', 'indoors'
+	
 	!! The store in the town and in the altstart only
-	if $loc = 'pavCommercial' and StoryLine = 1:
-		if week < 6 and hour >= 8 and hour < 16:
-			'Your sister <a href="exec:$shoplocation = ''Anya'' & gt ''shop'', ''move''">Anya</a> is sitting at the cash register.'
-		end
-	end
+	if $loc = 'pavCommercial' and StoryLine = 1: if week < 6 and hour >= 8 and hour < 16: 'Your sister <a href="exec:$shoplocation = ''Anya'' & gt ''shop'', ''move''">Anya</a> is sitting at the cash register.'
 
 	!! Store in the residential district
 	if $loc = 'street':
@@ -61,8 +53,7 @@ if $shoplocation = 'main':
 					act 'Fuck no':gt 'shop', 'start'
 
 					act 'I deserve this':
-						cla
-						*clr
+						*clr & cla
 
 						if rand(1, 2) = 1:
 							cla
@@ -109,11 +100,11 @@ if $shoplocation = 'main':
 		!! the location of the shop hasn''t been done today
 		if ($loc = 'street' and StreetShopTPday ! daystart) or ($loc = 'Nord' and nordShopTPday ! daystart) or ($loc = 'torgcentr' and downShopTPday ! daystart):
 			act 'Arrange products':
+				*clr & cla
 				if $loc = 'street':StreetShopTPday = daystart
 				if $loc = 'Nord':nordShopTPday = daystart
 				if $loc = 'torgcentr':downShopTPday = daystart
 
-				cls
 				mtprand = rand(40, 130)
 				minut += mtprand
 				TorgPredZ -= 1
@@ -132,7 +123,6 @@ if $shoplocation = 'main':
 	exit
 end
 
-!! ATM
 if $shoplocation = 'ATM':
 	'<center><b><font color="maroon">ATM</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/shared/store/atm.jpg"></center>'
@@ -204,11 +194,8 @@ if $shoplocation = 'ATM':
 	act 'Move away':gt 'shop', 'start'
 end
 
-!! Grocery
 if $shoplocation = 'grocery':
-	cla
-	*clr
-
+	*clr & cla
 	'<center><b><font color="maroon">Grocery</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/shared/store/shop1.jpg"></center>'
 
@@ -242,11 +229,8 @@ if $shoplocation = 'grocery':
 	act 'Leave the grocery':gt 'shop', 'start'
 end
 
-!! Cosmetics
-!! The scrunchies and hairpins sold here are from the Maruda Hair Mod
 if $shoplocation= 'cosmetics':
-	cla
-	*clr
+	*clr & cla
 
 	'<center><b><font color="maroon">Cosmetics Department</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/shared/store/shop2.jpg"></center>'
@@ -284,17 +268,12 @@ if $shoplocation= 'cosmetics':
 	gs 'stat'
 	gs 'themes', 'indoors'
 
-	act 'Leave the cosmetics department':
-		gt 'shop', 'start'
-	end
+	act 'Leave the cosmetics department': gt 'shop', 'start'
 	if $loc = 'torgcentr': gs 'shoplifting', 'city'
 end
 
-!! Hardware
 if $shoplocation = 'hardware':
-	cla
-	*clr
-
+	*clr & cla
 	'<center><b><font color="maroon">Division of household goods</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/shared/store/shop3.jpg"></center>'
 
@@ -326,14 +305,13 @@ if $shoplocation = 'hardware':
 
 	if sewing_kit = 0 and money >= 500:
 		act'Buy sewing kit for 500 <b>₽</b>':
-		cla & *clr
-		sewing_kit = 1
-		money -= 500
-		'You buy a sewing kit'
+			cla & *clr
+			sewing_kit = 1
+			money -= 500
+			'You buy a sewing kit'
 			act'Move away from the counter':gt'shop'
 		end
 	end
-
 
 	'<left>On the counter you can see fabric suitable for sewing. It''s sold in large squares costing 50 <b>₽</b> each.</left>'
 	if tkan <= 0:'You have <<tkan>> squares of fabric.'
@@ -341,27 +319,24 @@ if $shoplocation = 'hardware':
 
 	if money >= 50:
 		act'Buy fabric':
-		cls
-		portion = input ("How much do you want to buy?")
-		if portion <= 0:portion = 1
-		if portion*50 > money:'You do not have enough money.'
-			if portion*50 <= money:
-				tkan += portion
-				money = money - portion*50
-				'<center><img <<$set_imgh>> src="images/locations/shared/store/kassa.jpg"></center>'
-				'You paid the cashier and bought cloth.'
-			end
-			gs'stat'
-		act 'Move away from the counter':gt'shop'
+			*clr & cla
+			portion = input ("How much do you want to buy?")
+			if portion <= 0:portion = 1
+			if portion*50 > money:'You do not have enough money.'
+				if portion*50 <= money:
+					tkan += portion
+					money = money - portion*50
+					'<center><img <<$set_imgh>> src="images/locations/shared/store/kassa.jpg"></center>'
+					'You paid the cashier and bought cloth.'
+				end
+				gs'stat'
+			act 'Move away from the counter':gt'shop'
 		end
 	end
 end
 
-!! Women''s clothing
 if $shoplocation = 'clothing':
-	cla
-	*clr
-
+	*clr & cla
 	'<center><b><font color="maroon">Department of Women''s Clothing</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/shared/store/shop4.jpg"></center>'
 
@@ -390,8 +365,7 @@ if $shoplocation = 'clothing':
 
 		if swimwear[4] = 0:
 			act 'View swimwear':
-				cla
-				*clr
+				*clr & cla
 				'<center><img <<$set_imgh>> src="images/pc/clothing/12swimwear/4.jpg"></center>'
 				gs 'clothing_attributes', 'swimwear', 4
 				'Swimwear 4'
@@ -415,8 +389,7 @@ if $shoplocation = 'clothing':
 
 		if coat[1] = 0:
 			act 'View coats':
-				cla
-				*clr
+				*clr & cla
 				'<center><img <<$set_imgh>> src="images/pc/clothing/11coat/1.jpg"></center>'
 				gs 'clothing_attributes', 'coat', 1
 				'Coat 1'
@@ -441,9 +414,8 @@ if $shoplocation = 'clothing':
 			'A pair of ice-skates are available for 3000 <b>₽</b>.'
 			if money >= 3000:
 				act 'Buy ice skates (3000 <b>₽</b>)':
-					cla
-					*clr
-					money = money - 3000
+					*clr & cla
+					money -= 3000
 					konki = 1
 
 					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/lake/konki_shop.jpg"></center>'
@@ -456,10 +428,8 @@ if $shoplocation = 'clothing':
 	end
 end
 
-!! Women''s clothing outfit viewer
 if $shoplocation = 'clothing1':
-	*clr
-	cla
+	*clr & cla
 	if $loc ! 'shop': $loc_bak = $loc
 	$loc = 'shop'
 	'<center><B>Click on an outfit to view details</B></center>'
@@ -486,12 +456,10 @@ end
 
 !! Women''s clothing underwear viewer
 if $shoplocation = 'underwear':
-	*clr
-	cla
+	*clr & cla
 	if $loc ! 'shop': $loc_bak = $loc
 	$loc = 'shop'
 	'<center><B>Click on an item to view details</B></center>'
-
 
 	if basic_panties[7] = 0:*p '<a href="exec:gt ''panties'', ''view_panty_item'', ''shop'', ''cheap'', 7, 300"><img src="images/pc/panties/basic/7.jpg" 	height="250" /></a>'
 	if basic_panties[9] = 0:*p '<a href="exec:gt ''panties'', ''view_panty_item'', ''shop'', ''cheap'', 9, 300"><img src="images/pc/panties/basic/9.jpg" 	height="250" /></a>'
@@ -504,7 +472,6 @@ if $shoplocation = 'underwear':
 	if basic_bras[16] = 0:*p '<a href="exec:gt ''bras'', ''view_bra_item'', ''shop'', ''cheap'', 16, 300"><img src="images/pc/bras/basic/16.jpg" 	height="250" /></a>'
 	if basic_bras[18] = 0:*p '<a href="exec:gt ''bras'', ''view_bra_item'', ''shop'', ''cheap'', 18, 300"><img src="images/pc/bras/basic/18.jpg" 	height="250" /></a>'
 
-
 	act 'Return':
 		$loc = $loc_bak
 		$shoplocation = 'clothing'
@@ -514,9 +481,7 @@ end
 
 !! Household appliances
 if $shoplocation = 'tech':
-	cla
-	*clr
-
+	*clr & cla
 	'<center><b><font color="maroon">Department of household appliances</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/shared/store/shop5.jpg"></center>'
 
@@ -558,7 +523,7 @@ if $shoplocation = 'icecream':
 
 	if money >= 50:
 		act 'Buy ice cream':
-			cls
+			*clr & cla
 			money -= 50
 			fat += 3
 			pcs_mood += 50
@@ -577,7 +542,7 @@ if $shoplocation = 'icecream':
 end
 
 if $shoplocation = 'megafon':
-	cls
+	*clr & cla
 	minut+=3
 	gs'stat'
 	i = 0

@@ -105,7 +105,7 @@ if $ARGS[0] = '':
 		*nl
 		if hour >= 8 and hour < 20:
 			'In the center of the village is a small grass covered square where villagers gather to meet and discuss or argue politics or village life.'
-			'One of the building facing the square has a sign saying <a href="exec: gt ''gadmarket''">General Store</a>. A sign in the door proclaims it "OPEN". It looks like the only place in the village to buy goods.'
+			'One of the building facing the square has a sign saying <a href="exec: minut += 5 & gt ''gadmarket''">General Store</a>. A sign in the door proclaims it "OPEN". It looks like the only place in the village to buy goods.'
 		else
 			'In the center of the village is a small grass covered square where villagers gather to meet and discuss or argue politics or village life.'
 			'One of the building facing the square has a sign saying General Store. A sign in the door proclaims it "CLOSED". It looks like the only place in the village to buy goods.'

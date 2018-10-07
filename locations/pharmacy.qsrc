@@ -1,30 +1,34 @@
 # pharmacy
-!!!0.2.6 addition: Optimized flow of the code, updated descriptions - now lists everything the drugstore has to sell
-!! now lists everything the drugstore has to sell
-!!0.2.7 add item_info, wait in line, new pic
-$location_type = 'public_indoors'
-cls
-if $ARGS[0] = 'start' :
+
+if $ARGS[0] = 'start':
+	*clr & cla
+	menu_off = 1
 	minut += 5
 	gs 'stat' & ! Update the information about the past tense
 	!a time limit of work pharmacies in Pavlovo
-	people = RAND(1,15) & !We define the size of the queue in the pharmacy
+	people = rand(1,15) & !We define the size of the queue in the pharmacy
 	if people <= 5:
 		*pl '<center><b><font color="maroon">Pharmacy</font></b></center>'
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/pharmacy/aptekabusy<<people>>.jpg"></center>'
 		'When you go up to check out their is <<people>> ' + iif(people < 2 or people > 4, 'people' , 'man' ) + ' in line before you.'
+		act 'Leave': minut += 5 & gt $loc, $metka
 		act 'Wait for your turn' :
-			minut += RAND(1,4) * people & people = 0
+			minut += rand(1,4) * people
+			people = 0
 			gs 'stat'
 			gt 'pharmacy', 'shop'
 		end
 	else
 		gt 'pharmacy', 'shop'
 	end
-	act 'Leave': minut += 5 & gt $loc, $metka
 end
 
 if $ARGS[0] = 'shop' or $ARGS[0] = '':
+	*clr & cla
+	$location_type = 'public_indoors'
+	$menu_loc = 'pharmacy'
+	$menu_arg = 'shop'
+	menu_off = 0
 	gs 'stat'
 	*pl '<center><b><font color="maroon">Pharmacy</font></b></center>'
 	!*pl '<center><img <<$set_imgh>> src="images/unused/pharmacy.jpg"></center>'
@@ -48,7 +52,8 @@ if $ARGS[0] = 'shop' or $ARGS[0] = '':
 	iif($ARGS[1] = '', '', '<center><<$ARGS[1]>></center>')
 
 	*pl '<center><table align="center">'
-	*P FUNC ('$stock_item', 5, 'condoms', 500, 'prezikcount', $CURLOC, $ARGS[0])
+	if preziktype = 0: *P FUNC ('$stock_item', 5, 'condoms', 500, 'prezik', $CURLOC, $ARGS[0])
+	if preziktype = 1 or preziktype = 2: *P FUNC ('$stock_item', 5, 'condoms', 500, 'prezikcount', $CURLOC, $ARGS[0])
 	*P FUNC ('$stock_item', 1, 'pregnancy test', 530, 'pregtest', $CURLOC, $ARGS[0])
 	*P FUNC ('$stock_item', 1, 'birth control pills', 1870, 'tabletki', $CURLOC, $ARGS[0])
 	*P FUNC ('$stock_item', 10, 'antibiotics', 580, 'lekarstvo', $CURLOC, $ARGS[0])
@@ -72,12 +77,13 @@ if $ARGS[0] = 'shop' or $ARGS[0] = '':
 	end
 !!added this from the pav pharmacy as it makes sense they sell this as well, but not sure the code is right, as it was not done the same way.
 	*P '</table></center>'
+	*nl
 	if KandidNapr = 1:'Cure for yeast infection - 1,050 <b>₽</b>'
 	*nl
+	act 'Leave': minut += 5 & gt $loc, $metka
 	if KandidNapr = 1:
 		act 'Buy tablets for your yeast infection (1,050 <b>₽</b>)':
-			cla
-			*clr
+			*clr & cla
 			money -= 1050
 			Kandidoz = 0
 			'<center><img <<$set_imgh>> src="images/locations/shared/store/kassa.jpg"></center>'
@@ -85,8 +91,7 @@ if $ARGS[0] = 'shop' or $ARGS[0] = '':
 
 			act 'Move away from the counter':gt 'pharmacy', 'start'
 		end
-	end
-	act 'Leave': minut += 5 & gt $loc, $metka
+	end	
 end
 
 --- pharmacy ---------------------------------

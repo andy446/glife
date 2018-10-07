@@ -388,7 +388,7 @@ end
 
 if $ARGS[0] = 'sports_outfit':
 	gs 'stat'
-	if $clothingworntype ! 'exercise' or $shoeworntype ! 'trainer':
+	if $clothingworntype ! 'exercise' or $shoeworntype ! 'trainers':
 		act 'Change into your <<$sports_clothing_name>>': gs 'wardrobe', 'sports_entry_wear'
 	end
 end

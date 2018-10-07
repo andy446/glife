@@ -363,6 +363,7 @@ if $ARGS[1] = 'main':
 				peshimraperand = 11
 			end
 			if fight_cheat = 1:
+				cla
 				'You are about to make a run for it, when suddenly the wood-be theif gets startled by a neaby siren and runs off down the alley.'
 				act 'Continue on your way': gt $loc
 			elseif peshimraperand <= 10:

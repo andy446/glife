@@ -550,7 +550,7 @@ if $ARGS[0] = 'gad_start':
 	*nl
 	'<center>A small farming village with many rickety wooden houses and even more ruins of houses. This village has seen better times.</center>'
 	
-	act 'Continue': $starting_location = 'gadyukino' & gt 'preCSB', 'game_start'
+	act 'Continue': $starting_location = 'gadukino' & gt 'preCSB', 'game_start'
 	act 'Change location': gt 'preCSB', 'pav_start'
 end
 

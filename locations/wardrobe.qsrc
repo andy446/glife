@@ -128,7 +128,7 @@ if $ARGS[0] = 'default':
 	'</td></tr>'
 	'</table></center>'
 	'<center><b>Custom outfits</b></center>'
-	'<center><font color="grey">Choose your clothing, then select "Add a new custom set" to save your clothing choice</font></center>'
+	'<center><font color="grey">Choose your clothing, then select "Add as a new custom set" to save your clothing choice</font></center>'
 	*nl
 	'<center><table width="600">'
 	'<tr><td>'
@@ -142,7 +142,7 @@ if $ARGS[0] = 'default':
 	'</td></tr>'
 	'</table></center>'
 	act 'Return': gt 'wardrobe', 'start'
-	act 'Add as new custom set': gt 'wardrobe', 'default_entry_set', ARRSIZE('defclothingnumber')
+	act 'Add as a new custom set': gt 'wardrobe', 'default_entry_set', ARRSIZE('defclothingnumber')
 	'<center>Note: Selecting an outfit will show the bonus for equipped shoes, this is only applied when outside.</center>'
 end
 

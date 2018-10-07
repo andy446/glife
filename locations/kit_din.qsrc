@@ -475,7 +475,7 @@ $pranik = {
 }
 
 $dritea = {
-	act 'Have a cup of tea (0:05)':
+	act 'Have a cup of tea (0:10)':
 		gs 'beverage', 'bev_tea'
 	end
 }

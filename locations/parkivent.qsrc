@@ -791,12 +791,18 @@ if $ARGS[0] = 'run':
 		act 'Go for a run in the park (1:00)':
 			cls
 			gs 'exercise', 'tier1', 60, 'run_exp'
-			fat -= rand(0, 4)
+			fat -= rand(0,4)
 			pcs_sweat += 5
 			daybegskver = daystart
 			gs 'stat'
 			'<center><img <<$set_imgh>> src="images/locations/shared/park/parkbeg.jpg"></center>'
 			'You prepare yourself for a nice run in the beautiful park, pacing yourself so you last for a full hour.'
+			act 'Finish your run':
+				cla
+				*nl
+				'You feel great after your run. A bit sweaty, but also that you''ve managed to improve your stamina as you even feel a bit slimmer.'
+				act 'Continue': gt $loc, $metka
+			end
 			if pcs_inhib >= 35 or exhibitionist_lvl > 0:
 				act 'Expose your breasts':			
 					*clr
@@ -810,12 +816,6 @@ if $ARGS[0] = 'run':
 					*nl
 					gs 'parkivent', 'run_reactions'
 				end
-			end
-			act 'Finish your run':
-				cla
-				*nl
-				'You feel great after your run. A bit sweaty, but also that you''ve managed to improve your stamina as you even feel a bit slimmer.'
-				act 'Continue': gt $loc, $metka
 			end
 		end
 	elseif ($clothingworntype ! 'exercise' or $shoeworntype ! 'trainers') and hour > 5 and hour < 23 and daybegskver ! daystart:

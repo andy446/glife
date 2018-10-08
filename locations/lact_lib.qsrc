@@ -38,7 +38,7 @@ if $ARGS[0] = 'view_milk_bottles':
 		if mbarrloca[vmb_i] = ARGS[1]:
 			gs 'lact_lib', 'update_mbottle', vmb_i
 			if mbarrfill[vmb_i] <=0:
-				mbarrfill[vmb_i] = 0 
+				mbarrfill[vmb_i] = 0
 				'<br><<vmb_i + 1>>. - An empty <<mbarrtype[vmb_i]/10>>ml bottle. You can use it to store your breast milk.'
 			else
 				'<br><<vmb_i + 1>>. - A <<mbarrtype[vmb_i]/10>>ml bottle. There is <<mbarrfill[vmb_i]/10>>ml of milk in the bottle. <a href="exec:msg ''<center>You open the bottle and check the milk inside.<br>You can feel the milk is <<$mbarrtemp[vmb_i]>> and it smells <<$mbarrstat[vmb_i]>>.</center>''">Check the content</a>'
@@ -91,7 +91,7 @@ if $ARGS[0] = 'fill_milk_bottle':
 		mbarrcool[ARGS[1]] = 0
 		$mbarrstat[ARGS[1]] = 'fresh'
 		$mbarrtemp[ARGS[1]] = 'warm'
-	end	
+	end
 end
 
 !! Time Stamp function for milk bottles.
@@ -782,19 +782,14 @@ if $ARGS[0] = 'bp_milking':
 			pump_bottletype = 2500
 			'You currently use a 250ml bottle on your breast pump.'
 		else
-			if pcs_knowsmilkbottles > 0:
-				'You have no bottles left to use. Please empty bottles or buy new ones in the pharmacy.'
-			else
-				'You have no bottles left to use. Please empty bottles or check if you can additional ones in the pharmacy.'
-				pcs_knowsmilkbottles = 1
-			end
+			'You have no bottles left to use. Please empty bottles or buy new ones in the pharmacy.'
 		end
 		if (bpbottlem + bpbottles) = 1:
 			'You have one bottle. You can check it <a href="exec:gs ''lact_lib'',''view_milk_bottles'', 1">here</a>'
 		elseif (bpbottlem + bpbottles) > 1:
 			'You have <<bpbottlem + bpbottles>> bottles. You can check them <a href="exec:gs ''lact_lib'',''view_milk_bottles'', 1">here</a>'
 		end
-		
+
 		if lactatemv > 0 and (func('lact_lib','useable_sbottle_count') > 0 or func('lact_lib','useable_mbottle_count') > 0):
 			pumptime = (func('lact_lib','$get_breastmilk_time', 3, (lactatemv/10)))
 			if pumptime > 5:
@@ -1205,7 +1200,6 @@ if $ARGS[0] = 'milking':
 				'bp_useable_mbottle: <<bp_useable_mbottle>>'
 			end
 			:bottlefull_loopbreak
-			pcs_knowsmilkbottles = 1		
 		elseif milkedvolume > pump_bottletype and (bp_useable_sbottle*1500 + bp_useable_mbottle*2500) > pump_bottletype:
 			!!	Checking which bottletype is used and filling those bottles up before the other type is used.
 			:sbottleloop
@@ -1241,7 +1235,7 @@ if $ARGS[0] = 'milking':
 				end
 				:mbottle_searchloopbreak
 				jump 'mbottleloop'
-			end			
+			end
 			!!	Checking for the milkedvolume and if there are bottles left. if yes - use these bottles
 			if milkedvolume > 0 and (((bp_useable_mbottle - bp_used_mbottle) > 0) or ((bp_useable_sbottle - bp_used_sbottle) > 0)):
 				:altfill01
@@ -1498,7 +1492,7 @@ if $ARGS[0] = 'milking':
 				cla
 				'<center><img <<$set_imgh>> src="images/pc/body/tits/milk_drink.jpg"></center>'
 				'<center>You drink your own breast milk and clean up your breastpump.</center>'
-				'<center>The milk is still warm from your breasts.</center>'				
+				'<center>The milk is still warm from your breasts.</center>'
 				di_i = 0
 				:di_emptyloop
 				if di_i < (bpbottlem + bpbottles):

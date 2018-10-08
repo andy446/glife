@@ -281,10 +281,10 @@ $din_Table_Condom_Menu = {
 }
 
 !! Condom System
-!! prezik: Number of condoms sveta wants to use (normal or damaged)
-!! prezikcount: Number of condoms sveta don''t want to use (normal)
-!! preziksabo: Number of condoms seveta don''t want to use (damaged)
-!! preziktyp: 0 - Offer condom / 1 - don''t offer condom / 2 - offer damaged ones
+!! prezik: Total number of condoms sveta is using (normal or damaged).
+!! prezikcount: Number of normal condoms sveta isn''t using.
+!! preziksabo: Number of damaged condoms seveta isn''t using.
+!! preziktyp: 0 - Use condoms / 1 - don''t use condoms / 2 - use damaged condoms
 !! to check if sveta wants to use a condom use if prezik > 0:
 
 $din_Do_Condom_Counts = {
@@ -294,19 +294,19 @@ $din_Do_Condom_Counts = {
 	'<center><table cellspacing="0" cellpadding="20" valign="top"><tr>'
 	'<td cellspacing="0" cellpadding="0" valign="top">'
 	if ARGS[0] = 1:
-		'Offer a condom the next time you have sex.'
+		'Use a condom the next time you have sex.'
 		if preziktype = 2: preziksabo = prezik
 		prezik = prezikcount
 		prezikcount = 0
 		preziktype = 0
 	elseif ARGS[0] = 2:
-		'You will not offer a condom the next time you have sex.'
+		'You will not use a condom the next time you have sex.'
 		if preziktype = 0: prezikcount = prezik
 		if preziktype = 2: preziksabo = prezik
 		prezik = 0
 		preziktype = 1
 	elseif ARGS[0] = 3:
-		'Offer your sabotaged condom the next time you have sex.'
+		'Use your sabotaged condom the next time you have sex.'
 		if preziktype = 0: prezikcount = prezik
 		prezik = preziksabo
 		preziksabo = 0

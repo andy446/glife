@@ -1,28 +1,35 @@
 # bedr2x
+
 CLOSE ALL
-act 'In the corridor':
-	gt'korr2x'
-end
-$metkaM = ''
-$locM = 'bedr2x'
-$metka = ''
+*clr & cla
 $loc = 'bedr2x'
-$location_type = 'private'
+$metka = ''
+$locM = 'bedr2x'
+$metkaM = ''
+$menu_loc = 'bedr2x'
+$menu_arg = ''
+menu_off = 0
 $locclass = 'bedr'
-clr
-minut = minut + 1
+$location_type = 'private'
+
+minut + 1
 housrA = 1
 housrMir = 1
-elektro = elektro + 1
-gs'stat'
+elektro + 1
+gs 'stat'
 gs 'themes', 'indoors'
+
 '<center><img <<$set_imgh>> src="images/locations/city/residential/apartment/bedr2.jpg"></center>'
 *nl
 if pcs_magik >= 6 and spellbefshild = 1 and tobiQW = 0:gt'tobiQW','start'
 'A bright and beautiful bedroom, with modern and stylish furniture.'
 *nl
 'The room is dominated by <a href="exec:GT ''bed'',''start''">full sized bed</a>'
-'There is an <a href="exec:gt ''budilnik'', ''start''">alarm clock</a> on the bedside table.'
+if budilnikOn = 0:
+	'There is an  <a href="exec:gt ''budilnik'', ''start''">alarm clock</a> on the bedside table, and it is set to '+iif(timer < 10,'0<<timer>>','<<timer>>')+':'+iif(timerM < 10,'0<<timerM>>','<<timerM>>')+' and is currently turned <a href="exec: budilnikOn = 1 & GT ''<<$loc>>''">off</a>.'
+else
+	'There is an <a href="exec:gt ''budilnik'', ''start''">alarm clock</a> on the bedside table, and it is set to '+iif(timer < 10,'0<<timer>>','<<timer>>')+':'+iif(timerM < 10,'0<<timerM>>','<<timerM>>')+' and is currently turned <a href="exec: budilnikOn = 0 & GT ''<<$loc>>''">on</a>.'
+end
 *nl
 'Near the entrance stands a modern <a href="exec:gt ''wardrobe'', ''start''">wardrobe</a>.'
 *nl
@@ -35,6 +42,7 @@ if husbandrinkday = daystart:
 	if husbanstrapon = 2:'Your husband is still passed out drunk, after you stuck a dildo in his ass.'
 	if husbanstrapon = 3:'Your husband is still passed out drunk, after you fucked him in the ass with a strap-on.'
 end
+act 'In the corridor':gt'korr2x'
 
 if husband > 0 and husbandrink ! 10 and husbandrinkday ! daystart:
 	if hour > 22 or hour < 7:
@@ -179,7 +187,7 @@ if sick >= 1:
 	act 'Go to bed rest (disease)':
 		cla
 		*clr
-		minut = minut + 240
+		minut += 240
 		sick = sick - 1
 		if sick < 0:sick = 0
 		gs'stat'
@@ -192,28 +200,8 @@ if sick >= 1:
 	end
 end
 
-if dur > 0:
-	'You have hidden <<dur>> doses of pale lady.'
-end
-if dur > 0 and narkday ! daystart:
-	act 'Take pale lady':
-		cla
-		*clr
-		minut = minut + 5
-		narkday = daystart
-		pcs_health = pcs_vital*10 + pcs_stren*5
-		pcs_willpwr = pcs_intel*5 + pcs_sprt*5
-		pcs_mood = 100
-		pcs_horny = 100
-		nark = nark + 10
-		dur = dur - 1
+dynamic $palelady
 
-		'<center><img <<$set_imgh>> src="images/shared/drugs/dur.jpg"></center>'
-		'You snort a line of the powder and then you feel just fine.'
-
-		act 'Logout':gt $curloc
-	end
-end
 if pcs_horny >= 50:
 	act 'Masturbate':
 		gt'selfplay', 'start'

@@ -1,6 +1,7 @@
 # bedrPar
 
 CLOSE ALL
+*clr & cla
 $loc = 'bedrPar'
 $metka = ''
 $location_type = 'private'
@@ -8,7 +9,6 @@ $locclass = 'bedr'
 $menu_loc = 'bedrPar'
 $menu_arg = ''
 menu_off = 0
-*clr & cla
 minut += 1
 gs 'stat'
 gs 'themes', 'indoors'
@@ -173,26 +173,7 @@ else
 		act 'View your new porn cards':card_deck = 1 & gt 'card'
 	end
 
-	if dur > 0:'You have hidden <<dur>> doses of Pale Lady.'
-
-	if dur > 0 and narkday ! daystart:
-		act 'Use some Pale Lady (0:05)':
-			cla
-			*clr
-			minut += 5
-			narkday = daystart
-			pcs_health = pcs_vital * 10 + pcs_stren * 5
-			pcs_willpwr = pcs_intel * 5 + pcs_sprt * 5
-			pcs_mood = 100
-			pcs_horny = 100
-			nark += 10
-			dur -= 1
-			'<center><img <<$set_imgh>> src="images/shared/drugs/dur.jpg"></center>'
-			'You snort some Pale Lady, feeling dizzy for just a moment. After that you feel fantastic, and incredibly horny.'
-
-			act 'Continue':gt $curloc
-		end
-	end
+	dynamic $palelady
 end
 
 gs 'exercise', 'start'

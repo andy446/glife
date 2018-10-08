@@ -29,9 +29,9 @@ $showerdin = {
 }
 
 $bteeth = {
-	menu_off = 1
 	if pcs_breath ! 1:
 		act 'Brush your teeth (0:05)':
+		menu_off = 1
 			cla
 			*clr
 			minut += 5
@@ -47,15 +47,15 @@ $bteeth = {
 }
 
 $dryOff = {
-	menu_off = 1
 	act 'Get out and dry off':
+		menu_off = 1
 		mirror_steam = hour & menu_off = 0 & gt $loc, $metka
 	end
 }
 
 $shower = {
-	menu_off = 1
 	act 'Take a shower (0:15)':
+		menu_off = 1
 		cla
 		*clr
 		shampoo -= 1
@@ -107,6 +107,7 @@ $shower = {
 
 		if pcs_horny >= 40:
 			act 'Use the shower head on your pussy':
+				menu_off = 1
 				cla
 				*clr
 				if rand(0, 5) = 0 and obdysh = 1:gt 'vann', 'v4'
@@ -186,6 +187,7 @@ $bath = {
 		end
 
 		act '"Wash" your pussy':
+			menu_off = 1
 			cla
 			*clr
 			if obdysh = 1 and rand(0, 5) = 1:gt 'vann', 'v4'
@@ -211,11 +213,11 @@ $bath = {
 }
 
 $brit = {
-	menu_off = 1
 	if shave_menu = 1  and stanok > 1:
 		if pcs_leghair > 3 or (pubestyle = 1 and pcs_pubes > 3) or (pubestyle >= 2 and pubestyle <=7 and pcs_pubes > 11) or (pubestyle = 8 and pcs_pubes > 11) or (pubestyle = 9 and pcs_pubes > 20) or (pubestyle = 10 and pcs_pubes > 26):
 			if pubestyle > 0:
 				act 'Shave yourself (0:15)':
+					menu_off = 1
 					*clr & cla
 					minut += 15
 					pcs_leghair = 0
@@ -264,6 +266,7 @@ $brit = {
 		if pcs_pubes > 3:
 			if pubestyle = 1:
 				act 'Shave your pussy (0:10)':
+					menu_off = 1
 					*clr & cla
 					minut += 10
 					pcs_pubes = 0
@@ -277,6 +280,7 @@ $brit = {
 				end
 			elseif (pubestyle >= 2 and pubestyle <= 7) and pcs_pubes > 15:
 				act 'Trim your pussy (0:10)':
+					menu_off = 1
 					*clr & cla
 					'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shave4.jpg"></center>'
 					*nl
@@ -294,6 +298,7 @@ $brit = {
 				end
 			elseif pubestyle = 8 and pcs_pubes > 19:
 				act 'Trim your pubic hair (0:10)':
+					menu_off = 1
 					*clr & cla
 					minut += 10
 					pcs_pubes = 19
@@ -307,6 +312,7 @@ $brit = {
 				end
 			elseif pubestyle = 9 and pcs_pubes >= 25:
 				act 'Trim your bush (0:10)':
+					menu_off = 1
 					*clr & cla
 					minut += 10
 					pcs_pubes = 21
@@ -320,6 +326,7 @@ $brit = {
 				end
 			elseif pubestyle = 10 and pcs_pubes >= 30:
 				act 'Trim back your bush (0:10)':
+					menu_off = 1
 					*clr & cla
 					minut += 10
 					pcs_pubes = 26
@@ -336,6 +343,7 @@ $brit = {
 	elseif shave_menu = 3 and stanok > 0:
 		if pcs_leghair > 3:
 			act 'Shave your legs (0:05)':
+				menu_off = 1
 				*clr & cla
 				minut += 5
 				pcs_leghair = 0
@@ -360,9 +368,9 @@ $brit = {
 }
 
 $tampon = {
-	menu_off = 1
 	if sanpad > 0 and (mesec > 0 or (placebopart > 2 and pillcon < 40000)) and isprokp = 0 and isprok = 0 and $pantyworntype ! 'none' and knowpreg = 0:
 		act 'Use a sanitary pad (0:05)':
+			menu_off = 1
 			cla
 			*clr
 			sanpad -= 1
@@ -377,6 +385,7 @@ $tampon = {
 	end
 	if tampon > 0 and (mesec > 0 or (placebopart > 2 and pillcon < 40000)) and isprok = 0 and isprokp = 0 and knowpreg = 0:
 		act 'Use a tampon (0:05)':
+			menu_off = 1
 			cla
 			*clr
 			tampon -= 1
@@ -392,9 +401,9 @@ $tampon = {
 }
 
 $quickwash = {
-	menu_off = 1
 	if spdirty > 0:
 		act 'Quick wash (0:15)':
+			menu_off = 1
 			cla
 			*clr
 
@@ -465,9 +474,9 @@ $removepan = {
 }
 
 $basin = {
-	menu_off = 1
 	if cumloc[11] = 1 or cumloc[12] = 1:
 		act 'Clean the sperm from your face (0:10)':
+			menu_off = 1
 			cla
 			*clr
 			pcs_makeup = 1
@@ -487,6 +496,7 @@ $basin = {
 
 	if body_write > 0 or face_write > 0:
 		act 'Wash the writings off your body (0:10)':
+			menu_off = 1
 			cla
 			*clr
 			body_write = 0
@@ -504,6 +514,7 @@ $basin = {
 
 	if (cumloc[6] = 1 or cumloc[7] = 1):
 		act 'Wipe the cum off your clothes (0:10)':
+			menu_off = 1
 			cla
 			*clr
 			cumspclnt = 6
@@ -519,6 +530,7 @@ $basin = {
 
 	if pcs_makeup ! 1:
 		act 'Wash off cosmetics (0:10)':
+			menu_off = 1
 			cla
 			pcs_makeup = 1
 			cumspclnt = 9
@@ -535,6 +547,7 @@ $basin = {
 
 	if false_lashes >= 1:
 		act 'Remove false lashes (0:05)':
+			menu_off = 1
 			cla
 			'You carefully peel off the glued-on strip, careful to protect your natural lashes.'
 			lashsavechance = rand(0,4)
@@ -711,9 +724,9 @@ $pirManage = {
 }
 
 $enema = {
-	menu_off = 1
 	if klisma = 1 and (klismaday ! daystart or arrpos('sparrloc', 3) ! -1):
 		act 'Give yourself an enema (0:05)':
+			menu_off = 1
 			cla
 			*clr
 			cumspclnt = 7
@@ -732,9 +745,9 @@ $enema = {
 }
 
 $toymanage = {
-	menu_off = 1
 	if analplug = 1 and analplugin = 1:
 		act 'Remove your butt plug (0:05)':
+			menu_off = 1
 			cla
 			*clr
 			minut += 5
@@ -750,6 +763,7 @@ $toymanage = {
 		end
 	elseif analplug = 1 and analplugin = 0 and klismaday = daystart:
 		act 'Insert your butt plug (0:05)':
+			menu_off = 1
 			cla
 			*clr
 			minut += 5
@@ -770,6 +784,7 @@ $toymanage = {
 
 	if vibrator = 1 and vibratorIN = 1:
 		act 'Remove the vibrator (0:05)':
+			menu_off = 1
 			cla
 			*clr
 			minut += 5
@@ -785,6 +800,7 @@ $toymanage = {
 		end
 	elseif vibrator = 1 and vibratorIN = 0 and pcs_vag ! 0:
 		act 'Insert the vibrator in your vagina (0:05)':
+			menu_off = 1
 			cla
 			*clr
 			minut += 5
@@ -796,7 +812,31 @@ $toymanage = {
 			*nl
 			'You spread your legs and slowly insert the vibrator in your pussy, wondering if anyone will notice you wearing it today.'
 
-			act 'Finish':menu_off = 0 & gt $loc, $metka
+			act 'Finish':gt $loc, $metka
+		end
+	end
+}
+
+$palelady = {
+	if dur > 0:'You have <<dur>> doses of Pale Lady.'
+
+	if dur > 0 and narkday ! daystart:
+		act 'Use some Pale Lady (0:05)':
+			menu_off = 1
+			cla
+			*clr
+			minut += 5
+			narkday = daystart
+			pcs_health = pcs_vital * 10 + pcs_stren * 5
+			pcs_willpwr = pcs_intel * 5 + pcs_sprt * 5
+			pcs_mood = 100
+			pcs_horny = 100
+			nark += 10
+			dur -= 1
+			'<center><img <<$set_imgh>> src="images/shared/drugs/dur.jpg"></center>'
+			'You snort some Pale Lady, feeling dizzy for just a moment. After that you feel fantastic, and incredibly horny.'
+
+			act 'Continue': menu_off = 0 & gt $loc, $metka
 		end
 	end
 }

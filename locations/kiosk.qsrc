@@ -133,6 +133,7 @@ if $ARGS[0] = 'counter':
 	*P FUNC ('$single_stock_item', 1, 'Cooking magazine', 430, 'cookmag', 'kiosk', 'counter')
 	*P FUNC ('$single_stock_item', 1, 'Knitting magazine', 430, 'knitmag', 'kiosk', 'counter')
 	*P FUNC ('$single_stock_item', 1, 'Fitness magazine', 430, 'fitmag', 'kiosk', 'counter')
+	*P FUNC ('$single_stock_item', 1, 'Umbrella', 1000, 'umbrella', 'kiosk', 'counter', '', iif(bag > 0, 0, 1), 'You need a purse')
 	'</table></center>'
 	*pl
 

@@ -38,7 +38,7 @@ if $ARGS[0] = 'start' or $metka = 'start':
 	*P FUNC ('$stock_item', 30, 'Razors', 600, 'stanok', 'rinok')
 	*P FUNC ('$stock_item', 10, 'Tampons', 160, 'tampon', 'rinok')
 	*P FUNC ('$stock_item', 10, 'Sanitary napkins', 80, 'sanpad', 'rinok')
-	*P iif(umbrella = 0, FUNC ('$single_stock_item', 1, 'Umbrella', 1000, 'umbrella', 'rinok'), '')
+	*P FUNC ('$single_stock_item', 1, 'Umbrella', 1000, 'umbrella', 'rinok', '', iif(bag > 0, 0, 1), 'You need a purse')
 	'</table></center>'
 	*pl
 	if analplugIN = 1 and $pantyworntype = 'none' and PCloSkirt > 2:

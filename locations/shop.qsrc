@@ -31,7 +31,12 @@ if $shoplocation = 'main':
 	gs 'themes', 'indoors'
 	
 	!! The store in the town and in the altstart only
-	if $loc = 'pavCommercial' and StoryLine = 1: if week < 6 and hour >= 8 and hour < 16: 'Your sister <a href="exec:$shoplocation = ''Anya'' & gt ''shop'', ''move''">Anya</a> is sitting at the cash register.'
+	if $loc = 'pavCommercial' and StoryLine = 1:
+		if week < 6 and hour >= 8 and hour < 16:
+			*nl
+			'Your sister <a href="exec:$shoplocation = ''Anya'' & gt ''shop'', ''move''">Anya</a> is sitting at the cash register.'
+		end
+	end
 
 	!! Store in the residential district
 	if $loc = 'street':
@@ -295,6 +300,9 @@ if $shoplocation = 'hardware':
 	*P FUNC ('$stock_item', 20, 'Dishwashing detergent', 500, 'fairy', $CURLOC)
 	*P FUNC ('$stock_item', 30, 'Clothing detergent', 500, 'poroshok', $CURLOC)
 	*P FUNC ('$stock_item', 5, 'Plates', 450, 'cltarelka', $CURLOC)
+	*P FUNC ('$stock_item', 5, 'Fabric', 250, 'tkan', $CURLOC)
+	*P FUNC ('$single_stock_item', 1, 'Sewing kit', 500, 'sewing_kit', $CURLOC)
+	*P FUNC ('$single_stock_item', 1, 'Umbrella', 1000, 'umbrella', $CURLOC, '', iif(bag > 0, 0, 1), 'You need a purse')
 	*P '</table></center>'
 	*nl
 
@@ -303,36 +311,7 @@ if $shoplocation = 'hardware':
 
 	act 'Leave the hardware department':gt 'shop', 'start'
 
-	if sewing_kit = 0 and money >= 500:
-		act'Buy sewing kit for 500 <b>₽</b>':
-			cla & *clr
-			sewing_kit = 1
-			money -= 500
-			'You buy a sewing kit'
-			act'Move away from the counter':gt'shop'
-		end
-	end
-
-	'<left>On the counter you can see fabric suitable for sewing. It''s sold in large squares costing 50 <b>₽</b> each.</left>'
-	if tkan <= 0:'You have <<tkan>> squares of fabric.'
-	if tkan > 0:'You have <<tkan>> squares of fabric.'
-
-	if money >= 50:
-		act'Buy fabric':
-			*clr & cla
-			portion = input ("How much do you want to buy?")
-			if portion <= 0:portion = 1
-			if portion*50 > money:'You do not have enough money.'
-				if portion*50 <= money:
-					tkan += portion
-					money = money - portion*50
-					'<center><img <<$set_imgh>> src="images/locations/shared/store/kassa.jpg"></center>'
-					'You paid the cashier and bought cloth.'
-				end
-				gs'stat'
-			act 'Move away from the counter':gt'shop'
-		end
-	end
+	'On the counter you can see fabric suitable for sewing. It''s sold in large squares costing 50 <b>₽</b> each. You have <<tkan>> squares of fabric.'
 end
 
 if $shoplocation = 'clothing':

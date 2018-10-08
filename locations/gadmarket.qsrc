@@ -34,6 +34,7 @@ $gadmarkettab += FUNC ('$stock_item', 40, 'Razors', 700, 'stanok', 'gadmarket')
 $gadmarkettab += FUNC ('$single_stock_item', 1, 'Bottle of water', 100, 'bottle', 'gadmarket', '', iif(bag > 0, 0, 1), 'You need a purse')
 $gadmarkettab += FUNC ('$single_stock_item', 1, 'Sandwich', 100, 'buterbrod', 'gadmarket', '', iif(bag > 0, 0, 1), 'You need a purse')
 $gadmarkettab += FUNC ('$single_stock_item', 1, 'Cheap Bottle of wine', 200, 'wine', 'gadmarket', '', iif(bag > 0, 0, 1), 'You need a purse')
+$gadmarkettab += FUNC ('$single_stock_item', 1, 'Umbrella', 1000, 'umbrella', 'gadmarket', '', iif(bag > 0, 0, 1), 'You need a purse')
 $gadmarkettab += '</table></center>'
 *pl $gadmarkettab
 killvar '$gadmarkettab'

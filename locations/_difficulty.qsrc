@@ -27,7 +27,9 @@ end &! --- getdifficulty ---
 !! easy peasy: 20
 !! use func('_difficulty','getexpadj')
 if $ARGS[0] = 'getexpadj':
-	result = 20 * difficulty
+	!!Trait ''Everything is new again'', gained from the cursed school boy start
+	if csb_start = 1 and daystart <= 84: result = 30 * difficulty
+	if csb_start = 0: result = 20 * difficulty
 end &! --- getexpadj ---
 
 !! following function adjusts money gain by difficulty.

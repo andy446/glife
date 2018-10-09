@@ -368,10 +368,6 @@ end
 
 if $ARGS[0] = 'intro_9':
 	*clr & cla
-	!!Background:Black
-	fcolor = rgb(255, 255, 255)
-	bcolor = rgb(0, 0, 0)
-	lcolor = rgb(106, 90, 205)
 	'<center><img <<$set_imgh>> src="images/pre/csb/dyingforest.jpg"></center>'
 	'...'
 	wait 1500
@@ -391,7 +387,7 @@ if $ARGS[0] = 'intro_9':
 	act 'Wake up':		
 		*clr & cla
 		!!Background: White
-		bcolor = rgb(BColorBase, BColorBase, BColorBase)
+		bcolor = rgb(0, 0, 0)
 		lcolor = rgb(106, 90, 205)
 		fcolor = rgb(0, 0, 0)
 		'<center><img <<$set_imgh>> src="images/pre/shared/karinpre.jpg"></center>'

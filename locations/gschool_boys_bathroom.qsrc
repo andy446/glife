@@ -495,7 +495,7 @@ if $ARGS[0] = 'boy4':
 						'You shake your head no and say. "Please just keep fucking my pussy." He fucks you in deep strokes for a bit and it is everything you could want or hope for. Once your moans start getting so loud that they could easily be heard in the hall, he picks up the pace and starts hammering into your pussy, his balls slapping against your clit with each powerful stroke. You feel your need for release grow with every thrust and everything he does only seems to make it better. He leans forward, kisses your neck just below your ear, then unexpectedly whispers to you. "I''m about to cum."'
 						gs 'arousal', 'vaginal', 5
 						gs 'stat'
-						act 'Suck him off':gt 'gschool_boys_bathroom', 'boy4_end'
+						act 'Suck him off':
 							'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 							'<center><video autoplay loop src="images/characters/pavlovsk/school/boy/marcus/sex/school/marc4.mp4"></video></center>'
 							'You pull away slightly and he takes the hint and pulls out of you. You turn around and drop down to your knees. You immediately go down on him, as if your mouth was drawn to his black cock, and you give it a couple of strokes, enjoying the taste of yourself on him. He starts moaning loudly now and suddenly that hand at the back of your head comes to life; it tilts your head back as he murmurs: "Open your mouth and stick out your tongue."'

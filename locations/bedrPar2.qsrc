@@ -39,6 +39,9 @@ if $ARGS[0] = '':
 					prezikProver = 0
 					'<center><img <<$set_imgh>> src="images/shared/accessories/birthcontrol/condoms_steal.jpg"></center>'
 					'After you make sure you''re not seen, you quickly search your parents'' room for their condom stash and take a few. Now you have '+iif(preziktype = 0, '<<prezik>>', '<<prezikcount>>')+' condoms.'
+				end
+			end
+		end
 	end
 
 	if hour = 21 and parsexrand = 5 and parentsexday ! daystart:gt 'seeparentsex'

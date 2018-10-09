@@ -172,7 +172,7 @@ if $ARGS[0] = 'Chat':
 	else
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/talk.jpg"></center>'
 	end
-	if npcrel['A4'] > 50:
+	if npc_rel['A4'] > 50:
 		i = rand(0,10)
 	else
 		i = rand(0,6)

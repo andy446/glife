@@ -12,7 +12,7 @@ if $ARGS[0] = 'start':
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/pharmacy/aptekabusy<<people>>.jpg"></center>'
 		*nl
 		'When you go up to check out their is <<people>> ' + iif(people < 2 or people > 4, 'people' , 'man' ) + ' in line before you.'
-		act 'Leave': minut += 5 & gt $loc, $metka
+		act 'Leave the pharmacy': minut += 5 & gt $loc, $metka
 		act 'Wait for your turn' :
 			minut += rand(1,4) * people
 			people = 0

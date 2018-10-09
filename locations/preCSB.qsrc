@@ -17,18 +17,18 @@ if $ARGS[0] = 'intro_0':
 
 	act 'Continue':
 		*clr & cla
-		'<center><img <<$set_imgh>> src="images/pre/csb/ivan3csb.jpg"></center>'
+		'<center><img <<$set_imgh>> src="images/pre/csb/start3csb.jpg"></center>'
 		'You had a pleasant, undisturbed childhood when you were young. Although you don''t remember much from kindergarten, you do remember going to elementary school when you were 7 years old. While you wanted your uncle to act like the fathers of the other kids at school, you were never allowed to call him anything else than "sir."'
 		
 		act 'Continue':
 			*clr & cla
-			'<center><img <<$set_imgh>> src="images/pre/csb/ivan4csb.jpg"></center>'
+			'<center><img <<$set_imgh>> src="images/pre/csb/start4csb.jpg"></center>'
 			'Your teenage years were beset by the same changes as the rest of the boys your age: You got taller and gained a lot of muscle, your shoulders widened, your voice squeaked until it deepened, and hair sprouted from everywhere on your body.' 
 			'You spent most of the last few years in a near-constant state of arousal, set off just by as little as a suggestively shaped vegetable. Thankfully the awkward changes and acne have started to subside, leaving you looking like the young man you will be.'
 		
 			act 'Continue':
 				*clr & cla
-				'<center><img <<$set_imgh>> src="images/pre/csb/ivan5csb.jpg"></center>'
+				'<center><img <<$set_imgh>> src="images/pre/csb/start5csb.jpg"></center>'
 				'During the last winter break, you decided to enjoy a Christmas party at a friend of a friend''s house. An incident involving a spiked punch bowl, mistletoe, and a drunken dare led to a picture of you kissing another man being circled around. Everything went downhill from there. Now everyone thinks that you are gay, regardless of your protests.'
 				'Everyone you knew quickly turned on you; nothing you could say worked to change their minds. You became an outcast and received regular beatings from the other guys.'
 
@@ -149,8 +149,13 @@ if $ARGS[0] = 'intro_4':
 	'You do the best you can to repress any resentment towards <<$pcs_nickname>> about how little she appreciates what she has.'
 
 	act 'When she talks about her mother, she calls her ...':
+		
+		$npc_nickname['A29'] = '<<$npc_nickname[''A29'']>>'
+		$temp_nickname = $npc_nickname['A29']
+		
 		$npc_nickname['A29'] = input('<center>What name does she use to address her mother by?<br>Mother (default), Mum, Mom, Mama, etc.</center>')
 		if $npc_nickname['A29'] = '':$npc_nickname['A29'] = '<<$temp_nickname>>'
+		killvar '$temp_nickname'
 		
 		gt 'preCSB', 'intro_5'
 	end
@@ -324,7 +329,7 @@ if $ARGS[0] = 'intro_8':
 			bcolor = rgb(0, 0, 0)
 			lcolor = rgb(106, 90, 205)
 			
-			'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gadforestlost_night4.jpg"></center>'
+			'<center><img <<$set_imgh>> src="images/locations/gadukino/forest/gadforestlost_night0.4.jpg"></center>'
 			'You drag <<$pcs_nickname>> along in a mad dash to escape the dark figure. You twist and turn, trying to lose him in the woods. After a few minutes you feel <<$pcs_nickname>>''s hand rip out of your grasp. You look back to see her collapsing on the ground, panting in exhaustion. There''s no sign of the man anywhere. You think you lost him. You sigh in relief.'
 
 			act 'Continue':
@@ -348,7 +353,7 @@ if $ARGS[0] = 'intro_8':
 							
 							act 'Oh god...':
 								*clr & cla
-								'<center><img <<$set_imgh>> src="images/pre/csb/dyingforest.jpg"></center>'
+								'<center><img <<$set_imgh>> src="images/pre/csb/dyingforestcsb.jpg"></center>'
 								'Shock and blood loss set in, causing your vision to start to black out. So this is how you die. Moments before you pass out, you swear you can hear the sound crunching bones from above you and see a flash of red hair.'
 								
 								act '...am I dying?': gt 'preCSB', 'intro_9'
@@ -363,11 +368,7 @@ end
 
 if $ARGS[0] = 'intro_9':
 	*clr & cla
-	!!Background:Black
-	fcolor = rgb(255, 255, 255)
-	bcolor = rgb(0, 0, 0)
-	lcolor = rgb(106, 90, 205)
-	'<center><img <<$set_imgh>> src="images/pre/csb/dyingforest.jpg"></center>'
+	'<center><img <<$set_imgh>> src="images/pre/csb/darknesscsb.jpg"></center>'
 	'...'
 	wait 1500
 	*nl
@@ -386,7 +387,7 @@ if $ARGS[0] = 'intro_9':
 	act 'Wake up':		
 		*clr & cla
 		!!Background: White
-		bcolor = rgb(BColorBase, BColorBase, BColorBase)
+		bcolor = rgb(255, 255, 255)
 		lcolor = rgb(106, 90, 205)
 		fcolor = rgb(0, 0, 0)
 		'<center><img <<$set_imgh>> src="images/pre/shared/karinpre.jpg"></center>'
@@ -395,6 +396,7 @@ if $ARGS[0] = 'intro_9':
 
 		act 'What? Who? Where?':
 			*clr & cla
+			
 			'<center><img <<$set_imgh>> src="images/pre/shared/karinpre.jpg"></center>'
 			'You try to ask her all the questions running through your mind right now. Unfortunately all that comes out of your mouth is a croaking groan. Your tongue feels half-numb, as does the rest of your body. Your head is too fuzzy at the moment to think straight.'
 			'"I''d take it easy right now. I managed to save you, but your body still needs to get used to the change."'

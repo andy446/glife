@@ -18,26 +18,27 @@ i += 1
 if count1 = 6 : $textgrup += '<tr>'
 
 if grupTipe[i] = 1:count1 += 1 & $textgrup += '' + '<td bgcolor=<<$bcolor2>> align="center"><img  height="100" src="images/characters/pavlovsk/school/head/<<i>>.jpg"><br>' + $npcGo[i]
-if count1< 6 and grupTipe[i] = 1 :
+if count1 < 6 and grupTipe[i] = 1 :
 	$textgrup += '</td>'
 elseif count1 = 6 and grupTipe[i] = 1:
 	$textgrup +='</td></tr><tr>' & count1 = 0
 end
 
 !hack to force a new section for gopniks
-if i=9 : $textgrup2 += '<tr></tr>'
+if i = 9 : $textgrup2 += '<tr></tr>'
 !end hack
 
 if count2 = 6 : $textgrup2 += '<tr>'
 if grupTipe[i] = 4: count2 += 1 & $textgrup2 += '' + '<td bgcolor=<<$bcolor1>> align="center"><img height="100" src="images/characters/pavlovsk/school/head/<<i>>.jpg"><br>' + $npcGo[i]
 
-if count2< 6 and grupTipe[i] = 4:
+if count2 < 6 and grupTipe[i] = 4:
 	$textgrup2 += '</td>'
 elseif count2 = 6 and grupTipe[i] = 4:
 	$textgrup2 +='</td></tr><tr>' & count2 = 0
 end
 
 if i < 61:jump 'markgruploop'
+
 '<<$textgrup>>'
 *nl
 '<<$textgrup2>>'

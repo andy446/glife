@@ -30,13 +30,11 @@ if $ARGS[0] = 'workout':
 			minut += 5
 			gs 'underwear', 'wear'
 			gs 'clothing', 'recover_lost_clothes', $loc, 1
+			gs 'stat'
 			gt $loc, $metka
 		end
-	elseif $clothingworntype = 'nude' and clothesAtLocation ! 1:
-		act 'End workout':gt $loc, $metka
-	elseif $clothingworntype ! 'nude':
+	else
 		act 'End workout':
-			gs 'underwear', 'wear'
 			gt $loc, $metka
 		end
 	end
@@ -44,11 +42,13 @@ if $ARGS[0] = 'workout':
 		act 'Run home naked':
 			minut += 20
 			gs 'clothing', 'recover_lost_clothes', $loc
+			gs 'stat'
 			gt 'gadforest', 'caught'
 		end
 	end
 	if $clothingworntype = 'nude' or $clothingworntype = 'exercise':
-		act 'Manual routine': gt 'exercise', 'manual'
+		act 'Manual routines': gt 'exercise', 'manual'
+		act 'Define routines': gt 'exercise', 'setup'
 		if exer_stam[1] ! 0 and pcs_stam > exer_stam[1]: act '<<$excer_name[1]>> - (<<exer_stam[1]>> stamina)': exercisex = 1 & gt 'exercise', 'auto'
 		if exer_stam[2] ! 0 and pcs_stam > exer_stam[2]: act '<<$excer_name[2]>> - (<<exer_stam[2]>> stamina)': exercisex = 2 & gt 'exercise', 'auto'
 		if exer_stam[3] ! 0 and pcs_stam > exer_stam[3]: act '<<$excer_name[3]>> - (<<exer_stam[3]>> stamina)': exercisex = 3 & gt 'exercise', 'auto'
@@ -57,7 +57,6 @@ if $ARGS[0] = 'workout':
 	elseif $clothingworntype ! 'nude' or $clothingworntype ! 'exercise':
 		'<b>You need to equip the proper attire before you can exercise</b>'
 	end
-	act 'Define routines': gt 'exercise', 'setup'
 end
 
 if $ARGS[0] = 'auto':

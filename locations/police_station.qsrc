@@ -780,7 +780,7 @@ if $ARGS[0] = 'booking2':
 			*clr & cla
 			minut += 120
 			gs 'stat'
-			'<center><img <<$set_imgh>> src="images/locations/city////cityhold.jpg"></center>'
+			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/police/cityhold.jpg"></center>'
 			'You don''t know how much time has gone by but all of a sudden the door opens and it''s the same officer standing there, "Have you calmed down?"'
 			'All you want to do is to spit in his face again, but you know that will get you nowhere, and possibly even a beating, so you simply nod.'
 			'"Good, now come out and follow me so I can finally process you..."'

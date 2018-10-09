@@ -13,7 +13,7 @@ elseif rand (0,100) < 3:
 
 	gs 'basement', 'end'
 elseif rand (0,100) < 3:
-	'<center><img <<$set_imgh>> src="images/locations/city/suburb/bdsm_club/sex/baserand3.png"></center>'
+	'<center><img <<$set_imgh>> src="images/locations/city/suburb/bdsm_club/sex/baserand3.jpg"></center>'
 	'A submissive woman is tied up and displayed like an art exhibition, the sign tells people to use the whip on her.'
 
 	gs 'basement', 'end'

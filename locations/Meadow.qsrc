@@ -1070,6 +1070,7 @@ if $ARGS[0] = 'workout':
 		gs 'arousal', 'voyeur', 15, 'exhibitionism'
 		gs 'arousal', 'end'
 		minut -= 15
+		gs 'stat'
 		act 'Continue': gt 'exercise', 'workout'
 	else
 		gt 'exercise', 'workout'

@@ -1326,7 +1326,7 @@ if $ARGS[0] = 'maternity_ward':
 							'Nurse: Oh dear! These look painfully full. I hope the pumping will make you feel better.'
 						end
 						if pain['nipples'] >= 60:
-							'<center><img <<$set_imgh>> src="images/pc/body/nipples/sore_nipples.jpg"></center>'
+							'<center><img <<$set_imgh>> src="images/pc/body/nipples/sore_nipple.jpg"></center>'
 							'The nurse looks at your sore nipples and frowns a bit. She then grabs a small tin, and takes a bit more of the yellowish cream from the tin.'
 							'She applies the cream to your nipples. It feels nice on your nipples and they hurt less.'
 							pain['nipples'] -= 20
@@ -1440,7 +1440,7 @@ if $ARGS[0] = 'maternity_ward':
 								'The nurse leads you into a room. It is quiet in here. There is a chair a table and a breastpump.'
 								'You sit down and the nurse invites you to take off your top.'
 								if pain['nipples'] >= 60 and pcs_knows_nipplecream <= 0:
-									'<center><img <<$set_imgh>> src="images/pc/body/nipples/sore_nipples.jpg"></center>'
+									'<center><img <<$set_imgh>> src="images/pc/body/nipples/sore_nipple.jpg"></center>'
 									'The nurse looks at your sore nipples and frowns a bit. She then grabs a small tin, and takes a bit of the yellowish cream from the tin.'
 									'You: What is that?'
 									'The nurse looks up at you.'
@@ -1452,7 +1452,7 @@ if $ARGS[0] = 'maternity_ward':
 									pcs_knows_nipplecream = 1
 									'The nurse finishes rubbing you nipples with the nipple balm.'
 								elseif pain['nipples'] >= 60:
-									'<center><img <<$set_imgh>> src="images/pc/body/nipples/sore_nipples.jpg"></center>'
+									'<center><img <<$set_imgh>> src="images/pc/body/nipples/sore_nipple.jpg"></center>'
 									'The nurse looks at your sore nipples and frowns a bit. She then grabs a small tin, and takes a bit of the yellowish cream from the tin.'
 									'She applies the cream to your nipples. It feels nice on your nipples and they hurt less.'
 									pain['nipples'] -= 20
@@ -1524,7 +1524,7 @@ if $ARGS[0] = 'maternity_ward':
 								'The nurse leads you into a room. It is quiet in here. There is a chair a table and a breastpump.'
 								'You sit down and the nurse invites you to take off your top.'
 								if pain['nipples'] >= 60 and pcs_knows_nipplecream <= 0:
-									'<center><img <<$set_imgh>> src="images/pc/body/nipples/sore_nipples.jpg"></center>'
+									'<center><img <<$set_imgh>> src="images/pc/body/nipples/sore_nipple.jpg"></center>'
 									'The nurse looks at your sore nipples and frowns a bit. She then grabs a small tin, and takes a bit of the yellowish cream from the tin.'
 									'You: What is that?'
 									'The nurse looks up at you.'
@@ -1536,7 +1536,7 @@ if $ARGS[0] = 'maternity_ward':
 									pcs_knows_nipplecream = 1
 									'The nurse finishes rubbing you nipples with the nipple balm.'
 								elseif pain['nipples'] >= 60:
-									'<center><img <<$set_imgh>> src="images/pc/body/nipples/sore_nipples.jpg"></center>'
+									'<center><img <<$set_imgh>> src="images/pc/body/nipples/sore_nipple.jpg"></center>'
 									'The nurse looks at your sore nipples and frowns a bit. She then grabs a small tin, and takes a bit of the yellowish cream from the tin.'
 									'She applies the cream to your nipples. It feels nice on your nipples and they hurt less.'
 									pain['nipples'] -= 20
@@ -1600,7 +1600,7 @@ if $ARGS[0] = 'maternity_ward':
 						'The nurse smiles and gets up, then she leads you into a room. It is quiet in here. There is a chair a table and a breastpump.'
 						'You sit down and the nurse invites you to take off your top.'
 						if pain['nipples'] >= 60 and pcs_knows_nipplecream <= 0:
-							'<center><img <<$set_imgh>> src="images/pc/body/nipples/sore_nipples.jpg"></center>'
+							'<center><img <<$set_imgh>> src="images/pc/body/nipples/sore_nipple.jpg"></center>'
 							'The nurse looks at your sore nipples and frowns a bit. She then grabs a small tin, and takes a bit of the yellowish cream from the tin.'
 							'You: What is that?'
 							'The nurse looks up at you.'
@@ -1612,7 +1612,7 @@ if $ARGS[0] = 'maternity_ward':
 							pcs_knows_nipplecream = 1
 							'The nurse finishes rubbing you nipples with the nipple balm.'
 						elseif  pain['nipples'] >= 60:
-							'<center><img <<$set_imgh>> src="images/pc/body/nipples/sore_nipples.jpg"></center>'
+							'<center><img <<$set_imgh>> src="images/pc/body/nipples/sore_nipple.jpg"></center>'
 							'The nurse looks at your sore nipples and frowns a bit. She then grabs a small tin, and takes a bit of the yellowish cream from the tin.'
 							'She applies the cream to your nipples. It feels nice on your nipples and they hurt less.'
 							pain['nipples'] -= 20

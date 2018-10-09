@@ -29,6 +29,32 @@ end
 
 if hour ! 18 and blockBedrPar = 1:blockBedrPar = 0
 
+act '<b>Leave and go to the stairwell</b>':
+	if $clothingworntype ! 'nude':
+		gt'pod_ezd','etaj_2'
+	else
+		msg'<b><font color = red>You need to get dressed.</font></b>'
+		gt 'korrPar'
+	end
+end
+
+act '<b>Leave and go to the street</b>':
+	if $clothingworntype ! 'nude':
+		if hour < 4 and motherWorry = 0 and age < 18:
+			'<font color=red>Are you sure? Your mother will worry.</b></font>'
+			cla
+			act '<font color=red><b>Yes, go outside</b></font>': minut += 5 & gt'pavComplex', 'start'
+			act 'No, stay inside':gt 'korrPar'
+		else
+			minut += 5
+			gt'pavComplex', 'start'
+		end
+	else
+		msg'<b><font color = red>You need to get dressed.</font></b>'
+		gt 'korrPar'
+	end
+end
+
 if blockBedrPar = 0:
 	if sisboyday + 1 = daystart and hour = 18 and sisboytrioQW = 1:
 		act 'Go to your room':gt 'sisterQW', 'sisboytrioQW_bedroom', 'start'
@@ -38,37 +64,10 @@ if blockBedrPar = 0:
 		act 'Go to your room':gt 'bedrPar'
 	end
 end
-
 act 'Go to your parents'' room':gt 'bedrPar2'
 act 'Go to the living room':gt 'sitrPar'
 act 'Go to the bathroom':minut += 1 & gt 'vanrPar'
 act 'Go to the kitchen':gt 'kuhrPar'
-
-act '<font color = maroon>Leave the apartment and go to the stairwell</font>':
-	if $clothingworntype ! 'nude':
-		gt'pod_ezd','etaj_2'
-	else
-		msg'<b><font color = red>You need to get dressed.</font></b>'
-		gt 'korrPar'
-	end
-end
-
-act '<font color = maroon><b>Leave the apartment and go outside</b></font>':
-	if $clothingworntype ! 'nude':
-		if hour < 4 and motherWorry = 0 and age < 18:
-			'<font color=red>Are you sure? Your mother will worry if you go out at this time.</font>'
-			cla
-			act '<font color=red>Yes, go outside</font>': minut += 5 & gt'pavResidential'
-			act 'No, stay inside':gt 'korrPar'
-		else
-			minut += 5
-			gt'pavResidential'
-		end
-	else
-		msg'<b><font color = red>You need to get dressed.</font></b>'
-		gt 'korrPar'
-	end
-end
 
 '<center><h1><font color="maroon">Corridor</font></h1></center>'
 '<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/home/korrpar.jpg"></center>'

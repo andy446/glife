@@ -7,7 +7,10 @@ gs 'stat'
 gs 'boyStat','A2'
 
 if $ARGS[0] = '':
+	menu_off = 1
 	'You go to Artem Chebotarev''s apartment and ring the door bell.'
+
+	act 'Move away from the door':minut += 5 & gt 'pod_ezd','etaj_1'
 
 	if week < 6:
 		if hour < 14 and hour >= 7:
@@ -30,12 +33,11 @@ if $ARGS[0] = '':
 			'It would be rude to even ring the doorbell at this time of day, Artem is probably asleep. You decide against it, and lower your hand.'
 		end
 	end
-	act 'Move away from the door':minut += 5 & gt 'pod_ezd','etaj_1'
 end
 
 if $ARGS[0] = 'leave':
 	minut += ARGS[1]
-	gs 'shortgs','checkdress',' ''artemhome'',''inside'' ' 
+	gs 'shortgs','checkdress',' ''artemhome'',''inside'' '
 	gt 'pod_ezd','etaj_1'
 end
 
@@ -47,6 +49,9 @@ if $ARGS[0] = 'inside':
 	if ArtemBeInHome = 0:ArtemBeInHome = 1
 	'<center><b><font color="maroon"><<$npc_firstname[''A2'']>> <<$npc_lastname[''A2'']>></font></b></center>'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/2.jpg"></center>'
+	
+	act 'Leave Artem''s apartment': gt 'artemhome','leave', 1
+	
 	if artQW = 21:
 		gt 'ArtemEv3','slut_talk'
 		exit
@@ -69,6 +74,7 @@ if $ARGS[0] = 'inside':
 
 	artemRand = rand(0,1)
 	if artemRand = 1 and artemtimes >= 45 and artemsex > 0 and artemanal > 0 and artemProgul ! daystart and (pav_slut < 50 or artemblag = 1):
+
 		artemProgul = daystart
 		cla
 		gs 'stat'
@@ -95,8 +101,6 @@ if $ARGS[0] = 'inside':
 		end
 	end
 
-	act 'Leave Artem''s apartment': gt 'artemhome','leave', 1 
-					
 	if artQW = 2:
 		!!took the flowers but not wanker Artem
 		artcooldown += 1
@@ -114,7 +118,7 @@ if $ARGS[0] = 'inside':
 		'Artem invites you to sit next to him on the bed.'
 		act 'Kiss Artem': gt 'artemEv','kiss'
 	end
-	
+
 	if talkartemday ! daystart and artQW ! 5:
 		act 'Chat with Artem':
 			*clr & cla
@@ -132,9 +136,9 @@ if $ARGS[0] = 'inside':
 			act 'Continue':gt 'artemhome','inside'
 		end
 	end
-	
+
 	if lernHome > 0:act 'Do homework with Artem': gt 'artemEv','learn'
-	
+
 	if dimaFilm > 0 and arthakQW = 0 and pcs_vag > 0:
 		act 'Ask Artem to steal the video Dimka filmed of you':
 			*clr & cla
@@ -210,7 +214,7 @@ if $ARGS[0] = 'liar':
 		swallow += 1
 		gs 'arousal','end'
 		gs 'stat'
-		
+
 		act 'Take a deep breath':
 			*clr & cla
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/artem/meet6.jpg"></center>'
@@ -220,7 +224,7 @@ if $ARGS[0] = 'liar':
 			'He''s not giving you any time to think it over, and says: "So, decision time. Are you going to be my obedient little bitch, <<$pcs_nickname>>?"'
 			'You know he will publish that video if you leave now. It would ruin your reputation in Pavlovsk, but you have no clue what Artem has planned for you if you stay.'
 			gs 'stat'
-			
+
 			act 'Do what he wants':
 				*clr & cla
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/2.jpg"></center>'
@@ -270,18 +274,18 @@ if $ARGS[0] = 'liar':
 						artemblok = 0
 						'You carefully ask: "So... will you delete the video now?"'
 						'Artem chuckles: "Delete the video?" He chuckles again and shakes his head. "No."'
-						
+
 						!! The forced petka/artem events dont seem to exit, commented them out until they are
 						!!'Artem chuckles: "Delete the video? <<$pcs_nickname>>, please... we''re just getting started. Me and Petka have big plans with you."'
 						!!'He continues: "Don''t worry, it will be our little secret. Next Monday, we will continue our anatomy lessons. I''ll be waiting for you after school."'
-						
+
 						gs 'stat'
 
 						act 'Leave the garage':gt 'pavComplex','garages'
 					end
 				end
 			end
-			
+
 			act 'Leave his apartment and run away':
 				artemblok = 1
 				artemhakday = daystart
@@ -290,7 +294,7 @@ if $ARGS[0] = 'liar':
 			end
 		end
 	end
-	
+
 	act 'Leave his apartment and run away':
 		artemvbrosvid = 1
 		artemblok = 1

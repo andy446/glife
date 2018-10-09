@@ -8,7 +8,7 @@ $loc = $CURLOC
 !elevator does not work
 if liftnotwork_day ! daystart: liftnotwork_count = 1
 !Apartment Uncle Misha
-if mishahouse_day ! daystart: mishahouse_count = 1	
+if mishahouse_day ! daystart: mishahouse_count = 1
 !how much money for sex give boys
 $rnd_money_sex = ''+rand(50,350)+''
 rnd_money_sex = $rnd_money_sex
@@ -48,13 +48,12 @@ if $ARGS[0] = 'etaj_1':
 
 	'There''s a <a href="exec: dynamic $housemates">list</a> of the people who live here on the wall.'
 	'Someone put up some <a href="exec:GT ''pavComplexb3'',''pod_objava''">advertisements</a> on the wall, near the entrance.'
-	act 'Go outside': minut += 1 & gt 'pavcomplex', 'start'
-!!	if rolanblockhome ! 1 and storyline = 1:
-!!		act 'Knock Mr. Matveev''s door': gt 'rolanapt','home'
-!!	end
+	act 'Leave the building': minut += 1 & gt 'pavcomplex', 'start'
 	act 'Go up to the second floor': minut +=1 &  gt 'pavComplexb3','etaj_2'
 	act 'Take the elevator': gt 'pavComplexb3','lift','etaj_1'
-	
+!!	if rolanblockhome ! 1 and storyline = 1:
+!!		act 'Apartment 1: Mr. Matveev''s': gt 'rolanapt','home'
+!!	end
 end
 
 !floor 2
@@ -94,13 +93,13 @@ if $ARGS[0] = 'etaj_4':
 	'<center>4th floor of the apartment building</center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/etaj4.jpg"></center>'
 	'<center>The fourth floor stairwell was renovated not long ago, but some hoodlums already sprayed graffiti on the walls.</center>'
+	act 'Go down to the third floor': minut +=1 & gt 'pavComplexb3','etaj_3'
+	act 'Go up to the fifth floor': minut +=1 & gt 'pavComplexb3','etaj_5'
 	if seenAd = 0:
 		gt 'pavSharedApt', 'advertNo30'
 	else:
-		act 'Go to door number 30': gt 'pavSharedApt', 'doorNo30'
+		act 'Apartment 30: Shared apartment': gt 'pavSharedApt', 'doorNo30'
 	end
-	act 'Go down to the third floor': minut +=1 & gt 'pavComplexb3','etaj_3'
-	act 'Go up to the fifth floor': minut +=1 & gt 'pavComplexb3','etaj_5'
 	act 'Take the elevator': gt 'pavComplexb3','lift','etaj_4'
 end
 
@@ -114,8 +113,8 @@ if $ARGS[0] = 'etaj_5':
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/stairs/etaj5.jpg"></center>'
 	'<center>The fifth floor stairwell looks much like most of the other floors, though it has a final set of stairs at the other end of the hall that go up to the roof.</center>'
 	act 'Go down to the fourth floor': minut +=1 & gt 'pavComplexb3','etaj_4'
+	act 'Go up to the roof': minut +=1 & gt 'pavComplexb3', 'roof'
 	act 'Take the elevator': gt 'pavComplexb3','lift','etaj_5'
-	act 'Go to the roof': minut +=1 & gt 'pavComplexb3', 'roof'
 end
 
 !!roof
@@ -140,7 +139,51 @@ if $ARGS[0] = 'roof':
 		end
 	end
 	'<center>The roof is fairly flat, with the roof access door in a raised part in the middle of the roof. Along one of the walls is another door to some type of storage or maintenances access. There is several ventilation stacks on the roof as well.</center>'
-	act 'Go down to the fifth floor': minut +=1 & gt 'pavComplexb3','etaj_5'
+
+	act 'Go down to the fifth floor':
+		if $clothingworntype = 'swimwear' or $clothingworntype = 'nude':
+			msg '<center><font color = red>You need to get dressed first</font></center>'
+			gt 'pavComplexb3','roof'
+		else
+			minut += 1
+			gt 'pavComplexb3','etaj_5'
+		end
+	end
+	if $clothingworntype = 'swimwear' or $clothingworntype = 'nude':
+		act 'Change back into clothes':
+			minut += 5
+			gs 'underwear', 'wear'
+			gs 'clothing', 'wear_last_worn'
+			gt 'pavComplexb3','roof'
+		end
+	end
+	if temper >= 15 and hour >= 8 and hour <= 20:
+		if ARRSIZE('swimwear') > 0 and $clothingworntype ! 'swimwear':
+			act 'Change into a bikini':gt 'changingroom', 'view_swim_list'
+		end
+		if $clothingworntype = 'swimwear':
+			act 'Sunbathe (1:00)':
+				cla
+				*clr
+				minut += 60
+				inhib_exp += rand(1,3)
+				if pcs_sweat < 35: pcs_sweat += 5
+				pcs_mood += 5
+				'<center><img <<$set_imgh>> src="images/locations/city/residential/apartment/zagar1.jpg"></center>'
+
+				if krem = 0:
+					pcs_tan += 1
+					'You lie down to sunbathe.'
+				elseif krem > 0:
+					krem -= 1
+					pcs_tan += 3
+					'You put the sunblock on your body and lied down on the roof to sunbathe.'
+				end
+
+				act 'Get Up':gt 'pavComplexb3', 'roof'
+			end
+		end
+	end
 end
 
 !================================================================================================!
@@ -160,7 +203,7 @@ if $ARGS[0] = 'lift':
 	act 'Push button: floor 4': gt 'pavComplexb3','etaj_4'
 	act 'Push button: floor 5': gt 'pavComplexb3','etaj_5'
 	pod_lift_ev = RAND(0,100)
-	if pod_lift_ev <=5: 
+	if pod_lift_ev <=5:
 		*clr & cla
 		minut +=1
 		gs 'stat'

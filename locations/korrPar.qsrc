@@ -29,22 +29,7 @@ end
 
 if hour ! 18 and blockBedrPar = 1:blockBedrPar = 0
 
-if blockBedrPar = 0:
-	if sisboyday + 1 = daystart and hour = 18 and sisboytrioQW = 1:
-		act 'Go to your room':gt 'sisterQW', 'sisboytrioQW_bedroom', 'start'
-	elseif sisboyday + 1 = daystart and hour = 18 and (npc_QW['A33'] = 3 or npc_QW['A33'] = 5 or npc_QW['A33'] = 7 or npc_QW['A33'] = 9):
-		act 'Go to your room':gt 'sisterQW', 'sisboyQW_bedroom'
-	else
-		act 'Go to your room':gt 'bedrPar'
-	end
-end
-
-act 'Go to your parents'' room':gt 'bedrPar2'
-act 'Go to the living room':gt 'sitrPar'
-act 'Go to the bathroom':minut += 1 & gt 'vanrPar'
-act 'Go to the kitchen':gt 'kuhrPar'
-
-act '<font color = maroon>Leave the apartment and go to the stairwell</font>':
+act '<font color = maroon><b>Leave and go to the stairwell</b></font>':
 	if $clothingworntype ! 'nude':
 		gt'pod_ezd','etaj_2'
 	else
@@ -53,12 +38,12 @@ act '<font color = maroon>Leave the apartment and go to the stairwell</font>':
 	end
 end
 
-act '<font color = maroon><b>Leave the apartment and go outside</b></font>':
+act '<font color = maroon><b>Leave and go to the street</b></font>':
 	if $clothingworntype ! 'nude':
 		if hour < 4 and motherWorry = 0 and age < 18:
-			'<font color=red>Are you sure? Your mother will worry if you go out at this time.</font>'
+			'<font color=red>Are you sure? Your mother will worry.</b></font>'
 			cla
-			act '<font color=red>Yes, go outside</font>': minut += 5 & gt'pavResidential'
+			act '<font color=red><b>Yes, go outside</b></font>': minut += 5 & gt'pavResidential'
 			act 'No, stay inside':gt 'korrPar'
 		else
 			minut += 5
@@ -69,6 +54,20 @@ act '<font color = maroon><b>Leave the apartment and go outside</b></font>':
 		gt 'korrPar'
 	end
 end
+
+if blockBedrPar = 0:
+	if sisboyday + 1 = daystart and hour = 18 and sisboytrioQW = 1:
+		act 'Go to your room':gt 'sisterQW', 'sisboytrioQW_bedroom', 'start'
+	elseif sisboyday + 1 = daystart and hour = 18 and (npc_QW['A33'] = 3 or npc_QW['A33'] = 5 or npc_QW['A33'] = 7 or npc_QW['A33'] = 9):
+		act 'Go to your room':gt 'sisterQW', 'sisboyQW_bedroom'
+	else
+		act 'Go to your room':gt 'bedrPar'
+	end
+end
+act 'Go to your parents'' room':gt 'bedrPar2'
+act 'Go to the living room':gt 'sitrPar'
+act 'Go to the bathroom':minut += 1 & gt 'vanrPar'
+act 'Go to the kitchen':gt 'kuhrPar'
 
 '<center><h1><font color="maroon">Corridor</font></h1></center>'
 '<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/home/korrpar.jpg"></center>'

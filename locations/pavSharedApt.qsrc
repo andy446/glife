@@ -185,7 +185,7 @@ if $ARGS[0] = 'doorNo30':
 	else
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/sharedapt/aptNo3Door.jpg"></center>'
 		'<br>You stand before the entry door to apartment No 30. There is a sign on the door saying - "сдаeтся в аренду комната" (Room for rent).'
-		act 'Ring the bell':gt 'pavSharedApt', 'intro'
+		act 'Knock on the door':gt 'pavSharedApt', 'intro'
 	end
 	act 'Go back':gt 'pavComplexb3', 'etaj_4'
 end

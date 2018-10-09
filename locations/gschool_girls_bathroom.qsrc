@@ -792,7 +792,7 @@ if $ARGS[0] = 'caught2':
 	gs 'stat'
 	'<center><b><font color="maroon">Girls bathroom</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/caught'+ rand(1,2) +'.jpg"></center>'
-	'After a couple of minutes, you hear someone else in the bathroom with you. You peek out and see one of your male teachers standing at the mirror. You duck back into the stall, close the door as quietly as you can and sit down on the toilet, your heart beating like crazy, hoping he didn''t notice you. What the hell is he doing in the girls restroom anyways?! You hear his footsteps coming closer, closer... and stop, right outside your stall door.' 
+	'After a couple of minutes, you hear someone else in the bathroom with you. You peek out and see one of your male teachers standing at the mirror. You duck back into the stall, close the door as quietly as you can and sit down on the toilet, your heart beating like crazy, hoping he didn''t notice you. What the hell is he doing in the girls bathroom anyways?! You hear his footsteps coming closer, closer... and stop, right outside your stall door.' 
 	*nl
 	'"I saw you in the mirror, young lady", he says sternly as he pushes the door open. "What do you think you are doing anyways? Skipping class?"'
 	if school_bunk = 1:'His eyes fall on the smoldering cigarette on the ground. His eyes narrow. "Smoking in school, I see. I really thought you were smarter than that, <<$pcs_firstname>>."'
@@ -823,7 +823,7 @@ if $ARGS[0] = 'caught2':
 		else
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/sweettalk'+rand(1,2)+'.jpg"></center>'
 			'You hang your head and feign shame as best you can. "I know, and I''m sorry, sir, but I was feeling stressed out and I just needed a break, just a few minutes alone. I know I shouldn''t have but I couldn''t help it." You give him a pleading look. "Please, please don''t report me. I promise I won''t do it again."'
-			'Your teacher looks at you for a long minute and then sighs. You think you can see pity in his eyes. "Okay. I''ll let you off with a warning and you take some time to collect yourself... but no more cutting class, you hear me?" You nod that you understand, then he shakes his head, mumbles something that sounds like "my good nature be damned" and goes about his business. A few seconds later, the bathroom is quiet again, leaving you to wonder why he was in the girls restroom in the first place. You can''t think of a good reason.'
+			'Your teacher looks at you for a long minute and then sighs. You think you can see pity in his eyes. "Okay. I''ll let you off with a warning and you take some time to collect yourself... but no more cutting class, you hear me?" You nod that you understand, then he shakes his head, mumbles something that sounds like "my good nature be damned" and goes about his business. A few seconds later, the bathroom is quiet again, leaving you to wonder why he was in the girls bathroom in the first place. You can''t think of a good reason.'
 			if school_bunk = 0:
 				act 'Continue to play on phone':gt 'gschool_girls_bathroom', 'bathroom2'
 			else
@@ -963,7 +963,7 @@ if $ARGS[0] = 'caught3':
 	gs 'stat'
 	'<center><b><font color="maroon">Girls bathroom</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/caught'+ rand(1,2) +'.jpg"></center>'
-	'After a couple of minutes, you hear someone else in the bathroom with you. You peek out and see one of your teachers, Mr Ivanov, standing at the mirror. You duck back into the stall, close the door as quietly as you can and sit down on the toilet, your heart beating like crazy, hoping he didn''t notice you. What the hell is he doing in the girls restroom anyways?! You hear his footsteps coming closer, closer... and stop, right outside your stall door.' 
+	'After a couple of minutes, you hear someone else in the bathroom with you. You peek out and see one of your teachers, Mr Ivanov, standing at the mirror. You duck back into the stall, close the door as quietly as you can and sit down on the toilet, your heart beating like crazy, hoping he didn''t notice you. What the hell is he doing in the girls bathroom anyways?! You hear his footsteps coming closer, closer... and stop, right outside your stall door.' 
 	*nl
 	'"I saw you in the mirror, girl", he says menacingly as he pushes the door open. "What do you think you are doing? Skipping class, I presume?"'
 !!next line only if Sveta was smoking.

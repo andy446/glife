@@ -149,8 +149,13 @@ if $ARGS[0] = 'intro_4':
 	'You do the best you can to repress any resentment towards <<$pcs_nickname>> about how little she appreciates what she has.'
 
 	act 'When she talks about her mother, she calls her ...':
+		
+		$npc_nickname['A29'] = 'Mother'
+		$temp_nickname = $npc_nickname['A29']
+		
 		$npc_nickname['A29'] = input('<center>What name does she use to address her mother by?<br>Mother (default), Mum, Mom, Mama, etc.</center>')
 		if $npc_nickname['A29'] = '':$npc_nickname['A29'] = '<<$temp_nickname>>'
+		killvar '$temp_nickname'
 		
 		gt 'preCSB', 'intro_5'
 	end

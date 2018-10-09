@@ -43,11 +43,11 @@ act '<font color = maroon><b>Leave and go to the street</b></font>':
 		if hour < 4 and motherWorry = 0 and age < 18:
 			'<font color=red>Are you sure? Your mother will worry.</b></font>'
 			cla
-			act '<font color=red><b>Yes, go outside</b></font>': minut += 5 & gt'pavResidential'
+			act '<font color=red><b>Yes, go outside</b></font>': minut += 5 & gt'pavComplex', 'start'
 			act 'No, stay inside':gt 'korrPar'
 		else
 			minut += 5
-			gt'pavResidential'
+			gt'pavComplex', 'start'
 		end
 	else
 		msg'<b><font color = red>You need to get dressed.</font></b>'
@@ -57,11 +57,11 @@ end
 
 if blockBedrPar = 0:
 	if sisboyday + 1 = daystart and hour = 18 and sisboytrioQW = 1:
-		act 'Go to your room':gt 'sisterQW', 'sisboytrioQW_bedroom', 'start'
+		act 'Go to your room bedroom':gt 'sisterQW', 'sisboytrioQW_bedroom', 'start'
 	elseif sisboyday + 1 = daystart and hour = 18 and (npc_QW['A33'] = 3 or npc_QW['A33'] = 5 or npc_QW['A33'] = 7 or npc_QW['A33'] = 9):
-		act 'Go to your room':gt 'sisterQW', 'sisboyQW_bedroom'
+		act 'Go to your room bedroom':gt 'sisterQW', 'sisboyQW_bedroom'
 	else
-		act 'Go to your room':gt 'bedrPar'
+		act 'Go to your room bedroom':gt 'bedrPar'
 	end
 end
 act 'Go to your parents'' room':gt 'bedrPar2'

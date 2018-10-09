@@ -170,12 +170,8 @@ elseif InvitationToDimkaNYparty = 1 and month ! 12:
 	killvar 'InvitationToDimkaNYparty'
 end
 
-if home_owned[2] = 1: act '<b>Go Home</b> (Parents'' Apartment)': minut += 4 & GT 'korrPar'
-if pavSharedAptEnabled = 1:act '<b>Go Home</b> (Shared Apartment)': minut += 5 & GT 'pavSharedApt', 'start'
-
-act 'Walk to the commercial area':minut += 5 & gt 'pavCommercial'
-
 act 'Walk to the apartment complex':minut += 2 & gt 'pavcomplex', 'start'
+act 'Walk to the commercial area':minut += 5 & gt 'pavCommercial'
 
 act 'Wait':gs 'obj_din', 'wait'
 

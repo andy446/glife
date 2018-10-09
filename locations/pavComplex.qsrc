@@ -99,7 +99,10 @@ if $ARGS[0] = 'start':
 		end
 	end
 
-	if home_owned[2] = 1: act '<b>Go home</b> (Parents'' Apartment)': minut += 5 & GT 'korrPar'
+	if kanikuli = 0 and StoryLine > 0 and SchoolAtestat = 0 and SchoolBlock = 0 and week < 6 and hour >= 7 and hour < 9: act '<b>Go to school</b>': minut += 2 & gt 'gschool_grounds', 'main'
+
+	if home_owned[2] = 1: act '<b>Go Home</b> (Parents'' Apartment)': minut += 4 & GT 'korrPar'
+	if pavSharedAptEnabled = 1:act '<b>Go Home</b> (Shared Apartment)': minut += 5 & GT 'pavSharedApt', 'start'
 	act 'Walk to the residential street':minut += 2 & gt 'pavResidential'
 	act 'Go to the Southern apartment building':minut += 1 & gt 'pod_ezd', 'etaj_1'
 	act 'Go to the Eastern apartment building':
@@ -159,7 +162,7 @@ if $ARGS[0] = 'courtyard':
 	'The courtyard is between the three apartment buildings and the communal buildings, storage buildings, and garages along the back alley. The courtyard looks more like a small unkempt park than anything, there are a few benches and tables scattered about for the residents of the complex to use and a small children''s playground, near the edge of the courtyard, closest to the communal and storage buildings near the garages.'
 	if home_owned[2] = 1: act '<b>GO HOME</b> (Parents'' Apartment)': minut += 5 & GT 'korrPar'
 	!!act 'Sit on a bench':gt 'pavaptcourtev', 'bench'
-	act 'Return to the residential street':minut += 2 & gt 'pavResidential'
+	act 'Return to the apartment complex street':minut += 2 & gt 'pavComplex', 'start'
 	act 'Go to the Southern apartment building':minut += 1 & gt 'pod_ezd', 'etaj_1'
 	act 'Go to the Eastern apartment building':
 		minut += 1
@@ -437,7 +440,7 @@ if $ARGS[0] = 'garages':
 		gs 'stat'
 		if home_owned[2] = 1: act '<b>Go home</b> (Parents'' Apartment)': minut += 5 & gt 'korrPar'
 		if StoryLine = 1: act 'Go to your stepfather''s garage': minut += 5 & gt 'gargazel'
-		act 'Return to the residential street':minut += 2 & gt 'pavResidential'
+		act 'Return to the apartment complex street':minut += 2 & gt 'pavComplex', 'start'
 		act 'Go to the Southern apartment building':minut += 1 & gt 'pod_ezd', 'etaj_1'
 		act 'Go to the Eastern apartment building':
 			minut += 3

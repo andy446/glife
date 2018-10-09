@@ -150,7 +150,7 @@ if $ARGS[0] = 'intro_4':
 
 	act 'When she talks about her mother, she calls her ...':
 		
-		$npc_nickname['A29'] = 'Mother'
+		$npc_nickname['A29'] = '<<$npc_nickname[''A29'']>>'
 		$temp_nickname = $npc_nickname['A29']
 		
 		$npc_nickname['A29'] = input('<center>What name does she use to address her mother by?<br>Mother (default), Mum, Mom, Mama, etc.</center>')

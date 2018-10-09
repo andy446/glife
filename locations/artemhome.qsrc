@@ -11,6 +11,7 @@ if $ARGS[0] = '':
 	'You go to Artem Chebotarev''s apartment and ring the door bell.'
 
 	act 'Move away from the door':minut += 5 & gt 'pod_ezd','etaj_1'
+
 	if week < 6:
 		if hour < 14 and hour >= 7:
 			'No one answers the door. Artem is probably not home.'
@@ -48,6 +49,9 @@ if $ARGS[0] = 'inside':
 	if ArtemBeInHome = 0:ArtemBeInHome = 1
 	'<center><b><font color="maroon"><<$npc_firstname[''A2'']>> <<$npc_lastname[''A2'']>></font></b></center>'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/2.jpg"></center>'
+	
+	act 'Leave Artem''s apartment': gt 'artemhome','leave', 1
+	
 	if artQW = 21:
 		gt 'ArtemEv3','slut_talk'
 		exit
@@ -70,8 +74,6 @@ if $ARGS[0] = 'inside':
 
 	artemRand = rand(0,1)
 	if artemRand = 1 and artemtimes >= 45 and artemsex > 0 and artemanal > 0 and artemProgul ! daystart and (pav_slut < 50 or artemblag = 1):
-
-	act 'Leave Artem''s apartment': gt 'artemhome','leave', 1
 
 		artemProgul = daystart
 		cla

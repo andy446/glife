@@ -128,9 +128,13 @@ if $ARGS[0] = 'redlight':
 	act 'Wait':gs 'obj_din', 'wait'
 	
 	gs 'taxi'
-	
-	if pcs_makeup > 2 and PCloStyle = 4:
-		act 'There are places to prostitute yourself here': gt 'street_walker', 'work'
+
+	if hour >= 20 or hour <= 4:
+		*nl
+		'There are prostitutes working in places near here.'
+		if pcs_makeup > 2 and PCloStyle = 4 and if pcs_inhib >= 40:
+			act 'Prostitute yourself': gt 'street_walker', 'work'
+		end
 	end
 end
 

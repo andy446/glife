@@ -73,6 +73,7 @@ end
 
 if $ARGS[0] = 'event1':
 	menu_off = 1
+	inhib_exp += rand(3,6)
 	if (prst_loc = 0 and RAND(1,3) > 1) or (prst_loc = 1 and RAND(1,5) > 1) or (prst_loc = 2 and RAND(1,8) > 1):
 		*clr & cla
 		street_work = 1
@@ -187,6 +188,13 @@ if $ARGS[0] = 'event1':
 		!!Prostitute event
 			*clr & cla
 			minut += 15
+			if prst_loc = 0:
+				gs 'fame', 'city', 'prostitute', 5
+			elseif prst_loc = 1:
+				gs 'fame', 'city', 'prostitute', 5
+			else
+				gs 'fame', 'city', 'prostitute', 5
+			end
 			city_prostitute += 1
 			'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/police.jpg"></center>'
 			if prst_caught = 0:
@@ -211,6 +219,13 @@ if $ARGS[0] = 'event1':
 			*clr & cla
 			minut += 15
 			city_prostitute += 1
+			if prst_loc = 0:
+				gs 'fame', 'city', 'prostitute', 10
+			elseif prst_loc = 1:
+				gs 'fame', 'city', 'prostitute', 10
+			else
+				gs 'fame', 'city', 'prostitute', 10
+			end
 			if month >= 11 or month <= 3:
 				'<center><img <<$set_imgh>> src="images/locations/city/shared/streetwalker/barginw1.jpg"></center>'
 			else

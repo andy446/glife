@@ -154,8 +154,12 @@ end
 if SNarkPriton > 0:'The <a href="exec:minut += 5 & gt ''narkopriton''">drug house</a> is clearly recognizeable by the syringes and the trash that lies in front of it.'
 if hour >= 8 and hour <= 23 or saunaWorkWhore > 0 or workDisk = 2:'<a href="exec:minut += 10 & gt ''sauna''">The Sauna</a> is a 10 minute walk away. Rumors say the sauna is just the front for a brothel.'
 
-if pcs_makeup > 2 and PCloStyle = 4:
-	act 'There are places to prostitute yourself here': gt 'street_walker', 'work'
+if hour >= 20 or hour <= 4:
+	*nl
+	'There are prostitutes working in places near here.'
+	if pcs_makeup > 2 and PCloStyle = 4 and if pcs_inhib >= 40:
+		act 'Prostitute yourself': gt 'street_walker', 'work'
+	end
 end
 
 --- street ---------------------------------

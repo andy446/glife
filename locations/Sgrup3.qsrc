@@ -7,7 +7,7 @@ $textgrup = ''
 
 act 'Leave':gt 'gschool_lessons', 'short_break'
 
-if $loc = 'gschool_grounds':
+if $loc = 'gschool_grounds' or $loc = 'gschool_lunch':
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/lunch/school.jpg"></center>'
 	'When the break finally comes, the girls wander through the hallways of the school, gossiping about pretty much everyone they know. The guys are standing around in small groups, some of them sneaking off to have a smoke behind the school building. The cool kids are hanging out in one area, and on the other side of the hallway the sporty kids are talking about their upcoming competitions.'
 end

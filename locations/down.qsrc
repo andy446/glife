@@ -230,7 +230,7 @@ end
 if hour >= 20 or hour <= 4:
 	*nl
 	'There are prostitutes working in places near here.'
-	if pcs_makeup > 2 and PCloStyle = 4 and if pcs_inhib >= 40:
+	if pcs_makeup > 2 and PCloStyle = 4 and pcs_inhib >= 40:
 		act 'Prostitute yourself': gt 'street_walker', 'work'
 	end
 end

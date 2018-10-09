@@ -471,7 +471,7 @@ if $ARGS[0] = 'confessional':
 			Kirill += 1
 			con_box = 1
 			gs 'stat'
-			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/church/confessional.jpg"></center>'
+			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/church/confessionalt.jpg"></center>'
 			'Father Kirill leads you to the far side of the cellar and opens another door. In the next room, you see old furniture covered in sheets. A large object hides in the back of the room, perhaps a large wardrobe or some other kind of cabinet. It is partially shouded in sheets, but you can see that the middle section is taller and has a strange looking crucifix topping it. Unlike a proper cross, this on only has a single bar and lacks the slanted bar at the bottom.'
 			'As Father Kirill pulls the sheets of of it, you can see that there are three sections, each having a curtain covering the entrance. The middle secion is taller and larger than the ones on either end. Even your youthful eye can tell that it is well made and the wood hand carved and fitted by a mastercraftsman. You have no idea what it could be.'
 			'"What is it, father?" you ask, admiring the rich polished wood, "Is it a wardrobe?"'

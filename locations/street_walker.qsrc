@@ -13,9 +13,17 @@ if $ARGS[0] = 'start':
 		'<center><h2>St. Petersburg</h2></center>'
 		'<center><b>City center</b></center>'
 		if month >= 11 or month <= 3:
-			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/downwn.jpg"></center>'
+		if hour >= 8 and hour <= 21:
+				'<center><img <<$set_imgh>> src="images/locations/city/citycenter/downw.jpg"></center>'
+			else
+				'<center><img <<$set_imgh>> src="images/locations/city/citycenter/downwn.jpg"></center>'
+			end
 		else
-			'<center><img <<$set_imgh>> src="images/locations/city/citycenter/down_night.jpg"></center>'
+			if hour >= 8 and hour <= 21:
+				'<center><img <<$set_imgh>> src="images/locations/city/citycenter/down.jpg"></center>'
+			else
+				'<center><img <<$set_imgh>> src="images/locations/city/citycenter/down_night.jpg"></center>'
+			end
 		end
 	elseif prst_loc = 1:
 		if sound = 0:
@@ -29,9 +37,17 @@ if $ARGS[0] = 'start':
 		'<center><h2>St. Petersburg</h2></center>'
 		'<center><b>Red Light District</b></center>'
 		if month >= 11 or month <= 3:
-			'<center><img <<$set_imgh>> src="images/locations/city/industrial/industwn.jpg"></center>'
+			if hour >= 8 and hour <= 21:
+				'<center><img <<$set_imgh>> src="images/locations/city/industrial/industw.jpg"></center>'
+			else
+				'<center><img <<$set_imgh>> src="images/locations/city/industrial/industwn.jpg"></center>'
+			end
 		else
-			'<center><img <<$set_imgh>> src="images/locations/city/industrial/nord2.jpg"></center>'
+			if hour >= 8 and hour <= 21:
+				'<center><img <<$set_imgh>> src="images/locations/city/industrial/nord.jpg"></center>'
+			else
+				'<center><img <<$set_imgh>> src="images/locations/city/industrial/nord2.jpg"></center>'
+			end
 		end
 	elseif prst_loc = 2:
 		if sound = 0:
@@ -47,9 +63,17 @@ if $ARGS[0] = 'start':
 		'<center><h2>St. Petersburg</h2></center>'
 		'<center><b>Residential</b></center>'
 		if month >= 11 or month <= 3:
-			'<center><img <<$set_imgh>> src="images/locations/city/residential/streetwn.jpg"></center>'
+			if hour >= 8 and hour <= 21:
+				'<center><img <<$set_imgh>> src="images/locations/city/residential/streetw.jpg"></center>'
+			else
+				'<center><img <<$set_imgh>> src="images/locations/city/residential/streetwn.jpg"></center>'
+			end
 		else
-			'<center><img <<$set_imgh>> src="images/locations/city/residential/street_night.jpg"></center>'
+			if hour >= 8 and hour <= 21:
+				'<center><img <<$set_imgh>> src="images/locations/city/residential/street.jpg"></center>'
+			else
+				'<center><img <<$set_imgh>> src="images/locations/city/residential/street_night.jpg"></center>'
+			end
 		end
 	end
 end

@@ -1200,7 +1200,7 @@ if $ARGS[0] = 'rolan_meet':
 						*clr & cla
 						minut += 5
 						gs 'stat'
-						'<center><img src="images/characters/pavlovsk/resident/rolan/apartment/kitch/rolansoup0.jpg"></center>'
+						'<center><img src="images/locations/pavlovsk/resident/apartment/aptrolan/rolansoup0.jpg"></center>'
 						'"...shit!...i hate to puke... " ... BLUURB...And you spend some time to clean your stomach. "What the fuck!...that ... roll... . Better clean..." Fortunately you avoid to make a mess...just in time.'
 						'<i>Shit! I''m going to puke!</i> You race to the restroom and find an empty stall just in time. If you''d thought it tasted awful the first time...'
 						act 'Leave ': gt 'gschool_lessons', 'short_break'

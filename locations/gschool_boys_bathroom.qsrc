@@ -1668,7 +1668,7 @@ end
 if $ARGS[0] = 'boy7':
 	cla & *clr
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
-	'<center><img <<$set_imgh>> src="images/character/pavlovsk/school/boy/igor/sex/boysroom1.jpg"></center>'
+	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/sex/boysroom1.jpg"></center>'
 	'After a couple of minutes, you hear someone else in the bathroom with you. You peek out and see Igor at the sink washing his hands. Smiling, you exit the stall and call his name. "Hey Igor, what are you up to?"'
 	'He whirls around, visibly startled, but then breaks into a smile when he sees you, "You scared the hell out of me! Actually what are you doing in the boys room anyways?"'
 	'You smile to him, "Sorry, didn''t mean to scare you and I was just tired of class. Needed a break."'
@@ -1678,7 +1678,7 @@ if $ARGS[0] = 'boy7':
 	act 'Just talk':
 		cla & *clr
 		'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
-		'<center><img <<$set_imgh>> src="images/character/pavlovsk/school/boy/igor/sex/boysroom1.jpg"></center>'
+		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/sex/boysroom1.jpg"></center>'
 		'Within moments, the two of you are chatting away about school, movies, sports, music and anything else that strikes your fancy. Before you know it, the class bell rings. You both stop, laugh and gather your things. You then bid each other later and head to your next class.'
 		act 'Go to class':gt 'gschool_lessons', 'short_break'
 	end
@@ -1686,7 +1686,7 @@ if $ARGS[0] = 'boy7':
 		act 'Surprise! I brought my strapon.':
 			cla & *clr
 			'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
-			'<center><img <<$set_imgh>> src="images/character/pavlovsk/school/boy/igor/sex/boysroom2.jpg"></center>'
+			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/sex/boysroom2.jpg"></center>'
 			'You pull your strapon out of your purse, "I thought I might fuck you with this."'
 			'His eyes get a little big, but you can also see the little bulge in his pants from him quickly getting a hard on, "Um, I don''t know."'
 			'You attach the dildo to the harness and start to slide the harness up your legs, under your skirt,"Come on, you know you want to and you will love it."'
@@ -1698,7 +1698,7 @@ if $ARGS[0] = 'boy7':
 			act 'Turn around':
 				cla & *clr
 				'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
-				'<center><img <<$set_imgh>> src="images/character/pavlovsk/school/boy/igor/sex/boysroom3.jpg"></center>'
+				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/sex/boysroom3.jpg"></center>'
 				'After he sucks on your dildo for awhile and gets it nice and wet you tell him, "Stand up and turn around, then pull your pants down."'
 				'He does what you ask without hesitation. Once his pants are halfway down his thighs you grab him by the hips and pull him back towards you. Once he is close enough, you reach down and line up the dildo against his asshole. Using one hand you pull his hips back while the other guides your dildo in his ass. He moans in pleasure and pain as your dildo slides in his ass. You slowly begin to fuck his ass.'
 				gs 'arousal', 'anal_strap_give', 10, 'dom'
@@ -1706,21 +1706,21 @@ if $ARGS[0] = 'boy7':
 				act 'On your knees':
 					cla & *clr
 					'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
-					'<center><img <<$set_imgh>> src="images/character/pavlovsk/school/boy/igor/sex/boysroom4.jpg"></center>'
+					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/sex/boysroom4.jpg"></center>'
 					'Once he is down on his knees you push him forward so he is on all fours, you kneel behind him and slip the dildo back in his ass. It easily slides in and you start fucking him again, he moans in pleasure and starts to buck back against you, encouraging you to fuck him harder and deeper. Meanwhile he starts jerking himself off as you fuck his ass.'
 					gs 'arousal', 'anal_strap_give', 10, 'dom'
 					gs 'stat'
 					act 'Such a good little bitch':
 						cla & *clr
 						'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
-						'<center><img <<$set_imgh>> src="images/character/pavlovsk/school/boy/igor/sex/boysroom5.jpg"></center>'
+						'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/sex/boysroom5.jpg"></center>'
 						'He rises up slightly and you pull him up, until he is just kneeling upright, his moans getting louder and louder as you keep fucking his ass. You wrap one of your arms around him, while the other holds onto his hip, giving you good leverage to fuck him hard and fast. You can feel his body tensing up, you know he is about to cum.'
 						gs 'arousal', 'anal_strap_give', 10, 'dom'
 						gs 'stat'
 						act 'Cum for me little slut':
 							cla & *clr
 							'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
-							'<center><img <<$set_imgh>> src="images/character/pavlovsk/school/boy/igor/sex/boysroom6.jpg"></center>'
+							'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/sex/boysroom6.jpg"></center>'
 							'Finally he lets out a loud moan and his body shudders, you fuck him through his orgasm. Once he sighs in relief you pull out and stand up. As you do you glance down to see his hand covered in his own cum. "Go on, lick it up," you tell him, as you start to remove the strapon harness.'
 							'He gives you a surprised look but then does as you ask, you are not sure if he likes it or not, either way it is hot to watch. The two of you spend the next couple of minutes getting cleaned and cleaning your dildo in the sink. When he finally speaks up, "I still can''t believe I let you do that. We could have been caught."'
 							'Shaking your head slightly, you know he loved it, the thrill of it as much as you did. "Oh you loved it and you know it. Next time I might even have you eat me, so I can get off." Before he can reply the first bell that lets out class rings and you both hurry out so you are not caught.'

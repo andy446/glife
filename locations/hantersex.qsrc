@@ -1220,7 +1220,7 @@ end
 
 if $ARGS[0] = 'sluthomeAnalDogCum1':
 	*clr & cla
-	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeanaldogcum1.jpg"></center>'
+	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeAnalDogСum1.jpg"></center>'
 	'You feel his pace quicken and your are sure he is about to cum.'
 	gs 'cum_call', 'anus', $boy, 1
 	gs 'dinSex','boy_wants_anal','lubri' & gs 'dinsex','analsex'
@@ -1248,7 +1248,7 @@ end
 
 if $ARGS[0] = 'sluthomeAnalDogCum2':
 	*clr & cla
-	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeanaldogcum2.jpg"></center>'
+	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeAnalDogСum2.jpg"></center>'
 	'You feel his pace quicken and your are sure he is about to cum.'
 	gs 'cum_call', 'anus', $boy, 1
 	gs 'dinSex','boy_wants_anal','lubri' & gs 'dinsex','analsex'
@@ -1278,7 +1278,7 @@ end
 if $ARGS[0] = 'sluthomeAnalCowCum1':
 	*clr & cla
 	gs 'cum_call', 'anus', $boy, 1
-	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeanalcowcum1.jpg"></center>'
+	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeAnalCowСum1.jpg"></center>'
 	'You feel his pace quicken and your are sure he is about to cum.'
 	gs 'dinSex','boy_wants_anal','lubri' & gs 'dinsex','analsex'
 	'<<$textsexhanter3>>'
@@ -1310,7 +1310,7 @@ end
 if $ARGS[0] = 'sluthomeAnalCowCum2':
 	*clr & cla
 	gs 'cum_call', 'anus', $boy, 1
-	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeanalcowcum2.jpg"></center>'
+	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeAnalCowСum2.jpg"></center>'
 	'You feel his pace quicken and your are sure he is about to cum.'
 	gs 'dinSex','boy_wants_anal','lubri' & gs 'dinsex','analsex'
 	'<<$textsexhanter3>>'
@@ -1337,7 +1337,7 @@ end
 
 if $ARGS[0] = 'sluthomeAnalSideCum1':
 	*clr & cla
-	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeanalsidecum1.jpg"></center>'
+	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeAnalSideСum1.jpg"></center>'
 	'You feel his pace quicken and your are sure he is about to cum.'
 	gs 'cum_call', 'anus', $boy, 1
 	gs 'dinSex','boy_wants_anal','lubri' & gs 'dinsex','analsex'
@@ -1368,7 +1368,7 @@ end
 
 if $ARGS[0] = 'sluthomeAnalSideCum2':
 	*clr & cla
-	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeanalsidecum2.jpg"></center>'
+	'<center><img <<$set_imgh>> src="images/locations/gadukino/sex/hunter/sluthomeAnalSideСum2.jpg"></center>'
 	'You feel his pace quicken and your are sure he is about to cum.'
 	gs 'cum_call', 'anus', $boy, 1
 	gs 'dinSex','boy_wants_anal','lubri' & gs 'dinsex','analsex'

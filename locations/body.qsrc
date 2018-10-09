@@ -1627,7 +1627,7 @@ if lashair = 0:
 		$pcdesc_pubeswordy = 'bushy, thick'
 	elseif pcs_pubes <= 30:
 		lobkoef = 0
-		$pcs_pubes = 'You have a bushy but well-maintained mat of <a href="exec:view''images/pc/body/pussy/shave/h_bush1.jpg''">pubic hair</a>. <<$pirspiz>><br><<$clitsize>>'
+		$pcs_pubes = 'You have a bushy but well-maintained mat of <a href="exec:view''images/pc/body/pussy/shave/s_bush1.jpg''">pubic hair</a>. <<$pirspiz>><br><<$clitsize>>'
 		rand_pubes = rand(0,2)
 		if rand_pubes = 0:$pcdesc_pubesrandom = 'furred'
 		if rand_pubes = 1:$pcdesc_pubesrandom = 'bushy'

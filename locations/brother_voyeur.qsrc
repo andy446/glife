@@ -1303,7 +1303,7 @@ if $ARGS[0] = 'brother_shower_shave':
 			else
 				act'Continue':
 					cla & *clr
-					'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shaved.jpg"></center>'
+					'<center><img <<$set_imgh>> src="images/shared/home/bathroom/shave.jpg"></center>'
 					'	"There," Thrust your hips forward, presenting your freshly shaved pussy to him. "Happy now?"'
 					'	"Yeah..." he says, trailing off at the end, obviously hypnotized by your pussy. You to roll your eyes in response.'
 					act'Finish showering together':gt'brother_voyeur','brother_shower_end'

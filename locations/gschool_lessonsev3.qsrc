@@ -86,7 +86,7 @@ if $ARGS[0] = 'literature':
 			*clr & cla
 			pcs_horny += 10
 			gs'stat'
-			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/boysex_tualet"></center>'
+			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/events/boysex_tualet.jpg"></center>'
 			*nl
 			'You''re making your way to the trash bin to throw something away when you feel a rough hand grope your ass. Surprised, you jump and let out a tiny squeak. Looking back, you see Arkadi winking at you.'
 			act 'Wait for the end of the lesson': gt 'gschool_lessons', 'short_break'

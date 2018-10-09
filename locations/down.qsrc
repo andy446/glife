@@ -227,9 +227,12 @@ else
 	if st_count > 0 :'<TABLE BORDER=1><<$show_table>></TR></TABLE>'
 end
 
-if pcs_makeup > 2 and PCloStyle = 4:
-	act 'There are places to prostitute yourself here': gt 'street_walker', 'work'
-end
+!These should probably be night time only, due to being night time only pics. Hours disabled for testing. 3x
+!if hour < 8 and hour > 21:
+	if pcs_makeup > 2 and PCloStyle = 4:
+		act 'You can prostitute yourself here': gt 'street_walker', 'work'
+	end
+!end
 
 --- down ---------------------------------
 

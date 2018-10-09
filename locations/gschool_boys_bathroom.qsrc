@@ -447,6 +447,7 @@ if $ARGS[0] = 'boy4':
 			'He just lets you do the work, leaning back against the stall wall and closing his eyes to enjoy you sucking him off. "God damn, you Russian girls know how to suck cock." You take that as a compliment and redouble your efforts, bobbing your head up and down his length. His impressive size doesn''t make his manhood easy to handle but it certainly makes it more exciting to you. For a few minutes, he just lets you do your thing as he observes and savors your blowjob, but eventually he breaks the silence, "Hey, <<$pcs_nickname>>? How about you take off your clothes and let me give you the fuck of your life?"'
 			gs 'arousal', 'bj', 5
 			gs 'stat'
+		end
 		act 'Keep sucking':
 			*clr & cla
 			'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'

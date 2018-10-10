@@ -289,6 +289,29 @@ $cheatmenu['BimboCloth'] = {
 	end
 }
 
+$cheatmenu['exhib_block'] = {
+	if exhib_cheat = 0:
+		exhib_cheat = 1
+		dynamic $cheatmenu['permanent']
+		pcs_exhib = 0
+		Exhibitionist_lvl = 0
+	elseif exhib_cheat = 1:
+		exhib_cheat = 0
+		dynamic $cheatmenu['permanent']	
+	end
+}
+
+$cheatmenu['cumtrait_block'] = {
+	if cumeater_cheat = 0:
+		cumeater_cheat = 1
+		dynamic $cheatmenu['permanent']
+		trt_cumeater = 0
+	elseif cumeater_cheat = 1:
+		cumeater_cheat = 0
+		dynamic $cheatmenu['permanent']	
+	end
+}
+
 $cheatmenu['permanent'] = {
 	gs'stat'
 	*clr & cla
@@ -331,6 +354,10 @@ $cheatmenu['permanent'] = {
 	if cheat_NoPregnancy = 1:$cheat_NoPregnancy = 'Currently ON'
 	if cheatBimbo = 0:$cheatBimbo = 'Currently OFF'
 	if cheatBimbo = 1:$cheatBimbo = 'Currently ON'
+	if cumeater_cheat = 0:$cheatcumtrait = 'Currently OFF'
+	if cumeater_cheat = 1:$cheatcumtrait = 'Currently ON'
+	if exhib_cheat = 0:$cheatexhib = 'Currently OFF'
+	if exhib_cheat = 1:$cheatexhib = 'Currently ON'
 
 	'<center><h1>Cheat Menu - Recurrent Cheats</h1></center>'
 	'<center><table cellspacing="0" cellpadding="20" valign="top"><tr>'
@@ -343,26 +370,37 @@ $cheatmenu['permanent'] = {
 	'Never eat: <a href="exec:dynamic $cheatmenu[''noEat'']"><<$cheatNoEat>></a>'
 	'Never drink: <a href="exec:dynamic $cheatmenu[''noDrink'']"><<$cheatNoDrink>></a>'
 	'Never sleep: <a href="exec:dynamic $cheatmenu[''noSleep'']"><<$cheatNoSleep>></a>'
-	'Always happy: <a href="exec:dynamic $cheatmenu[''noMood'']"><<$cheatNoMood>></a>'
+	'Never unhappy: <a href="exec:dynamic $cheatmenu[''noMood'']"><<$cheatNoMood>></a>'
 	'Never lose or gain weight: <a href="exec:dynamic $cheatmenu[''noFat'']"><<$cheatNoFat>></a>'
-	'Disable STDs: <a href="exec:dynamic $cheatmenu[''health'']"><<$cheatHealth>></a>'
 	'Never get addicted: <a href="exec:dynamic $cheatmenu[''addict'']"><<$NarkImmune>></a>'
+	
 	if Enable_sforma = 1:
 		'Allow any clothing for school: <a href="exec:Enable_sforma = 0 & dynamic $cheatmenu[''permanent'']">Currently ON</a>'
 	else
 		'Allow any clothing for school: <a href="exec:Enable_sforma = 1 & dynamic $cheatmenu[''permanent'']">Currently OFF</a>'
 	end
+	
 	*nl
-
+	
 	'Enable sleeping with vibrator inserted: <a href="exec:dynamic $cheatmenu[''Vibrator'']"><<$cheatVib>></a>'
 	'Bandit always horny: <a href="exec:dynamic $cheatmenu[''Bandit'']"><<$cheatBandit>></a>'
 	'Avoid fights: <a href="exec:dynamic $cheatmenu[''fight'']"><<$fight_cheat>></a>'
-	'Remove the bimbo trait and the effects of wearing bimbo clothes: <a href="exec:dynamic $cheatmenu[''BimboCloth'']"><<$cheatBimbo>></a>'
+	
 	*nl
+	
+	'Remove the bimbo trait and the effects of wearing bimbo clothes: <a href="exec:dynamic $cheatmenu[''BimboCloth'']"><<$cheatBimbo>></a>'
+	'Remove the exhibitionist trait: <a href="exec:dynamic $cheatmenu[''exhib_block'']"><<$cheatexhib>></a>'
+	'Remove the cumeater trait: <a href="exec:dynamic $cheatmenu[''cumtrait_block'']"><<$cheatcumtrait>></a>'
+	
+	*nl
+	
 	'Set arousal to always be at 50 or more: <a href="exec:dynamic $cheatmenu[''cheatHorny'']"><<$cheatHorny>></a>'
 	'Turn off periods (and pregnancies): <a href="exec:dynamic $cheatmenu[''slutshot'']"><<$cheatSlut>></a>'
 	'Impregnation is no longer in the game: <a href="exec:dynamic $cheatmenu[''cheat_NoPregnancy'']"><<$cheat_nopregnancy>></a>'
+	'Disable STDs: <a href="exec:dynamic $cheatmenu[''health'']"><<$cheatHealth>></a>'
+	
 	*nl
+	
 	if cyccustom = 0:'Automatic period tracking: <a href="exec:dynamic $cheatmenu[''auto_period'']">Currently OFF</a>'
 	if cyccustom = 1:'Automatic period tracking: <a href="exec:dynamic $cheatmenu[''auto_period'']">Currently ON</a>'
 	*nl

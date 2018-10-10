@@ -43,7 +43,7 @@ if $ARGS[0] = 'menu':
 	end
 	*nl
 	'<center><b>Exhibitionist</b></center>'
-	if Exhibitionist_lvl = 0:
+	if Exhibitionist_lvl = 0 and exhib_cheat = 0:
 		'You do not have this trait.'
 		'To gain this trait you must have low enough inhibition and choose to expose your breasts in public.'
 		'You have <<pcs_exhib>> out of 10 points towards level 1. This will slowly decrease each day u*nless you expose yourself.'
@@ -68,10 +68,12 @@ if $ARGS[0] = 'menu':
 	end
 	*nl
 	'<center><b>Cumeater</b></center>'
-	if trt_cumeater = 0:
+	if trt_cumeater = 0 and cumeater_cheat = 0:
 		'You do not have this trait.'
 		'To gain this trait you must swallow cum 10 times.'
 		'You have swallowed cum <<swallow>> times.'
+	elseif trt_cumeater = 0 and cumeater_cheat = 1:
+		'You do not have this trait.'
 	else
 		'You have this trait.'
 		'It allows you to remove cum from certain locations and eat it'
@@ -83,9 +85,9 @@ if $ARGS[0] = 'menu':
 end
 
 if $ARGS[0] = 'hourly':
-	if swallow >= 10 and trt_cumeater = 0:
+	if swallow >= 10 and trt_cumeater = 0 and cumeater_cheat = 0:
 		trt_cumeater = 1
-		msg 'You have gained the trait "cum-eater"'
+		msg 'You have gained the trait "Cumeater"'
 	end
 end
 

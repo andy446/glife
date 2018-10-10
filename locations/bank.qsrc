@@ -1,17 +1,20 @@
 # bank
+
 if $ARGS[0] = 'start':
-	cla
-	*clr
+	*clr & cla
+	$loc = 'bank'
+	$metka = 'start'
+	$menu_loc = 'bank'
+	$menu_arg = 'start'
+	menu_off = 0
+	$location_type = 'public_indoors'
 	minut += 2
 	gs 'stat'
 	gs 'themes', 'indoors'
 	'<center><b><font color="maroon">Bank</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/bank/bank.jpg"></center>'
 
-	if week <= 5 and hour = 16 and minut >= 30 and mey_vika['mey_vika_qw'] >= 32: 
-		!r125
-		'Seems like <a href="exec:gs''mey_tamara_events'',''tamara''">Tamara Mikhailovna</a> is heading home.'
-	end	
+	if week <= 5 and hour = 16 and minut >= 30 and mey_vika['mey_vika_qw'] >= 32: 'Seems like <a href="exec:gs''mey_tamara_events'',''tamara''">Tamara Mikhailovna</a> is heading home.'
 	
 	if bankAccount = 0:
 		'Do you want to open an account?'
@@ -25,9 +28,18 @@ if $ARGS[0] = 'start':
 		end
 	end
 
+	act 'Leave':
+		minut += 2
+		if bankloc = 1:
+			gt 'down'
+		else
+			gt 'pavCommercial'
+		end
+	end
+	
 	if BankPapper = 1 and dayBankPapper = daystart:
 		act 'Show documents':
-			cls
+			*clr & cla
 			minut += 15
 			BankPapper = 2
 			gs 'stat'
@@ -86,15 +98,6 @@ if $ARGS[0] = 'start':
 				end
 			end
 			act 'Walk away':gt 'bank', 'start'
-		end
-	end
-
-	act 'Leave':
-		minut += 2
-		if bankloc = 1:
-			gt 'down'
-		else
-			gt 'pavCommercial'
 		end
 	end
 end

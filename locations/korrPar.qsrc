@@ -29,7 +29,7 @@ end
 
 if hour ! 18 and blockBedrPar = 1:blockBedrPar = 0
 
-act '<b>Leave and go to the stairwell</b>':
+act 'Leave and go to the stairwell':
 	if $clothingworntype ! 'nude':
 		gt'pod_ezd','etaj_2'
 	else
@@ -38,7 +38,7 @@ act '<b>Leave and go to the stairwell</b>':
 	end
 end
 
-act '<b>Leave and go to the street</b>':
+act 'Leave and go to the street':
 	if $clothingworntype ! 'nude':
 		if hour < 4 and motherWorry = 0 and age < 18:
 			'<font color=red>Are you sure? Your mother will worry.</b></font>'

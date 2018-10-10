@@ -15,7 +15,7 @@ if $ARGS[0] = '1':
 	gs 'stat'
 
 	if hour > 7 and hour < 21:
-		cls
+		*clr & cla
 		'Hidden by a tree''s shadow, you notice a man standing there, he watches you and when you look back at him he shouts "Whore!" at you.'
 
 		act 'Silently leave':sub += 1 & gt 'park', 'start'
@@ -44,8 +44,7 @@ if $ARGS[0] = '1':
 		gs 'npcgeneratec', 0, 'Rapist', rand(18,40)
 		gs 'boyStat', $npclastgenerated
 		act 'Fight him':
-			cls
-			cla
+			*clr & cla
 			!!stats
 			strenV = 100
 			speedV = 50
@@ -142,14 +141,14 @@ if $ARGS[0] = '2':
 	gs 'dinsexFX'
 
 	if pcs_apprnc >= 120 and parkday = daystart:
-		cls
+		*clr & cla
 		'You see a man sitting under a tree drinking beer. It''s the guy who fucked you here in the park a while ago. He looks at you and his sudden grin tells you that he remembers who you are.'
 
 		act 'Leave':gt 'park', 'start'
 
 		exit
 	elseif pcs_apprnc >= 120 and parkday ! daystart and parkslut > 0:
-		cls
+		*clr & cla
 		'From the bench under one of the trees a guy comes up to you. It''s the guy who fucked you here in the park a while back. He smiles and asks you "Hello again beautiful girl, do you mind if we do it once again?"'
 
 		act 'Walk away':gt 'park', 'start'
@@ -180,7 +179,7 @@ if $ARGS[0] = '2':
 
 		exit
 	elseif pcs_apprnc >= 120 and parkday ! daystart and parkslut = 0:
-		cls
+		*clr & cla
 		'A man appears from the shadows and approaches you, "Good evening beautiful lady, would you like to earn 2.000 <b>₽</b>?" he asks you.'
 
 		act 'Ask him how to do it':
@@ -219,15 +218,14 @@ if $ARGS[0] = '2':
 end
 
 if $ARGS[0] = '3':
-	cls
+	*clr & cla
 	gs 'stat'
 	'As you walk through the park, you hear moans and groans coming out of the bush close to one of the paths.'
 
 	act 'Continue walking':gt 'park', 'start'
 
 	act 'Peek':
-		cla
-		*clr
+		*clr & cla
 		pcs_horny += 10
 		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/shfoto.jpg"></center>'
@@ -360,7 +358,7 @@ if $ARGS[0] = '4':
 	gs 'stat'
 
 	if parkblackmail = 0:
-		cls
+		*clr & cla
 		'On one of the parks open grass area, you see a group of young people enjoying a barbecue. As you walk past them, a guy who is with them, walks up to you and asks if you would like to join them.'
 
 		act 'Decline and continue your walk':gt 'park', 'start'
@@ -457,9 +455,8 @@ if $ARGS[0] = '5':
 	act 'Finish your walk':gt 'park', 'start'
 
 	if yaq = 0 and student > 0:
-		cls
-		cla & *clr
-		minut = 20
+		*clr & cla
+		minut += 20
 		gs 'stat'
 		'As you''re walking and pondering, a man walks up to you. He introduces himself as Yaroslav and asks if you would like to earn some money.'
 
@@ -498,7 +495,7 @@ end
 
 if $ARGS[0] = '6':
 	cla & *clr
-	minut = 5
+	minut += 5
 	gs 'stat'
 
 	if ublyudokparkivent = 0:
@@ -508,8 +505,7 @@ if $ARGS[0] = '6':
 		act 'Walk away':gt 'park', 'start'
 
 		act 'Walk up to him':
-			cla
-			*clr
+			*clr & cla
 			ublyudokparkivent = 1
 			gs 'pain', 8, 'head', 'hit'
 			gs 'stat'
@@ -537,7 +533,7 @@ if $ARGS[0] = '6':
 end
 
 if $ARGS[0] = '6a':
-	cls
+	*clr & cla
 	minut += 10 
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/2.jpg"></center>'
@@ -581,7 +577,7 @@ if $ARGS[0] = '6a':
 end
 
 if $ARGS[0] = '6b':
-	cls
+	*clr & cla
 	minut += 5
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/6.jpg"></center>'
@@ -639,7 +635,7 @@ if $ARGS[0] = '6b':
 						gs 'stat'
 
 						act 'Did he just cum in me?':
-							cls
+							*clr & cla
 							minut += 5
 							gs 'stat'
 							'<center><img <<$set_imgh>> src="images/locations/city/centralpark/sex/event/rape/12.jpg"></center>'
@@ -707,8 +703,7 @@ if $ARGS[0] = '8':
 	vnerand = rand(0, 1200)
 
 	if pcs_lover < 3 and vnerand <= pcs_apprnc:
-		cla
-		*clr
+		*clr & cla
 		gs 'boy'
 		'A guy with <<$boybody>> <<$boybod>> <<$boyface>> approaches you. He''s wearing <<$boyClo>>.'
 		'The guy introduces himself as <<$boydesc>> and asks for your number.'
@@ -789,7 +784,7 @@ end
 if $ARGS[0] = 'run':
 	if $clothingworntype = 'exercise' and $shoeworntype = 'trainers' and hour > 5 and hour < 23 and daybegskver ! daystart:
 		act 'Go for a run in the park (1:00)':
-			cls
+			*clr & cla
 			gs 'exercise', 'tier1', 60, 'run_exp'
 			fat -= rand(0,4)
 			pcs_sweat += 5
@@ -805,8 +800,7 @@ if $ARGS[0] = 'run':
 			end
 			if pcs_inhib >= 35 or exhibitionist_lvl > 0:
 				act 'Expose your breasts':			
-					*clr
-					cla
+					*clr & cla
 					if rand(0,1) = 0:
 						'<center><img <<$set_imgh>> src="images/locations/shared/park/flash'+rand(3,4)+'.jpg"></center>'
 					else
@@ -870,8 +864,7 @@ if $ARGS[0] = 'find_baby':
         'You take a relaxing and refreshing walk through the park, trying to figure out the meaning of life.'
         'Your thoughts are interrupted by a weak noise coming from a small forest in the park.'
         act 'Investigate':    
-            *clr
-            cla
+            *clr & cla
             '<center><img <<$set_imgh>> src="images/locations/city/centralpark/park_baby/park_baby_a.jpg"></center>'
             'After searching and following the noises you end up finding an abandoned baby in the park. You approach it and can hear weak cries coming from it.'
             'You pull it from the crib an see that it is a boy. The baby boy isn''t moving much as he seems really weak.'
@@ -883,8 +876,7 @@ if $ARGS[0] = 'find_baby':
             if lactate > 0:
                 act 'Breastfeed him':
                     gs 'stat'
-                    *clr
-                    cla
+                   *clr & cla
                     '<center><img <<$set_imgh>> src="images/locations/city/centralpark/park_baby/park_baby_bf.jpg"></center>'
 					'You sit down on a nearby bench and get a breast out.'
 					if kid <= 0:
@@ -900,15 +892,13 @@ if $ARGS[0] = 'find_baby':
 						minut += temp_var
 						if pcs_mood < 20:
 							act 'Leave him here':
-								*clr
-								cla
+								*clr & cla
 								'You look around, someone probably left him here for good. You put him back into the crib and leave the baby behind, finishing your walk.'
 								act 'Finish your walk': gt $loc, $metka
 							end
 						end
 						act 'Bring him to the hospital':
-							*clr
-							cla
+							*clr & cla
 							'<center><b><font color="maroon">Clinic</font></b></center>'
 							'<center><img <<$set_imgh>> src="images/locations/shared/clinic/poli.jpg"></center>'
 							'You take the baby and walk to the hospital in the residential area of St. Petersburg.'
@@ -925,8 +915,7 @@ if $ARGS[0] = 'find_baby':
 						milkedvolume = 0
 						minut += temp_var
 						act 'Continue to breastfeed him':
-							*clr
-							cla
+							*clr & cla
 							gs 'stat'
 							'You adjust yourself a bit as you continue to breastfeed the baby. He opens his mouth more to suck in your areola, starting to chew on it. You can feel how it causes your breast to leak more milk. His small hands grabbing up, holding onto your nutrious breast.'
 							'<center><img <<$set_imgh>> src="images/locations/city/centralpark/park_baby/feeding_02.jpg"></center><br>'
@@ -945,8 +934,7 @@ if $ARGS[0] = 'find_baby':
 									end
 								end
 								act 'Bring him to the hospital':
-									*clr
-									cla
+									*clr & cla
 									'<center><b><font color="maroon">Clinic</font></b></center>'
 									'<center><img <<$set_imgh>> src="images/locations/shared/clinic/poli.jpg"></center>'
 									'You take the baby and walk to the hospital in the residential area of St. Petersburg.'
@@ -986,15 +974,13 @@ if $ARGS[0] = 'find_baby':
 								minut += temp_var
 								if pcs_mood < 20:
 									act 'Leave him here':
-										*clr
-										cla
+										*clr & cla
 										'You look around, someone probably left him here for good. You put him back into the crib and leave the baby behind, finishing your walk.'
 										act 'Finish your walk': gt $loc, $metka
 									end
 								end
 								act 'Bring him to the hospital':
-									*clr
-									cla
+									*clr & cla
 									'<center><b><font color="maroon">Clinic</font></b></center>'
 									'<center><img <<$set_imgh>> src="images/locations/shared/clinic/poli.jpg"></center>'
 									'You take the baby and walk to the hospital in the residential area of St. Petersburg.'
@@ -1009,15 +995,13 @@ if $ARGS[0] = 'find_baby':
 						end
 						if pcs_mood < 20:
 							act 'Leave him here':
-								*clr
-								cla
+								*clr & cla
 								'You look around, someone probably left him here for good. You put him back into the crib and leave the baby behind, finishing your walk.'
 								act 'Finish your walk': gt $loc, $metka
 							end
 						end
 						act 'Bring him to the hospital':
-							*clr
-							cla
+							*clr & cla
 							'<center><b><font color="maroon">Clinic</font></b></center>'
 							'<center><img <<$set_imgh>> src="images/locations/shared/clinic/poli.jpg"></center>'
 							'You take the baby and walk to the hospital in the residential area of St. Petersburg.'
@@ -1032,8 +1016,7 @@ if $ARGS[0] = 'find_baby':
                 end
             end
             act 'Bring him to the hospital':
-                *clr
-                cla
+                *clr & cla
                 '<center><b><font color="maroon">Clinic</font></b></center>'
                 '<center><img <<$set_imgh>> src="images/locations/shared/clinic/poli.jpg"></center>'
                 'You take the baby and walk to the hospital in the residential area of St. Petersburg.'
@@ -1043,8 +1026,7 @@ if $ARGS[0] = 'find_baby':
             end
             if pcs_mood < 20:
                 act 'Leave him here':
-                    *clr
-                    cla
+                    *clr & cla
                     'You look around, someone probably left him here for good. You leave the baby behind and finish your walk.'
                     act 'Finish your walk': gt $loc, $metka
                 end

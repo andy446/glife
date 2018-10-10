@@ -42,18 +42,32 @@ if $ARGS[0] = 'start':
 		end
 	end
 
+	if car > 0 and cardrive = 20:
+		cardrive = 20
+		'Your <a href="exec:gs ''carF'', ''start''">car<<$car>></a> is parked in the street.'
+	end
+	if rexCar = 1 and rexCarDay = daystart and hour >= 21 and hour < 23 and rexSisTalk = 3:
+		'<br>Rex is in his car, waiting for you at the parking lot near the apartment building where your parents live.'
+		act 'Join Rex in his car':gt'reks','avto'
+	end
+
+	if rexCar = 1 and rexCarDay = daystart and hour = 21 and rexSisTalk >= 4:
+		'<br>Rex is in his car, waiting for you at the parking lot near the apartment building where your parents live.'
+		act 'Join Rex in his car':gt'reks','avto2'
+	end
+
 	if home_owned[2] = 1:
 		'In the old part of Pavlovsk, there''s a block of three apartment buildings. The southern building sits along the main street of the Pavlosk residential area, front and center among the other two apartment complexes that are located behind it, one on each side and named the eastern and western buildings respectively. Your family''s apartment is on the second floor of the southern building.'
 		*nl
 		'The three buildings surround a meager courtyard, which has changed over the years to now include a kid''s playground that occupies most of the small outdoor space. A few benches and tables surround it, and there''s a handful of small utility sheds tucked away in the corner for tenants to use if they''re willing to pay for the extra space.'
 		*nl
-		'Behind the apartments is a row of garages and storage space for tenants. Your family home is on the second floor there. <<$gcartext>>'
+		'Behind the apartments is a row of <a href="exec:minut += 3 & gt ''pavComplex'', ''garages''">garages</a> and storage space for tenants. Your family home is on the second floor there. <<$gcartext>>'
 	elseif StoryLine = 1:
 		'In the old part of Pavlovsk, there''s a block of three apartment buildings. The southern building sits along the main street of the Pavlosk residential area, front and center among the other two apartment complexes that are located behind it, one on each side and named the eastern and western buildings respectively. Your family''s apartment is on the second floor of the southern building.'
 		*nl
 		'The three buildings surround a meager courtyard, which has changed over the years to now include a kid''s playground that occupies most of the small outdoor space. A few benches and tables surround it, and there''s a handful of small utility sheds tucked away in the corner for tenants to use if they''re willing to pay for the extra space.'
 		*nl
-		'Behind the apartments is a row of garages and storage space for tenants. Your parents live here, but you are no longer welcome in their home. <<$gcartext>>'
+		' Behind the apartments is a row of <a href="exec:minut += 3 & gt ''pavComplex'', ''garages''">garages</a> and storage space for tenants. Your parents live here, but you are no longer welcome in their home. <<$gcartext>>'
 	else
 		'<<$gcartext>>'
 	end
@@ -75,31 +89,39 @@ if $ARGS[0] = 'start':
 				'Natasha Belova, one of your classmates, lives in the same apartment building as your parents, on the fourth floor.'
 			end
 		end
+		if anushkaFirstvisit ! 0 and npc_rel['A144'] > 60:
+			'<a href="exec:minut += 10 & gt ''anushapt'', ''home''">Anushka Konstantinov</a>, a classmate, lives in one of the other apartment blocks here.'
+		else
+			'Anushka Konstantinov, a classmate, lives in one of the other apartment blocks here.'
+		end
 	else
 		st_count=0 & $show_table=''
 		if (npc_rel['A112'] >=70) or (npc_rel['A112'] >=30 and week < 6 and hour >= 14 and hour <= 23) or (week >= 6 and hour >= 10 and hour < 14) or (week < 6 and hour >= 14 and hour <= 23) or (hour >= 0 and hour < 2):
 			gs'show_table','Apartment of Uncle <a href="exec:minut += 15 & GT ''shulgahome''" >Shulgin</a>.','3'
 		else
-			gs'show_table','Apartment of Uncle Shulgin. Not now.','3'
+			gs'show_table','Apartment of Uncle Shulgin..','3'
 		end
 		if ArtemBeInHome > 0 and artemblok = 0:gs'show_table','Apartment of <a href="exec:minut += 15 & gt ''artemhome''">Artem Chebotarev</a>.','3'
 		if BeInJulMilHome = 1:
 			if hour >= 18 and hour <= 20 and week < 6 or hour >= 8 and hour <= 20 and week >= 6:
 				gs'show_table','apartment of <a href="exec:minut += 15 & gt ''JuliaMilHome''">Julia Milova</a>.','3'
 			else
-				gs'show_table','apartment of Julia Milova. Not now.','3'
+				gs'show_table','apartment of Julia Milova..','3'
 			end
 		end
 		if BeInNatBelHome = 1:
 			if hour >= 18 and hour <= 20 and week < 6 or hour >= 8 and hour <= 20 and week >= 6:
 				gs'show_table','apartment of <a href="exec:minut += 15 & gt ''NatBelHome''">Natasha Belova</a>.','3'
 			else
-				gs'show_table','apartment of Natasha Belova. Not now.','3'
+				gs'show_table','apartment of Natasha Belova.','3'
 			end
 		end
+		if anushkaFirstvisit ! 0 and npc_rel['A144'] > 60:
+			gs'show_table','Messy home of <a href="exec:minut += 10 & gt ''anushapt'', ''home''">Anushka Konstantinov</a>.','3'
+		else
+			gs'show_table','Messy home of Anushka Konstantinov.','3'
+		end
 	end
-
-	if kanikuli = 0 and StoryLine > 0 and SchoolAtestat = 0 and SchoolBlock = 0 and week < 6 and hour >= 7 and hour < 9: act '<b>Go to school</b>': minut += 2 & gt 'gschool_grounds', 'main'
 
 	if home_owned[2] = 1: act '<b>Go Home</b> (Parents'' Apartment)': minut += 4 & GT 'korrPar'
 	if pavSharedAptEnabled = 1:act '<b>Go Home</b> (Shared Apartment)': minut += 5 & GT 'pavSharedApt', 'start'

@@ -419,7 +419,7 @@ if $ARGS[0] = 'mari_chat':
 			'<center><img src="images/locations/city/citycenter/photo/portraits/mari_e/talking/reading2.jpg"></center>'
 			'	"Hey Mari, how come you don''t shave your bush?"'
 			'	"The photographers actually ask me not to shave. They say it helps sell my ''farm girl'' look," she says, causing you both to giggle a little. "Besides, I tried shaving once when I still lived in Gadukino and I hated that prickly feeling when it would start to grow back as stubble. It''s too much of a hassle to keep it smooth down there so since then I just decided to keep it trimmed."'
-			if pubestyle = 2:
+			if pubestyle >= 2:
 				'	"I know what you mean! Keeping it clean-shaven is too much work. What''s wrong with having a bit of bush?"'
 				'	"Right???"'
 				'	The two of you laugh together over your agreement in pubic hair fashion.'

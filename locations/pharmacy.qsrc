@@ -49,6 +49,8 @@ if $ARGS[0] = 'shop' or $ARGS[0] = '':
 	else
 		'<center>Their is a young woman behind the counter in a white coat,as you approach she asks. "Hello, what can I help you with?"</center>'
 	end
+	
+	act 'Leave the pharmacy': minut += 5 & gt $loc, $metka
 
 	!! output for purchased item
 	iif($ARGS[1] = '', '', '<center><<$ARGS[1]>></center>')

@@ -519,11 +519,9 @@ $fatdel = {
 			else
 				pcs_hydra += 50
 			end
-			salo -= 20
-			if salo < 11: salo = 11
-			gs 'body_shape', 'softreset'
+			fat -= 20
 
-			'You drink the fat burning capsule. These capsules are quick release and results can be seen immediately.'
+			'You drink the fat burning capsule. These capsules are quick release and results can be seen soon.'
 
 			act 'Get up from the table':gt $loc, $metka
 		end

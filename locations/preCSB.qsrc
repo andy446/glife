@@ -106,7 +106,7 @@ end
 if $ARGS[0] = 'intro_3':
 	*clr & cla
 	'<center><img <<$set_imgh>> src="images/pre/csb/start7csb.jpg"></center>'
-	'Her name is <<$pcs_firstname>> "<<$pcs_nickname>>" <<$pcs_lastname>>. She was born on the same day as you, [Selectable Text: Birthday MM/DD/YYYY]. She has no friends in her home town, a result of not being a particularly outgoing or beautiful girl.'
+	'Her name is <<$pcs_firstname>> "<<$pcs_nickname>>" <<$pcs_lastname>>. She was born on the same day as you. She has no friends in her home town, a result of not being a particularly outgoing or beautiful girl.'
 	'She enthusiastically responds to your messages, eager to finally have someone to talk to. You can''t believe your luck; this might be your saving grace.'
 	'You spend the next few weeks messaging back and forth. <<$pcs_nickname>> appears to crave your attention, telling you all about her life as well as her likes and dislikes.'
 	

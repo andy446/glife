@@ -71,6 +71,7 @@ if $ARGS[0] = 'cafeteria':
 	if money >= 50:
 		act 'Buy food (50 <b>₽</b>)':
 			cla
+			menu_off = 1
 			money -= 50
 			gs 'food', 'm_meal'
 			delact 'Finish'
@@ -80,6 +81,7 @@ if $ARGS[0] = 'cafeteria':
 	end
 	act 'Eat bagged lunch':
 		cla
+		menu_off = 1
 		gs 'food', 'bag_lunch'
 		delact 'Finish'
 		gs 'gschool_gossip', 'bagged'
@@ -87,6 +89,7 @@ if $ARGS[0] = 'cafeteria':
 	end
 	act 'Skip lunch':
 		cla
+		menu_off = 1
 		gs 'gschool_gossip', 'skipping'
 		act 'Continue': gt 'gschool_lunch', 'break'
 	end
@@ -145,9 +148,9 @@ if $ARGS[0] = 'break':
 
 	if soniaPS = 2:soniaPS = 3 & 'During break, while you''re wandering through the school hallways killing time, you notice Sonia Ivanko and Vitek Kotov talking about something. Sonia looks like she''s about to cry, but eventually she gives a quiet nod as Vitek whispers something in her ear.'
 
-
 	act 'Relax in a classroom':
 		*clr & cla
+		menu_off = 1
 		minut += 5
 		urand = rand(0, 20)
 		gs 'stat'
@@ -165,6 +168,7 @@ if $ARGS[0] = 'break':
 
 	act 'Hang out in the hallway':
 		*clr & cla
+		menu_off = 1
 		minut += 5
 		gs 'stat'
 
@@ -197,6 +201,7 @@ if $ARGS[0] = 'break':
 
 	act 'Go to the restrooms':
 		*clr & cla
+		menu_off = 1
 		minut += 5
 		urand = rand(0, 12)
 		gs 'stat'
@@ -248,6 +253,7 @@ if $ARGS[0] = 'break':
 	if school_period = 6:
 		act 'Stay in cafeteria':
 			*clr & cla
+			menu_off = 1
 			minut += 5
 			gs 'stat'
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/lunch/lunch.jpg"></center>'
@@ -269,7 +275,8 @@ if $ARGS[0] = 'break':
 	if zverevaQW = 2 and zverRageQW = 0 or zverevaQW = 3 and zverRageQW = 0:
 		act 'Spread rumours about Christina':
 			*clr & cla
-
+			menu_off = 1
+			
 			if zverRageQW = 0:zverRageQW = 1
 
 			minut += 5
@@ -893,6 +900,7 @@ end
 
 if $ARGS[0] = 'rolan_meet':
 	*clr & cla
+	menu_off = 1
 	gs 'stat'
 	if rolanmeet < 1:
 		*clr & cla

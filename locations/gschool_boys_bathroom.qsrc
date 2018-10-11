@@ -1,6 +1,10 @@
 # gschool_boys_bathroom
 
 if $ARGS[0] = 'start':
+	*clr & cla
+	$menu_loc = 'gschool_boys_bathroom'
+	$menu_arg = 'start'
+	menu_off = 0
 	gs 'stat'
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/boysbathroom.jpg"></center>'
@@ -8,6 +12,7 @@ if $ARGS[0] = 'start':
 	act 'Play on your phone':
 		school_bunk = 0
 		cla & *clr
+		menu_off = 1
 		'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/usephone1.jpg"></center>'
 		'You pull out your phone, looking for something to do. You can''t really text anyone right now and the games you can play aren''t very good, but it sure as hell beats sitting through another boring class.'
@@ -27,6 +32,7 @@ if $ARGS[0] = 'start':
 	end
 	if siga > 0:
 		act 'Have a smoke':
+			menu_off = 1
 			school_bunk = 1
 			gs 'shortgs','smoker'
 			cla & *clr
@@ -52,6 +58,9 @@ if $ARGS[0] = 'start':
 end
 
 if $ARGS[0] = 'bathroom2':
+	$menu_loc = 'gschool_boys_bathroom'
+	$menu_arg = 'bathroom2'
+	menu_off = 0
 	if school_bunk = 0:
 		pcs_willpwr += rand(5, 10)
 		pcs_mood += rand(10, 30)
@@ -74,6 +83,8 @@ if $ARGS[0] = 'bathroom2':
 end
 
 if $ARGS[0] = 'boys':
+	*clr & cla
+	menu_off = 1
 	i = rand(1,140)
 	if i <= 10 and kotovLoveQW < 1:
 		gt 'gschool_boys_bathroom', 'boy6'
@@ -95,7 +106,8 @@ if $ARGS[0] = 'boys':
 end
 
 if $ARGS[0] = 'boy1':
-	cla & *clr
+	*clr & cla
+	menu_off = 1
 	boyrand = rand(1,8)
 	if boyrand = 1:
 		npc_rel['A147'] += 1
@@ -132,6 +144,8 @@ if $ARGS[0] = 'boy1':
 end
 
 if $ARGS[0] = 'boy2':
+	*clr & cla
+	menu_off = 1
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/stall.jpg"></center>'
 	'After a couple of minutes, you hear someone else in the bathroom with you. You move slightly to make sure you are hidden, but that causes the the toilet seat under you to creak noticeably.'
@@ -239,6 +253,8 @@ if $ARGS[0] = 'boy2':
 end
 
 if $ARGS[0] = 'boy2_sub':
+	*clr & cla
+	menu_off = 1
 	gs 'boyStat', 'A154'
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/radomir/sex/school/boy1bj.jpg"></center>'
@@ -291,6 +307,8 @@ if $ARGS[0] = 'boy2_sub':
 end
 
 if $ARGS[0] = 'boy3':
+	*clr & cla
+	menu_off = 1
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/32.jpg"></center>'
 	'After a couple of minutes, you hear someone else in the bathroom with you. You peek out but don''t see anyone. Confused and a little curious, you leave the stall and take a look around. The next stall door is open and you see Lazar using the toilet as a chair, with a folder in his lap. "Hey Lazar, what''s up?" you ask.'
@@ -336,6 +354,8 @@ if $ARGS[0] = 'boy3':
 end
 
 if $ARGS[0] = 'boy3_kiss':
+	*clr & cla
+	menu_off = 1
 	gs 'boyStat', 'A149'
 	npc_rel['A149'] += 3
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
@@ -405,6 +425,8 @@ if $ARGS[0] = 'boy3_kiss':
 end
 
 if $ARGS[0] = 'boy4':
+	*clr & cla
+	menu_off = 1
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/27.jpg"></center>'
 	'After a couple of minutes, you hear someone else in the bathroom with you. You peek out but you don''t see anyone. Confused and a little curious, you leave the stall and take a look around. The next stall door is open and you see Marcus standing there. His pants and underwear are pulled down to his knees and his large, black cock is standing at attention. "Uh... Hey Marcus, did I catch you at a bad time?" you ask, carefully.'
@@ -556,6 +578,8 @@ if $ARGS[0] = 'boy4':
 end
 
 if $ARGS[0] = 'boy4_end':
+	*clr & cla
+	menu_off = 1
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/sex/boys/boys.jpg"></center>'
 	'"I hope you don''t think we are all teases anymore. Even if we do tease, there is normally a big pay off in the end," you tell him as you finish getting the last of your clothes back in place and suggestively wiggle your tongue at him.'
@@ -565,6 +589,8 @@ if $ARGS[0] = 'boy4_end':
 end
 
 if $ARGS[0] = 'boy5':
+	*clr & cla
+	menu_off = 1
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/sex/boys/boys.jpg"></center>'
 	'After a couple of minutes, you hear someone else in the bathroom with you. Within moments, you hear a guy''s voice - you recognize it as Ivan''s: "Hey, wait, can you smell that?"'
@@ -674,6 +700,8 @@ if $ARGS[0] = 'boy5':
 end
 
 if $ARGS[0] = 'boy6':
+	*clr & cla
+	menu_off = 1
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/stall.jpg"></center>'
 	if gruptipe ! 4 and hotcat => 5:
@@ -734,6 +762,8 @@ if $ARGS[0] = 'boy6':
 end
 
 if $ARGS[0] = 'boy6_not':
+	*clr & cla
+	menu_off = 1
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/boysbathroom.jpg"></center>'
 	'You decide to shake your head and try to fend them off, "Not today, boys." They don''t relent and keep pawing at you, one or two even try to push their luck and see if all it takes to sway you is one good squeeze. Vitek and Dan aren''t as handsy as the others but aren''t coming to your aid either. You''re trying to push through the others, towards the door, and you know that if they really don''t want to let you leave, there is no way you could force your way past them. You push a couple of them away and they stay backed off for a moment, but by the time you push another off, another moves back in. They seem to be enjoying the game.'
@@ -753,6 +783,7 @@ if $ARGS[0] = 'boy6_not':
 end
 
 if $ARGS[0] = 'boy6_sub':
+	menu_off = 1
 	grupvalue[4] -=3
 	if gruptipe = 4:
 		pav_sex +=2
@@ -895,6 +926,7 @@ end
 
 if $ARGS[0] = 'companyb':
 	cla & *clr
+	menu_off = 1
 	!!This replaces random girls, with these possible couples for either company1 or company2
 	!!replacement for random boy/girl
 	!!Viktoriya and Vanya
@@ -953,6 +985,7 @@ end
 
 if $ARGS[0] = 'companyb1':
 	cla & *clr
+	menu_off = 1
 	pcs_horny += 5
 	gs 'stat'
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
@@ -997,6 +1030,7 @@ end
 
 if $ARGS[0] = 'companyb2':
 	cla & *clr
+	menu_off = 1
 	pcs_horny += 5
 	gs 'stat'
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
@@ -1041,6 +1075,7 @@ end
 
 if $ARGS[0] = 'companyb3':
 	cla & *clr
+	menu_off = 1
 	pcs_horny += 5
 	gs 'stat'
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
@@ -1087,6 +1122,8 @@ if $ARGS[0] = 'companyb3':
 end
 
 if $ARGS[0] = 'Join them':
+	*clr & cla
+	menu_off = 1
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/sex/boys/couplefuck.jpg"></center>'
 	'You step out of the stall and see Arkadi has Anushka bent over, up against one of the stalls, and is fucking her hard and fast. He may have been looking around before but he seems completely oblivious to you now; she, on the other hand, is looking right at you and smiling, as if she had been expecting you.'
@@ -1168,8 +1205,8 @@ if $ARGS[0] = 'Join them':
 end
 
 if $ARGS[0] = 'companyb4':
-	*clr
-	cla
+	*clr & cla
+	menu_off = 1
 	'<center><b><font color="maroon">Girls bathroom</font></b></center>'
 	'<center><video autoplay loop src="images/locations/pavlovsk/school/bathroom/sex/teachers1.mp4"></video></center>'
 	'After a couple of minutes, you hear someone else in the bathroom with you. Soft murmured voices echo in the room, one male, the other female; you can''t quite make out what they are saying. Then there is some rustling of clothes, shortly followed by female moans. You creep up to the stall door, open it just a tiny bit, just as far as you dare without drawing attention, and peek outside.'
@@ -1227,6 +1264,7 @@ end
 
 if $ARGS[0] = 'caughtb':
 	cla & *clr
+	menu_off = 1
 	if rand(1,100) <= 50:
 		gt 'gschool_boys_bathroom', 'caughtb1'
 	else
@@ -1236,6 +1274,7 @@ end
 
 if $ARGS[0] = 'caughtb1':
 	cla & *clr
+	menu_off = 1
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/caught.jpg"></center>'
 	'After a couple of minutes, you hear someone else in the bathroom with you. You peek out and see one of your teachers, Mr. Vasilyev, standing at the mirror. You duck back into the stall, close the door as quietly as you can and sit down on the toilet, your heart beating like crazy, hoping he didn''t notice you. You hear his footsteps coming closer, closer... and stop, right outside your stall door.'
@@ -1444,6 +1483,7 @@ end
 
 if $ARGS[0] = 'caughtb2':
 	cla & *clr
+	menu_off = 1
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/caught.jpg"></center>'
 	'After a couple of minutes, you hear someone else in the bathroom with you. You peek out and see one of your teachers, Mr. Ivanov, standing at the mirror. You duck back into the stall, close the door as quietly as you can and sit down on the toilet, your heart beating like crazy, hoping he didn''t notice you. You hear his footsteps coming closer, closer... and stop, right outside your stall door.'
@@ -1667,6 +1707,7 @@ end
 
 if $ARGS[0] = 'boy7':
 	cla & *clr
+	menu_off = 1
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/sex/boysroom1.jpg"></center>'
 	'After a couple of minutes, you hear someone else in the bathroom with you. You peek out and see Igor at the sink washing his hands. Smiling, you exit the stall and call his name. "Hey Igor, what are you up to?"'

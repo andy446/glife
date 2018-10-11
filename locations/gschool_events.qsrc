@@ -2,7 +2,8 @@
 
 !!From here down they happen before first class
 if $ARGS[0] = 'teacher_greet':
-	!!meet teacher, from 1.2.4
+	*clr & cla
+	menu_off = 1
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/26.jpg"></center>'
 	'You walk down the corridor, past countless classrooms. On the next corner, you meet your teacher Anatoly Evgenievich.'
 	act 'Hello':
@@ -216,7 +217,7 @@ end
 
 !!This should be a random event that can happen after school, when lunch break first starts. Not sure what the trigger is now.
 if $ARGS[0] = 'rand_gopnic':
-
+		menu_off = 1
 	if rand(0,1) = 0:
 		r = 9
 	else
@@ -248,7 +249,7 @@ if $ARGS[0] = 'rand_gopnic':
 			*nl
 			if pav_slut > 25: 'On one wall you see written in particularly large letters, "<b><<$pcs_nickname>> <<$pcs_lastname>> = <<$gnikname>>"</b>.'
 			act 'Start sucking':
-				cls
+				*clr & cla
 				if r = 9:
 					gs 'boyStat', 'A157'
 					gs 'cum_call', 'mouth', $boy,1
@@ -329,12 +330,13 @@ if $ARGS[0] = 'rand_gopnic':
 end
 
 if $ARGS[0] = 'toilet_bj':
-	cls
+	*clr & cla
+	menu_off = 1
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/boysbathroom.jpg"></center>'
 	'You know perfectly well, that the group of boys are not going to let you escape. You meekly let the boys drag you to the men''s room, hoping for a miracle to save you. It never comes. When you arrive at the men''s room, one of the guys drives everyone else out; it''s just you and the Gopniks in there now. He goes outside and keeps watch, while two of the others reach for their pants. Several more came in, to watch.'
 	'The walls of the restroom are covered in crude texts, quite a few of them involving you in some way. On the wall of the restroom, you see written in particularly large letters, "<b><<$pcs_nickname>> <<$pcs_lastname>> = <<$gnikname>>"</b>.'
 	act 'Start sucking':
-		cls
+		*clr & cla
 		if $boydesc = 'Vitek':
 			gs 'boyStat', 'A157'
 			gs 'cum_call', 'mouth', $boy,1
@@ -370,6 +372,7 @@ end
 
 !!this should be a random event that can happen at lunch if I recall correctly.
 if $ARGS[0] = 'rand_scoolboy':
+	menu_off = 1
 	:scoolboy_loop
 	scoolboy = rand(1,5)
 	*clr & cla

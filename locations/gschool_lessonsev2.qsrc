@@ -2,6 +2,7 @@
 
 if $ARGS[0] = 'geography':
 	*clr & cla
+	menu_off = 1
 	if RAND(0,5) > 0:
 		school_event_hour = 1
 		scooltiperand = RAND(1,14)
@@ -278,6 +279,7 @@ end
 
 if $ARGS[0] = 'math':
 	*clr & cla
+	menu_off = 1
 	if RAND(0,5) > 0:
 		school_event_hour = 1
 		scooltiperand = RAND(1,10)
@@ -453,6 +455,7 @@ end
 
 !! Anatoly only events
 if $ARGS[0] = 'help':
+	menu_off = 1
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/classroom/teacherhelp.jpg"></center>'
 	'<<$teacher>> notices that you appear to be stuck on one of the assignments and kneels down next to you. He patiently explains some easier solutions to the problems, and slowly but surely, you gather a better understanding.'
 	act 'Wait for the end of the lesson': gt 'gschool_lessons', 'short_break'
@@ -506,6 +509,7 @@ end
 
 if $ARGS[0] = 'history':
 	*clr & cla
+	menu_off = 1
 	if RAND(0,5) > 0:
 		school_event_hour = 1
 		scooltiperand = RAND(1,13)
@@ -737,6 +741,7 @@ end
 
 if $ARGS[0] = 'shop':
 	*clr & cla
+	menu_off = 1
 	if RAND(0,5) > 0:
 		school_event_hour = 1
 		scooltiperand = RAND(1,11)
@@ -958,20 +963,18 @@ end
 
 
 if $ARGS[0] = 'shop punishment':
+	menu_off = 1
 	Kuznetsov_punishment = 0
 	minut += 15
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/teacher/ruslan/sex/pshop1.jpg"></center>'
-!!If Sveta is a Nerd, Cool kid or Jock and has trigger this less than 4 times get this version
 	Kuznecov_shop_punishment_count += 1
-	if grupTipe<3 and Kuznecov_shop_punishment_count<5:
+	if grupTipe < 3 and Kuznecov_shop_punishment_count < 5:
 		'After the final class you go to the school offices and knock on Mr. Kuznetsov door. After a few moments you hear him tell you to enter. He is sitting behind his desk reading a book. You walk up to his desk and wait, he reads the book for almost ten minutes making you wait, until he finally looks up at you and puts the book down.'
 		*nl
 		'"I don''t know what has gotten into you of late, but what ever it is needs to stop." He pauses a moment but before you can even consider saying anything in your defense he starts speaking again. "If it doesn''t then I will have to assume you are going to become a problem student and treat you accordingly. If this starts to become a regular thing with you, the punishment will become a lot more severe. More than just a few demerits on your record. Now get out of my office." Knowing better than to say anything you turn and leave.'
-		!!code for leaving school I could not remember it.
 		school_period = 0
 		act 'Leave' : gt 'gschool_grounds', 'main'
 	else
-!!If Sveta is a Gopnik, outcast or this is her 5th or higher time triggering this, then this happens.
 		'After the final class you go to the school offices and knock on Mr. Kuznetsov door. After a few moments you hear him tell you to enter. He is sitting behind his desk reading a book. You walk up to his desk and wait, he reads the book for almost ten minutes making you wait, until he finally looks up at you and puts the book down.'
 		*nl
 		'He looks you over for a moment. "Here you are again, my favorite problem student. You know why you are here and I won''t stand for you disrespecting me in my class." Then he pauses for a long moment, leaving you unsure if you should say anything, finally the silences stretches out with him just staring at you and you feel the need to say something.'

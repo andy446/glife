@@ -258,6 +258,7 @@ if $ARGS[0] = 'room':
 			end
 		elseif boyonce[lover_number] = 0:
 			'<<$loverdesc[lover_number]>> throws you on the bed and starts sucking on your breasts.'
+			gs 'arousal','breasts', 1
 
 			act 'Sex':gt 'sexm', 'miss'
 			act 'I don''t want to do this, let''s try something else':gt 'sexm', 'variant'
@@ -303,6 +304,7 @@ if $ARGS[0] = 'room':
 				end
 			elseif boyonce[lover_number] = 0:
 				'<<$loverdesc[lover_number]>> throws you on the bed and starts sucking on your breasts.'
+				gs 'arousal','breasts', 1
 
 				act 'Sex':gt 'sexm', 'miss'
 				act 'I don''t want to do this, let''s try something else':gt 'sexm', 'variant'

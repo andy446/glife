@@ -92,6 +92,8 @@ if $ARGS[0] ! 'end' and $ARGS[0] ! 'checks' and $ARGS[0] ! 'count' and $ARGS[0] 
 		stim['act'] = 10
 	elseif $ARGS[0] = 'breasts':
 		stim['act'] = 30
+		!! No idea where else to put this. This is used for breast stimulation which will eventually cause lactation in sveta without her knowledge. If anyone knows a better place for this, please let me know. - milky_boobs.
+		milkedvolume += func('lact_lib','$get_breastmilk', 8, ARGS[1])
 	elseif $ARGS[0] = 'massage':
 		stim['act'] = 25
 	elseif $ARGS[0] = 'foreplay':

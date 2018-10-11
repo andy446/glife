@@ -435,7 +435,6 @@ if $ARGS[0] = 'anatomylesson2':
 					pcs_horny += 20
 					gs 'stat'
 					temp_var = func('lact_lib','$get_breastmilk', 0, 1)
-					'<<temp_var>>'
 					milkedvolume = temp_var/6
 					if lactate > 0 and milkedvolume >=5:
 						'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/homework/anatomylesson/7.jpg"></center>'

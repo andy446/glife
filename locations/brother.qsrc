@@ -40,7 +40,7 @@ if npc_QW['A34'] > 20 and npc_QW['A34'] < 25: npc_QW['A34'] = 20
 ! npc_know_sveta_lact['A34'] = 0 - Kolka does not know sveta is lactating
 ! npc_know_sveta_lact['A34'] = 1 - Kolka does know sveta is lactating
 ! npc_know_sveta_lact['A34'] = 2 - Kolka does know that sveta was lactating
-! npc_breastfeed_by_sveta['A34'] = 0 or 1 - Kolka was no/was breastfeed by sveta
+! npc_breastfeed_by_sveta['A34'] = 0 or 1 - Kolka was not/was breastfeed by sveta
 ! npc_tasted_sveta_milk['A34'] = 0 or 1 - Does Kolka know how svetas breastmilk taste? 0 = no, 1 = yes
 
 if $ARGS[0] = 'start':
@@ -328,8 +328,10 @@ if $ARGS[0] = 'start':
 				'"Look what I have," you walk up to Kolka, your chest bare, showing off your nipple piercings, "Don''t be shy, you can touch them."'
 				'Your brother, dumbfounded by your suggestion, hesitantly touches the piercing in one of your nipples, causing you to moan gently.'
 				if brotherSex = 0:
+					gs 'arousal','breasts', 1
 					'He abruptly withdraws his hand and apologizes for his rudeness. You have no choice, but to apologize, that wasn''t fair. You cover your chest.'
 				else
+					gs 'arousal','breasts', 2
 					'Seeing the pleasure playing with your nipples brings you, he begins to play harder with your piercings, sometimes squeezing your exposed Breasts.
 					After playing for a while, he lets go of your breasts, and says, "I really like your new additions."'
 				end
@@ -363,6 +365,7 @@ if $ARGS[0] = 'start':
 					act '<B>Move away</B>':gt 'sitrPar'
 					exit
 				elseif father_go = 0 and hour >= 18 and hour < 23:
+					gs 'arousal','breasts', 1
 					'"Beautiful." Kolka gently cups your breasts and strokes your pierced nipples.'
 					npc_rel['A34'] += 3
 					brothersawpirsF=1
@@ -1005,6 +1008,7 @@ if $ARGS[0] = 'brother_voyeur_ev1':
 	if npc_QW['A34'] < 1: npc_QW['A34'] = 1
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/shower/b (<<picrand>>).jpg"></center>'
 	'You continue to wash as if nothing has happened, glancing at your brother. You carefully wash your body, paying particular attention to your breasts and pussy, feeling the excitement grow in your abdomen.'
+	gs 'arousal','breasts', 1
 	act 'Wipes':gt 'brother','brother_voyeur_end'
 	if pcs_horny >= 40:
 		act 'Play with your tits':gt 'brother','brother_voyeur_ev2'
@@ -1016,7 +1020,9 @@ if $ARGS[0] = 'brother_voyeur_ev2':
 	cls
 	gs 'stat'
 	pcs_horny += RAND(10,15)
-	minut += RAND(5,10)
+	temp_var = RAND(5,10)
+	minut += temp_var
+	gs 'arousal','breasts', temp_var
 	picrand = RAND(1,7)
 	if npc_rel['A34'] <50:npc_rel['A34'] += rand(1,2)
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/kolka/event/shower/c (<<picrand>>).jpg"></center>'

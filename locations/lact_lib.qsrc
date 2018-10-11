@@ -340,7 +340,7 @@ end
 
 if $ARGS[0] = '$get_breastmilk_time':
 	!!	func('lact_lib','$get_breastmilk_time', sucktion_type, milk_demand)
-	!!	ARGS[1] = sucktion_type: the type of sucktion. adult_mouth [0], child_mouth [1], baby_mouth [2], manual_breastpump [3] , electric_breastpump [4], hand_expressing [5], cow milker [6], weak baby_mouth [7]
+	!!	ARGS[1] = sucktion_type: the type of sucktion. adult_mouth [0], child_mouth [1], baby_mouth [2], manual_breastpump [3] , electric_breastpump [4], hand_expressing [5], cow milker [6], weak baby_mouth [7], stimulation during sex/sex play [8]
 	!!	ARGS[2] = milk_demand: how much milk is demanded. Warning: Should be ml and not in ml*10 for ease of use. :D
 	!!	RESULT = Time in Minutes
 	!!	Usage: breastmilktimetoget = func('lact_lib','$get_breastmilk_time', 2, 150)
@@ -377,7 +377,10 @@ if $ARGS[0] = '$get_breastmilk_time':
 				pcs_mood = 100
 			else
 				pcs_mood += ARGS[2]
-			end
+			end	
+		elseif ARGS[1] = 8:
+		!!	'manual stimulation during sex/sex play'
+			suck_flow_rate = 60
 		else
 			!!	'suck flow else branch'
 			suck_flow_rate = 100
@@ -472,7 +475,7 @@ end
 
 if $ARGS[0] = '$get_breastmilk':
 	!!	func('lact_lib','$get_breastmilk', sucktion_type, sucktion_time)
-	!!	ARGS[1] = sucktion_type: the type of sucktion. adult_mouth [0], child_mouth [1], baby_mouth [2], manual_breastpump [3] , electric_breastpump [4], hand_expressing [5], cow milker [6], weak baby_mouth [7]
+	!!	ARGS[1] = sucktion_type: the type of sucktion. adult_mouth [0], child_mouth [1], baby_mouth [2], manual_breastpump [3] , electric_breastpump [4], hand_expressing [5], cow milker [6], weak baby_mouth [7], stimulation during sex/sex play [8]
 	!!	ARGS[2] = sucktion_time: how many minutes the sucking/pumping takes place
 	!!	Usage: breastmilkvolume = func('lact_lib','$get_breastmilk', 4, 20)
 	!! 	RESULT = Milk in ml*10
@@ -528,6 +531,9 @@ if $ARGS[0] = '$get_breastmilk':
 		else
 			pcs_mood += ARGS[2]
 		end
+	elseif ARGS[1] = 8:
+		!!	'manual stimulation during sex/sex play'
+		suck_flow_rate = 60
 	else
 		!!	'suck flow else branch'
 		suck_flow_rate = 100
@@ -572,10 +578,10 @@ if $ARGS[0] = '$get_breastmilk':
 			pcs_stam = 0
 			!!	energy usage flag on.
 			energytomilkpump = 1
-			pcs_sweat += max_sucktion_demand/1000
+			pcs_sweat += pumptime/30
 		else
 			pcs_stam -= max_sucktion_demand/300
-			pcs_sweat += max_sucktion_demand/1000
+			pcs_sweat += pumptime/30
 			!!	energy usage flag on.
 			energytomilkpump = 1
 		end
@@ -682,7 +688,7 @@ if $ARGS[0] = '$get_breastmilk':
 					energytomilkpump = 1
 					pcs_stam -= max_sucktion_demand/300
 					if pcs_stam <= 0: pcs_stam = 0
-					pcs_sweat += max_sucktion_demand/1000
+					pcs_sweat += pumptime/30
 					pcs_hydra -= milkedvolume/120
 					if pcs_hydra < 1: pcs_hydra = 1
 					pcs_energy -= milkedvolume/1200

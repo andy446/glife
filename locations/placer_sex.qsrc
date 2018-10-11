@@ -582,6 +582,7 @@ if $args[0] = 'vodka2':
 							'<center><img <<$set_imgh>> src="images/locations/pavlovsk/park/sex/placer_sex32.jpg"></center>'
 							'You moan: "Grab my breasts!" while you thoroughly get fucked by your savior.'
 							'He does as you ask, cupping one boob in his hand. He grabs onto it roughly and twists your nipple, making you moan even louder.'
+							gs 'arousal','breasts', 1
 							act 'Continue':
 								pcs_mood += 15
 								pcs_willpwr += 15
@@ -792,6 +793,7 @@ if $args[0] = 'card_sex':
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/park/sex/placer_sex78.jpg"></center>'
 	'The guys join you on the couch, and <<$boydesc2>> takes off your bra. He fondles your breast with one hand while he leans your head back for a deep kiss. Meanwhile, his friend puts his lips around your other nipple, and caresses it with his tongue. You feel your nipples harden against their touch in no time, and there''s a large wet spot in your panties as well. Maybe <<$boydesc2>> was right... maybe losing that second round of cards will be the best thing that happened to you all day!'
 	gs 'arousal', 'foreplay', 5, 'unknown', 'sub', 'group'
+	gs 'arousal','breasts', 1
 	gs 'stat'
 	act 'Further':
 		gs'stat'
@@ -1219,6 +1221,7 @@ if $args[0] = 'sleep_sex':
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/park/sex/placer_sex86.jpg"></center>'
 				'When the guy is certain you must still be sleeping, he continues carefully. He peels your panties down very slowly, being very cautious to not wake you up. You feel quite horny by now, and have to restrain yourself to not just slam your pussy down onto his dick and shove your tits in his face.'
 				gs 'arousal', 'foreplay', 5, 'unknown', 'sub', 'group'
+				gs 'arousal','breasts', 1
 				gs 'stat'
 				act 'Continue':
 					*clr & cla
@@ -1584,6 +1587,7 @@ if $args[0] = 'rape':
 										gs 'arousal', 'anal', 5, 'unknown', 'sub', 'group', 'rough', 'bound', 'humiliation'
 										gs 'arousal', 'vaginal', 5, 'unknown', 'sub', 'group', 'rough', 'bound', 'humiliation'
 										gs 'arousal', 'cuni_give', 5, 'unknown', 'sub', 'group', 'rough', 'bound', 'humiliation'
+										gs 'arousal','breasts', 5
 										minut -= 5
 										gs 'stat'
 										act 'Continue':

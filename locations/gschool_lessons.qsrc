@@ -2740,17 +2740,21 @@ if $ARGS[0] = 'pe':
 		*clr & cla
 		gs 'exercise', 'tier2', 1, 'stren_exp'
 		gs 'stat'
-		'After the roll call, Mr. Nikolaevich announces that you will all be taking turns climbing the ropes today.'
 		if pcs_horny >= 100:
 			pcs_horny = 0
 			orgasm += 1
 			rope_orgasm += 1
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/gym/fizra8.jpg"></center>'
+			'After the roll call, Mr. Nikolaevich announces that you will all be taking turns climbing the ropes today.'
 			'You climb the rope as instructed, and can''t help but feel the rough robe rubbing against your pussy through your clothes. You do your best to climb up, but the rubbing of the rope against your pussy gets more and more intense as you try to climb higher. After a few seconds the stimulation from the rope against your clit brings you to orgasm, and you have to do everything in your power to not fall down as you quiver against the rope, stifling your moans. Your teacher looks up to you and says, "Why are you shaking, Miss <<$pcs_lastname>>? Are you tired or something? Go ahead, come down then."'
 		elseif pcs_horny >= 50 and pcs_horny < 100:
 			pcs_horny += 20
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/gym/rope.jpg"></center>'
+			'After the roll call, Mr. Nikolaevich announces that you will all be taking turns climbing the ropes today.'
 			'You climb the rope as instructed, and can''t help but feel the rough robe rubbing against your pussy through your clothes. You do your best to climb up, but the rubbing of the rope against your pussy gets more and more intense as you try to climb higher. You manage to reach the top, but the rubbing of the rope has got you all worked up. With a bright blush on your face you slide back down, making sure the rope doesn''t rub against your most sensitive spots.'
+		else
+			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/gym/rope.jpg"></center>'
+			'After the roll call, Mr. Nikolaevich announces that you will all be taking turns climbing the ropes today.'
 		end
 		gs 'gschool_lessonsev1', 'fiz_rand'
 		act 'End of lesson':gt 'gschool_lessons', 'postphys'

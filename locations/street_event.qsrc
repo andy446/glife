@@ -332,8 +332,7 @@ if $ARGS[1] = 'main':
 	streetrand = rand(0, 100)
 	if streetrand < streetev_rob and money >= 1000 and daystart >= 10 and (hour < 6 or hour >= 20) and streetev_day ! daystart and bag = 1:
 	!!I would like this one only to happen from 20:00 till 06:00 as the times it can happen.
-		cla
-		*clr
+		*clr & cla
 		streetev_day = daystart
 		'<<$streetev_title>>'
 		'<center><img src="images/locations/shared/street/mugger.jpg"></center>'
@@ -364,7 +363,7 @@ if $ARGS[1] = 'main':
 			end
 			if fight_cheat = 1:
 				cla
-				'You are about to make a run for it, when suddenly the wood-be theif gets startled by a neaby siren and runs off down the alley.'
+				'You are about to make a run for it, when suddenly the would-be theif gets startled by a neaby siren and runs off down the alley.'
 				act 'Continue on your way': gt $loc
 			elseif peshimraperand <= 10:
 				*clr & cla
@@ -440,12 +439,13 @@ if $ARGS[1] = 'main':
 		end
 		act 'Chase him':
 			*clr & cla
-			if fight_cheat = 1:
+			cheat_rand = rand(0,1)
+			if fight_cheat = 1 and cheat_rand = 1:
 				'<<$streetev_title>>'
 				'<center><img src="images/locations/shared/street/pursechase.jpg"></center>'
 				'As you are about to give chase, the theif, if by luck, trips and falls, sending your purse towards a bystander, who promptly picks it up an hands it back to you, while the wood-be theif scurries off.'
 				act 'Continue on your way': gt $loc
-			elseif pcs_run + pcs_stam < rand(120,250):
+			elseif (pcs_run + pcs_stam < rand(120,250) and fight_cheat = 0) or (fight_cheat = 1 and cheat_rand = 0):
 				money = 0
 				gs 'stat'
 				'<<$streetev_title>>'

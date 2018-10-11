@@ -586,7 +586,7 @@ if $ARGS[0] = 'boy4_end':
 	*clr & cla
 	menu_off = 1
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
-	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/sex/boys/boys.jpg"></center>'
+	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/27.jpg"></center>'
 	'"I hope you don''t think we are all teases anymore. Even if we do tease, there is normally a big pay off in the end," you tell him as you finish getting the last of your clothes back in place and suggestively wiggle your tongue at him.'
 	*nl
 	'He laughs. "Well, if that''s the case, feel free to tease me any time you want, <<$pcs_nickname>>. I should get back to class, they are going to wonder where I went. Talk to you later, okay?" Marcus gives you a final smile and wave as he heads out of the bathroom. It takes you a few more seconds before you realize that this wasn''t some encounter in a club or something but you were doing all this in the school bathroom, while skipping class! The reality check sucks and you are back to killing time until the bell rings... but the time you spent with the cute black guy was definitely a better use of the period.'

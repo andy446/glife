@@ -1,13 +1,13 @@
 # kuhrPar
 CLOSE ALL
+*clr & cla
 if fullmorrout = 1:
 	minut += 2
 	act '<font color = maroon><b>Leave the apartment and go outside</b></font>':
 		minut +=1
 		killvar 'fullmorrout'
 		gs 'korrPar'
-		gt'pavResidential'
-		
+		gt'pavResidential'		
 	end
 end
 
@@ -22,7 +22,6 @@ $locclass = 'kitr'
 $menu_loc = 'kuhrPar'
 $menu_arg = ''
 menu_off = 0
-*clr & cla
 minut += 1
 gs 'stat'
 gs 'kit_din'

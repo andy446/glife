@@ -1710,11 +1710,11 @@ if $ARGS[0] = 'pain':
 	end
 	if pain['asscheeks'] + (spanked * 24) > 0:
 		if pain['asscheeks'] + (spanked * 24) > 70:
-			'<b><font color="red">Your <a href="exec:<center><img <<$set_imgh>> src="images/pc/body/spankedass2.jpg"></center>">asscheeks</a> are in extreme pain.</font></b>'
+			'<b><font color="red">Your <a href="exec:view''images/pc/body/spankedass2.jpg''">asscheeks</a> are in extreme pain.</font></b>'
 		elseif pain['asscheeks'] + (spanked * 24) > 40:
-			'Your <a href="exec:<center><img <<$set_imgh>> src="images/pc/body/spankedass1.jpg"></center>">asscheeks</a> are very sore.'
+			'<b><font color="red">Your <a href="exec:view''images/pc/body/spankedass1.jpg''">asscheeks</a> are very sore.</font></b>'
 		else
-			'Your <a href="exec:<center><img <<$set_imgh>> src="images/pc/body/spankedass.jpg"></center>">asscheeks</a> hurt.'
+			'<b><font color="red">Your <a href="exec:view''images/pc/body/spankedass.jpg''">asscheeks</a> hurt.</font></b>'
 		end
 	end
 	if pain['asshole'] + (agape * 10) > 0:

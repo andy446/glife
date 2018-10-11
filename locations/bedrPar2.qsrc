@@ -107,6 +107,7 @@ end
 
 if $ARGS[0] = 'momtoy_play':
 	*clr & cla
+	menu_off = 1
 	dildo = 1
 	dildohand = 10
 	selfmomtoyplay = 1

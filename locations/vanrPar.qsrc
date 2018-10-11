@@ -41,8 +41,7 @@ if $ARGS[0] = 'peek':
 	menu_off = 1
 
 	if ((week < 6 and hour >= 16 and hour < 18) or (week >= 6 and hour >= 7 and hour < 18)) and indorf = 0 and father_go = 0 and stepdadqw_day ! daystart and iif(stepdadqw>0,1,rand(0,1)) = 1:
-		cla
-		*clr
+		*clr & cla
 		stepdadqw_day = daystart
 		if npc_rel['A28'] < 60 or stepdadqw < 3:
 			'<center><video autoplay loop src="images/characters/pavlovsk/resident/vladimir/sex/bath_voyer_0.mp4"></video></center>'
@@ -55,8 +54,7 @@ if $ARGS[0] = 'peek':
 				if npc_sex['A28'] = 0 and stepdadqw < 5:
 					gs 'vanrPar', 'stepdad_nosex'
 				else
-					cla
-					*clr
+					*clr & cla
 					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/vladimir/sex/bath_voyer_3.jpg"></center>'
 					'Suddenly you hear the sound of the shower door as it creaks open. Turning around, you see your stepfather. He is standing in the hallway, devouring your naked body with his eyes. In your mind''s eye you see a flash of all the little moments the two of you have shared and then it dawns on you, your <<$npc_nickname[''A29'']>> is at work. You smirk, and you feel your core tighten with desire:'
 					'"Daddy, do you want to join me?"'
@@ -65,18 +63,13 @@ if $ARGS[0] = 'peek':
 			end
 		end
 	elseif hour >= 18 and hour <= 23 and brother_ev1 ! daystart and rand(0,4) < 2:
-		cla
-		*clr
+		*clr & cla
 		brother_ev1 = daystart
 		'Despite the clattering noise of water, you hear the bathroom door creaking open slightly. Through a small opening in the doorway, you notice your brother Kolka watching you.'
 		act 'Scream': gt 'brother', 'brother_go_away'
-		if brothershowertalk < 1:
-			act 'Tell him off':gt 'brother','brother_go_away2'
-		end
+		if brothershowertalk < 1: act 'Tell him off':gt 'brother','brother_go_away2'
 		act 'Let him look':gt 'brother', 'brother_voyeur_ev1'
-		if pcs_inhib >= 40 and npc_rel['A34'] > 60:
-			act 'Invite him in for a chat':gt 'brother_voyeur','showertalk1'
-		end
+		if pcs_inhib >= 40 and npc_rel['A34'] > 60:	act 'Invite him in for a chat': gt 'brother_voyeur','showertalk1'
 		if brother_shower_times > 0:act'Invite him into the shower with you':gt'brother_voyeur','brother_shower_together'
 		if brothershowertalk > 0:act'Tell him you''re too busy to talk':gt'brother_voyeur','showertalkbusy'
 		exit
@@ -93,8 +86,7 @@ end
 
 if $ARGS[0] = 'stepdad_sex':
 	menu_off = 1
-	cla
-	*clr
+	*clr & cla
 	gs 'boyStat', 'A28'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/vladimir/sex/bath_voyer_5.jpg"></center>'
 	'You turn around just just in time to see your stepfather as he opens the door, he nervously licks his lips before he makes the decision and quickly jumps inside locking the door behind him. Because he is a large man and the bathroom is so small, it suddenly feels crowded in here, yet you can''t help but feel a little excited at the size difference between the two of you.'
@@ -108,8 +100,7 @@ if $ARGS[0] = 'stepdad_sex':
 	minut -= 5
 	gs 'stat'
 	act 'Hey, what about a condom?':
-		cla
-		*clr
+		*clr & cla
 		gs 'arousal', 'vaginal', 15, 'rough'
 		gs 'cum_call', 'butt', 'A28', 1
 		gs 'stat'
@@ -125,8 +116,7 @@ if $ARGS[0] = 'stepdad_sex':
 		gs 'vanrPar', 'stepdad_sex_end'
 	end
 	act 'Just don''t come inside me!':
-		cla
-		*clr
+		*clr & cla
 		gs 'arousal', 'vaginal', 15, 'rough'
 		gs 'cum_call', '', 'A28', 1
 		gs 'stat'
@@ -142,8 +132,7 @@ if $ARGS[0] = 'stepdad_sex':
 		gs 'vanrPar', 'stepdad_sex_end'
 	end
 	act 'Fuck me!':
-		cla
-		*clr
+		*clr & cla
 		gs 'arousal', 'vaginal', 15, 'rough'
 		gs 'cum_call', 'butt', 'A28', 1
 		gs 'stat'

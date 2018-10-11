@@ -92,7 +92,8 @@ $korrParMomHeader = '<center><h1><font color="maroon"><<$npc_nickname[''A29'']>>
 
 if hour >= 16 and hour <= 20 and indorf = 0:
 	if artemvbrosvid = 1 and artemhakday ! daystart and npc_QW['A29'] < 2 and mothervideotalk = 0 or BrotherNo = 1 and BrotherNoDay ! daystart:
-		cls
+		*clr & cla
+		menu_off = 1
 		BJvideoPublic = 1
 		BrotherNo = 0
 		BrotherNoDay = daystart
@@ -115,7 +116,7 @@ if hour >= 16 and hour <= 20 and indorf = 0:
 		end
 
 		act 'Be silent':
-			cls
+			*clr & cla
 			mothervideotalk = 3
 			minut += 5
 			pcs_dom += 10
@@ -152,7 +153,8 @@ if hour >= 16 and hour <= 20 and indorf = 0:
 	end
 
 	if artemvbrosvid=1 and artemhakday ! daystart and npc_QW['A29'] >= 2 and mothervideotalk = 0:
-		cls
+		*clr & cla
+		menu_off = 1
 		BJvideoPublic = 1
 		pcs_mood = 5
 		gs 'stat'
@@ -176,7 +178,8 @@ if hour >= 16 and hour <= 20 and indorf = 0:
 	end
 
 	if schoolprogul > 2 and SchoolAtestat = 0:
-		cls
+		*clr & cla
+		menu_off = 1
 		gs 'stat'
 		*pl $korrParMomHeader
 
@@ -299,15 +302,15 @@ end
 
 if notathomesleep > 7 and hour >= 16 and hour < 21 and mother_go = 0:
 	notathomesleep = 0
-	cls
+	*clr & cla
 	*pl $korrParMomHeader
 	if npc_rel['A29'] < 40:
 		'You run into your mother in the hallway. "Well well, look who decided to come home for once.'
-		act '<B>Continue</B>':gt 'korrPar'
+		act 'Continue':gt 'korrPar'
 	end
 	if npc_rel['A29'] >= 40:
 		'You run into your mother in the hallway. She looks happy to see you. "What a surprise! Welcome home, honey! I missed you.'
-		act '<B>Continue</B>':gt 'korrPar'
+		act 'Continue':gt 'korrPar'
 	end
 end
 

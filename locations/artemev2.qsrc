@@ -2,6 +2,7 @@
 
 gs 'boyStat','A2'
 if artQW = 1:
+	menu_off = 1
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/2.jpg"></center>'
 	'Out of nowhere, Artem suddenly produces a bouquet of flowers and offers it to you.'
 
@@ -111,6 +112,7 @@ if artQW = 1:
 		end
 	end
 elseif artQW = 10:
+	menu_off = 1
 	'When you enter the room, you immediately notice the table: it has several lighted candles on it, and a bottle of wine with two glasses.'
 	'You look at Artem, slightly confused: "What''s the meaning of this, Artem?"'
 	'He smiles at you as he says: "Well, we''ve spent a lot of time studying together, and I think it''s obvious from your school results that it''s paying off. I figured it would be nice to celebrate your achievements!"'

@@ -10,6 +10,7 @@ gs 'themes', 'indoors'
 
 if $ARGS[0] = 'intro_0':
 	*clr & cla
+	menu_off = 1
 	'<center><img <<$set_imgh>> src="images/pre/csb/ivancsb.jpg"></center>'	
 	'You are Peter Ivanov.'
 	'<<$startdob>>'

@@ -1,12 +1,12 @@
 # preNT
 
 !!The TG Story Elements
-cls
+*clr & cla
 gs 'themes', 'indoors'
 
 if $ARGS[0] =  '':
-	cla
-	*clr
+	*clr & cla
+	menu_off = 1
 	gs'stat'
 	'<center><b><h4><font color=#FF00CC><<"<<$pcs_firstname>> [<<$pcs_nickname>>] <<$pcs_lastname>>">></font></h4></b></center>'
 	*pl '<center><img src="<<FUNC(''$face_image'')>>"></center>'
@@ -14,8 +14,7 @@ if $ARGS[0] =  '':
 	'You look at your new lease while thinking to yourself: <font color=#FF00CC>It is time for me to finally be able to live my own life. I can finally make my own decisions, choose my own path and I can finally bring guys home without having to hear...</font> You suddenly hear banging on the bathroom door with your mother shouting, "<<$pcs_firstname>> what on earth is taking you so long? We need to get going!" You take a deep breath then turn to walk out of the restroom.'
 
 	act 'Walk out of the bathroom':
-		cla
-		*clr
+		*clr & cla
 		minut += 7
 		gs'stat'
 		'<center><b><font color=#00FF9C><<"Galina [Mother] <<$pcs_lastname>>">></font></b></center>'
@@ -25,8 +24,7 @@ if $ARGS[0] =  '':
 		'Your mother responds, "What''s important is your future and I''m not going to have a daughter who sits at home all day doing god know what. We are getting you a job in the market with me. I need to keep a close eye on you or else you will get into trouble." You recoil in shock as you think to yourself, <font color=#FF00CC>I can''t stay with her anymore. I need to tell her now.</font>'
 
 		act 'Tell her that you are moving out':
-			cla
-			*clr
+			*clr & cla
 			minut += 3
 			gs'stat'
 			'<center><b><font color=#00FF9C><<"Galina [Mother] <<$pcs_lastname>>">></font></b></center>'
@@ -36,8 +34,7 @@ if $ARGS[0] =  '':
 			'Your mother''s voice gets louder as she responds, "So aunt Diana has been working you behind my back and you spent your money on a new house instead of college? HAVE YOU LOST YOUR MIND!?" You recoil for a second before mustering your courage, "Maybe I don''t want to go to college. Maybe i just want to live my own life." Your mother pinches your ear as she says, "You ungrateful brat! Have I not done everything for you? I raised you in my home. I kept you fed. I protected you from the boys who would just take advantage of you. I even put up with your occasional attitude while showing you the right way to live your life."'
 
 			act 'Tell her how you truly feel':
-				cla
-				*clr
+				*clr & cla
 				minut += 3
 				gs'stat'
 				'<center><b><h4><font color=#FF00CC><<"<<$pcs_firstname>> [<<$pcs_nickname>>] <<$pcs_lastname>>">></font></h4></b></center>'
@@ -49,8 +46,7 @@ if $ARGS[0] =  '':
 				'<center><img <<$set_imgh>> src="images/pre/city/mother2.jpg"></center>'
 
 				act 'Say goodbye':
-					cla
-					*clr
+					*clr & cla
 					minut += 12
 					gs'stat'
 					'<center><b><h4><font color=#FF00CC><<"<<$pcs_firstname>> [<<$pcs_nickname>>] <<$pcs_lastname>>">></font></h4></b></center>'
@@ -62,8 +58,7 @@ if $ARGS[0] =  '':
 					'<center><img <<$set_imgh>> src="images/pre/city/mother2.jpg"></center>'
 
 					act 'Turn to face her':
-						cla
-						*clr
+						*clr & cla
 						minut += 2
 						gs'stat'
 						'<center><b><font color=#00FF9C><<"Galina [Mother] <<$pcs_lastname>>">></font></b></center>'
@@ -71,8 +66,7 @@ if $ARGS[0] =  '':
 						'Your mother takes one look at you then says, "I''ll call you back." before hanging up the phone. She then walks up to you and says, "If you are really committed to this then go, but when the boys use you and break your heart then don''t say that I didn''t warn you." She then opens the door and holds it open for you. You begin walking out before you hear her say, "And if you get knocked up by someone you don''t even know then don''t bring any babies back here expecting me to take care of them. You have made your choice and I hope to god that you don''t ruin your life. May god watch over you." Not wanting to have another argument, you turn and walk away toward the train station.'
 
 						act 'Head to the train station':
-							cla
-							*clr
+							*clr & cla
 							minut += 10
 							gs'stat'
 							'<center><img <<$set_imgh>> src="images/locations/pavlovsk/trainstation/vokzal.jpg"></center>'
@@ -81,8 +75,7 @@ if $ARGS[0] =  '':
 							'<center><img <<$set_imgh>> src="images/shared/home/bedroom/dream/nightout/date/albert1.jpg"></center>'
 
 							act 'Tell him your name':
-								cla
-								*clr
+								*clr & cla
 								minut += 3
 								gs'stat'
 								'<center><b><h4><font color=#FF00CC><<"<<$pcs_firstname>> [<<$pcs_nickname>>] <<$pcs_lastname>>">></font></h4></b></center>'
@@ -96,8 +89,7 @@ if $ARGS[0] =  '':
 								act 'Accept Albert''s offer':gt 'preNT ', 'Ride'
 
 								act 'Decline Albert''s offer':
-									cla
-									*clr
+									*clr & cla
 									minut += 2
 									gs'stat'
 									'<center><b><font color=#0060FF><<"Albert Sokolov">></font></b></center>'
@@ -111,8 +103,7 @@ if $ARGS[0] =  '':
 							end
 
 							act 'Remain silent':
-								cla
-								*clr
+								*clr & cla
 								minut += 2
 								gs'stat'
 								'<center><b><font color=#0060FF><<"?">></font></b></center>'
@@ -130,8 +121,7 @@ if $ARGS[0] =  '':
 end
 
 if $ARGS[0] =  'Ride':
-	cla
-	*clr
+	*clr & cla
 	minut += 2
 	gs'stat'
 	'<center><b><font color=#0060FF><<"Albert Sokolov">></font></b></center>'
@@ -139,8 +129,7 @@ if $ARGS[0] =  'Ride':
 	'<font color=#FF00CC>I can''t be shy my whole life. i need to take some chances. i need to prove my mother wrong.</font> You confidently nod as you say, "That would be great. Thank you." Albert returns the nod as he responds, "It''s no trouble at all." He then motions you to follow him before leading you to his car, where he packs your bags into the trunk and opens the door for you before sitting down and firing up the engine.'
 
 	act 'Sit back and relax':
-		cla
-		*clr
+		*clr & cla
 		minut -= 2
 		gs'stat'
 		'<center><b><h4><font color=#FF00CC><<"<<$pcs_firstname>> [<<$pcs_nickname>>] <<$pcs_lastname>>">></font></h4></b></center>'
@@ -149,8 +138,7 @@ if $ARGS[0] =  'Ride':
 		'<center><img <<$set_imgh>> src="images/shared/home/bedroom/dream/nightout/date/car.jpg"></center>'
 
 		act 'Take a closer look':
-			cla
-			*clr
+			*clr & cla
 			minut -= 2
 			gs'stat'
 			'<center><img <<$set_imgh>> src="images/pre/city/gun.jpg"></center>'
@@ -159,8 +147,7 @@ if $ARGS[0] =  'Ride':
 			'You watch him at the corner of your vision while he continues to stare at your legs while you pretend not to notice. After a minute you notice him begin firmly rubbing on his crotch. You start feeling a little hot, not entirely sure why. <font color=#FF00CC>Why is it so hot all of a sudden? Maybe it is the way he is looking at me. He must really want me. He keeps rubbing that...Bulge. Maybe I should touch it for him. I bet his dick is big if his bulge is that big, but what if he doesn''t want it? That would be so embarrassing, but if he does want it then this is my chance to finally be with a real man, but am I ready?</font>'
 
 			act 'Reach out for his crotch':
-				cla
-				*clr
+				*clr & cla
 				minut -= 2
 				gs'stat'
 				'<center><img <<$set_imgh>> src="images/pre/city/hj1.jpg"></center>'
@@ -172,8 +159,7 @@ if $ARGS[0] =  'Ride':
 				gs 'stat'
 
 				act 'Suck his dick':
-					cla
-					*clr
+					*clr & cla
 					sub += 5
 					minut -= 2
 					gs'stat'
@@ -186,8 +172,7 @@ if $ARGS[0] =  'Ride':
 					gs 'stat'
 
 					act 'Continue':
-						cla
-						*clr
+						*clr & cla
 						sub += 5
 						guy += 1
 						minut -= 2
@@ -202,8 +187,7 @@ if $ARGS[0] =  'Ride':
 						gs 'arousal', 'end'
 
 						act 'Continue riding in silence':
-							cla
-							*clr
+							*clr & cla
 							minut += 4
 							gs'stat'
 							'<center><img <<$set_imgh>> src="images/shared/home/bedroom/dream/nightout/date/car.jpg"></center>'
@@ -214,8 +198,7 @@ if $ARGS[0] =  'Ride':
 							'<center><img <<$set_imgh>> src="images/shared/home/bedroom/dream/nightout/date/albert3.jpg"></center>'
 
 							act 'Walk toward your new home':
-								cla
-								*clr
+								*clr & cla
 								sub += 5
 								minut += 4
 								if sound = 0:
@@ -250,8 +233,7 @@ if $ARGS[0] =  'Ride':
 				end
 
 				act 'Continue jerking him':
-					cla
-					*clr
+					*clr & cla
 					pcs_dom += 5
 					guy += 1
 					minut += 4
@@ -262,8 +244,7 @@ if $ARGS[0] =  'Ride':
 					gs 'stat'
 
 					act 'Continue':
-						cla
-						*clr
+						*clr & cla
 						pcs_dom += 5
 						minut += 4
 						gs'stat'
@@ -287,8 +268,7 @@ if $ARGS[0] =  'Ride':
 							'<center><img <<$set_imgh>> src="images/shared/home/bedroom/dream/nightout/date/albert3.jpg"></center>'
 
 							act 'Walk toward your new home':
-								cla
-								*clr
+								*clr & cla
 								minut += 4
 								if sound = 0:
 									if month >=11 and month <= 12 or month >=1 and month <=3:
@@ -323,16 +303,14 @@ if $ARGS[0] =  'Ride':
 			end
 
 			act 'Pretend not to notice it':
-				cla
-				*clr
+				*clr & cla
 				minut += 8
 				gs'stat'
 				'<center><img <<$set_imgh>> src="images/shared/home/bedroom/dream/nightout/date/car.jpg"></center>'
 				'Not wanting to take a chance of offending him, you turn away then look out of the window while thinking to yourself, <font color=#FF00CC>So my new life is starting. My chance to try new things, but yet I don''t feel too confident. I want to be more daring, but I just hesitate too much. Will I ever be able to break out of my shell, or will I grow up to be just like my mother planned for me to be? Boring and normal.</font>'
 
 				act 'Continue':
-					cla
-					*clr
+					*clr & cla
 					minut += 2
 					gs'stat'
 					'<center><b><h4><font color=#FF00CC><<"<<$pcs_firstname>> [<<$pcs_nickname>>] <<$pcs_lastname>>">></font></h4></b></center>'
@@ -341,8 +319,7 @@ if $ARGS[0] =  'Ride':
 					'<center><img <<$set_imgh>> src="images/shared/home/bedroom/dream/nightout/date/car.jpg"></center>'
 
 					act 'Walk toward your new home':
-						cla
-						*clr
+						*clr & cla
 						minut += 4
 						if sound = 0:
 							if month >=11 and month <= 12 or month >=1 and month <=3:
@@ -378,8 +355,7 @@ if $ARGS[0] =  'Ride':
 end
 
 if $ARGS[0] =  'Listings':
-	cla
-	*clr
+	*clr & cla
 	minut += 2
 	gs'stat'
 	'<center><img <<$set_imgh>> src="images/pre/city/paper.jpg"></center>'
@@ -393,8 +369,7 @@ if $ARGS[0] =  'Listings':
 	'Stripper in the Red Light District (City Industrial Region).'
 
 	act 'Continue toward your apartment':
-		cla
-		*clr
+		*clr & cla
 		music_loop = 0
 		close all
 		minut += 5
@@ -418,8 +393,7 @@ if $ARGS[0] =  'Listings':
 end
 
 if $ARGS[0] =  'Train':
-	cla
-	*clr
+	*clr & cla
 	gs'stat'
 	'<center><img <<$set_imgh>> src="images/locations/city/shared/metro/metro.jpg"></center>'
 	'You sit down in one of the corner seats then suddenly feel something pressed against your bottom. You quickly reach down then pull out a news paper. You must have sat on it. You drop it on the chair next to you then begin looking out of the window while thinking to yourself, <font color=#FF00CC>I''m actually doing this. This is actually happening. I am finally going to live on my own. I wonder what life would have been like if my papa never passed away. He was always out in military bases training and honing his skills. His letters always brought me comfort, just knowing that he was thinking of me. Would he be proud of me now? I hope so. I know that he only enlisted to keep us safe and fed.</font>'
@@ -429,8 +403,7 @@ if $ARGS[0] =  'Train':
 	*pl '<center><img src="<<FUNC(''$face_image'')>>"></center>'
 
 	act 'Look at the job listings':
-		cla
-		*clr
+		*clr & cla
 		minut += 2
 		gs'stat'
 		'<center><img <<$set_imgh>> src="images/pre/city/paper.jpg"></center>'
@@ -444,16 +417,14 @@ if $ARGS[0] =  'Train':
 		'Stripper in the Red Light District (City Industrial Region).'
 
 		act 'Finish reading':
-			cla
-			*clr
+			*clr & cla
 			minut += 2
 			gs'stat'
 			'<center><img <<$set_imgh>> src="images/locations/city/shared/metro/metro.jpg"></center>'
 			'You lower the paper then lay back as you roll it back up and place it back on the seat next to you. The train reaches the next stop and you recognize it as your stop. You reach down, picking up your bags then stand next to the door when it suddenly opens, releasing a gust of wind on your face, which you find somewhat comforting. You then walk out of the train station.'
 
 			act 'Head toward your new apartment building':
-				cla
-				*clr
+				*clr & cla
 				minut += 2
 				if sound = 0:
 					if month >=11 and month <= 12 or month >=1 and month <=3:
@@ -481,8 +452,7 @@ if $ARGS[0] =  'Train':
 				'You begin heading in the direction of your new home when you notice some gopniks harassing a woman. One of the gopniks is whistling at her while the other is lifting up her skirt. You try your best to ignore them as you continue toward you apartment.'
 
 				act 'Continue toward your apartment':
-					cla
-					*clr
+					*clr & cla
 					music_loop = 0
 					close all
 					minut += 5

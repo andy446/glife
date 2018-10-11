@@ -469,26 +469,27 @@ if $ARGS[0] = 'boy4':
 			'He just lets you do the work, leaning back against the stall wall and closing his eyes to enjoy you sucking him off. "God damn, you Russian girls know how to suck cock." You take that as a compliment and redouble your efforts, bobbing your head up and down his length. His impressive size doesn''t make his manhood easy to handle but it certainly makes it more exciting to you. For a few minutes, he just lets you do your thing as he observes and savors your blowjob, but eventually he breaks the silence, "Hey, <<$pcs_nickname>>? How about you take off your clothes and let me give you the fuck of your life?"'
 			gs 'arousal', 'bj', 5
 			gs 'stat'
-		end
-		act 'Keep sucking':
-			*clr & cla
-			'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
-			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/marcus/sex/school/marc2.jpg"></center>'
-			'As much as you''ve enjoyed giving him a blowjob, you don''t want to have sex with him here in the bathroom so you continue to suck on his cock. Marcus takes the hint and doesn''t ask twice - it''s not like he can complain really. He does, however, place his hand on the top of your head and start thrusting his hips, fucking your mouth. Though he''s gotten a bit rough, he''s still considerate enough not to force too much of his dick into your mouth.'
-			gs 'arousal', 'bj', 5
-			gs 'stat'
-			act 'Suck him off':
+			act 'Keep sucking':
+				*clr & cla
 				'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
-				'<center><video autoplay loop src="images/characters/pavlovsk/school/boy/marcus/sex/school/marc4.mp4"></video></center>'
-				'You take him deep, as deep as you can, and hold him there for a moment. Whatever thought he had a moment ago, you are sure it is all but wiped from memory, ejected along with the groan you hear. You come up for air but go right back down again, deepthroating him and holding him there as if your life depended on it, as if pleasuring him was the only thing that mattered - there''s his hand at the back of your head but it''s you who does this, you decide to do this, and both of you know it. He starts moaning loudly now and suddenly that hand at the back of your head comes to life; it tilts your head back as he murmurs: "Open your mouth and stick out your tongue."'
-				*nl
-				'As you do, he starts jerking off, holding the tip directly over your tongue and soon, spurts of cum fly onto your tongue and into your mouth. Jet after jet shoots out, more than you''ve ever seen a guy cum before, and you wonder if he is going to stop at all. He must have had a seriously amount saved up; not only the amount is exceptional but it seems thicker and saltier than any sperm you''re familiar with. He completely coats your tongue in white liquid and more of it runs into your mouth, filling it. Letting out one last loud sigh, he steps back and leans against the stall wall, taking a long look at you, sitting there, on your knees, with his cum on your tongue. You are strangely proud of yourself, of the effect you had and still have on him, his cum the tangible and tangy proof of it. You let him take one last look at you before you pull your tongue back into your mouth and swallow, twice, feeling it go down your throat like glue, then open wide again to show him you gulped it all down.'
+				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/marcus/sex/school/marc2.jpg"></center>'
+				'As much as you''ve enjoyed giving him a blowjob, you don''t want to have sex with him here in the bathroom so you continue to suck on his cock. Marcus takes the hint and doesn''t ask twice - it''s not like he can complain really. He does, however, place his hand on the top of your head and start thrusting his hips, fucking your mouth. Though he''s gotten a bit rough, he''s still considerate enough not to force too much of his dick into your mouth.'
 				gs 'arousal', 'bj', 5
-				gs 'arousal', 'end'
-				gs 'cum_call', 'mouth', $boy
 				gs 'stat'
-				'He grins as he watches your little display and says, more to himself than you, "Fuck, I love Russian girls." He pulls up his pants and bends over to give you a quick kiss on the lips before he finishes getting dressed. You get up and make yourself presentable as well.'
-				act 'Finish':gt 'gschool_boys_bathroom', 'boy4_end'
+				act 'Suck him off':
+					*clr & cla
+					'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
+					'<center><video autoplay loop src="images/characters/pavlovsk/school/boy/marcus/sex/school/marc4.mp4"></video></center>'
+					'You take him deep, as deep as you can, and hold him there for a moment. Whatever thought he had a moment ago, you are sure it is all but wiped from memory, ejected along with the groan you hear. You come up for air but go right back down again, deepthroating him and holding him there as if your life depended on it, as if pleasuring him was the only thing that mattered - there''s his hand at the back of your head but it''s you who does this, you decide to do this, and both of you know it. He starts moaning loudly now and suddenly that hand at the back of your head comes to life; it tilts your head back as he murmurs: "Open your mouth and stick out your tongue."'
+					*nl
+					'As you do, he starts jerking off, holding the tip directly over your tongue and soon, spurts of cum fly onto your tongue and into your mouth. Jet after jet shoots out, more than you''ve ever seen a guy cum before, and you wonder if he is going to stop at all. He must have had a seriously amount saved up; not only the amount is exceptional but it seems thicker and saltier than any sperm you''re familiar with. He completely coats your tongue in white liquid and more of it runs into your mouth, filling it. Letting out one last loud sigh, he steps back and leans against the stall wall, taking a long look at you, sitting there, on your knees, with his cum on your tongue. You are strangely proud of yourself, of the effect you had and still have on him, his cum the tangible and tangy proof of it. You let him take one last look at you before you pull your tongue back into your mouth and swallow, twice, feeling it go down your throat like glue, then open wide again to show him you gulped it all down.'
+					gs 'arousal', 'bj', 5
+					gs 'arousal', 'end'
+					gs 'cum_call', 'mouth', $boy
+					gs 'stat'
+					'He grins as he watches your little display and says, more to himself than you, "Fuck, I love Russian girls." He pulls up his pants and bends over to give you a quick kiss on the lips before he finishes getting dressed. You get up and make yourself presentable as well.'
+					act 'Finish':gt 'gschool_boys_bathroom', 'boy4_end'
+				end
 			end
 			act 'Agree to fuck':
 				Marcus_sextype = 1
@@ -510,7 +511,7 @@ if $ARGS[0] = 'boy4':
 					'The incredible thing is though, that it doesn''t hurt, not at all - he seems to fit you perfectly, even though his size is well above average. All you feel is intense, mind-dissolving pleasure that shoots up your spine like lightning and grows stronger with every inch of depth he gains. You would have bet that he couldn''t fit his entire cock inside you and yet, eventually, you feel his scrotum touch your nether lips and feel so wonderfully, desperately full. That''s when you hear him whisper, "I want to fuck your ass, <<$pcs_nickname>>."'
 					gs 'arousal', 'vaginal', 5
 					gs 'stat'
-					act 'Just keep fucking my pussy':
+					act '"Just keep fucking my pussy"':
 						Marcus_sextype = 1
 						*clr & cla
 						'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
@@ -519,6 +520,7 @@ if $ARGS[0] = 'boy4':
 						gs 'arousal', 'vaginal', 5
 						gs 'stat'
 						act 'Suck him off':
+							*clr & cla
 							'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 							'<center><video autoplay loop src="images/characters/pavlovsk/school/boy/marcus/sex/school/marc4.mp4"></video></center>'
 							'You pull away slightly and he takes the hint and pulls out of you. You turn around and drop down to your knees. You immediately go down on him, as if your mouth was drawn to his black cock, and you give it a couple of strokes, enjoying the taste of yourself on him. He starts moaning loudly now and suddenly that hand at the back of your head comes to life; it tilts your head back as he murmurs: "Open your mouth and stick out your tongue."'
@@ -538,6 +540,8 @@ if $ARGS[0] = 'boy4':
 							'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/marcus/sex/school/marc7.jpg"></center>'
 							'You glance back at him and grin. He gets the idea and redoubles his efforts to fuck you, his balls slapping against your clit with each powerful stroke. You feel your need for release grow with every thrust and everything he does only seems to make it better. Finally he shudders and you feel his dick pulsing as he fills your pussy with his load. His cum makes your pussy feel like it is over flowing. As he pulls out, you can feel his cum leaking out.'
 							gs 'arousal', 'vaginal', 5
+							gs 'arousal', 'end'
+							gs 'cum_call', 'vagina', $boy
 							gs 'stat'
 							act 'Finish':gt 'gschool_boys_bathroom', 'boy4_end'
 						end
@@ -557,7 +561,8 @@ if $ARGS[0] = 'boy4':
 						$orgasm_or = 'custom'
 						gs 'arousal', 'anal', 5
 						gs 'stat'
-						act 'cum snack':
+						act 'Cum snack':
+							*clr & cla
 							'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 							'<center><video autoplay loop src="images/characters/pavlovsk/school/boy/marcus/sex/school/marc4.mp4"></video></center>'
 							'Then, all of a sudden, he pulls out of your ass, pulling you back around and down to your knees - or maybe your legs just gave away - he tilts your head back as he murmurs: "Open your mouth and stick out your tongue."'

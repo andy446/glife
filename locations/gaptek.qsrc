@@ -378,7 +378,7 @@ if $ARGS[0] = 'buy_antifungal':
 end
 
 if $ARGS[0] = 'oops':
-	msg '<center>I better not buy this here, otherise aunt will tell <<$npc_nickname[''A29'']>>!</center>'
+	msg '<center>I better not buy this here, otherwise aunt will tell <<$npc_nickname[''A29'']>>!</center>'
 	*nl
 	gt 'gaptek', 'start'
 end

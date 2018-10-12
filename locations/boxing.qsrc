@@ -1,11 +1,15 @@
 # boxing
 !Choosing a physical attack
-if weapon = 0:
+if weapon = 0 and autocombat_cheat = 0:
 	act 'Fist':
 		cla
 		!gs'atak'
 		xgt'atak','player'
 	end
+elseif weapon = 0 and autocombat_cheat = 1:
+	cla
+	!gs'atak'
+	xgt'atak','player'
 end
 
 if weapon > 0:

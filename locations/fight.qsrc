@@ -291,16 +291,22 @@ if $ARGS[0] = 'start':
 				end
 			end
 		end
-
-		act 'Physical Attack':xgt'boxing'
-		if pcs_magik > 0:
-			act 'Magical Attack':gt'magik'
-		end
+		if autocombat_cheat = 0 or pcs_magick > 0:
+			act 'Physical Attack':xgt'boxing'
+			if pcs_magik > 0: act 'Magical Attack':gt'magik'
+			act 'Surrender': gt 'ender', 'loss'
+		elseif autocombat_cheat = 1 and pcs_magick = 0:
+			xgt'boxing'
+		end		
 	elseif hod = 1:
 		!enemy attacks
 		'<font color = red><<$boydesc>> attacks</font>'
-
-		act 'Further':xgt'enemy','start'
+		if autocombat_cheat = 0: 
+			act 'Continue': xgt'enemy','start'
+			act 'Surrender': gt 'ender', 'loss'
+		elseif autocombat_cheat = 1: 
+			xgt'enemy','start'
+		end
 	end
 end
 
@@ -333,7 +339,8 @@ if $ARGS[0] = 'sta':
 	if defenceActM > 0:'<b><font color = green><<defenceActM>> Mana recovery protection</font></b>'
 	'<b>= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =</b>'
 
-	act 'Further':gt'fight','start'
+	if autocombat_cheat = 0: act 'Continue':gt'fight','start'
+	if autocombat_cheat = 1: gt'fight','start'
 end
 
 if $ARGS[0] = 'Wrestlergen':

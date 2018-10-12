@@ -150,6 +150,17 @@ $cheatmenu['fight'] = {
 	end
 }
 
+$cheatmenu['autocombat'] = {
+	if autocombat_cheat = 0:
+		autocombat_cheat = 1
+		dynamic $cheatmenu['permanent']
+		exit
+	elseif autocombat_cheat = 1:
+		autocombat_cheat = 0
+		dynamic $cheatmenu['permanent']
+	end
+}
+
 $cheatmenu['age'] = {
 	:tooyoung
 	age = year - ((pcs_dob - (pcs_dob mod 10000)) / 10000)
@@ -350,6 +361,8 @@ $cheatmenu['permanent'] = {
 	if cheatBandit = 1:$cheatBandit = 'Currently ON'
 	if fight_cheat = 0:$fight_cheat = 'Currently OFF'
 	if fight_cheat = 1:$fight_cheat = 'Currently ON'
+	if autocombat_cheat = 0:$autocombat_cheat = 'Currently OFF'
+	if autocombat_cheat = 1:$autocombat_cheat = 'Currently ON'
 	if cheat_NoPregnancy = 0:$cheat_NoPregnancy = 'Currently OFF'
 	if cheat_NoPregnancy = 1:$cheat_NoPregnancy = 'Currently ON'
 	if cheatBimbo = 0:$cheatBimbo = 'Currently OFF'
@@ -384,7 +397,11 @@ $cheatmenu['permanent'] = {
 	
 	'Enable sleeping with vibrator inserted: <a href="exec:dynamic $cheatmenu[''Vibrator'']"><<$cheatVib>></a>'
 	'Bandit always horny: <a href="exec:dynamic $cheatmenu[''Bandit'']"><<$cheatBandit>></a>'
+	
+	*nl
+	
 	'Automatically win every fight: <a href="exec:dynamic $cheatmenu[''fight'']"><<$fight_cheat>></a>'
+	'Automatically resolve non-magical fights: <a href="exec:dynamic $cheatmenu[''autocombat'']"><<$autocombat_cheat>></a>'
 	
 	*nl
 	

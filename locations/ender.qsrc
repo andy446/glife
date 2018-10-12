@@ -149,6 +149,7 @@ if $ARGS[0] = 'loss':
 		act 'Cry': gt $loc, $metka
 		exit
 	elseif DimaFight = 1:
+		pcs_health = 100
 		DimaFight = 0
 		grupvalue[4] -= 2
 		Loss = 0

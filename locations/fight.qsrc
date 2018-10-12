@@ -2,6 +2,12 @@
 if $ARGS[0] = 'start':
 	menu_off = 1
 	cla
+	
+	if fight_cheat = 1:
+		xgt 'ender', 'win'
+		exit
+	end
+	
 	inFight = 1
 	gs 'themes', 'indoors'
 	gs'defence'

@@ -3096,7 +3096,7 @@ if $ARGS[0] =  'Fedor Livingroom':
 	$metkaM = 'Fedor Livingroom'
 	$locM = 'FedorEv4'
 	$menu_loc = 'FedorEv4'
-	$menu_arg = 'Fedor Livingroom':
+	$menu_arg = 'Fedor Livingroom'
 	menu_off = 0
 	minut += 5
 	gs'stat'
@@ -3129,7 +3129,7 @@ if $ARGS[0] =  'Fedor Kitchen':
 	$metkaM = 'Fedor Kitchen'
 	$locM = 'FedorEv4'
 	$menu_loc = 'FedorEv4'
-	$menu_arg = 'Fedor Kitchen':
+	$menu_arg = 'Fedor Kitchen'
 	menu_off = 0
 	gs'stat'
 	'<center><b><h4><font color="blue"><<"Fyodor [Fedor] Kozlov">></font></h4></b></left>'
@@ -3182,7 +3182,7 @@ if $ARGS[0] =  'Fedor Bedroom':
 	$metkaM = 'Fedor Bedroom'
 	$locM = 'FedorEv4'
 	$menu_loc = 'FedorEv4'
-	$menu_arg = 'Fedor Bedroom':
+	$menu_arg = 'Fedor Bedroom'
 	menu_off = 0
 	gs'stat'
 	'<center><b><h4><font color="blue"><<"Fyodor [Fedor] Kozlov">></font></h4></b></left>'
@@ -3241,7 +3241,7 @@ if $ARGS[0] =  'Fedor Bedroom 2':
 	$metkaM = 'Fedor Bedroom 2'
 	$locM = 'FedorEv4'
 	$menu_loc = 'FedorEv4'
-	$menu_arg = 'Fedor Bedroom 2':
+	$menu_arg = 'Fedor Bedroom 2'
 	menu_off = 0
 	minut += 10
 	gs'stat'

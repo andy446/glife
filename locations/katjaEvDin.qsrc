@@ -1,7 +1,8 @@
 # katjaEvDin
 
 if $ARGS[0] = 'strapon_main':
-	cls
+	*clr & cla
+	menu_off = 1
 	gs'stat'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/sex/school/strapon_ready.jpg"></center>'
 	if katjahorny < 20:'Katja looks calm and indifferent.'
@@ -9,12 +10,6 @@ if $ARGS[0] = 'strapon_main':
 	if katjahorny >= 40 and katjahorny < 60:'Katja has a slight blush on her cheeks, and she looks at you mischievously.'
 	if katjahorny >= 60 and katjahorny < 80:'Katja blushed and languidly looks at you.'
 	if katjahorny >= 80:'Katja is red like a boiled lobster and her chest heaving from deep breathing.'
-
-	if katjahorny >= 100:
-		katjahorny = 0
-		KatjaSlut += 5
-		'Katja moans and bites her lip looking like she is already about to orgasm.'
-	end
 
 	if katjahorny > 10 and katjahorny < 100:
 		act 'Make Katja suck the strap-on': gt 'KatjaEvDin', 'strapon_bj'
@@ -31,7 +26,7 @@ if $ARGS[0] = 'strapon_main':
 end
 
 if $ARGS[0] = 'strapon_bj':
-	cls
+	*clr & cla
 	KatjaThroat+=1
 	minut+=5
 	gs'stat'
@@ -48,8 +43,8 @@ if $ARGS[0] = 'strapon_bj':
 		
 		gs 'arousal', 'foreplay', 5, 'dom', 'lesbian'
 		gs 'stat'
-	
 	end
+		
 	if KatjaThroat >= 10 and KatjaThroat < 30:
 		katjahorny -= 5
 		'Katja tries to accommodate the dildo plunging down her throat but she keeps gagging a little, her eyes shed tears and a bit of saliva drips from her mouth but she is able to take it.'
@@ -58,7 +53,13 @@ if $ARGS[0] = 'strapon_bj':
 		katjahorny -= 10
 		'Katja tries to accommodate the dildo plunging down her throat but she keeps gagging, her eyes shed tears, snot runs from her nose, saliva drips from her mouth.'
 	end
-	 
+	
+	if katjahorny >= 100:
+		katjahorny = 0
+		KatjaSlut += 5
+		'Katja moans and bites her lip looking like she is already about to orgasm.'
+	end
+	
 	act'Further':gt 'KatjaEvDin', 'strapon_main'
 end
 
@@ -68,7 +69,7 @@ if $ARGS[0] = 'strapon_miss':
 !KatjaBJ += 1
 !KatjaGang
 !!KatjaAnus
-	cls
+	*clr & cla
 	gs'stat'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/sex/school/strapon_miss.jpg"></center>'
 	'You lay Katja on her back and spread her legs. You crawl between her legs, rubbing the <<dick>> cm long <<$dick_girth>> dildo against her wet pussy. Then you slip it into her and start to fuck her, you slowly work the strap-on balls deep into her, as you start to fuck her hard.'
@@ -101,12 +102,19 @@ if $ARGS[0] = 'strapon_miss':
 		KatjaSlut+=1
 	end	
 	
-	KatjaSex+=1
+	KatjaSex += 1
+	
+	if katjahorny >= 100:
+		katjahorny = 0
+		KatjaSlut += 5
+		'Katja moans and bites her lip looking like she is already about to orgasm.'
+	end
+	
 	act'Further':gt 'KatjaEvDin', 'strapon_main'
 end
 
 if $ARGS[0] = 'strapon_anal':
-	cls
+	*clr & cla
 	gs'stat'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/sex/school/strapon_anal.jpg"></center>'
 	'You roll Katja onto her stomach and spread her legs, spreading her ass cheeks with your hands you being to rub her anus with your fingers. Grabbing a bottle of lube you lube up your fingers and slide one then a second one into her ass, working it a bit and lubing it up. Then you stop and lube up the strap-on. Once it is good and lubed you lean over her and slip the strap-on in her ass and being anally fucking her.'
@@ -138,16 +146,24 @@ if $ARGS[0] = 'strapon_anal':
 		'Katja squeals when you push the strap-on in her very tight ass, even with all the lube it is very tight and slow going to work it balls deep in her. She cries out in pain, wincing, with tears flowing from her eyes as you fuck her ass.'
 	end
 	KatjaAnus += 1
+	
+	if katjahorny >= 100:
+		katjahorny = 0
+		KatjaSlut += 5
+		'Katja moans and bites her lip looking like she is already about to orgasm.'
+	end
+	
 	act'Further':gt 'KatjaEvDin', 'strapon_main'
 end
 
 if $ARGS[0] = 'dildo':
-	cls
+	*clr & cla
+	menu_off = 1
 	gs'stat'
 	if katjahorny >= 100:katjahorny = 80
 	'You get your handbag and pull out the toy.'
 	act'Strap it on':
-		cls
+		*clr & cla
 		minut+=3
 		lesbian += 1
 		gs 'boystat', 'D1', 'b'
@@ -160,9 +176,9 @@ if $ARGS[0] = 'dildo':
 	end
 end
 
-
 if $ARGS[0] = 'shower_kiss':
-	cls
+	*clr & cla
+	menu_off = 1
 	KatjaLust += 10
 	KatjaSlut += 1
 	katjahorny += 10
@@ -182,7 +198,7 @@ if $ARGS[0] = 'shower_kiss':
 	end
 
 	act 'Sit on the edge of the tub':
-		cls
+		*clr & cla
 		katjahorny -= 10
 		KatjaLust += 1
 		KatjaSlut += 1
@@ -207,7 +223,7 @@ if $ARGS[0] = 'shower_kiss':
 	end
 
 	act 'Remove her hands':
-		cls
+		*clr & cla
 		pcs_dom += 1
 		minut += 5
 		pcs_horny += 10
@@ -223,11 +239,10 @@ if $ARGS[0] = 'shower_kiss':
 end
 
 if $ARGS[0] = 'sex':
+	menu_off = 1
 	act 'relax':
-		cls
-
+		*clr & cla
 		if pcs_horny < 50:pcs_horny = 50
-
 		gs 'stat'
 
 		if KatjaSlut >= 20:
@@ -251,7 +266,7 @@ if $ARGS[0] = 'sex':
 	end
 
 	act 'Touch Katja between her legs ':
-		cls
+		*clr & cla
 
 		if pcs_horny < 50:pcs_horny = 50
 
@@ -311,7 +326,8 @@ if $ARGS[0] = 'sex':
 end
 
 if $ARGS[0] = 'kuni':
-	cls
+	*clr & cla
+	menu_off = 1
 	KatjaSlut += 1
 	KatjaLust += 1
 	katjahorny = 0
@@ -338,7 +354,8 @@ if $ARGS[0] = 'kuni':
 end
 
 if $ARGS[0] = 'kuni_p':
-	cls
+	*clr & cla
+	menu_off = 1
 	KatjaSlut += 1
 	KatjaLust += 1
 
@@ -368,7 +385,8 @@ end
 !!New Katja pcs_dom stuff, this can only happen if the scene in KatjaHomeDin where Katja got you to go down on her and not return the favor happened.
 !!anytime after that action when you go to Katja''s house and she is horny I am thinking 70+ this happens.
 if $ARGS[0] = 'kuni_dom':
-	cls
+	*clr & cla
+	menu_off = 1
 	KatjaSlut += 1
 	KatjaLust += 1
 	lesbian += 1
@@ -396,7 +414,7 @@ if $ARGS[0] = 'kuni_dom':
 			end
 			
 			act 'Beg her to give you a turn.':
-				cls
+				*clr & cla
 				pcs_horny += 5
 				gs 'stat'
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/myturn.jpg"></center>'
@@ -407,14 +425,14 @@ if $ARGS[0] = 'kuni_dom':
 				end
 				
 				act 'Agree':
-					cls
+					*clr & cla
 					pcs_horny += 10
 					gs 'stat'
 					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/katjanewtoy.jpg"></center>'
 					'You bite your lower lip a moment, you are kinda turned on at the idea of Katja using that to fuck you. You start nodding your head yes as you start to take off your clothes. Katja grins and starts putting the harness on. "Sweet! This is going to be fun <<$pcs_nickname>>, I can''t wait to fuck you with this."'
 
 					act 'Blowjob':
-						cls
+						*clr & cla
 						gs 'stat'
 						'<center><video autoplay loop src="images/characters/pavlovsk/school/girl/katja/sex/school/katstrapbj.mp4"></video></center>'
 						'As you get naked she makes sure the harness is securely in place. She looks over at you and grins, swinging her hips back and forth making the dildo swing back and forth, which makes her giggle. After you amuses herself for a bit she looks at you with a wicked grin and walks over to you.'
@@ -427,7 +445,7 @@ if $ARGS[0] = 'kuni_dom':
 			
 						if pcs_dom - sub + 30 > KatjaDom: act 'Decline and go home':gt 'pavResidential'
 						act 'Agree to round two':
-							cls
+							*clr & cla
 							stat['vaginal_strap'] += 1
 							pcs_horny += 15
 							gs 'stat'
@@ -443,7 +461,7 @@ if $ARGS[0] = 'kuni_dom':
 						
 							if pcs_dom - sub + 30 > KatjaDom: act 'Decline and go home':gt 'pavResidential'
 							act 'Surrender your ass':
-								cls
+								*clr & cla
 								gs 'stat'
 								'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/sex/school/katstrapanal.jpg"></center>'
 								'You do as she says, you grab your butt cheeks and pull them apart. Almost at once you feel the head of the dildo pressing against your asshole as she says. "That''s my good little butt slut, we will have you trained in no time."'

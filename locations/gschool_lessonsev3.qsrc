@@ -2,6 +2,7 @@
 
 if $ARGS[0] = 'literature':
 	*clr & cla
+	menu_off = 1
 	if RAND(0,5) > 0:
 		school_event_hour = 1
 		scooltiperand = RAND(1,10)
@@ -190,6 +191,7 @@ end
 
 if $ARGS[0] = 'reading':
 	*clr & cla
+	menu_off = 1
 	pcs_grades += 1
 	grupvalue[3] +=3
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/classroom/ask.jpg"></center>'
@@ -275,6 +277,7 @@ if $ARGS[0] = 'reading':
 end
 
 if $ARGS[0] = 'getphone':
+	menu_off = 1
 	scooltiperand = RAND(1,2)
 	if scooltiperand = 1:
 		*clr & cla
@@ -428,6 +431,7 @@ end
 
 if $ARGS[0] = 'english':
 	*clr & cla
+	menu_off = 1
 	if RAND(0,5) > 0:
 		school_event_hour = 1
 		scooltiperand = RAND(1,5)
@@ -530,6 +534,7 @@ end
 
 if $ARGS[0] = 'working':
 	*clr & cla
+	menu_off = 1
 	scooltiperand = RAND(1,4)
 	if scooltiperand = 1:
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/39.jpg"></center>'
@@ -630,6 +635,7 @@ end
 
 if $ARGS[0] = 'help_radomir':
 	*clr & cla
+	menu_off = 1
 	scooltiperand = RAND(1,4)
 	if scooltiperand = 1:
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/39.jpg"></center>'
@@ -686,6 +692,7 @@ end
 
 if $ARGS[0] = 'music':
 	*clr & cla
+	menu_off = 1
 	if RAND(0,5) > 0:
 		school_event_hour = 1
 		scooltiperand = RAND(1,15)
@@ -948,6 +955,7 @@ end
 
 if $ARGS[0] = 'art':
 	*clr & cla
+	menu_off = 1
 	if RAND(0,5) > 0:
 		school_event_hour = 1
 :art_event_once_more

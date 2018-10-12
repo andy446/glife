@@ -30,7 +30,8 @@ if $ARGS[0] = 'gym':
 	gs 'gschool_gossip', 'girls'
 end
 
-if $ARGS[0] = 'gossip':	
+if $ARGS[0] = 'gossip':
+	menu_off = 1
 	if soniaPS > 0 and soniaPS < 4 and rand(0,1+SoniaPS)= 0:
 		if soniaPS = 1:
 			if (soniaPSdays+7) < daystart:
@@ -527,7 +528,6 @@ if $ARGS[0] = 'boys':
 		'You find Natasha in the hallway and have a little chat. Dimka is nowhere to be seen. A few other seats are empty as well. You smile thinking about what that means.'
 	end	
 end
-
 
 if $ARGS[0] = 'girls':
 	chat_rand = rand(1, 33)

@@ -14,7 +14,8 @@ gs 'stat'
 gs 'themes', 'indoors'
 
 if saveparQW = 2:
-	cls
+	*clr & cla
+	menu_off = 1
 	'As soon as you enter the room you rush over to <<$namepopu2>>''s  cage and pour the contents of the vial in to his water bowl.'
 	'You really hope this will work and keep him from spilling yours and your  sister''s bedroom secrets.'
 	saveparQW = 3
@@ -23,7 +24,8 @@ if saveparQW = 2:
 	exit
 end
 if sisrelparday + 3 < daystart and saveparQW = 1:
-	cls
+	*clr & cla
+	menu_off = 1
 	'When you enter the room you notice <<$namepopu2>>''s cage is open and he is gone.'
 	'You sister must have released him since you were not able to find a solution in time.'
 	popugai2 = 0
@@ -39,7 +41,8 @@ if pcs_magik >= 6 and spellbefshild = 1 and tobiQW = 0 and sisterHere < 2:gt 'to
 if sisboyday + 1 = daystart and hour = 18:gt'sisterQW','sisboyQW_expel'
 
 if sisterHere = 2 and popugai2 = 1 and sispopconf = 0:
-	cls
+	*clr & cla
+	menu_off = 1
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/anya/sister2.jpg"></center>'
 	'"What is that ?" your sister asks while pointing at <<$namepopu2>> in his cage'
 	'"I went to the shopping center and bought this bird. Isn''t he the cutest ?"'
@@ -125,19 +128,18 @@ act 'Exit the room':
 	if sisterHere = 2 and daystart - parbuydate > 55 and popugai2 = 1 and sisrelparday = 0 :gt'sister','pargone'
 	gt'korrPar'
 end
+
 if sisboyparty_day + 1 = daystart and sisboyparty = -1 and hour = 22:
 	gs'family'
 else
 	gs'family'
 
-	if rexCarCount >= 9 and sisterHere = 1 and hour < 3 and rexSmsDay ! daystart and smsForRex < 13:
-		act 'Send Rex a SMS message':gt 'reks','sms'
-	end
+	if rexCarCount >= 9 and sisterHere = 1 and hour < 3 and rexSmsDay ! daystart and smsForRex < 13: act 'Send Rex a SMS message':gt 'reks','sms'
 
 	if student > 0 and kursovik < 100:
 		act 'Do coursework (1:00)':
-			cla
-			*clr
+			*clr & cla
+			menu_off = 1
 			minut += 60
 			kursovik += rand(pcs_intel / 20, pcs_intel / 10)
 
@@ -165,13 +167,8 @@ else
 
 	if tovarL > 0:'You currently have <<tovarL>> trinkets to sell at the station. The maximum you can carry with you is 30.'
 
-
-	if vcard > 0:
-		act 'View your vintage porn cards':card_deck = 0 & gt 'card'
-	end
-	if card > 0:
-		act 'View your new porn cards':card_deck = 1 & gt 'card'
-	end
+	if vcard > 0: act 'View your vintage porn cards':card_deck = 0 & gt 'card'
+	if card > 0: act 'View your new porn cards':card_deck = 1 & gt 'card'
 
 	dynamic $palelady
 end
@@ -184,7 +181,8 @@ if pcs_sewng >= 40 and tkan <= 0:'You do not have any fabric.'
 if pcs_sewng >= 80:
 	if newgobelen = 0 and tkan > 0:
 		act'Start a new tapestry':
-			cls
+			*clr & cla
+			menu_off = 1
 			tkan -= 1
 			newgobelen = 1
 			minut += 15
@@ -196,7 +194,8 @@ if pcs_sewng >= 80:
 	if newgobelen>=1:
 		'Your tapestry is <<newgobelen/10>> percent finished.'
 		act'Work on the tapestry for an hour':
-			cls
+			*clr & cla
+			menu_off = 1
 			minut+=60
 			sewng_exp += rand(pcs_intel/10, pcs_intel/5)
 			gobramax = (pcs_sewng - 70) * 6
@@ -225,9 +224,7 @@ elseif kid >= 1 and breastpump = 1 and bp_unbox = 1 and pcs_inbition > 30:
 end
 gs 'lact_lib', 'massage'
 
-
 act 'Relax on your bed': gt 'bed', 'start'
-
 
 if $ARGS[0] = 'intro':
 	cla & *clr
@@ -242,7 +239,7 @@ if $ARGS[0] = 'intro':
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/resident/mom/prost4.jpg"></center>'
 	*nl
 	'All of a sudden you hear a familiar voice yell out, "<<$pcs_nickname>>, time to get up. You can''t spend the whole day laying around!"'
-	wait 2000
+	wait 1000
 	$npc_nickname['A29'] = input('<center>What name do you address your mother by?<br>Mother (default), Mum, Mom, Mama, etc.</center>')
 	if $npc_nickname['A29'] = '':$npc_nickname['A29'] = '<<$temp_nickname>>'
 	killvar '$temp_nickname'

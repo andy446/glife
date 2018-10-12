@@ -27,6 +27,7 @@ $location_type = 'event'
 
 if $args[0] = 'first_visit':
 	*clr & cla
+	menu_off = 1
 	! for the first time - familiarity with TM
 	if mey_vika['mey_vika_qw'] = 20: gt 'mey_tamara_events', 'first_meet'
 	minut += 10
@@ -65,11 +66,11 @@ if $args[0] = 'first_visit':
 end
 
 if $args[0] = 'end_game':
-'Noticing you, Tamara Mikhailovna leans over, rubbing against your breasts...'
-'<font color="maroon"><i>"You can come over and visit us any time you want, <<$name_a[4]>>. We can sit down and have a chat over a glass of tea."</i></font>'
-'<font color="navy"><i>"Of course, aunt Tamara! I''ll be sure to come by."</i></font>'
-'Tamara Mikhailovna smiles and adds...'
-'<font color="maroon"><i>"You don''t need an invitation from my girls, you can come by any time you want by yourself."</i></font>'
+	'Noticing you, Tamara Mikhailovna leans over, rubbing against your breasts...'
+	'<font color="maroon"><i>"You can come over and visit us any time you want, <<$name_a[4]>>. We can sit down and have a chat over a glass of tea."</i></font>'
+	'<font color="navy"><i>"Of course, aunt Tamara! I''ll be sure to come by."</i></font>'
+	'Tamara Mikhailovna smiles and adds...'
+	'<font color="maroon"><i>"You don''t need an invitation from my girls, you can come by any time you want by yourself."</i></font>'
 
 	minut += 5
 	killvar 'win'
@@ -79,6 +80,7 @@ end
 if $args[0] = 'play_game':
 	! the beginning of the game
 	*clr & cla
+	menu_off = 1
 	minut += 5
 	gs 'mey_vika_events', 'play_game_sub', 1
 	! info about the winner/loser
@@ -144,6 +146,7 @@ end
 if $args[0] = 'play_game_wish0':
 	! Ivan lost
 	*clr & cla
+	menu_off = 1
 	if mey_vika['mey_vika_qw'] < 27 and mey_vika['qw_day'] ! daystart: mey_vika['mey_vika_qw'] += 1
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/meynolds/sex/vika_game0.jpg"></center>'
 	'<font color="maroon"><i>"Vanya, you’’re the athlete here, come on show off your toned body! As you were imitating the famous ancient discus thrower!"</i></font>'
@@ -307,6 +310,7 @@ end
 ! wish Sveta from Ivan, kiss #2
 if $args[0] = 'play_game_wish2':
 	*clr & cla
+	menu_off = 1
 	if mey_vika['mey_vika_qw'] < 27 and mey_vika['qw_day'] ! daystart: mey_vika['mey_vika_qw'] += 1
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/meynolds/vika_game_kiss2.jpg"></center>'
 	'Vanya thoughtfully rubs his chin.'
@@ -333,6 +337,7 @@ end
 ! wish Sveta from the Vicky, kiss
 if $args[0] = 'play_game_wish3':
 	*clr & cla
+	menu_off = 1
 	if mey_vika['mey_vika_qw'] < 27 and mey_vika['qw_day'] ! daystart: mey_vika['mey_vika_qw'] += 1
 	'<center><video autoplay loop src="'+'images/characters/pavlovsk/school/girl/vicky/event/vika_game_kiss.mp4'+'"></video></center>'
 	'<font color="maroon"><i>"You Lost! You Lost!"</i></font> sings Vicky. <font color="maroon"><i>"Now let''s see, what do I want? I want... I want... I want you to make out with Vanya! A real kiss, not a little pecker! And don''t forget using your tongue!"</i></font>'
@@ -363,6 +368,7 @@ end
 
 if $args[0] = 'near_school':
 	!*clr & cla
+	menu_off = 1
 	vicky_afterschool = daystart
 	!if week < 6 and hour = 14 and minut >= 0 and minut <= 15 and kanikuli = 0:
 		!check condition before gs
@@ -428,6 +434,7 @@ if $args[0] = 'near_school':
 end
 
 if $args[0] = 'park_meet':
+	menu_off = 1
 	minut += rand(10,20)
 	gs 'stat'
 	! bad weather, nothing to walk, sent a couple of new cafe 
@@ -560,6 +567,7 @@ end
 
 if $args[0] = 'cafe_qw':
 	*clr & cla
+	menu_off = 1
 	money -= 150
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/vicky/sex/cafe_qw0.jpg"></center>'
 	'You are sitting in the café eating pizza and chatting with Vicky. You notice Vicky is somewhat acting strange, giggling, pressing herself against Vanya. One of his hands is almost constantly under the table, and you can hear Vicky quietly purr, arching her back, and lustfully looking at you, occasionally licking her lips.'
@@ -605,6 +613,7 @@ end
 
 if $args[0] = 'cafe_repeat_qw':
 	*clr & cla
+	menu_off = 1
 	money -= 150
 	pcs_horny += 10
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/vicky/sex/cafe_qw0.jpg"></center>'
@@ -623,6 +632,7 @@ end
 
 if $args[0] = 'park_qw':
 	*clr & cla
+	menu_off = 1
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/building/gschool.jpg"></center>'
 	'After the school ends you meet Vicky and Vanya  outside. They once again invite you to the café, but remembering what happened the previous time you tell them that you don''t have any money, you politely decline, even in spite you''re sure they would put on a new show for you.<br><font color="maroon"><i>"Then let''s go for a walk together!"</i></font> Vicky offers. <br><font color="maroon"><i>"What do you say, <<$pcs_nickname>>?"</i></font>'
 	act 'Decline':
@@ -662,6 +672,7 @@ end
 
 if $args[0] = 'beach_event0':
 	*clr & cla
+	menu_off = 1
 	if args[1] < 1:
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/meynolds/vika_beach1.jpg"></center>'
 		'You arrive at the beach seeing more than people than usual and lots of children running around. Vicky frowns...'
@@ -824,6 +835,7 @@ if $args[0] = 'beach_ender':
 end
 
 if $args[0] = 'beach_event1':
+	menu_off = 1
 	!if temper >= 20 and sunWeather = 1 and month >= 5 and month <= 9 and hour < 20 and mey_vika['mey_vika_qw'] >= 18 and mey_vika['mey_vika_qw'] < 20 and mey_vika['qw_day'] ! daystart:
 		!if (hour >= 10 and week >= 6) or (hour >= 14 and week < 6):
 			*clr & cla
@@ -866,6 +878,7 @@ end
 !move check condition before gs
 ! case with a gift
 if $args[0] = 'case_gift':
+	menu_off = 1
 	!if mey_vika['mey_vika_qw'] = 30 and mey_vika['qw_day'] ! daystart and hour = 23:
 		zz_stage = args[1]
 		if zz_stage < 2:
@@ -876,7 +889,7 @@ if $args[0] = 'case_gift':
 			act 'Pass by': gs 'mey_vika_events', 'case_gift_ender'
 			act 'Listen':
 				*clr & cla
-				'<center><video autoplay loop src="'+'images/characters/pavlovsk/school/girl/vicky/sex/case_gift1.mp4'+'"></video></center>'
+				'<center><video autoplay loop src="'+'images/characters/pavlovsk/school/girl/vicky/sex/case.gift1.mp4'+'"></video></center>'
 				'Your curiosity gets the best of you and you stop by the door, trying to figure out what''s happening. You can''t hear them that well, and you can''t really figure out what they''re talking about.'
 
 				act 'Move on': gs 'mey_vika_events', 'case_gift_ender'
@@ -955,7 +968,7 @@ if $args[0] = 'case_gift':
 													act 'Further':
 														*clr
 														cla
-														'<center><img <<$set_imgh>> src="'+'images/characters/pavlovsk/school/girl/vicky/sex/case_gift12.jpg'+'"></center>'
+														'<center><img <<$set_imgh>> src="'+'images/characters/pavlovsk/school/girl/vicky/sex/case_gift11.jpg'+'"></center>'
 														'Looking at Vicky playing around with the teddy bear, is turning you on. The juices are flowing, and your panties are wet. You begin touching yourself, the pussy is hot and wet. Not being able to withstand, you start masturbating while still prying.'
 														
 														act 'Further':
@@ -997,6 +1010,7 @@ if $args[0] = 'case_gift_ender':
 end
 
 if $args[0] = 'learning0':
+	menu_off = 1
 	!if mey_vika['mey_vika_qw'] >= 32 and mey_vika['mey_vika_qw'] < 35 and mey_vika['qw_day'] ! daystart and hour >= 23:
 		*clr & cla
 		minut += 5
@@ -1117,6 +1131,7 @@ if $args[0] = 'learning0':
 end
 
 if $args[0] = 'gym0':
+	menu_off = 1
 !!	if week mod 2 ! 0 and mey_vika['mey_vika_qw'] >= 32 and mey_vika['gym_day'] ! daystart and hour = 14 and minut >= 30:
 		*clr & cla
 		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/vicky/event/gym0.jpg"></center>'
@@ -1225,6 +1240,7 @@ if $args[0] = 'gym0':
 end
 
 if $args[0] = 'gym1':
+	menu_off = 1
 	!if week mod 2 ! 0 and mey_vika['mey_vika_qw'] >= 32 and mey_vika['gym_day'] ! daystart and hour = 17 and minut >= 30:
 		zz_stage = args[1]
 		if zz_stage < 1:
@@ -1285,6 +1301,7 @@ end
 
 if $args[0] = 'bath_qw0':
 	*clr & cla
+	menu_off = 1
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/meynolds/vaccleaner.jpg"></center>'
 	'Sighing, you begin looking where the cleaning supplies are stored in the Meynold residence.'
 	'Everything that is need is found in a small closet next to the kitchen, a broom, a bucket, detergent and a floor scrubbing machine. All brand new, as if no one ever used it. All the supplies stand in a far corner, covered with dust.'
@@ -1313,6 +1330,7 @@ end
 
 if $args[0] = 'bath_qw1':
 	cla
+	menu_off = 1
 	mey_vika['bath_qw_day'] = daystart
 	'Standing in the hallway in her shorts and a short top Vicky confronts you, pointing at the stairs.'
 	'<font color="maroon"><i>"<<$pcs_nickname>>! No excuses you''re taking a bath now! Come with me!"</i></font>'
@@ -1332,6 +1350,7 @@ end
 
 if $args[0] = 'bath_common':
 	*clr & cla
+	menu_off = 1
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/vicky/sex/bath_qw1.jpg"></center>'
 	'The bathroom looks absolutely amazing. Half of the space is occupied by a corner bath and an enormous mirror hangs there.'
 	'You and Vicky quickly take off all the clothes you''re wearing, climbing into the tub.'
@@ -1406,6 +1425,7 @@ if $args[0] = 'bath_common':
 end
 
 if $args[0] = 'bang_katya':
+	menu_off = 1
 	zz_stage = args[1]
 	if zz_stage = 0:
 		cla
@@ -1434,6 +1454,7 @@ end
 
 if $args[0] = 'bang_katya2':
 	*clr & cla
+	menu_off = 1
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/katja/sex/home/bang_katya3.jpg"></center>'
 	'You quietly sneak into Katja''s room. Katja is deep asleep wearing a short tank top and panties, you lightly move her over and remove the blanket.'
 	'Vicky lays still next to her sister and winks at you. You gently lay down on the other side. Vicky starts gently kissing Katja''s tummy and softly touches her legs. You seem to understand what the plan is, and you gently bite Katja''s nipple through the thin fabric.'

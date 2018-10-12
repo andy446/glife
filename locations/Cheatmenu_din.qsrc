@@ -384,7 +384,7 @@ $cheatmenu['permanent'] = {
 	
 	'Enable sleeping with vibrator inserted: <a href="exec:dynamic $cheatmenu[''Vibrator'']"><<$cheatVib>></a>'
 	'Bandit always horny: <a href="exec:dynamic $cheatmenu[''Bandit'']"><<$cheatBandit>></a>'
-	'Avoid fights: <a href="exec:dynamic $cheatmenu[''fight'']"><<$fight_cheat>></a>'
+	'Automatically win every fight: <a href="exec:dynamic $cheatmenu[''fight'']"><<$fight_cheat>></a>'
 	
 	*nl
 	

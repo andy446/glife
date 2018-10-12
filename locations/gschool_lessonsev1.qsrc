@@ -115,6 +115,7 @@ end
 
 if $ARGS[0] = 'biology':
 	*clr & cla
+	menu_off = 1
 	if RAND(0,5) > 0:	
 		school_event_hour = 1
 		scooltiperand = RAND(1,14)
@@ -350,6 +351,7 @@ end
 
 if $ARGS[0] = 'science':
 	*clr & cla
+	menu_off = 1
 	if RAND(0,5) > 0:
 		school_event_hour = 1
 		scooltiperand = RAND(1,11)
@@ -500,6 +502,7 @@ end
 
 if $ARGS[0] = 'computer':
 	*clr & cla
+	menu_off = 1
 	if RAND(0,5) > 0:
 		school_event_hour = 1
 		scooltiperand = RAND(1,17)
@@ -800,6 +803,7 @@ end
 
 if $ARGS[0] = 'russian':
 	*clr & cla
+	menu_off = 1
 	if RAND(0,5) > 0:
 		school_event_hour = 1
 		scooltiperand = RAND(1,20)

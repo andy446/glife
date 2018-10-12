@@ -1,6 +1,10 @@
 # gschool_boys_bathroom
 
 if $ARGS[0] = 'start':
+	*clr & cla
+	$menu_loc = 'gschool_boys_bathroom'
+	$menu_arg = 'start'
+	menu_off = 0
 	gs 'stat'
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/boysbathroom.jpg"></center>'
@@ -8,6 +12,7 @@ if $ARGS[0] = 'start':
 	act 'Play on your phone':
 		school_bunk = 0
 		cla & *clr
+		menu_off = 1
 		'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/usephone1.jpg"></center>'
 		'You pull out your phone, looking for something to do. You can''t really text anyone right now and the games you can play aren''t very good, but it sure as hell beats sitting through another boring class.'
@@ -27,6 +32,7 @@ if $ARGS[0] = 'start':
 	end
 	if siga > 0:
 		act 'Have a smoke':
+			menu_off = 1
 			school_bunk = 1
 			gs 'shortgs','smoker'
 			cla & *clr
@@ -52,6 +58,9 @@ if $ARGS[0] = 'start':
 end
 
 if $ARGS[0] = 'bathroom2':
+	$menu_loc = 'gschool_boys_bathroom'
+	$menu_arg = 'bathroom2'
+	menu_off = 0
 	if school_bunk = 0:
 		pcs_willpwr += rand(5, 10)
 		pcs_mood += rand(10, 30)
@@ -74,6 +83,8 @@ if $ARGS[0] = 'bathroom2':
 end
 
 if $ARGS[0] = 'boys':
+	*clr & cla
+	menu_off = 1
 	i = rand(1,140)
 	if i <= 10 and kotovLoveQW < 1:
 		gt 'gschool_boys_bathroom', 'boy6'
@@ -95,7 +106,8 @@ if $ARGS[0] = 'boys':
 end
 
 if $ARGS[0] = 'boy1':
-	cla & *clr
+	*clr & cla
+	menu_off = 1
 	boyrand = rand(1,8)
 	if boyrand = 1:
 		npc_rel['A147'] += 1
@@ -132,6 +144,8 @@ if $ARGS[0] = 'boy1':
 end
 
 if $ARGS[0] = 'boy2':
+	*clr & cla
+	menu_off = 1
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/stall.jpg"></center>'
 	'After a couple of minutes, you hear someone else in the bathroom with you. You move slightly to make sure you are hidden, but that causes the the toilet seat under you to creak noticeably.'
@@ -239,6 +253,8 @@ if $ARGS[0] = 'boy2':
 end
 
 if $ARGS[0] = 'boy2_sub':
+	*clr & cla
+	menu_off = 1
 	gs 'boyStat', 'A154'
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/radomir/sex/school/boy1bj.jpg"></center>'
@@ -291,6 +307,8 @@ if $ARGS[0] = 'boy2_sub':
 end
 
 if $ARGS[0] = 'boy3':
+	*clr & cla
+	menu_off = 1
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/32.jpg"></center>'
 	'After a couple of minutes, you hear someone else in the bathroom with you. You peek out but don''t see anyone. Confused and a little curious, you leave the stall and take a look around. The next stall door is open and you see Lazar using the toilet as a chair, with a folder in his lap. "Hey Lazar, what''s up?" you ask.'
@@ -336,6 +354,8 @@ if $ARGS[0] = 'boy3':
 end
 
 if $ARGS[0] = 'boy3_kiss':
+	*clr & cla
+	menu_off = 1
 	gs 'boyStat', 'A149'
 	npc_rel['A149'] += 3
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
@@ -405,6 +425,8 @@ if $ARGS[0] = 'boy3_kiss':
 end
 
 if $ARGS[0] = 'boy4':
+	*clr & cla
+	menu_off = 1
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/27.jpg"></center>'
 	'After a couple of minutes, you hear someone else in the bathroom with you. You peek out but you don''t see anyone. Confused and a little curious, you leave the stall and take a look around. The next stall door is open and you see Marcus standing there. His pants and underwear are pulled down to his knees and his large, black cock is standing at attention. "Uh... Hey Marcus, did I catch you at a bad time?" you ask, carefully.'
@@ -447,26 +469,27 @@ if $ARGS[0] = 'boy4':
 			'He just lets you do the work, leaning back against the stall wall and closing his eyes to enjoy you sucking him off. "God damn, you Russian girls know how to suck cock." You take that as a compliment and redouble your efforts, bobbing your head up and down his length. His impressive size doesn''t make his manhood easy to handle but it certainly makes it more exciting to you. For a few minutes, he just lets you do your thing as he observes and savors your blowjob, but eventually he breaks the silence, "Hey, <<$pcs_nickname>>? How about you take off your clothes and let me give you the fuck of your life?"'
 			gs 'arousal', 'bj', 5
 			gs 'stat'
-		end
-		act 'Keep sucking':
-			*clr & cla
-			'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
-			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/marcus/sex/school/marc2.jpg"></center>'
-			'As much as you''ve enjoyed giving him a blowjob, you don''t want to have sex with him here in the bathroom so you continue to suck on his cock. Marcus takes the hint and doesn''t ask twice - it''s not like he can complain really. He does, however, place his hand on the top of your head and start thrusting his hips, fucking your mouth. Though he''s gotten a bit rough, he''s still considerate enough not to force too much of his dick into your mouth.'
-			gs 'arousal', 'bj', 5
-			gs 'stat'
-			act 'Suck him off':
+			act 'Keep sucking':
+				*clr & cla
 				'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
-				'<center><video autoplay loop src="images/characters/pavlovsk/school/boy/marcus/sex/school/marc4.mp4"></video></center>'
-				'You take him deep, as deep as you can, and hold him there for a moment. Whatever thought he had a moment ago, you are sure it is all but wiped from memory, ejected along with the groan you hear. You come up for air but go right back down again, deepthroating him and holding him there as if your life depended on it, as if pleasuring him was the only thing that mattered - there''s his hand at the back of your head but it''s you who does this, you decide to do this, and both of you know it. He starts moaning loudly now and suddenly that hand at the back of your head comes to life; it tilts your head back as he murmurs: "Open your mouth and stick out your tongue."'
-				*nl
-				'As you do, he starts jerking off, holding the tip directly over your tongue and soon, spurts of cum fly onto your tongue and into your mouth. Jet after jet shoots out, more than you''ve ever seen a guy cum before, and you wonder if he is going to stop at all. He must have had a seriously amount saved up; not only the amount is exceptional but it seems thicker and saltier than any sperm you''re familiar with. He completely coats your tongue in white liquid and more of it runs into your mouth, filling it. Letting out one last loud sigh, he steps back and leans against the stall wall, taking a long look at you, sitting there, on your knees, with his cum on your tongue. You are strangely proud of yourself, of the effect you had and still have on him, his cum the tangible and tangy proof of it. You let him take one last look at you before you pull your tongue back into your mouth and swallow, twice, feeling it go down your throat like glue, then open wide again to show him you gulped it all down.'
+				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/marcus/sex/school/marc2.jpg"></center>'
+				'As much as you''ve enjoyed giving him a blowjob, you don''t want to have sex with him here in the bathroom so you continue to suck on his cock. Marcus takes the hint and doesn''t ask twice - it''s not like he can complain really. He does, however, place his hand on the top of your head and start thrusting his hips, fucking your mouth. Though he''s gotten a bit rough, he''s still considerate enough not to force too much of his dick into your mouth.'
 				gs 'arousal', 'bj', 5
-				gs 'arousal', 'end'
-				gs 'cum_call', 'mouth', $boy
 				gs 'stat'
-				'He grins as he watches your little display and says, more to himself than you, "Fuck, I love Russian girls." He pulls up his pants and bends over to give you a quick kiss on the lips before he finishes getting dressed. You get up and make yourself presentable as well.'
-				act 'Finish':gt 'gschool_boys_bathroom', 'boy4_end'
+				act 'Suck him off':
+					*clr & cla
+					'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
+					'<center><video autoplay loop src="images/characters/pavlovsk/school/boy/marcus/sex/school/marc4.mp4"></video></center>'
+					'You take him deep, as deep as you can, and hold him there for a moment. Whatever thought he had a moment ago, you are sure it is all but wiped from memory, ejected along with the groan you hear. You come up for air but go right back down again, deepthroating him and holding him there as if your life depended on it, as if pleasuring him was the only thing that mattered - there''s his hand at the back of your head but it''s you who does this, you decide to do this, and both of you know it. He starts moaning loudly now and suddenly that hand at the back of your head comes to life; it tilts your head back as he murmurs: "Open your mouth and stick out your tongue."'
+					*nl
+					'As you do, he starts jerking off, holding the tip directly over your tongue and soon, spurts of cum fly onto your tongue and into your mouth. Jet after jet shoots out, more than you''ve ever seen a guy cum before, and you wonder if he is going to stop at all. He must have had a seriously amount saved up; not only the amount is exceptional but it seems thicker and saltier than any sperm you''re familiar with. He completely coats your tongue in white liquid and more of it runs into your mouth, filling it. Letting out one last loud sigh, he steps back and leans against the stall wall, taking a long look at you, sitting there, on your knees, with his cum on your tongue. You are strangely proud of yourself, of the effect you had and still have on him, his cum the tangible and tangy proof of it. You let him take one last look at you before you pull your tongue back into your mouth and swallow, twice, feeling it go down your throat like glue, then open wide again to show him you gulped it all down.'
+					gs 'arousal', 'bj', 5
+					gs 'arousal', 'end'
+					gs 'cum_call', 'mouth', $boy
+					gs 'stat'
+					'He grins as he watches your little display and says, more to himself than you, "Fuck, I love Russian girls." He pulls up his pants and bends over to give you a quick kiss on the lips before he finishes getting dressed. You get up and make yourself presentable as well.'
+					act 'Finish':gt 'gschool_boys_bathroom', 'boy4_end'
+				end
 			end
 			act 'Agree to fuck':
 				Marcus_sextype = 1
@@ -488,7 +511,7 @@ if $ARGS[0] = 'boy4':
 					'The incredible thing is though, that it doesn''t hurt, not at all - he seems to fit you perfectly, even though his size is well above average. All you feel is intense, mind-dissolving pleasure that shoots up your spine like lightning and grows stronger with every inch of depth he gains. You would have bet that he couldn''t fit his entire cock inside you and yet, eventually, you feel his scrotum touch your nether lips and feel so wonderfully, desperately full. That''s when you hear him whisper, "I want to fuck your ass, <<$pcs_nickname>>."'
 					gs 'arousal', 'vaginal', 5
 					gs 'stat'
-					act 'Just keep fucking my pussy':
+					act '"Just keep fucking my pussy"':
 						Marcus_sextype = 1
 						*clr & cla
 						'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
@@ -497,6 +520,7 @@ if $ARGS[0] = 'boy4':
 						gs 'arousal', 'vaginal', 5
 						gs 'stat'
 						act 'Suck him off':
+							*clr & cla
 							'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 							'<center><video autoplay loop src="images/characters/pavlovsk/school/boy/marcus/sex/school/marc4.mp4"></video></center>'
 							'You pull away slightly and he takes the hint and pulls out of you. You turn around and drop down to your knees. You immediately go down on him, as if your mouth was drawn to his black cock, and you give it a couple of strokes, enjoying the taste of yourself on him. He starts moaning loudly now and suddenly that hand at the back of your head comes to life; it tilts your head back as he murmurs: "Open your mouth and stick out your tongue."'
@@ -516,6 +540,8 @@ if $ARGS[0] = 'boy4':
 							'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/marcus/sex/school/marc7.jpg"></center>'
 							'You glance back at him and grin. He gets the idea and redoubles his efforts to fuck you, his balls slapping against your clit with each powerful stroke. You feel your need for release grow with every thrust and everything he does only seems to make it better. Finally he shudders and you feel his dick pulsing as he fills your pussy with his load. His cum makes your pussy feel like it is over flowing. As he pulls out, you can feel his cum leaking out.'
 							gs 'arousal', 'vaginal', 5
+							gs 'arousal', 'end'
+							gs 'cum_call', 'vagina', $boy
 							gs 'stat'
 							act 'Finish':gt 'gschool_boys_bathroom', 'boy4_end'
 						end
@@ -535,7 +561,8 @@ if $ARGS[0] = 'boy4':
 						$orgasm_or = 'custom'
 						gs 'arousal', 'anal', 5
 						gs 'stat'
-						act 'cum snack':
+						act 'Cum snack':
+							*clr & cla
 							'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 							'<center><video autoplay loop src="images/characters/pavlovsk/school/boy/marcus/sex/school/marc4.mp4"></video></center>'
 							'Then, all of a sudden, he pulls out of your ass, pulling you back around and down to your knees - or maybe your legs just gave away - he tilts your head back as he murmurs: "Open your mouth and stick out your tongue."'
@@ -556,8 +583,10 @@ if $ARGS[0] = 'boy4':
 end
 
 if $ARGS[0] = 'boy4_end':
+	*clr & cla
+	menu_off = 1
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
-	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/sex/boys/boys.jpg"></center>'
+	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/27.jpg"></center>'
 	'"I hope you don''t think we are all teases anymore. Even if we do tease, there is normally a big pay off in the end," you tell him as you finish getting the last of your clothes back in place and suggestively wiggle your tongue at him.'
 	*nl
 	'He laughs. "Well, if that''s the case, feel free to tease me any time you want, <<$pcs_nickname>>. I should get back to class, they are going to wonder where I went. Talk to you later, okay?" Marcus gives you a final smile and wave as he heads out of the bathroom. It takes you a few more seconds before you realize that this wasn''t some encounter in a club or something but you were doing all this in the school bathroom, while skipping class! The reality check sucks and you are back to killing time until the bell rings... but the time you spent with the cute black guy was definitely a better use of the period.'
@@ -565,6 +594,8 @@ if $ARGS[0] = 'boy4_end':
 end
 
 if $ARGS[0] = 'boy5':
+	*clr & cla
+	menu_off = 1
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/sex/boys/boys.jpg"></center>'
 	'After a couple of minutes, you hear someone else in the bathroom with you. Within moments, you hear a guy''s voice - you recognize it as Ivan''s: "Hey, wait, can you smell that?"'
@@ -674,6 +705,8 @@ if $ARGS[0] = 'boy5':
 end
 
 if $ARGS[0] = 'boy6':
+	*clr & cla
+	menu_off = 1
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/stall.jpg"></center>'
 	if gruptipe ! 4 and hotcat => 5:
@@ -734,6 +767,8 @@ if $ARGS[0] = 'boy6':
 end
 
 if $ARGS[0] = 'boy6_not':
+	*clr & cla
+	menu_off = 1
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/boysbathroom.jpg"></center>'
 	'You decide to shake your head and try to fend them off, "Not today, boys." They don''t relent and keep pawing at you, one or two even try to push their luck and see if all it takes to sway you is one good squeeze. Vitek and Dan aren''t as handsy as the others but aren''t coming to your aid either. You''re trying to push through the others, towards the door, and you know that if they really don''t want to let you leave, there is no way you could force your way past them. You push a couple of them away and they stay backed off for a moment, but by the time you push another off, another moves back in. They seem to be enjoying the game.'
@@ -753,6 +788,7 @@ if $ARGS[0] = 'boy6_not':
 end
 
 if $ARGS[0] = 'boy6_sub':
+	menu_off = 1
 	grupvalue[4] -=3
 	if gruptipe = 4:
 		pav_sex +=2
@@ -895,6 +931,7 @@ end
 
 if $ARGS[0] = 'companyb':
 	cla & *clr
+	menu_off = 1
 	!!This replaces random girls, with these possible couples for either company1 or company2
 	!!replacement for random boy/girl
 	!!Viktoriya and Vanya
@@ -953,6 +990,7 @@ end
 
 if $ARGS[0] = 'companyb1':
 	cla & *clr
+	menu_off = 1
 	pcs_horny += 5
 	gs 'stat'
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
@@ -997,6 +1035,7 @@ end
 
 if $ARGS[0] = 'companyb2':
 	cla & *clr
+	menu_off = 1
 	pcs_horny += 5
 	gs 'stat'
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
@@ -1041,6 +1080,7 @@ end
 
 if $ARGS[0] = 'companyb3':
 	cla & *clr
+	menu_off = 1
 	pcs_horny += 5
 	gs 'stat'
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
@@ -1087,6 +1127,8 @@ if $ARGS[0] = 'companyb3':
 end
 
 if $ARGS[0] = 'Join them':
+	*clr & cla
+	menu_off = 1
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/sex/boys/couplefuck.jpg"></center>'
 	'You step out of the stall and see Arkadi has Anushka bent over, up against one of the stalls, and is fucking her hard and fast. He may have been looking around before but he seems completely oblivious to you now; she, on the other hand, is looking right at you and smiling, as if she had been expecting you.'
@@ -1168,8 +1210,8 @@ if $ARGS[0] = 'Join them':
 end
 
 if $ARGS[0] = 'companyb4':
-	*clr
-	cla
+	*clr & cla
+	menu_off = 1
 	'<center><b><font color="maroon">Girls bathroom</font></b></center>'
 	'<center><video autoplay loop src="images/locations/pavlovsk/school/bathroom/sex/teachers1.mp4"></video></center>'
 	'After a couple of minutes, you hear someone else in the bathroom with you. Soft murmured voices echo in the room, one male, the other female; you can''t quite make out what they are saying. Then there is some rustling of clothes, shortly followed by female moans. You creep up to the stall door, open it just a tiny bit, just as far as you dare without drawing attention, and peek outside.'
@@ -1227,6 +1269,7 @@ end
 
 if $ARGS[0] = 'caughtb':
 	cla & *clr
+	menu_off = 1
 	if rand(1,100) <= 50:
 		gt 'gschool_boys_bathroom', 'caughtb1'
 	else
@@ -1236,6 +1279,7 @@ end
 
 if $ARGS[0] = 'caughtb1':
 	cla & *clr
+	menu_off = 1
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/caught.jpg"></center>'
 	'After a couple of minutes, you hear someone else in the bathroom with you. You peek out and see one of your teachers, Mr. Vasilyev, standing at the mirror. You duck back into the stall, close the door as quietly as you can and sit down on the toilet, your heart beating like crazy, hoping he didn''t notice you. You hear his footsteps coming closer, closer... and stop, right outside your stall door.'
@@ -1444,6 +1488,7 @@ end
 
 if $ARGS[0] = 'caughtb2':
 	cla & *clr
+	menu_off = 1
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/bathroom/caught.jpg"></center>'
 	'After a couple of minutes, you hear someone else in the bathroom with you. You peek out and see one of your teachers, Mr. Ivanov, standing at the mirror. You duck back into the stall, close the door as quietly as you can and sit down on the toilet, your heart beating like crazy, hoping he didn''t notice you. You hear his footsteps coming closer, closer... and stop, right outside your stall door.'
@@ -1667,8 +1712,9 @@ end
 
 if $ARGS[0] = 'boy7':
 	cla & *clr
+	menu_off = 1
 	'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
-	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/sex/boysroom1.jpg"></center>'
+	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/sex/school/boysroom1.jpg"></center>'
 	'After a couple of minutes, you hear someone else in the bathroom with you. You peek out and see Igor at the sink washing his hands. Smiling, you exit the stall and call his name. "Hey Igor, what are you up to?"'
 	'He whirls around, visibly startled, but then breaks into a smile when he sees you, "You scared the hell out of me! Actually what are you doing in the boys room anyways?"'
 	'You smile to him, "Sorry, didn''t mean to scare you and I was just tired of class. Needed a break."'
@@ -1678,7 +1724,7 @@ if $ARGS[0] = 'boy7':
 	act 'Just talk':
 		cla & *clr
 		'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
-		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/sex/boysroom1.jpg"></center>'
+		'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/sex/school/boysroom1.jpg"></center>'
 		'Within moments, the two of you are chatting away about school, movies, sports, music and anything else that strikes your fancy. Before you know it, the class bell rings. You both stop, laugh and gather your things. You then bid each other later and head to your next class.'
 		act 'Go to class':gt 'gschool_lessons', 'short_break'
 	end
@@ -1686,7 +1732,7 @@ if $ARGS[0] = 'boy7':
 		act 'Surprise! I brought my strapon.':
 			cla & *clr
 			'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
-			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/sex/boysroom2.jpg"></center>'
+			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/sex/school/boysroom2.jpg"></center>'
 			'You pull your strapon out of your purse, "I thought I might fuck you with this."'
 			'His eyes get a little big, but you can also see the little bulge in his pants from him quickly getting a hard on, "Um, I don''t know."'
 			'You attach the dildo to the harness and start to slide the harness up your legs, under your skirt,"Come on, you know you want to and you will love it."'
@@ -1698,7 +1744,7 @@ if $ARGS[0] = 'boy7':
 			act 'Turn around':
 				cla & *clr
 				'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
-				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/sex/boysroom3.jpg"></center>'
+				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/sex/school/boysroom3.jpg"></center>'
 				'After he sucks on your dildo for awhile and gets it nice and wet you tell him, "Stand up and turn around, then pull your pants down."'
 				'He does what you ask without hesitation. Once his pants are halfway down his thighs you grab him by the hips and pull him back towards you. Once he is close enough, you reach down and line up the dildo against his asshole. Using one hand you pull his hips back while the other guides your dildo in his ass. He moans in pleasure and pain as your dildo slides in his ass. You slowly begin to fuck his ass.'
 				gs 'arousal', 'anal_strap_give', 10, 'dom'
@@ -1706,21 +1752,21 @@ if $ARGS[0] = 'boy7':
 				act 'On your knees':
 					cla & *clr
 					'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
-					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/sex/boysroom4.jpg"></center>'
+					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/sex/school/boysroom4.jpg"></center>'
 					'Once he is down on his knees you push him forward so he is on all fours, you kneel behind him and slip the dildo back in his ass. It easily slides in and you start fucking him again, he moans in pleasure and starts to buck back against you, encouraging you to fuck him harder and deeper. Meanwhile he starts jerking himself off as you fuck his ass.'
 					gs 'arousal', 'anal_strap_give', 10, 'dom'
 					gs 'stat'
 					act 'Such a good little bitch':
 						cla & *clr
 						'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
-						'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/sex/boysroom5.jpg"></center>'
+						'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/sex/school/boysroom5.jpg"></center>'
 						'He rises up slightly and you pull him up, until he is just kneeling upright, his moans getting louder and louder as you keep fucking his ass. You wrap one of your arms around him, while the other holds onto his hip, giving you good leverage to fuck him hard and fast. You can feel his body tensing up, you know he is about to cum.'
 						gs 'arousal', 'anal_strap_give', 10, 'dom'
 						gs 'stat'
 						act 'Cum for me little slut':
 							cla & *clr
 							'<center><b><font color="maroon">Boy''s bathroom</font></b></center>'
-							'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/sex/boysroom6.jpg"></center>'
+							'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/boy/igor/sex/school/boysroom6.jpg"></center>'
 							'Finally he lets out a loud moan and his body shudders, you fuck him through his orgasm. Once he sighs in relief you pull out and stand up. As you do you glance down to see his hand covered in his own cum. "Go on, lick it up," you tell him, as you start to remove the strapon harness.'
 							'He gives you a surprised look but then does as you ask, you are not sure if he likes it or not, either way it is hot to watch. The two of you spend the next couple of minutes getting cleaned and cleaning your dildo in the sink. When he finally speaks up, "I still can''t believe I let you do that. We could have been caught."'
 							'Shaking your head slightly, you know he loved it, the thrill of it as much as you did. "Oh you loved it and you know it. Next time I might even have you eat me, so I can get off." Before he can reply the first bell that lets out class rings and you both hurry out so you are not caught.'

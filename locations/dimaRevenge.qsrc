@@ -273,7 +273,7 @@ if ARGS[0] = 3:
 						act 'Punch him in the face':
 							*clr & cla
 							npc_rel['A1'] -= 20
-							if fight_cheat = 1 or pcs_stren > 80:
+							if pcs_stren > 80:
 								grupvalue[4] += 10
 								money += 10000
 								'<center><img src="images/characters/pavlovsk/school/boy/dimka/revenge/guyknockedout.jpg"></center>'

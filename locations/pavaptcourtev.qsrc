@@ -870,8 +870,6 @@ if $ARGS[0] = 'female_gopnik_beer_2':
 	end
 end
 
-!!I checked the file up to here (julzor)
-
 if $ARGS[0] = 'follownush':
 	CLOSE ALL
 	*clr & cla
@@ -883,23 +881,28 @@ if $ARGS[0] = 'follownush':
 	'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/anushka/sex/complex/hey.jpg"></center>'
 	'You follow her inside, not seeing her at the moment you start to head upstairs. Then you hear her below you, apparently she was going down stairs for some reason. "Hey you following me?"'
 	'Not sure what to say, I mean you was following her. "Kinda, I was just curious what you was up too."'
-	if hotcat > 5 and friendship 30+
-!!code for friendship needs to be added not sure the code	
+	if hotcat > 5 and npc_rel['A45'] >= 30:
 		'You gives you a small amused smile. "So you''re stalking me huh? Look I know I''m hot, so I can hardly blame you."'
 		'You shake you head, no you''re not stalking her, that just is wrong. "No! I was just curious... never mind." But before you can turn away she grabs your hand.'
 		'"Relax I was just yanking your chain. I was just going to sit down here on the basement steps, if you want to join me." With that she takes a seat about half way down the steps.'
 		'You could join her or maybe you should just be on your way.'
 		act 'Leave':gt 'pavComplex', 'courtyard'
 		act 'Join her':
+			*clr & cla
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/anushka/sex/complex/kiss.jpg"></center>'
 			'You sit down next to her, the two of you start chatting about what has been going on lately in your lives. Just as you was telling her about something your sister did, she leans over and kisses you. You are briefly taken aback but not that much, it is just what she does.'
 			act 'Stop the kiss':
+				*clr & cla
+				minut += 1
 				npc_rel['A45'] -= 1
+				gs 'stat'
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/anushka/sex/complex/hey.jpg"></center>'
 				'You pull back from the kiss breaking it. "Uh sorry, I don''t want to make out or anything."'
 				'She shrugs slightly and the two of you start talking again but things seem a bit off. A bit awkward now, before long you both stop really saying much and then she says she needs to get going and head out. Leaving you to go back out to the courtyard.'
 				act 'Leave':gt 'pavComplex', 'courtyard'
+			end
 			act 'Get lost in the moment':
+				*clr & cla
 				'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/anushka/sex/complex/kiss.jpg"></center>'
 				'You return the kiss and soon your hands are roaming all over each others bodies, before long she starts pulling her clothes off and encouraging you to do the same.'
 				gs 'arousal', 'foreplay', 5, 'lesbian', 'exhibitionism'
@@ -910,24 +913,29 @@ if $ARGS[0] = 'follownush':
 					'You pull back from the kiss breaking it and pull back till her hands are no longer on you. "Uh sorry, but this is too public."'
 					'She rolls her eyes slightly. "Yeah whatever, anyways I should get going." With that she gets up and straightens up her clothes as she heads upstairs. Leaving you behind, with nothing to do but return to the courtyard.'
 					act 'Leave':gt 'pavComplex', 'courtyard'
+				end
 				act 'Undress':
+					*clr & cla
 					npc_rel['A45'] += 1
-			!!need new exhibition stat gain here
+!!need new exhibition stat gain here
 					'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/anushka/sex/complex/undress.jpg"></center>'
 					'You start peeling your clothes off as she removes her clothes. Before either of you are fully naked, she grabs you by the hair and pulls your face over to her pussy.'
 					gs 'arousal', 'foreplay', 3,  'lesbian', 'exhibitionism'
 					gs 'stat'
 					act 'Eat her':
+						*clr & cla
 						'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/anushka/sex/complex/eather.jpg"></center>'
 						'Your tongue darts out and licks at her clit. Working it''s way down her pussy, which is soaking wet already. She moans loudly in pleasure, grinding her pussy against your face. Leaving your face wet with her juices, several minutes go by of this. Then she reaches over and pulls a small dildo out of her purse, with out waiting to see what she was going to do with it. You take it from here hand, turn her around and bend her over.'
 						gs 'arousal', 'cuni_give', 5,  'lesbian', 'exhibitionism'
 						gs 'stat'
 						act 'Dildo her':
+							*clr & cla
 							'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/anushka/sex/complex/dildoher.jpg"></center>'
 							'You slide the dildo in her soaking wet twat, eliciting even louder moans from her. She rocks back against your hand, taking as much of the dildo into her as she can. Several minute go by before she finally begins to shake all over and orgasms. You dildo fuck her pussy through her orgasm, once it passes she steps away and takes the dildo from you. "Your turn."'
 							gs 'arousal', 'vaginal_dildo_give', 5,  'lesbian', 'exhibitionism'
 							gs 'stat'
 							act 'Get dildoed':
+								*clr & cla
 								'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/anushka/sex/complex/getdildo.jpg"></center>'
 								'She knee''s down in front of you spreading your legs, encouraging you to place one foot on the railing. With that she leans her face between your legs and starts to lap at your clit and tongue fuck your pussy.'
 								'Once she has you good and wet she slides the dildo inside of you and starts fucking you. Soft and slow and first but faster and harder the louder you moan.'
@@ -936,6 +944,7 @@ if $ARGS[0] = 'follownush':
 								minut -= 5
 								gs 'stat'
 								act 'Finish':
+									*clr & cla
 									'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/girl/anushka/sex/complex/finish.jpg"></center>'
 									'Several minutes pass before she encourages you to turn around. One leg back on the railing, bent over, with your upper body almost lying on the railing. She keeps plunging the dildo into your increasingly wet pussy.'
 									$orgasm_txt = 'You are overwhelmed by the wild excitement of the dildo plunging into your pussy, knowing that at any moment someone could catch the two of you having sex in the stairs. You can''t take any more, as waves of pleasure come crashing over you, as you wither in ecstasy, she keeps dildoing you until your shuddering stop.'
@@ -964,13 +973,14 @@ end
 
 if $ARGS[0] = 'suck3stooges':
 	CLOSE ALL
+	*clr & cla
+	menu_off = 1
 	$loc = 'pavaptcourtev'
 	$location_type = 'public_indoors'
-	pav_sex +=2
+	pav_sex += 2
 	npc_rel['A9'] += 1
 	npc_rel['A10'] += 1
 	npc_rel['A11'] += 1
-	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/events/sex/suck3s1.jpg"></center>'
 	'You figure why not, so you get down on your knees and start jerking Dan off, with one hand. You open your mouth and lean forward slowly taking his cock in your mouth. You start sucking his dick slowly at first, you can hear him moan. Some grabs your free hand and puts their dick in it. You glance over and see Vitek now with his dick in your hand staring down at you, Vasily also has his dick out as well.'
 	gs 'arousal', 'bj', 5,  'group', 'exhibitionism'
@@ -978,6 +988,7 @@ if $ARGS[0] = 'suck3stooges':
 	minut -= 5
 	gs 'stat'
 	act 'Suck Vitek as well':
+		*clr & cla
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/events/sex/suck3s2.jpg"></center>'
 		'You start to alternate between jerking Dan and Vitek off, while sucking the other ones cock. After about the third time you switch Vasily says. "What the fuck, suck my dick too."'
 		'Dan and Vitek laugh and Dan says "Maybe it is too small and she can''t see it." Which causes them to both laugh more.'
@@ -986,6 +997,7 @@ if $ARGS[0] = 'suck3stooges':
 		minut -= 5
 		gs 'stat'
 		act 'Suck Vasily':
+			*clr & cla
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/events/sex/suck3s3.jpg"></center>'
 			'Poor Vasily, you start sucking his dick next while you keep jerking Dan and Vitek off. Vasily says "Oh yeah, that''s it, suck my cock <<$pcs_nickname>>"'
 			gs 'arousal', 'bj', 5,  'group', 'exhibitionism'
@@ -994,6 +1006,7 @@ if $ARGS[0] = 'suck3stooges':
 			minut -= 10
 			gs 'stat'
 			act 'Suck all of them':
+				*clr & cla
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/events/sex/suck3s4.jpg"></center>'
 				'After sucking Vasily for a bit while jerking the others off to make up for earlier you start switching between all three of them. Sucking one off while jerking the other two off.'
 				gs 'arousal', 'bj', 5,  'group', 'exhibitionism'
@@ -1002,23 +1015,26 @@ if $ARGS[0] = 'suck3stooges':
 				minut -= 10
 				gs 'stat'
 				act 'Yummy cum':
+					*clr & cla
 					'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/events/sex/suck3s5.jpg"></center>'
 					'Dan is the first one to cum, splattering your face with his sperm. Moment later Vasily is covering the other side of your face with his cum. With that you focus on just sucking Vitek off, while Dan and Vasily sit back down. A couple of minutes later Vitek cums in your mouth, with that he rejoins Dan and Vasily and grabs a beer, taking a big swig of it.'
 					gs 'arousal', 'end'
 					gs 'stat'
-!!alternative text, 50/50 of which one shows up.
-					!!if alt 1
+					if rand(0,1) = 0:
 						'"Fuck it''s the last beer, come on lets go." Vitek tells Dan and Vasily.'
 						'"Hey I just sucked your dicks for a beer, what the fuck?" You can''t believe you did that for nothing.'
 						'They laugh a little and then Vasily says. "Our bad, you can have a beer for free next time." With that they walk off leaving you behind with a face covered in cum and the taste of cum in your mouth and no beer... assholes!'
 						act 'Leave':gt 'pavComplex', 'courtyard'
-					!!if alt 2
+					else
 						'Vitek grabs the second to last beer and sits back down, Vasily grabs the last one but before you can say anything he hands it to you. You take it but he won''t let go. "You can have it but you have to sit here with our cum on your face while you drink it."'
 						'You give him a exasperated look and sigh. "Why?"'
 						'He laughs, "It''s like marking our territory." You roll your eyes at that but nod, you already sucked their dicks so why not.'
 						act 'Drink with them':
+							*clr & cla 
+							minut += 5
 							alko += 1
 							pav_sex +=1
+							gs 'stat'
 							'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/events/sex/beercum.jpg"></center>'
 							'You take the beer and take a drink, keenly aware of the cum covering your face. The boys mostly ignore it and talk about what they have been up to of late. Soon it is almost like it never happened and as if you had just been sitting around drinking the whole time. Some time later once the beers are gone, the boys get up and head off to find trouble. Vasily says. "Cya around <<$pcs_nickname>>." and with that they walk off.'
 							act 'Leave':gt 'pavComplex', 'courtyard'
@@ -1032,9 +1048,11 @@ end
 			
 if $ARGS[0] = 'eatlera':
 	CLOSE ALL
+	*clr & cla 
+	menu_off = 1
 	$loc = 'pavaptcourtev'
 	$location_type = 'public_indoors'
-	pav_sex +=1
+	pav_sex += 1
 	npc_rel['A21'] += 2
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/characters/school/girl/lera/sex/complex/eatlera1.jpg"></center>'
@@ -1044,16 +1062,18 @@ if $ARGS[0] = 'eatlera':
 	gs 'arousal', 'cuni_give', 5,  'lesbian', 'exhibitionism'
 	gs 'stat'
 	act 'Continue':
+		*clr & cla 
 		'<center><img <<$set_imgh>> src="images/characters/school/girl/lera/sex/complex/eatlera2.jpg"></center>'
 		'She reaches a out her hand and clasps the back of your head and pulls your face against her twat, as she grinds against your face as you keep eating her.'
 		'"Look at that bitch go, she must really want a fucking beer." Lena says.'
 		'"I think she just likes eating pussy" Alyona adds.'
 		'Anushka snorts "Oh please everyone here has been on her knees eating snatch before, so don''t act like you have never done this."'
-		'"Not for a beer, I haven''t!" Lena replies'
+		'"Not for a beer, I haven''t!" Lena replies.'
 		'"Yeah well... " Anushka trails off obviously not sure what to say in response to that.'
 		gs 'arousal', 'cuni_give', 5,  'lesbian', 'exhibitionism'
 		gs 'stat'
 		act 'Continue':
+			*clr & cla 
 			'<center><img <<$set_imgh>> src="images/characters/school/girl/lera/sex/complex/eatlera2.jpg"></center>'
 			'Lera seems completely unaware of what the other girls are saying. She starts moaning louder, she grips your hair tightly and forces your face against her crotch as hard as she can as she grinds it against your face. A couple of minutes later she lets out a cry and shudders against you, then lets go of your head and steps back. "Fuck that was good, you eat pussy great <<$pcs_nickname>>" As she puts her pants back on she bites her lip and gives you a once over, having obviously really enjoyed the experience.'
 			'You wipe your face off and reach over to grab another beer, only to find none left. Lena, Anushka and Alyona all are finishing one as you watch. Lena shrugs. "What, you took too long, lez." She says with a laugh.'
@@ -1072,10 +1092,11 @@ end
 			
 if $ARGS[0] = 'smokeblowjob':
 	CLOSE ALL
+	*clr & cla 
+	menu_off = 1
 	$loc = 'pavaptcourtev'
 	$location_type = 'public_indoors'
-	pav_sex +=3
-	gs 'stat'
+	pav_sex += 3
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/events/sex/smokebj1.jpg"></center>'
 	'You get down on your knees, as you do one of them says. "Oh shit I can''t believe she''s really going to do it." Both of them quickly pull their dicks out. you start sucking the cock of the one that told you to get down on your knees and jerking the other one off with your free hand.'
 	gs 'arousal', 'bj', 5,  'group', 'exhibitionism'
@@ -1083,6 +1104,7 @@ if $ARGS[0] = 'smokeblowjob':
 	minut -= 5
 	gs 'stat'
 	act 'Continue':
+		*clr & cla
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/events/sex/smokebj2.jpg"></center>'
 		'After a bit you switch and suck the other ones dick while jerking the first one off, you alternate back and forth sucking them both off while jerking the other one off. When they both start to moan loudly and you can tell they are both close. You sit back on your heels and start jerking them both off while pointing their cocks at your face.'
 		gs 'arousal', 'bj', 5,  'group', 'exhibitionism'
@@ -1090,14 +1112,15 @@ if $ARGS[0] = 'smokeblowjob':
 		minut -= 5
 		gs 'stat'
 		act 'Continue':
+			*clr & cla
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/events/sex/smokebj3.jpg"></center>'
 			'Suddenly though not unexpectedly, cum starts splattering on your face. Seconds later the other one starts to cum as well and soon both of them have coated your face in their cum. With that they put their dicks away, "Hey what about my cigarette." You ask them, one of them laughs and tosses you the rest of his pack of smokes.'
 			'"Here you go, best investment I ever made." He tells his friend. "Come on lets go buy some more." With that they both walk off leaving you on your knees, with some cigarettes, and a face full of cum.'
 			gs 'arousal', 'hj', 5,  'group', 'exhibitionism'
 			gs 'arousal', 'hj', 5,  'group', 'exhibitionism'
 			minut -= 5
-			gs 'stat'
 			gs 'arousal', 'end'
+			gs 'stat'
 			act 'Leave':gt 'pavComplex', 'courtyard'
 		end
 	end
@@ -1105,32 +1128,41 @@ end
 
 if $ARGS[0] = 'homenaked':
 	CLOSE ALL
+	*clr & cla
+	menu_off = 1
 	$loc = 'pavaptcourtev'
 	$location_type = 'public_indoors'
-	!!need the new inhibition code
+!!need the new inhibition code
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/events/nakedcourt.jpg"></center>'
 	'With purse in hand you look around in hope just maybe your clothes are nearby but quickly you realize they are not and their is nothing you can see to cover up with. Covering yourself up with your hands as best you can, you make your way to your building. Hoping not to turn into anyone, you stick to the shadows and out of the way to hide your naked body as best you can.'
 	act 'Go inside':
+		*clr & cla
+		minut += 1
+		gs 'stat'
 		'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/events/nakedhall1.jpg"></center>'
 		'Once you are near the apartment door with nowhere to hide, you quickly dash over to the door and pray no one is inside. You quickly go inside and see and hear no one. Breathing a sigh of relief, you glance up the stairs. Seeing no one you head up stairs.'
 		act 'Go upstairs':
+			*clr & cla
+			minut += 3
+			gs 'stat'
 			'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/events/nakedhall2.jpg"></center>'
 			'Almost to the top of the stairs to your floor you hear voices. You freeze and look back down the stairs tempted to bolt back down them, but then the voices fade and you hear a door close. You sneak slowly up the stairs, glancing down the hall to make sure no one is around and you head for your apartment.'
 			act 'Go home':
+				*clr & cla
+				minut += 3
+				gs 'stat'
 				'<center><img <<$set_imgh>> src="images/locations/pavlovsk/resident/apartment/events/nakedhome.jpg"></center>'
 				'Finally you make it to your door. You take the keys out of your purse and quietly unlock the door, you push it open slowly and peek inside. You don''t see anyone.'
-		!!code for time if the family is still up, if mom is in the kitchen etc. this will be a if or else.
-				if family up
+				if hour <= 21:
 					'You sneak down the hall, peeking in you see your dad and brother in the living room watching tv. Once you sure they are watching you quickly walk past, down to the kitchen. Peeking in you see your mom with her back to you, so you quickly dash pass there and go into the bathroom. Once there you quickly grab and towel and wrap it around your body. With that you head into your room, like you just came from taking a shower. Laying on your bed is your clothes, apparently the girls dropped them off... how nice of them...'
-					*nl
-					'Anya glances up at you. "Hey one of your friends drop off some clothes, she said you let her borrow them. Anyways they are on your bed."'
 				else
-					'You glance in the living room and see your brother sound asleep on the couch. You quickly walk past it and past the empty kitchen to the bathroom. Once inside you wrap a towel around your body and then head for your bedroom, just as if you had just taken a shower. Laying on your bed is your clothes, apparently the girls dropped them off... how nice of them...'
-					*nl
-					'Anya glances up at you. "Hey one of your friends drop off some clothes, she said you let her borrow them. Anyways they are on your bed."'
-		!!code that puts Sveta in her room
+					'You glance in the living room and see your brother sound asleep on the couch. You quickly walk past it and past the empty kitchen to the bathroom. Once inside you wrap a towel around your body and then head for your bedroom, just as if you had just taken a shower. Laying on your bed is your clothes, apparently the girls dropped them off... how nice of them...'	
 				end
+				*nl
+				'Anya glances up at you. "Hey one of your friends drop off some clothes, she said you let her borrow them. Anyways they are on your bed."'
+!!maybe a redress action should be added before moving sveta into the bedroom (julzor)
+				act 'Continue': gt 'bedrPar'
 			end
 		end
 	end

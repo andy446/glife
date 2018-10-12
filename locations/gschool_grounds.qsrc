@@ -7,6 +7,9 @@ if $ARGS[0] = 'main':
 	$loc = 'gschool_grounds'
 	$metka = 'main'
 	$location_type = 'public_outdoors'
+	$menu_loc = 'gschool_grounds'
+	$menu_arg = 'main'
+	menu_off = 0
 	*clr & cla
 	gs 'stat'
 	'<center><b><font color="maroon">Outside School</font></b></center>'
@@ -106,6 +109,7 @@ if $ARGS[0] = 'main':
 					end
 					act 'Skip class':
 						*clr & cla
+						menu_off = 1
 						'<center><b><font color="maroon">School Hallway</font></b></center>'
 						'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/building/gschool_hall0<<Rand(0,2)>>.jpg"></center>'
 						'You don''t feel like attending all of your classes this morning. Surely no one will miss you if you skip one of your three morning classes.'
@@ -282,6 +286,9 @@ if $ARGS[0] = 'sports':
 	$loc = 'gschool_grounds'
 	$location_type = 'public_outdoors'
 	$metka = 'sports'
+	$menu_loc = 'gschool_grounds'
+	$menu_arg = 'sports'
+	menu_off = 0
 	*clr & cla
 	gs 'stat'
 	if month > 2 and month < 9:
@@ -296,6 +303,7 @@ if $ARGS[0] = 'sports':
 	if schoolrunday ! daystart and $clothingworntype = 'exercise' and $shoeworntype = 'trainers':
 		act 'Go for a run (1 hour)':
 			*clr & cla
+			menu_off = 1
 			minut += 60
 			schoolrunday = daystart
 			fat -= rand(2, 7)
@@ -315,9 +323,7 @@ if $ARGS[0] = 'sports':
 		'You could go for a run here if you were wearing sports clothes and shoes.'
 	end
 
-	if hour >= 9 and hour < 18 and StoryLine > 0 and SchoolAtestat = 0 and kanikuli = 0:
-		'With the school open you can go to the <a href="exec: minut += 1 & gt ''gschool_grounds'',''change_room''">changing rooms</a> by the gym and change your outfit.'
-	end
+	if hour >= 9 and hour < 18 and StoryLine > 0 and SchoolAtestat = 0 and kanikuli = 0: 'With the school open you can go to the <a href="exec: minut += 1 & gt ''gschool_grounds'',''change_room''">changing rooms</a> by the gym and change your outfit.'
 
 	if week = 6 and schoolSorev = 2 and hour = 10 and SchoolBlock = 0:
 		*nl
@@ -348,6 +354,9 @@ if $ARGS[0] = 'bulding':
 	$loc = 'gschool_grounds'
 	$metka = 'bulding'
 	$location_type = 'public_indoors'
+	$menu_loc = 'gschool_grounds'
+	$menu_arg = 'building'
+	menu_off = 0
 	gs 'stat'
 	'<center><b><font color="maroon">Inside School</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/school/building/gschool_hall0<<Rand(0,2)>>.jpg"></center>'
@@ -407,6 +416,7 @@ end
 if $ARGS[0] = 'KristinaFight':
 	$location_type = 'event_outdoors'
 	*clr & cla
+	menu_off = 1
 	gs 'stat'
 
 	zverRageQW = 2
@@ -444,13 +454,14 @@ end
 
 if $ARGS[0] = 'SchoolRun':
     $location_type = 'event_outdoors'
-	cls
+	*clr & cla
+	menu_off = 1
 	minut += 30
 	gs 'stat'
 	'You think you might be able to win, and sign up to participate in the competition. After quickly changing into your running gear you return to the track. The guys are having their race first, and you watch them as you prepare. As expected, Ivan Prokhorov wins. When the guys have finished, it is the girls'' turn.'
 
 	act 'Go to the start':
-		cls
+		*clr & cla
 		minut += 30
 		schoolSorev = 0
 		kolsorev += 1
@@ -512,7 +523,8 @@ end
 
 if $ARGS[0] = 'SchoolRun2':
     $location_type = 'event_outdoors'
-	cls
+	*clr & cla
+	menu_off = 1
 	minut += 30
 	gs 'stat'
 	'You think you might be able to win, and sign up to participate in the competition. After quickly changing into your running gear you return to the track. The guys are having their race first, and you watch them as you prepare. As expected, Ivan Prokhorov wins. When the guys have finished, it is the girls'' turn.'
@@ -526,7 +538,7 @@ if $ARGS[0] = 'SchoolRun2':
 	end
 
 	act 'Go to the start':
-		cls
+		*clr & cla
 		kolsorev += 1
 		minut += 30
 		schoolSorev = 0
@@ -601,6 +613,9 @@ if $ARGS[0] = 'change_room':
 	$location_type = 'bathroom'
 	$locM = 'gschool_grounds'
 	$metkaM = 'change_room'
+	$menu_loc = 'gschool_grounds'
+	$menu_arg = 'change_room'
+	menu_off = 0
 	*clr & cla
 	gs 'stat'
 

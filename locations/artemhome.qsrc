@@ -45,6 +45,9 @@ if $ARGS[0] = 'inside':
 	$loc = $CURLOC
 	$metka = $ARGS[0]
 	$location_type = 'private'
+	$menu_loc = 'artemhome'
+	$menu_arg = 'inside'
+	menu_off = 0
 
 	if ArtemBeInHome = 0:ArtemBeInHome = 1
 	'<center><b><font color="maroon"><<$npc_firstname[''A2'']>> <<$npc_lastname[''A2'']>></font></b></center>'
@@ -83,6 +86,7 @@ if $ARGS[0] = 'inside':
 			'Artem smiles at you, and suggests: "<<$pcs_nickname>>, do you want to go for a walk in the park?"'
 			act 'Agree to go for a walk':
 				cla
+				menu_off = 1
 				'You give him a cute smile back: "Sure Artem, we could go for a walk, that sounds like fun!"'
 				'You quickly pack up your things and leave the apartment with him, heading for the park.'
 				act 'Walk in the park': gt 'artemEv','artemSkver'
@@ -92,6 +96,7 @@ if $ARGS[0] = 'inside':
 			'Artem smiles at you, and suggests: "<<$pcs_nickname>>, that essay for school is due in not too long. We should go work on it in the library, what do you say?"'
 			act 'Agree to work on the essay':
 				cla
+				menu_off = 1
 				'You nod. You don''t feel like working on the essay, but you know you really should. At least you''ll be doing it together with Artem, hopefully he can help you out a bit.'
 				'"You''re right, we really should. Okay, let''s go then."'
 				'You quickly gather your things and go to the library with Artem.'
@@ -122,6 +127,7 @@ if $ARGS[0] = 'inside':
 	if talkartemday ! daystart and artQW ! 5:
 		act 'Chat with Artem':
 			*clr & cla
+			menu_off = 1
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/2.jpg"></center>'
 			'You talk with Artem for an hour, about various topics. Or rather: you''re doing most of the talking, and Artem is mostly listening to you talk. Occasionally he pitches in though, and you can tell he''s a very smart guy. You even learn a thing or two.'
 			artemtimes += 1
@@ -142,6 +148,7 @@ if $ARGS[0] = 'inside':
 	if dimaFilm > 0 and arthakQW = 0 and pcs_vag > 0:
 		act 'Ask Artem to steal the video Dimka filmed of you':
 			*clr & cla
+			menu_off = 1
 			dimaRevenge = 1
 			'<center><img <<$set_imgh>> src="images/characters/pavlovsk/school/head/2.jpg"></center>'
 			'You''re not sure how to start this conversation, and take a deep breath. You carefully suggest: "Artem... we''re good friends, right?"'
@@ -190,6 +197,7 @@ end
 !lied to artem about the content of the vide
 if $ARGS[0] = 'liar':
 	cla & clr
+	menu_off = 1
 	gs 'stat'
 	DimaRudeBlock = 1
 	artQW = 5

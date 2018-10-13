@@ -6,6 +6,9 @@ if $ARGS[0] = 'start':
 
 	$metka = 'start'
 	$loc = 'park'
+	$menu_loc = 'park'
+	$menu_arg = 'start'
+	menu_off = 0
 	if sound = 0:
 		if month >=11 and month <= 12 or month >=1 and month <=3:
 			if hour >= 8 and hour <= 23: PLAY 'sound/street2.mp3',30 & PLAY 'sound/zima.mp3',30
@@ -16,9 +19,8 @@ if $ARGS[0] = 'start':
 		end
 	end
 
-
 	$torchki = {
-		cls
+		*clr & cla
 		gs 'stat'
 		SNarkPriton = 1
 		'The junkies look at you with a daunted gaze. They probably thought you are a police officer. Then one of them said, "We don''t sell no drugs. Go to the Drug House, ye can get zome there."'
@@ -29,7 +31,7 @@ if $ARGS[0] = 'start':
 	$sexloc = $CURLOC
 
 	if WalkInsidePark = 0:WalkInsidePark = 1
-	cls
+	*clr & cla
 	gs 'stat'
 	'<center><b><font color="maroon">Park</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/centralpark/park.jpg"></center>'
@@ -104,6 +106,7 @@ if $ARGS[0] = 'start':
 		if money >= 2000:
 			act 'Buy "Pale Lady" (2,000 <b>₽</b>)':
 				cla
+				menu_off = 1
 				minut += 10
 				palelady = input ("How many doses you want to buy?")
 
@@ -124,8 +127,8 @@ if $ARGS[0] = 'start':
 
 	if $clothingworntype = 'exercise' and $shoeworntype = 'trainers' and hour > 5 and hour < 23 and parkrunday ! daystart:
 		act 'Jog through the park (1:00)':
-			cla
-			*clr
+			*clr & cla
+			menu_off = 1
 			parkrunday = daystart
 			gs 'exercise', 'tier1', 60, 'run_exp'
 			fat -= rand(0, 4)
@@ -203,6 +206,7 @@ if $ARGS[0] = 'start':
 		!!Succubus active hunting, can only hunt successfully once a day, but can try until success
 		If succubusQW = 5 and suchuntday ! daystart:
 			act 'Go Hunting (this can take a lot of time)':
+				menu_off = 1
 				if rand(1,100) < 70:
 					minut += 30
 					mood -= 5
@@ -224,9 +228,10 @@ if $ARGS[0] = 'start':
 
 	if pcs_inhib >= 35 or exhibitionist_lvl > 0:
 		act 'Flash your tits':
+			menu_off = 1
 			inhib_exp += 2
 			if pcs_exhib = 100 and exhibitionQW = 0: gt 'kseniyaQW', 'event1'
-			cls
+			*clr & cla
 			gs 'exhibitionism', 1
 			gs 'flash', 'tits', 'outdoors', 5
 			gs 'stat'
@@ -237,9 +242,10 @@ if $ARGS[0] = 'start':
 
 	if exhibitionist_lvl > 1:
 		act 'Flash your pussy':
+			menu_off = 1
 			inhib_exp += 2
 			if pcs_exhib = 100 and exhibitionQW = 0: gt 'kseniyaQW', 'event1'
-			cls
+			*clr & cla
 			gs 'exhibitionism', 3
 			gs 'flash', 'pussy', 'outdoors', 5
 			gs 'stat'
@@ -251,18 +257,26 @@ end
 
 if $ARGS[0] = 'exit':
 	cla
+	$loc = 'park'
+	$metka = 'exit'
+	$menu_loc = 'park'
+	$menu_arg = 'exit'
+	menu_off = 0
 	'<center><b><font color="maroon">Park</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/centralpark/park.jpg"></center>'
-	act 'Cancel': gt 'park', 'start'
-	act 'Go to the highway near the park (0:05)':minut += 5 & gt 'park', 'whore'
+	act 'Don''t leave': gt 'park', 'start'
+	!!this leads to the old street walker content, blocked until it''s fixed up or moved into the new street walker content (julzor)
+	!!act 'Go to the highway near the park (0:05)':minut += 5 & gt 'park', 'whore'
 	act 'Go to the Residential Area (0:20)':minut += 20 & gt 'street'
 	act 'Go to the City Center (0:35)':minut += 35 & gt 'down'
 	act 'Go to the City Industrial Region (1:00)':minut += 60 & gt 'Nord'
 end
 
 if $ARGS[0] = 'luna':
-	cla
-	*clr
+	*clr & cla
+	$menu_loc = 'park'
+	$menu_arg = 'luna'
+	menu_off = 0
 	minut += 5
 	clr
 	gs 'stat'
@@ -274,11 +288,12 @@ if $ARGS[0] = 'luna':
 
 	if vladimirQW = 0 and hour >= 9 and hour <= 20 and week > 5 and pcs_apprnc > 40:'<a href="exec:gt ''qwloc''">There''s a strong looking man staring at you from the fences.</a>.'
 
-
+	act 'Go back to the park':gt 'park', 'start'
+	
 	if hour >= 9 and hour <= 20:
 		act 'Distribute flyers to earn money (50 <b>₽</b>) (1:00)':
-			cla
-			*clr
+			*clr & cla
+			menu_off = 1
 			minut += 60
 			money += 50
 			pcs_mood -= 5
@@ -290,8 +305,8 @@ if $ARGS[0] = 'luna':
 
 		if money >= 50:
 			act 'Eat Shawarma (50 <b>₽</b>)':
-				cla
-				*clr
+				*clr & cla
+				menu_off = 1
 				gs 'stat'
 				minut += 15
 				pcs_health += 10
@@ -308,8 +323,8 @@ if $ARGS[0] = 'luna':
 			end
 
 			act 'Drink Lemonade (50 <b>₽</b>)':
-				cla
-				*clr
+				*clr & cla
+				menu_off = 1
 				gs 'stat'
 				minut += 5
 				pcs_health += 10
@@ -326,8 +341,8 @@ if $ARGS[0] = 'luna':
 			end
 
 			act 'Ride on the carousel (50 <b>₽</b>)':
-				cla
-				*clr
+				*clr & cla
+				menu_off = 1
 				minut += 30
 				money -= 50
 
@@ -346,8 +361,8 @@ if $ARGS[0] = 'luna':
 
 		if money >= 100:
 			act 'Shoot some targets (100 <b>₽</b>)':
-				cla
-				*clr
+				*clr & cla
+				menu_off = 1
 				minut += 30
 				money -= 100
 				'<center><img <<$set_imgh>> src="images/locations/city/centralpark/tir.jpg"></center>'
@@ -394,8 +409,8 @@ if $ARGS[0] = 'luna':
 
 		if money >= 20:
 			act 'Hit the dynamometer (20 <b>₽</b>)':
-				cla
-				*clr
+				*clr & cla
+				menu_off = 1
 				'<center><img <<$set_imgh>> src="images/locations/city/centralpark/silomer.jpg"></center>'
 				'You''ve paid 20 <b>₽</b> to play Ring-The-Bell.'
 
@@ -425,15 +440,12 @@ if $ARGS[0] = 'luna':
 	else
 		'The fair is now closed.'
 	end
-
-	act 'Go back to the park':gt 'park', 'start'
 end
 
 if $ARGS[0] = 'avtomat':
     $location_type = 'event_outdoors'
-	cla
-	*clr
-	clr
+	*clr & cla
+	menu_off = 1
 	gs 'stat'
 	'<center><img <<$set_imgh>> src="images/locations/city/centralpark/avtomat.jpg"></center>'
 	'The rules of the game are very simple, throw 5 <b>₽</b> into the slot, pull the lever and with a bit of luck you can win the jackpot of 1.000 <b>₽</b>.'
@@ -447,12 +459,11 @@ end
 
 if $ARGS[0] = 'avtomat2':
     $location_type = 'event_outdoors'
-	cla
-	*clr
-	clr
-	gs 'stat'
+	*clr & cla
+	menu_off = 1
 	minut += 5
 	money -= 5
+	gs 'stat'
 	avtrand = rand(0, 100)
 
 	if avtrand = 100:
@@ -476,9 +487,10 @@ end
 
 if $ARGS[0] = 'whore':
     $location_type = 'event_outdoors'
-	cla
-	*clr
-	clr
+	*clr & cla
+	$menu_loc = 'park'
+	$menu_arg = 'whore'
+	menu_off = 0
 	gs 'stat'
 	'<center><b><font color="maroon">The road near the park</font></b></center>'
 
@@ -495,10 +507,12 @@ if $ARGS[0] = 'whore':
 
 	temp = rand(1, 10)
 
+	act 'Go back to the park (0:05)': minut += 5 & gt 'park', 'start'
+	
 	if pcs_inhib > 35:
 		act 'Flash breasts':
-			cla
-			*clr
+			*clr & cla
+			menu_off = 0
 			gs 'exhibitionism', 1
 			inhib_exp += 2
 			gs 'flash', 'tits', 'outdoors', 5
@@ -506,14 +520,12 @@ if $ARGS[0] = 'whore':
 			act 'Go back to the park':gt 'park', 'start'
 		end
 	end
-	act 'Go back to the park (0:05)': minut += 5 & gt 'park', 'start'
 end
 
 if $ARGS[0] = 'prost':
-	cla
-	*clr
+	*clr & cla
+	menu_off = 0
 	minut += 5
-	clr
 	gs 'stat'
 	'<center><b><font color="maroon">Hooker</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/centralpark/park2.jpg"></center>'
@@ -566,8 +578,7 @@ if $ARGS[0] = 'prost':
 	end
 	if whoreQW > 1 and PCloStyle = 4:
 		act 'Search client (0:15)':
-			cla
-			*clr
+			*clr & cla
 			minut += 15
 			whrand = rand(0, 100)
 
@@ -702,8 +713,8 @@ end
 
 if $ARGS[0] = 'rape1':
     $location_type = 'event_outdoors'
-	cla
-	*clr
+	*clr & cla
+	menu_off = 0
 	rape += 1
 	gs 'npcgeneratec', 0, 'Rapist', rand(18,40)
 	gs 'boyStat', $npclastgenerated

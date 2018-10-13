@@ -1,0 +1,25 @@
+{
+    "name": "qsrc",
+    "displayName": "qsrc",
+    "description": "QSP",
+    "version": "0.0.1",
+    "publisher": "Xorgroth",
+    "engines": {
+        "vscode": "^1.27.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "QSP",
+            "aliases": ["QSP", "QSP"],
+            "extensions": ["qsrc qsp-txt txt-qsp"],
+        }],
+        "grammars": [{
+            "language": "QSP",
+            "scopeName": "source.qsp",
+            "path": "./syntaxes/QSP.tmLanguage.json"
+        }]
+    }
+}

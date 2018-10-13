@@ -142,7 +142,7 @@ if $postloc = 'counter':
 			cla
 			minut += 5
 			gs 'stat'
-			kartaIN = input ("How much money you want to deposit into the account?")
+			kartaIN = input ("How much money do you want to deposit into the account?")
 
 			if kartaIN <= 0 or kartaIN > money:
 				'Not correct operation.'
@@ -161,6 +161,34 @@ if $postloc = 'counter':
 		end
 	end
 	
+	if legal_fine > 0:
+		act 'Pay toward legal fine':
+			fineIN = input ("How much money do you want to pay off your fine/s?")
+
+			if fineIN <= 0 or fineIN > money:
+				'Not correct operation.'
+			else
+				legal_fine -= fineIN
+				money -= fineIN
+
+				'<br>You pay <<fineIN>> <b>₽</b> of your legal fine/s, now you have <<legal_fine>> <b>₽</b> still outstanding.'
+			end
+		end
+
+		if money > legal_fine:
+			act 'Pay off your legal fine/s':
+				money -= legal_fine
+				legal_fine = 0
+				*clr & cla
+				gs 'stat'
+				'<center><b><font color="maroon">Counter</font></b></center>'
+				'<center><img <<$set_imgh>> src="images/locations/shared/postoffice/counter.jpg"></center>'
+				'You pay the full amount of your outstanding fine/s to the cashier and they print out a receipt to say that it is paid off.'
+				act 'Done':$postloc = 'counter' & gt 'postoffice'
+			end
+		end
+	end
+
 	if used_pattest > 0:
 		act 'Send paternity test (20.000<b>₽</b>)':
 			if money >= 20000:

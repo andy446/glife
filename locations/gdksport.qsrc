@@ -69,10 +69,8 @@ if $ARGS[0] = 'start':
 
 	gs 'wardrobe', 'sports_outfit'
 
-	if pcs_sweat > 19:
-		act 'Wash in the shower':gt 'gdksport', 'shower'
-	end
-
+	if pcs_sweat > 19: act 'Wash in the shower':gt 'gdksport', 'shower'
+	
 	*nl
 
 	if pcs_stam > 20 and $clothingworntype = 'exercise' and $shoeworntype = 'trainers' and hour < 18:
@@ -979,7 +977,7 @@ if $ARGS[0] = 'shower':
 				gt 'VoltrenerSexShower', '2'
 			end
 		end
-			'After your shower, you combed your hair and dressed.'
+			'After your shower, you get dressed.'
 		act 'Get out of the shower':gt 'gdksport', 'start'
 	end
 end

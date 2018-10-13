@@ -432,11 +432,6 @@ $cheatmenu['permanent'] = {
 	else
 		'No dream chance: <a href="exec:Enable_nodream=input(''Enter no dream chance (%)'') & dynamic $cheatmenu[''permanent'']">Currently OFF</a>'
 	end & !1.2.3 new function
-	if Enable_skipnoevclass > 0:
-		'Only allow Class event with (Anatoly E.), with chance : <a href="exec:Enable_skipnoevclass=input(''Enter event chance (%)'') & dynamic $cheatmenu[''permanent'']"><<Enable_skipnoevclass>>%</a>, <a href="exec:Enable_skipnoevclass=0 & dynamic $cheatmenu[''permanent'']">Currently ON</a>'
-	else
-		'Only allow Class event with (Anatoly E.): <a href="exec:Enable_skipnoevclass=input(''Enter event chance (%)'') & dynamic $cheatmenu[''permanent'']">Currently OFF</a>'
-	end
 	*nl
 	'<font color="red"><b>WARNING!</b></font>: Disabling states may cause some events not to trigger. Use at your own risk!'
 	'</tr></table></b></center>'
@@ -573,8 +568,8 @@ $cheatmenu['looks'] = {
 	'<<$skin>>'
 	if pcs_skin < 100: '<a href="exec:pcs_skin += 20 & gs ''body_shape'', ''basebeautycalc'', 1 & dynamic $cheatmenu[''looks'']">Improve skin</a>'
 	if pcs_skin > 0: '<a href="exec:pcs_skin -= 20 & gs ''body_shape'', ''basebeautycalc'', 1 & dynamic $cheatmenu[''looks'']">Worsen skin</a>'
-	if pcs_tan >= 0:'<a href="exec:pcs_tan += 10 & dynamic $cheatmenu[''looks'']">Become sunburnt</a>'
-	if pcs_tan > 0:'<a href="exec:pcs_tan = 0 & dynamic $cheatmenu[''looks'']">Remove pcs_tan</a>'
+	if pcs_tan >= 0:'<a href="exec:pcs_tan += 10 & dynamic $cheatmenu[''looks'']">Become tanned</a>'
+	if pcs_tan > 0:'<a href="exec:pcs_tan = 0 & dynamic $cheatmenu[''looks'']">Remove tan</a>'
 	*nl
 	'<<$pcs_throat>>'
 	if pcs_throat <= 31:'<a href="exec:pcs_throat += 5 & dynamic $cheatmenu[''looks'']">Increase throat capacity</a>'

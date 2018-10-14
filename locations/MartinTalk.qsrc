@@ -4,6 +4,7 @@ $location_type = 'public_indoors'
 gs 'stat'
 
 gs 'themes', 'indoors'
+menu_off = 1
 
 if $ARGS[0] = '':
 	*clr & cla

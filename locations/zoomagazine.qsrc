@@ -1,13 +1,15 @@
 # zoomagazine
 if $ARGS[0] = 'start':
-	cla
-	clr
-	*clr
+	cla & *clr
+	$menu_loc = 'zoomagazine'
+	$menu_arg = 'start'
+	menu_off = 0
 	gs 'stat'
 	gs 'themes', 'indoors'
 	'<center><b><font color="maroon">Pet Emporium</font></b></center>'
 	'<center><img <<$set_imgh>> src="images/locations/city/citycenter/mall/pet shop/shop.jpg"</center>'
 	if saveparQW = 1 and saveparQWfailed = 0:
+		menu_off = 1
 		minut += 5
 		'When you enter the pet store you can see the owner talking to some customers'
 		'In normal circumstances you would have simply waited your turn but you had no time now.'
@@ -102,8 +104,8 @@ if $ARGS[0] = 'start':
 	
 	if money >= 3000 and sobaka = 0:
 		act 'Buy a dog (3000 <b>₽</b>)':
-			cla
-			*clr
+			cla & *clr
+			menu_off = 1
 			'<center><img <<$set_imgh>> src="images/beast/zoo/695_small.jpg"></center>'
 			if home_owned[1] > 0:
 				act 'Hello, I would like to get a dog':
@@ -147,8 +149,8 @@ if $ARGS[0] = 'start':
 
 	if money >= 2000 and krolik = 0:
 		act 'Buy a rabbit (2000 <b>₽</b>)':
-			cla
-			*clr
+			cla & *clr
+			menu_off = 1
 			if home_owned[1] > 0:
 				minut += 10
 				krolik += 1
@@ -166,8 +168,8 @@ if $ARGS[0] = 'start':
 
 	if money >= 3000 and popugai = 0:
 		act 'Buy a parrot (3000 <b>₽</b>)':
-			cla
-			*clr
+			cla & *clr
+			menu_off = 1
 			if home_owned[1] > 0:
 				minut += 10
 				popugai += 1
@@ -185,8 +187,8 @@ if $ARGS[0] = 'start':
 	
 	if money >= 3000 and popugai2 = 0 and home_owned[2] = 1 :
 		act 'Buy a parrot for your parent''s apartment (3000 <b>₽</b>)':
-			cla
-			*clr
+			cla & *clr
+			menu_off = 1
 			minut += 10
 			popugai2 += 1
 			sispopconf = 0

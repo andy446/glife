@@ -616,7 +616,7 @@ if $ARGS[0] = 'bed':
 		'Anushka sits on her bed and waves you over to sit next to her. You quickly jump up on the bed next to her.'
 		act 'Chat': gt 'anushapt', 'chat'
 	else
-		'<center><img src="images/locations/pavlovsk/resident/apartment/anushapt/anushroom/anushroom.jpg"></center>'
+		'<center><img src="images/locations/pavlovsk/resident/apartment/anushapt/anushroom.jpg"></center>'
 		'You lay down on her bed and roll over, the pillow smells like her. There is not much to do on the bed without Anushka. You start feeling a bit bored and wish Anushka was here.'
 		act 'Get out of the bed': gt 'anushapt','anushroom'
 		!!JulienJaden: Could put a random event here if Sveta is very tired - falls asleep and Anushka wakes her up / plays with her when she comes home

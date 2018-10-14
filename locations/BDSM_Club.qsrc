@@ -151,7 +151,7 @@ end
 if $ARGS[0] = 's_start':
 	*clr & cla
 	$menu_loc = 'BDSM_Club'
-	$menu_arg 's_start'
+	$menu_arg = 's_start'
 	menu_off = 0
 	sub += 5
 	gs 'stat'
@@ -172,7 +172,7 @@ end
 if $ARGS[0] = 'd_start':
 	*clr & cla
 	$menu_loc = 'BDSM_Club'
-	$menu_arg 'd_start'
+	$menu_arg = 'd_start'
 	menu_off = 0
 	pcs_dom += 5
 	gs 'stat'
@@ -193,7 +193,7 @@ end
 if $ARGS[0] = 'reception':
 	$location_type = 'event'
 	$menu_loc = 'BDSM_Club'
-	$menu_arg 'reception'
+	$menu_arg = 'reception'
 	menu_off = 0
 	*clr & cla
 	gs 'stat'

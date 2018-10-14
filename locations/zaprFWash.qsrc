@@ -5,6 +5,9 @@
 if $ARGS[0] = 'start':
 	$metka = 'start'
 	$loc = 'zaprFWash'
+	$menu_loc = 'zaprFWash'
+	$menu_arg = 'start'
+	menu_off = 0
 	*clr & cla
 	! can''t wash cars if have visible cum already
 	if (cumloc[6] = 1 or cumloc[7] = 1) or cumloc[11] = 1:

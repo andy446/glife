@@ -1002,6 +1002,8 @@ if $ARGS[0] = 'private':
 				gt 'din_van', 'WifeReact2'
 			elseif pregTalkPC = 1:
 				*nl
+				knowpreg = 1
+				thinkpreg = 1
 				'The test shows two strips. You are pregnant.'
 			else
 				knowpreg = 0

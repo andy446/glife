@@ -391,6 +391,7 @@ if $ARGS[0] = '':
 						end
 						
 						if preg > 0:
+							thinkpreg = 1
 							knowpreg = 1
 							$gpoli_sick = 'are pregnant'
 						end
@@ -634,6 +635,7 @@ if $ARGS[0] = '':
 							end
 							
 							if preg > 0:
+								thinkpreg = 1
 								knowpreg = 1
 								$gpoli_sick = 'are pregnant'
 							end
@@ -732,6 +734,7 @@ if $ARGS[0] = 'referral':
 					'For the next few minutes, the doctor gives you a thorough check-up. He spends a bit more time on your asshole than he probably should, but then again - maybe he''s just being thorough.'
 					$gpoli_sick = ''
 					if preg > 0:
+						thinkpreg = 1
 						knowpreg = 1
 						$gpoli_sick = 'are pregnant'
 					end

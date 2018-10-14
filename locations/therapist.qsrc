@@ -7,6 +7,7 @@ $location_type = 'public_indoors'
 
 if $ARGS[0] = '':
 	therapistday = daystart
+	menu_off = 1
 	'<center><img <<$set_imgh>> src="images/locations/pavlovsk/clinic/therapist/room.jpg"></center>'
 	'You step into the office of <a href="exec:dynamic $pavlov">Dr. Pavlov</a>, who invites you in with a warm smile.'
 	'The room looks like a study room, appearing warm and inviting. There is desk with a chair at one end of the room, but it appears to be seldom used. On the desk there is an older <a href="exec: VIEW ''images/locations/pavlovsk/clinic/therapist/pavlovfamily.jpg''">photograph of Dr. Pavlov''s family</a>, in which he appears to be about two decades younger.'

@@ -151,7 +151,7 @@ end
 if $ARGS[0] = 's_start':
 	*clr & cla
 	$menu_loc = 'BDSM_Club'
-	$menu_arg 's_start'
+	$menu_arg = 's_start'
 	menu_off = 0
 	sub += 5
 	gs 'stat'

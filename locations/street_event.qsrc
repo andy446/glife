@@ -20,8 +20,9 @@ ie. gt'street_event','home'
 }
 
 streetevent_hour = hour
-
 streetev_home = 0
+menu_off = 1
+
 !!not sure what all this if and elseif below is for, but the images need to be changed to our new images for if it is day, night, winter etc. If they are going to be used. Since it has image calls.
 if $ARGS[0] = 'street':
 	$streetev_title = '<center><b>Residential Area</b></center>'
@@ -120,7 +121,6 @@ if $ARGS[1] = 'extras':
 		end
 	end
 end
-
 
 if $ARGS[1] = 'main':
 	if lesbiday + 21 <= daystart and RAND(0,100) < streetev_mistmeet and lesbiQW >= 11 and hour >= 8 and hour < 21 and $pantyworntype ! 'none' and month > 2 and month ! 12 and sub > 0:gt 'lesbimistress', 'mistmeet'
@@ -245,9 +245,7 @@ if $ARGS[1] = 'main':
 				act 'Leave':gt $loc
 			end
 		end
-		act 'Attempt to escape':
-			'<center><img src="images/locations/shared/street/alleynight.jpg"></center>'
-			
+		act 'Attempt to escape':			
 			if pcs_run < 10:
 				peshimraperand = rand(0, 11)
 			elseif pcs_run < 30:
@@ -284,7 +282,8 @@ if $ARGS[1] = 'main':
 				gs 'stat'
 				act 'Leave':gt $loc
 			else
-				cla
+				*clr & cla
+				'<center><img src="images/locations/shared/street/alleynight.jpg"></center>'
 				'You manage to lose him and get to a safer well lit area.'
 				act 'Continue':gt $loc
 			end

@@ -1,6 +1,7 @@
 # andrey
 
 if $ARGS[0] = '':
+	menu_off = 1
 	'<b><center><font size="4">Manager Andrew M. Sobulyagin</font></center></b>'
 	if young_shop_work = 2:
 		'<center><img <<$set_imgh>> src="images\locations\city\citycenter\mall\cats\manager_andrew.jpg"></center>'
@@ -29,6 +30,7 @@ if $ARGS[0] = '':
 end
 
 if $ARGS[0] = 'apply':
+	menu_off = 1
 	'<center><img <<$set_imgh>> src="images\locations\city\citycenter\mall\cats\manager_andrew.jpg"></center>'
 	*nl
 	'You knock on the door and someone calls you in from the other side, telling you to enter. When you enter, you''re greeted by the sight of a sour-faced older man reading papers at his desk. When he sees you, his expression hardens. "Surprised to see an old man managing a clothing store for teenage girls?" he grunts. You didn''t even say anything yet, but he doesn''t seem to care. "Yeah, I get that a lot..." he adds under his breath before sighing and looking back to his papers. "What do you need?"'
@@ -88,6 +90,7 @@ end
 if $ARGS[0] = 'regular':
 	cla
 	*clr
+	menu_off = 1
 	'<b><center><font size="4">Manager Andrew M. Sobulyagin</font></center></b>'
 	'<center><img <<$set_imgh>> src="images\locations\city\citycenter\mall\cats\manager_andrew.jpg"></center>'
 	*nl
@@ -160,6 +163,7 @@ if $ARGS[0] = 'regular':
 end
 
 if $ARGS[0] = 'punish':
+	menu_off = 1
 	young_shop_fired += 1
 	if young_shop_fired = 1:
 !!this happens the first time Sveta misses three days and is fired
@@ -309,6 +313,7 @@ if $ARGS[0] = 'punish':
 end
 
 if $ARGS[0] = 'beg':
+	menu_off = 1
 	act 'Beg for your job back':
 		cla
 		*clr
@@ -333,6 +338,7 @@ end
 
 
 if $ARGS[0] = 'reapply':
+	menu_off = 1
 	'<center><img <<$set_imgh>> src="images\locations\city\citycenter\mall\cats\manager_andrew.jpg"></center>'
 	*nl
 	'Mr. Sobulyagin doesn''t mind having you back, since you ended it all on quite good terms.'
@@ -363,6 +369,7 @@ end
 if $ARGS[0] = 'fired1':
 	cla
 	*clr
+	menu_off = 1
 	if sobulaginsex = 0:sobulaginsex = 1 & guy += 1
 	swallow += 1
 	gs 'boyStat', 'A101'
@@ -424,6 +431,7 @@ if $ARGS[0] = 'fired1':
 end
 
 if $ARGS[0] = 'fired2':
+	menu_off = 1
 	young_shop_work = 1
 	work = 1
 	sexpartkno = 1
@@ -509,6 +517,7 @@ if $ARGS[0] = 'fired2':
 end
 
 if $ARGS[0] = 'rehired':
+	menu_off = 1
 	young_shop_work = 1
 	work = 1
 	sexpartkno = 1

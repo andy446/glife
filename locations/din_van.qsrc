@@ -475,10 +475,9 @@ $removepan = {
 
 $basin = {
 	if cumloc[11] = 1 or cumloc[12] = 1:
-		act 'Clean the sperm from your face (0:10)':
+		act 'Wash the cum from your face (0:10)':
 			menu_off = 1
-			cla
-			*clr
+			*clr & cla
 			pcs_makeup = 1
 			cumspclnt = 9
 			gs 'cum_cleanup'
@@ -486,6 +485,7 @@ $basin = {
 			gs 'cum_cleanup'
 			if pcs_sweat > 19 : pcs_sweat -= 5
 			minut += 10
+			gs 'stat'
 			'<center><img <<$set_imgh>> src="images/shared/home/bathroom/facesp.jpg"></center>'
 			*nl
 			'You clean your face and get rid of any trace of cum.'
@@ -493,12 +493,44 @@ $basin = {
 			act 'Finish':menu_off = 0 & gt $loc, $metka
 		end
 	end
+	
+	if cumloc[13] = 1:
+		act 'Wash the cum from your hands (0:05)':
+			menu_off = 1
+			*clr & cla
+			cumspclnt = 13
+			gs 'cum_cleanup'
+			minut += 5
+			gs 'stat'
+			'<center><img <<$set_imgh>> src="images/shared/home/bathroom/facesp.jpg"></center>'
+			*nl
+			'You wash your hands and get rid of any trace of cum.'
 
+			act 'Finish':menu_off = 0 & gt $loc, $metka
+		end
+	end
+
+	if (cumloc[6] = 1 or cumloc[7] = 1):
+		act 'Wash the cum off your clothes (0:10)':
+			menu_off = 1
+			*clr & cla
+			cumspclnt = 13
+			gs 'cum_cleanup'
+			cumspclnt = 6
+			gs 'cum_cleanup'
+			minut += 10
+			gs 'stat'
+			'<center><img <<$set_imgh>> src="images/shared/sex/cum/frotsp.jpg"></center>'
+			'You spend ten minutes wiping and rinsing the cum stains out of your clothes. In the end, all that remains of the stains are some damp spots that should dry up in a few minutes.'
+
+			act 'Finish':menu_off = 0 & gt $loc, $metka
+		end
+	end
+	
 	if body_write > 0 or face_write > 0:
 		act 'Wash the writings off your body (0:10)':
 			menu_off = 1
-			cla
-			*clr
+			*clr & cla
 			body_write = 0
 			face_write = 0
 			minut += 10
@@ -507,22 +539,6 @@ $basin = {
 			'<center><img <<$set_imgh>> src="images/shared/home/bathroom/wash1.jpg"></center>'
 			*nl
 			'You wash off the indecent inscriptions on your body.'
-
-			act 'Finish':menu_off = 0 & gt $loc, $metka
-		end
-	end
-
-	if (cumloc[6] = 1 or cumloc[7] = 1):
-		act 'Wipe the cum off your clothes (0:10)':
-			menu_off = 1
-			cla
-			*clr
-			cumspclnt = 6
-			gs 'cum_cleanup'
-			minut += 10
-			gs 'stat'
-			'<center><img <<$set_imgh>> src="images/shared/sex/cum/frotsp.jpg"></center>'
-			'You spend ten minutes wiping and rinsing the cum stains out of your clothes. In the end, all that remains of the stains are some damp spots that should dry up in a few minutes.'
 
 			act 'Finish':menu_off = 0 & gt $loc, $metka
 		end

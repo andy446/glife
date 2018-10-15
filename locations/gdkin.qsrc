@@ -194,11 +194,12 @@ if $ARGS[0] = '':
 
 			act 'Continue':gt 'gdkin'
 		end
+		act 'Look for your classmates': gs 'SgrupDisco'
 	elseif hour < 20:
 		'The Club closes. The main lights go on, the music fades and everyone beings to leave.'
 		act 'Go outside':gt 'gdk'
 	end
-	act 'Look for your classmates': gs 'SgrupDisco'
+	
 	act 'Go to the toilets': gt 'gdktoilet', 'start'
 end
 

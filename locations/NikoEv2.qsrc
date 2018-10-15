@@ -1,5 +1,7 @@
 # NikoEv2
 
+menu_off = 1
+
 if $ARGS[0] =  'Park':
 	cls
 	if pav_sex < 230:pav_sex = 250

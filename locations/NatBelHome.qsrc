@@ -1,6 +1,7 @@
 # NatBelHome
 
 $location_type = 'indoors'
+menu_off = 1
 CLOSE ALL
 if BeInNatBelHome = 0:BeInNatBelHome = 1
 

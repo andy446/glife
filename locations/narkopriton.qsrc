@@ -1,8 +1,9 @@
 # narkopriton
 
-cls
+*clr & cla
 gs 'stat'
 gs 'themes', 'indoors'
+menu_off = 1
 '<center><b>Local drug den</b></center>'
 '<center><img <<$set_imgh>> src="images/locations/city/residential/den/narkopriton.jpg"></center>'
 'A local drug den, where you know addicts come to buy and use heroin in peace.'

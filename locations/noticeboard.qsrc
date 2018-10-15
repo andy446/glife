@@ -2,6 +2,7 @@
 !! use gs 'noticeboard','start'
 $location_type = 'public_indoors'
 if $ARGS[0] = 'start':
+	menu_off = 1
 	gs 'saveposition'
 	gt 'noticeboard','look'
 end

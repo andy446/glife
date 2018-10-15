@@ -680,7 +680,7 @@ if lactate <= 0 and prolactinlvl >= 100:
 	$stat_msg += '<BR>'+iif(night_mode > 0,'<font color = white>','<font color = black>')+'Your breasts feel weirdly engorged and sore.</font><BR>'
 end
 
-if lactate >= 1:
+if lactate >= 1 and pcs_knowsaboutlactation > 0:
 	if lactatemv >= lactatemm-1:
 		if lact_engorgement > 0 and lact_engorgement < 3:
 			$stat_msg += '<BR><font color = orange>Your breasts are so full they hurt.</font><BR>'
@@ -718,6 +718,45 @@ if lactate >= 1:
 		$stat_msg += '<BR>'+iif(night_mode > 0,'<font color = white>','<font color = black>')+'Your breasts tingle a little from the feeling of milk production.</font><BR>'
 	else
 		$stat_msg += '<BR>'+iif(night_mode > 0,'<font color = white>','<font color = black>')+'Your breasts feel soft and empty.</font><BR>'
+	end
+elseif lactate >= 1 and pcs_knowsaboutlactation <= 0:
+	if lactatemv >= lactatemm-1:
+		if lact_engorgement > 0 and lact_engorgement < 3:
+			$stat_msg += '<BR><font color = orange>Your breasts hurt.</font><BR>'
+		elseif lact_engorgement > 3 and lact_engorgement <= 6:
+			$stat_msg += '<BR><font color = red>Your breasts hurt and they feel wet.</font><BR>'
+		elseif lact_engorgement > 6:
+			$stat_msg += '<BR><font color = red>Your breasts hurt, they feel wet and your nipples tingle.</font><BR>'
+		end
+		if $clothingworntype = 'nude' and lactatemess > 0:
+			if lactatemess < 3:
+				$stat_msg += ''+iif(night_mode > 0,'<font color = white>','<font color = black>')+'You have a something white around your nipples.</font>'
+			elseif lactatemess < 7:
+				$stat_msg += '<font color = orange>You have a lot of white liquid around your nipples.</font>'
+			else
+				$stat_msg += '<font color = red>Your breasts are drenched with a white liquid.</font>'
+			end
+		elseif lactatemess > 0:
+			if lactatemess < 3:
+				$stat_msg += '<font color = orange>You have tiny wet spots on your clothes above your nipples.</font>'
+			elseif lactatemess < 7:
+				$stat_msg += '<font color = red>Visible wet circles are on your breasts.</font>'
+			else
+				$stat_msg += '<font color = red>Your shirt is drenched.</font>'
+			end
+		end
+	elseif lactatemv > lactatemm*9/10:
+		$stat_msg += '<BR>'+iif(night_mode > 0,'<font color = white>','<font color = black>')+'Your breasts are firm, and start to hurt.</font><BR>'
+	elseif lactatemv > lactatemm*3/4:
+		$stat_msg += '<BR>'+iif(night_mode > 0,'<font color = white>','<font color = black>')+'Your breasts feel firm and heavy.</font><BR>'
+	elseif lactatemv > lactatemm/2:
+		$stat_msg += '<BR>'+iif(night_mode > 0,'<font color = white>','<font color = black>')+'Your breasts are heavy.</font><BR>'
+	elseif lactatemv > lactatemm/4:
+		$stat_msg += '<BR>'+iif(night_mode > 0,'<font color = white>','<font color = black>')+'Your breasts feel a little heavy.</font><BR>'
+	elseif lactatemv > 0:
+		$stat_msg += '<BR>'+iif(night_mode > 0,'<font color = white>','<font color = black>')+'Your breasts tingle a little.</font><BR>'
+	else
+		$stat_msg += '<BR>'+iif(night_mode > 0,'<font color = white>','<font color = black>')+'Your breasts feel soft and easy.</font><BR>'
 	end
 end
 

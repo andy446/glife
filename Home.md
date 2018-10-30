@@ -12,7 +12,7 @@ This is game is based on the Russian game ЭТО by DeGross, played in [QSP](QSP
  
 <br>
 
-* [Changelog](changelog)
+* [Changelog](https://git.catrenelle.com/Kevin_Smarts/glife/wiki/Changelog)
 
 <br>
 

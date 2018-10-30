@@ -1,7 +1,6 @@
-
 * 0.7.3 - 2018.10.29
     * Inhibition skill added to replace large parts of exhibitionism, exhibitionism now a trait by Hornguy6 and Kevin Smarts
-    * School schedule with next class listing from Hornguy6
+    * School schedule with next class listing from 3xpurt
     * Change to game file extensions when split for editing, not noticeable in game but an ease of use fix for the devs from 3xpurt
     * Lay out changes to some city screens from Akossi
     * Some new atmospheric sounds from nutluck
@@ -16,7 +15,7 @@
     * More info and ease of use for stripping from Hornguy6
     * More tattoos from nutluck
     * New selfie handling to allow for images based on clothed, underwear or nude from nutluck and Kevin Smarts
-    * School girl starts now have the option of Pavlovsk or your grandparent''s place thanks to 3xpurt
+    * School girl starts now have the option of Pavlovsk or your grandparent's place thanks to 3xpurt
     * Scale for intoxication from alcohol changed to give more flexibility and realism by 3xpurt
     * New menu system from 3xpurt with seeding through the game by blatte, julzor and Kevin Smarts
     * Crime and punishment system with street walker and a thieving event by blate and nutluck with code from Kevin Smarts

@@ -92,22 +92,17 @@ To remove and destroy
 ```python
 gs 'underwear', 'remove'
 ```
-To remove but keep available and clean
+To remove but keep available
 
 ```python
 gs 'underwear', 'wear'
 ```
 To put on anything removed in the remove action
 
+With the bars or panties used you can specify the item using the itemname and number ie.
 ```python
-gs 'underwear', 'linen'
+gs 'panties', 'wear', 'cheap', 14
 ```
-To remove and chage status to dirty
-
-```python
-gs 'underwear', 'fresh'
-```
-To put on clean basic underwear
 
 You can do the same things for just panties or bras by changing the 'underwear' to 'panties' or 'bras'.
 

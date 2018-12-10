@@ -1,17 +1,17 @@
-# tanspalnya
+# nickBedroomServant
+
 CLOSE ALL
 
 $metka = ''
-$loc = 'tanspalnya'
+$loc = 'nickBedroomServant'
 $metkaM = ''
-$locM = 'tanspalnya'
+$locM = 'nickBedroomServant'
 $location_type = 'private'
 $locclass = 'bedr'
-$menu_loc = 'tanspalnya'
+$menu_loc = 'nickBedroomServant'
 $menu_arg = ''
 menu_off = 0
 
-minut += 5
 tanhouse1 = 1
 gs 'stat'
 '<center><b>Your Bedroom in Nicholas'' Apartment</b></center>'
@@ -33,13 +33,18 @@ if mishka > 0:'On one of the shelves, you''ve placed your <<mishka>> teddy bear.
 
 gs 'exercise', 'start'
 
-act 'Go to the corridor':
+act 'Go to the hallway':
 	if $clothingworntype ! 'nude':
-		gt 'tanhouse'
-		else
+		minut += 1
+		gt 'nichApartment'
+	else
 		msg'<b><font color = red>You probably shouldn''t walk around naked, especially not at your workplace. You need to get dressed.</font></b>'
 		gt $CURLOC
 	end
+end
+
+act 'Go to the servant bathroom':
+	gt 'nichBathServant'
 end
 
 act 'Study (2:00)':
@@ -162,5 +167,6 @@ if TanMaidRoomClean = 0:
 	end
 end
 
---- tanspalnya ---------------------------------
 
+
+--- nickBedroomServant ---------------------------------
